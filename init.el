@@ -52,4 +52,8 @@
   :config
   (evil-mode 1))
 
+;; Cleanup the frame UI
+(tool-bar-mode -1)
+(toggle-scroll-bar -1)
+
 ;;; init.el ends here
