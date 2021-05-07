@@ -44,4 +44,9 @@
 ;; Packages should be installed by default using straight
 (setq straight-use-package-by-default t)
 
+;; Init evil mode for Vim emulation in Emacs
+(use-package evil
+  :config
+  (evil-mode 1))
+
 ;;; init.el ends here
