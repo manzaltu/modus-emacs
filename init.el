@@ -39,4 +39,9 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
+;; Install use-package
+(straight-use-package 'use-package)
+;; Packages should be installed by default using straight
+(setq straight-use-package-by-default t)
+
 ;;; init.el ends here
