@@ -1,3 +1,5 @@
+# Ignore personal settings
+/personal.el
 # Ignore Emacs backup files
 *~
 # Ignore straight's depository
