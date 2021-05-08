@@ -25,6 +25,10 @@
 
 ;;; Code:
 
+;; Disable deferred & auto native compilation temporarily until we set the exec-path var
+(setq native-comp-deferred-compilation nil)
+(defvar straight-disable-native-compile t)
+
 ;; Init straight.el for package management
 (defvar bootstrap-version)
 (let ((bootstrap-file
@@ -38,6 +42,18 @@
       (goto-char (point-max))
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
+
+;; Before loading other packages, set exec-path to the PATH var under the default shell
+;; when executed under a windowing system, using the exec-path-from-shell package.
+;; This is needed so libgccjit would be found by native compilation
+
+(straight-use-package 'exec-path-from-shell)
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
+
+;; Re-enable auto & deferred native compilation
+(setq straight-disable-native-compile nil)
+(setq native-comp-deferred-compilation t)
 
 ;; Install use-package
 (straight-use-package 'use-package)
