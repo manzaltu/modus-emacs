@@ -59,6 +59,8 @@
   (setq evil-want-C-w-delete nil)
   ;; Yanking
   (setq evil-want-Y-yank-to-eol t)
+  ;; Use evil search instead of the native search module
+  (setq evil-search-module 'evil-search)
   :config
   (evil-mode 1))
 
