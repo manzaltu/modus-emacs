@@ -4,3 +4,5 @@
 *~
 # Ignore straight's depository
 /straight/
+# Ignore magit's transient dir
+/transient/
