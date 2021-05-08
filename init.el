@@ -57,6 +57,8 @@
   (setq evil-disable-insert-state-bindings t)
   (setq evil-want-C-u-delete nil)
   (setq evil-want-C-w-delete nil)
+  ;; Yanking
+  (setq evil-want-Y-yank-to-eol t)
   :config
   (evil-mode 1))
 
