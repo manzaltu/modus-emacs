@@ -82,4 +82,9 @@
 (add-to-list 'default-frame-alist '(height . 55))
 (add-to-list 'default-frame-alist '(width . 150))
 
+;; Scroll incrementally
+(setq scroll-step 1)
+;; Don't automatically recenter after scrolling
+(setq scroll-conservatively 101)
+
 ;;; init.el ends here
