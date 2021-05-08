@@ -64,6 +64,11 @@
   :config
   (evil-mode 1))
 
+;; Init which-key for interactively displaying key bindings
+(use-package which-key
+  :config
+  (which-key-mode))
+
 ;; Init doom vibrant theme
 (use-package doom-themes
   :config
