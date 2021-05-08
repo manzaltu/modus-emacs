@@ -49,6 +49,9 @@
 
 ;; Init evil mode for Vim emulation in Emacs
 (use-package evil
+  :init
+  ;; Undo
+  (setq evil-undo-system 'undo-redo)
   :config
   (evil-mode 1))
 
