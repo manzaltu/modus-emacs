@@ -68,4 +68,8 @@
 (tool-bar-mode -1)
 (toggle-scroll-bar -1)
 
+;; Set the default initial frame size
+(add-to-list 'default-frame-alist '(height . 55))
+(add-to-list 'default-frame-alist '(width . 150))
+
 ;;; init.el ends here
