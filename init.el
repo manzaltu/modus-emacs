@@ -64,6 +64,16 @@
   :config
   (evil-mode 1))
 
+;; Init doom vibrant theme
+(use-package doom-themes
+  :config
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  ;; Set brighter comments
+  (setq doom-vibrant-brighter-comments t)
+  (load-theme 'doom-vibrant t))
+
 ;; Cleanup the frame UI
 (tool-bar-mode -1)
 (toggle-scroll-bar -1)
