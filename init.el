@@ -53,6 +53,10 @@
   ;; Undo
   (setq evil-undo-system 'undo-redo)
   (setq evil-want-fine-undo t)
+  ;; Enable Emacs native bindings in insert mode
+  (setq evil-disable-insert-state-bindings t)
+  (setq evil-want-C-u-delete nil)
+  (setq evil-want-C-w-delete nil)
   :config
   (evil-mode 1))
 
