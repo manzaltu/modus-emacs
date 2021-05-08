@@ -52,6 +52,7 @@
   :init
   ;; Undo
   (setq evil-undo-system 'undo-redo)
+  (setq evil-want-fine-undo t)
   :config
   (evil-mode 1))
 
