@@ -63,6 +63,9 @@
 ;; Optionally, load personal settings
 (load (concat (file-name-directory load-file-name) "personal.el") t)
 
+;; Add general.el key mapper
+(use-package general)
+
 ;; Init evil mode for Vim emulation in Emacs
 (use-package evil
   :init
