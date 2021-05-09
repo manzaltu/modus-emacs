@@ -91,6 +91,9 @@
   :config
   (evil-collection-init))
 
+;; Init org mode for editing and managing notes
+(use-package org)
+
 ;; Init magit for a better git user experience
 (use-package magit)
 
