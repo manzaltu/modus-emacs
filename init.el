@@ -125,4 +125,7 @@
 ;; Don't automatically recenter after scrolling
 (setq scroll-conservatively 101)
 
+;; Ask for confirmation before exiting emacs
+(setq confirm-kill-emacs #'y-or-n-p)
+
 ;;; init.el ends here
