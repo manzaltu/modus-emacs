@@ -117,6 +117,7 @@
   :hook
   (;; Enable on the following modes
    (c-mode . lsp)
+   (c++-mode . lsp)
    ;; Enable which-key integration
    (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp)
