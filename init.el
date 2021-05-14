@@ -94,6 +94,11 @@
 ;; Init org mode for editing and managing notes
 (use-package org)
 
+;; Init selectrum for item list selection
+(use-package selectrum
+  :config
+  (selectrum-mode +1))
+
 ;; Init magit for a better git user experience
 (use-package magit)
 
