@@ -1,5 +1,7 @@
 # Ignore personal settings
 /personal.el
+# Ignore lsp's session save file
+/.lsp-session-v1
 # Ignore Emacs backup files
 *~
 # Ignore straight's depository

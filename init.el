@@ -112,6 +112,15 @@
 ;; Init magit for a better git user experience
 (use-package magit)
 
+;; Init lsp mode for lsp support
+(use-package lsp-mode
+  :hook
+  (;; Enable on the following modes
+   (c-mode . lsp)
+   ;; Enable which-key integration
+   (lsp-mode . lsp-enable-which-key-integration))
+  :commands lsp)
+
 ;; Init which-key for interactively displaying key bindings
 (use-package which-key
   :config
