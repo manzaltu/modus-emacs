@@ -2,6 +2,8 @@
 /personal.el
 # Ignore lsp's session save file
 /.lsp-session-v1
+# Ignore project.el history file
+/projects
 # Ignore Emacs backup files
 *~
 # Ignore straight's depository
