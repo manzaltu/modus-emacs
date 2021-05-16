@@ -176,6 +176,10 @@ DIR must include a .project file to be considered a project."
   ;; Configure the narrowing key.
   (setq consult-narrow-key ">")
 
+  ;; Use consult to select xref locations with preview
+  (setq xref-show-xrefs-function #'consult-xref
+        xref-show-definitions-function #'consult-xref)
+
   ;; Configure project detection using project.el
   (setq consult-project-root-function
         (lambda ()
