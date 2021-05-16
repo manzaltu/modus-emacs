@@ -186,4 +186,7 @@ DIR must include a .project file to be considered a project."
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
+;; Show cursor's column number
+(setq column-number-mode t)
+
 ;;; init.el ends here
