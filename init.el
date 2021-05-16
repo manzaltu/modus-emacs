@@ -191,6 +191,18 @@ DIR must include a .project file to be considered a project."
   :config
   (marginalia-mode))
 
+;; Init embark for enabling contextual actions
+(use-package embark
+  :general
+  ("C-M-a" #'embark-act)
+  ("C-h B" #'embark-bindings)
+  :config
+  ;; Hide the mode line of the Embark live/completions buffers
+  (add-to-list 'display-buffer-alist
+               '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
+                 nil
+                 (window-parameters (mode-line-format . none)))))
+
 ;; Init magit for a better git user experience
 (use-package magit)
 
