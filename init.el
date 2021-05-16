@@ -133,6 +133,11 @@ DIR must include a .project file to be considered a project."
           (when-let (project (project-current))
             (car (project-roots project))))))
 
+;; Init marginalia for minibuffer result annotations
+(use-package marginalia
+  :config
+  (marginalia-mode))
+
 ;; Init magit for a better git user experience
 (use-package magit)
 
