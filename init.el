@@ -203,6 +203,13 @@ DIR must include a .project file to be considered a project."
                  nil
                  (window-parameters (mode-line-format . none)))))
 
+;; Init embark-consult for enabling embark actions on consult results
+(use-package embark-consult
+  :demand t
+  :after (embark consult)
+  :hook
+  (embark-collect-mode . consult-preview-at-point-mode))
+
 ;; Init magit for a better git user experience
 (use-package magit)
 
