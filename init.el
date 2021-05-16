@@ -103,6 +103,9 @@
 
 ;; Init selectrum for item list selection
 (use-package selectrum
+  :demand t
+  :general
+  ("C-c z" #'selectrum-repeat)
   :config
   (selectrum-mode +1))
 
