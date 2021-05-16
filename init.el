@@ -106,6 +106,16 @@
   :config
   (selectrum-mode +1))
 
+;; Used by project.el for project detection
+(defun mo-project-try-local (dir)
+  "Determine if DIR is a project.
+DIR must include a .project file to be considered a project."
+  (let ((root (locate-dominating-file dir ".project")))
+    (and root (cons 'transient root))))
+
+;; Enable project detection using .project files
+(with-eval-after-load 'project (add-to-list 'project-find-functions #'mo-project-try-local))
+
 ;; Init consult for enhanced search commands
 (use-package consult
   :config
