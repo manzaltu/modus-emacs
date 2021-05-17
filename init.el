@@ -230,6 +230,10 @@ DIR must include a .project file to be considered a project."
    (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp)
 
+;; Init lsp-ui for an interactive lsp interface
+(use-package lsp-ui
+  :after lsp-mode)
+
 ;; Init which-key for interactively displaying key bindings
 (use-package which-key
   :config
