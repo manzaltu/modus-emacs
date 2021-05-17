@@ -147,7 +147,6 @@ DIR must include a .project file to be considered a project."
   ("<help> a" #'consult-apropos)            ;; orig. apropos-command
   ;; M-g bindings (goto-map)
   ("M-g e" #'consult-compile-error)
-  ("M-g f" #'consult-flymake)               ;; Alternative: consult-flycheck
   ("M-g g" #'consult-goto-line)             ;; orig. goto-line
   ("M-g M-g" #'consult-goto-line)           ;; orig. goto-line
   ("M-g o" #'consult-outline)
@@ -192,6 +191,12 @@ DIR must include a .project file to be considered a project."
         (lambda ()
           (when-let (project (project-current))
             (car (project-roots project))))))
+
+;; Init consult-flycheck for showing syntax errors with consult
+(use-package consult-flycheck
+  :general
+  (:keymaps 'mo-quick-menu-map
+   "f" #'consult-flycheck))
 
 ;; Init marginalia for minibuffer result annotations
 (use-package marginalia
