@@ -184,6 +184,9 @@ DIR must include a .project file to be considered a project."
   (setq xref-show-xrefs-function #'consult-xref
         xref-show-definitions-function #'consult-xref)
 
+  ;; Change find command to use fd
+  (setq consult-find-command "fd --color=never -p -H -t f ARG OPTS")
+
   ;; Configure project detection using project.el
   (setq consult-project-root-function
         (lambda ()
