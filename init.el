@@ -270,6 +270,12 @@ DIR must include a .project file to be considered a project."
   :config
   (which-key-mode))
 
+;; Init evil-nerd-commenter for comment editing
+(use-package evil-nerd-commenter
+  :after evil
+  :general
+  (:states '(normal, visual) "gc" #'evilnc-comment-operator))
+
 ;; Init doom vibrant theme
 (use-package doom-themes
   :config
