@@ -244,6 +244,11 @@ DIR must include a .project file to be considered a project."
   :init
   (global-flycheck-mode))
 
+;; Init company mode for auto completion everywhere
+(use-package company
+  :init
+  (global-company-mode))
+
 ;; Init consult-lsp for additional interacitve lsp commands
 (use-package consult-lsp
   :after (lsp-mode consult))
