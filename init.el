@@ -234,6 +234,10 @@ DIR must include a .project file to be considered a project."
 (use-package lsp-ui
   :after lsp-mode)
 
+;; Init consult-lsp for additional interacitve lsp commands
+(use-package consult-lsp
+  :after (lsp-mode consult))
+
 ;; Init which-key for interactively displaying key bindings
 (use-package which-key
   :config
