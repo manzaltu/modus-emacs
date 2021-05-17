@@ -4,6 +4,8 @@
 /.lsp-session-v1
 # Ignore project.el history file
 /projects
+# Ignore recentf save file
+/recentf
 # Ignore Emacs backup files
 *~
 # Ignore straight's depository

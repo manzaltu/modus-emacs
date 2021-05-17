@@ -172,6 +172,10 @@ DIR must include a .project file to be considered a project."
   ("M-s e" #'consult-isearch)               ;; orig. isearch-edit-string
   ("M-s l" #'consult-line)                  ;; required by consult-line to detect isearch
 
+  :init
+  ;; Enable recentf for tracking recently opened files
+  (recentf-mode t)
+
   :config
   ;; Configure the narrowing key.
   (setq consult-narrow-key ">")
