@@ -227,6 +227,13 @@ DIR must include a .project file to be considered a project."
 
 ;; Init lsp mode for lsp support
 (use-package lsp-mode
+  :general
+  ;; Set the lsp prefix key
+  (:keymaps 'lsp-mode-map
+   "C-c l" '(:keymap lsp-command-map :which-key "lsp"))
+  :init
+  ;; Enable which-key help on the lsp prefix key
+  (setq lsp-keymap-prefix "C-c l")
   :hook
   (;; Enable on the following modes
    (c-mode . lsp)
