@@ -237,7 +237,12 @@ DIR must include a .project file to be considered a project."
 
 ;; Init lsp-ui for an interactive lsp interface
 (use-package lsp-ui
-  :after lsp-mode)
+  :after lsp-mode
+  :config
+  ;; Do not show documentation automatically
+  (setq lsp-ui-doc-show-with-cursor nil)
+  (setq lsp-ui-doc-show-with-mouse nil)
+  (setq lsp-ui-doc-position 'at-point))
 
 ;; Init flycheck for on-the-fly syntax checking
 (use-package flycheck
