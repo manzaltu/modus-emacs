@@ -234,6 +234,11 @@ DIR must include a .project file to be considered a project."
 (use-package lsp-ui
   :after lsp-mode)
 
+;; Init flycheck for on-the-fly syntax checking
+(use-package flycheck
+  :init
+  (global-flycheck-mode))
+
 ;; Init consult-lsp for additional interacitve lsp commands
 (use-package consult-lsp
   :after (lsp-mode consult))
