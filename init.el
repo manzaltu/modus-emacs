@@ -91,6 +91,11 @@
   :config
   (evil-collection-init))
 
+;; Init anzu for showing additional search match info
+(use-package anzu
+  :config
+  (global-anzu-mode +1))
+
 ;; Init org mode for editing and managing notes
 (use-package org)
 
