@@ -281,6 +281,11 @@ DIR must include a .project file to be considered a project."
   :general
   (:states '(normal, visual) "gc" #'evilnc-comment-operator))
 
+;; Init popwin for popup management
+(use-package popwin
+  :config
+  (popwin-mode 1))
+
 ;; Init doom vibrant theme
 (use-package doom-themes
   :config
