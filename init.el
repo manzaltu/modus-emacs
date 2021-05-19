@@ -308,7 +308,7 @@ DIR must include a .project file to be considered a project."
 
 ;; Set the default initial frame size
 (add-to-list 'default-frame-alist '(height . 55))
-(add-to-list 'default-frame-alist '(width . 150))
+(add-to-list 'default-frame-alist '(width . 210))
 
 ;; Scroll incrementally
 (setq scroll-step 1)
