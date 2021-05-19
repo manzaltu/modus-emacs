@@ -12,3 +12,5 @@
 /straight/
 # Ignore magit's transient dir
 /transient/
+# Ignore eshell history dir
+/eshell/
