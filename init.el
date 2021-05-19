@@ -270,6 +270,16 @@ DIR must include a .project file to be considered a project."
   :config
   (which-key-mode))
 
+;; Init helpful for better lisp help
+(use-package helpful
+  :general
+  ("C-h f" #'helpful-callable)
+  ("C-h v" #'helpful-variable)
+  ("C-h k" #'helpful-key)
+  ("C-c H" #'helpful-at-point)
+  ("C-h F" #'helpful-function)
+  ("C-h C" #'helpful-command))
+
 ;; Init rainbow-delimiters for highlighting parens by their depth
 (use-package rainbow-delimiters
   :hook
