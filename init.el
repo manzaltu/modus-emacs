@@ -337,6 +337,9 @@ DIR must include a .project file to be considered a project."
 ;; Ask for confirmation before exiting emacs
 (setq confirm-kill-emacs #'y-or-n-p)
 
+;; Replace yes or no questions to y or n
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 ;; Don't create backup & autosave files
 (setq make-backup-files nil)
 (setq auto-save-default nil)
