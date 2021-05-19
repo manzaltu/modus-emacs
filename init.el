@@ -305,6 +305,12 @@ DIR must include a .project file to be considered a project."
   :config
   (popwin-mode 1))
 
+;; Init vterm for terminal emulation
+(use-package vterm
+  :init
+  ;; Set a low response delay
+  (setq vterm-timer-delay 0.07))
+
 ;; Init doom vibrant theme
 (use-package doom-themes
   :config
