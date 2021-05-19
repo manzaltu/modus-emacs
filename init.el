@@ -96,6 +96,10 @@
   :config
   (global-anzu-mode +1))
 
+;; Init evil-anzu for anzu integration with evil search
+(use-package evil-anzu
+  :after evil)
+
 ;; Init org mode for editing and managing notes
 (use-package org)
 
