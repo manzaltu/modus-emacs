@@ -295,6 +295,9 @@ DIR must include a .project file to be considered a project."
 (tool-bar-mode -1)
 (toggle-scroll-bar -1)
 
+;; Enable window management
+(winner-mode 1)
+
 ;; Set the default initial frame size
 (add-to-list 'default-frame-alist '(height . 55))
 (add-to-list 'default-frame-alist '(width . 150))
