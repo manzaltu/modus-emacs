@@ -283,6 +283,9 @@ DIR must include a .project file to be considered a project."
 (use-package consult-lsp
   :after (lsp-mode consult))
 
+;; Init formal-all for a universal code formatter
+(use-package format-all)
+
 ;; Init which-key for interactively displaying key bindings
 (use-package which-key
   :config
