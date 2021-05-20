@@ -340,6 +340,16 @@ DIR must include a .project file to be considered a project."
   :config
   (minions-mode 1))
 
+;; Init flyspell-correct for spell correction
+(use-package flyspell-correct
+  :demand t
+  :general
+  (:states 'normal "z =" #'flyspell-correct-wrapper)
+  :hook
+  ;; Enable spell checking
+  (text-mode . flyspell-mode)
+  (prog-mode . flyspell-prog-mode))
+
 ;; Cleanup the frame UI
 (tool-bar-mode -1)
 (toggle-scroll-bar -1)
