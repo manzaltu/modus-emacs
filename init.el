@@ -234,6 +234,15 @@ DIR must include a .project file to be considered a project."
 ;; Init magit for a better git user experience
 (use-package magit)
 
+;; Init diff-hl for highlighting uncommitted changes
+(use-package diff-hl
+  :demand t
+  :hook
+  (magit-pre-refresh . diff-hl-magit-pre-refresh)
+  (magit-post-refresh . diff-hl-magit-post-refresh)
+  :config
+  (global-diff-hl-mode))
+
 ;; Init lsp mode for lsp support
 (use-package lsp-mode
   :general
