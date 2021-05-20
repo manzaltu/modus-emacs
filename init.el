@@ -311,6 +311,11 @@ DIR must include a .project file to be considered a project."
   ;; Set a low response delay
   (setq vterm-timer-delay 0.07))
 
+;; Init vterm-toggle for quick vterm access
+(use-package vterm-toggle
+  :general
+  ("C-c t" #'vterm-toggle))
+
 ;; Init doom vibrant theme
 (use-package doom-themes
   :config
