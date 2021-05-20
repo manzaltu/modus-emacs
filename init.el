@@ -335,6 +335,11 @@ DIR must include a .project file to be considered a project."
   (setq doom-vibrant-brighter-comments t)
   (load-theme 'doom-vibrant t))
 
+;; Init minions for collapsing the minor mode indicator in the modeline
+(use-package minions
+  :config
+  (minions-mode 1))
+
 ;; Cleanup the frame UI
 (tool-bar-mode -1)
 (toggle-scroll-bar -1)
