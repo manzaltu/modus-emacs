@@ -391,4 +391,11 @@ DIR must include a .project file to be considered a project."
 ;; Show time in the modeline
 (display-time-mode 1)
 
+;; Set customization file path
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+
+;; Load customization file
+(when (file-exists-p custom-file)
+  (load custom-file))
+
 ;;; init.el ends here

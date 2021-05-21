@@ -6,6 +6,8 @@
 /projects
 # Ignore recentf save file
 /recentf
+# Ignore customization file
+/custom.el
 # Ignore Emacs backup files
 *~
 # Ignore straight's depository
