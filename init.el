@@ -303,6 +303,7 @@ DIR must include a .project file to be considered a project."
 ;; Init which-key for interactively displaying key bindings
 (use-package which-key
   :config
+  (setq which-key-idle-delay 0.5)
   (which-key-mode))
 
 ;; Init helpful for better lisp help
