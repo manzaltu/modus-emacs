@@ -256,6 +256,8 @@ DIR must include a .project file to be considered a project."
   (:keymaps 'lsp-mode-map
    "C-c l" '(:keymap lsp-command-map :which-key "lsp"))
   :init
+  ;; Set a high read output max value for handling large language server responses
+  (setq read-process-output-max (* 10 1024 1024))
   ;; Enable which-key help on the lsp prefix key
   (setq lsp-keymap-prefix "C-c l")
   ;; Enable for the following modes
