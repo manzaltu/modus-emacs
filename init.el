@@ -105,6 +105,12 @@
 (use-package evil-anzu
   :after evil)
 
+;; Init better-jumper for better controlling the jump list logic
+(use-package better-jumper
+  :demand t
+  :config
+  (better-jumper-mode +1))
+
 ;; Init org mode for editing and managing notes
 (use-package org)
 
