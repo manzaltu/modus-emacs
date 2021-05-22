@@ -109,6 +109,8 @@
 (use-package better-jumper
   :demand t
   :config
+  ;; Jump list to work as a stack
+  (setq better-jumper-add-jump-behavior 'replace)
   (better-jumper-mode +1))
 
 ;; Init org mode for editing and managing notes
