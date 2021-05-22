@@ -262,6 +262,8 @@ DIR must include a .project file to be considered a project."
   (setq lsp-keymap-prefix "C-c l")
   ;; Enable for the following modes
   (setq mo-lsp-enable-for-modes '(c-mode c++-mode))
+  ;; Kill language server after the last associated buffer was closed
+  (setq lsp-keep-workspace-alive nil)
   :hook
   ;; Postpone lsp load for after dir local vars are read
   (hack-local-variables . (lambda ()
