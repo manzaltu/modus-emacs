@@ -66,6 +66,11 @@
 ;; Add general.el key mapper
 (use-package general)
 
+;; Init gcmh for executing GC on idle
+(use-package gcmh
+  :config
+  (gcmh-mode 1))
+
 ;; Init evil mode for Vim emulation in Emacs
 (use-package evil
   :init
