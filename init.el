@@ -285,8 +285,10 @@ DIR must include a .project file to be considered a project."
   (setq lsp-keep-workspace-alive nil)
   :hook
   ;; Postpone lsp load for after dir local vars are read
+  ;; Do not load lsp if dir local vars are not enabled (e.g. on preview)
   (hack-local-variables . (lambda ()
-                            (when (member major-mode mo-lsp-enable-for-modes)
+                            (when (and (member major-mode mo-lsp-enable-for-modes)
+                                   enable-dir-local-variables)
                               (lsp))))
 
   ;; Enable which-key integration
