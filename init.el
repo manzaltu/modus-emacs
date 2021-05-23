@@ -327,6 +327,10 @@ DIR must include a .project file to be considered a project."
   (:keymaps 'mo-quick-menu-map
    "s" #'consult-lsp-symbols))
 
+;; Init js2-mode for enhanced JavaScript editing
+(use-package js2-mode
+  :mode "\\.js\\'")
+
 ;; Init formal-all for a universal code formatter
 (use-package format-all)
 
