@@ -121,7 +121,13 @@
   (better-jumper-mode +1))
 
 ;; Init org mode for editing and managing notes
-(use-package org)
+(use-package org
+  :config
+  (setq org-directory "~/org")
+  (setq org-agenda-files `(,org-directory))
+  (setq org-agenda-include-diary t)
+  (setq org-agenda-diary-file
+        (concat (file-name-as-directory org-directory) "diary.org")))
 
 ;; Init orderless for advanced (e.g. fuzzy) completion styles
 (use-package orderless
