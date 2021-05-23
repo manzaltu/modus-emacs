@@ -108,6 +108,10 @@
 ;; Init better-jumper for better controlling the jump list logic
 (use-package better-jumper
   :demand t
+  :after evil
+  :general
+  ([remap evil-jump-forward] 'better-jumper-jump-forward)
+  ([remap evil-jump-backward] 'better-jumper-jump-backward)
   :config
   ;; Jump list to work as a stack
   (setq better-jumper-add-jump-behavior 'replace)
