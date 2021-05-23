@@ -182,6 +182,8 @@ DIR must include a .project file to be considered a project."
   ("M-g m" #'consult-mark)
   ("M-g k" #'consult-global-mark)
   ("M-g i" #'consult-imenu)
+  (:keymaps 'mo-quick-menu-map
+   "m" #'consult-imenu)
   ("M-g I" #'consult-project-imenu)
   ;; M-s bindings (search-map)
   ("M-s f" #'consult-find)
@@ -270,6 +272,8 @@ DIR must include a .project file to be considered a project."
   ;; Set the lsp prefix key
   (:keymaps 'lsp-mode-map
    "C-c l" '(:keymap lsp-command-map :which-key "lsp"))
+  (:keymaps 'mo-quick-menu-map
+   "i" #'lsp-find-implementation)
   :init
   ;; Set a high read output max value for handling large language server responses
   (setq read-process-output-max (* 10 1024 1024))
@@ -310,7 +314,10 @@ DIR must include a .project file to be considered a project."
 
 ;; Init consult-lsp for additional interacitve lsp commands
 (use-package consult-lsp
-  :after (lsp-mode consult))
+  :after (lsp-mode consult)
+  :general
+  (:keymaps 'mo-quick-menu-map
+   "s" #'consult-lsp-symbols))
 
 ;; Init formal-all for a universal code formatter
 (use-package format-all)
