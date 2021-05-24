@@ -88,6 +88,9 @@
   ;; Use evil search instead of the native search module
   (setq evil-search-module 'evil-search)
   :config
+  (mo-quick-menu-def
+    "d" #'xref-find-definitions
+    "r" #'xref-find-references)
   (evil-mode 1))
 
 ;; Add evil key bindings to other, non-default, modes
