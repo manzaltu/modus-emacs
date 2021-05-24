@@ -331,6 +331,9 @@ DIR must include a .project file to be considered a project."
 (use-package js2-mode
   :mode "\\.js\\'")
 
+;; Init typescript-mode for enhanced TypeScript editing
+(use-package typescript-mode)
+
 ;; Init formal-all for a universal code formatter
 (use-package format-all)
 
