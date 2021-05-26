@@ -469,6 +469,9 @@ DIR must include a .project file to be considered a project."
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
+;; Disable bell audio
+(setq ring-bell-function 'ignore)
+
 ;; Show cursor's column number
 (setq column-number-mode t)
 
