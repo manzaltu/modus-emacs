@@ -227,7 +227,12 @@ DIR must include a .project file to be considered a project."
   (setq consult-project-root-function
         (lambda ()
           (when-let (project (project-current))
-            (car (project-roots project))))))
+            (car (project-roots project)))))
+
+  ;; On project switch, use consult for file and regexp search
+  (setq project-switch-commands
+        '((consult-find "Find file" ?f)
+          (consult-ripgrep "Ripgrep" ?r))))
 
 ;; Init consult-flycheck for showing syntax errors with consult
 (use-package consult-flycheck
