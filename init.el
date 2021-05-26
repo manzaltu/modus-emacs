@@ -286,7 +286,7 @@ DIR must include a .project file to be considered a project."
   ;; Enable which-key help on the lsp prefix key
   (setq lsp-keymap-prefix "C-c l")
   ;; Enable for the following modes
-  (setq mo-lsp-enable-for-modes '(c-mode c++-mode js2-mode))
+  (setq mo-lsp-enable-for-modes '(c-mode c++-mode js2-mode typescript-mode))
   ;; Kill language server after the last associated buffer was closed
   (setq lsp-keep-workspace-alive nil)
   :hook
