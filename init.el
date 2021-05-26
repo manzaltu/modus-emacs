@@ -284,6 +284,11 @@ DIR must include a .project file to be considered a project."
 ;; Init diff-hl for highlighting uncommitted changes
 (use-package diff-hl
   :demand t
+  :general
+  (:states 'normal
+   :keymaps 'diff-hl-mode-map
+   "] h" #'diff-hl-next-hunk
+   "[ h" #'diff-hl-previous-hunk)
   :hook
   (magit-pre-refresh . diff-hl-magit-pre-refresh)
   (magit-post-refresh . diff-hl-magit-post-refresh)
