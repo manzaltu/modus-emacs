@@ -358,6 +358,9 @@ DIR must include a .project file to be considered a project."
 ;; Init typescript-mode for enhanced TypeScript editing
 (use-package typescript-mode)
 
+;; Init json mode for enhanced JSON editing
+(use-package json-mode)
+
 ;; Init formal-all for a universal code formatter
 (use-package format-all)
 
