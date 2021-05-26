@@ -432,6 +432,14 @@ DIR must include a .project file to be considered a project."
   (text-mode . flyspell-mode)
   (prog-mode . flyspell-prog-mode))
 
+;; Init zoom-window for toggling window zoom
+(use-package zoom-window
+  :general
+  (:states 'normal "C-w z" #'zoom-window-zoom)
+  :config
+  (setq zoom-window-mode-line-color "#3b404e")
+  (minions-mode 1))
+
 ;; Cleanup the frame UI
 (tool-bar-mode -1)
 (toggle-scroll-bar -1)
