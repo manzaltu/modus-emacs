@@ -122,6 +122,11 @@
 (use-package evil-anzu
   :after evil)
 
+;; Init avy for text zapping using 2 chars
+(use-package avy
+  :general
+  (:states 'motion "M" #'avy-goto-char-2))
+
 ;; Init better-jumper for better controlling the jump list logic
 (use-package better-jumper
   :demand t
