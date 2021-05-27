@@ -413,7 +413,9 @@ DIR must include a .project file to be considered a project."
 ;; Init vterm-toggle for quick vterm access
 (use-package vterm-toggle
   :general
-  ("C-c t" #'vterm-toggle))
+  ("C-c t" #'vterm-toggle)
+  :config
+  (setq vterm-toggle-scope 'project))
 
 ;; Init doom vibrant theme
 (use-package doom-themes
