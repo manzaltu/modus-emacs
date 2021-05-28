@@ -252,12 +252,16 @@ DIR must include a .project file to be considered a project."
   :init
   ;; Enable which-key help on the lsp prefix key
   (setq lsp-keymap-prefix "C-c l")
+  ;; Enable for the following modes
+  (setq mo-lsp-enable-for-modes '(c-mode c++-mode))
   :hook
-  (;; Enable on the following modes
-   (c-mode . lsp)
-   (c++-mode . lsp)
-   ;; Enable which-key integration
-   (lsp-mode . lsp-enable-which-key-integration))
+  ;; Postpone lsp load for after dir local vars are read
+  (hack-local-variables . (lambda ()
+                            (when (member major-mode mo-lsp-enable-for-modes)
+                              (lsp))))
+
+  ;; Enable which-key integration
+  (lsp-mode . lsp-enable-which-key-integration)
   :commands lsp)
 
 ;; Init lsp-ui for an interactive lsp interface
