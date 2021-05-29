@@ -284,7 +284,10 @@ DIR must include a .project file to be considered a project."
   (embark-collect-mode . consult-preview-at-point-mode))
 
 ;; Init magit for a better git user experience
-(use-package magit)
+(use-package magit
+  ;; Refine diff view to show sub hunk changes
+  :config
+  (setq magit-diff-refine-hunk 'all))
 
 ;; Init diff-hl for highlighting uncommitted changes
 (use-package diff-hl
