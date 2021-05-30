@@ -378,6 +378,11 @@ DIR must include a .project file to be considered a project."
 ;; Init formal-all for a universal code formatter
 (use-package format-all)
 
+;; Init dtrt-indent for auto indentation detection
+(use-package dtrt-indent
+  :hook
+  (prog-mode . dtrt-indent-mode))
+
 ;; Init which-key for interactively displaying key bindings
 (use-package which-key
   :config
