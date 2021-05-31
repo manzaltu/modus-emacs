@@ -325,6 +325,7 @@ DIR must include a .project file to be considered a project."
   ;; Enable for the following modes
   (setq mo-lsp-enable-for-modes '(c-mode
                                   c++-mode
+                                  (python-mode (lambda () (require 'lsp-pyright)))
                                   js2-mode
                                   typescript-mode))
 
@@ -377,6 +378,9 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init rustic for Rust support
 (use-package rustic)
+
+;; Init lsp-pyright for pyright python language server
+(use-package lsp-pyright)
 
 ;; Init js2-mode for enhanced JavaScript editing
 (use-package js2-mode
