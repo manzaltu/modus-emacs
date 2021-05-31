@@ -327,15 +327,23 @@ DIR must include a .project file to be considered a project."
                                   c++-mode
                                   js2-mode
                                   typescript-mode))
+
+  (defun mo-maybe-enable-lsp (lsp-config)
+    "If mode in LSP-CONFIG is equal to the current major-mode,
+run the attached function (if exists) and enable lsp"
+    (pcase lsp-config
+      (`(,(pred (equal major-mode)) ,func) (funcall func) (lsp) t)
+      ((pred (equal major-mode)) (lsp) t)))
+
   ;; Kill language server after the last associated buffer was closed
   (setq lsp-keep-workspace-alive nil)
   :hook
   ;; Postpone lsp load for after dir local vars are read
   ;; Do not load lsp if dir local vars are not enabled (e.g. on preview)
   (hack-local-variables . (lambda ()
-                            (when (and (member major-mode mo-lsp-enable-for-modes)
-                                   enable-dir-local-variables)
-                              (lsp))))
+                            (when enable-dir-local-variables
+                              (seq-find #'mo-maybe-enable-lsp
+                                        mo-lsp-enable-for-modes))))
 
   ;; Enable which-key integration
   (lsp-mode . lsp-enable-which-key-integration)
