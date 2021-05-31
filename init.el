@@ -113,6 +113,11 @@
   :config
   (evil-collection-init))
 
+;; Init evil-surround for quickly adding paired surrounding characters
+(use-package evil-surround
+  :config
+  (global-evil-surround-mode 1))
+
 ;; Init anzu for showing additional search match info
 (use-package anzu
   :config
