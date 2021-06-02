@@ -94,6 +94,10 @@
 ;; Init org mode for editing and managing notes
 (use-package org)
 
+;; Init orderless for advanced (e.g. fuzzy) completion styles
+(use-package orderless
+  :custom (completion-styles '(orderless)))
+
 ;; Init selectrum for item list selection
 (use-package selectrum
   :config
