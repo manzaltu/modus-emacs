@@ -96,6 +96,7 @@
 
 ;; Init orderless for advanced (e.g. fuzzy) completion styles
 (use-package orderless
+  :demand t
   :config
   ;; Set matching style to regexp and literal
   (setq orderless-matching-styles '(orderless-regexp orderless-literal))
@@ -104,9 +105,13 @@
 ;; Init selectrum for item list selection
 (use-package selectrum
   :demand t
+  :after orderless
   :general
   ("C-c z" #'selectrum-repeat)
   :config
+  ;; Highlight only visible candidates
+  (setq orderless-skip-highlighting (lambda () selectrum-is-active))
+  (setq selectrum-highlight-candidates-function #'orderless-highlight-matches)
   (selectrum-mode +1))
 
 ;; Used by project.el for project detection
