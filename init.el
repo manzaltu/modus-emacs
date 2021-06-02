@@ -96,6 +96,9 @@
 
 ;; Init orderless for advanced (e.g. fuzzy) completion styles
 (use-package orderless
+  :config
+  ;; Set matching style to regexp and literal
+  (setq orderless-matching-styles '(orderless-regexp orderless-literal))
   :custom (completion-styles '(orderless)))
 
 ;; Init selectrum for item list selection
