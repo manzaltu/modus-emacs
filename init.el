@@ -528,6 +528,9 @@ run the attached function (if exists) and enable lsp"
 ;; Start Emacs server
 (server-start)
 
+;; Persist minibuffer history over Emacs restarts
+(savehist-mode)
+
 ;; Set customization file path
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 

@@ -8,6 +8,8 @@
 /recentf
 # Ignore customization file
 /custom.el
+# Ignore minibuffer history file
+/history
 # Ignore Emacs backup files
 *~
 # Ignore straight's depository
