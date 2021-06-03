@@ -484,6 +484,13 @@ run the attached function (if exists) and enable lsp"
   (setq zoom-window-mode-line-color "#3b404e")
   (minions-mode 1))
 
+;; Init zoom-frm to scale text in frame
+(use-package zoom-frm
+  :general
+  ("s--" #'zoom-in/out)
+  ("s-+" #'zoom-in/out)
+  ("s-=" #'zoom-in/out))
+
 ;; Cleanup the frame UI
 (tool-bar-mode -1)
 (toggle-scroll-bar -1)
