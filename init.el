@@ -380,7 +380,10 @@ run the attached function (if exists) and enable lsp"
   :after (lsp-mode consult)
   :general
   (:keymaps 'mo-quick-menu-map
-   "s" #'consult-lsp-symbols))
+   "s" #'consult-lsp-symbols)
+  :config
+  ;; Manual preview key for symbols results
+  (consult-customize consult-lsp-symbols :preview-key (kbd "M-.")))
 
 ;; Init rustic for Rust support
 (use-package rustic)
