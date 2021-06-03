@@ -362,6 +362,9 @@ run the attached function (if exists) and enable lsp"
   (setq lsp-ui-doc-show-with-mouse nil)
   (setq lsp-ui-doc-position 'at-point))
 
+;; When looking for references, don't ask for an identifier
+(setq xref-prompt-for-identifier nil)
+
 ;; Init flycheck for on-the-fly syntax checking
 (use-package flycheck
   :init
