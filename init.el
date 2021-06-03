@@ -235,6 +235,8 @@ DIR must include a .project file to be considered a project."
   :init
   ;; Enable recentf for tracking recently opened files
   (recentf-mode t)
+  ;; Enlarge the max size of the recent files list
+  (setq recentf-max-saved-items 500)
 
   :config
   ;; Configure the narrowing key.
