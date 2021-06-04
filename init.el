@@ -162,6 +162,13 @@
   (setq org-agenda-diary-file
         (concat (file-name-as-directory org-directory) "diary.org")))
 
+;; Init org-roam for Zettelkasten note management
+(use-package org-roam
+  :custom
+  (org-roam-directory org-directory)
+  :config
+  (org-roam-mode))
+
 ;; Init orderless for advanced (e.g. fuzzy) completion styles
 (use-package orderless
   :demand t

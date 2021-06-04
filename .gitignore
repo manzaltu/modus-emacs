@@ -10,6 +10,8 @@
 /custom.el
 # Ignore minibuffer history file
 /history
+# Ignore org roam database file
+/org-roam.db
 # Ignore Emacs backup files
 *~
 # Ignore straight's depository
