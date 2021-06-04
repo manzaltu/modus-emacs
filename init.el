@@ -101,6 +101,8 @@
   (setq evil-want-Y-yank-to-eol t)
   ;; Use evil search instead of the native search module
   (setq evil-search-module 'evil-search)
+  ;; Set word search to look for symbol boundaries
+  (setq evil-symbol-word-search t)
   :config
   ;; Set word movement to operate on symbol boundaries
   (defalias #'forward-evil-word #'forward-evil-symbol)
