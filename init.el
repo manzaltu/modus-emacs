@@ -164,6 +164,15 @@
 
 ;; Init org-roam for Zettelkasten note management
 (use-package org-roam
+  :demand t
+  :general
+  (:keymaps 'org-roam-mode-map
+   "C-c n l" #'org-roam
+   "C-c n f" #'org-roam-find-file
+   "C-c n g" #'org-roam-graph)
+  (:keymaps 'org-mode-map
+   "C-c n i" #'org-roam-insert
+   "C-c n I" #'org-roam-insert-immediate)
   :custom
   (org-roam-directory org-directory)
   :config
