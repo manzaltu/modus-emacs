@@ -394,6 +394,9 @@ run the attached function (if exists) and enable lsp"
   :config
   (yas-global-mode 1))
 
+;; Init yasnippet-snippets for common code templates
+(use-package yasnippet-snippets)
+
 ;; Init rustic for Rust support
 (use-package rustic)
 
