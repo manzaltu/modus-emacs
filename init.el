@@ -466,6 +466,13 @@ run the attached function (if exists) and enable lsp"
                  (reusable-frames . visible)
                  (window-height . 0.4))))
 
+;; Init dashboard for an informative splash screen
+(use-package dashboard
+  :config
+  (setq dashboard-startup-banner 'logo)
+  (setq dashboard-center-content t)
+  (dashboard-setup-startup-hook))
+
 ;; Init doom vibrant theme
 (use-package doom-themes
   :config
