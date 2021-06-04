@@ -389,6 +389,11 @@ run the attached function (if exists) and enable lsp"
   ;; Manual preview key for symbols results
   (consult-customize consult-lsp-symbols :preview-key (kbd "M-.")))
 
+;; Init yasnippets for adding code snippet templates
+(use-package yasnippet
+  :config
+  (yas-global-mode 1))
+
 ;; Init rustic for Rust support
 (use-package rustic)
 
