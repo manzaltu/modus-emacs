@@ -144,6 +144,11 @@
   (setq better-jumper-add-jump-behavior 'replace)
   (better-jumper-mode +1))
 
+;; Init origami for text and code folding
+(use-package origami
+  :config
+  (global-origami-mode))
+
 ;; Init org mode for editing and managing notes
 (use-package org
   :config
