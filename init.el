@@ -442,6 +442,11 @@ run the attached function (if exists) and enable lsp"
   ("C-h F" #'helpful-function)
   ("C-h C" #'helpful-command))
 
+;; Init google-this for quick Google searches from Emacs
+(use-package google-this
+  :config
+  (google-this-mode 1))
+
 ;; Init rainbow-delimiters for highlighting parens by their depth
 (use-package rainbow-delimiters
   :hook
