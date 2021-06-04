@@ -102,6 +102,8 @@
   ;; Use evil search instead of the native search module
   (setq evil-search-module 'evil-search)
   :config
+  ;; Set word movement to operate on symbol boundaries
+  (defalias #'forward-evil-word #'forward-evil-symbol)
   (mo-quick-menu-def
     "d" #'xref-find-definitions
     "r" #'xref-find-references)
