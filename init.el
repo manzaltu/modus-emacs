@@ -208,6 +208,14 @@ DIR must include a .project file to be considered a project."
 ;; Enable project detection using .project files
 (with-eval-after-load 'project (add-to-list 'project-find-functions #'mo-project-try-local))
 
+(defun mo-project-save ()
+  "Save the current project to the persistent project list."
+  (interactive)
+  (message "Project saved: %s" (cdr (project-current t))))
+
+;; Key binding for current project save
+(general-def :keymaps 'project-prefix-map "w" #'mo-project-save)
+
 ;; Init consult for enhanced search commands
 (use-package consult
   :demand t
