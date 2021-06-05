@@ -71,6 +71,20 @@
   :config
   (gcmh-mode 1))
 
+;; Prefix keys for quick action menu
+(defvar mo-quick-menu-prefix "SPC")
+(defvar mo-quick-menu-nn-prefix "M-SPC")
+
+;; Create quick menu map and definer
+(general-create-definer mo-quick-menu-def :keymaps 'mo-quick-menu-map)
+
+;; Bind the quick menu map to the leader key and the relevant states
+(general-define-key
+ :states '(normal insert visual motion emacs)
+ :prefix mo-quick-menu-prefix
+ :non-normal-prefix mo-quick-menu-nn-prefix
+ :prefix-map 'mo-quick-menu-map)
+
 ;; Init evil mode for Vim emulation in Emacs
 (use-package evil
   :init
