@@ -428,6 +428,9 @@ run the attached function (if exists) and enable lsp"
 ;; Init lsp-pyright for pyright python language server
 (use-package lsp-pyright)
 
+;; Init pip-requirements for editing pip requirements files
+(use-package pip-requirements)
+
 ;; Init js2-mode for enhanced JavaScript editing
 (use-package js2-mode
   :mode "\\.js\\'")
