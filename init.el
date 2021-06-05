@@ -216,6 +216,9 @@ DIR must include a .project file to be considered a project."
 ;; Key binding for current project save
 (general-def :keymaps 'project-prefix-map "w" #'mo-project-save)
 
+;; Key binding for project switch
+(mo-quick-menu-def "p" #'project-switch-project)
+
 ;; Init consult for enhanced search commands
 (use-package consult
   :demand t
