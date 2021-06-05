@@ -508,6 +508,8 @@ run the attached function (if exists) and enable lsp"
 (use-package dashboard
   :config
   (setq dashboard-startup-banner 'logo)
+  (setq dashboard-banner-logo-title "Welcome to Modus Operandi Emacs!")
+  (setq dashboard-init-info "In Absentia Lucis, Tenebrae Vincunt")
   (setq dashboard-center-content t)
   (dashboard-setup-startup-hook))
 
