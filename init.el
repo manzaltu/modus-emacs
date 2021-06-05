@@ -431,6 +431,13 @@ run the attached function (if exists) and enable lsp"
 ;; Init pip-requirements for editing pip requirements files
 (use-package pip-requirements)
 
+;; Init pipenv for supporting pipenv projects and commands
+(use-package pipenv
+  :hook (python-mode . pipenv-mode)
+  :config
+  ;; We don't use projectile
+  (setq pipenv-with-projectile nil))
+
 ;; Init js2-mode for enhanced JavaScript editing
 (use-package js2-mode
   :mode "\\.js\\'")
