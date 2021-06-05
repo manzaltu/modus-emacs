@@ -511,6 +511,7 @@ run the attached function (if exists) and enable lsp"
   (setq dashboard-banner-logo-title "Welcome to Modus Operandi Emacs!")
   (setq dashboard-init-info "In Absentia Lucis, Tenebrae Vincunt")
   (setq dashboard-center-content t)
+  (setq dashboard-set-footer nil)
   (dashboard-setup-startup-hook))
 
 ;; Init doom vibrant theme
