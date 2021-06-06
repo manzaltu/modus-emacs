@@ -309,6 +309,9 @@ DIR must include a .project file to be considered a project."
   ;; Change find command to use fd
   (setq consult-find-command "fd --color=never -p -H -t f ARG OPTS")
 
+  ;; Do not auto preview ripgrep results
+  (consult-customize consult-ripgrep :preview-key (kbd "M-."))
+
   ;; Configure project detection using project.el
   (setq consult-project-root-function
         (lambda ()
