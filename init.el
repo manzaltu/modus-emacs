@@ -396,7 +396,8 @@ DIR must include a .project file to be considered a project."
                                   c++-mode
                                   (python-mode (lambda () (require 'lsp-pyright)))
                                   js2-mode
-                                  typescript-mode))
+                                  typescript-mode
+                                  sh-mode))
 
   (defun mo-maybe-enable-lsp (lsp-config)
     "If mode in LSP-CONFIG is equal to the current major-mode,
