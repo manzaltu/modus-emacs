@@ -36,10 +36,12 @@
   "Return a valid file path for FILENAME under the cache directory."
   (concat (file-name-as-directory mo-cache-dir) filename))
 
+(defvar straight-base-dir mo-cache-dir)
+
 ;; Init straight.el for package management
 (defvar bootstrap-version)
 (let ((bootstrap-file
-       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+       (expand-file-name ".cache/straight/repos/straight.el/bootstrap.el" user-emacs-directory))
       (bootstrap-version 5))
   (unless (file-exists-p bootstrap-file)
     (with-current-buffer
@@ -183,6 +185,7 @@
   :custom
   (org-roam-directory org-directory)
   :config
+  (setq org-roam-db-location (mo-cache-path "org-roam.db"))
   (org-roam-mode))
 
 ;; Init orderless for advanced (e.g. fuzzy) completion styles
@@ -214,6 +217,9 @@ DIR must include a .project file to be considered a project."
 
 ;; Enable project detection using .project files
 (with-eval-after-load 'project (add-to-list 'project-find-functions #'mo-project-try-local))
+
+;; Set project history file path
+(setq project-list-file (mo-cache-path "projects"))
 
 (defun mo-project-save ()
   "Save the current project to the persistent project list."
@@ -277,6 +283,7 @@ DIR must include a .project file to be considered a project."
 
   :init
   ;; Enable recentf for tracking recently opened files
+  (setq recentf-save-file (mo-cache-path "recentf"))
   (recentf-mode t)
   ;; Enlarge the max size of the recent files list
   (setq recentf-max-saved-items 500)
@@ -337,6 +344,9 @@ DIR must include a .project file to be considered a project."
 (use-package magit
   ;; Refine diff view to show sub hunk changes
   :config
+  (setq transient-levels-file (mo-cache-path "transient_levels.el"))
+  (setq transient-values-file (mo-cache-path "transient_values.el"))
+  (setq transient-history-file (mo-cache-path "transient_history.el"))
   (setq magit-diff-refine-hunk 'all))
 
 ;; Init diff-hl for highlighting uncommitted changes
@@ -384,6 +394,7 @@ run the attached function (if exists) and enable lsp"
 
   ;; Kill language server after the last associated buffer was closed
   (setq lsp-keep-workspace-alive nil)
+  (setq lsp-session-file (mo-cache-path "lsp-session-v1"))
   :hook
   ;; Postpone lsp load for after dir local vars are read
   ;; Do not load lsp if dir local vars are not enabled (e.g. on preview)
@@ -532,6 +543,9 @@ run the attached function (if exists) and enable lsp"
                  (reusable-frames . visible)
                  (window-height . 0.4))))
 
+;; Set eshell cache directory
+(setq eshell-directory-name (file-name-as-directory (mo-cache-path "eshell")))
+
 ;; Init dashboard for an informative splash screen
 (use-package dashboard
   :config
@@ -633,6 +647,7 @@ run the attached function (if exists) and enable lsp"
 
 ;; Persist minibuffer history over Emacs restarts
 (savehist-mode)
+(setq savehist-file (mo-cache-path "history"))
 
 ;; Set customization file path
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))

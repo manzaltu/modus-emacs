@@ -1,24 +1,8 @@
 # Ignore personal settings
 /personal.el
-# Ignore lsp's session save file
-/.lsp-session-v1
-# Ignore project.el history file
-/projects
-# Ignore recentf save file
-/recentf
 # Ignore customization file
 /custom.el
-# Ignore minibuffer history file
-/history
-# Ignore org roam database file
-/org-roam.db
 # Ignore Emacs backup files
 *~
-# Ignore straight's depository
-/straight/
-# Ignore magit's transient dir
-/transient/
-# Ignore eshell history dir
-/eshell/
 # Ignore Emacs cache directory
 /.cache/
