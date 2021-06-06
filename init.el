@@ -394,6 +394,7 @@ DIR must include a .project file to be considered a project."
   ;; Enable for the following modes
   (setq mo-lsp-enable-for-modes '(c-mode
                                   c++-mode
+                                  go-mode
                                   (python-mode (lambda () (require 'lsp-pyright)))
                                   js2-mode
                                   typescript-mode
