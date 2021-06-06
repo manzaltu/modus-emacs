@@ -691,6 +691,9 @@ run the attached function (if exists) and enable lsp"
 ;; Start Emacs server
 (server-start)
 
+;; Set url configuration directory
+(setq url-configuration-directory (mo-cache-path "url"))
+
 ;; Persist minibuffer history over Emacs restarts
 (savehist-mode)
 (setq savehist-file (mo-cache-path "history"))
