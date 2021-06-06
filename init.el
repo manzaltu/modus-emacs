@@ -496,6 +496,11 @@ run the attached function (if exists) and enable lsp"
 (use-package dockerfile-mode
   :mode "Dockerfile\\'")
 
+;; Init docker for managing docker from Emacs
+(use-package docker
+  :general
+  ("C-c d" #'docker))
+
 ;; Init formal-all for a universal code formatter
 (use-package format-all)
 
