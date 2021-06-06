@@ -29,6 +29,13 @@
 (setq native-comp-deferred-compilation nil)
 (defvar straight-disable-native-compile t)
 
+;; Set a directory path to be used for cache files
+(defvar mo-cache-dir (expand-file-name ".cache" user-emacs-directory))
+
+(defun mo-cache-path (filename)
+  "Return a valid file path for FILENAME under the cache directory."
+  (concat (file-name-as-directory mo-cache-dir) filename))
+
 ;; Init straight.el for package management
 (defvar bootstrap-version)
 (let ((bootstrap-file

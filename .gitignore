@@ -20,3 +20,5 @@
 /transient/
 # Ignore eshell history dir
 /eshell/
+# Ignore Emacs cache directory
+/.cache/
