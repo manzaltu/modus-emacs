@@ -454,7 +454,9 @@ run the attached function (if exists) and enable lsp"
    "s" #'consult-lsp-symbols)
   :config
   ;; Manual preview key for symbols results
-  (consult-customize consult-lsp-symbols :preview-key (kbd "M-.")))
+  (consult-customize consult-lsp-symbols :preview-key (kbd "M-."))
+  ;; Remove initial async separator as we use spaces for search tokenization
+  (consult-customize consult-lsp-symbols :initial nil))
 
 ;; Init yasnippets for adding code snippet templates
 (use-package yasnippet
