@@ -512,6 +512,9 @@ run the attached function (if exists) and enable lsp"
   :general
   ("C-c d" #'docker))
 
+;; Init markdown-mode for enhanced markdown editing
+(use-package markdown-mode)
+
 ;; Init formal-all for a universal code formatter
 (use-package format-all)
 
