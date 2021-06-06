@@ -400,6 +400,7 @@ DIR must include a .project file to be considered a project."
                                   js2-mode
                                   typescript-mode
                                   json-mode
+                                  yaml-mode
                                   dockerfile-mode
                                   terraform-mode
                                   sh-mode))
