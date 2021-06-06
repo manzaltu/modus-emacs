@@ -208,6 +208,16 @@
   (setq selectrum-highlight-candidates-function #'orderless-highlight-matches)
   (selectrum-mode +1))
 
+;; Init selectrum-prescient for completion sort and history
+(use-package selectrum-prescient
+  :after selectrum
+  :config
+  ;; We don't need filtering (orderless is used instead)
+  (setq selectrum-prescient-enable-filtering nil)
+  (setq prescient-save-file (mo-cache-path "persp-state"))
+  (selectrum-prescient-mode +1)
+  (prescient-persist-mode +1))
+
 ;; Used by project.el for project detection
 (defun mo-project-try-local (dir)
   "Determine if DIR is a project.
