@@ -512,6 +512,9 @@ run the attached function (if exists) and enable lsp"
   :general
   ("C-c d" #'docker))
 
+;; Init terraform-mode for editing terraform files
+(use-package terraform-mode)
+
 ;; Init markdown-mode for enhanced markdown editing
 (use-package markdown-mode)
 
