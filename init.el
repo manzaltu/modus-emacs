@@ -474,6 +474,9 @@ run the attached function (if exists) and enable lsp"
 ;; Init go-mode for Go support
 (use-package go-mode)
 
+;; Init csharp-mode for C# support
+(use-package csharp-mode)
+
 ;; Init lsp-pyright for pyright python language server
 (use-package lsp-pyright)
 
