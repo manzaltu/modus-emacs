@@ -399,6 +399,7 @@ DIR must include a .project file to be considered a project."
                                   (python-mode (lambda () (require 'lsp-pyright)))
                                   js2-mode
                                   typescript-mode
+                                  web-mode
                                   json-mode
                                   yaml-mode
                                   dockerfile-mode
