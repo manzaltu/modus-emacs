@@ -492,6 +492,10 @@ run the attached function (if exists) and enable lsp"
 ;; Init json mode for enhanced JSON editing
 (use-package json-mode)
 
+;; Init dockerfile-mode for editing docker files
+(use-package dockerfile-mode
+  :mode "Dockerfile\\'")
+
 ;; Init formal-all for a universal code formatter
 (use-package format-all)
 
