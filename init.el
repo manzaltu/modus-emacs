@@ -215,6 +215,7 @@
   ;; We don't need filtering (orderless is used instead)
   (setq selectrum-prescient-enable-filtering nil)
   (setq prescient-save-file (mo-cache-path "persp-state"))
+  (setq prescient-sort-full-matches-first t)
   (selectrum-prescient-mode +1)
   (prescient-persist-mode +1))
 
