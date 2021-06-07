@@ -404,6 +404,7 @@ DIR must include a .project file to be considered a project."
                                   yaml-mode
                                   dockerfile-mode
                                   terraform-mode
+                                  cmake-mode
                                   sh-mode))
 
   (defun mo-maybe-enable-lsp (lsp-config)
