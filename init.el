@@ -433,6 +433,9 @@ run the attached function (if exists) and enable lsp"
 ;; Init lsp-ui for an interactive lsp interface
 (use-package lsp-ui
   :after lsp-mode
+  :general
+  (:keymaps 'mo-quick-menu-map
+   "D" #'lsp-ui-doc-show)
   :config
   ;; Do not show documentation automatically
   (setq lsp-ui-doc-show-with-cursor nil)
