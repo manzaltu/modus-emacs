@@ -438,6 +438,13 @@ run the attached function (if exists) and enable lsp"
   (setq lsp-ui-doc-show-with-mouse nil)
   (setq lsp-ui-doc-position 'at-point))
 
+;; Init dap-mode for interactive debugging
+(use-package dap-mode
+  :after lsp-mode
+  :config
+  (setq dap-breakpoints-file (mo-cache-path "dap-breakpoints"))
+  (dap-auto-configure-mode))
+
 ;; When looking for references, don't ask for an identifier
 (setq xref-prompt-for-identifier nil)
 
