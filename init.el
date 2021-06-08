@@ -124,6 +124,8 @@
 (use-package evil-collection
   :after evil
   :config
+  ;; Disable TnG behavior
+  (setq evil-collection-company-use-tng nil)
   (evil-collection-init))
 
 ;; Init evil-surround for quickly adding paired surrounding characters
