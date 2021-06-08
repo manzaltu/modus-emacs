@@ -501,6 +501,9 @@ run the attached function (if exists) and enable lsp"
 ;; Init csharp-mode for C# support
 (use-package csharp-mode)
 
+;; Init csproj-mode for editing C# project files
+(use-package csproj-mode)
+
 ;; Init lsp-java for Eclipse JDT language server
 (use-package lsp-java
   :config
