@@ -421,6 +421,9 @@ run the attached function (if exists) and enable lsp"
   ;; Kill language server after the last associated buffer was closed
   (setq lsp-keep-workspace-alive nil)
   (setq lsp-session-file (mo-cache-path "lsp-session-v1"))
+  ;; Set clangd default parameters
+  (setq lsp-clients-clangd-args '("--header-insertion-decorators=0"
+                                  "--completion-style=detailed"))
   :hook
   ;; Postpone lsp load for after dir local vars are read
   ;; Do not load lsp if dir local vars are not enabled (e.g. on preview)
