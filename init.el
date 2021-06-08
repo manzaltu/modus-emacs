@@ -698,9 +698,10 @@ run the attached function (if exists) and enable lsp"
 ;; Replace yes or no questions to y or n
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-;; Don't create backup & autosave files
+;; Don't create backup, autosave and lock files
 (setq make-backup-files nil)
 (setq auto-save-default nil)
+(setq create-lockfiles nil)
 
 ;; Disable bell audio
 (setq ring-bell-function 'ignore)
