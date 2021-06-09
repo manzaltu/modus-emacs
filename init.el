@@ -388,7 +388,8 @@ DIR must include a .project file to be considered a project."
    "C-c l" '(:keymap lsp-command-map :which-key "lsp"))
   (:keymaps 'mo-quick-menu-map
    "i" #'lsp-find-implementation
-   "a" #'lsp-execute-code-action)
+   "a" #'lsp-execute-code-action
+   "S" #'lsp-clangd-find-other-file)
   :init
   ;; Set a high read output max value for handling large language server responses
   (setq read-process-output-max (* 10 1024 1024))
