@@ -466,6 +466,8 @@ run the attached function (if exists) and enable lsp"
 ;; Init company mode for auto completion everywhere
 (use-package company
   :init
+  (setq company-minimum-prefix-length 1)
+  (setq company-idle-delay 0.0)
   (global-company-mode))
 
 ;; Init company-box for completions with icons
