@@ -548,6 +548,9 @@ run the attached function (if exists) and enable lsp"
   :general
   ("C-c d" #'docker))
 
+;; Init docker-tramp for supporting TRAMP in containers
+(use-package docker-tramp)
+
 ;; Init terraform-mode for editing terraform files
 (use-package terraform-mode)
 
