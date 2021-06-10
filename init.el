@@ -365,6 +365,12 @@ DIR must include a .project file to be considered a project."
   (setq transient-history-file (mo-cache-path "transient_history.el"))
   (setq magit-diff-refine-hunk 'all))
 
+;; Init forge for working with git forges (e.g. Github, Gitlab)
+(use-package forge
+  :after magit
+  :config
+  (setq forge-database-file (mo-cache-path "forge-database.sqlite")))
+
 ;; Init diff-hl for highlighting uncommitted changes
 (use-package diff-hl
   :demand t
