@@ -364,6 +364,9 @@ DIR must include a .project file to be considered a project."
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
 
+;; Init dired-narrow for narrowing dired results using regexp
+(use-package dired-narrow)
+
 ;; Init magit for a better git user experience
 (use-package magit
   ;; Refine diff view to show sub hunk changes
