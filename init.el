@@ -94,6 +94,16 @@
  :non-normal-prefix mo-quick-menu-nn-prefix
  :prefix-map 'mo-quick-menu-map)
 
+(defun mo-copy-file-path ()
+  "Copy the full path of the current buffer's file."
+  (interactive)
+  (let ((filepath (if (equal major-mode 'dired-mode)
+                      default-directory
+                    (buffer-file-name))))
+    (when filepath
+      (kill-new filepath)
+      (message "%s" filepath))))
+
 ;; Init evil mode for Vim emulation in Emacs
 (use-package evil
   :init
@@ -117,7 +127,8 @@
   (defalias #'forward-evil-word #'forward-evil-symbol)
   (mo-quick-menu-def
     "d" #'xref-find-definitions
-    "r" #'xref-find-references)
+    "r" #'xref-find-references
+    "C" #'mo-copy-file-path)
   (evil-mode 1))
 
 ;; Add evil key bindings to other, non-default, modes
