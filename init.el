@@ -769,6 +769,7 @@ run the attached function (if exists) and enable lsp"
 (savehist-mode)
 (setq savehist-file (mo-cache-path "history"))
 
+(setq bookmark-file (mo-cache-path "bookmarks"))
 (setq tramp-persistency-file-name (mo-cache-path "tramp"))
 
 ;; Set customization file path
