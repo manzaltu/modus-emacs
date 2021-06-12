@@ -1,0 +1,64 @@
+* Modus Operandi Emacs
+
+Modus Operandi Emacs is a project that aims to provide a robust, fast and
+scalabale development environment. It supports multiple programming languages
+and file formats, using relevant language servers and major modes.
+
+** Emacs installation
+I strongly recommend using Emacs 28.0 (dev) with native compilation (GccEmacs).
+
+*** MacOS
+Using [[https://brew.sh/][brew]]:
+#+BEGIN_SRC shell
+brew tap d12frosted/emacs-plus
+brew install emacs-plus@28 --with-native-comp
+ln -s /usr/local/opt/emacs-plus@28/Emacs.app /Applications/Emacs.app
+#+END_SRC
+
+** Dependencies
+You should have the following software installed:
+1. [[https://github.com/BurntSushi/ripgrep][ripgrep]] - like grep, but faster
+2. [[https://github.com/sharkdp/fd][fd]] - like find, but faster
+3. [[https://github.com/GNUAspell/aspell][aspell]] - for spell check
+
+** Installation
+#+BEGIN_SRC shell
+git clone https://github.com/manzaltu/modus-emacs ~/.emacs
+#+END_SRC
+
+You can also install [[https://github.com/plexus/chemacs2][chemacs2]] and use this configuration alongside others.
+
+** Personalized Settings
+You can create a file named personal.el in your Emacs folder and add
+personalized settings. For example:
+
+#+BEGIN_SRC emacs-lisp
+;;; personal.el --- Personal configuration file -*- lexical-binding: t; -*-
+
+;;; Commentary:
+;; This is a personal configuration file
+
+;;; Code:
+
+;; Personal info
+(setq user-full-name "Some Name"
+      user-mail-address "user@domain.example")
+
+;;; personal.el ends here
+#+END_SRC
+
+** LICENSE
+Copyright © 2021 Yoav Orot.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
