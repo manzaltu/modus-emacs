@@ -566,6 +566,9 @@ run the attached function (if exists) and enable lsp"
 ;; Init groovy-mode for Groovy support
 (use-package groovy-mode)
 
+;; Init jenkinsfile-mode for editing Jenkins files
+(use-package jenkinsfile-mode)
+
 ;; Init web-mode for enhanced web files editing
 (use-package web-mode
   :mode "\\.html?\\'")
