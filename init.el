@@ -388,6 +388,9 @@ DIR must include a .project file to be considered a project."
   :config
   (setq forge-database-file (mo-cache-path "forge-database.sqlite")))
 
+;; Open ediff window in the current frame
+(setq ediff-window-setup-function #'ediff-setup-windows-plain)
+
 ;; Init diff-hl for highlighting uncommitted changes
 (use-package diff-hl
   :demand t
