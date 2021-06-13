@@ -562,6 +562,9 @@ run the attached function (if exists) and enable lsp"
 ;; Init typescript-mode for enhanced TypeScript editing
 (use-package typescript-mode)
 
+;; Init groovy-mode for Groovy support
+(use-package groovy-mode)
+
 ;; Init web-mode for enhanced web files editing
 (use-package web-mode
   :mode "\\.html?\\'")
