@@ -315,13 +315,6 @@ DIR must include a .project file to be considered a project."
   ("M-s e" #'consult-isearch)               ;; orig. isearch-edit-string
   ("M-s l" #'consult-line)                  ;; required by consult-line to detect isearch
 
-  :init
-  ;; Enable recentf for tracking recently opened files
-  (setq recentf-save-file (mo-cache-path "recentf"))
-  (recentf-mode t)
-  ;; Enlarge the max size of the recent files list
-  (setq recentf-max-saved-items 500)
-
   :config
   ;; Configure the narrowing key.
   (setq consult-narrow-key ">")
@@ -768,6 +761,13 @@ run the attached function (if exists) and enable lsp"
 ;; Persist minibuffer history over Emacs restarts
 (savehist-mode)
 (setq savehist-file (mo-cache-path "history"))
+
+;; Enable recentf for tracking recently opened files
+(setq recentf-save-file (mo-cache-path "recentf"))
+(recentf-mode t)
+
+;; Enlarge the max size of the recent files list
+(setq recentf-max-saved-items 10000)
 
 (setq bookmark-file (mo-cache-path "bookmarks"))
 (setq tramp-persistency-file-name (mo-cache-path "tramp"))
