@@ -376,6 +376,10 @@ DIR must include a .project file to be considered a project."
 ;; Init magit for a better git user experience
 (use-package magit
   ;; Refine diff view to show sub hunk changes
+  :general
+  ;; Visit files in the other window
+  (:keymaps 'magit-diff-section-base-map
+   "C-<return>" #'magit-diff-visit-worktree-file-other-window)
   :config
   (setq transient-levels-file (mo-cache-path "transient_levels.el"))
   (setq transient-values-file (mo-cache-path "transient_values.el"))
