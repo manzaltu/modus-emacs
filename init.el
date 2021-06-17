@@ -427,6 +427,8 @@ DIR must include a .project file to be considered a project."
   :init
   ;; Set a high read output max value for handling large language server responses
   (setq read-process-output-max (* 10 1024 1024))
+  ;; Set a short delay for refreshing state after moving the cursor
+  (setq lsp-idle-delay 0.2)
   ;; Enable which-key help on the lsp prefix key
   (setq lsp-keymap-prefix "C-c l")
   ;; Enable for the following modes
