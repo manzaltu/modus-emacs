@@ -374,6 +374,17 @@ DIR must include a .project file to be considered a project."
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
 
+;; Init treemacs for a tree-like sidebar file navigator
+(use-package treemacs
+  :general
+  ("C-c s" #'treemacs-select-window)
+  :config
+  (setq treemacs-persist-file (mo-cache-path "treemacs-persist"))
+  (treemacs-follow-mode t)
+  (treemacs-filewatch-mode t)
+  (treemacs-fringe-indicator-mode 'always)
+  (treemacs-git-mode 'simple))
+
 ;; Init dired-narrow for narrowing dired results using regexp
 (use-package dired-narrow)
 
