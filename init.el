@@ -509,6 +509,15 @@ run the attached function (if exists) and enable lsp"
   (setq lsp-ui-doc-show-with-mouse nil)
   (setq lsp-ui-doc-position 'at-point))
 
+;; Init lsp-treemacs for an interactive lsp tree-like interface
+(use-package lsp-treemacs
+  :general
+  (:keymaps 'mo-quick-menu-map
+   "h" #'lsp-treemacs-call-hierarchy
+   "H" #'lsp-treemacs-type-hierarchy
+   "M" #'lsp-treemacs-symbols
+   "F" #'lsp-treemacs-errors-list))
+
 ;; Init dap-mode for interactive debugging
 (use-package dap-mode
   :after lsp-mode
