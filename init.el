@@ -389,6 +389,10 @@ DIR must include a .project file to be considered a project."
 (use-package treemacs-evil
   :after (treemacs evil))
 
+;; Init treemacs-icons-dired for having icons in dired mode
+(use-package treemacs-icons-dired
+  :after (treemacs dired))
+
 ;; Init dired-narrow for narrowing dired results using regexp
 (use-package dired-narrow)
 
@@ -702,13 +706,16 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init doom vibrant theme
 (use-package doom-themes
+  :after treemacs-icons-dired
   :config
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
         doom-themes-enable-italic t) ; if nil, italics is universally disabled
   ;; Set brighter comments
   (setq doom-vibrant-brighter-comments t)
-  (load-theme 'doom-vibrant t))
+  (load-theme 'doom-vibrant t)
+  ;; Load icons here, so their background will be aligned with the theme
+  (treemacs-icons-dired-mode))
 
 ;; Init minions for collapsing the minor mode indicator in the modeline
 (use-package minions
