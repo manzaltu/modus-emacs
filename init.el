@@ -183,6 +183,12 @@
   :config
   (global-origami-mode))
 
+;; Init lsp-origami for code folding based on data from language server
+(use-package lsp-origami
+  :after (origami lsp)
+  :hook
+  (lsp-after-open . lsp-origami-try-enable))
+
 ;; Init org mode for editing and managing notes
 (use-package org
   :config
