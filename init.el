@@ -393,6 +393,10 @@ DIR must include a .project file to be considered a project."
 (use-package treemacs-icons-dired
   :after (treemacs dired))
 
+;; Init treemacs-magit for treemacs and magit integration
+(use-package treemacs-magit
+  :after (treemacs magit))
+
 ;; Init dired-narrow for narrowing dired results using regexp
 (use-package dired-narrow)
 
