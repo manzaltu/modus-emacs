@@ -385,6 +385,10 @@ DIR must include a .project file to be considered a project."
   (treemacs-fringe-indicator-mode 'always)
   (treemacs-git-mode 'simple))
 
+;; Init treemacs-evil for treemacs and evil integration
+(use-package treemacs-evil
+  :after (treemacs evil))
+
 ;; Init dired-narrow for narrowing dired results using regexp
 (use-package dired-narrow)
 
