@@ -648,6 +648,9 @@ run the attached function (if exists) and enable lsp"
 ;; Init cmake-mode for editing CMake files
 (use-package cmake-mode)
 
+;; Init bazel for editing Bazel related files
+(use-package bazel)
+
 ;; Init formal-all for a universal code formatter
 (use-package format-all)
 
