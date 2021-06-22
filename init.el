@@ -336,8 +336,10 @@ DIR must include a .project file to be considered a project."
   (setq consult-ripgrep-command "rg --null --line-buffered --color=ansi --max-columns=1000 \
 --smart-case --no-heading --line-number . -e ARG OPTS")
 
-  ;; Do not auto preview ripgrep results
-  (consult-customize consult-ripgrep :preview-key (kbd "M-."))
+  ;; Do not auto preview ripgrep and recent file results
+  (consult-customize
+   consult-ripgrep consult--source-file consult--source-project-file
+   :preview-key (kbd "M-."))
 
   ;; Configure project detection using project.el
   (setq consult-project-root-function
