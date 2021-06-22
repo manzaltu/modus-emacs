@@ -399,6 +399,13 @@ DIR must include a .project file to be considered a project."
   :config
   (tab-bar-echo-area-mode))
 
+;; Init tab-bar-lost-commands for usable tab-bar commands
+(use-package tab-bar-lost-commands
+  :general
+  (:keymaps 'mo-quick-menu-map
+   "t" #'tab-bar-lost-commands-switch-to-or-create-tab
+   "T" #'tab-bar-close-tab))
+
 ;; Init treemacs for a tree-like sidebar file navigator
 (use-package treemacs
   :general
