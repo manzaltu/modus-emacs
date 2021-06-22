@@ -382,6 +382,8 @@ DIR must include a .project file to be considered a project."
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
 
+;; Hide the top tab bar
+(setq tab-bar-show -1)
 ;; Init tab-bar for supporting multiple window layouts in frame
 (tab-bar-mode)
 
