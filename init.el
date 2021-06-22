@@ -394,6 +394,11 @@ DIR must include a .project file to be considered a project."
   "] t" #'tab-next
   "[ t" #'tab-previous)
 
+;; Init tab-bar-echo-area for showing tab names in the echo bar
+(use-package tab-bar-echo-area
+  :config
+  (tab-bar-echo-area-mode))
+
 ;; Init treemacs for a tree-like sidebar file navigator
 (use-package treemacs
   :general
