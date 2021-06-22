@@ -382,6 +382,9 @@ DIR must include a .project file to be considered a project."
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
 
+;; Init tab-bar for supporting multiple window layouts in frame
+(tab-bar-mode)
+
 ;; Init treemacs for a tree-like sidebar file navigator
 (use-package treemacs
   :general
