@@ -387,6 +387,13 @@ DIR must include a .project file to be considered a project."
 ;; Init tab-bar for supporting multiple window layouts in frame
 (tab-bar-mode)
 
+;; Set tab commands key bindings
+(general-def
+  :states 'normal
+  :keymaps 'override
+  "] t" #'tab-next
+  "[ t" #'tab-previous)
+
 ;; Init treemacs for a tree-like sidebar file navigator
 (use-package treemacs
   :general
