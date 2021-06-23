@@ -235,6 +235,8 @@
   ;; Highlight only visible candidates
   (setq orderless-skip-highlighting (lambda () selectrum-is-active))
   (setq selectrum-highlight-candidates-function #'orderless-highlight-matches)
+  ;; Use the default minibuffer height, instead of Selectrum's
+  (setq selectrum-max-window-height nil)
   (selectrum-mode +1))
 
 ;; Init selectrum-prescient for completion sort and history
