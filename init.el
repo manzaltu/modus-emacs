@@ -800,6 +800,15 @@ run the attached function (if exists) and enable lsp"
   (text-mode . flyspell-mode)
   (prog-mode . flyspell-prog-mode))
 
+;; Init desktop+ for saving session configuration
+(use-package desktop+
+  :general
+  (:keymaps 'mo-quick-menu-map
+   "x" #'desktop+-load
+   "X" #'desktop+-create)
+  :init
+  (setq desktop+-base-dir (mo-cache-path "desktops")))
+
 ;; Init zoom-window for toggling window zoom
 (use-package zoom-window
   :general
