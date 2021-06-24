@@ -502,6 +502,7 @@ DIR must include a .project file to be considered a project."
   ;; Enable for the following modes
   (setq mo-lsp-enable-for-modes '(c-mode
                                   c++-mode
+                                  objc-mode
                                   go-mode
                                   csharp-mode
                                   java-mode
