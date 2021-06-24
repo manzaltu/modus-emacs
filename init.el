@@ -612,6 +612,9 @@ run the attached function (if exists) and enable lsp"
 ;; Init rustic for Rust support
 (use-package rustic)
 
+;; Associate objc-mode with Objective C files
+(add-to-list 'auto-mode-alist '("\\.mm\\'" . objc-mode))
+
 ;; Init go-mode for Go support
 (use-package go-mode)
 
