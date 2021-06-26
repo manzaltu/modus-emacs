@@ -806,8 +806,19 @@ run the attached function (if exists) and enable lsp"
   (:keymaps 'mo-quick-menu-map
    "x" #'desktop+-load
    "X" #'desktop+-create)
+  :commands desktop+-create
   :init
-  (setq desktop+-base-dir (mo-cache-path "desktops")))
+  (setq desktop+-base-dir (mo-cache-path "desktops"))
+
+  (defun mo-ask-save-desktop ()
+    "If desktop save mode is not activated, ask the user to save the session"
+    (unless desktop-save-mode
+      (when (y-or-n-p "Save the current session? ")
+        (call-interactively #'desktop+-create)))
+    t)
+
+  ;; Before exiting Emacs, ask the user to save the current session
+  (add-to-list 'kill-emacs-query-functions #'mo-ask-save-desktop t))
 
 ;; Init zoom-window for toggling window zoom
 (use-package zoom-window
