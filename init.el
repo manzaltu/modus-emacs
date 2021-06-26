@@ -877,6 +877,9 @@ run the attached function (if exists) and enable lsp"
 ;; Show time in the modeline
 (display-time-mode 1)
 
+;; Truncate lines by default
+(setq truncate-lines t)
+
 ;; Show trailing whitespaces in code
 (require 'whitespace)
 (setq whitespace-style '(face trailing))
