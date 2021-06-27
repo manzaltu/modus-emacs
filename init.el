@@ -491,6 +491,7 @@ DIR must include a .project file to be considered a project."
   (:keymaps 'mo-quick-menu-map
    "i" #'lsp-find-implementation
    "a" #'lsp-execute-code-action
+   "R" #'lsp-rename
    "S" #'lsp-clangd-find-other-file)
   :init
   ;; Set a high read output max value for handling large language server responses
