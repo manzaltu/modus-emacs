@@ -335,6 +335,11 @@ DIR must include a .project file to be considered a project."
   ;; Configure the narrowing key.
   (setq consult-narrow-key ">")
 
+  ;; Selectrum sometimes hides results due to an issue with dynamic resizing
+  ;; Disable result grouping until the issue is resolved
+  ;; See more here https://github.com/raxod502/selectrum/issues/491
+  (setq selectrum-group-format nil)
+
   ;; Use consult to select xref locations with preview
   (setq xref-show-xrefs-function #'consult-xref
         xref-show-definitions-function #'consult-xref)
