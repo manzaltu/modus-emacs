@@ -94,6 +94,8 @@
  :non-normal-prefix mo-quick-menu-nn-prefix
  :prefix-map 'mo-quick-menu-map)
 
+(general-def "C-c i" #'ibuffer)
+
 (defun mo-copy-file-path ()
   "Copy the full path of the current buffer's file."
   (interactive)
