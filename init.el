@@ -180,6 +180,9 @@
   (setq better-jumper-add-jump-behavior 'replace)
   (better-jumper-mode +1))
 
+;; Increase xref marker stack length
+(setq xref-marker-ring-length 100)
+
 ;; Init origami for text and code folding
 (use-package origami
   :config
