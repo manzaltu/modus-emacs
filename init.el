@@ -793,6 +793,8 @@ run the attached function (if exists) and enable lsp"
   ;; Set brighter comments
   (setq doom-vibrant-brighter-comments t)
   (load-theme 'doom-vibrant t)
+  ;; Distinguish between var reads and writes by underlining lsp write highlights
+  (set-face-attribute 'lsp-face-highlight-write nil :underline t)
   ;; Load icons here, so their background will be aligned with the theme
   (treemacs-icons-dired-mode))
 
