@@ -795,6 +795,8 @@ run the attached function (if exists) and enable lsp"
   (load-theme 'doom-vibrant t)
   ;; Distinguish between var reads and writes by underlining lsp write highlights
   (set-face-attribute 'lsp-face-highlight-write nil :underline t)
+  ;; Set buffer margins background color
+  (set-face-attribute 'fringe nil :background (face-attribute 'mode-line :background))
   ;; Load icons here, so their background will be aligned with the theme
   (treemacs-icons-dired-mode))
 
