@@ -542,6 +542,8 @@ run the attached function (if exists) and enable lsp"
   ;; Kill language server after the last associated buffer was closed
   (setq lsp-keep-workspace-alive nil)
   (setq lsp-session-file (mo-cache-path "lsp-session-v1"))
+  ;; Enable semantic token highlighting
+  ;; (setq lsp-semantic-tokens-enable t)
   ;; Set clangd default parameters
   (setq lsp-clients-clangd-args '("--header-insertion-decorators=0"
                                   "--completion-style=detailed"))
