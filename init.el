@@ -166,7 +166,10 @@
 ;; Init avy for text zapping using 2 chars
 (use-package avy
   :general
-  (:states 'motion "M" #'avy-goto-char-2))
+  (:states 'motion "M" #'avy-goto-char-2)
+  :config
+  ;; Search in the current window only
+  (setq avy-all-windows nil))
 
 ;; Init better-jumper for better controlling the jump list logic
 (use-package better-jumper
