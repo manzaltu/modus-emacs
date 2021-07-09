@@ -225,6 +225,11 @@
   (setq org-roam-db-location (mo-cache-path "org-roam.db"))
   (org-roam-mode))
 
+;; Init org-pomodoro for using the Pomodoro technique with org mode
+(use-package org-pomodoro
+  :general
+  ("C-c P" #'org-pomodoro))
+
 ;; Init orderless for advanced (e.g. fuzzy) completion styles
 (use-package orderless
   :demand t
