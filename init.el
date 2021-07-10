@@ -748,6 +748,10 @@ run the attached function (if exists) and enable lsp"
   :hook
   (prog-mode . rainbow-delimiters-mode))
 
+;; Show matching parentheses
+(setq show-paren-delay 0)
+(show-paren-mode 1)
+
 ;; Init evil-nerd-commenter for comment editing
 (use-package evil-nerd-commenter
   :after evil
