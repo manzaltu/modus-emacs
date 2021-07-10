@@ -752,6 +752,9 @@ run the attached function (if exists) and enable lsp"
 (setq show-paren-delay 0)
 (show-paren-mode 1)
 
+;; Auto insert matching parentheses in code
+(add-hook 'prog-mode-hook 'electric-pair-local-mode)
+
 ;; Init evil-nerd-commenter for comment editing
 (use-package evil-nerd-commenter
   :after evil
