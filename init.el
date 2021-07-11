@@ -758,6 +758,11 @@ run the attached function (if exists) and enable lsp"
 ;; Auto insert matching parentheses in code
 (add-hook 'prog-mode-hook 'electric-pair-local-mode)
 
+;; Init vi-tilde-fringe for marking empty lines on the margin column
+(use-package vi-tilde-fringe
+  :hook
+  (prog-mode . vi-tilde-fringe-mode))
+
 ;; Init evil-nerd-commenter for comment editing
 (use-package evil-nerd-commenter
   :after evil
