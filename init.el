@@ -203,6 +203,7 @@
   (setq org-directory "~/org")
   (setq org-agenda-files `(,org-directory))
   (setq org-agenda-include-diary t)
+  (setq org-agenda-start-on-weekday 0)
   (setq org-agenda-diary-file
         (concat (file-name-as-directory org-directory) "diary.org")))
 
