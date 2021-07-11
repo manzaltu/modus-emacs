@@ -199,6 +199,8 @@
 
 ;; Init org mode for editing and managing notes
 (use-package org
+  :general
+  ("C-c a" #'org-agenda)
   :config
   (setq org-directory "~/org")
   (setq org-agenda-files `(,org-directory))
