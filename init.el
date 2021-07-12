@@ -806,6 +806,8 @@ run the attached function (if exists) and enable lsp"
   (setq dashboard-init-info "In Absentia Lucis, Tenebrae Vincunt")
   (setq dashboard-center-content t)
   (setq dashboard-set-footer nil)
+  ;; Close agenda buffers after retrieving the agenda
+  (setq dashboard-agenda-release-buffers t)
   (dashboard-setup-startup-hook))
 
 ;; Init doom vibrant theme
