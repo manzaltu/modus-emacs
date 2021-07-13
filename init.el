@@ -124,6 +124,8 @@
   (setq evil-search-module 'evil-search)
   ;; Set word search to look for symbol boundaries
   (setq evil-symbol-word-search t)
+  ;; Set end of line selection to not include the newline character
+  (setq evil-want-visual-char-semi-exclusive t)
   :config
   ;; Set word movement to operate on symbol boundaries
   (defalias #'forward-evil-word #'forward-evil-symbol)
