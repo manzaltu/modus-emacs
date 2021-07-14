@@ -778,6 +778,13 @@ run the attached function (if exists) and enable lsp"
   :config
   (popwin-mode 1))
 
+;; Init ace-window for fast window selection
+(use-package ace-window
+  :general
+  ("M-o" #'ace-window)
+  :config
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
+
 ;; Init vterm for terminal emulation
 (use-package vterm
   :init
