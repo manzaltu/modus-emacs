@@ -148,6 +148,11 @@
   (setq evil-collection-mode-list (remq 'evil-mc evil-collection-mode-list))
   (evil-collection-init))
 
+;; Init evil-mc for supporting multiple cursors in evil mode
+(use-package evil-mc
+  :config
+  (global-evil-mc-mode))
+
 ;; Init evil-surround for quickly adding paired surrounding characters
 (use-package evil-surround
   :config
