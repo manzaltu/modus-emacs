@@ -141,6 +141,11 @@
   :config
   ;; Disable TnG behavior
   (setq evil-collection-company-use-tng nil)
+  ;; We have our own find references key binding. Remove evil-collection's one.
+  ;; evil-collection's find usages overrides evil-mc key bindings.
+  (setq evil-collection-want-find-usages-bindings nil)
+  ;; Skip evil-mc bindings
+  (setq evil-collection-mode-list (remq 'evil-mc evil-collection-mode-list))
   (evil-collection-init))
 
 ;; Init evil-surround for quickly adding paired surrounding characters
