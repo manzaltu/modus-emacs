@@ -221,6 +221,11 @@
   (setq org-agenda-diary-file
         (concat (file-name-as-directory org-directory) "diary.org")))
 
+;; Init org-bullets for showing org mode bullets as UTF-8 characters
+(use-package org-bullets
+  :hook
+  (org-mode . (lambda () (org-bullets-mode 1))))
+
 ;; Init org-roam for Zettelkasten note management
 (use-package org-roam
   :demand t
