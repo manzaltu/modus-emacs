@@ -48,6 +48,13 @@ personalized settings. For example:
 ;;; personal.el ends here
 #+END_SRC
 
+** Getting updates
+You can update the configuration by running the following command inside the
+cloned dir:
+#+BEGIN_SRC shell
+git pull -r
+#+END_SRC
+
 ** LICENSE
 Copyright © 2021 Yoav Orot.
 
