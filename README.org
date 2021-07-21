@@ -26,7 +26,7 @@ You should have the following software installed:
 git clone https://github.com/manzaltu/modus-emacs ~/.emacs
 #+END_SRC
 
-You can also install [[https://github.com/plexus/chemacs2][chemacs2]] and use this configuration alongside others.
+Optionally, you can install [[https://github.com/plexus/chemacs2][chemacs2]] and use this configuration alongside others.
 
 ** Personalized Settings
 You can create a file named personal.el in your Emacs folder and add
