@@ -214,6 +214,8 @@
   :general
   ("C-c a" #'org-agenda)
   :config
+  ;; Visually indent text under bullets
+  (setq org-startup-indented t)
   (setq org-directory "~/org")
   (setq org-agenda-files `(,org-directory))
   (setq org-agenda-include-diary t)
