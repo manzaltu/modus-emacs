@@ -45,6 +45,9 @@ personalized settings. For example:
 (setq user-full-name "Some Name"
       user-mail-address "user@domain.example")
 
+;; Set font
+(add-to-list 'default-frame-alist '(font . "PragmataPro Mono Liga-16"))
+
 ;;; personal.el ends here
 #+END_SRC
 
