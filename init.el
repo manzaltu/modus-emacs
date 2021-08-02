@@ -571,6 +571,12 @@ run the attached function (if exists) and enable lsp"
   ;; Kill language server after the last associated buffer was closed
   (setq lsp-keep-workspace-alive nil)
   (setq lsp-session-file (mo-cache-path "lsp-session-v1"))
+  ;; Force lsp mode to forget the workspace folders for multi root servers
+  ;; so the folders are added on demand
+  (advice-add 'lsp :before
+              (lambda (&rest _args)
+                (eval
+                 '(setf (lsp-session-server-id->folders (lsp-session)) (ht)))))
   ;; Enable semantic token highlighting
   ;; (setq lsp-semantic-tokens-enable t)
   ;; Set clangd default parameters
