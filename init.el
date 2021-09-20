@@ -232,20 +232,17 @@
 (use-package org-roam
   :demand t
   :general
-  (:keymaps 'org-roam-mode-map
-   "C-c n l" #'org-roam
-   "C-c n g" #'org-roam-graph)
   (:keymaps 'org-mode-map
-   "C-c n i" #'org-roam-insert
-   "C-c n I" #'org-roam-insert-immediate)
+   "C-c n g" #'org-roam-graph
+   "C-c n i" #'org-roam-node-insert)
   (:keymaps 'mo-quick-menu-map
-   "n" #'org-roam-find-file
+   "n" #'org-roam-node-find
    "N" #'org-roam-capture)
   :custom
   (org-roam-directory org-directory)
   :config
   (setq org-roam-db-location (mo-cache-path "org-roam.db"))
-  (org-roam-mode))
+  (org-roam-db-autosync-mode))
 
 ;; Init org-pomodoro for using the Pomodoro technique with org mode
 (use-package org-pomodoro
