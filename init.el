@@ -543,6 +543,7 @@ DIR must include a .project file to be considered a project."
   (setq mo-lsp-enable-for-modes '(c-mode
                                   c++-mode
                                   objc-mode
+                                  swift-mode
                                   go-mode
                                   csharp-mode
                                   java-mode
