@@ -221,7 +221,8 @@
   (setq org-agenda-include-diary t)
   (setq org-agenda-start-on-weekday 0)
   (setq org-agenda-diary-file
-        (concat (file-name-as-directory org-directory) "diary.org")))
+        (concat (file-name-as-directory org-directory) "diary.org"))
+  (setq org-id-locations-file (mo-cache-path ".org-id-locations")))
 
 ;; Init org-bullets for showing org mode bullets as UTF-8 characters
 (use-package org-bullets
