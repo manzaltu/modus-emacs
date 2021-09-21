@@ -379,10 +379,6 @@ DIR must include a .project file to be considered a project."
   ;; Change find command to use fd
   (setq consult-find-command "fd --color=never -p -H -t f ARG OPTS")
 
-  ;; Change ripgrep command to search with smart case
-  (setq consult-ripgrep-command "rg --null --line-buffered --color=ansi --max-columns=1000 \
---smart-case --no-heading --line-number . -e ARG OPTS")
-
   ;; Do not auto preview ripgrep and recent file results
   (consult-customize
    consult-ripgrep consult--source-file consult--source-project-file
