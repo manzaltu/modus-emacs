@@ -347,7 +347,7 @@ DIR must include a .project file to be considered a project."
    "m" #'consult-imenu)
   ("M-g I" #'consult-project-imenu)
   ;; M-s bindings (search-map)
-  ("M-s f" #'consult-find)
+  ("M-s f" #'consult-fd)
   ("M-s L" #'consult-locate)
   ("M-s g" #'consult-grep)
   ("M-s G" #'consult-git-grep)
@@ -399,7 +399,7 @@ DIR must include a .project file to be considered a project."
 
   (defun consult-fd (&optional dir initial)
     (interactive "P")
-    (let* ((prompt-dir (consult--directory-prompt "Fd" dir))
+    (let* ((prompt-dir (consult--directory-prompt "fd" dir))
            (default-directory (cdr prompt-dir)))
       (find-file (consult--find (car prompt-dir) #'consult--fd-builder initial))))
 
