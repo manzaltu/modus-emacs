@@ -666,6 +666,9 @@ run the attached function (if exists) and enable lsp"
 ;; Associate objc-mode with Objective C files
 (add-to-list 'auto-mode-alist '("\\.mm\\'" . objc-mode))
 
+;; Init swift-mode for Swift support
+(use-package swift-mode)
+
 ;; Init go-mode for Go support
 (use-package go-mode)
 
