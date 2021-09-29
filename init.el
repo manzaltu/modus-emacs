@@ -234,6 +234,7 @@
   :demand t
   :general
   (:keymaps 'org-mode-map
+   "C-c n r" #'org-roam-buffer-toggle
    "C-c n g" #'org-roam-graph
    "C-c n i" #'org-roam-node-insert)
   (:keymaps 'mo-quick-menu-map
