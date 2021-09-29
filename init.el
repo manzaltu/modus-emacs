@@ -544,6 +544,11 @@ DIR must include a .project file to be considered a project."
   :config
   (global-diff-hl-mode))
 
+;; Init git-link for creating URLs for files in web git services
+(use-package git-link
+  :config
+  (setq git-link-use-commit t))
+
 ;; Init lsp mode for lsp support
 (use-package lsp-mode
   :general
