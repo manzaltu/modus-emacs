@@ -381,7 +381,7 @@ DIR must include a .project file to be considered a project."
   ;; Based on code from consult wiki:
   ;; https://github.com/minad/consult/wiki#find-files-using-fd
   (defvar consult--fd-command nil)
-  (defun consult--fd-builder (input)
+  (defun consult--fd-builder (input dir)
     (unless consult--fd-command
       (setq consult--fd-command
             (if (eq 0 (call-process-shell-command "fdfind"))
@@ -393,8 +393,8 @@ DIR must include a .project file to be considered a project."
       (when re
         (list :command (append
                         (list consult--fd-command
-                              "--color=never" "-H" "-t" "f"
-                              (consult--join-regexps re 'extended))
+                              "--color=never" "-i" "-p" "-H" "-t" "f"
+                              (concat dir ".*" (consult--join-regexps re 'extended)))
                         opts)
               :highlight hl))))
 
@@ -402,7 +402,9 @@ DIR must include a .project file to be considered a project."
     (interactive "P")
     (let* ((prompt-dir (consult--directory-prompt "fd" dir))
            (default-directory (cdr prompt-dir)))
-      (find-file (consult--find (car prompt-dir) #'consult--fd-builder initial))))
+      (find-file (consult--find (car prompt-dir)
+                                (lambda (input) (consult--fd-builder input default-directory))
+                                initial))))
 
   ;; Do not auto preview ripgrep and recent file results
   (consult-customize
