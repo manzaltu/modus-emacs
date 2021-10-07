@@ -645,6 +645,10 @@ run the attached function (if exists) and enable lsp"
 ;; Init dap-mode for interactive debugging
 (use-package dap-mode
   :after lsp-mode
+  :demand t
+  :general
+  (:keymaps 'mo-quick-menu-map
+   "." #'dap-debug)
   :config
   (setq dap-breakpoints-file (mo-cache-path "dap-breakpoints"))
   (dap-auto-configure-mode)
