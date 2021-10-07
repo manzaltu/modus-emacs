@@ -651,6 +651,7 @@ run the attached function (if exists) and enable lsp"
    "." #'dap-debug)
   :config
   (setq dap-breakpoints-file (mo-cache-path "dap-breakpoints"))
+  (setq dap-utils-extension-path (mo-cache-path ".extension"))
   (dap-auto-configure-mode)
   ;; Init lldb debugging
   (require 'dap-lldb)
