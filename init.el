@@ -648,7 +648,8 @@ run the attached function (if exists) and enable lsp"
   :demand t
   :general
   (:keymaps 'mo-quick-menu-map
-   "." #'dap-debug)
+   "." #'dap-debug
+   "," #'dap-hydra)
   :config
   (setq dap-breakpoints-file (mo-cache-path "dap-breakpoints"))
   (setq dap-utils-extension-path (mo-cache-path ".extension"))
