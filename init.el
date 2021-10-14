@@ -460,10 +460,8 @@ DIR must include a .project file to be considered a project."
 
 ;; Set tab commands key bindings
 (general-def
-  :states 'normal
-  :keymaps 'override
-  "] t" #'tab-next
-  "[ t" #'tab-previous)
+  "M-L" #'tab-next
+  "M-H" #'tab-previous)
 
 ;; Init tab-bar-echo-area for showing tab names in the echo bar
 (use-package tab-bar-echo-area
