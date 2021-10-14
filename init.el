@@ -92,7 +92,8 @@
  :states '(normal insert visual motion emacs)
  :prefix mo-quick-menu-prefix
  :non-normal-prefix mo-quick-menu-nn-prefix
- :prefix-map 'mo-quick-menu-map)
+ :prefix-map 'mo-quick-menu-map
+ :which-key "Quick menu prefix key")
 
 (general-def "C-c i" #'ibuffer)
 
