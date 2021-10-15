@@ -95,7 +95,8 @@
  :prefix-map 'mo-quick-menu-map
  :which-key "Quick menu prefix key"
  "s" '(:which-key "Search")
- "c" '(:which-key "Code"))
+ "c" '(:which-key "Code")
+ "n" '(:which-key "Notes"))
 
 (general-def "C-c i" #'ibuffer)
 
@@ -217,7 +218,9 @@
 ;; Init org mode for editing and managing notes
 (use-package org
   :general
-  ("C-c a" #'org-agenda)
+  (:keymaps 'mo-quick-menu-map
+   :prefix "n"
+   "a" #'org-agenda)
   :config
   ;; Visually indent text under bullets
   (setq org-startup-indented t)
@@ -238,13 +241,13 @@
 (use-package org-roam
   :demand t
   :general
-  (:keymaps 'org-mode-map
-   "C-c n r" #'org-roam-buffer-toggle
-   "C-c n g" #'org-roam-graph
-   "C-c n i" #'org-roam-node-insert)
   (:keymaps 'mo-quick-menu-map
+   :prefix "n"
+   "b" #'org-roam-buffer-toggle
+   "g" #'org-roam-graph
+   "i" #'org-roam-node-insert
    "n" #'org-roam-node-find
-   "N" #'org-roam-capture)
+   "c" #'org-roam-capture)
   :custom
   (org-roam-directory org-directory)
   :config
@@ -254,7 +257,9 @@
 ;; Init org-pomodoro for using the Pomodoro technique with org mode
 (use-package org-pomodoro
   :general
-  ("C-c P" #'org-pomodoro))
+  (:keymaps 'mo-quick-menu-map
+   :prefix "n"
+   "p" #'org-pomodoro))
 
 ;; Init orderless for advanced (e.g. fuzzy) completion styles
 (use-package orderless
