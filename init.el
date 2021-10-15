@@ -94,6 +94,7 @@
  :non-normal-prefix mo-quick-menu-nn-prefix
  :prefix-map 'mo-quick-menu-map
  :which-key "Quick menu prefix key"
+ "s" '(:which-key "Search")
  "c" '(:which-key "Code"))
 
 (general-def "C-c i" #'ibuffer)
@@ -323,12 +324,35 @@ DIR must include a .project file to be considered a project."
     (consult-buffer))
 
   :general
-  ;; C-c bindings (mode-specific-map)
-  ("C-c h" #'consult-history)
-  ("C-c m" #'consult-mode-command)
-  ("C-c b" #'consult-bookmark)
-  ("C-c k" #'consult-kmacro)
-  ("C-c p" #'mo-project-switch-to-buffer)
+  ;; Quick bindings
+  (:keymaps 'mo-quick-menu-map
+   "/" #'consult-line
+   "." #'consult-fd
+   "," #'consult-ripgrep)
+  (:keymaps 'mo-quick-menu-map
+   :prefix "s"
+   "h" #'consult-history
+   "m" #'consult-mode-command
+   "B" #'consult-bookmark
+   "k" #'consult-kmacro
+   ":" #'consult-complex-command
+   "b" #'consult-buffer
+   "O" #'consult-buffer-other-window
+   "F" #'consult-buffer-other-frame
+   "e" #'consult-compile-error
+   "g" #'consult-goto-line
+   "o" #'consult-outline
+   "M" #'consult-mark
+   "K" #'consult-global-mark
+   "L" #'consult-locate
+   "G" #'consult-git-grep
+   "x" #'consult-multi-occur
+   "s" #'consult-keep-lines
+   "f" #'consult-focus-lines
+   "#" #'consult-register-load
+   "'" #'consult-register-store
+   "r" #'consult-register
+   "a" #'consult-apropos)
   ;; C-x bindings (ctl-x-map)
   ("C-x M-:" #'consult-complex-command)     ;; orig. repeat-complex-command
   ("C-x b" #'consult-buffer)                ;; orig. switch-to-buffer
@@ -342,12 +366,8 @@ DIR must include a .project file to be considered a project."
   ("M-y" #'consult-yank-pop)                ;; orig. yank-pop
   ("<help> a" #'consult-apropos)            ;; orig. apropos-command
   ;; M-g bindings (goto-map)
-  ("M-g e" #'consult-compile-error)
   ("M-g g" #'consult-goto-line)             ;; orig. goto-line
   ("M-g M-g" #'consult-goto-line)           ;; orig. goto-line
-  ("M-g o" #'consult-outline)
-  ("M-g m" #'consult-mark)
-  ("M-g k" #'consult-global-mark)
   (:keymaps 'mo-quick-menu-map
    :prefix "c"
    "i" #'consult-imenu
