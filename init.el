@@ -276,7 +276,8 @@
   :demand t
   :after orderless
   :general
-  ("C-c z" #'selectrum-repeat)
+  (:keymaps 'mo-quick-menu-map
+   "z" #'selectrum-repeat)
   :config
   ;; Highlight only visible candidates
   (setq orderless-skip-highlighting (lambda () selectrum-is-active))
