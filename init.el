@@ -94,13 +94,16 @@
  :non-normal-prefix mo-quick-menu-nn-prefix
  :prefix-map 'mo-quick-menu-map
  :which-key "Quick menu prefix key"
+ "b" '(:which-key "Buffer")
  "s" '(:which-key "Search")
  "v" '(:which-key "View")
  "p" '(:which-key "Project")
  "c" '(:which-key "Code")
  "n" '(:which-key "Notes"))
 
-(general-def "C-c i" #'ibuffer)
+(mo-quick-menu-def
+  :prefix "b"
+  "i" #'ibuffer)
 
 (mo-quick-menu-def
   ";" #'xref-find-definitions
@@ -115,6 +118,10 @@
     (when filepath
       (kill-new filepath)
       (message "%s" filepath))))
+
+(mo-quick-menu-def
+  :prefix "b"
+  "c" #'mo-copy-file-path)
 
 ;; Init evil mode for Vim emulation in Emacs
 (use-package evil
@@ -139,8 +146,6 @@
   :config
   ;; Set word movement to operate on symbol boundaries
   (defalias #'forward-evil-word #'forward-evil-symbol)
-  (mo-quick-menu-def
-    "C" #'mo-copy-file-path)
   (evil-mode 1))
 
 ;; Add evil key bindings to other, non-default, modes
