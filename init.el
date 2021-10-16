@@ -99,6 +99,7 @@
  "v" '(:which-key "View")
  "p" '(:which-key "Project")
  "c" '(:which-key "Code")
+ "g" '(:which-key "Git")
  "n" '(:which-key "Notes"))
 
 (mo-quick-menu-def
@@ -559,8 +560,15 @@ DIR must include a .project file to be considered a project."
   ;; Refine diff view to show sub hunk changes
   :general
   ;; Visit files in the other window
+  (:keymaps 'mo-quick-menu-map
+   :prefix "g"
+   "g" #'magit-status
+   "d" #'magit-dispatch
+   "f" #'magit-file-dispatch)
   (:keymaps 'magit-diff-section-base-map
    "C-<return>" #'magit-diff-visit-worktree-file-other-window)
+  :init
+  (setq magit-define-global-key-bindings nil)
   :config
   (setq transient-levels-file (mo-cache-path "transient_levels.el"))
   (setq transient-values-file (mo-cache-path "transient_values.el"))
@@ -582,10 +590,10 @@ DIR must include a .project file to be considered a project."
 (use-package diff-hl
   :demand t
   :general
-  (:states 'normal
-   :keymaps 'diff-hl-mode-map
-   "] h" #'diff-hl-next-hunk
-   "[ h" #'diff-hl-previous-hunk)
+  (:keymaps 'mo-quick-menu-map
+   :prefix "g"
+   "]" #'diff-hl-next-hunk
+   "[" #'diff-hl-previous-hunk)
   :hook
   (magit-pre-refresh . diff-hl-magit-pre-refresh)
   (magit-post-refresh . diff-hl-magit-post-refresh)
