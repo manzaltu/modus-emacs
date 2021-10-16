@@ -861,6 +861,7 @@ run the attached function (if exists) and enable lsp"
 (use-package which-key
   :config
   (setq which-key-idle-delay 0.5)
+  (setq which-key-add-column-padding 8)
   (which-key-mode))
 
 ;; Init helpful for better lisp help
