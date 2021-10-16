@@ -96,6 +96,7 @@
  :which-key "Quick menu prefix key"
  "s" '(:which-key "Search")
  "v" '(:which-key "View")
+ "p" '(:which-key "Project")
  "c" '(:which-key "Code")
  "n" '(:which-key "Notes"))
 
@@ -314,10 +315,14 @@ DIR must include a .project file to be considered a project."
   (message "Project saved: %s" (cdr (project-current t))))
 
 ;; Key binding for current project save
-(general-def :keymaps 'project-prefix-map "w" #'mo-project-save)
+(mo-quick-menu-def
+  :prefix "p"
+  "w" #'mo-project-save)
 
 ;; Key binding for project switch
-(mo-quick-menu-def "p" #'project-switch-project)
+(mo-quick-menu-def
+  :prefix "p"
+  "p" #'project-switch-project)
 
 ;; Init consult for enhanced search commands
 (use-package consult
@@ -515,9 +520,11 @@ DIR must include a .project file to be considered a project."
 ;; Init treemacs for a tree-like sidebar file navigator
 (use-package treemacs
   :general
-  ("C-c s" #'treemacs-select-window)
-  ;; We want to present the current project only
-  ("C-c S" #'treemacs-display-current-project-exclusively)
+  (:keymaps 'mo-quick-menu-map
+   :prefix "p"
+   "s" #'treemacs-select-window
+   ;; We want to present the current project only
+   "S" #'treemacs-display-current-project-exclusively)
   :config
   (setq treemacs-persist-file (mo-cache-path "treemacs-persist"))
   (setq treemacs-width 50)
@@ -914,7 +921,9 @@ run the attached function (if exists) and enable lsp"
 ;; Init vterm-toggle for quick vterm access
 (use-package vterm-toggle
   :general
-  ("C-c t" #'vterm-toggle)
+  (:keymaps 'mo-quick-menu-map
+   :prefix "p"
+   "t" #'vterm-toggle)
   :config
   (setq vterm-toggle-scope 'project)
   ;; Show vterm window at the bottom
