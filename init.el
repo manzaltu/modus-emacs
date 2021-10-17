@@ -898,6 +898,10 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init google-this for quick Google searches from Emacs
 (use-package google-this
+  :general
+  (:keymaps 'mo-quick-menu-map
+   :prefix "h"
+   "g" #'google-this)
   :config
   (google-this-mode 1))
 
