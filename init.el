@@ -97,6 +97,7 @@
  "b" '(:which-key "Buffer")
  "s" '(:which-key "Search")
  "v" '(:which-key "View")
+ "h" '(:which-key "Help")
  "p" '(:which-key "Project")
  "c" '(:which-key "Code")
  "g" '(:which-key "Git")
@@ -889,9 +890,11 @@ run the attached function (if exists) and enable lsp"
   ("C-h f" #'helpful-callable)
   ("C-h v" #'helpful-variable)
   ("C-h k" #'helpful-key)
-  ("C-c H" #'helpful-at-point)
   ("C-h F" #'helpful-function)
-  ("C-h C" #'helpful-command))
+  ("C-h C" #'helpful-command)
+  (:keymaps 'mo-quick-menu-map
+   :prefix "h"
+   "h" #'helpful-at-point))
 
 ;; Init google-this for quick Google searches from Emacs
 (use-package google-this
