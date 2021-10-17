@@ -604,6 +604,10 @@ DIR must include a .project file to be considered a project."
 
 ;; Init git-link for creating URLs for files in web git services
 (use-package git-link
+  :general
+  (:keymaps 'mo-quick-menu-map
+   :prefix "g"
+   "l" #'git-link)
   :config
   (setq git-link-use-commit t))
 
