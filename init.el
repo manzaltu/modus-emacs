@@ -621,6 +621,7 @@ DIR must include a .project file to be considered a project."
    :prefix "c"
    "a" #'lsp-execute-code-action
    "r" #'lsp-rename
+   "R" #'lsp-workspace-restart
    "o" #'lsp-clangd-find-other-file)
   (:keymaps 'mo-quick-menu-map
    "\"" #'lsp-find-implementation)
