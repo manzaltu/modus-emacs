@@ -564,6 +564,7 @@ DIR must include a .project file to be considered a project."
    :prefix "g"
    "g" #'magit-status
    "d" #'magit-dispatch
+   "b" #'magit-blame-addition
    "f" #'magit-file-dispatch)
   (:keymaps 'magit-diff-section-base-map
    "C-<return>" #'magit-diff-visit-worktree-file-other-window)
