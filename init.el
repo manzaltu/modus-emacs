@@ -273,6 +273,8 @@
    "c" #'org-roam-capture)
   :custom
   (org-roam-directory org-directory)
+  :init
+  (setq org-roam-v2-ack t)
   :config
   (setq org-roam-db-location (mo-cache-path "org-roam.db"))
   (org-roam-db-autosync-mode))
