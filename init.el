@@ -210,8 +210,18 @@
   (setq better-jumper-add-jump-behavior 'replace)
   (better-jumper-mode +1))
 
-;; Increase xref marker stack length
-(setq xref-marker-ring-length 100)
+;; Init xref for code reference lookup
+(use-package xref
+  :straight nil
+  :general
+  (:keymaps 'mo-quick-menu-map
+   ";" #'xref-find-definitions
+   "'" #'xref-find-references)
+  :config
+  ;; When looking for references, don't ask for an identifier
+  (setq xref-prompt-for-identifier nil)
+  ;; Increase xref marker stack length
+  (setq xref-marker-ring-length 100))
 
 ;; Init origami for text and code folding
 (use-package origami
@@ -732,9 +742,6 @@ run the attached function (if exists) and enable lsp"
   (require 'dap-lldb)
   ;; Init native debugging
   (require 'dap-gdb-lldb))
-
-;; When looking for references, don't ask for an identifier
-(setq xref-prompt-for-identifier nil)
 
 ;; Init flycheck for on-the-fly syntax checking
 (use-package flycheck
