@@ -1145,12 +1145,14 @@ run the attached function (if exists) and enable lsp"
   (setq savehist-file (mo-cache-path "history"))
   (savehist-mode))
 
-;; Enable recentf for tracking recently opened files
-(setq recentf-save-file (mo-cache-path "recentf"))
-(recentf-mode t)
-
-;; Enlarge the max size of the recent files list
-(setq recentf-max-saved-items 10000)
+;; Init recentf for tracking recently opened files
+(use-package recentf
+  :straight nil
+  :config
+  (setq recentf-save-file (mo-cache-path "recentf"))
+  ;; Enlarge the max size of the recent files list
+  (setq recentf-max-saved-items 10000)
+  (recentf-mode t))
 
 (setq bookmark-file (mo-cache-path "bookmarks"))
 (setq tramp-persistency-file-name (mo-cache-path "tramp"))
