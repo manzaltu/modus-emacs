@@ -101,6 +101,7 @@
  "p" '(:which-key "Project")
  "c" '(:which-key "Code")
  "g" '(:which-key "Git")
+ "r" '(:which-key "Multiple Cursors")
  "n" '(:which-key "Notes"))
 
 ;; Init ibuffer for editing buffer lists
@@ -157,12 +158,17 @@
   ;; We have our own find references key binding. Remove evil-collection's one.
   ;; evil-collection's find usages overrides evil-mc key bindings.
   (setq evil-collection-want-find-usages-bindings nil)
-  ;; Skip evil-mc bindings
-  (setq evil-collection-mode-list (remq 'evil-mc evil-collection-mode-list))
   (evil-collection-init))
 
 ;; Init evil-mc for supporting multiple cursors in evil mode
 (use-package evil-mc
+  :demand t
+  :general
+  (:keymaps 'evil-mc-cursors-map
+   "d" #'evil-mc-make-and-goto-next-match
+   "D" #'evil-mc-make-and-goto-prev-match)
+  (:keymaps 'mo-quick-menu-map
+   "r" '(:keymap evil-mc-cursors-map :package evil-mc))
   :config
   (global-evil-mc-mode))
 
