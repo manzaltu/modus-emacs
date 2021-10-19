@@ -600,10 +600,14 @@ DIR must include a .project file to be considered a project."
   :config
   (setq forge-database-file (mo-cache-path "forge-database.sqlite")))
 
-;; Open ediff window in the current frame
-(setq ediff-window-setup-function #'ediff-setup-windows-plain)
-;; Set ediff to show diff changes in character-level
-(setq ediff-forward-word-function #'forward-char)
+;; Init ediff for better diff view and commands
+(use-package ediff
+  :straight nil
+  :config
+  ;; Open ediff window in the current frame
+  (setq ediff-window-setup-function #'ediff-setup-windows-plain)
+  ;; Set ediff to show diff changes in character-level
+  (setq ediff-forward-word-function #'forward-char))
 
 ;; Init diff-hl for highlighting uncommitted changes
 (use-package diff-hl
