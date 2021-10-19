@@ -498,9 +498,12 @@ DIR must include a .project file to be considered a project."
   (embark-collect-mode . consult-preview-at-point-mode))
 
 ;; Set buffer commands key bindings
-(general-def
-  "M-K" #'next-buffer
-  "M-J" #'previous-buffer)
+(setq mo-binding-next-buffer "M-J"
+      mo-binding-prev-buffer "M-K")
+
+(general-define-key
+ mo-binding-next-buffer #'next-buffer
+ mo-binding-prev-buffer #'previous-buffer)
 
 ;; Hide the top tab bar
 (setq tab-bar-show -1)
@@ -508,9 +511,12 @@ DIR must include a .project file to be considered a project."
 (tab-bar-mode)
 
 ;; Set tab commands key bindings
-(general-def
-  "M-L" #'tab-next
-  "M-H" #'tab-previous)
+(setq mo-binding-next-tab "M-L"
+      mo-binding-prev-tab "M-H")
+
+(general-define-key
+  mo-binding-next-tab #'tab-next
+  mo-binding-prev-tab #'tab-previous)
 
 ;; Init tab-bar-echo-area for showing tab names in the echo bar
 (use-package tab-bar-echo-area
@@ -944,7 +950,14 @@ run the attached function (if exists) and enable lsp"
 (use-package vterm
   :init
   ;; Set a low response delay
-  (setq vterm-timer-delay 0.07))
+  (setq vterm-timer-delay 0.07)
+  ;; Exclude next/previous tab/buffer key bindings (incl. original excludes)
+  (setq vterm-keymap-exceptions
+        (append '("C-c" "C-x" "C-u" "C-g" "C-h" "C-l" "M-x" "M-o" "C-y" "M-y")
+                `(,mo-binding-next-buffer
+                  ,mo-binding-prev-buffer
+                  ,mo-binding-next-tab
+                  ,mo-binding-prev-tab))))
 
 ;; Init vterm-toggle for quick vterm access
 (use-package vterm-toggle
