@@ -311,26 +311,24 @@ DIR must include a .project file to be considered a project."
   (let ((root (locate-dominating-file dir ".project")))
     (and root (cons 'transient root))))
 
-;; Enable project detection using .project files
-(with-eval-after-load 'project (add-to-list 'project-find-functions #'mo-project-try-local))
-
-;; Set project history file path
-(setq project-list-file (mo-cache-path "projects"))
-
 (defun mo-project-save ()
   "Save the current project to the persistent project list."
   (interactive)
   (message "Project saved: %s" (cdr (project-current t))))
 
-;; Key binding for current project save
-(mo-quick-menu-def
-  :prefix "p"
-  "w" #'mo-project-save)
-
-;; Key binding for project switch
-(mo-quick-menu-def
-  :prefix "p"
-  "p" #'project-switch-project)
+;; Init project for auto project detection
+(use-package project
+  :straight nil
+  :general
+  (:keymaps 'mo-quick-menu-map
+   :prefix "p"
+   "w" #'mo-project-save
+   "p" #'project-switch-project)
+  :config
+  ;; Enable project detection using .project files
+  (add-to-list 'project-find-functions #'mo-project-try-local)
+  ;; Set project history file path
+  (setq project-list-file (mo-cache-path "projects")))
 
 ;; Init consult for enhanced search commands
 (use-package consult
