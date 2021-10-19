@@ -6,3 +6,5 @@
 *~
 # Ignore Emacs cache directory
 /.cache/
+# Ignore Emacs eln cache directory
+/eln-cache/
