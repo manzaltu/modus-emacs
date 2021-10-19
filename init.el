@@ -103,13 +103,13 @@
  "g" '(:which-key "Git")
  "n" '(:which-key "Notes"))
 
-(mo-quick-menu-def
-  :prefix "b"
-  "i" #'ibuffer)
-
-(mo-quick-menu-def
-  ";" #'xref-find-definitions
-  "'" #'xref-find-references)
+;; Init ibuffer for editing buffer lists
+(use-package ibuffer
+  :straight nil
+  :general
+  (:keymaps 'mo-quick-menu-map
+   :prefix "b"
+   "i" #'ibuffer))
 
 (defun mo-copy-file-path ()
   "Copy the full path of the current buffer's file."
