@@ -1083,8 +1083,11 @@ run the attached function (if exists) and enable lsp"
 ;; Inhibit the splash screen
 (setq inhibit-splash-screen t)
 
-;; Enable window management
-(winner-mode 1)
+;; Enable winner-mode for window management
+(use-package winner
+  :straight nil
+  :config
+  (winner-mode 1))
 
 ;; Set the default initial frame size
 (add-to-list 'default-frame-alist '(height . 55))
