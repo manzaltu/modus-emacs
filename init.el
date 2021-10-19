@@ -1065,6 +1065,9 @@ run the attached function (if exists) and enable lsp"
 (tool-bar-mode -1)
 (toggle-scroll-bar -1)
 
+;; Disable cursor blink
+(blink-cursor-mode 0)
+
 ;; Inhibit the splash screen
 (setq inhibit-splash-screen t)
 
