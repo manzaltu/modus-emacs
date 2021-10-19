@@ -1124,10 +1124,13 @@ run the attached function (if exists) and enable lsp"
 ;; Truncate lines by default
 (setq truncate-lines t)
 
-;; Show trailing whitespaces in code
-(require 'whitespace)
-(setq whitespace-style '(face trailing))
-(add-hook 'prog-mode-hook 'whitespace-mode)
+;; Init whitespace for showing trailing whitespaces in code
+(use-package whitespace
+  :straight nil
+  :config
+  (setq whitespace-style '(face trailing))
+  :hook
+  (prog-mode . whitespace-mode))
 
 ;; Start Emacs server
 (server-start)
