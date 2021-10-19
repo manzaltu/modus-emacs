@@ -1138,9 +1138,12 @@ run the attached function (if exists) and enable lsp"
 ;; Set url configuration directory
 (setq url-configuration-directory (mo-cache-path "url"))
 
-;; Persist minibuffer history over Emacs restarts
-(savehist-mode)
-(setq savehist-file (mo-cache-path "history"))
+;; Init savehist for minibuffer history persistence over Emacs restarts
+(use-package savehist
+  :straight nil
+  :config
+  (setq savehist-file (mo-cache-path "history"))
+  (savehist-mode))
 
 ;; Enable recentf for tracking recently opened files
 (setq recentf-save-file (mo-cache-path "recentf"))
