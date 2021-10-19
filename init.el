@@ -513,18 +513,21 @@ DIR must include a .project file to be considered a project."
  mo-binding-next-buffer #'next-buffer
  mo-binding-prev-buffer #'previous-buffer)
 
-;; Hide the top tab bar
-(setq tab-bar-show -1)
-;; Init tab-bar for supporting multiple window layouts in frame
-(tab-bar-mode)
-
-;; Set tab commands key bindings
-(setq mo-binding-next-tab "M-L"
-      mo-binding-prev-tab "M-H")
-
-(general-define-key
-  mo-binding-next-tab #'tab-next
-  mo-binding-prev-tab #'tab-previous)
+;; Init tab-bar for managing tab views
+(use-package tab-bar
+  :straight nil
+  :init
+  ;; Set tab commands key bindings
+  (setq mo-binding-next-tab "M-L"
+        mo-binding-prev-tab "M-H")
+  (general-define-key
+   mo-binding-next-tab #'tab-next
+   mo-binding-prev-tab #'tab-previous)
+  :config
+  ;; Hide the top tab bar
+  (setq tab-bar-show -1)
+  ;; Init tab-bar for supporting multiple window layouts in frame
+  (tab-bar-mode))
 
 ;; Init tab-bar-echo-area for showing tab names in the echo bar
 (use-package tab-bar-echo-area
