@@ -244,6 +244,9 @@
   (:keymaps 'mo-quick-menu-map
    :prefix "n"
    "a" #'org-agenda)
+  (:keymaps 'org-mode-map
+   :states 'normal
+   "TAB" #'org-cycle)
   :config
   ;; Visually indent text under bullets
   (setq org-startup-indented t)
