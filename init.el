@@ -481,7 +481,8 @@ DIR must include a .project file to be considered a project."
   ;; On project switch, use consult for file and regexp search
   (setq project-switch-commands
         '((consult-find "Find file" ?f)
-          (consult-ripgrep "Ripgrep" ?r))))
+          (consult-ripgrep "Ripgrep" ?r)
+	  (magit-status "Magit" ?g))))
 
 ;; Init consult-flycheck for showing syntax errors with consult
 (use-package consult-flycheck
