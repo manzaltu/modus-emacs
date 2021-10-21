@@ -496,11 +496,18 @@ DIR must include a .project file to be considered a project."
   :config
   (marginalia-mode))
 
+(defun mo-embark-magit-status (file)
+  "Run `magit-status` on repo containing the embark target."
+  (interactive "GFile: ")
+  (magit-status (locate-dominating-file file ".git")))
+
 ;; Init embark for enabling contextual actions
 (use-package embark
   :general
   ("C-M-a" #'embark-act)
   ("C-h B" #'embark-bindings)
+  (:keymaps 'embark-file-map
+   "g" #'mo-embark-magit-status)
   :config
   ;; Hide the mode line of the Embark live/completions buffers
   (add-to-list 'display-buffer-alist
