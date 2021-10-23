@@ -80,6 +80,32 @@
   :config
   (gcmh-mode 1))
 
+;; Init evil mode for Vim emulation in Emacs
+(use-package evil
+  :demand t
+  :init
+  ;; Needed for evil-collection
+  (setq evil-want-keybinding nil)
+  ;; Undo
+  (setq evil-undo-system 'undo-redo)
+  (setq evil-want-fine-undo t)
+  ;; Enable Emacs native bindings in insert mode
+  (setq evil-disable-insert-state-bindings t)
+  (setq evil-want-C-u-delete nil)
+  (setq evil-want-C-w-delete nil)
+  ;; Yanking
+  (setq evil-want-Y-yank-to-eol t)
+  ;; Use evil search instead of the native search module
+  (setq evil-search-module 'evil-search)
+  ;; Set word search to look for symbol boundaries
+  (setq evil-symbol-word-search t)
+  ;; Set end of line selection to not include the newline character
+  (setq evil-want-visual-char-semi-exclusive t)
+  :config
+  ;; Set word movement to operate on symbol boundaries
+  (defalias #'forward-evil-word #'forward-evil-symbol)
+  (evil-mode 1))
+
 ;; Prefix keys for quick action menu
 (defvar mo-quick-menu-prefix "SPC")
 (defvar mo-quick-menu-nn-prefix "M-SPC")
@@ -125,31 +151,6 @@
 (mo-quick-menu-def
   :prefix "b"
   "c" #'mo-copy-file-path)
-
-;; Init evil mode for Vim emulation in Emacs
-(use-package evil
-  :init
-  ;; Needed for evil-collection
-  (setq evil-want-keybinding nil)
-  ;; Undo
-  (setq evil-undo-system 'undo-redo)
-  (setq evil-want-fine-undo t)
-  ;; Enable Emacs native bindings in insert mode
-  (setq evil-disable-insert-state-bindings t)
-  (setq evil-want-C-u-delete nil)
-  (setq evil-want-C-w-delete nil)
-  ;; Yanking
-  (setq evil-want-Y-yank-to-eol t)
-  ;; Use evil search instead of the native search module
-  (setq evil-search-module 'evil-search)
-  ;; Set word search to look for symbol boundaries
-  (setq evil-symbol-word-search t)
-  ;; Set end of line selection to not include the newline character
-  (setq evil-want-visual-char-semi-exclusive t)
-  :config
-  ;; Set word movement to operate on symbol boundaries
-  (defalias #'forward-evil-word #'forward-evil-symbol)
-  (evil-mode 1))
 
 ;; Add evil key bindings to other, non-default, modes
 (use-package evil-collection
