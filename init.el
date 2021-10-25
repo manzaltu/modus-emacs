@@ -274,6 +274,7 @@
    "g" #'org-roam-graph
    "i" #'org-roam-node-insert
    "n" #'org-roam-node-find
+   "t" #'org-roam-tag-add
    "c" #'org-roam-capture)
   :custom
   (org-roam-directory org-directory)
