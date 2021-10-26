@@ -613,6 +613,15 @@ DIR must include a .project file to be considered a project."
   (setq transient-history-file (mo-cache-path "transient_history.el"))
   (setq magit-diff-refine-hunk 'all))
 
+;; Init smerge for helping with git merges
+(use-package smerge
+  :straight nil
+  :general
+  (:keymaps 'mo-quick-menu-map
+   :prefix "g"
+   "." #'smerge-next
+   "," #'smerge-prev))
+
 ;; Init forge for working with git forges (e.g. Github, Gitlab)
 (use-package forge
   :after magit
