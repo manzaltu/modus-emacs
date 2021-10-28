@@ -391,6 +391,10 @@ DIR must include a .project file to be considered a project."
    "'" #'consult-register-store
    "r" #'consult-register
    "a" #'consult-apropos)
+  (:keymaps 'mo-quick-menu-map
+   :prefix "b"
+   "b" #'consult-buffer
+   "B" #'consult-buffer-other-window)
   ;; C-x bindings (ctl-x-map)
   ("C-x M-:" #'consult-complex-command)     ;; orig. repeat-complex-command
   ("C-x b" #'consult-buffer)                ;; orig. switch-to-buffer
