@@ -245,6 +245,7 @@
   (:keymaps 'mo-quick-menu-map
    :prefix "n"
    "l" #'org-insert-link
+   "o" #'org-open-at-point
    "L" #'org-store-link
    "a" #'org-agenda)
   (:keymaps 'org-mode-map
