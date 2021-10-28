@@ -344,6 +344,8 @@ DIR must include a .project file to be considered a project."
   (:keymaps 'mo-quick-menu-map
    :prefix "p"
    "w" #'mo-project-save
+   "b" #'mo-project-switch-to-buffer
+   "k" #'project-kill-buffers
    "p" #'project-switch-project)
   :config
   ;; Enable project detection using .project files
