@@ -150,7 +150,8 @@
 
 (mo-quick-menu-def
   :prefix "b"
-  "c" #'mo-copy-file-path)
+  "c" #'mo-copy-file-path
+  "r" #'revert-buffer-quick)
 
 ;; Add evil key bindings to other, non-default, modes
 (use-package evil-collection
