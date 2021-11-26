@@ -373,6 +373,7 @@ DIR must include a .project file to be considered a project."
   ;; Quick bindings
   (:keymaps 'mo-quick-menu-map
    "/" #'consult-line
+   "?" #'consult-line-multi
    "." #'consult-fd
    "," #'consult-ripgrep)
   (:keymaps 'mo-quick-menu-map
@@ -432,6 +433,7 @@ DIR must include a .project file to be considered a project."
   ("M-s m" #'consult-multi-occur)
   ("M-s k" #'consult-keep-lines)
   ("M-s u" #'consult-focus-lines)
+  ("M-s b" #'consult-line-multi)
   ;; Isearch integration
   ("M-s e" #'consult-isearch)
   (:keymaps 'org-mode-map
