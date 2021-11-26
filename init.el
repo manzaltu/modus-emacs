@@ -731,7 +731,7 @@ run the attached function (if exists) and enable lsp"
                 (eval
                  '(setf (lsp-session-server-id->folders (lsp-session)) (ht)))))
   ;; Enable semantic token highlighting
-  ;; (setq lsp-semantic-tokens-enable t)
+  (setq lsp-semantic-tokens-enable t)
   ;; Set clangd default parameters
   (setq lsp-clients-clangd-args '("--header-insertion-decorators=0"
                                   "--completion-style=detailed"))
