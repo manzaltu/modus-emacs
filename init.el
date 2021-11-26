@@ -724,6 +724,7 @@ run the attached function (if exists) and enable lsp"
   ;; Kill language server after the last associated buffer was closed
   (setq lsp-keep-workspace-alive nil)
   (setq lsp-session-file (mo-cache-path "lsp-session-v1"))
+  (setq lsp-eslint-library-choices-file (mo-cache-path ".lsp-eslint-choices"))
   ;; Force lsp mode to forget the workspace folders for multi root servers
   ;; so the folders are added on demand
   (advice-add 'lsp :before
