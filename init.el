@@ -421,8 +421,7 @@ DIR must include a .project file to be considered a project."
   ("M-g M-g" #'consult-goto-line)           ;; orig. goto-line
   (:keymaps 'mo-quick-menu-map
    :prefix "c"
-   "i" #'consult-imenu
-   "I" #'consult-project-imenu)
+   "i" #'consult-imenu)
   ;; M-s bindings (search-map)
   ("M-s f" #'consult-fd)
   ("M-s L" #'consult-locate)
