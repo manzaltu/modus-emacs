@@ -933,6 +933,9 @@ run the attached function (if exists) and enable lsp"
 ;; Init formal-all for a universal code formatter
 (use-package format-all)
 
+;; Disable default tab indentation
+(setq-default indent-tabs-mode nil)
+
 ;; Init dtrt-indent for auto indentation detection
 (use-package dtrt-indent
   :hook
