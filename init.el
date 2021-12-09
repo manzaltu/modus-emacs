@@ -130,6 +130,10 @@
  "r" '(:which-key "Multiple Cursors")
  "n" '(:which-key "Notes"))
 
+;; Quick save key binding
+(mo-quick-menu-def
+  "SPC" #'save-buffer)
+
 ;; Init ibuffer for editing buffer lists
 (use-package ibuffer
   :straight nil
