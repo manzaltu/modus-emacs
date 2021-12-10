@@ -180,6 +180,9 @@
 
 ;; Init evil-surround for quickly adding paired surrounding characters
 (use-package evil-surround
+  :general
+  (:states 'visual
+   "s" #'evil-surround-region)
   :config
   (global-evil-surround-mode 1))
 
