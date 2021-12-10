@@ -116,6 +116,7 @@
 ;; Bind the quick menu map to the leader key and the relevant states
 (general-define-key
  :states '(normal insert visual motion emacs)
+ :keymaps 'override
  :prefix mo-quick-menu-prefix
  :non-normal-prefix mo-quick-menu-nn-prefix
  :prefix-map 'mo-quick-menu-map
