@@ -584,7 +584,9 @@ DIR must include a .project file to be considered a project."
 
 ;; Init dired for file management
 (use-package dired
-  :straight nil)
+  :straight nil
+  :config
+  (setq dired-dwim-target t))
 
 ;; Init treemacs for a tree-like sidebar file navigator
 (use-package treemacs
