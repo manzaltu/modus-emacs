@@ -850,14 +850,14 @@ run the attached function (if exists) and enable lsp"
 (use-package swift-mode)
 
 ;; Init lsp-sourcekit for SourceKit language server
-;; This is a MacOS only feature
-(if (eq system-type 'darwin)
-    (use-package lsp-sourcekit
-      :after lsp-mode
-      :config
-      (setq lsp-sourcekit-executable
-            (string-trim
-             (shell-command-to-string "xcrun --find sourcekit-lsp")))))
+(use-package lsp-sourcekit
+  :after lsp-mode
+  :config
+  (setq lsp-sourcekit-executable
+        (string-trim
+         (if (eq system-type 'darwin)
+             (shell-command-to-string "xcrun --find sourcekit-lsp")
+           "sourcekit-lsp"))))
 
 ;; Init go-mode for Go support
 (use-package go-mode)
