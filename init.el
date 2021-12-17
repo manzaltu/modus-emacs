@@ -582,6 +582,10 @@ DIR must include a .project file to be considered a project."
    "t" #'tab-bar-lost-commands-switch-to-or-create-tab
    "T" #'tab-bar-close-tab))
 
+;; Init dired for file management
+(use-package dired
+  :straight nil)
+
 ;; Init treemacs for a tree-like sidebar file navigator
 (use-package treemacs
   :general
