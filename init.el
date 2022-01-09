@@ -865,6 +865,9 @@ run the attached function (if exists) and enable lsp"
              (shell-command-to-string "xcrun --find sourcekit-lsp")
            "sourcekit-lsp"))))
 
+;; Init haskell-mode for Haskell support
+(use-package haskell-mode)
+
 ;; Init go-mode for Go support
 (use-package go-mode)
 
