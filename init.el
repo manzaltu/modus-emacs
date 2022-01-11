@@ -183,6 +183,7 @@
 
 ;; Init evil-surround for quickly adding paired surrounding characters
 (use-package evil-surround
+  :demand t
   :general
   (:states 'visual
    "s" #'evil-surround-region)
