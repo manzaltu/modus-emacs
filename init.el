@@ -204,13 +204,15 @@
   ;; Show a gradual pulse
   (setq-default goggles-pulse t))
 
-;; Init avy for text zapping using 2 chars
+;; Init avy for text zapping using free text and a timeout
 (use-package avy
   :general
-  (:states 'motion "M" #'avy-goto-char-2)
+  (:states '(motion insert)
+   "M-p" #'avy-goto-char-timer)
   :config
   ;; Search in the current window only
-  (setq avy-all-windows nil))
+  (setq avy-all-windows nil)
+  (setq avy-timeout-seconds 0.25))
 
 ;; Init better-jumper for better controlling the jump list logic
 (use-package better-jumper
