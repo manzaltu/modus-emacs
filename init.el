@@ -595,6 +595,9 @@ DIR must include a .project file to be considered a project."
 ;; Init dired for file management
 (use-package dired
   :straight nil
+  :general
+  (:keymaps 'mo-quick-menu-map
+   "d" #'dired-jump)
   :config
   (setq dired-dwim-target t))
 
