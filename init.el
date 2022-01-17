@@ -206,9 +206,17 @@
 
 ;; Init avy for text zapping using free text and a timeout
 (use-package avy
+  :config
+  (defun mo-avy-goto-char-timer-action ()
+    "Zap to free text search with timeout.
+Ask for action even on single candidate jumps."
+    (interactive)
+    (let ((avy-single-candidate-jump nil))
+      (call-interactively #'avy-goto-char-timer)))
   :general
   (:states '(motion insert)
-   "M-p" #'avy-goto-char-timer)
+   "M-p" #'avy-goto-char-timer
+   "M-P" #'mo-avy-goto-char-timer-action)
   :config
   ;; Search in the current window only
   (setq avy-all-windows nil)
