@@ -599,7 +599,9 @@ DIR must include a .project file to be considered a project."
   (setq dired-dwim-target t))
 
 ;; Init dired+ for additional dired functionality
-(use-package dired+)
+(use-package dired+
+  :init
+  (setq diredp-hide-details-initially-flag nil))
 
 ;; Init treemacs for a tree-like sidebar file navigator
 (use-package treemacs
