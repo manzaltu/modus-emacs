@@ -556,6 +556,9 @@ DIR must include a .project file to be considered a project."
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
 
+;; Init wgrep for editing grep-style results across files in grep buffer
+(use-package wgrep)
+
 ;; Set buffer commands key bindings
 (setq mo-binding-next-buffer "M-J"
       mo-binding-prev-buffer "M-K")
