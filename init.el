@@ -280,7 +280,8 @@ Ask for action even on single candidate jumps."
   (setq org-agenda-start-on-weekday 0)
   (setq org-agenda-diary-file
         (concat (file-name-as-directory org-directory) "diary.org"))
-  (setq org-id-locations-file (mo-cache-path ".org-id-locations")))
+  (setq org-id-locations-file (mo-cache-path ".org-id-locations"))
+  (setq org-src-preserve-indentation t))
 
 ;; Init org-bullets for showing org mode bullets as UTF-8 characters
 (use-package org-bullets
