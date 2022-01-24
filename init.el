@@ -331,6 +331,16 @@ Ask for action even on single candidate jumps."
   (setq vertico-count 20)
   (vertico-mode))
 
+;; Init vertico-repeat for repeating the last minibuffer command
+(use-package vertico-repeat
+  :after vertico
+  :straight nil
+  :general
+  (:keymaps 'mo-quick-menu-map
+   "z" #'vertico-repeat)
+  :hook
+  (minibuffer-setup . vertico-repeat-save))
+
 ;; Used by project.el for project detection
 (defun mo-project-try-local (dir)
   "Determine if DIR is a project.
