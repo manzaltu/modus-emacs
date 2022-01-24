@@ -349,6 +349,9 @@ Ask for action even on single candidate jumps."
   (:keymaps 'vertico-map
    "M-q" #'vertico-quick-jump))
 
+;; Enable recursive minibuffer
+(setq enable-recursive-minibuffers t)
+
 ;; Used by project.el for project detection
 (defun mo-project-try-local (dir)
   "Determine if DIR is a project.
