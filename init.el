@@ -352,6 +352,11 @@ Ask for action even on single candidate jumps."
 ;; Enable recursive minibuffer
 (setq enable-recursive-minibuffers t)
 
+;; Init recursion-indicator for indicating minibuffer recursions
+(use-package recursion-indicator
+  :config
+  (recursion-indicator-mode))
+
 ;; Used by project.el for project detection
 (defun mo-project-try-local (dir)
   "Determine if DIR is a project.
