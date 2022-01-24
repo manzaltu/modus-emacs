@@ -323,31 +323,11 @@ Ask for action even on single candidate jumps."
   (setq orderless-matching-styles '(orderless-regexp orderless-literal))
   :custom (completion-styles '(orderless)))
 
-;; Init selectrum for item list selection
-(use-package selectrum
-  :demand t
-  :after orderless
-  :general
-  (:keymaps 'mo-quick-menu-map
-   "z" #'selectrum-repeat)
+;; Init vertico for item list selection
+(use-package vertico
   :config
-  ;; Highlight only visible candidates
-  (setq orderless-skip-highlighting (lambda () selectrum-is-active))
-  (setq selectrum-highlight-candidates-function #'orderless-highlight-matches)
-  ;; Use the default minibuffer height, instead of Selectrum's
-  (setq selectrum-max-window-height nil)
-  (selectrum-mode +1))
-
-;; Init selectrum-prescient for completion sort and history
-(use-package selectrum-prescient
-  :after selectrum
-  :config
-  ;; We don't need filtering (orderless is used instead)
-  (setq selectrum-prescient-enable-filtering nil)
-  (setq prescient-save-file (mo-cache-path "persp-state"))
-  (setq prescient-sort-full-matches-first t)
-  (selectrum-prescient-mode +1)
-  (prescient-persist-mode +1))
+  (setq vertico-count 20)
+  (vertico-mode))
 
 ;; Used by project.el for project detection
 (defun mo-project-try-local (dir)
@@ -463,11 +443,6 @@ DIR must include a .project file to be considered a project."
   :config
   ;; Configure the narrowing key.
   (setq consult-narrow-key ">")
-
-  ;; Selectrum sometimes hides results due to an issue with dynamic resizing
-  ;; Disable result grouping until the issue is resolved
-  ;; See more here https://github.com/raxod502/selectrum/issues/491
-  (setq selectrum-group-format nil)
 
   ;; Use consult to select xref locations with preview
   (setq xref-show-xrefs-function #'consult-xref
