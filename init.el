@@ -325,6 +325,8 @@ Ask for action even on single candidate jumps."
 
 ;; Init vertico for item list selection
 (use-package vertico
+  ;; Load extensions
+  :straight (:files (:defaults "extensions/*"))
   :config
   (setq vertico-count 20)
   (vertico-mode))
