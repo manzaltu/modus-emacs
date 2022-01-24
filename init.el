@@ -341,6 +341,14 @@ Ask for action even on single candidate jumps."
   :hook
   (minibuffer-setup . vertico-repeat-save))
 
+;; Init vertico-quick for quick result selection
+(use-package vertico-quick
+  :after vertico
+  :straight nil
+  :general
+  (:keymaps 'vertico-map
+   "M-q" #'vertico-quick-jump))
+
 ;; Used by project.el for project detection
 (defun mo-project-try-local (dir)
   "Determine if DIR is a project.
