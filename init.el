@@ -1097,12 +1097,9 @@ run the attached function (if exists) and enable lsp"
   (setq dashboard-projects-backend 'project-el)
   (setq dashboard-center-content t)
   (setq dashboard-set-footer nil)
-  ;; Close agenda buffers after retrieving the agenda
-  (setq dashboard-agenda-release-buffers t)
   (setq dashboard-items '((projects . 5)
                           (recents  . 5)
-                          (bookmarks . 5)
-                          (agenda . 5)))
+                          (bookmarks . 5)))
   (dashboard-setup-startup-hook))
 
 ;; Init doom vibrant theme
