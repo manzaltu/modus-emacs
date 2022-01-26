@@ -1097,9 +1097,9 @@ run the attached function (if exists) and enable lsp"
   (setq dashboard-projects-backend 'project-el)
   (setq dashboard-center-content t)
   (setq dashboard-set-footer nil)
-  (setq dashboard-items '((projects . 5)
-                          (recents  . 5)
-                          (bookmarks . 5)))
+  (setq dashboard-items '((projects . 10)
+                          (recents  . 10)
+                          (bookmarks . 10)))
   (dashboard-setup-startup-hook))
 
 ;; Init doom vibrant theme
