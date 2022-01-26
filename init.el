@@ -1100,6 +1100,8 @@ run the attached function (if exists) and enable lsp"
   (setq dashboard-init-info "In Absentia Lucis, Tenebrae Vincunt")
   (setq dashboard-projects-backend 'project-el)
   (setq dashboard-center-content t)
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-set-file-icons t)
   (setq dashboard-set-footer nil)
   (setq dashboard-items '((projects . 10)
                           (recents  . 10)
