@@ -68,6 +68,8 @@
 (straight-use-package 'use-package)
 ;; Packages should be installed by default using straight
 (setq straight-use-package-by-default t)
+;; Show calls to use-package in imenu
+(setq use-package-enable-imenu-support t)
 
 ;; Optionally, load personal settings
 (load (concat (file-name-directory load-file-name) "personal.el") t)
