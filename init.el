@@ -220,6 +220,11 @@ Ask for action even on single candidate jumps."
    "M-p" #'avy-goto-char-timer
    "M-P" #'mo-avy-goto-char-timer-action)
   :config
+  ;; Better highlight the leading characters
+  (set-face-attribute 'avy-lead-face nil :background "gold1")
+  (set-face-attribute 'avy-lead-face-0 nil :background "gold2")
+  (set-face-attribute 'avy-lead-face-1 nil :background "gold3")
+  (set-face-attribute 'avy-lead-face-2 nil :background "gold4")
   ;; Search in the current window only
   (setq avy-all-windows nil)
   (setq avy-timeout-seconds 0.25))
