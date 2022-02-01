@@ -551,9 +551,11 @@ DIR must include a .project file to be considered a project."
 (use-package embark
   :general
   ("C-M-a" #'embark-act)
-  ("C-h B" #'embark-bindings)
   (:keymaps 'embark-file-map
    "g" #'mo-embark-magit-status)
+  (:keymaps 'mo-quick-menu-map
+   :prefix "h"
+   "b" #'embark-bindings)
   :config
   ;; Hide the mode line of the Embark live/completions buffers
   (add-to-list 'display-buffer-alist
