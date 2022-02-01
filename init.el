@@ -1008,6 +1008,14 @@ run the attached function (if exists) and enable lsp"
   (setq which-key-add-column-padding 8)
   (which-key-mode))
 
+;; Init info for browsing documentation
+(use-package info
+  :straight nil
+  :general
+  (:keymaps 'mo-quick-menu-map
+   :prefix "h"
+   "i" #'info))
+
 ;; Init helpful for better lisp help
 (use-package helpful
   :general
