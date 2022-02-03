@@ -1058,11 +1058,6 @@ run the attached function (if exists) and enable lsp"
   :general
   (:states '(normal, visual) "gc" #'evilnc-comment-operator))
 
-;; Init popwin for popup management
-(use-package popwin
-  :config
-  (popwin-mode 1))
-
 ;; Init ace-window for fast window selection
 (use-package ace-window
   :general
