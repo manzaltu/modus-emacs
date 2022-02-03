@@ -1058,6 +1058,11 @@ run the attached function (if exists) and enable lsp"
   :general
   (:states '(normal, visual) "gc" #'evilnc-comment-operator))
 
+;; A fast key binding for showing the next command's result in another window.
+;; Make sure it also works when the command is using 'switch-to-buffer'.
+(setq switch-to-buffer-obey-display-actions t)
+(general-define-key "M-[" #'other-window-prefix)
+
 ;; Init ace-window for fast window selection
 (use-package ace-window
   :general
