@@ -126,12 +126,21 @@
  "b" '(:which-key "Buffer")
  "s" '(:which-key "Search")
  "v" '(:which-key "View")
+ "w" '(:which-key "Window")
  "h" '(:which-key "Help")
  "p" '(:which-key "Project")
  "c" '(:which-key "Code")
  "g" '(:which-key "Git")
  "r" '(:which-key "Multiple Cursors")
  "n" '(:which-key "Notes"))
+
+;; Add evil shortcuts here, after the initialization of the quick menu map
+(when (featurep 'evil)
+  (mo-quick-menu-def
+    :prefix "w"
+    "v" #'evil-window-vsplit
+    "s" #'evil-window-split
+    "c" #'evil-window-delete))
 
 ;; Quick save key binding
 (mo-quick-menu-def
