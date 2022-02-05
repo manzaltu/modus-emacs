@@ -1190,7 +1190,7 @@ run the attached function (if exists) and enable lsp"
 (use-package zoom-window
   :general
   (:keymaps 'mo-quick-menu-map
-   :prefix "v"
+   :prefix "w"
    "z" #'zoom-window-zoom)
   :config
   (setq zoom-window-mode-line-color "#3b404e")
