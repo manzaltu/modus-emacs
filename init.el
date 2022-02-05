@@ -124,6 +124,7 @@
  :prefix-map 'mo-quick-menu-map
  :which-key "Quick menu prefix key"
  "b" '(:which-key "Buffer")
+ "f" '(:which-key "File")
  "s" '(:which-key "Search")
  "v" '(:which-key "View")
  "w" '(:which-key "Window")
@@ -168,6 +169,10 @@
   :prefix "b"
   "c" #'mo-copy-file-path
   "r" #'revert-buffer-quick)
+
+(mo-quick-menu-def
+  :prefix "f"
+  "f" #'find-file)
 
 ;; Add evil key bindings to other, non-default, modes
 (use-package evil-collection
