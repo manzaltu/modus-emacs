@@ -1176,8 +1176,8 @@ run the attached function (if exists) and enable lsp"
   :general
   (:keymaps 'mo-quick-menu-map
    :prefix "v"
-   "x" #'desktop+-load
-   "X" #'desktop+-create)
+   "d" #'desktop+-load
+   "D" #'desktop+-create)
   :commands desktop+-create
   :init
   (setq desktop+-base-dir (mo-cache-path "desktops"))
