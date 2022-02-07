@@ -167,7 +167,7 @@
 
 (mo-quick-menu-def
   :prefix "b"
-  "c" #'mo-copy-file-path
+  "p" #'mo-copy-file-path
   "r" #'revert-buffer-quick
   "k" #'kill-current-buffer)
 
