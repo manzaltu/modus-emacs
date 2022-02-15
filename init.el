@@ -147,6 +147,10 @@
 (mo-quick-menu-def
   "SPC" #'save-buffer)
 
+;; Universal argument key binding
+(mo-quick-menu-def
+  "u" #'universal-argument)
+
 ;; Init ibuffer for editing buffer lists
 (use-package ibuffer
   :straight nil
