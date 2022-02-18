@@ -533,7 +533,7 @@ DIR must include a .project file to be considered a project."
 
   ;; Do not auto preview ripgrep and recent file results
   (consult-customize
-   consult-ripgrep consult--source-file consult--source-project-file
+   consult-ripgrep consult--source-recent-file consult--source-project-recent-file
    :preview-key (kbd "M-."))
 
   ;; Configure project detection using project.el
