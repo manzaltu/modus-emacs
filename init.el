@@ -618,11 +618,6 @@ DIR must include a .project file to be considered a project."
   ;; Init tab-bar for supporting multiple window layouts in frame
   (tab-bar-mode))
 
-;; Init tab-bar-echo-area for showing tab names in the echo bar
-(use-package tab-bar-echo-area
-  :config
-  (tab-bar-echo-area-mode))
-
 ;; Init tab-bar-lost-commands for usable tab-bar commands
 (use-package tab-bar-lost-commands
   :general
