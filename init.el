@@ -610,8 +610,8 @@ DIR must include a .project file to be considered a project."
    mo-binding-next-tab #'tab-next
    mo-binding-prev-tab #'tab-previous)
   :config
-  ;; Hide the top tab bar
-  (setq tab-bar-show -1)
+  ;; Show tab bar for frames with more than one tab
+  (setq tab-bar-show 1)
   ;; Init tab-bar for supporting multiple window layouts in frame
   (tab-bar-mode))
 
