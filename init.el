@@ -404,7 +404,6 @@ DIR must include a .project file to be considered a project."
    "d" #'project-dired
    "c" #'project-compile
    "x" #'project-shell-command
-   "b" #'mo-project-switch-to-buffer
    "k" #'project-kill-buffers
    "p" #'project-switch-project)
   :config
@@ -416,13 +415,6 @@ DIR must include a .project file to be considered a project."
 ;; Init consult for enhanced search commands
 (use-package consult
   :demand t
-  :init
-  (defun mo-project-switch-to-buffer ()
-    "Switch buffer in project using consult's buffer selector"
-    (interactive)
-    (setq unread-command-events (append unread-command-events (list ?p 32)))
-    (consult-buffer))
-
   :general
   ;; Quick bindings
   (:keymaps 'mo-quick-menu-map
@@ -493,6 +485,9 @@ DIR must include a .project file to be considered a project."
    "M-e" #'consult-isearch)                 ;; orig. isearch-edit-string
   ("M-s e" #'consult-isearch)               ;; orig. isearch-edit-string
   ("M-s l" #'consult-line)                  ;; required by consult-line to detect isearch
+  (:keymaps 'mo-quick-menu-map
+   :prefix "p"
+   "b" #'consult-project-buffer)
 
   :config
   ;; Configure the narrowing key.
