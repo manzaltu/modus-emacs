@@ -354,6 +354,7 @@ Ask for action even on single candidate jumps."
   :straight (:files (:defaults "extensions/*"))
   :config
   (setq vertico-count 20)
+  (setq vertico-cycle t)
   (vertico-mode))
 
 ;; Init vertico-repeat for repeating the last minibuffer command
