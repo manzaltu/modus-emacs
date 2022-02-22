@@ -612,6 +612,9 @@ DIR must include a .project file to be considered a project."
   :config
   ;; Show tab bar for frames with more than one tab
   (setq tab-bar-show 1)
+  ;; Disable tab bar buttons
+  (setq tab-bar-close-button-show nil)
+  (setq tab-bar-new-button-show nil)
   ;; Init tab-bar for supporting multiple window layouts in frame
   (tab-bar-mode))
 
