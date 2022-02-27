@@ -873,6 +873,12 @@ run the attached function (if exists) and enable lsp"
   (setq company-idle-delay 0.0)
   (global-company-mode))
 
+;; Init company-prescient for sorting auto completions
+(use-package company-prescient
+  :after company
+  :config
+  (company-prescient-mode))
+
 ;; Init company-box for completions with icons
 (use-package company-box
   :hook (company-mode . company-box-mode))
