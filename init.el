@@ -877,6 +877,8 @@ run the attached function (if exists) and enable lsp"
 (use-package company-prescient
   :after company
   :config
+  (setq prescient-save-file (mo-cache-path "persp-state"))
+  (prescient-persist-mode +1)
   (company-prescient-mode))
 
 ;; Init company-box for completions with icons
