@@ -878,6 +878,7 @@ run the attached function (if exists) and enable lsp"
   :after company
   :config
   (setq prescient-save-file (mo-cache-path "persp-state"))
+  (setq prescient-sort-full-matches-first t)
   (prescient-persist-mode +1)
   (company-prescient-mode))
 
