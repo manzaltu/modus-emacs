@@ -691,7 +691,7 @@ DIR must include a .project file to be considered a project."
   (setq magit-diff-refine-hunk 'all))
 
 ;; Init smerge for helping with git merges
-(use-package smerge
+(use-package smerge-mode
   :straight nil
   :general
   (:keymaps 'mo-quick-menu-map
