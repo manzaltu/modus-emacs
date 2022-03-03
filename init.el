@@ -695,9 +695,9 @@ DIR must include a .project file to be considered a project."
   :straight nil
   :general
   (:keymaps 'mo-quick-menu-map
-   :prefix "g"
-   "." #'smerge-next
-   "," #'smerge-prev))
+   "m" '(:keymap smerge-basic-map :package smerge))
+  :init
+  (setq smerge-command-prefix ""))
 
 ;; Init forge for working with git forges (e.g. Github, Gitlab)
 (use-package forge
