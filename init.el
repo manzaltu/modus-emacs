@@ -544,6 +544,9 @@ DIR must include a .project file to be considered a project."
           (consult-ripgrep "Ripgrep" ?r)
 	  (magit-status "Magit" ?g))))
 
+;; Init consult-project-extra for finding files and buffers in project
+(use-package consult-project-extra)
+
 ;; Init consult-flycheck for showing syntax errors with consult
 (use-package consult-flycheck
   :general
