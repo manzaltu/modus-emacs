@@ -1054,6 +1054,10 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init devdocs for viewing online dev documentation
 (use-package devdocs
+  :general
+  (:keymaps 'mo-quick-menu-map
+   :prefix "h"
+   "d" #'devdocs-lookup)
   :config
   (setq devdocs-data-dir (mo-cache-path "devdocs")))
 
