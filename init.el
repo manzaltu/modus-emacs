@@ -1052,6 +1052,9 @@ run the attached function (if exists) and enable lsp"
    "k" #'helpful-key
    "h" #'helpful-at-point))
 
+;; Init devdocs for viewing online dev documentation
+(use-package devdocs)
+
 ;; Init google-this for quick Google searches from Emacs
 (use-package google-this
   :general
