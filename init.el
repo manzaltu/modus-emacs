@@ -741,7 +741,7 @@ DIR must include a .project file to be considered a project."
   :general
   (:keymaps 'mo-quick-menu-map
    :prefix "g"
-   "l" #'git-link)
+   "L" #'git-link)
   :config
   (setq git-link-use-commit t))
 
