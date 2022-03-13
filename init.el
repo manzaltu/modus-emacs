@@ -595,8 +595,8 @@ DIR must include a .project file to be considered a project."
 (use-package wgrep)
 
 ;; Set buffer commands key bindings
-(setq mo-binding-next-buffer "M-J"
-      mo-binding-prev-buffer "M-K")
+(setq mo-binding-next-buffer "C-M-s-j"
+      mo-binding-prev-buffer "C-M-s-k")
 
 (general-define-key
  mo-binding-next-buffer #'next-buffer
@@ -607,8 +607,8 @@ DIR must include a .project file to be considered a project."
   :straight nil
   :init
   ;; Set tab commands key bindings
-  (setq mo-binding-next-tab "M-L"
-        mo-binding-prev-tab "M-H")
+  (setq mo-binding-next-tab "C-M-s-l"
+        mo-binding-prev-tab "C-M-s-h")
   (general-define-key
    mo-binding-next-tab #'tab-next
    mo-binding-prev-tab #'tab-previous)
