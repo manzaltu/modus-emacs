@@ -1180,6 +1180,8 @@ run the attached function (if exists) and enable lsp"
   (set-face-attribute 'lsp-face-highlight-write nil :underline t)
   ;; Set buffer margins background color
   (set-face-attribute 'fringe nil :background (face-attribute 'mode-line :background))
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config)
   ;; Load icons here, so their background will be aligned with the theme
   (treemacs-icons-dired-mode))
 
