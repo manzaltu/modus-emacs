@@ -1166,7 +1166,7 @@ run the attached function (if exists) and enable lsp"
                           (bookmarks . 10)))
   (dashboard-setup-startup-hook))
 
-;; Init doom vibrant theme
+;; Init doom one theme
 (use-package doom-themes
   :after treemacs-icons-dired
   :config
@@ -1174,8 +1174,8 @@ run the attached function (if exists) and enable lsp"
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
         doom-themes-enable-italic t) ; if nil, italics is universally disabled
   ;; Set brighter comments
-  (setq doom-vibrant-brighter-comments t)
-  (load-theme 'doom-vibrant t)
+  (setq doom-one-brighter-comments t)
+  (load-theme 'doom-one t)
   ;; Distinguish between var reads and writes by underlining lsp write highlights
   (set-face-attribute 'lsp-face-highlight-write nil :underline t)
   ;; Set buffer margins background color
