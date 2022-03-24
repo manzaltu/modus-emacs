@@ -1185,6 +1185,11 @@ run the attached function (if exists) and enable lsp"
   ;; Load icons here, so their background will be aligned with the theme
   (treemacs-icons-dired-mode))
 
+;; Init solaire-mode for visually highlighting file backed buffers
+(use-package solaire-mode
+  :config
+  (solaire-global-mode +1))
+
 ;; Init minions for collapsing the minor mode indicator in the modeline
 (use-package minions
   :config
