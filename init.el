@@ -247,6 +247,11 @@ Ask for action even on single candidate jumps."
   (set-face-attribute 'avy-lead-face-2 nil :background "gold4")
   (setq avy-timeout-seconds 0.25))
 
+;; Init evil-snipe for an improved 1 char evil search experience
+(use-package evil-snipe
+  :config
+  (evil-snipe-override-mode 1))
+
 ;; Init better-jumper for better controlling the jump list logic
 (use-package better-jumper
   :demand t
