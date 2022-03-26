@@ -238,8 +238,7 @@ Ask for action even on single candidate jumps."
     (let ((avy-single-candidate-jump nil))
       (avy-goto-char-timer)))
   :general
-  (:states '(motion insert)
-   "M-p" #'avy-goto-char-timer
+  ("M-p" #'avy-goto-char-timer
    "M-P" #'mo-avy-goto-char-timer-action)
   :config
   ;; Better highlight the leading characters
