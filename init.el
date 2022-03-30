@@ -837,9 +837,7 @@ run the attached function (if exists) and enable lsp"
    "d" #'lsp-ui-doc-show)
   :config
   ;; Do not show documentation automatically
-  (setq lsp-ui-doc-show-with-cursor nil)
-  (setq lsp-ui-doc-show-with-mouse nil)
-  (setq lsp-ui-doc-position 'at-point))
+  (setq lsp-ui-doc-position 'top))
 
 ;; Init lsp-treemacs for an interactive lsp tree-like interface
 (use-package lsp-treemacs
