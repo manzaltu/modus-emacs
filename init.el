@@ -834,7 +834,9 @@ run the attached function (if exists) and enable lsp"
   :general
   (:keymaps 'mo-quick-menu-map
    :prefix "c"
-   "d" #'lsp-ui-doc-show)
+   "d" #'(lambda ()
+           (interactive)
+           (setq lsp-ui-doc-show-with-cursor (not lsp-ui-doc-show-with-cursor))))
   :config
   ;; Do not show documentation automatically
   (setq lsp-ui-doc-position 'top))
