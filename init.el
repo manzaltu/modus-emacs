@@ -719,6 +719,11 @@ DIR must include a .project file to be considered a project."
 
 ;; Init code-review for helping with code review on git forges
 (use-package code-review
+  :general
+  (:keymaps 'code-review-mode-map
+   :states '(normal emacs)
+   "r" #'code-review-transient-api
+   "RET" #'code-review-comment-add-or-edit)
   :config
   (setq code-review-download-dir (mo-cache-path "code-review"))
   (setq code-review-db-database-file (mo-cache-path "code-review-db-file.sqlite")))
