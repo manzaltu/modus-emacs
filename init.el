@@ -717,6 +717,9 @@ DIR must include a .project file to be considered a project."
   :config
   (setq forge-database-file (mo-cache-path "forge-database.sqlite")))
 
+;; Init code-review for helping with code review on git forges
+(use-package code-review)
+
 ;; Init ediff for better diff view and commands
 (use-package ediff
   :straight nil
