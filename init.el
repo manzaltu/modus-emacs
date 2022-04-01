@@ -724,6 +724,9 @@ DIR must include a .project file to be considered a project."
    :states '(normal emacs)
    "r" #'code-review-transient-api
    "RET" #'code-review-comment-add-or-edit)
+  (:keymaps 'mo-quick-menu-map
+   :prefix "g"
+   "r" #'code-review-forge-pr-at-point)
   :config
   (setq code-review-download-dir (mo-cache-path "code-review"))
   (setq code-review-db-database-file (mo-cache-path "code-review-db-file.sqlite")))
