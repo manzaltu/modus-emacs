@@ -174,6 +174,7 @@
 (mo-quick-menu-def
   :prefix "b"
   "p" #'mo-copy-file-path
+  "t" #'toggle-truncate-lines
   "r" #'revert-buffer-quick
   "k" #'kill-current-buffer)
 
