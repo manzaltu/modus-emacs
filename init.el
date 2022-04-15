@@ -917,10 +917,6 @@ run the attached function (if exists) and enable lsp"
   (prescient-persist-mode +1)
   (company-prescient-mode))
 
-;; Init company-box for completions with icons
-(use-package company-box
-  :hook (company-mode . company-box-mode))
-
 ;; Init consult-lsp for additional interacitve lsp commands
 (use-package consult-lsp
   :after (lsp-mode consult)
