@@ -409,7 +409,7 @@ DIR must include a .project file to be considered a project."
    "w" #'mo-project-save
    "d" #'project-dired
    "c" #'project-compile
-   "x" #'project-shell-command
+   "x" #'project-async-shell-command
    "k" #'project-kill-buffers
    "p" #'project-switch-project)
   :config
