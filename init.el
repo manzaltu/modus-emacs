@@ -182,6 +182,11 @@
   :prefix "f"
   "f" #'find-file)
 
+(mo-quick-menu-def
+  :prefix "w"
+  "=" #'balance-windows
+  "C" #'delete-other-windows)
+
 ;; Add evil key bindings to other, non-default, modes
 (use-package evil-collection
   :after evil
