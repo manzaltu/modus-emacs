@@ -626,6 +626,7 @@ DIR must include a .project file to be considered a project."
   :general
   (:keymaps 'mo-quick-menu-map
    :prefix "t"
+   "r" #'tab-bar-rename-tab
    "c" #'tab-bar-close-tab)
   :config
   ;; Disable tab bar buttons
