@@ -130,6 +130,7 @@
  "s" '(:which-key "Search")
  "v" '(:which-key "View")
  "w" '(:which-key "Window")
+ "t" '(:which-key "Tab")
  "h" '(:which-key "Help")
  "p" '(:which-key "Project")
  "c" '(:which-key "Code")
