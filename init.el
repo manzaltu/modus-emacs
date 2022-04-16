@@ -626,6 +626,9 @@ DIR must include a .project file to be considered a project."
   ;; Disable tab bar buttons
   (setq tab-bar-close-button-show nil)
   (setq tab-bar-new-button-show nil)
+  ;; Customize the tab bar
+  (setq tab-bar-format '(tab-bar-format-tabs-groups
+                         tab-bar-separator))
   ;; Init tab-bar for supporting multiple window layouts in frame
   (tab-bar-mode))
 
