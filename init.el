@@ -623,6 +623,10 @@ DIR must include a .project file to be considered a project."
   (general-define-key
    mo-binding-next-tab #'tab-next
    mo-binding-prev-tab #'tab-previous)
+  :general
+  (:keymaps 'mo-quick-menu-map
+   :prefix "t"
+   "c" #'tab-bar-close-tab)
   :config
   ;; Disable tab bar buttons
   (setq tab-bar-close-button-show nil)
@@ -637,9 +641,8 @@ DIR must include a .project file to be considered a project."
 (use-package tab-bar-lost-commands
   :general
   (:keymaps 'mo-quick-menu-map
-   :prefix "v"
-   "t" #'tab-bar-lost-commands-switch-to-or-create-tab
-   "T" #'tab-bar-close-tab))
+   :prefix "t"
+   "t" #'tab-bar-lost-commands-switch-to-or-create-tab))
 
 ;; Init dired for file management
 (use-package dired
