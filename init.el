@@ -623,8 +623,6 @@ DIR must include a .project file to be considered a project."
    mo-binding-next-tab #'tab-next
    mo-binding-prev-tab #'tab-previous)
   :config
-  ;; Show tab bar for frames with more than one tab
-  (setq tab-bar-show 1)
   ;; Disable tab bar buttons
   (setq tab-bar-close-button-show nil)
   (setq tab-bar-new-button-show nil)
