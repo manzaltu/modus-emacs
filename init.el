@@ -635,6 +635,7 @@ DIR must include a .project file to be considered a project."
   ;; Customize the tab bar
   (setq tab-bar-format '(tab-bar-format-tabs-groups
                          tab-bar-separator))
+  (setq tab-bar-tab-hints t)
   ;; Init tab-bar for supporting multiple window layouts in frame
   (tab-bar-mode))
 
