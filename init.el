@@ -302,6 +302,8 @@ Ask for action even on single candidate jumps."
    "l" #'org-insert-link
    "o" #'org-open-at-point
    "L" #'org-store-link
+   "s" #'org-schedule
+   "t" #'org-todo
    "a" #'org-agenda)
   (:keymaps 'org-mode-map
    :states 'normal
@@ -334,7 +336,7 @@ Ask for action even on single candidate jumps."
    "g" #'org-roam-graph
    "i" #'org-roam-node-insert
    "n" #'org-roam-node-find
-   "t" #'org-roam-tag-add
+   "T" #'org-roam-tag-add
    "c" #'org-roam-capture)
   :custom
   (org-roam-directory org-directory)
