@@ -1175,23 +1175,6 @@ If project root cannot be found, use the buffer's default directory."
                   ,mo-binding-next-tab
                   ,mo-binding-prev-tab))))
 
-;; Init vterm-toggle for quick vterm access
-(use-package vterm-toggle
-  :general
-  (:keymaps 'mo-quick-menu-map
-   :prefix "p"
-   "t" #'vterm-toggle)
-  :config
-  (setq vterm-toggle-scope 'project)
-  ;; Show vterm window at the bottom
-  (add-to-list 'display-buffer-alist
-               '((lambda(bufname _) (with-current-buffer bufname (equal major-mode 'vterm-mode)))
-                 (display-buffer-reuse-window display-buffer-in-direction)
-                 (direction . bottom)
-                 (dedicated . t)
-                 (reusable-frames . visible)
-                 (window-height . 0.4))))
-
 ;; Set eshell cache directory
 (setq eshell-directory-name (file-name-as-directory (mo-cache-path "eshell")))
 
