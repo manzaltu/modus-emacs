@@ -1293,6 +1293,8 @@ run the attached function (if exists) and enable lsp"
           "^\\*shell.*\\*$" shell-mode
           "^\\*term.*\\*$" term-mode
           "^\\*vterm.*\\*.*$" vterm-mode))
+  ;; Group popups by their associated project, with default dir as a fallback
+  (setq popper-group-function #'popper-group-by-directory)
   (popper-mode +1)
   (popper-echo-mode +1))
 
