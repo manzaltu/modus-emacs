@@ -1281,6 +1281,14 @@ run the attached function (if exists) and enable lsp"
    "M-`" #'popper-cycle
    "C-M-`" #'popper-toggle-type)
   :init
+  (setq popper-reference-buffers
+        '("\\*Messages\\*"
+          "Output\\*$"
+          "\\*Async Shell Command\\*"
+          help-mode
+          helpful-mode
+          devdocs-mode
+          compilation-mode))
   (popper-mode +1)
   (popper-echo-mode +1))
 
