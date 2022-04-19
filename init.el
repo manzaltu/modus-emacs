@@ -408,6 +408,16 @@ DIR must include a .project file to be considered a project."
   (interactive)
   (message "Project saved: %s" (cdr (project-current t))))
 
+(defun mo-get-buffer-dir ()
+  "Return buffer's directory.
+
+The project root is used if found by project, with the default
+directory as a fall back."
+  (or
+   (when-let ((project (project-current)))
+     (project-root project))
+   (expand-file-name default-directory)))
+
 ;; Init project for auto project detection
 (use-package project
   :straight nil
