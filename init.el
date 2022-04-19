@@ -1279,6 +1279,12 @@ run the attached function (if exists) and enable lsp"
   ("s-+" #'zoom-in/out)
   ("s-=" #'zoom-in/out))
 
+;; Init popper for managing popup windows
+(use-package popper
+  :init
+  (popper-mode +1)
+  (popper-echo-mode +1))
+
 ;; Init display-line-numbers for displaying line numbers
 (use-package display-line-numbers
   :straight nil
