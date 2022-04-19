@@ -1275,6 +1275,11 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init popper for managing popup windows
 (use-package popper
+  :demand t
+  :general
+  ("C-`" #'popper-toggle-latest
+   "M-`" #'popper-cycle
+   "C-M-`" #'popper-toggle-type)
   :init
   (popper-mode +1)
   (popper-echo-mode +1))
