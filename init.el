@@ -1294,7 +1294,11 @@ run the attached function (if exists) and enable lsp"
           help-mode
           helpful-mode
           devdocs-mode
-          compilation-mode))
+          compilation-mode
+          "^\\*eshell.*\\*$" eshell-mode
+          "^\\*shell.*\\*$" shell-mode
+          "^\\*term.*\\*$" term-mode
+          "^\\*vterm.*\\*.*$" vterm-mode))
   (popper-mode +1)
   (popper-echo-mode +1))
 
