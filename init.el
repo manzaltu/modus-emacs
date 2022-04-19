@@ -1163,6 +1163,11 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init vterm for terminal emulation
 (use-package vterm
+  :demand t
+  :general
+  (:keymaps 'mo-quick-menu-map
+   :prefix "p"
+   "t" #'mo-vterm-project)
   :init
   (defun mo-vterm-project ()
     "Create a vterm buffer with current directory set to the active project root.
