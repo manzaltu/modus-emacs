@@ -1157,7 +1157,14 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init vterm for terminal emulation
 (use-package vterm
+  :commands vterm
   :init
+  (defun mo-vterm-project ()
+    "Create a vterm buffer with current directory set to the active project root.
+If project root cannot be found, use the buffer's default directory."
+    (interactive)
+    (let* ((default-directory (mo-get-buffer-dir)))
+      (vterm vterm-buffer-name)))
   ;; Set a low response delay
   (setq vterm-timer-delay 0.07)
   ;; Exclude next/previous tab/buffer key bindings (incl. original excludes)
