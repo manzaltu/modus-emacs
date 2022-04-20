@@ -1059,6 +1059,10 @@ run the attached function (if exists) and enable lsp"
 ;; Init docker-tramp for supporting TRAMP in containers
 (use-package docker-tramp)
 
+;; Init nix-mode for editing nix files
+(use-package nix-mode
+  :mode "\\.nix\\'")
+
 ;; Init terraform-mode for editing terraform files
 (use-package terraform-mode)
 
