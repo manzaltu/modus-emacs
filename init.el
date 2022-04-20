@@ -736,6 +736,9 @@ directory as a fall back."
   (setq transient-history-file (mo-cache-path "transient_history.el"))
   (setq magit-diff-refine-hunk 'all))
 
+;; Init git-modes for editing git config files
+(use-package git-modes)
+
 ;; Init smerge for helping with git merges
 (use-package smerge-mode
   :straight nil
