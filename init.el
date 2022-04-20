@@ -1072,6 +1072,11 @@ run the attached function (if exists) and enable lsp"
   :hook
   (prog-mode . dtrt-indent-mode))
 
+;; Init editorconfig for applying EditorConfig settings
+(use-package editorconfig
+  :config
+  (editorconfig-mode 1))
+
 ;; Init which-key for interactively displaying key bindings
 (use-package which-key
   :config
