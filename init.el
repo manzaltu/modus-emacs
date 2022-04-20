@@ -380,6 +380,14 @@ Ask for action even on single candidate jumps."
   :hook
   (minibuffer-setup . vertico-repeat-save))
 
+;; Init vertico-directory for directory navigation commands
+(use-package vertico-directory
+  :after vertico
+  :straight nil
+  :general
+  (:keymaps 'vertico-map
+   "M-<backspace>" #'vertico-directory-up))
+
 ;; Init vertico-quick for quick result selection
 (use-package vertico-quick
   :after vertico
