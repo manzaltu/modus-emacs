@@ -1394,6 +1394,12 @@ If project root cannot be found, use the buffer's default directory."
   (setq recentf-max-saved-items 10000)
   (recentf-mode t))
 
+;; Init autorevert for updating buffers that were changed on disk
+(use-package autorevert
+  :straight nil
+  :config
+  (global-auto-revert-mode))
+
 (setq bookmark-file (mo-cache-path "bookmarks"))
 (setq tramp-persistency-file-name (mo-cache-path "tramp"))
 
