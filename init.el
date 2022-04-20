@@ -283,6 +283,14 @@ Ask for action even on single candidate jumps."
   ;; Increase xref marker stack length
   (setq xref-marker-ring-length 100))
 
+;; Init dump-jump for heuristics based reference lookup
+(use-package dumb-jump
+  :general
+  (:keymaps 'mo-quick-menu-map
+   ":" #'dumb-jump-go)
+  :init
+  (setq dumb-jump-selector #'completing-read))
+
 ;; Init origami for text and code folding
 (use-package origami
   :config
