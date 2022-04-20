@@ -1061,6 +1061,9 @@ run the attached function (if exists) and enable lsp"
 ;; Init bazel for editing Bazel related files
 (use-package bazel)
 
+;; Init restclient for sending rest requests from emacs
+(use-package restclient)
+
 ;; Init formal-all for a universal code formatter
 (use-package format-all)
 
