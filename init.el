@@ -372,6 +372,14 @@ Ask for action even on single candidate jumps."
    :prefix "n"
    "p" #'org-pomodoro))
 
+;; Init calendar for showing a calendar
+(use-package calendar
+  :straight nil
+  :general
+  (:keymaps 'mo-quick-menu-map
+   :prefix "n"
+   "C" #'calendar))
+
 ;; Init orderless for advanced (e.g. fuzzy) completion styles
 (use-package orderless
   :demand t
