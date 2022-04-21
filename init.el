@@ -330,6 +330,7 @@ Ask for action even on single candidate jumps."
   (setq org-cycle-level-faces nil)
   (setq org-directory "~/org")
   (setq org-agenda-files `(,org-directory))
+  (setq org-agenda-window-setup 'current-window)
   (setq org-agenda-include-diary t)
   (setq org-agenda-start-on-weekday 0)
   (setq org-agenda-diary-file
