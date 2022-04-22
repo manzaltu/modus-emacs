@@ -128,6 +128,7 @@
  "s" '(:which-key "Search")
  "v" '(:which-key "View")
  "w" '(:which-key "Window")
+ "x" '(:which-key "Utils")
  "t" '(:which-key "Tab")
  "h" '(:which-key "Help")
  "p" '(:which-key "Project")
