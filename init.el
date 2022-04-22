@@ -722,6 +722,14 @@ directory as a fall back."
 ;; Init dired-narrow for narrowing dired results using regexp
 (use-package dired-narrow)
 
+;; Init proced for viewing and managing running processes
+(use-package proced
+  :straight nil
+  :general
+  (:keymaps 'mo-quick-menu-map
+   :prefix "x"
+   "p" #'proced))
+
 ;; Init magit for a better git user experience
 (use-package magit
   ;; Refine diff view to show sub hunk changes
