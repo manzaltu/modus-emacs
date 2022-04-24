@@ -333,7 +333,10 @@ Ask for action even on single candidate jumps."
 ;; Init org-superstar for showing org mode bullets as UTF-8 characters
 (use-package org-superstar
   :hook
-  (org-mode . (lambda () (org-superstar-mode 1))))
+  (org-mode . (lambda () (org-superstar-mode 1)))
+  :config
+  (setq org-superstar-headline-bullets-list
+        '("◉" "◎" "◯" "▶" "▷" "◈" "◇")))
 
 ;; Init org-roam for Zettelkasten note management
 (use-package org-roam
