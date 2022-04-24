@@ -330,10 +330,10 @@ Ask for action even on single candidate jumps."
   (setq org-id-locations-file (mo-cache-path ".org-id-locations"))
   (setq org-src-preserve-indentation t))
 
-;; Init org-bullets for showing org mode bullets as UTF-8 characters
-(use-package org-bullets
+;; Init org-superstar for showing org mode bullets as UTF-8 characters
+(use-package org-superstar
   :hook
-  (org-mode . (lambda () (org-bullets-mode 1))))
+  (org-mode . (lambda () (org-superstar-mode 1))))
 
 ;; Init org-roam for Zettelkasten note management
 (use-package org-roam
