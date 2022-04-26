@@ -244,7 +244,8 @@ Ask for action even on single candidate jumps."
     (let ((avy-single-candidate-jump nil))
       (call-interactively #'avy-goto-char-timer)))
   :general
-  ("C-'" #'avy-goto-char-timer
+  (:keymaps 'override
+   "C-'" #'avy-goto-char-timer
    "C-\"" #'mo-avy-goto-char-timer-action)
   :config
   ;; Better highlight the leading characters
