@@ -321,6 +321,12 @@ Ask for action even on single candidate jumps."
   ;; Visually indent text under bullets
   (setq org-startup-indented t)
   (setq org-cycle-separator-lines 1)
+  ;; Customize bullet faces
+  (setq org-hidden-keywords '(title))
+  (set-face-attribute 'org-level-3 nil :height 1.03)
+  (set-face-attribute 'org-level-2 nil :height 1.05)
+  (set-face-attribute 'org-level-1 nil :height 1.1)
+  (setq org-cycle-level-faces nil)
   (setq org-directory "~/org")
   (setq org-agenda-files `(,org-directory))
   (setq org-agenda-include-diary t)
@@ -1251,6 +1257,8 @@ If project root cannot be found, use the buffer's default directory."
 ;; Init doom one theme
 (use-package doom-themes
   :after treemacs-icons-dired
+  :custom-face
+  (org-document-title ((nil (:height 1.2))))
   :config
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
