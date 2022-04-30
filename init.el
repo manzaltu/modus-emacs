@@ -771,9 +771,7 @@ directory as a fall back."
   :straight nil
   :general
   (:keymaps 'mo-quick-menu-map
-   "m" '(:keymap smerge-basic-map :package smerge))
-  :init
-  (setq smerge-command-prefix ""))
+   "m" '(:keymap smerge-basic-map :package smerge)))
 
 ;; Init forge for working with git forges (e.g. Github, Gitlab)
 (use-package forge
