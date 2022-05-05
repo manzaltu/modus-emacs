@@ -604,13 +604,6 @@ directory as a fall back."
           (consult-ripgrep "Ripgrep" ?r)
 	  (magit-status "Magit" ?g))))
 
-;; Init consult-project-extra for finding files and buffers in project
-(use-package consult-project-extra
-  :general
-  (:keymaps 'mo-quick-menu-map
-   :prefix "p"
-   "f" #'consult-project-extra-find))
-
 ;; Init consult-flycheck for showing syntax errors with consult
 (use-package consult-flycheck
   :general
