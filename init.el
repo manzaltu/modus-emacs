@@ -990,6 +990,13 @@ run the attached function (if exists) and enable lsp"
   ;; Remove initial async separator as we use spaces for search tokenization
   (consult-customize consult-lsp-symbols :initial nil))
 
+;; Init cc-mode for C/C++/Obj-C support
+(use-package cc-mode
+  :straight nil
+  :config
+  ;; Set the default style
+  (setf (alist-get 'other c-default-style) "stroustrup"))
+
 ;; Init yasnippets for adding code snippet templates
 (use-package yasnippet
   :config
