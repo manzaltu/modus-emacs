@@ -1203,6 +1203,11 @@ run the attached function (if exists) and enable lsp"
   :general
   (:states '(normal, visual) "gc" #'evilnc-comment-operator))
 
+;; Init hl-todo for highlighting specific keywords (e.g. TODO)
+(use-package hl-todo
+  :hook
+  (prog-mode . global-hl-todo-mode))
+
 ;; A fast key binding for showing the next command's result in another window.
 ;; Make sure it also works when the command is using 'switch-to-buffer'.
 (setq switch-to-buffer-obey-display-actions t)
