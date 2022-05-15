@@ -1223,6 +1223,7 @@ run the attached function (if exists) and enable lsp"
 ;; Init vterm for terminal emulation
 (use-package vterm
   :demand t
+  :if (not (eq system-type 'windows-nt))
   :general
   (:keymaps 'mo-quick-menu-map
    :prefix "p"
