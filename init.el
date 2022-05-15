@@ -669,7 +669,9 @@ directory as a fall back."
   (:keymaps 'mo-quick-menu-map
    :prefix "t"
    "r" #'tab-bar-rename-tab
-   "c" #'tab-bar-close-tab)
+   "c" #'tab-bar-close-tab
+   "[" #'tab-previous
+   "]" #'tab-next)
   :config
   ;; Disable tab bar buttons
   (setq tab-bar-close-button-show nil)
