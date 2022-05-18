@@ -926,6 +926,7 @@ run the attached function (if exists) and enable lsp"
     (interactive)
     (setq lsp-ui-doc-show-with-cursor (not lsp-ui-doc-show-with-cursor)))
   ;; Do not show documentation automatically
+  (setq lsp-ui-doc-show-with-mouse nil)
   (setq lsp-ui-doc-position 'top))
 
 ;; Init lsp-treemacs for an interactive lsp tree-like interface
