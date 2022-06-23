@@ -672,6 +672,8 @@ directory as a fall back."
    :prefix "t"
    "r" #'tab-bar-rename-tab
    "c" #'tab-bar-close-tab
+   "f" #'tab-bar-move-tab
+   "b" #'tab-bar-move-tab-backward
    "[" #'tab-previous
    "]" #'tab-next)
   :config
