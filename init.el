@@ -611,7 +611,7 @@ directory as a fall back."
   :general
   (:keymaps 'mo-quick-menu-map
    :prefix "c"
-   "f" #'consult-flycheck))
+   "e" #'consult-flycheck))
 
 ;; Init marginalia for minibuffer result annotations
 (use-package marginalia
