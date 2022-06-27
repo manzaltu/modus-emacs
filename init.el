@@ -847,6 +847,7 @@ directory as a fall back."
    "r" #'lsp-rename
    "R" #'lsp-workspace-restart
    "I" #'lsp-ui-imenu
+   "=" #'lsp-format-region
    "o" #'lsp-clangd-find-other-file)
   (:keymaps 'mo-quick-menu-map
    "\"" #'lsp-find-implementation)
