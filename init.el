@@ -1130,7 +1130,12 @@ run the attached function (if exists) and enable lsp"
 (use-package restclient)
 
 ;; Init formal-all for a universal code formatter
-(use-package format-all)
+(use-package format-all
+  :general
+  (:keymaps 'mo-quick-menu-map
+   :prefix "c"
+   "f" #'format-all-region
+   "F" #'format-all-buffer))
 
 ;; Disable default tab indentation
 (setq-default indent-tabs-mode nil)
