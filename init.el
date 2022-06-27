@@ -939,7 +939,7 @@ run the attached function (if exists) and enable lsp"
    "h" #'lsp-treemacs-call-hierarchy
    "H" #'lsp-treemacs-type-hierarchy
    "S" #'lsp-treemacs-symbols
-   "F" #'lsp-treemacs-errors-list))
+   "E" #'lsp-treemacs-errors-list))
 
 ;; Init dap-mode for interactive debugging
 (use-package dap-mode
