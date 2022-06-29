@@ -739,7 +739,11 @@ directory as a fall back."
   :after (treemacs magit))
 
 ;; Init dired-narrow for narrowing dired results using regexp
-(use-package dired-narrow)
+(use-package dired-narrow
+  :general
+  (:keymaps 'dired-mode-map
+   :states 'normal
+   "/" #'dired-narrow-fuzzy))
 
 ;; Init proced for viewing and managing running processes
 (use-package proced
