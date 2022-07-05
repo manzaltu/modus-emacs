@@ -903,6 +903,8 @@ run the attached function (if exists) and enable lsp"
               (lambda (&rest _args)
                 (eval
                  '(setf (lsp-session-server-id->folders (lsp-session)) (ht)))))
+  ;; Flatten imenu results and show their respective types
+  (setq lsp-imenu-index-function #'lsp-imenu-create-categorized-index)
   ;; Enable semantic token highlighting
   (setq lsp-semantic-tokens-enable t)
   ;; Set clangd default parameters
