@@ -103,6 +103,8 @@
   (setq evil-symbol-word-search t)
   ;; Set end of line selection to not include the newline character
   (setq evil-want-visual-char-semi-exclusive t)
+  ;; Don't kill text when pasting over it
+  (setq-default evil-kill-on-visual-paste nil)
   :config
   ;; Set word movement to operate on symbol boundaries
   (defalias #'forward-evil-word #'forward-evil-symbol)
