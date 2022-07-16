@@ -332,6 +332,7 @@ Ask for action even on single candidate jumps."
   (set-face-attribute 'org-level-3 nil :height 1.03)
   (set-face-attribute 'org-level-2 nil :height 1.05)
   (set-face-attribute 'org-level-1 nil :height 1.1)
+  (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.8))
   (setq org-cycle-level-faces nil)
   (setq org-directory "~/org")
   (setq org-agenda-files `(,org-directory))
