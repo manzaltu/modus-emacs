@@ -388,6 +388,10 @@ Ask for action even on single candidate jumps."
    :prefix "n"
    "C" #'calendar))
 
+;; Init auctex for editing TeX files
+(use-package tex
+  :straight auctex)
+
 ;; Init orderless for advanced (e.g. fuzzy) completion styles
 (use-package orderless
   :demand t
