@@ -393,6 +393,13 @@ Ask for action even on single candidate jumps."
 (use-package tex
   :straight auctex)
 
+;; Init cdlatex for improved editing of TeX files
+(use-package cdlatex
+  ;; Enable automatically in LaTeX-mode
+  :hook (LaTeX-mode . turn-on-cdlatex)
+  ;; Enable automatically in org-mode
+  :hook (org-mode . turn-on-org-cdlatex))
+
 ;; Init orderless for advanced (e.g. fuzzy) completion styles
 (use-package orderless
   :demand t
