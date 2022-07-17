@@ -400,6 +400,10 @@ Ask for action even on single candidate jumps."
   ;; Enable automatically in org-mode
   :hook (org-mode . turn-on-org-cdlatex))
 
+;; Init evil-tex for improved editing of TeX files in evil-mode
+(use-package evil-tex
+  :hook (LaTeX-mode . evil-tex-mode))
+
 ;; Init orderless for advanced (e.g. fuzzy) completion styles
 (use-package orderless
   :demand t
