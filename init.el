@@ -317,6 +317,7 @@ Ask for action even on single candidate jumps."
    "o" #'org-open-at-point
    "L" #'org-store-link
    "v" #'org-latex-preview
+   "e" #'org-toggle-pretty-entities
    "s" #'org-schedule
    "t" #'org-todo
    "a" #'org-agenda)
