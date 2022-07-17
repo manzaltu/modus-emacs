@@ -413,6 +413,7 @@ Ask for action even on single candidate jumps."
   ;; don't reinstall when package updates
   :mode  ("\\.pdf\\'" . pdf-view-mode)
   :config
+  (setq-default pdf-view-display-size 'fit-page)
   (pdf-tools-install :no-query))
 
 ;; Init orderless for advanced (e.g. fuzzy) completion styles
