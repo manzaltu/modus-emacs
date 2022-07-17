@@ -1015,6 +1015,11 @@ run the attached function (if exists) and enable lsp"
   (prescient-persist-mode +1)
   (company-prescient-mode))
 
+;; Init company-math for latex auto completion
+(use-package company-math
+  :config
+  (add-to-list 'company-backends 'company-math-symbols-unicode))
+
 ;; Init consult-lsp for additional interacitve lsp commands
 (use-package consult-lsp
   :after (lsp-mode consult)
