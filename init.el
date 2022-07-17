@@ -408,6 +408,13 @@ Ask for action even on single candidate jumps."
 (use-package evil-tex
   :hook (LaTeX-mode . evil-tex-mode))
 
+;; Init pdf-tools for better viewing pdf files in Emacs
+(use-package pdf-tools
+  ;; don't reinstall when package updates
+  :mode  ("\\.pdf\\'" . pdf-view-mode)
+  :config
+  (pdf-tools-install :no-query))
+
 ;; Init orderless for advanced (e.g. fuzzy) completion styles
 (use-package orderless
   :demand t
