@@ -398,7 +398,11 @@ Ask for action even on single candidate jumps."
   ;; Enable automatically in LaTeX-mode
   :hook (LaTeX-mode . turn-on-cdlatex)
   ;; Enable automatically in org-mode
-  :hook (org-mode . turn-on-org-cdlatex))
+  :hook (org-mode . turn-on-org-cdlatex)
+  :general
+  (:keymaps 'mo-quick-menu-map
+   :prefix "n"
+   "x" #'cdlatex-environment))
 
 ;; Init evil-tex for improved editing of TeX files in evil-mode
 (use-package evil-tex
