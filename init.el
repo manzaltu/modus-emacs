@@ -841,6 +841,9 @@ directory as a fall back."
 ;; Init ediff for better diff view and commands
 (use-package ediff
   :straight nil
+  :init
+  ;; Ignore space changes
+  (setq ediff-diff-options "-b")
   :config
   ;; Open ediff window in the current frame
   (setq ediff-window-setup-function #'ediff-setup-windows-plain)
