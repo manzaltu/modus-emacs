@@ -1271,6 +1271,9 @@ run the attached function (if exists) and enable lsp"
 ;; Make sure it also works when the command is using 'switch-to-buffer'.
 (setq switch-to-buffer-obey-display-actions t)
 (general-define-key "M-[" #'other-window-prefix)
+;; Other window key binding
+(mo-quick-menu-def
+  "o" #'other-window-prefix)
 
 ;; Init ace-window for fast window selection
 (use-package ace-window
