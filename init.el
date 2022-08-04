@@ -193,7 +193,7 @@
 
 ;; Add evil key bindings to other, non-default, modes
 (use-package evil-collection
-  :after evil
+  :after (evil xref)
   :config
   ;; We have our own find references key binding. Remove evil-collection's one.
   ;; evil-collection's find usages overrides evil-mc key bindings.
@@ -278,7 +278,7 @@ Ask for action even on single candidate jumps."
 
 ;; Init xref for code reference lookup
 (use-package xref
-  :straight nil
+  :demand t
   :general
   (:keymaps 'mo-quick-menu-map
    ";" #'xref-find-definitions
