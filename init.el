@@ -1036,6 +1036,7 @@ run the attached function (if exists) and enable lsp"
   (:keymaps 'mo-quick-menu-map
    :prefix "c"
    "E" #'consult-lsp-diagnostics
+   "s" #'consult-lsp-file-symbols
    "S" #'consult-lsp-symbols)
   :config
   ;; Manual preview key for symbols results
