@@ -979,8 +979,7 @@ run the attached function (if exists) and enable lsp"
   (:keymaps 'mo-quick-menu-map
    :prefix "c"
    "h" #'lsp-treemacs-call-hierarchy
-   "H" #'lsp-treemacs-type-hierarchy
-   "S" #'lsp-treemacs-symbols))
+   "H" #'lsp-treemacs-type-hierarchy))
 
 ;; Init dap-mode for interactive debugging
 (use-package dap-mode
