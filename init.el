@@ -980,8 +980,7 @@ run the attached function (if exists) and enable lsp"
    :prefix "c"
    "h" #'lsp-treemacs-call-hierarchy
    "H" #'lsp-treemacs-type-hierarchy
-   "S" #'lsp-treemacs-symbols
-   "E" #'lsp-treemacs-errors-list))
+   "S" #'lsp-treemacs-symbols))
 
 ;; Init dap-mode for interactive debugging
 (use-package dap-mode
