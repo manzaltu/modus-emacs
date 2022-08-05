@@ -621,11 +621,6 @@ directory as a fall back."
                                 (lambda (input) (consult--fd-builder input default-directory))
                                 initial))))
 
-  ;; Do not auto preview ripgrep and recent file results
-  (consult-customize
-   consult-ripgrep consult--source-recent-file consult--source-project-recent-file
-   :preview-key (kbd "M-."))
-
   ;; Configure project detection using project.el
   (setq consult-project-root-function
         (lambda ()
