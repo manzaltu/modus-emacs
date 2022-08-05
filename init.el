@@ -264,6 +264,10 @@ Ask for action even on single candidate jumps."
   :config
   (evil-snipe-override-mode 1))
 
+;; Init expand-region for expanding the selected region by semantic units
+(use-package expand-region
+  :bind ("C-=" . er/expand-region))
+
 ;; Init better-jumper for better controlling the jump list logic
 (use-package better-jumper
   :demand t
