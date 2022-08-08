@@ -1460,6 +1460,9 @@ If project root cannot be found, use the buffer's default directory."
 (add-to-list 'default-frame-alist '(height . 55))
 (add-to-list 'default-frame-alist '(width . 210))
 
+;; Set frame to full screen
+(toggle-frame-fullscreen)
+
 ;; Scroll incrementally
 (setq scroll-step 1)
 ;; Don't automatically recenter after scrolling
