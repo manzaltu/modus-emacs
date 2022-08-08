@@ -4,7 +4,10 @@
 /custom.el
 # Ignore Emacs backup files
 *~
-# Ignore Emacs cache directory
-/.cache/
+# Ignore Emacs cache directory but exclude straight package freeze files
+/.cache/*
+!/.cache/straight/
+/.cache/straight/*
+!/.cache/straight/versions/
 # Ignore Emacs eln cache directory
 /eln-cache/
