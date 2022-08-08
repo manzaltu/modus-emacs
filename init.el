@@ -426,6 +426,17 @@ Ask for action even on single candidate jumps."
   :config
   ;; Set matching style to regexp and literal
   (setq orderless-matching-styles '(orderless-regexp orderless-literal))
+
+  ;; Add exclude pattern style
+  (defun mo-orderless-exclude-dispatcher (pattern _index _total)
+    "Handle orderless exclude pattern."
+    (cond
+     ((equal "!" pattern)
+      '(orderless-literal . ""))
+     ((string-prefix-p "!" pattern)
+      `(orderless-without-literal . ,(substring pattern 1)))))
+  (setq orderless-style-dispatchers '(mo-orderless-exclude-dispatcher))
+
   :custom (completion-styles '(orderless)))
 
 ;; Init vertico for item list selection
