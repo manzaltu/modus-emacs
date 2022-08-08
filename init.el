@@ -443,7 +443,7 @@ Ask for action even on single candidate jumps."
   :straight nil
   :general
   (:keymaps 'mo-quick-menu-map
-   "z" #'vertico-repeat)
+   "z" #'vertico-repeat-select)
   :hook
   (minibuffer-setup . vertico-repeat-save))
 
