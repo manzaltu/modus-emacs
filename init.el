@@ -1058,6 +1058,10 @@ run the attached function (if exists) and enable lsp"
 (use-package highlight-defined
   :hook (emacs-lisp-mode . highlight-defined-mode))
 
+;; Init highlight-quoted for highlighting Emacs Lisp quoted symbols
+(use-package highlight-quoted
+  :hook (emacs-lisp-mode . highlight-quoted-mode))
+
 ;; Init cc-mode for C/C++/Obj-C support
 (use-package cc-mode
   :straight nil

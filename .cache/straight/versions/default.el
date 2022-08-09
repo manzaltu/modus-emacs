@@ -86,6 +86,7 @@
  ("helpful" . "94a07d49a80f66f8ebc54a49a4b4f6899a65fbe3")
  ("highlight-defined" . "4420bdda419875dacb065468aafe273b2022580e")
  ("highlight-numbers" . "8b4744c7f46c72b1d3d599d4fb75ef8183dee307")
+ ("highlight-quoted" . "24103478158cd19fbcfb4339a3f1fa1f054f1469")
  ("hl-todo" . "2337eac8cab0d4b73a96fb3936d2ac87600e3c91")
  ("ht.el" . "c4c1be487d6ecb353d07881526db05d7fc90ea87")
  ("hydra" . "9e9e00cb240ea1903ffd36a54956b3902c379d29")
