@@ -1061,6 +1061,11 @@ run the attached function (if exists) and enable lsp"
   ;; Set the default style
   (setf (alist-get 'other c-default-style) "stroustrup"))
 
+;; Init google-c-style for Google's C/C++ style
+(use-package google-c-style
+  :config
+  (c-add-style "Google" google-c-style))
+
 ;; Init yasnippets for adding code snippet templates
 (use-package yasnippet
   :config

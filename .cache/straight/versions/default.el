@@ -136,6 +136,7 @@
  ("s.el" . "08661efb075d1c6b4fa812184c1e5e90c08795a9")
  ("spinner" . "34905eae12a236753fa88abc831eff1e41e8576e")
  ("straight.el" . "4517e118ee43f849f708025dbb2cf4f281793121")
+ ("styleguide" . "099770e27c0727d3e9489f4c4c5226f5e41affab")
  ("swift-mode" . "cdd194cbadcee724a9813da386f0a612082b1ab1")
  ("tab-bar-lost-commands" . "989e03dc3d1057264b21b9a5d241fcba86cd297a")
  ("tablist" . "faab7a035ef2258cc4ea2182f67e3aedab7e2af9")
