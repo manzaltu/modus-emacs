@@ -1054,6 +1054,10 @@ run the attached function (if exists) and enable lsp"
   ;; Remove initial async separator as we use spaces for search tokenization
   (consult-customize consult-lsp-symbols :initial nil))
 
+;; Init highlight-defined for highlighting Emacs Lisp symbols
+(use-package highlight-defined
+  :hook (emacs-lisp-mode . highlight-defined-mode))
+
 ;; Init cc-mode for C/C++/Obj-C support
 (use-package cc-mode
   :straight nil

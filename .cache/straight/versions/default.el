@@ -84,6 +84,7 @@
  ("groovy-emacs-modes" . "c612ac1e9f742856914ad6e8eb9e9dc169f489ab")
  ("haskell-mode" . "5a9f8072c7b9168f0a8409adf9d62a3e4ad4ea3d")
  ("helpful" . "94a07d49a80f66f8ebc54a49a4b4f6899a65fbe3")
+ ("highlight-defined" . "4420bdda419875dacb065468aafe273b2022580e")
  ("hl-todo" . "2337eac8cab0d4b73a96fb3936d2ac87600e3c91")
  ("ht.el" . "c4c1be487d6ecb353d07881526db05d7fc90ea87")
  ("hydra" . "9e9e00cb240ea1903ffd36a54956b3902c379d29")
