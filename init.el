@@ -1473,7 +1473,7 @@ If project root cannot be found, use the buffer's default directory."
 ;; Cleanup the frame UI
 (tool-bar-mode -1)
 (menu-bar-mode -1)
-(toggle-scroll-bar -1)
+(scroll-bar-mode -1)
 
 ;; Disable cursor blink
 (blink-cursor-mode 0)
