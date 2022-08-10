@@ -155,6 +155,16 @@
 (mo-quick-menu-def
   "u" #'universal-argument)
 
+;; Init frame for managing frames
+(use-package frame
+  :demand t
+  :straight nil
+  :general
+  (:keymaps 'mo-quick-menu-map
+   :prefix "v"
+   "f" #'make-frame-command
+   "c" #'delete-frame))
+
 ;; Init ibuffer for editing buffer lists
 (use-package ibuffer
   :straight nil
