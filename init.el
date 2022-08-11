@@ -1287,6 +1287,10 @@ run the attached function (if exists) and enable lsp"
 ;; Init auto-highlight-symbol for auto highlighting symbols in code.
 ;; This can be used when no LSP based highlighting is available.
 (use-package auto-highlight-symbol
+  :general
+  (:keymaps 'mo-quick-menu-map
+   :prefix "b"
+   "h" #'auto-highlight-symbol-mode)
   :custom-face
   (ahs-face ((nil (:inherit 'highlight))))
   (ahs-face-unfocused ((nil (:inherit 'highlight))))
