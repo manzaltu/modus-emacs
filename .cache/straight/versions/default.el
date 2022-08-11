@@ -6,6 +6,7 @@
  ("annalist.el" . "134fa3f0fb91a636a1c005c483516d4b64905a6d")
  ("anzu" . "5abb37455ea44fa401d5f4c1bdc58adb2448db67")
  ("auctex" . "53b82804c9dd9dbea306876f3be84ebacbeb7e74")
+ ("auto-highlight-symbol" . "616c1391646da49aa3b5a6034d0f8d6a987d5e8c")
  ("avy" . "ba5f035be33693d1a136a5cbeedb24327f551a92")
  ("better-jumper" . "47622213783ece37d5337dc28d33b530540fc319")
  ("bui.el" . "f3a137628e112a91910fd33c0cff0948fa58d470")

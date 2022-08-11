@@ -1284,6 +1284,17 @@ run the attached function (if exists) and enable lsp"
 ;; Auto insert matching parentheses in code
 (add-hook 'prog-mode-hook 'electric-pair-local-mode)
 
+;; Init auto-highlight-symbol for auto highlighting symbols in code.
+;; This can be used when no LSP based highlighting is available.
+(use-package auto-highlight-symbol
+  :custom-face
+  (ahs-face ((nil (:inherit 'highlight))))
+  (ahs-face-unfocused ((nil (:inherit 'highlight))))
+  (ahs-plugin-default-face ((nil (:inherit 'highlight))))
+  (ahs-plugin-default-face-unfocused ((nil (:inherit 'highlight))))
+  :config
+  (setq ahs-idle-interval 0.3))
+
 ;; Init highlight-numbers for highlighting numbers in code
 (use-package highlight-numbers
   :hook (prog-mode . highlight-numbers-mode))
