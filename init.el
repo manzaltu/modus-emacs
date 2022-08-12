@@ -1209,7 +1209,10 @@ run the attached function (if exists) and enable lsp"
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
     "f" #'format-all-region
-    "F" #'format-all-buffer))
+    "F" #'format-all-buffer)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "f" #'format-all-mode))
 
 ;; Disable default tab indentation
 (setq-default indent-tabs-mode nil)
