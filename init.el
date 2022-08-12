@@ -1205,6 +1205,9 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init formal-all for a universal code formatter
 (use-package format-all
+  :hook
+  ( prog-mode . format-all-mode)
+  ( format-all-mode . format-all-ensure-formatter)
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
