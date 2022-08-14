@@ -757,6 +757,7 @@ directory as a fall back."
 
 ;; Init dired+ for additional dired functionality
 (use-package dired+
+  :after evil-collection
   :init
   (setq diredp-hide-details-initially-flag nil)
   :config
