@@ -679,7 +679,8 @@ directory as a fall back."
 (use-package embark
   :general
   ( :keymaps 'override
-    "C-;" #'embark-act)
+    "C-;" #'embark-act
+    "C-:" #'embark-collect)
   ( :keymaps 'embark-file-map
     "g" #'mo-embark-magit-status)
   ( :keymaps 'mo-quick-menu-map
