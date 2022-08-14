@@ -678,7 +678,8 @@ directory as a fall back."
 ;; Init embark for enabling contextual actions
 (use-package embark
   :general
-  ( "C-M-a" #'embark-act)
+  ( :keymaps 'override
+    "C-;" #'embark-act)
   ( :keymaps 'embark-file-map
     "g" #'mo-embark-magit-status)
   ( :keymaps 'mo-quick-menu-map
