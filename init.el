@@ -1337,7 +1337,8 @@ run the attached function (if exists) and enable lsp"
 ;; Init ace-window for fast window selection
 (use-package ace-window
   :general
-  ( "M-o" #'ace-window)
+  ( :keymaps 'override
+    "M-o" #'ace-window)
   :config
   (setq aw-keys '( ?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
