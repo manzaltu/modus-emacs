@@ -711,8 +711,8 @@ directory as a fall back."
 (use-package wgrep)
 
 ;; Set buffer commands key bindings
-(setq mo-binding-next-buffer "C-M-s-j"
-      mo-binding-prev-buffer "C-M-s-k")
+(setq mo-binding-next-buffer "C-M-s-d"
+      mo-binding-prev-buffer "C-M-s-e")
 
 (general-define-key
  mo-binding-next-buffer #'next-buffer
@@ -723,8 +723,8 @@ directory as a fall back."
   :straight nil
   :init
   ;; Set tab commands key bindings
-  (setq mo-binding-next-tab "C-M-s-l"
-        mo-binding-prev-tab "C-M-s-h")
+  (setq mo-binding-next-tab "C-M-s-f"
+        mo-binding-prev-tab "C-M-s-s")
   (general-define-key
    mo-binding-next-tab #'tab-next
    mo-binding-prev-tab #'tab-previous)
