@@ -1524,8 +1524,8 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "w"
-    "<left>" #'winner-undo
-    "<right>" #'winner-redo)
+    "u" #'winner-undo
+    "r" #'winner-redo)
   :config
   (setq winner-dont-bind-my-keys t)
   (winner-mode 1))
