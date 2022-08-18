@@ -143,6 +143,10 @@
 (when (featurep 'evil)
   (mo-quick-menu-def
     :prefix "w"
+    "h" #'evil-window-move-far-left
+    "j" #'evil-window-move-very-bottom
+    "k" #'evil-window-move-very-top
+    "l" #'evil-window-move-far-right
     "v" #'evil-window-vsplit
     "s" #'evil-window-split
     "c" #'evil-window-delete))
