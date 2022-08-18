@@ -278,6 +278,7 @@ Ask for action even on single candidate jumps."
   (set-face-attribute 'avy-lead-face-0 nil :background "gold2")
   (set-face-attribute 'avy-lead-face-1 nil :background "gold3")
   (set-face-attribute 'avy-lead-face-2 nil :background "gold4")
+  (setq avy-all-windows 'all-frames)
   (setq avy-timeout-seconds 0.25))
 
 ;; Init evil-snipe for an improved 1 char evil search experience
