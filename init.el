@@ -448,6 +448,7 @@ Ask for action even on single candidate jumps."
   :config
   ;; Set matching style to regexp and literal
   (setq orderless-matching-styles '( orderless-regexp orderless-literal))
+  (setq orderless-component-separator #'orderless-escapable-split-on-space)
 
   ;; Add exclude pattern style
   (defun mo-orderless-exclude-dispatcher (pattern _index _total)
