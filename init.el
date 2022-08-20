@@ -1057,6 +1057,12 @@ run the attached function (if exists) and enable lsp"
   (prescient-persist-mode +1)
   (company-prescient-mode))
 
+;; Init company-quickhelp for showing documentation with completion
+(use-package company-quickhelp
+  :config
+  (setq company-quickhelp-delay 0)
+  (company-quickhelp-mode))
+
 ;; Init company-math for latex auto completion
 (use-package company-math
   :config
