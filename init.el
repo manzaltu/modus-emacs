@@ -999,12 +999,8 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
-    "d" #'mo-toggle-lsp-doc-show)
+    "d" #'lsp-ui-doc-glance)
   :config
-  (defun mo-toggle-lsp-doc-show ()
-    "Toggle showing documentation for things under the cursor using lsp."
-    (interactive)
-    (setq lsp-ui-doc-show-with-cursor (not lsp-ui-doc-show-with-cursor)))
   ;; Do not show documentation automatically
   (setq lsp-ui-doc-show-with-mouse nil)
   (setq lsp-ui-doc-position 'top))
