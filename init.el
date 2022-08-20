@@ -1438,6 +1438,12 @@ If project root cannot be found, use the buffer's default directory."
   :config
   (minions-mode 1))
 
+;; Init flyspell for spell checking
+(use-package flyspell
+  :straight nil
+  :config
+  (setq flyspell-delay 0))
+
 ;; Init flyspell-correct for spell correction
 (use-package flyspell-correct
   :demand t
