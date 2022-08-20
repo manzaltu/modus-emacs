@@ -920,6 +920,7 @@ directory as a fall back."
     :prefix "c"
     "a" #'lsp-execute-code-action
     "r" #'lsp-rename
+    "p" #'lsp-signature-activate
     "R" #'lsp-workspace-restart
     "I" #'lsp-ui-imenu
     "=" #'lsp-format-region
