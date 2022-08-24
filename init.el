@@ -583,6 +583,8 @@ directory as a fall back."
     :prefix "b"
     "b" #'consult-buffer
     "B" #'consult-buffer-other-window)
+  ( :keymaps 'mo-quick-menu-map
+    "RET" #'consult-bookmark)
   ;; C-x bindings (ctl-x-map)
   ( "C-x M-:" #'consult-complex-command)     ;; orig. repeat-complex-command
   ( "C-x b" #'consult-buffer)                ;; orig. switch-to-buffer
