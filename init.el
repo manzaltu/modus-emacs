@@ -85,6 +85,9 @@
 ;; Init evil mode for Vim emulation in Emacs
 (use-package evil
   :demand t
+  :hook
+  ;; Recenter after jump
+  ( evil-jumps-post-jump . recenter)
   :init
   ;; Needed for evil-collection
   (setq evil-want-keybinding nil)
