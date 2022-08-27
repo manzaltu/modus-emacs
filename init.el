@@ -320,6 +320,9 @@ Ask for action even on single candidate jumps."
 ;; Init xref for code reference lookup
 (use-package xref
   :demand t
+  :hook
+  ;; Recenter after returning to a pre-jump location
+  ( xref-after-return . recenter)
   :general
   ( :keymaps 'mo-quick-menu-map
     ";" #'xref-find-definitions
