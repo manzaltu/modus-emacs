@@ -189,6 +189,13 @@
     :prefix "b"
     "i" #'ibuffer))
 
+;; Init bookmark for managing bookmarks
+(use-package bookmark
+  :straight nil
+  :hook
+  ;; Recenter after jump
+  ( bookmark-after-jump . recenter))
+
 (defun mo-copy-file-path ()
   "Copy the full path of the current buffer's file."
   (interactive)
