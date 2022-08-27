@@ -299,6 +299,9 @@ Ask for action even on single candidate jumps."
 (use-package better-jumper
   :demand t
   :after evil
+  :hook
+  ;; Recenter after jump
+  ( better-jumper-post-jump . recenter)
   :general
   ( [remap evil-jump-forward] 'better-jumper-jump-forward)
   ( [remap evil-jump-backward] 'better-jumper-jump-backward)
