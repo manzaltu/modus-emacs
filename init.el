@@ -105,6 +105,8 @@
   (setq evil-want-visual-char-semi-exclusive t)
   ;; Don't kill text when pasting over it
   (setq-default evil-kill-on-visual-paste nil)
+  ;; Respect visual line mode
+  (setq evil-respect-visual-line-mode t)
   :config
   ;; Set word movement to operate on symbol boundaries
   (defalias #'forward-evil-word #'forward-evil-symbol)
