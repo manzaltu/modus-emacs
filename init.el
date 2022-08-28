@@ -1573,6 +1573,14 @@ If project root cannot be found, use the buffer's default directory."
 ;; Don't automatically recenter after scrolling
 (setq scroll-conservatively 101)
 
+;; Init follow-mode for scrolling buffer on multiple windows
+(use-package follow-mode
+  :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "F" #'follow-mode))
+
 ;; Ask for confirmation before exiting emacs
 (setq confirm-kill-emacs #'y-or-n-p)
 
