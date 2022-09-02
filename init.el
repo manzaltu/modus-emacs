@@ -1054,6 +1054,15 @@ run the attached function (if exists) and enable lsp"
   ;; Init native debugging
   (require 'dap-gdb-lldb))
 
+;; Init tree-sitter mode for tree-sitter support
+(use-package tree-sitter
+  :config
+  (global-tree-sitter-mode))
+
+;; Init tree-sitter-langs for tree-sitter language support
+(use-package tree-sitter-langs
+  :after tree-sitter)
+
 ;; Init flycheck for on-the-fly syntax checking
 (use-package flycheck
   :init
