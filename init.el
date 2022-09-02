@@ -1063,6 +1063,10 @@ run the attached function (if exists) and enable lsp"
 (use-package tree-sitter-langs
   :after tree-sitter)
 
+;; Init evil-textobj-tree-sitter for object based code editing
+(use-package evil-textobj-tree-sitter
+  :after (evil tree-sitter-langs))
+
 ;; Init flycheck for on-the-fly syntax checking
 (use-package flycheck
   :init

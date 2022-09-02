@@ -66,6 +66,7 @@
  ("evil-snipe" . "c07788c35cf8cd8e652a494322fdc0643e30a89f")
  ("evil-surround" . "c9e1449bf3f740b5e9b99e7820df4eca7fc7cf02")
  ("evil-tex" . "26035ec9a09f8b38ce0d495ff788e83ec8b195d5")
+ ("evil-textobj-tree-sitter" . "4510e31d2cfa08dac571a724e80c2ba4fa686fa4")
  ("exec-path-from-shell" . "6336db9be13d46e2d4bc3b50bc37a3fbf30fdc9e")
  ("expand-region.el" . "c5c4362741deebb0985a8a29f9b8b0e25160764a")
  ("f.el" . "d2019d4f9625bcc44349c69fe46d6645fd9ff4ff")
