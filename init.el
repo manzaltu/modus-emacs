@@ -1065,7 +1065,37 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init evil-textobj-tree-sitter for object based code editing
 (use-package evil-textobj-tree-sitter
-  :after (evil tree-sitter-langs))
+  :after ( evil tree-sitter-langs)
+  :general
+  ( :keymaps 'inner
+    "r" (evil-textobj-tree-sitter-get-textobj "attribute.inner")
+    "b" (evil-textobj-tree-sitter-get-textobj "block.inner")
+    "c" (evil-textobj-tree-sitter-get-textobj "call.inner")
+    "j" (evil-textobj-tree-sitter-get-textobj "class.inner")
+    "i" (evil-textobj-tree-sitter-get-textobj "conditional.inner")
+    "f" (evil-textobj-tree-sitter-get-textobj "function.inner")
+    "l" (evil-textobj-tree-sitter-get-textobj "loop.inner")
+    "a" (evil-textobj-tree-sitter-get-textobj "parameter.inner")
+    "m" (evil-textobj-tree-sitter-get-textobj "statement.inner")
+    "k" (evil-textobj-tree-sitter-get-textobj
+          ("conditional.inner"
+           "function.inner"
+           "loop.inner")))
+  ( :keymaps 'outer
+    "r" (evil-textobj-tree-sitter-get-textobj "attribute.outer")
+    "b" (evil-textobj-tree-sitter-get-textobj "block.outer")
+    "c" (evil-textobj-tree-sitter-get-textobj "call.outer")
+    "j" (evil-textobj-tree-sitter-get-textobj "class.outer")
+    ";" (evil-textobj-tree-sitter-get-textobj "comment.outer")
+    "i" (evil-textobj-tree-sitter-get-textobj "conditional.outer")
+    "f" (evil-textobj-tree-sitter-get-textobj "function.outer")
+    "l" (evil-textobj-tree-sitter-get-textobj "loop.outer")
+    "a" (evil-textobj-tree-sitter-get-textobj "parameter.outer")
+    "m" (evil-textobj-tree-sitter-get-textobj "statement.outer")
+    "k" (evil-textobj-tree-sitter-get-textobj
+          ("conditional.outer"
+           "function.outer"
+           "loop.outer"))))
 
 ;; Init flycheck for on-the-fly syntax checking
 (use-package flycheck
