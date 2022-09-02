@@ -231,6 +231,7 @@
   ;; We have our own find references key binding. Remove evil-collection's one.
   ;; evil-collection's find usages overrides evil-mc key bindings.
   (setq evil-collection-want-find-usages-bindings nil)
+  (setq evil-collection-want-unimpaired-p nil)
   (evil-collection-init))
 
 ;; Init evil-mc for supporting multiple cursors in evil mode
