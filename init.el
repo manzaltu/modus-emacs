@@ -1165,7 +1165,12 @@ run the attached function (if exists) and enable lsp"
     "]m" (lambda () (interactive) (evil-textobj-tree-sitter-goto-textobj "statement.outer"))
     "[m" (lambda () (interactive) (evil-textobj-tree-sitter-goto-textobj "statement.outer" t))
     "]M" (lambda () (interactive) (evil-textobj-tree-sitter-goto-textobj "statement.outer" nil t))
-    "[M" (lambda () (interactive) (evil-textobj-tree-sitter-goto-textobj "statement.outer" t t))))
+    "[M" (lambda () (interactive) (evil-textobj-tree-sitter-goto-textobj "statement.outer" t t)))
+  :config
+  ;; Push location to the jump list before every goto action
+  (advice-add #'evil-textobj-tree-sitter-goto-textobj :before
+              (lambda (&rest _args)
+                (evil-set-jump))))
 
 ;; Init flycheck for on-the-fly syntax checking
 (use-package flycheck
