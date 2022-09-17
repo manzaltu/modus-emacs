@@ -970,6 +970,7 @@ directory as a fall back."
                                    (python-mode (lambda () (require 'lsp-pyright)))
                                    js2-mode
                                    typescript-mode
+                                   julia-mode
                                    groovy-mode
                                    web-mode
                                    json-mode
@@ -1310,6 +1311,11 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init julia-mode for Julia support
 (use-package julia-mode)
+
+;; Init lsp-julia for Julia language server
+(use-package lsp-julia
+  :config
+  (setq lsp-julia-default-environment "~/.julia/environments/v1.8"))
 
 ;; Init groovy-mode for Groovy support
 (use-package groovy-mode)

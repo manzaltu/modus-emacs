@@ -105,6 +105,7 @@
  ("lsp-docker" . "a0d7cbf80652429c0be4dc7d39e1887ba4691ec7")
  ("lsp-haskell" . "daa51072e1718ca075987901fccbbc2357bca1fc")
  ("lsp-java" . "a1aff851bcf4f397f2a968557d213db1fede0c8a")
+ ("lsp-julia" . "d6688bb131ff4a5a0201f6d3826ef0b018265389")
  ("lsp-mode" . "ece9bcdc01953c794533b734b24931485c0070fb")
  ("lsp-origami" . "7df9c91a309aa4229bec41f109920b37c4197618")
  ("lsp-pyright" . "c745228f39fdb35372b29b909f25fa6c98dc7c88")
