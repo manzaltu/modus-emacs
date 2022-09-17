@@ -1308,6 +1308,9 @@ run the attached function (if exists) and enable lsp"
 ;; Init typescript-mode for enhanced TypeScript editing
 (use-package typescript-mode)
 
+;; Init julia-mode for Julia support
+(use-package julia-mode)
+
 ;; Init groovy-mode for Groovy support
 (use-package groovy-mode)
 

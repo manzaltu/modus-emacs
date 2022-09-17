@@ -99,6 +99,7 @@
  ("js2-mode" . "841cfec9570ae06a67a131997e2aff32340e81d7")
  ("json-mode" . "eedb4560034f795a7950fa07016bd4347c368873")
  ("json-snatcher" . "b28d1c0670636da6db508d03872d96ffddbc10f2")
+ ("julia-emacs" . "adf4029be778c5983c436873b8a78bc72a6b09f8")
  ("let-alist" . "592553db5929b54db40af0df90c5add0aaca045b")
  ("log4e" . "737d275eac28dbdfb0b26d28e99da148bfce9d16")
  ("lsp-docker" . "a0d7cbf80652429c0be4dc7d39e1887ba4691ec7")
