@@ -113,6 +113,8 @@
   :config
   ;; Set word movement to operate on symbol boundaries
   (defalias #'forward-evil-word #'forward-evil-symbol)
+  ;; Start with Emacs mode in rustic-popup-mode buffers
+  (evil-set-initial-state 'rustic-popup-mode 'emacs)
   (evil-mode 1))
 
 ;; Prefix keys for quick action menu
