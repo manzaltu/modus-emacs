@@ -1179,6 +1179,11 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init flycheck for on-the-fly syntax checking
 (use-package flycheck
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "c"
+    "]" #'flycheck-next-error
+    "[" #'flycheck-previous-error)
   :init
   (global-flycheck-mode))
 
