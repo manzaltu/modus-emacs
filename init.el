@@ -1190,7 +1190,7 @@ run the attached function (if exists) and enable lsp"
 ;; Init company mode for auto completion everywhere
 (use-package company
   :general
-  ( "M-<tab>" #'company-complete)
+  ( "M-/" #'company-complete)
   :init
   (setq company-minimum-prefix-length 1)
   (setq company-idle-delay 0.0)
