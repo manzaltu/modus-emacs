@@ -1196,15 +1196,6 @@ run the attached function (if exists) and enable lsp"
   (setq company-idle-delay 0.0)
   (global-company-mode))
 
-;; Init company-prescient for sorting auto completions
-(use-package company-prescient
-  :after company
-  :config
-  (setq prescient-save-file (mo-cache-path "persp-state"))
-  (setq prescient-sort-full-matches-first t)
-  (prescient-persist-mode +1)
-  (company-prescient-mode))
-
 ;; Init company-quickhelp for showing documentation with completion
 (use-package company-quickhelp
   :config

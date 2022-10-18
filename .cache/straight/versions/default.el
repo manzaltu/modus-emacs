@@ -135,7 +135,6 @@
  ("popup-el" . "c65905aa1a3ac32d1dbc8c1060605621e6143f80")
  ("pos-tip" . "bfe74204d1201a33ace81898e7c485382817510a")
  ("posframe" . "0d23bc5f7cfac00277d83ae7ba52c48685bcbc68")
- ("prescient.el" . "07d61b7779c4cca3009390383e7f98a55de7e17e")
  ("project" . "2e8da1b811d5213bd143d9d036bf7ea14741a1ae")
  ("protobuf" . "79c3d07c63e711255e0d566c9b876706e978686a")
  ("pyvenv" . "31ea715f2164dd611e7fc77b26390ef3ca93509b")
