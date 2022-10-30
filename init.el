@@ -1202,6 +1202,12 @@ run the attached function (if exists) and enable lsp"
   (setq company-quickhelp-delay 0)
   (company-quickhelp-mode))
 
+;; Init company-statistics for sorting completion candidates by usage
+(use-package company-statistics
+  :config
+  (setq company-statistics-file (mo-cache-path "company-statistics-cache.el"))
+  (company-statistics-mode))
+
 ;; Init company-math for latex auto completion
 (use-package company-math
   :config

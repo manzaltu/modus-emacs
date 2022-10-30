@@ -18,6 +18,7 @@
  ("company-math" . "45778f5731c97a21a83e3b965cbde42018709afd")
  ("company-mode" . "f1877a370ca76d5cd6614c527635b2d6983188af")
  ("company-quickhelp" . "3ca2708b4e5190205aca01d65fe1b391963a53f9")
+ ("company-statistics" . "e62157d43b2c874d2edbd547c3bdfb05d0a7ae5c")
  ("compat" . "d8967c0b6861f5fe9cb15e8c2121a58004338661")
  ("consult" . "e4546edb6f1268c4a13ac3dd1dec8c9b28d7df51")
  ("consult-flycheck" . "9b40f136c017fadf6239d7602d16bf73b4ad5198")
