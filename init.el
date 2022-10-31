@@ -1026,7 +1026,8 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
-    "d" #'lsp-ui-doc-glance)
+    "d" #'lsp-ui-doc-glance
+    "c" #'lsp-ui-doc-focus-frame)
   :config
   ;; Do not show documentation automatically
   (setq lsp-ui-doc-show-with-mouse nil)
