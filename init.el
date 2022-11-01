@@ -1032,7 +1032,7 @@ run the attached function (if exists) and enable lsp"
   ;; Do not show documentation automatically
   (setq lsp-ui-doc-show-with-mouse nil)
   (setq lsp-ui-doc-max-height 60)
-  (setq lsp-ui-doc-position 'at-point))
+  (setq lsp-ui-doc-position 'bottom))
 
 ;; Init lsp-treemacs for an interactive lsp tree-like interface
 (use-package lsp-treemacs
