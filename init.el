@@ -852,6 +852,8 @@ directory as a fall back."
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
     "g" #'magit-status
+    "s" #'magit-stage
+    "u" #'magit-unstage
     "d" #'magit-dispatch
     "b" #'magit-blame-addition
     "c" #'magit-file-checkout
