@@ -856,7 +856,7 @@ directory as a fall back."
     "u" #'magit-unstage
     "d" #'magit-dispatch
     "b" #'magit-blame-addition
-    "c" #'magit-file-checkout
+    "C" #'magit-file-checkout
     "l" #'magit-log-buffer-file
     "f" #'magit-file-dispatch)
   ( :keymaps 'magit-diff-section-base-map
