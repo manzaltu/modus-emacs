@@ -854,6 +854,7 @@ directory as a fall back."
     "g" #'magit-status
     "s" #'magit-stage
     "u" #'magit-unstage
+    "c" #'magit-commit
     "d" #'magit-dispatch
     "b" #'magit-blame-addition
     "C" #'magit-file-checkout
