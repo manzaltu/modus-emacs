@@ -5,7 +5,7 @@ scalabale development environment. It supports multiple programming languages
 and file formats, using relevant language servers and major modes.
 
 ** Emacs installation
-I strongly recommend using Emacs 28.0 (dev) with native compilation (GccEmacs).
+I strongly recommend using Emacs 28.0 with native compilation (GccEmacs).
 
 *** MacOS
 Using [[https://brew.sh/][brew]]:
@@ -15,6 +15,9 @@ brew install emacs-plus@28 --with-native-comp
 ln -s /usr/local/opt/emacs-plus@28/Emacs.app /Applications/Emacs.app
 #+END_SRC
 
+*** Linux
+User your favorite package manager (make sure that native compilation is enabled).
+
 ** Dependencies
 You should have the following software installed:
 1. [[https://github.com/BurntSushi/ripgrep][ripgrep]] - like grep, but faster
@@ -22,9 +25,11 @@ You should have the following software installed:
 3. [[https://github.com/GNUAspell/aspell][aspell]] - for spell check
 4. [[https://github.com/Kitware/CMake][cmake]] - for compiling vterm
 
+Additional software might be needed based on usage. Follow *Messages* buffer for details.
+
 ** Installation
 #+BEGIN_SRC shell
-git clone https://github.com/manzaltu/modus-emacs ~/.emacs
+git clone https://github.com/manzaltu/modus-emacs ~/.emacs.d
 #+END_SRC
 
 Optionally, you can install [[https://github.com/plexus/chemacs2][chemacs2]] and use this configuration alongside others.
