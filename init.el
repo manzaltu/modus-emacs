@@ -953,6 +953,9 @@ directory as a fall back."
     "o" #'lsp-clangd-find-other-file)
   ( :keymaps 'mo-quick-menu-map
     "\"" #'lsp-find-implementation)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "h"
+    "r" #'lsp-rust-analyzer-open-external-docs)
   :init
   ;; Set a high read output max value for handling large language server responses
   (setq read-process-output-max (* 10 1024 1024))
