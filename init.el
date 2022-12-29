@@ -1394,7 +1394,9 @@ run the attached function (if exists) and enable lsp"
     "F" #'format-all-buffer)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "f" #'format-all-mode))
+    "f" #'format-all-mode)
+  :config
+  (setq format-all-show-errors 'never))
 
 ;; Disable default tab indentation
 (setq-default indent-tabs-mode nil)
