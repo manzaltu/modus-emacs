@@ -789,6 +789,7 @@ directory as a fall back."
   :straight nil
   :general
   ( :keymaps 'mo-quick-menu-map
+    :prefix "f"
     "d" #'dired-jump)
   :config
   (setq dired-dwim-target t))
