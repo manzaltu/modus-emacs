@@ -1193,7 +1193,10 @@ run the attached function (if exists) and enable lsp"
     "]" #'flycheck-next-error
     "[" #'flycheck-previous-error)
   :init
-  (global-flycheck-mode))
+  (global-flycheck-mode)
+  :config
+  ;; Update diagnostics on switching to buffer
+  (add-to-list 'flycheck-check-syntax-automatically 'idle-buffer-switch))
 
 ;; Init company mode for auto completion everywhere
 (use-package company
