@@ -85,6 +85,9 @@
 ;; Init evil mode for Vim emulation in Emacs
 (use-package evil
   :demand t
+  :general
+  ( :states 'motion
+    "C-S-d" #'evil-scroll-up)
   :hook
   ;; Recenter after jump
   ( evil-jumps-post-jump . recenter)
