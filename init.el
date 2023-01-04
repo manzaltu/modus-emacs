@@ -719,7 +719,8 @@ directory as a fall back."
   :general
   ( :keymaps 'override
     "C-;" #'embark-act
-    "C-:" #'embark-collect)
+    "C-:" #'embark-collect
+    "C-)" #'embark-export)
   ( :keymaps 'embark-file-map
     "g" #'mo-embark-magit-status)
   ( :keymaps 'mo-quick-menu-map
