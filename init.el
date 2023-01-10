@@ -867,6 +867,9 @@ directory as a fall back."
     "f" #'magit-file-dispatch)
   ( :keymaps 'magit-diff-section-base-map
     "C-<return>" #'magit-diff-visit-worktree-file-other-window)
+  ( :keymaps 'magit-mode-map
+    :states '( normal)
+    "y n" #'mo-magit-yank-branch-name)
   :init
   (setq magit-define-global-key-bindings nil)
   :config
