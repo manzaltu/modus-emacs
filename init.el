@@ -870,6 +870,14 @@ directory as a fall back."
   :init
   (setq magit-define-global-key-bindings nil)
   :config
+  (defun mo-magit-yank-branch-name ()
+    "Yank the current branch name."
+    (interactive)
+    (let ((branch (magit-get-current-branch)))
+      (if branch
+          (progn (kill-new branch)
+                 (message "%s" branch))
+        (user-error "There is not current branch"))))
   (setq transient-levels-file (mo-cache-path "transient_levels.el"))
   (setq transient-values-file (mo-cache-path "transient_values.el"))
   (setq transient-history-file (mo-cache-path "transient_history.el"))
