@@ -649,6 +649,8 @@ directory as a fall back."
   ( :keymaps 'mo-quick-menu-map
     :prefix "p"
     "b" #'consult-project-buffer)
+  ( :keymaps 'mo-quick-menu-map
+    "*" #'mo-consult-line-symbol-at-point)
 
   :config
   ;; Configure the narrowing key.
@@ -686,6 +688,10 @@ directory as a fall back."
       (find-file (consult--find (car prompt-dir)
                                 (lambda (input) (consult--fd-builder input default-directory))
                                 initial))))
+
+  (defun mo-consult-line-symbol-at-point ()
+    (interactive)
+    (consult-line (thing-at-point 'symbol)))
 
   ;; Configure project detection using project.el
   (setq consult-project-root-function
