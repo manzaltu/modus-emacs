@@ -159,7 +159,9 @@
     "l" #'evil-window-move-far-right
     "v" #'evil-window-vsplit
     "s" #'evil-window-split
-    "c" #'evil-window-delete))
+    "c" #'evil-window-delete)
+  (mo-quick-menu-def
+    "ESC" #'evil-ex-nohighlight))
 
 ;; Quick save key binding
 (mo-quick-menu-def
