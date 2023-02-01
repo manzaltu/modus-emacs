@@ -1659,10 +1659,7 @@ If project root cannot be found, use the buffer's default directory."
     (unless desktop-save-mode
       (when (y-or-n-p "Save the current session? ")
         (call-interactively #'desktop+-create)))
-    t)
-
-  ;; Before exiting Emacs, ask the user to save the current session
-  (add-to-list 'kill-emacs-query-functions #'mo-ask-save-desktop t))
+    t))
 
 ;; Init zoom-window for toggling window zoom
 (use-package zoom-window
