@@ -857,6 +857,12 @@ directory as a fall back."
     :prefix "x"
     "p" #'proced))
 
+;; Init vc-git for configuring the git VC backend
+(use-package vc-git
+  :straight nil
+  :config
+  (setq vc-git-diff-switches '( "--histogram")))
+
 ;; Init magit for a better git user experience
 (use-package magit
   ;; Refine diff view to show sub hunk changes
