@@ -25,6 +25,9 @@
 
 ;;; Code:
 
+;; Set GC threshold to a high number. Should help with lsp-mode memory demands.
+(setq gc-cons-threshold 100000000)
+
 ;; We use straight.el to manage our packages. Disable package.el.
 (setq package-enable-at-startup nil)
 
