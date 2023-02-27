@@ -1260,7 +1260,7 @@ run the attached function (if exists) and enable lsp"
     "S" #'consult-lsp-symbols)
   :config
   ;; Manual preview key for symbols results
-  (consult-customize consult-lsp-symbols :preview-key (kbd "M-."))
+  (consult-customize consult-lsp-symbols :preview-key "M-.")
   ;; Remove initial async separator as we use spaces for search tokenization
   (consult-customize consult-lsp-symbols :initial nil))
 
