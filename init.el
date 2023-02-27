@@ -924,6 +924,7 @@ directory as a fall back."
     "r" #'code-review-forge-pr-at-point)
   :config
   (setq code-review-download-dir (mo-cache-path "code-review"))
+  (setq code-review-log-file (mo-cache-path "code-review-error.log"))
   (setq code-review-db-database-file (mo-cache-path "code-review-db-file.sqlite")))
 
 ;; Init ediff for better diff view and commands
