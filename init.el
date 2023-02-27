@@ -669,12 +669,12 @@ directory as a fall back."
                  (`( ,re . ,hl) (funcall consult--regexp-compiler
                                          arg 'extended t)))
       (when re
-        (list :command (append
-                        (list consult--fd-command
-                              "--color=never" "-i" "-p" "-H" "-t" "f"
-                              (concat dir ".*" (consult--join-regexps re 'extended)))
-                        opts)
-              :highlight hl))))
+        (cons (append
+               (list consult--fd-command
+                     "--color=never" "-i" "-p" "-H" "-t" "f"
+                     (concat dir ".*" (consult--join-regexps re 'extended)))
+               opts)
+              hl))))
 
   (defun consult-fd (&optional dir initial)
     (interactive "P")
