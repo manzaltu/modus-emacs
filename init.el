@@ -1591,6 +1591,10 @@ If project root cannot be found, use the buffer's default directory."
 
 ;; Init emojify for emoji support
 (use-package emojify
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "E" #'emojify-mode)
   :config
   (setq emojify-emojis-dir (mo-cache-path "emojis")))
 
