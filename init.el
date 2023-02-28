@@ -1570,6 +1570,8 @@ If project root cannot be found, use the buffer's default directory."
       (vterm vterm-buffer-name)))
   ;; Set a low response delay
   (setq vterm-timer-delay 0.07)
+  ;; Set longer scrollback history
+  (setq vterm-max-scrollback 50000)
   ;; Exclude next/previous tab/buffer key bindings (incl. original excludes)
   (setq vterm-keymap-exceptions
         (append '( "C-c" "C-x" "C-u" "C-g" "C-h" "C-l" "M-x" "M-o" "C-y" "M-y")
