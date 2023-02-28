@@ -1589,6 +1589,11 @@ If project root cannot be found, use the buffer's default directory."
 (use-package all-the-icons
   :if (display-graphic-p))
 
+;; Init emojify for emoji support
+(use-package emojify
+  :config
+  (setq emojify-emojis-dir (mo-cache-path "emojis")))
+
 ;; Init dashboard for an informative splash screen
 (use-package dashboard
   :config
