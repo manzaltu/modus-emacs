@@ -921,6 +921,8 @@ directory as a fall back."
     "RET" #'code-review-comment-add-or-edit)
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
+    "{" #'code-review-comment-jump-previous
+    "}" #'code-review-comment-jump-next
     "r" #'code-review-forge-pr-at-point)
   :config
   (setq code-review-download-dir (mo-cache-path "code-review"))
