@@ -602,8 +602,7 @@ directory as a fall back."
     "a" #'consult-apropos)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "b" #'consult-buffer
-    "B" #'consult-buffer-other-window)
+    "b" #'consult-buffer)
   ( :keymaps 'mo-quick-menu-map
     "RET" #'consult-bookmark)
   ;; C-x bindings (ctl-x-map)
