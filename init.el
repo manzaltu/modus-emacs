@@ -707,7 +707,10 @@ directory as a fall back."
 	   (magit-status "Magit" ?g))))
 
 ;; Init consult-dir for inserting paths into minibuffer prompts
-(use-package consult-dir)
+(use-package consult-dir
+  :general
+  ( :keymaps 'vertico-map
+    "M-;" #'consult-dir))
 
 ;; Init consult-flycheck for showing syntax errors with consult
 (use-package consult-flycheck
