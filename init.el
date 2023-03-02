@@ -1665,6 +1665,9 @@ If project root cannot be found, use the buffer's default directory."
   ( text-mode . flyspell-mode)
   ( prog-mode . flyspell-prog-mode))
 
+;; Init consult-flyspell for incorporating flyspell into consult
+(use-package consult-flyspell)
+
 ;; Init desktop+ for saving session configuration
 (use-package desktop+
   :general

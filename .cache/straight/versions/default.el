@@ -22,6 +22,7 @@
  ("compat" . "df030cd6d8b09f11bbc6f68ef6ee07cb0d990c6f")
  ("consult" . "e36ef609c696f93ed8946eef6b6f5e70e606215b")
  ("consult-flycheck" . "c371996c571b7139ef4d9a8db142bf37a7ee826b")
+ ("consult-flyspell" . "d587961ef0d5f9992cedef3b35b87b11d610a375")
  ("consult-lsp" . "f8db3252c0daa41225ba4ed1c0d178b281cd3e90")
  ("csharp-mode" . "02c61c219b2c22491eff9b7315fed661fab423d4")
  ("csproj-mode" . "a7f0f4610c976a28c41b9b8299892f88b5d0336c")
