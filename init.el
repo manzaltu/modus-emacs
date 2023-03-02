@@ -1667,10 +1667,13 @@ If project root cannot be found, use the buffer's default directory."
 
 ;; Init consult-flyspell for incorporating flyspell into consult
 (use-package consult-flyspell
+  :after flyspell-correct
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "s" #'consult-flyspell))
+    "s" #'consult-flyspell)
+  :config
+  (setq consult-flyspell-select-function 'flyspell-correct-at-point))
 
 ;; Init desktop+ for saving session configuration
 (use-package desktop+
