@@ -601,6 +601,10 @@ directory as a fall back."
     "r" #'consult-register
     "a" #'consult-apropos)
   ( :keymaps 'mo-quick-menu-map
+    :prefix "h"
+    "I" #'consult-info
+    "m" #'consult-man)
+  ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "b" #'consult-buffer
     "m" #'consult-minor-mode-menu
