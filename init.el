@@ -710,7 +710,10 @@ directory as a fall back."
 (use-package consult-dir
   :general
   ( :keymaps 'vertico-map
-    "M-;" #'consult-dir))
+    "M-;" #'consult-dir)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "f"
+    "c" #'consult-dir))
 
 ;; Init consult-flycheck for showing syntax errors with consult
 (use-package consult-flycheck
