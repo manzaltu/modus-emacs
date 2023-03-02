@@ -1590,7 +1590,7 @@ If project root cannot be found, use the buffer's default directory."
   (setq vterm-max-scrollback 50000)
   ;; Exclude next/previous tab/buffer key bindings (incl. original excludes)
   (setq vterm-keymap-exceptions
-        (append '( "C-c" "C-x" "C-u" "C-g" "C-h" "C-l" "M-x" "M-o" "C-y" "M-y")
+        (append '( "C-c" "C-x" "C-u" "C-g" "C-h" "C-l" "M-x" "M-o" "C-y" "M-y" "M-`")
                 `( ,mo-binding-next-buffer
                    ,mo-binding-prev-buffer
                    ,mo-binding-next-tab
