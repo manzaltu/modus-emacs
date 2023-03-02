@@ -654,7 +654,7 @@ directory as a fall back."
 
   :config
   ;; Configure the narrowing key.
-  (setq consult-narrow-key ">")
+  (setq consult-narrow-key "C-l")
 
   ;; Use consult to select xref locations with preview
   (setq xref-show-xrefs-function #'consult-xref
