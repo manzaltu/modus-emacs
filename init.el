@@ -603,6 +603,7 @@ directory as a fall back."
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "b" #'consult-buffer
+    "m" #'consult-minor-mode-menu
     "B" #'consult-recent-file)
   ( :keymaps 'mo-quick-menu-map
     "RET" #'consult-bookmark)
