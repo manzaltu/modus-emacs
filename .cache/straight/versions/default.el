@@ -21,6 +21,7 @@
  ("company-statistics" . "e62157d43b2c874d2edbd547c3bdfb05d0a7ae5c")
  ("compat" . "df030cd6d8b09f11bbc6f68ef6ee07cb0d990c6f")
  ("consult" . "e36ef609c696f93ed8946eef6b6f5e70e606215b")
+ ("consult-dir" . "ed8f0874d26f10f5c5b181ab9f2cf4107df8a0eb")
  ("consult-flycheck" . "c371996c571b7139ef4d9a8db142bf37a7ee826b")
  ("consult-flyspell" . "d587961ef0d5f9992cedef3b35b87b11d610a375")
  ("consult-lsp" . "f8db3252c0daa41225ba4ed1c0d178b281cd3e90")

@@ -706,6 +706,9 @@ directory as a fall back."
            (consult-ripgrep "Ripgrep" ?r)
 	   (magit-status "Magit" ?g))))
 
+;; Init consult-dir for inserting paths into minibuffer prompts
+(use-package consult-dir)
+
 ;; Init consult-flycheck for showing syntax errors with consult
 (use-package consult-flycheck
   :general
