@@ -888,6 +888,7 @@ directory as a fall back."
     "b" #'magit-blame-addition
     "C" #'magit-file-checkout
     "l" #'magit-log-buffer-file
+    "k" #'magit-toggle-buffer-lock
     "f" #'magit-file-dispatch)
   ( :keymaps 'magit-diff-section-base-map
     "C-<return>" #'magit-diff-visit-worktree-file-other-window)
