@@ -481,7 +481,7 @@ Ask for action even on single candidate jumps."
       `( orderless-without-literal . ,(substring pattern 1)))))
   (setq orderless-style-dispatchers '( mo-orderless-exclude-dispatcher))
 
-  :custom ( completion-styles '( orderless)))
+  :custom ( completion-styles '( orderless basic)))
 
 ;; Init vertico for item list selection
 (use-package vertico
