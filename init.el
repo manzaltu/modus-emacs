@@ -471,7 +471,7 @@ Ask for action even on single candidate jumps."
   (setq orderless-matching-styles '( orderless-regexp orderless-literal))
   (setq orderless-component-separator #'orderless-escapable-split-on-space)
   (setq completion-category-defaults nil)
-  (setq completion-category-overrides nil)
+  (setq completion-category-overrides '( ( file ( styles basic partial-completion))))
 
   ;; Add exclude pattern style
   (defun mo-orderless-exclude-dispatcher (pattern _index _total)
