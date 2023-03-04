@@ -528,6 +528,8 @@ Ask for action even on single candidate jumps."
 
 ;; Init corfu for auto completion
 (use-package corfu
+  ;; Load extensions
+  :straight ( :files ( :defaults "extensions/*"))
   :demand t
   :general
   ( :keymaps 'corfu-map
