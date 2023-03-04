@@ -569,6 +569,14 @@ Ask for action even on single candidate jumps."
   :config
   (corfu-echo-mode 1))
 
+;; Init corfu-quick for selecting auto-completion candidates using quick keys
+(use-package corfu-quick
+  :after corfu
+  :straight nil
+  :general
+  ( :keymaps 'corfu-map
+    "M-q" #'corfu-quick-complete))
+
 ;; Init cape for completion at point extensions
 (use-package cape
   :config
