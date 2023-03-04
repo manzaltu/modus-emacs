@@ -562,6 +562,13 @@ Ask for action even on single candidate jumps."
   (setq corfu-popupinfo-delay '( 0.5 . 0.5))
   (corfu-popupinfo-mode 1))
 
+;; Init corfu-echo for auto-completion candidate doc in the echo area
+(use-package corfu-echo
+  :after corfu
+  :straight nil
+  :config
+  (corfu-echo-mode 1))
+
 ;; Enable indentation and completion using the TAB key
 (setq tab-always-indent 'complete)
 
