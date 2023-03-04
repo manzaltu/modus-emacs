@@ -569,6 +569,13 @@ Ask for action even on single candidate jumps."
   :config
   (corfu-echo-mode 1))
 
+;; Init cape for completion at point extensions
+(use-package cape
+  :config
+  ;; Add completion functions
+  (add-to-list 'completion-at-point-functions #'cape-dabbrev)
+  (add-to-list 'completion-at-point-functions #'cape-file))
+
 ;; Enable indentation and completion using the TAB key
 (setq tab-always-indent 'complete)
 
