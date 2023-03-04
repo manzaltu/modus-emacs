@@ -535,6 +535,8 @@ Ask for action even on single candidate jumps."
   :init
   ;; Enable auto completion
   (setq corfu-auto t)
+  ;; Keep popup only if there is a match or the separator was inserted
+  (setq corfu-quit-no-match 'separator)
   :config
   (global-corfu-mode))
 
