@@ -1062,6 +1062,8 @@ directory as a fall back."
     :prefix "h"
     "r" #'lsp-rust-analyzer-open-external-docs)
   :init
+  ;; No completion provider as we use corfu
+  (setq lsp-completion-provider :none)
   ;; Set a high read output max value for handling large language server responses
   (setq read-process-output-max (* 10 1024 1024))
   ;; Reduce the max number of files to watch before showing warning
