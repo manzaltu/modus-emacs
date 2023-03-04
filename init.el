@@ -553,6 +553,15 @@ Ask for action even on single candidate jumps."
   (corfu-history-mode 1)
   (add-to-list 'savehist-additional-variables 'corfu-history))
 
+;; Init corfu-popupinfo for extra info on auto-completion candidates
+(use-package corfu-popupinfo
+  :after corfu
+  :straight nil
+  :config
+  ;; Set a short popup delay
+  (setq corfu-popupinfo-delay '( 0.5 . 0.5))
+  (corfu-popupinfo-mode 1))
+
 ;; Enable indentation and completion using the TAB key
 (setq tab-always-indent 'complete)
 
