@@ -1045,6 +1045,7 @@ directory as a fall back."
 
 ;; Init lsp mode for lsp support
 (use-package lsp-mode
+  :after orderless
   :general
   ;; Set the lsp prefix key
   ( :keymaps 'lsp-mode-map
@@ -1123,6 +1124,10 @@ run the attached function (if exists) and enable lsp"
   ;; Set clangd default parameters
   (setq lsp-clients-clangd-args '( "--header-insertion-decorators=0"
                                    "--completion-style=detailed"))
+  ;; Set completion style to orderless
+  (defun mo-lsp-mode-setup-completion ()
+    (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
+          '( orderless)))
   :hook
   ;; Postpone lsp load for after dir local vars are read
   ;; Do not load lsp if dir local vars are not enabled (e.g. on preview)
@@ -1133,6 +1138,8 @@ run the attached function (if exists) and enable lsp"
 
   ;; Enable which-key integration
   ( lsp-mode . lsp-enable-which-key-integration)
+  ;; Setup completion to use orderless
+  ( lsp-completion-mode . mo-lsp-mode-setup-completion)
   :commands lsp)
 
 ;; Init lsp-ui for an interactive lsp interface
