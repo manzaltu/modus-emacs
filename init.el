@@ -534,6 +534,9 @@ Ask for action even on single candidate jumps."
   :config
   (global-corfu-mode))
 
+;; Enable indentation and completion using the TAB key
+(setq tab-always-indent 'complete)
+
 ;; Used by project.el for project detection
 (defun mo-project-try-local (dir)
   "Determine if DIR is a project.
