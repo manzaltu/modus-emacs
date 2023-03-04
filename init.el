@@ -470,6 +470,8 @@ Ask for action even on single candidate jumps."
   ;; Set matching style to regexp and literal
   (setq orderless-matching-styles '( orderless-regexp orderless-literal))
   (setq orderless-component-separator #'orderless-escapable-split-on-space)
+  (setq completion-category-defaults nil)
+  (setq completion-category-overrides nil)
 
   ;; Add exclude pattern style
   (defun mo-orderless-exclude-dispatcher (pattern _index _total)
