@@ -526,6 +526,14 @@ Ask for action even on single candidate jumps."
   :config
   (recursion-indicator-mode))
 
+;; Init corfu for auto completion
+(use-package corfu
+  :init
+  ;; Enable auto completion
+  (setq corfu-auto t)
+  :config
+  (global-corfu-mode))
+
 ;; Used by project.el for project detection
 (defun mo-project-try-local (dir)
   "Determine if DIR is a project.
