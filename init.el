@@ -528,6 +528,10 @@ Ask for action even on single candidate jumps."
 
 ;; Init corfu for auto completion
 (use-package corfu
+  :demand t
+  :general
+  ( :keymaps 'corfu-map
+    "C-<return>" #'corfu-insert-separator)
   :init
   ;; Enable auto completion
   (setq corfu-auto t)
