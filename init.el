@@ -1617,6 +1617,14 @@ If project root cannot be found, use the buffer's default directory."
 (use-package all-the-icons
   :if (display-graphic-p))
 
+;; Init kind-icon for icon support in auto completion
+(use-package kind-icon
+  :after corfu
+  :config
+  ;; Compute blended backgrounds correctly
+  (setq kind-icon-default-face 'corfu-default)
+  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
+
 ;; Init emojify for emoji support
 (use-package emojify
   :general
