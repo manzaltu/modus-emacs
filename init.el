@@ -545,6 +545,14 @@ Ask for action even on single candidate jumps."
   :config
   (global-corfu-mode))
 
+;; Init corfu-history for auto-completion sorting based on history
+(use-package corfu-history
+  :after ( corfu savehist)
+  :straight nil
+  :config
+  (corfu-history-mode 1)
+  (add-to-list 'savehist-additional-variables 'corfu-history))
+
 ;; Enable indentation and completion using the TAB key
 (setq tab-always-indent 'complete)
 
