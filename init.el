@@ -394,7 +394,7 @@ Ask for action even on single candidate jumps."
     "b" #'org-roam-buffer-toggle
     "g" #'org-roam-graph
     "i" #'org-roam-node-insert
-    "n" #'org-roam-node-find
+    "r" #'org-roam-node-find
     "T" #'org-roam-tag-add
     "c" #'org-roam-capture)
   :custom
