@@ -398,7 +398,7 @@ Ask for action even on single candidate jumps."
     "T" #'org-roam-tag-add
     "c" #'org-roam-capture)
   :custom
-  ( org-roam-directory org-directory)
+  ( org-roam-directory "~/roam")
   :init
   (setq org-roam-v2-ack t)
   :config
