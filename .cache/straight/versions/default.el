@@ -125,7 +125,6 @@
  ("org" . "d94f4066e075f5616965d99fada0997b27786e78")
  ("org-pomodoro" . "3f5bcfb80d61556d35fc29e5ddb09750df962cc6")
  ("org-roam" . "74422df546a515bc984c2f3d3a681c09d6f43916")
- ("org-superstar-mode" . "54c81c27dde2a6dc461bb064e79a8b2089093a2e")
  ("origami.el" . "e558710a975e8511b9386edc81cd6bdd0a5bda74")
  ("parent-mode" . "db692cf08deff2f0e973e6e86e26662b44813d1b")
  ("pdf-tools" . "bc2ba117e8c3196ff9adf0da4fa1e63a8da3d7c8")
