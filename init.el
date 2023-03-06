@@ -417,6 +417,12 @@ Ask for action even on single candidate jumps."
     :prefix "n"
     "p" #'org-pomodoro))
 
+;; Init consult-notes for selecting and previewing notes with consult
+(use-package consult-notes
+  :config
+  (setq consult-notes-file-dir-sources '( ( "Org" ?o "~/org")))
+  (consult-notes-org-roam-mode))
+
 ;; Init calendar for showing a calendar
 (use-package calendar
   :straight nil
