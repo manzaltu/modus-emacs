@@ -405,6 +405,11 @@ Ask for action even on single candidate jumps."
   (setq org-roam-db-location (mo-cache-path "org-roam.db"))
   (org-roam-db-autosync-mode))
 
+;; Init org-modern for a modern org buffer style
+(use-package org-modern
+  :config
+  (global-org-modern-mode))
+
 ;; Init org-pomodoro for using the Pomodoro technique with org mode
 (use-package org-pomodoro
   :general

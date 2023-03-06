@@ -123,6 +123,7 @@
  ("nongnu-elpa" . "9e236b82a2da24bb9983e2f63061323354d6ecfe")
  ("orderless" . "e6784026717a8a6a7dcd0bf31fd3414f148c542e")
  ("org" . "d94f4066e075f5616965d99fada0997b27786e78")
+ ("org-modern" . "8038f63088ca40397417a000aeaea0e51128bf3e")
  ("org-pomodoro" . "3f5bcfb80d61556d35fc29e5ddb09750df962cc6")
  ("org-roam" . "74422df546a515bc984c2f3d3a681c09d6f43916")
  ("origami.el" . "e558710a975e8511b9386edc81cd6bdd0a5bda74")
