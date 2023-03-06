@@ -577,7 +577,7 @@ Ask for action even on single candidate jumps."
   :straight nil
   :general
   ( :keymaps 'corfu-map
-    "M-q" #'corfu-quick-complete))
+    "M-k" #'corfu-quick-complete))
 
 ;; Init cape for completion at point extensions
 (use-package cape
