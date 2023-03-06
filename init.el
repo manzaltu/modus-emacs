@@ -1025,6 +1025,7 @@ directory as a fall back."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
+    "R" #'diff-hl-set-reference-rev
     "]" #'diff-hl-next-hunk
     "[" #'diff-hl-previous-hunk)
   :hook
