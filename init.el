@@ -518,7 +518,7 @@ Ask for action even on single candidate jumps."
   :straight nil
   :general
   ( :keymaps 'vertico-map
-    "M-q" #'vertico-quick-jump))
+    "M-k" #'vertico-quick-jump))
 
 ;; Enable recursive minibuffer
 (setq enable-recursive-minibuffers t)
