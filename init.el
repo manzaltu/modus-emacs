@@ -380,7 +380,6 @@ Ask for action even on single candidate jumps."
   (setq org-agenda-window-setup 'current-window)
   (setq org-agenda-include-diary t)
   (setq org-agenda-use-time-grid t)
-  (setq org-agenda-start-on-weekday 0)
   (setq org-agenda-diary-file
         (concat (file-name-as-directory org-directory) "diary.org"))
   (setq org-id-locations-file (mo-cache-path ".org-id-locations"))
