@@ -991,7 +991,11 @@ directory as a fall back."
   (setq forge-database-file (mo-cache-path "forge-database.sqlite")))
 
 ;; Init github-review for helping with code review on github
-(use-package github-review)
+(use-package github-review
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "g"
+    "r r" #'github-review-forge-pr-at-point))
 
 ;; Init ediff for better diff view and commands
 (use-package ediff
