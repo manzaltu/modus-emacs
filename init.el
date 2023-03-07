@@ -990,6 +990,9 @@ directory as a fall back."
   :config
   (setq forge-database-file (mo-cache-path "forge-database.sqlite")))
 
+;; Init github-review for helping with code review on github
+(use-package github-review)
+
 ;; Init ediff for better diff view and commands
 (use-package ediff
   :straight nil
