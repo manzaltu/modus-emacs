@@ -1766,7 +1766,10 @@ If project root cannot be found, use the buffer's default directory."
   (minions-mode 1))
 
 ;; Init buffer-move for moving buffers between windows
-(use-package buffer-move)
+(use-package buffer-move
+  :config
+  ;; We want to move, not to swap, the buffer
+  (setq buffer-move-behavior 'move))
 
 ;; Init zoom-frm to scale text in frame
 (use-package zoom-frm
