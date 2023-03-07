@@ -995,7 +995,10 @@ directory as a fall back."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
-    "r r" #'github-review-forge-pr-at-point))
+    "r r" #'github-review-forge-pr-at-point)
+  :config
+  (setq github-review-view-comments-in-code-lines t)
+  (setq github-review-view-comments-in-code-lines-outdated t))
 
 ;; Init ediff for better diff view and commands
 (use-package ediff
