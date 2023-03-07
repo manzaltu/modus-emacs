@@ -1767,6 +1767,13 @@ If project root cannot be found, use the buffer's default directory."
 
 ;; Init buffer-move for moving buffers between windows
 (use-package buffer-move
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "w"
+    "h" #'buf-move-left
+    "j" #'buf-move-down
+    "k" #'buf-move-up
+    "l" #'buf-move-right)
   :config
   ;; We want to move, not to swap, the buffer
   (setq buffer-move-behavior 'move))
