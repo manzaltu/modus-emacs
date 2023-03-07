@@ -990,23 +990,6 @@ directory as a fall back."
   :config
   (setq forge-database-file (mo-cache-path "forge-database.sqlite")))
 
-;; Init code-review for helping with code review on git forges
-(use-package code-review
-  :general
-  ( :keymaps 'code-review-mode-map
-    :states '( normal emacs)
-    "r" #'code-review-transient-api
-    "RET" #'code-review-comment-add-or-edit)
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "g"
-    "{" #'code-review-comment-jump-previous
-    "}" #'code-review-comment-jump-next
-    "r" #'code-review-forge-pr-at-point)
-  :config
-  (setq code-review-download-dir (mo-cache-path "code-review"))
-  (setq code-review-log-file (mo-cache-path "code-review-error.log"))
-  (setq code-review-db-database-file (mo-cache-path "code-review-db-file.sqlite")))
-
 ;; Init ediff for better diff view and commands
 (use-package ediff
   :straight nil
