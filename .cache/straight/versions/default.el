@@ -9,6 +9,7 @@
  ("auto-highlight-symbol" . "3c2bef1bdb2086fffc9e424094fb6a143da34af8")
  ("avy" . "955c8dedd68c74f3cf692c1249513f048518c4c9")
  ("better-jumper" . "47622213783ece37d5337dc28d33b530540fc319")
+ ("buffer-move" . "e7800b3ab1bd76ee475ef35507ec51ecd5a3f065")
  ("bui.el" . "f3a137628e112a91910fd33c0cff0948fa58d470")
  ("cape" . "82b57a3f999530daa923296a1e015008e0b8d482")
  ("cdlatex" . "ac024ce29318cab812a743ad132a531c855c27a5")

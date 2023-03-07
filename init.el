@@ -1765,6 +1765,9 @@ If project root cannot be found, use the buffer's default directory."
   (setq zoom-window-mode-line-color "#3b404e")
   (minions-mode 1))
 
+;; Init buffer-move for moving buffers between windows
+(use-package buffer-move)
+
 ;; Init zoom-frm to scale text in frame
 (use-package zoom-frm
   :general
