@@ -995,6 +995,9 @@ directory as a fall back."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
+    "r a" #'github-review-approve
+    "r c" #'github-review-comment
+    "r k" #'github-review-reject
     "r r" #'github-review-forge-pr-at-point)
   :config
   (setq github-review-view-comments-in-code-lines t)
