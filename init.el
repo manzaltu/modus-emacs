@@ -998,7 +998,8 @@ directory as a fall back."
     "r r" #'github-review-forge-pr-at-point)
   :config
   (setq github-review-view-comments-in-code-lines t)
-  (setq github-review-view-comments-in-code-lines-outdated t))
+  (setq github-review-view-comments-in-code-lines-outdated t)
+  (setq github-review-reply-inline-comments t))
 
 ;; Init ediff for better diff view and commands
 (use-package ediff
