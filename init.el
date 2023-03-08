@@ -583,7 +583,7 @@ Ask for action even on single candidate jumps."
 (use-package cape
   :config
   ;; Add completion functions
-  (add-to-list 'completion-at-point-functions #'cape-dabbrev)
+  (add-to-list 'completion-at-point-functions (cape-capf-prefix-length #'cape-dabbrev 3))
   (add-to-list 'completion-at-point-functions #'cape-file))
 
 ;; Enable indentation and completion using the TAB key
