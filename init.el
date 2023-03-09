@@ -1091,6 +1091,7 @@ directory as a fall back."
                                    web-mode
                                    json-mode
                                    yaml-mode
+                                   powershell-mode
                                    dockerfile-mode
                                    terraform-mode
                                    cmake-mode
