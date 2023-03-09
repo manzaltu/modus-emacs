@@ -138,6 +138,7 @@
  ("popper" . "da70c8296a3b3b69626b11f2d202a38075f00c7b")
  ("popup-el" . "71cede0588c10526f88dd0375bce776ec2eed05e")
  ("posframe" . "06b939cfb06168782fc378043ff35bd7fec203b8")
+ ("powershell.el" . "f2da15857e430206e215a3c65289b4058ae3c976")
  ("project" . "985a4346709ceae1e84ca1fa146581ed96076bba")
  ("protobuf" . "b4370b2e762b9f384b61a0a0a6e607349e92aa1a")
  ("pyvenv" . "31ea715f2164dd611e7fc77b26390ef3ca93509b")

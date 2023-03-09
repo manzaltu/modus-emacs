@@ -1437,6 +1437,9 @@ run the attached function (if exists) and enable lsp"
 ;; Init yaml-mode for enhanced YAML editing
 (use-package yaml-mode)
 
+;; Init powershell for editing PowerShell files
+(use-package powershell)
+
 ;; Init dockerfile-mode for editing docker files
 (use-package dockerfile-mode
   :mode "Dockerfile\\'")
