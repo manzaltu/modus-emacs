@@ -86,7 +86,6 @@
  ("gntp.el" . "767571135e2c0985944017dc59b0be79af222ef5")
  ("gnu-elpa-mirror" . "c1eac9ab251d13d9a37cfba975246f30878ee2b8")
  ("go-mode.el" . "166dfb1e090233c4609a50c2ec9f57f113c1da72")
- ("goggles" . "4a299501eb5ea1b49a4cf86880553f3af42ac7b6")
  ("goto-chg" . "278cd3e6d5107693aa2bb33189ca503f22f227d0")
  ("groovy-emacs-modes" . "c612ac1e9f742856914ad6e8eb9e9dc169f489ab")
  ("haskell-mode" . "a34ccdc54be15043ff0d253c3c20087524255491")

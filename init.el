@@ -266,14 +266,6 @@
 (use-package evil-anzu
   :after evil)
 
-;; Init goggles for highlighting modified regions
-(use-package goggles
-  :hook ( ( prog-mode text-mode) . goggles-mode)
-  :config
-  (setq goggles-pulse-delay 0.05)
-  ;; Show a gradual pulse
-  (setq-default goggles-pulse t))
-
 ;; Init avy for text zapping using free text and a timeout
 (use-package avy
   :config
