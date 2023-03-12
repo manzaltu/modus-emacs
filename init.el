@@ -1112,6 +1112,8 @@ run the attached function (if exists) and enable lsp"
   (setq lsp-imenu-index-function #'lsp-imenu-create-categorized-index)
   ;; Enable semantic token highlighting
   (setq lsp-semantic-tokens-enable t)
+  ;; When completion is triggered inside symbols, prefer to insert than replace
+  (setq lsp-completion-default-behaviour :insert)
   ;; Set clangd default parameters
   (setq lsp-clients-clangd-args '( "--header-insertion-decorators=0"
                                    "--completion-style=detailed"))
