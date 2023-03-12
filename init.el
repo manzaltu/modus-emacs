@@ -1114,6 +1114,8 @@ run the attached function (if exists) and enable lsp"
   (setq lsp-semantic-tokens-enable t)
   ;; When completion is triggered inside symbols, prefer to insert than replace
   (setq lsp-completion-default-behaviour :insert)
+  ;; Disable lenses
+  (setq lsp-lens-enable nil)
   ;; Set clangd default parameters
   (setq lsp-clients-clangd-args '( "--header-insertion-decorators=0"
                                    "--completion-style=detailed"))
