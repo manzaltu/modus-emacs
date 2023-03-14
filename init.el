@@ -389,7 +389,7 @@ Ask for action even on single candidate jumps."
     "i" #'org-roam-node-insert
     "r" #'org-roam-node-find
     "T" #'org-roam-tag-add
-    "c" #'org-roam-capture)
+    "C" #'org-roam-capture)
   :custom
   ( org-roam-directory "~/roam")
   :init
