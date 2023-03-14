@@ -358,6 +358,7 @@ Ask for action even on single candidate jumps."
     "v" #'org-latex-preview
     "e" #'org-toggle-pretty-entities
     "s" #'org-schedule
+    "c" #'org-capture
     "t" #'org-todo
     "a" #'org-agenda)
   ( :keymaps 'org-mode-map
