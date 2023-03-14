@@ -368,6 +368,7 @@ Ask for action even on single candidate jumps."
   (setq org-startup-indented t)
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.8))
   (setq org-directory "~/org")
+  (setq org-default-notes-file (concat (file-name-as-directory org-directory) "notes.org"))
   (setq org-agenda-files `( ,org-directory))
   (setq org-agenda-window-setup 'current-window)
   (setq org-agenda-include-diary t)
