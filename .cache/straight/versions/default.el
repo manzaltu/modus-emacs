@@ -24,7 +24,6 @@
  ("consult-lsp" . "f8db3252c0daa41225ba4ed1c0d178b281cd3e90")
  ("consult-notes" . "5aee2ef15d9ec14bb3ef2f1aa05e511cd52af971")
  ("corfu" . "9b3d6d8046471a105503ee361f4322df97f02735")
- ("csharp-mode" . "02c61c219b2c22491eff9b7315fed661fab423d4")
  ("csproj-mode" . "a7f0f4610c976a28c41b9b8299892f88b5d0336c")
  ("dap-mode" . "f5a8f240d85ec4cfe87314a5ac0c245b60a7dfe0")
  ("dash.el" . "3df46d7d9fe74f52a661565888e4d31fd760f0df")

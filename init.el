@@ -1381,9 +1381,6 @@ run the attached function (if exists) and enable lsp"
 ;; Init go-mode for Go support
 (use-package go-mode)
 
-;; Init csharp-mode for C# support
-(use-package csharp-mode)
-
 ;; Init csproj-mode for editing C# project files
 (use-package csproj-mode)
 
