@@ -1447,9 +1447,6 @@ run the attached function (if exists) and enable lsp"
     :prefix "c"
     "D" #'docker))
 
-;; Init docker-tramp for supporting TRAMP in containers
-(use-package docker-tramp)
-
 ;; Init nix-mode for editing nix files
 (use-package nix-mode
   :mode "\\.nix\\'")

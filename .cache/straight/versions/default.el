@@ -32,7 +32,6 @@
  ("diff-hl" . "d20f16bf5eadd66e775f215e800f25caddae8cb5")
  ("dired-hacks" . "da34f8843987ab7c7868fbc1ae5bd0816f68ad88")
  ("dired-plus" . "90fc0d5a110063278e3fe320dd903ec07be5dba7")
- ("docker-tramp.el" . "930d7b46c180d8a13240a028c1b40af84f2a3219")
  ("docker.el" . "cc0046e6a557dce0ccc4108dd22e04f21ba8b0dc")
  ("dockerfile-mode" . "52c6c00da1d31c0b6c29c74335b3af63ed6bf06c")
  ("dtrt-indent" . "d4fd1b4977eb0d534844fddf01c3c51c70c57205")
