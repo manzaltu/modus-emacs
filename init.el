@@ -37,12 +37,13 @@
   (concat (file-name-as-directory mo-cache-dir) filename))
 
 (defvar straight-base-dir mo-cache-dir)
+(defvar straight-repository-branch "develop")
 
 ;; Init straight.el for package management
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name ".cache/straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-      (bootstrap-version 5))
+      (bootstrap-version 6))
   (unless (file-exists-p bootstrap-file)
     (with-current-buffer
         (url-retrieve-synchronously

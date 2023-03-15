@@ -148,7 +148,7 @@
  ("rustic" . "39423d1cf4fa054c36bf9577356451f4c06ee148")
  ("s.el" . "e957dcb0677da18b2bb60ad867db5df5c35b5616")
  ("spinner" . "634529bb3173e09b37499f636de70abf29d9fa8a")
- ("straight.el" . "3eca39dfc6797243ec7d1c6a7d45142407f73f88")
+ ("straight.el" . "039e5c9a9b5c00749602afb41341e9e77ba09429")
  ("styleguide" . "e065b55718436e83e36220381a2a8e80720c2ce3")
  ("svg-lib" . "6bed25b4f40746722e23b9eab3d79af0693c0652")
  ("swift-mode" . "1244ee48de1895d33f55fed81fc90acda0c901f1")
