@@ -26,7 +26,7 @@
 ;;; Code:
 
 ;; Disable deferred & auto native compilation temporarily until we set the exec-path var
-(setq native-comp-deferred-compilation nil)
+(setq native-comp-jit-compilation nil)
 (defvar straight-disable-native-compile t)
 
 ;; Set a directory path to be used for cache files
@@ -63,7 +63,7 @@
 
 ;; Re-enable auto & deferred native compilation
 (setq straight-disable-native-compile nil)
-(setq native-comp-deferred-compilation t)
+(setq native-comp-jit-compilation t)
 
 ;; Install use-package
 (straight-use-package 'use-package)
