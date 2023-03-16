@@ -925,6 +925,15 @@ directory as a fall back."
     :prefix "x"
     "p" #'proced))
 
+;; Init profiler for profiling lisp code
+(use-package profiler
+  :straight nil
+  :general
+  ( :keymaps 'override
+    "<f7>" #'profiler-start
+    "<f8>" #'profiler-stop
+    "<f9>" #'profiler-report))
+
 ;; Init vc-git for configuring the git VC backend
 (use-package vc-git
   :straight nil
