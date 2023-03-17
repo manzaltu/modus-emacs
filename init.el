@@ -458,6 +458,9 @@ Ask for action even on single candidate jumps."
       (setq visual-fill-column-width nil)
       (org-modern-mode 1))))
 
+;; Init org-download for downloading and embedding images in org mode
+(use-package org-download)
+
 ;; Init consult-notes for selecting and previewing notes with consult
 (use-package consult-notes
   :demand t
