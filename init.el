@@ -412,6 +412,9 @@ Ask for action even on single candidate jumps."
     :prefix "n"
     "p" #'org-pomodoro))
 
+;; Init org-present for creating presentations based on org mode
+(use-package org-present)
+
 ;; Init consult-notes for selecting and previewing notes with consult
 (use-package consult-notes
   :demand t

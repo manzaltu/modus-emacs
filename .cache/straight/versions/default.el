@@ -122,6 +122,7 @@
  ("org" . "d94f4066e075f5616965d99fada0997b27786e78")
  ("org-modern" . "8038f63088ca40397417a000aeaea0e51128bf3e")
  ("org-pomodoro" . "3f5bcfb80d61556d35fc29e5ddb09750df962cc6")
+ ("org-present" . "4ec04e1b77dea76d7c30066ccf3200d2e0b7bee9")
  ("org-roam" . "74422df546a515bc984c2f3d3a681c09d6f43916")
  ("origami.el" . "e558710a975e8511b9386edc81cd6bdd0a5bda74")
  ("parent-mode" . "db692cf08deff2f0e973e6e86e26662b44813d1b")
