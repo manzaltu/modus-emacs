@@ -109,6 +109,8 @@
   (setq-default evil-kill-on-visual-paste nil)
   ;; Respect visual line mode
   (setq evil-respect-visual-line-mode t)
+  ;; Create vertical split windows to the right
+  (setq evil-vsplit-window-right t)
   :config
   ;; Set word movement to operate on symbol boundaries
   (defalias #'forward-evil-word #'forward-evil-symbol)
