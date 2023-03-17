@@ -1587,6 +1587,15 @@ If project root cannot be found, use the buffer's default directory."
   ;; Set brighter comments
   (setq doom-one-brighter-comments t)
   (load-theme 'doom-one t)
+  ;; Make sure certain org faces always use the fixed-pitch face
+  (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-formula nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-code nil :inherit '( shadow fixed-pitch))
+  (set-face-attribute 'org-verbatim nil :inherit '( shadow fixed-pitch))
+  (set-face-attribute 'org-special-keyword nil :inherit '( font-lock-comment-face fixed-pitch))
+  (set-face-attribute 'org-meta-line nil :inherit '( font-lock-comment-face fixed-pitch))
+  (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
   ;; Distinguish between var reads and writes by underlining lsp write highlights
   (set-face-attribute 'lsp-face-highlight-write nil :underline t)
   ;; Corrects (and improves) org-mode's native fontification.
