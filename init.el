@@ -1578,8 +1578,6 @@ If project root cannot be found, use the buffer's default directory."
 ;; Init doom one theme
 (use-package doom-themes
   :after treemacs-icons-dired
-  :custom-face
-  (org-document-title ( ( nil ( :height 1.2))))
   :config
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
