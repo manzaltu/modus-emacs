@@ -1783,6 +1783,9 @@ If project root cannot be found, use the buffer's default directory."
   :hook
   ( prog-mode . whitespace-mode))
 
+;; Init visual-fill-column for mimicking fill-column in visual-line-mode
+(use-package visual-fill-column)
+
 ;; Start Emacs server
 (server-start)
 

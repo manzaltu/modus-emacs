@@ -160,6 +160,7 @@
  ("use-package" . "77945e002f11440eae72d8730d3de218163d551e")
  ("vertico" . "8baf590e161ea899f367f764d983b25485ac8111")
  ("vi-tilde-fringe" . "f1597a8d54535bb1d84b442577b2024e6f910308")
+ ("visual-fill-column" . "695a59789209c42fa08a5bce92963ee32f4455be")
  ("web-mode" . "df97ab62c94826a84adbde060a4111ca91deda8e")
  ("with-editor" . "59867aebe16454be4d8c0c858f3b00b8a34f3f61")
  ("xref" . "36d0f1830f6d6f5e3f5a512dcc7ecd347b6dd925")
