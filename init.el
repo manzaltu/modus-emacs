@@ -923,7 +923,9 @@ directory as a fall back."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
-    "p" #'proced))
+    "p" #'proced)
+  :config
+  (setq proced-enable-color-flag t))
 
 ;; Init profiler for profiling lisp code
 (use-package profiler
