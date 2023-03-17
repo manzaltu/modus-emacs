@@ -415,6 +415,10 @@ Ask for action even on single candidate jumps."
 ;; Init org-present for creating presentations based on org mode
 (use-package org-present
   :after ( visual-fill-column org-modern)
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "n"
+    "." #'org-present)
   :hook
   ;; Set style of slides
   ( org-present-mode .
