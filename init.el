@@ -1585,6 +1585,16 @@ If project root cannot be found, use the buffer's default directory."
   ;; Set brighter comments
   (setq doom-one-brighter-comments t)
   (load-theme 'doom-one t)
+  ;; Resize org headings
+  (dolist (face '( ( org-level-1 . 1.2)
+                   ( org-level-2 . 1.1)
+                   ( org-level-3 . 1.05)
+                   ( org-level-4 . 1.0)
+                   ( org-level-5 . 1.0)
+                   ( org-level-6 . 1.0)
+                   ( org-level-7 . 1.0)
+                   ( org-level-8 . 1.0)))
+    (set-face-attribute (car face) nil :height (cdr face)))
   ;; Make sure certain org faces always use the fixed-pitch face
   (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
   (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
