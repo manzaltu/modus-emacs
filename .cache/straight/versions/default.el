@@ -151,7 +151,6 @@
  ("styleguide" . "e065b55718436e83e36220381a2a8e80720c2ce3")
  ("svg-lib" . "6bed25b4f40746722e23b9eab3d79af0693c0652")
  ("swift-mode" . "1244ee48de1895d33f55fed81fc90acda0c901f1")
- ("tab-bar-lost-commands" . "989e03dc3d1057264b21b9a5d241fcba86cd297a")
  ("tablist" . "faab7a035ef2258cc4ea2182f67e3aedab7e2af9")
  ("terraform-mode" . "39d2fd5bfc86c6bf1c7bc38e6f0016d714f2d79d")
  ("themes" . "4c239dbe42232e81c28901000f435746de2a55ab")

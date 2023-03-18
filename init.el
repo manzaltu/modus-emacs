@@ -910,13 +910,6 @@ directory as a fall back."
   ;; Init tab-bar for supporting multiple window layouts in frame
   (tab-bar-mode))
 
-;; Init tab-bar-lost-commands for usable tab-bar commands
-(use-package tab-bar-lost-commands
-  :general
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "t"
-    "t" #'tab-bar-lost-commands-switch-to-or-create-tab))
-
 ;; Init dired for file management
 (use-package dired
   :straight nil
