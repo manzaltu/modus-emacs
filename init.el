@@ -1723,7 +1723,11 @@ If project root cannot be found, use the buffer's default directory."
   (minions-mode 1))
 
 ;; Init writeroom-mode for distraction free writing mode
-(use-package writeroom-mode)
+(use-package writeroom-mode
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "w" #'writeroom-mode))
 
 ;; Init buffer-move for moving buffers between windows
 (use-package buffer-move
