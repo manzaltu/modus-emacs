@@ -429,6 +429,8 @@ Ask for action even on single candidate jumps."
     (lambda ()
       ;; Disable org modern mode
       (org-modern-mode 0)
+      ;; Disable spellchecking
+      (flyspell-mode 0)
       ;; Center presentation and wrap lines
       (setq visual-fill-column-width 110)
       (setq visual-fill-column-center-text t)
@@ -460,6 +462,7 @@ Ask for action even on single candidate jumps."
       (visual-fill-column-mode 0)
       (setq visual-fill-column-center-text nil)
       (setq visual-fill-column-width nil)
+      (flyspell-mode 1)
       (org-modern-mode 1))))
 
 ;; Init org-download for downloading and embedding images in org mode
