@@ -164,6 +164,7 @@
  ("visual-fill-column" . "695a59789209c42fa08a5bce92963ee32f4455be")
  ("web-mode" . "df97ab62c94826a84adbde060a4111ca91deda8e")
  ("with-editor" . "59867aebe16454be4d8c0c858f3b00b8a34f3f61")
+ ("writeroom-mode" . "1fd52848eb58301c864712fd26c4ec37a938cc19")
  ("xref" . "36d0f1830f6d6f5e3f5a512dcc7ecd347b6dd925")
  ("xterm-color" . "1a4012854c69a5cdaeb5a73d2ad705011892fca3")
  ("yaml-mode" . "3fcb36d6039bef57e2a0f6e24c51f623c0bf5fb7")

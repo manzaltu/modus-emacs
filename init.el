@@ -1722,6 +1722,9 @@ If project root cannot be found, use the buffer's default directory."
   (setq zoom-window-mode-line-color "#3b404e")
   (minions-mode 1))
 
+;; Init writeroom-mode for distraction free writing mode
+(use-package writeroom-mode)
+
 ;; Init buffer-move for moving buffers between windows
 (use-package buffer-move
   :general
