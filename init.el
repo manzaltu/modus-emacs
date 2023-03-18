@@ -893,6 +893,7 @@ directory as a fall back."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "t"
+    "t" #'tab-bar-switch-to-tab
     "r" #'tab-bar-rename-tab
     "c" #'tab-bar-close-tab
     "f" #'tab-bar-move-tab
