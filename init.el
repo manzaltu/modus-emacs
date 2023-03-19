@@ -372,6 +372,8 @@ Ask for action even on single candidate jumps."
   :config
   ;; Visually indent text under bullets
   (setq org-startup-indented t)
+  ;; Allow resizing inline images
+  (setq org-image-actual-width nil)
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.8))
   (setq org-directory "~/org")
   (setq org-default-notes-file (concat (file-name-as-directory org-directory) "notes.org"))
