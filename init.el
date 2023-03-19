@@ -1008,7 +1008,8 @@ directory as a fall back."
     "C" #'magit-file-checkout
     "l" #'magit-log-buffer-file
     "k" #'magit-toggle-buffer-lock
-    "f" #'magit-file-dispatch)
+    "f" #'magit-file-dispatch
+    "F" #'magit-find-file)
   ( :keymaps 'magit-diff-section-base-map
     "C-<return>" #'magit-diff-visit-worktree-file-other-window)
   ( :keymaps 'magit-mode-map
