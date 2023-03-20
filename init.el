@@ -389,6 +389,11 @@ Ask for action even on single candidate jumps."
 ;; Init org-contrib for org add-ons
 (use-package org-contrib)
 
+;; Init ox-confluence for exporting org to confluence
+(use-package ox-confluence
+  :after org-contrib
+  :straight nil)
+
 ;; Init org-roam for Zettelkasten note management
 (use-package org-roam
   :demand t
