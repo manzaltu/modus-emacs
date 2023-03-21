@@ -1733,6 +1733,14 @@ If project root cannot be found, use the buffer's default directory."
   (setq zoom-window-mode-line-color "#3b404e")
   (minions-mode 1))
 
+;; Init face-remap for remapping face properties
+(use-package face-remap
+  :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "v"
+    "z" #'global-text-scale-adjust))
+
 ;; Init writeroom-mode for distraction free writing mode
 (use-package writeroom-mode
   :general
