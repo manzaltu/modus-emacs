@@ -1753,13 +1753,6 @@ If project root cannot be found, use the buffer's default directory."
   ;; We want to move, not to swap, the buffer
   (setq buffer-move-behavior 'move))
 
-;; Init zoom-frm to scale text in frame
-(use-package zoom-frm
-  :general
-  ( "s--" #'zoom-in/out)
-  ( "s-+" #'zoom-in/out)
-  ( "s-=" #'zoom-in/out))
-
 ;; Init popper for managing popup windows
 (use-package popper
   :demand t

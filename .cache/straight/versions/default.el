@@ -73,8 +73,6 @@
  ("flycheck" . "55614401a955e73f5c0f05c0e098d9e717e3116d")
  ("flyspell-correct" . "7d7b6b01188bd28e20a13736ac9f36c3367bd16e")
  ("forge" . "3164739dc70ee5ecf05d87dba9dc803d62a89adf")
- ("frame-cmds" . "5f845c06f1913ecda33c87b2b36b9e590a6f8870")
- ("frame-fns" . "b675ee568c0133709c2c39a125395486cdf1c610")
  ("general.el" . "9651024e7f40a8ac5c3f31f8675d3ebe2b667344")
  ("ghub" . "47b7dc9bb299d50647cd24efebaf41dbc07d9e90")
  ("git-link" . "d3ba912079e0ca5fd727b1f617791c6ae1e0da82")
@@ -172,6 +170,5 @@
  ("yaml.el" . "73fde9d8fbbaf2596449285df9eb412ae9dd74d9")
  ("yasnippet" . "5cbdbf0d2015540c59ed8ee0fcf4788effdf75b6")
  ("yasnippet-snippets" . "9580874944cce78b3bb2296ae10de1443b0a57e8")
- ("zoom-frm" . "8f7ee71cb8d346112bb1cb029f363120dd587f1c")
  ("zoom-window" . "093dd7a5d60141812762eba40b021c76ff41f83d"))
 :gamma
