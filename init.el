@@ -942,6 +942,9 @@ directory as a fall back."
   ( :keymaps 'mo-quick-menu-map
     :prefix "f"
     "d" #'dired-jump)
+  :hook
+  ;; Watch directories for changes
+  ( dired-mode . auto-revert-mode)
   :config
   (setq dired-dwim-target t))
 
