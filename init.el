@@ -1828,6 +1828,9 @@ If project root cannot be found, use the buffer's default directory."
 (add-to-list 'default-frame-alist '( height . 55))
 (add-to-list 'default-frame-alist '( width . 210))
 
+;; Don't split windows vertically by default
+(setq split-height-threshold nil)
+
 ;; Set frame to full screen
 (toggle-frame-fullscreen)
 
