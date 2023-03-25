@@ -1364,6 +1364,9 @@ run the attached function (if exists) and enable lsp"
 ;; Init pip-requirements for editing pip requirements files
 (use-package pip-requirements)
 
+;; Init pyvenv for activating python virtual environments
+(use-package pyvenv)
+
 ;; Init pipenv for supporting pipenv projects and commands
 (use-package pipenv
   :hook ( python-mode . pipenv-mode)
