@@ -401,12 +401,12 @@ Ask for action even on single candidate jumps."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "n"
-    "b" #'org-roam-buffer-toggle
-    "g" #'org-roam-graph
-    "i" #'org-roam-node-insert
-    "r" #'org-roam-node-find
-    "T" #'org-roam-tag-add
-    "C" #'org-roam-capture)
+    "r b" #'org-roam-buffer-toggle
+    "r g" #'org-roam-graph
+    "r i" #'org-roam-node-insert
+    "r r" #'org-roam-node-find
+    "r t" #'org-roam-tag-add
+    "r c" #'org-roam-capture)
   :custom
   ( org-roam-directory "~/roam")
   :init
@@ -1747,8 +1747,7 @@ If project root cannot be found, use the buffer's default directory."
     :prefix "w"
     "z" #'zoom-window-zoom)
   :config
-  (setq zoom-window-mode-line-color "#3b404e")
-  (minions-mode 1))
+  (setq zoom-window-mode-line-color "#3b404e"))
 
 ;; Init face-remap for remapping face properties
 (use-package face-remap
