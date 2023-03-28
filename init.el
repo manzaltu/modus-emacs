@@ -380,6 +380,7 @@ Ask for action even on single candidate jumps."
   (setq org-ellipsis " ▼")
   (setq org-todo-keywords
         '( ( sequence "TODO" "NEXT" "PROG" "HOLD" "|" "DONE" "DONT" "FAIL")))
+  (setq org-log-done t)
   (setq org-agenda-files `( ,org-directory))
   (setq org-agenda-window-setup 'current-window)
   (setq org-agenda-include-diary t)
