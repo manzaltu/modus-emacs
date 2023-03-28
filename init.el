@@ -241,6 +241,14 @@
   (setq evil-collection-want-unimpaired-p nil)
   (evil-collection-init))
 
+;; Init evil-org for supporting evil key bindings in org-mode
+(use-package evil-org
+  :after org
+  :hook ( org-mode . evil-org-mode)
+  :config
+  (require 'evil-org-agenda)
+  (evil-org-agenda-set-keys))
+
 ;; Init evil-mc for supporting multiple cursors in evil mode
 (use-package evil-mc
   :demand t
