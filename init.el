@@ -375,11 +375,15 @@ Ask for action even on single candidate jumps."
     "d" #'org-deadline
     "c" #'org-capture
     "t" #'org-todo
-    "a" #'org-agenda)
+    "a" #'mo-org-agenda-and-todo)
   ( :keymaps 'org-mode-map
     :states 'normal
     "TAB" #'org-cycle)
   :config
+  (defun mo-org-agenda-and-todo ()
+    "Open org agenda with all TODOs"
+    (interactive)
+    (org-agenda nil "n"))
   ;; Visually indent text under bullets
   (setq org-startup-indented t)
   ;; Allow resizing inline images
