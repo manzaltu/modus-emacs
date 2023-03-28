@@ -16,6 +16,7 @@ You should have the following software installed:
 2. [[https://github.com/sharkdp/fd][fd]] - like find, but faster
 3. [[https://github.com/GNUAspell/aspell][aspell]] - for spell check
 4. [[https://github.com/Kitware/CMake][cmake]] - for compiling vterm
+5. [[https://direnv.net][direnv]] - for managing environment variables based on current directory
 
 Additional software might be needed based on usage. Follow *Messages* buffer for details.
 
