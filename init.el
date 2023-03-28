@@ -244,7 +244,9 @@
 ;; Init evil-org for supporting evil key bindings in org-mode
 (use-package evil-org
   :after org
-  :hook ( org-mode . evil-org-mode)
+  :hook
+  ( org-mode . evil-org-mode)
+  ( org-agenda-mode . evil-org-mode)
   :config
   (require 'evil-org-agenda)
   (evil-org-agenda-set-keys))
