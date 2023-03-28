@@ -1488,6 +1488,14 @@ run the attached function (if exists) and enable lsp"
     :prefix "h"
     "i" #'info))
 
+;; Init help-fns for help functions
+(use-package help-fns
+  :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "h"
+    "F" #'describe-face))
+
 ;; Init helpful for better lisp help
 (use-package helpful
   :general
