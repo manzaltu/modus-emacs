@@ -378,6 +378,8 @@ Ask for action even on single candidate jumps."
   (setq org-directory "~/org")
   (setq org-default-notes-file (concat (file-name-as-directory org-directory) "notes.org"))
   (setq org-ellipsis " ▼")
+  (setq org-todo-keywords
+        '( ( sequence "TODO" "NEXT" "PROG" "HOLD" "|" "DONE" "DONT" "FAIL")))
   (setq org-agenda-files `( ,org-directory))
   (setq org-agenda-window-setup 'current-window)
   (setq org-agenda-include-diary t)
