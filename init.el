@@ -430,6 +430,8 @@ Ask for action even on single candidate jumps."
 ;; Init org-modern for a modern org buffer style
 (use-package org-modern
   :config
+  ;; We disable prettifying tables as currently it is not pixel-aligned
+  (setq org-modern-table nil)
   (global-org-modern-mode))
 
 ;; Init org-pomodoro for using the Pomodoro technique with org mode
