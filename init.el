@@ -362,6 +362,7 @@ Ask for action even on single candidate jumps."
 
 ;; Init org mode for editing and managing notes
 (use-package org
+  :straight ( :type built-in)
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "n"
