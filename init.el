@@ -1941,6 +1941,13 @@ If project root cannot be found, use the buffer's default directory."
 (setq bookmark-file (mo-cache-path "bookmarks"))
 (setq tramp-persistency-file-name (mo-cache-path "tramp"))
 
+;; Init envrc for direnv integration with Emacs
+;; This is here on purpose, so that its hooks will be registered as late as possible
+(use-package envrc
+  :demand t
+  :config
+  (envrc-global-mode))
+
 ;; Set customization file path
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
