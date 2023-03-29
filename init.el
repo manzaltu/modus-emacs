@@ -159,7 +159,11 @@
     "L" #'evil-window-move-far-right
     "v" #'evil-window-vsplit
     "s" #'evil-window-split
-    "c" #'evil-window-delete)
+    "c" #'evil-window-delete
+    "+" #'evil-window-increase-height
+    "-" #'evil-window-decrease-height
+    ">" #'evil-window-increase-width
+    "<" #'evil-window-decrease-width)
   (mo-quick-menu-def
     "ESC" #'evil-ex-nohighlight))
 
