@@ -381,6 +381,9 @@ Ask for action even on single candidate jumps."
   ( :keymaps 'org-mode-map
     :states 'normal
     "TAB" #'org-cycle)
+  ;; Close any loaded org buffer when exiting the agenda buffer
+  ( :keymaps 'org-agenda-mode-map
+    "q" #'org-agenda-exit)
   :config
   (defun mo-org-agenda-and-todo ()
     "Open org agenda with all TODOs"
