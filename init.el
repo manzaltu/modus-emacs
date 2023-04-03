@@ -530,6 +530,7 @@ Ask for action even on single candidate jumps."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "n"
+    "," #'consult-notes-search-in-all-notes
     "n" #'consult-notes)
   :config
   (setq consult-notes-file-dir-sources '( ( "Org" ?o "~/org")))
