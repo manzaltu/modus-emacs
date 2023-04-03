@@ -11,3 +11,5 @@
 !/.cache/straight/versions/
 # Ignore Emacs eln cache directory
 /eln-cache/
+# Ignore yas snippet directory
+/snippets/
