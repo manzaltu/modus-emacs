@@ -441,6 +441,12 @@ Ask for action even on single candidate jumps."
   (setq org-roam-db-location (mo-cache-path "org-roam.db"))
   (org-roam-db-autosync-mode))
 
+;; Init consult-org-roam for better searching in org-roam notes
+(use-package consult-org-roam
+  :after org-roam
+  :config
+  (consult-org-roam-mode))
+
 ;; Init org-modern for a modern org buffer style
 (use-package org-modern
   :config
