@@ -519,6 +519,7 @@ Ask for action even on single candidate jumps."
 
 ;; Init consult-notes for selecting and previewing notes with consult
 (use-package consult-notes
+  :after ( org org-roam)
   :demand t
   :general
   ( :keymaps 'mo-quick-menu-map
