@@ -1904,6 +1904,7 @@ If project root cannot be found, use the buffer's default directory."
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 (setq create-lockfiles nil)
+(setq auto-save-list-file-prefix (mo-cache-path "auto-save-list/.saves-"))
 
 ;; Disable bell audio
 (setq ring-bell-function 'ignore)
