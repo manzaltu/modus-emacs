@@ -730,7 +730,8 @@ directory as a fall back."
     "c" #'project-compile
     "x" #'project-async-shell-command
     "k" #'project-kill-buffers
-    "p" #'project-switch-project)
+    "p" #'project-switch-project
+    "i" #'project-list-buffers)
   :config
   ;; Enable project detection using .project files
   (add-to-list 'project-find-functions #'mo-project-try-local)
