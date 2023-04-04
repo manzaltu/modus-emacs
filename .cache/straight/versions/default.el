@@ -85,6 +85,7 @@
  ("gnu-elpa-mirror" . "3d084e32698b38a0960c69ecc77c35ee561bee98")
  ("go-mode.el" . "166dfb1e090233c4609a50c2ec9f57f113c1da72")
  ("goto-chg" . "278cd3e6d5107693aa2bb33189ca503f22f227d0")
+ ("gptel" . "d77c8f37c56515bf53213f3e32a5ed99d6041a6d")
  ("groovy-emacs-modes" . "7b8520b2e2d3ab1d62b35c426e17ac25ed0120bb")
  ("haskell-mode" . "20d4e2300302a9af673e82d0185d3f489bfb0f59")
  ("helpful" . "e9ec6fc2ae10db2b9b59ed656021845d11881a0a")

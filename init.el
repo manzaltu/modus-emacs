@@ -1568,6 +1568,9 @@ run the attached function (if exists) and enable lsp"
   :config
   (google-this-mode 1))
 
+;; Init gptel for ChatGPT support in Emacs
+(use-package gptel)
+
 ;; Init rainbow-delimiters for highlighting parens by their depth
 (use-package rainbow-delimiters
   :hook
