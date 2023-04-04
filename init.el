@@ -1580,7 +1580,8 @@ run the attached function (if exists) and enable lsp"
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
     "g d" #'mo-gpt-describe-code
-    "g b" #'mo-gpt-find-bugs)
+    "g b" #'mo-gpt-find-bugs
+    "g i" #'mo-gpt-improve-code)
 
   :config
   (defun mo-gpt-region (name prompt)
