@@ -383,6 +383,8 @@ Ask for action even on single candidate jumps."
     "D" #'org-agenda-deadline
     "c" #'org-capture
     "t" #'org-todo
+    "q" #'org-set-tags-command
+    "Q" #'org-agenda-set-tags
     "a" #'mo-org-agenda-and-todo)
   ( :keymaps 'org-mode-map
     :states 'normal
