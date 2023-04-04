@@ -380,6 +380,7 @@ Ask for action even on single candidate jumps."
     "s" #'org-schedule
     "S" #'org-agenda-schedule
     "d" #'org-deadline
+    "D" #'org-agenda-deadline
     "c" #'org-capture
     "t" #'org-todo
     "a" #'mo-org-agenda-and-todo)
