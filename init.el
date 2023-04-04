@@ -1596,7 +1596,13 @@ run the attached function (if exists) and enable lsp"
     "Describe code in region using gpt."
     (interactive)
     (mo-gpt-region "*GPT describe code*" "You are a large model living in Emacs and also a helpful assistant. \
-Please describe the following code to the best of your ability.")))
+Please describe the following code to the best of your ability."))
+
+  (defun mo-gpt-find-bugs ()
+    "Find bugs in region using gpt."
+    (interactive)
+    (mo-gpt-region "*GPT find bugs*" "You are a large model living in Emacs and also a helpful assistant. \
+Please find bugs in the following code to the best of your ability.")))
 
 ;; Init rainbow-delimiters for highlighting parens by their depth
 (use-package rainbow-delimiters
