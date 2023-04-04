@@ -1576,7 +1576,24 @@ run the attached function (if exists) and enable lsp"
     "g" #'gptel)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "g" #'gptel-send))
+    "g" #'gptel-send)
+
+  :config
+  (defun mo-gpt-region (name prompt)
+    "Send selected region as a gpt query in a new session called NAME with PROMPT."
+    (let ((text (and (use-region-p)
+                     (buffer-substring (region-beginning)
+                                       (region-end)))))
+      (gptel name gptel-api-key text)
+      (with-current-buffer name
+        (let ((gptel--system-message prompt))
+          (gptel-send)))))
+
+  (defun mo-gpt-describe-code ()
+    "Describe code in region using gpt."
+    (interactive)
+    (mo-gpt-region "*GPT describe code*" "You are a large model living in Emacs and also a helpful assistant. \
+Please describe the following code to the best of your ability.")))
 
 ;; Init rainbow-delimiters for highlighting parens by their depth
 (use-package rainbow-delimiters
