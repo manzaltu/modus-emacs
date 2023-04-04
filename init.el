@@ -1610,7 +1610,13 @@ Please find bugs in the following code to the best of your ability."))
     "Improve code in region using gpt."
     (interactive)
     (mo-gpt-region "*GPT improve code*" "You are a large model living in Emacs and also a helpful assistant. \
-Please improve the following code to the best of your ability.")))
+Please improve the following code to the best of your ability."))
+
+  (defun mo-gpt-review-code ()
+    "Review code in region using gpt."
+    (interactive)
+    (mo-gpt-region "*GPT code review*" "You are a large model living in Emacs and also a helpful assistant. \
+Please provide a code review on the following code, to the best of your ability.")))
 
 ;; Init rainbow-delimiters for highlighting parens by their depth
 (use-package rainbow-delimiters
