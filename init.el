@@ -1579,7 +1579,8 @@ run the attached function (if exists) and enable lsp"
     "g" #'gptel-send)
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
-    "g d" #'mo-gpt-describe-code)
+    "g d" #'mo-gpt-describe-code
+    "g b" #'mo-gpt-find-bugs)
 
   :config
   (defun mo-gpt-region (name prompt)
