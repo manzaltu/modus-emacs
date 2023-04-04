@@ -1581,7 +1581,8 @@ run the attached function (if exists) and enable lsp"
     :prefix "c"
     "g d" #'mo-gpt-describe-code
     "g b" #'mo-gpt-find-bugs
-    "g i" #'mo-gpt-improve-code)
+    "g i" #'mo-gpt-improve-code
+    "g r" #'mo-gpt-review-code)
 
   :config
   (defun mo-gpt-region (name prompt)
