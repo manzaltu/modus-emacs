@@ -1573,7 +1573,10 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
-    "g" #'gptel))
+    "g" #'gptel)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "g" #'gptel-send))
 
 ;; Init rainbow-delimiters for highlighting parens by their depth
 (use-package rainbow-delimiters
