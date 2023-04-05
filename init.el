@@ -871,12 +871,6 @@ directory as a fall back."
     (interactive)
     (consult-line (thing-at-point 'symbol)))
 
-  ;; Configure project detection using project.el
-  (setq consult-project-root-function
-        (lambda ()
-          (when-let (project (project-current))
-            (car (project-roots project)))))
-
   ;; On project switch, use consult for file and regexp search
   (setq project-switch-commands
         '( (consult-project-buffer "Buffer" ?b)
