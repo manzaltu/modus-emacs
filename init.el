@@ -860,11 +860,12 @@ directory as a fall back."
 
   (defun consult-fd (&optional dir initial)
     (interactive "P")
-    (let* ((prompt-dir (consult--directory-prompt "fd" dir))
-           (default-directory (cdr prompt-dir)))
-      (find-file (consult--find (car prompt-dir)
-                                (lambda (input) (consult--fd-builder input default-directory))
-                                initial))))
+    (pcase-let* ((`( ,prompt ,paths ,dir) (consult--directory-prompt "fd" dir))
+                 (default-directory dir))
+      (find-file
+       (consult--find prompt
+                      (lambda (input) (consult--fd-builder input dir))
+                      initial))))
 
   (defun mo-consult-line-symbol-at-point ()
     (interactive)
