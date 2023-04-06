@@ -702,6 +702,12 @@ Ask for action even on single candidate jumps."
 ;; Enable indentation and completion using the TAB key
 (setq tab-always-indent 'complete)
 
+;; Init dabbrev for the automatic completion of dynamic abbreviations
+(use-package dabbrev
+  :straight nil
+  :config
+  (setq dabbrev-ignored-buffer-regexps '( "^\\*.+::stderr\\*$")))
+
 ;; Used by project.el for project detection
 (defun mo-project-try-local (dir)
   "Determine if DIR is a project.
