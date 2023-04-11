@@ -1824,6 +1824,11 @@ If project root cannot be found, use the buffer's default directory."
   :config
   (setq consult-flyspell-select-function 'flyspell-correct-at-point))
 
+;; Init jinx for just-in-time spell checking
+(use-package jinx
+  :hook ( emacs-startup . global-jinx-mode)
+  :general ( [remap ispell-word] #'jinx-correct))
+
 ;; Init desktop+ for saving session configuration
 (use-package desktop+
   :general
