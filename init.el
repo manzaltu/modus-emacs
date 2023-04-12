@@ -1180,7 +1180,6 @@ directory as a fall back."
     "r" #'lsp-rename
     "p" #'lsp-signature-activate
     "R" #'lsp-workspace-restart
-    "I" #'lsp-ui-imenu
     "=" #'lsp-format-region
     "o" #'lsp-clangd-find-other-file)
   ( :keymaps 'mo-quick-menu-map
@@ -1277,6 +1276,7 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
+    "i" #'lsp-ui-imenu
     "d" #'lsp-ui-doc-glance
     "c" #'lsp-ui-doc-focus-frame)
   :config
