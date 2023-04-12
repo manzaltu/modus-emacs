@@ -792,6 +792,7 @@ directory as a fall back."
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "b" #'consult-buffer
+    "/" #'consult-imenu
     "m" #'consult-minor-mode-menu
     "B" #'consult-recent-file)
   ( :keymaps 'mo-quick-menu-map
@@ -811,9 +812,6 @@ directory as a fall back."
   ;; M-g bindings (goto-map)
   ( "M-g g" #'consult-goto-line)             ;; orig. goto-line
   ( "M-g M-g" #'consult-goto-line)           ;; orig. goto-line
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "c"
-    "i" #'consult-imenu)
   ;; M-s bindings (search-map)
   ( "M-s f" #'consult-fd)
   ( "M-s L" #'consult-locate)
