@@ -818,18 +818,19 @@ directory as a fall back."
     :prefix "n"
     "/" #'consult-org-heading)
 
-  :config
+  :init
   ;; Improve register preview
   (setq register-preview-delay 0.5)
   (setq register-preview-function #'consult-register-format)
   (advice-add #'register-preview :override #'consult-register-window)
 
-  ;; Configure the narrowing key.
-  (setq consult-narrow-key "C-l")
-
   ;; Use consult to select xref locations with preview
   (setq xref-show-xrefs-function #'consult-xref
         xref-show-definitions-function #'consult-xref)
+
+  :config
+  ;; Configure the narrowing key.
+  (setq consult-narrow-key "C-l")
 
   ;; Add consult-fd command
   ;; Based on code from consult wiki:
