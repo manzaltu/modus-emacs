@@ -472,7 +472,7 @@ Ask for action even on single candidate jumps."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "n"
-    "." #'org-present)
+    ";" #'org-present)
   :hook
   ;; Set style of slides
   ( org-present-mode .
