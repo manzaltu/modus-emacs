@@ -764,8 +764,10 @@ directory as a fall back."
   ( :keymaps 'mo-quick-menu-map
     :prefix "s"
     "e" #'consult-compile-error
-    "G" #'consult-git-grep
     "s" #'consult-keep-line)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "g"
+    "," #'consult-git-grep)
   ( :keymaps 'mo-quick-menu-map
     :prefix "h"
     "I" #'consult-info
