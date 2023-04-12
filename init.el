@@ -801,6 +801,7 @@ directory as a fall back."
     "M-e" #'consult-isearch)                 ;; orig. isearch-edit-string
   ( "M-s e" #'consult-isearch)               ;; orig. isearch-edit-string
   ( "M-s l" #'consult-line)                  ;; required by consult-line to detect isearch
+  ( "M-s L" #'consult-line-multi)            ;; required by consult-line to detect isearch
   ( :keymaps 'mo-quick-menu-map
     :prefix "p"
     "b" #'consult-project-buffer)
