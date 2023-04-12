@@ -763,28 +763,9 @@ directory as a fall back."
     "," #'consult-ripgrep)
   ( :keymaps 'mo-quick-menu-map
     :prefix "s"
-    "h" #'consult-history
-    "m" #'consult-mode-command
-    "B" #'consult-bookmark
-    "k" #'consult-kmacro
-    ":" #'consult-complex-command
-    "b" #'consult-buffer
-    "O" #'consult-buffer-other-window
-    "F" #'consult-buffer-other-frame
     "e" #'consult-compile-error
-    "g" #'consult-goto-line
-    "o" #'consult-outline
-    "M" #'consult-mark
-    "K" #'consult-global-mark
-    "L" #'consult-locate
     "G" #'consult-git-grep
-    "x" #'consult-multi-occur
-    "s" #'consult-keep-lines
-    "f" #'consult-focus-lines
-    "#" #'consult-register-load
-    "'" #'consult-register-store
-    "r" #'consult-register
-    "a" #'consult-apropos)
+    "s" #'consult-keep-line)
   ( :keymaps 'mo-quick-menu-map
     :prefix "h"
     "I" #'consult-info
@@ -813,19 +794,7 @@ directory as a fall back."
   ;; M-g bindings (goto-map)
   ( "M-g g" #'consult-goto-line)             ;; orig. goto-line
   ( "M-g M-g" #'consult-goto-line)           ;; orig. goto-line
-  ;; M-s bindings (search-map)
-  ( "M-s f" #'consult-fd)
-  ( "M-s L" #'consult-locate)
-  ( "M-s g" #'consult-grep)
-  ( "M-s G" #'consult-git-grep)
-  ( "M-s r" #'consult-ripgrep)
-  ( "M-s l" #'consult-line)
-  ( "M-s m" #'consult-multi-occur)
-  ( "M-s k" #'consult-keep-lines)
-  ( "M-s u" #'consult-focus-lines)
-  ( "M-s b" #'consult-line-multi)
   ;; Isearch integration
-  ( "M-s e" #'consult-isearch)
   ( :keymaps 'org-mode-map
     "M-e" #'consult-isearch)                 ;; orig. isearch-edit-string
   ( "M-s e" #'consult-isearch)               ;; orig. isearch-edit-string
