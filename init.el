@@ -836,6 +836,9 @@ directory as a fall back."
     "b" #'consult-project-buffer)
   ( :keymaps 'mo-quick-menu-map
     "*" #'mo-consult-line-symbol-at-point)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "v"
+    "t" #'consult-theme)
 
   :config
   ;; Configure the narrowing key.
