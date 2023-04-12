@@ -793,6 +793,7 @@ directory as a fall back."
     :prefix "b"
     "b" #'consult-buffer
     "/" #'consult-imenu
+    "?" #'consult-imenu-multi
     "m" #'consult-minor-mode-menu
     "B" #'consult-recent-file)
   ( :keymaps 'mo-quick-menu-map
