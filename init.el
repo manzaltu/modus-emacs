@@ -838,6 +838,9 @@ directory as a fall back."
   ( :keymaps 'mo-quick-menu-map
     :prefix "v"
     "t" #'consult-theme)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "n"
+    "/" #'consult-org-heading)
 
   :config
   ;; Configure the narrowing key.
