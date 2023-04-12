@@ -869,7 +869,7 @@ directory as a fall back."
   ;; On project switch, use consult for file and regexp search
   (setq project-switch-commands
         '( (consult-project-buffer "Buffer" ?b)
-           (consult-find "Find file" ?f)
+           (consult-fd "Find file" ?f)
            (consult-ripgrep "Ripgrep" ?r)
 	   (magit-status "Magit" ?g))))
 
