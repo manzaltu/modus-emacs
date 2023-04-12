@@ -762,9 +762,6 @@ directory as a fall back."
     "." #'consult-fd
     "," #'consult-ripgrep)
   ( :keymaps 'mo-quick-menu-map
-    :prefix "s"
-    "s" #'consult-keep-line)
-  ( :keymaps 'mo-quick-menu-map
     :prefix "g"
     "," #'consult-git-grep)
   ( :keymaps 'mo-quick-menu-map
@@ -779,6 +776,7 @@ directory as a fall back."
     "b" #'consult-buffer
     "/" #'consult-imenu
     "?" #'consult-imenu-multi
+    ";" #'consult-keep-lines
     "m" #'consult-minor-mode-menu
     "B" #'consult-recent-file)
   ( :keymaps 'mo-quick-menu-map
