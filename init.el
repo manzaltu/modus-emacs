@@ -819,6 +819,11 @@ directory as a fall back."
     "/" #'consult-org-heading)
 
   :config
+  ;; Improve register preview
+  (setq register-preview-delay 0.5)
+  (setq register-preview-function #'consult-register-format)
+  (advice-add #'register-preview :override #'consult-register-window)
+
   ;; Configure the narrowing key.
   (setq consult-narrow-key "C-l")
 
