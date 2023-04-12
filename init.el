@@ -763,11 +763,13 @@ directory as a fall back."
     "," #'consult-ripgrep)
   ( :keymaps 'mo-quick-menu-map
     :prefix "s"
-    "e" #'consult-compile-error
     "s" #'consult-keep-line)
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
     "," #'consult-git-grep)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "c"
+    "q" #'consult-compile-error)
   ( :keymaps 'mo-quick-menu-map
     :prefix "h"
     "I" #'consult-info
