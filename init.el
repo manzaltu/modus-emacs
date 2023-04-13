@@ -1238,6 +1238,7 @@ When a prefix ARG is given always prompt for a command to use."
                                    groovy-mode
                                    web-mode
                                    json-mode
+                                   js-json-mode
                                    json-ts-mode
                                    yaml-mode
                                    yaml-ts-mode
