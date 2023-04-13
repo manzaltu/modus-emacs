@@ -404,6 +404,8 @@ Ask for action even on single candidate jumps."
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.8))
   (setq org-directory "~/org")
   (setq org-default-notes-file (concat (file-name-as-directory org-directory) "notes.org"))
+  (setq org-capture-templates '( ( "t" "Task" entry (file+headline org-default-notes-file "Tasks")
+                                   "** TODO %? \nSCHEDULED: %t")))
   (setq org-ellipsis " ▼")
   (setq org-todo-keywords
         '( ( sequence "TODO" "NEXT" "PROG" "HOLD" "|" "DONE" "DONT" "FAIL")))
