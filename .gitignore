@@ -13,3 +13,5 @@
 /eln-cache/
 # Ignore yas snippet directory
 /snippets/
+# Ignore tree-sitter directory
+/tree-sitter/
