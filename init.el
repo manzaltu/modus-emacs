@@ -1209,26 +1209,38 @@ When a prefix ARG is given always prompt for a command to use."
   (setq lsp-keymap-prefix "C-c l")
   ;; Enable for the following modes
   (setq mo-lsp-enable-for-modes '( c-mode
+                                   c-ts-mode
                                    c++-mode
+                                   c++-ts-mode
                                    objc-mode
                                    swift-mode
                                    haskell-mode
                                    haskell-literate-mode
                                    go-mode
+                                   go-ts-mode
                                    csharp-mode
+                                   csharp-ts-mode
                                    java-mode
+                                   java-ts-mode
                                    (python-mode (lambda () (require 'lsp-pyright)))
+                                   (python-ts-mode (lambda () (require 'lsp-pyright)))
+                                   js-ts-mode
                                    js2-mode
                                    typescript-mode
+                                   typescript-ts-mode
                                    julia-mode
                                    groovy-mode
                                    web-mode
                                    json-mode
+                                   json-ts-mode
                                    yaml-mode
+                                   yaml-ts-mode
                                    powershell-mode
                                    dockerfile-mode
+                                   dockerfile-ts-mode
                                    terraform-mode
                                    cmake-mode
+                                   cmake-ts-mode
                                    sh-mode))
 
   (defun mo-maybe-enable-lsp (lsp-config)
