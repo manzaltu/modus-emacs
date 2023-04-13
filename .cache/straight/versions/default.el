@@ -99,8 +99,6 @@
  ("jenkinsfile-mode" . "1d90c1ff8edc7ea88844af92a206e7c5f083b568")
  ("jinx" . "5c15a6646f4bc06a94bff6d478a843db4faef76b")
  ("js2-mode" . "a297ec2c2d9aa50ddc6c06959bb5a054e17b692a")
- ("json-mode" . "eedb4560034f795a7950fa07016bd4347c368873")
- ("json-snatcher" . "b28d1c0670636da6db508d03872d96ffddbc10f2")
  ("julia-emacs" . "7aafa8e77df64a47fa4729a0c1ea572b5bc8e30e")
  ("kind-icon" . "a9ab2efcd8a726652412b60bdd5a3064c9908669")
  ("let-alist" . "021fc10df2e44faba4728d849ee767cf890aa51a")

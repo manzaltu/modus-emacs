@@ -1237,7 +1237,6 @@ When a prefix ARG is given always prompt for a command to use."
                                    julia-mode
                                    groovy-mode
                                    web-mode
-                                   json-mode
                                    js-json-mode
                                    json-ts-mode
                                    yaml-mode
@@ -1472,9 +1471,6 @@ run the attached function (if exists) and enable lsp"
 ;; Init web-mode for enhanced web files editing
 (use-package web-mode
   :mode "\\.html?\\'" "\\.tsx\\'")
-
-;; Init json mode for enhanced JSON editing
-(use-package json-mode)
 
 ;; Init yaml-mode for enhanced YAML editing
 (use-package yaml-mode)
