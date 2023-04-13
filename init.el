@@ -1176,6 +1176,12 @@ When a prefix ARG is given always prompt for a command to use."
   :config
   (setq treesit-font-lock-level 4))
 
+;; Init treesit-auto for automatically using tree-sitter major modes
+(use-package treesit-auto
+  :config
+  (setq treesit-auto-install t)
+  (global-treesit-auto-mode))
+
 ;; Init lsp mode for lsp support
 (use-package lsp-mode
   :after orderless

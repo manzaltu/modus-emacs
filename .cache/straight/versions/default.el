@@ -160,6 +160,7 @@
  ("transient" . "0ae0de43590b5b6984a83f9e044e7c426455ac6e")
  ("treemacs" . "a20d49ed62fa64a4164a9a3f25c102ec0a338367")
  ("treepy.el" . "7c4a0d21322506a4d4b2301b4274ec955b429b47")
+ ("treesit-auto" . "bac3b9d1d61a4d759f87c80de7be3b808d19cbf6")
  ("typescript.el" . "4fcb4594819caf472ae42ea068a1c7795cf07f46")
  ("use-package" . "77945e002f11440eae72d8730d3de218163d551e")
  ("vertico" . "da873fe5e2be4e61c4838b6cda067516b4349af9")
