@@ -1170,6 +1170,12 @@ When a prefix ARG is given always prompt for a command to use."
   :config
   (setq git-link-use-commit t))
 
+;; Init treesit for tree-sitter support in Emacs
+(use-package treesit
+  :straight nil
+  :config
+  (setq treesit-font-lock-level 4))
+
 ;; Init lsp mode for lsp support
 (use-package lsp-mode
   :after orderless
