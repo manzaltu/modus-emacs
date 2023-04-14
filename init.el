@@ -663,6 +663,8 @@ Ask for action even on single candidate jumps."
   :hook
   ;; Disable auto mode in eshell
   ( eshell-mode . (lambda () (setq-local corfu-auto nil) (corfu-mode)))
+  ;; Close popup when exiting evil insert state
+  ( evil-insert-state-exit . corfu-quit)
   :config
   ;; Send selected candidate to shell, avoiding the need to press RET
   ;; twice when popup is visible
