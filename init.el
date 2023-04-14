@@ -1944,7 +1944,7 @@ If project root cannot be found, use the buffer's default directory."
            helpful-mode
            devdocs-mode
            compilation-mode
-           "^\\*eshell.*\\*$" eshell-mode
+           "^\\*\\(.+-\\)?eshell\\*.*$" eshell-mode
            "^\\*shell.*\\*$" shell-mode
            "^\\*term.*\\*$" term-mode
            "^\\*vterm.*\\*.*$" vterm-mode))
