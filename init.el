@@ -1740,8 +1740,19 @@ If project root cannot be found, use the buffer's default directory."
                    ,mo-binding-next-tab
                    ,mo-binding-prev-tab))))
 
-;; Set eshell cache directory
-(setq eshell-directory-name (file-name-as-directory (mo-cache-path "eshell")))
+;; Init eshell for terminal emulation
+(use-package eshell
+  :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "p"
+    "e" #'project-eshell)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "f"
+    "e" #'eshell)
+  :config
+  ;; Set eshell cache directory
+  (setq eshell-directory-name (file-name-as-directory (mo-cache-path "eshell"))))
 
 ;; Init all-the-icons for icon support
 (use-package all-the-icons
