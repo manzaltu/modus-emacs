@@ -660,6 +660,9 @@ Ask for action even on single candidate jumps."
   ;; Set auto completion to be more responsive
   (setq corfu-auto-delay 0)
   (setq corfu-auto-prefix 0)
+  :hook
+  ;; Disable auto mode in eshell
+  ( eshell-mode . (lambda () (setq-local corfu-auto nil) (corfu-mode)))
   :config
   (global-corfu-mode))
 
