@@ -1749,8 +1749,12 @@ If project root cannot be found, use the buffer's default directory."
     "e" #'project-eshell)
   ( :keymaps 'mo-quick-menu-map
     :prefix "f"
-    "e" #'eshell)
+    "e" #'eshell-new)
   :config
+  (defun eshell-new()
+    "Open a new instance of eshell."
+    (interactive)
+    (eshell 'N))
   ;; Set eshell cache directory
   (setq eshell-directory-name (file-name-as-directory (mo-cache-path "eshell"))))
 
