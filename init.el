@@ -664,6 +664,16 @@ Ask for action even on single candidate jumps."
   ;; Disable auto mode in eshell
   ( eshell-mode . (lambda () (setq-local corfu-auto nil) (corfu-mode)))
   :config
+  ;; Send selected candidate to shell, avoiding the need to press RET
+  ;; twice when popup is visible
+  (defun corfu-send-shell (&rest _)
+    "Send completion candidate when inside comint/eshell."
+    (cond
+     ((and (derived-mode-p 'eshell-mode) (fboundp 'eshell-send-input))
+      (eshell-send-input))
+     ((and (derived-mode-p 'comint-mode)  (fboundp 'comint-send-input))
+      (comint-send-input))))
+  (advice-add #'corfu-insert :after #'corfu-send-shell)
   (global-corfu-mode))
 
 ;; Init corfu-history for auto-completion sorting based on history
