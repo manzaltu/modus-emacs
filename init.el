@@ -823,6 +823,10 @@ directory as a fall back."
   ( :keymaps 'minibuffer-local-map
     "M-s" #'consult-history                 ;; orig. next-matching-history-element
     "M-r" #'consult-history)                ;; orig. previous-matching-history-element
+  ;; Eshell history
+  ( :keymaps 'eshell-hist-mode-map
+    "M-s" #'consult-history                 ;; orig. eshell-next-matching-input
+    "M-r" #'consult-history)                ;; orig. eshell-previous-matching-input
   ( :keymaps 'mo-quick-menu-map
     :prefix "p"
     "b" #'consult-project-buffer)
