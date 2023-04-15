@@ -1554,7 +1554,14 @@ run the attached function (if exists) and enable lsp"
 ;; Init dtrt-indent for auto indentation detection
 (use-package dtrt-indent
   :hook
-  ( prog-mode . dtrt-indent-mode))
+  ( prog-mode . dtrt-indent-mode)
+  :config
+  (setq dtrt-indent-hook-mapping-list
+        (append dtrt-indent-hook-mapping-list
+                '( ( c-ts-mode c/c++/java c-ts-mode-indent-offset)
+                   ( c++-ts-mode c/c++/java c-ts-mode-indent-offset)
+                   ( java-ts-mode c/c++/java c-ts-mode-indent-offset)
+                   ( json-ts-mode c/c++/java c-ts-mode-indent-offset)))))
 
 ;; Init editorconfig for applying EditorConfig settings
 (use-package editorconfig
