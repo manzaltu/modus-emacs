@@ -1781,6 +1781,7 @@ If project root cannot be found, use the buffer's default directory."
     "Open a new instance of eshell."
     (interactive)
     (eshell 'N))
+  (setq eshell-history-size 100000)
   ;; Set shell prompt
   (setq eshell-prompt-function
         (lambda ()
