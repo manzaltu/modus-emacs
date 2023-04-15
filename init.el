@@ -1781,6 +1781,15 @@ If project root cannot be found, use the buffer's default directory."
     "Open a new instance of eshell."
     (interactive)
     (eshell 'N))
+  ;; Set shell prompt
+  (setq eshell-prompt-function
+        (lambda ()
+          (concat (propertize (format-time-string "[%H:%M:%S] " (current-time))
+                              'face '( :foreground "plum3"))
+                  (propertize (abbreviate-file-name (eshell/pwd))
+                              'face '( :foreground "LightSeaGreen" :weight bold))
+                  (if (= (user-uid) 0) " # " " λ "))))
+  (setq eshell-prompt-regexp "^[^#λ\n]* [#λ] ")
   ;; Set eshell cache directory
   (setq eshell-directory-name (file-name-as-directory (mo-cache-path "eshell"))))
 
