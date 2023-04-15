@@ -1790,6 +1790,8 @@ If project root cannot be found, use the buffer's default directory."
                               'face '( :foreground "LightSeaGreen" :weight bold))
                   (if (= (user-uid) 0) " # " " λ "))))
   (setq eshell-prompt-regexp "^[^#λ\n]* [#λ] ")
+  ;; Remove login banner
+  (delq 'eshell-banner eshell-modules-list)
   ;; Set eshell cache directory
   (setq eshell-directory-name (file-name-as-directory (mo-cache-path "eshell"))))
 
