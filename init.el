@@ -1782,6 +1782,20 @@ If project root cannot be found, use the buffer's default directory."
     (interactive)
     (eshell 'N))
   (setq eshell-history-size 100000)
+  (defun eshell/ecat (&optional file)
+    "Like `cat' but output with Emacs syntax highlighting."
+    (if (stringp file)
+        (with-temp-buffer
+          (insert-file-contents file)
+          (let ((buffer-file-name file))
+            (delay-mode-hooks
+              (set-auto-mode)
+              (if (fboundp 'font-lock-ensure)
+                  (font-lock-ensure)
+                (with-no-warnings
+                  (font-lock-fontify-buffer)))))
+          (buffer-string))
+      (error "Error: No file name was provided")))
   ;; Set shell prompt
   (setq eshell-prompt-function
         (lambda ()
