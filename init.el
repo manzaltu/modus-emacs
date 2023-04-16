@@ -949,24 +949,10 @@ directory as a fall back."
 ;; Init wgrep for editing grep-style results across files in grep buffer
 (use-package wgrep)
 
-;; Set buffer commands key bindings
-(setq mo-binding-next-buffer "C-M-s-d"
-      mo-binding-prev-buffer "C-M-s-e")
-
-(general-define-key
- mo-binding-next-buffer #'next-buffer
- mo-binding-prev-buffer #'previous-buffer)
-
 ;; Init tab-bar for managing tab views
 (use-package tab-bar
   :straight nil
   :init
-  ;; Set tab commands key bindings
-  (setq mo-binding-next-tab "C-M-s-f"
-        mo-binding-prev-tab "C-M-s-s")
-  (general-define-key
-   mo-binding-next-tab #'tab-next
-   mo-binding-prev-tab #'tab-previous)
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "t"
@@ -1757,14 +1743,7 @@ If project root cannot be found, use the buffer's default directory."
   ;; Set a low response delay
   (setq vterm-timer-delay 0.07)
   ;; Set longer scrollback history
-  (setq vterm-max-scrollback 50000)
-  ;; Exclude next/previous tab/buffer key bindings (incl. original excludes)
-  (setq vterm-keymap-exceptions
-        (append '( "C-c" "C-x" "C-u" "C-g" "C-h" "C-l" "M-x" "M-o" "C-y" "M-y" "M-`")
-                `( ,mo-binding-next-buffer
-                   ,mo-binding-prev-buffer
-                   ,mo-binding-next-tab
-                   ,mo-binding-prev-tab))))
+  (setq vterm-max-scrollback 50000))
 
 ;; Init eshell for terminal emulation
 (use-package eshell
