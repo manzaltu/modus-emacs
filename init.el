@@ -1793,6 +1793,18 @@ If project root cannot be found, use the buffer's default directory."
   ;; Set eshell cache directory
   (setq eshell-directory-name (file-name-as-directory (mo-cache-path "eshell"))))
 
+;; Init xterm-color for better ANSI color control sequence support
+(use-package xterm-color
+  :after eshell
+  :hook
+  ( eshell-before-prompt . (lambda () (setq xterm-color-preserve-properties t)))
+  ;; eshell environment variables are buffer local, thus external commands
+  ;; will be kept running with a "dumb" term.
+  ( eshell-mode . (lambda () (setenv "TERM" "xterm-256color")))
+  :config
+  (add-to-list 'eshell-preoutput-filter-functions 'xterm-color-filter)
+  (setq eshell-output-filter-functions (remove 'eshell-handle-ansi-color eshell-output-filter-functions)))
+
 ;; Init all-the-icons for icon support
 (use-package all-the-icons
   :if (display-graphic-p))
