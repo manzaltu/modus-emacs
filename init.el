@@ -1782,7 +1782,9 @@ If project root cannot be found, use the buffer's default directory."
         (lambda ()
           (concat (propertize (format-time-string "[%H:%M:%S] " (current-time))
                               'face '( :foreground "plum3"))
-                  (propertize (abbreviate-file-name (eshell/pwd))
+                  (propertize (let ((dir-name (file-name-nondirectory
+                                               (abbreviate-file-name (eshell/pwd)))))
+                                (if (= (length dir-name) 0) "/" dir-name ))
                               'face '( :foreground "LightSeaGreen" :weight bold))
                   (propertize (if (= (user-uid) 0) " #" " λ")
                               'face (if (= eshell-last-command-status 0)
