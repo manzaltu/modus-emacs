@@ -1782,7 +1782,11 @@ If project root cannot be found, use the buffer's default directory."
                               'face '( :foreground "plum3"))
                   (propertize (abbreviate-file-name (eshell/pwd))
                               'face '( :foreground "LightSeaGreen" :weight bold))
-                  (if (= (user-uid) 0) " # " " λ "))))
+                  (propertize (if (= (user-uid) 0) " #" " λ")
+                              'face (if (= eshell-last-command-status 0)
+                                        '( :foreground "SteelBlue3" :weight bold)
+                                      '( :foreground "coral3" :weight bold)))
+                  " ")))
   (setq eshell-prompt-regexp "^[^#λ\n]* [#λ] ")
   ;; Remove login banner
   (delq 'eshell-banner eshell-modules-list)
