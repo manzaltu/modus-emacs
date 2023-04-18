@@ -1819,6 +1819,8 @@ If project root cannot be found, use the buffer's default directory."
   :config
   ;; Compute blended backgrounds correctly
   (setq kind-icon-default-face 'corfu-default)
+  ;; Don't use icons, but text symbols
+  (setq kind-icon-use-icons nil)
   (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
 
 ;; Init emojify for emoji support
