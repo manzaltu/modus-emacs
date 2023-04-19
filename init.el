@@ -475,9 +475,8 @@ Ask for action even on single candidate jumps."
 (use-package org-present
   :after ( visual-fill-column org-modern)
   :general
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "n"
-    ";" #'org-present)
+  ( :keymaps 'org-mode-map
+    "C-M-s-;" #'org-present)
   :hook
   ;; Set style of slides
   ( org-present-mode .
