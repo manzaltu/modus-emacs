@@ -1391,6 +1391,14 @@ run the attached function (if exists) and enable lsp"
   ;; Set the default style
   (setf (alist-get 'other c-default-style) "stroustrup"))
 
+;; Init c-ts-mode for C support using tree-sitter
+(use-package c-ts-mode
+  :straight nil
+  :general
+  ( :keymaps 'c-ts-mode-map
+    "C-M-s-S-a" #'treesit-beginning-of-defun
+    "C-M-s-S-e" #'treesit-end-of-defun))
+
 ;; Init c++-ts-mode for C++ support using tree-sitter
 (use-package c++-ts-mode
   :straight nil
