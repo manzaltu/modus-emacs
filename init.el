@@ -551,7 +551,7 @@ Ask for action even on single candidate jumps."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "n"
-    "C" #'calendar))
+    "d" #'calendar))
 
 ;; Init auctex for editing TeX files
 (use-package tex
