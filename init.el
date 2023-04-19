@@ -1131,12 +1131,13 @@ When a prefix ARG is given always prompt for a command to use."
 ;; Init github-review for helping with code review on github
 (use-package github-review
   :general
+  ( :keymaps 'github-review-mode-map
+    "C-M-s-a" #'github-review-approve
+    "C-M-s-c" #'github-review-comment
+    "C-M-s-r" #'github-review-reject)
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
-    "r a" #'github-review-approve
-    "r c" #'github-review-comment
-    "r k" #'github-review-reject
-    "r r" #'github-review-forge-pr-at-point)
+    "r" #'github-review-forge-pr-at-point)
   :config
   (setq github-review-view-comments-in-code-lines t)
   (setq github-review-reply-inline-comments t))
