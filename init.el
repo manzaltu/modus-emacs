@@ -1402,7 +1402,29 @@ run the attached function (if exists) and enable lsp"
 (use-package yasnippet-snippets)
 
 ;; Init rustic for Rust support
-(use-package rustic)
+(use-package rustic
+  :general
+  ( :keymaps 'rustic-mode-map
+    "C-M-s-;" #'rustic-docstring-dwim
+    "C-M-s-b" #'rustic-cargo-build
+    "C-M-s-t" #'rustic-cargo-test
+    "C-M-s-S-t" #'rustic-cargo-current-test
+    "C-M-s-o" #'rustic-cargo-outdated
+    "C-M-s-r" #'rustic-cargo-run
+    "C-M-s-c" #'rustic-recompile
+    "C-M-s-S-c" #'rustic-compile
+    "C-M-s-f" #'rustic-cargo-clippy-fix
+    "C-M-s-S-f" #'rustic-cargo-clippy
+    "C-M-s-a" #'rustic-cargo-add
+    "C-M-s-m" #'rustic-cargo-bench
+    "C-M-s-x" #'rustic-cargo-clean
+    "C-M-s-h" #'rustic-cargo-doc
+    "C-M-s-i" #'rustic-cargo-init
+    "C-M-s-n" #'rustic-cargo-new
+    "C-M-s-S-r" #'rustic-cargo-rm
+    "C-M-s-u" #'rustic-cargo-upgrade
+    "C-M-s-d" #'rust-dbg-wrap-or-unwrap
+    "C-M-s-p" #'rustic-popup))
 
 ;; Associate objc-mode with Objective C files
 (add-to-list 'auto-mode-alist '( "\\.mm\\'" . objc-mode))
