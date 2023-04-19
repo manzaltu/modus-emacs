@@ -434,14 +434,15 @@ Ask for action even on single candidate jumps."
 (use-package org-roam
   :demand t
   :general
+  ( :keymaps 'org-mode-map
+    "C-M-s-r C-M-s-b" #'org-roam-buffer-toggle
+    "C-M-s-r C-M-s-g" #'org-roam-graph
+    "C-M-s-r C-M-s-i" #'org-roam-node-insert
+    "C-M-s-r C-M-s-t" #'org-roam-tag-add)
   ( :keymaps 'mo-quick-menu-map
     :prefix "n"
-    "r b" #'org-roam-buffer-toggle
-    "r g" #'org-roam-graph
-    "r i" #'org-roam-node-insert
-    "r r" #'org-roam-node-find
-    "r t" #'org-roam-tag-add
-    "r c" #'org-roam-capture)
+    "r" #'org-roam-node-find
+    "n" #'org-roam-capture)
   :custom
   ( org-roam-directory "~/roam")
   :init
