@@ -795,7 +795,7 @@ directory as a fall back."
     "b" #'consult-buffer
     "/" #'consult-imenu
     "?" #'consult-imenu-multi
-    ";" #'consult-keep-lines
+    ";" #'consult-focus-lines
     "m" #'consult-minor-mode-menu
     "B" #'consult-recent-file)
   ( :keymaps 'mo-quick-menu-map
