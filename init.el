@@ -370,21 +370,23 @@ Ask for action even on single candidate jumps."
 (use-package org
   :straight ( :type built-in)
   :general
+  ( :keymaps 'org-mode-map
+    "C-M-s-o" #'org-open-at-point
+    "C-M-s-l" #'org-insert-link
+    "C-M-s-c" #'org-store-link
+    "C-M-s-v" #'org-latex-preview
+    "C-M-s-p" #'org-toggle-pretty-entities
+    "C-M-s-s" #'org-schedule
+    "C-M-s-d" #'org-deadline
+    "C-M-s-t" #'org-todo
+    "C-M-s-g" #'org-set-tags-command)
+  ( :keymaps 'org-agenda-mode-map
+    "C-M-s-s" #'org-agenda-schedule
+    "C-M-s-d" #'org-agenda-deadline
+    "C-M-s-g" #'org-agenda-set-tags)
   ( :keymaps 'mo-quick-menu-map
     :prefix "n"
-    "l" #'org-insert-link
-    "o" #'org-open-at-point
-    "L" #'org-store-link
-    "v" #'org-latex-preview
-    "e" #'org-toggle-pretty-entities
-    "s" #'org-schedule
-    "S" #'org-agenda-schedule
-    "d" #'org-deadline
-    "D" #'org-agenda-deadline
     "c" #'org-capture
-    "t" #'org-todo
-    "q" #'org-set-tags-command
-    "Q" #'org-agenda-set-tags
     "a" #'mo-org-agenda-and-todo)
   ( :keymaps 'org-mode-map
     :states 'normal
