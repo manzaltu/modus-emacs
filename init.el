@@ -1387,6 +1387,16 @@ run the attached function (if exists) and enable lsp"
 ;; Init cc-mode for C/C++/Obj-C support
 (use-package cc-mode
   :straight nil
+  :general
+  ( :keymaps 'c-mode-base-map
+    "C-M-s-S-a" #'c-beginning-of-defun
+    "C-M-s-S-e" #'c-end-of-defun
+    "C-M-s-n" #'c-forward-conditional
+    "C-M-s-p" #'c-backward-conditional
+    "C-M-s-u" #'c-up-conditional
+    "C-M-s-z" #'c-display-defun-name
+    "C-M-s-a" #'c-beginning-of-statement
+    "C-M-s-e" #'c-end-of-statement)
   :config
   ;; Set the default style
   (setf (alist-get 'other c-default-style) "stroustrup"))
