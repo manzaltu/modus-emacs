@@ -1568,6 +1568,12 @@ run the attached function (if exists) and enable lsp"
 ;; Init restclient for sending rest requests from emacs
 (use-package restclient)
 
+;; Init logview for better viewing log files
+(use-package logview
+  :config
+  (setq logview-views-file (mo-cache-path "logview.views"))
+  (setq logview-cache-filename (mo-cache-path "logview-cache.extmap")))
+
 ;; Init formal-all for a universal code formatter
 (use-package format-all
   :hook
