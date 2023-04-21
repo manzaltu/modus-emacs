@@ -1570,6 +1570,23 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init logview for better viewing log files
 (use-package logview
+  :general
+  ( :keymaps 'logview-mode-map
+    "C-M-s-n" #'logview-add-include-name-filter
+    "C-M-s-S-n" #'logview-add-exclude-name-filter
+    "C-M-s-m" #'logview-add-include-message-filter
+    "C-M-s-S-m" #'logview-add-exclude-message-filter
+    "C-M-s-t" #'logview-add-include-thread-filter
+    "C-M-s-S-t" #'logview-add-exclude-thread-filter
+    "C-M-s-f" #'logview-edit-filters
+    "C-M-s-r" #'logview-reset-all-filters
+    "C-M-s-j" #'logview-next-timestamp-gap
+    "C-M-s-k" #'logview-previous-timestamp-gap
+    "C-M-s-l C-M-s-d" #'logview-show-errors-warnings-information-and-debug
+    "C-M-s-l C-M-s-e" #'logview-show-only-errors
+    "C-M-s-l C-M-s-i" #'logview-show-errors-warnings-and-information
+    "C-M-s-l C-M-s-l" #'logview-show-all-levels
+    "C-M-s-l C-M-s-w" #'logview-show-errors-and-warnings)
   :config
   (setq logview-views-file (mo-cache-path "logview.views"))
   (setq logview-cache-filename (mo-cache-path "logview-cache.extmap")))
