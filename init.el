@@ -1188,7 +1188,6 @@ When a prefix ARG is given always prompt for a command to use."
 ;; Init treesit-auto for automatically using tree-sitter major modes
 (use-package treesit-auto
   :config
-  (setq treesit-auto-install t)
   (global-treesit-auto-mode))
 
 ;; Init lsp mode for lsp support
