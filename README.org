@@ -10,6 +10,35 @@ I strongly recommend using Emacs builds with native compilation enabled.
 In addition, I discourage builds with pgtk enabled for now, as it seems to
 negatively impact performance in some scenarios (e.g. corfu auto completion).
 
+*** Compiling Emacs 29
+Until Emacs 29 is officially released, I recommend building it yourself.
+
+Clone Emacs 29 branch:
+#+BEGIN_SRC shell
+git clone -b emacs-29 --single-branch https://git.savannah.gnu.org/git/emacs.git
+#+END_SRC
+
+On Debian based distros:
+#+BEGIN_SRC shell
+sudo apt install build-essential
+sudo apt build-dep emacs
+sudo apt install libtree-sitter-dev
+#+END_SRC
+
+On Redhat based distros:
+#+BEGIN_SRC shell
+sudo dnf builddep emacs
+sudo dnf install libtree-sitter-devel
+#+END_SRC
+
+Inside the cloned repo, build Emacs:
+#+BEGIN_SRC shell
+./autogen.sh
+./configure --with-dbus --with-gif --with-jpeg --with-png --with-rsvg --with-tiff --with-xft --with-xpm --with-x-toolkit=lucid --with-gpm=no --with-modules --with-harfbuzz --with-cairo --with-json --with-native-compilation --with-tree-sitter
+make -j$(nproc)
+sudo make install
+#+END_SRC
+
 ** Dependencies
 You should have the following software installed:
 1. [[https://github.com/BurntSushi/ripgrep][ripgrep]] - like grep, but faster
