@@ -722,6 +722,12 @@ Ask for action even on single candidate jumps."
     "M-k" #'corfu-quick-jump
     "M-j" #'corfu-quick-complete))
 
+;; Init corfu-terminal for using corfu in the terminal
+(use-package corfu-terminal
+  :if (not (display-graphic-p))
+  :config
+  (corfu-terminal-mode +1))
+
 ;; Init cape for completion at point extensions
 (use-package cape
   :config
