@@ -1689,9 +1689,8 @@ run the attached function (if exists) and enable lsp"
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
     "g" #'gptel)
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "b"
-    "g" #'gptel-send)
+  ( :keymaps 'gptel-mode-map
+    "C-M-s-<return>" #'gptel-send)
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
     "g d" #'mo-gpt-describe-code
