@@ -1735,7 +1735,10 @@ Please improve the following code to the best of your ability."))
     "Review code in region using gpt."
     (interactive)
     (mo-gpt-region "*GPT code review*" "You are a large model living in Emacs and also a helpful assistant. \
-Please provide a code review on the following code, to the best of your ability.")))
+Please provide a code review on the following code, to the best of your ability."))
+
+  ;; Don't use any prompt, by default
+  (setq gptel--system-message ""))
 
 ;; Init rainbow-delimiters for highlighting parens by their depth
 (use-package rainbow-delimiters
