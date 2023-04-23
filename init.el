@@ -1202,6 +1202,7 @@ When a prefix ARG is given always prompt for a command to use."
     "a" #'lsp-execute-code-action
     "r" #'lsp-rename
     "p" #'lsp-signature-activate
+    "n" #'lsp-inlay-hints-mode
     "R" #'lsp-workspace-restart
     "=" #'lsp-format-region
     "o" #'lsp-clangd-find-other-file)
