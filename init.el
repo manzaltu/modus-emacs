@@ -663,11 +663,20 @@ Ask for action even on single candidate jumps."
   (setq corfu-auto-delay 0)
   (setq corfu-auto-prefix 0)
   :hook
+  ;; Conditionally enable Corfu in the minibuffer
+  ( minibuffer-setup . corfu-enable-in-minibuffer)
   ;; Disable auto mode in eshell
   ( eshell-mode . (lambda () (setq-local corfu-auto nil) (corfu-mode)))
   ;; Close popup when exiting evil insert state
   ( evil-insert-state-exit . corfu-quit)
   :config
+  (defun corfu-enable-in-minibuffer ()
+    "Enable Corfu in the minibuffer if `completion-at-point' is bound."
+    (when (where-is-internal #'completion-at-point (list (current-local-map)))
+      (setq-local corfu-echo-delay nil
+                  corfu-popupinfo-delay nil)
+      (corfu-mode 1)))
+
   ;; Send selected candidate to shell, avoiding the need to press RET
   ;; twice when popup is visible
   (defun corfu-send-shell (&rest _)
