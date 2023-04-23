@@ -1697,7 +1697,11 @@ run the attached function (if exists) and enable lsp"
     "g b" #'mo-gpt-find-bugs
     "g i" #'mo-gpt-improve-code
     "g r" #'mo-gpt-review-code)
-
+  :hook
+  ;; Move to the next prompt line after getting a response
+  ( gptel-post-response . (lambda ()
+                            (markdown-outline-next-same-level)
+                            (move-end-of-line nil)))
   :config
   (defun mo-gpt-region (name prompt)
     "Send selected region as a gpt query in a new session called NAME with PROMPT."
