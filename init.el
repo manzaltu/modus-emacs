@@ -1862,6 +1862,7 @@ If project root cannot be found, use the buffer's default directory."
     (interactive)
     (eshell 'N))
   (setq eshell-history-size 100000)
+  (setq eshell-buffer-maximum-lines 100000)
   (defun eshell/ecat (&optional file)
     "Like `cat' but output with Emacs syntax highlighting."
     (if (stringp file)
