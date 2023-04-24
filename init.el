@@ -2183,6 +2183,15 @@ If project root cannot be found, use the buffer's default directory."
 ;; Truncate lines by default
 (setq truncate-lines t)
 
+;; Init hi-lock for highlighting lines by regexp
+(use-package hi-lock
+  :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "l" #'highlight-lines-matching-regexp
+    "L" #'unhighlight-regexp))
+
 ;; Init whitespace for showing trailing whitespaces in code
 (use-package whitespace
   :straight nil
