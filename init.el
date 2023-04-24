@@ -843,7 +843,8 @@ directory as a fall back."
   ;; Eshell history
   ( :keymaps 'eshell-hist-mode-map
     "M-s" #'consult-history                 ;; orig. eshell-next-matching-input
-    "M-r" #'consult-history)                ;; orig. eshell-previous-matching-input
+    "M-r" #'consult-history                 ;; orig. eshell-previous-matching-input
+    "C-r" #'consult-history)
   ( :keymaps 'mo-quick-menu-map
     :prefix "p"
     "b" #'consult-project-buffer)
