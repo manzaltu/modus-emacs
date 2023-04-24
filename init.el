@@ -1849,6 +1849,9 @@ If project root cannot be found, use the buffer's default directory."
   ( :keymaps 'mo-quick-menu-map
     :prefix "f"
     "e" #'eshell-new)
+  ( :keymaps 'eshell-mode-map
+    "C-p" #'eshell-previous-matching-input-from-input
+    "C-n" #'eshell-next-matching-input-from-input)
   :hook
   ;; Remove pager due to the lack of support for ANSI cursor sequence controls
   ( eshell-mode . (lambda () (setenv "PAGER" "cat")))
