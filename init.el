@@ -2098,6 +2098,8 @@ If project root cannot be found, use the buffer's default directory."
            "^\\*vterm.*\\*.*$" vterm-mode))
   ;; Group popups by their associated project, with default dir as a fallback
   (setq popper-group-function #'popper-group-by-directory)
+  ;; Set fractional height
+  (setq popper-window-height 0.33)
   (popper-mode +1)
   (popper-echo-mode +1))
 
