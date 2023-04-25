@@ -1699,63 +1699,6 @@ run the attached function (if exists) and enable lsp"
   :config
   (google-this-mode 1))
 
-;; Init gptel for ChatGPT support in Emacs
-(use-package gptel
-  :general
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "x"
-    "g" #'gptel)
-  ( :keymaps 'gptel-mode-map
-    "C-M-s-<return>" #'gptel-send)
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "c"
-    "g d" #'mo-gpt-describe-code
-    "g b" #'mo-gpt-find-bugs
-    "g i" #'mo-gpt-improve-code
-    "g r" #'mo-gpt-review-code)
-  :hook
-  ;; Move to the next prompt line after getting a response
-  ( gptel-post-response . (lambda ()
-                            (markdown-outline-next-same-level)
-                            (move-end-of-line nil)))
-  :config
-  (defun mo-gpt-region (name prompt)
-    "Send selected region as a gpt query in a new session called NAME with PROMPT."
-    (let ((text (and (use-region-p)
-                     (buffer-substring (region-beginning)
-                                       (region-end)))))
-      (gptel name gptel-api-key text)
-      (with-current-buffer name
-        (let ((gptel--system-message prompt))
-          (gptel-send)))))
-
-  (defun mo-gpt-describe-code ()
-    "Describe code in region using gpt."
-    (interactive)
-    (mo-gpt-region "*GPT describe code*" "You are a large model living in Emacs and also a helpful assistant. \
-Please describe the following code to the best of your ability."))
-
-  (defun mo-gpt-find-bugs ()
-    "Find bugs in region using gpt."
-    (interactive)
-    (mo-gpt-region "*GPT find bugs*" "You are a large model living in Emacs and also a helpful assistant. \
-Please find bugs in the following code to the best of your ability."))
-
-  (defun mo-gpt-improve-code ()
-    "Improve code in region using gpt."
-    (interactive)
-    (mo-gpt-region "*GPT improve code*" "You are a large model living in Emacs and also a helpful assistant. \
-Please improve the following code to the best of your ability."))
-
-  (defun mo-gpt-review-code ()
-    "Review code in region using gpt."
-    (interactive)
-    (mo-gpt-region "*GPT code review*" "You are a large model living in Emacs and also a helpful assistant. \
-Please provide a code review on the following code, to the best of your ability."))
-
-  ;; Don't use any prompt, by default
-  (setq gptel--system-message ""))
-
 ;; Init rainbow-delimiters for highlighting parens by their depth
 (use-package rainbow-delimiters
   :hook
