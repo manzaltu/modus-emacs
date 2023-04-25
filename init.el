@@ -1709,7 +1709,11 @@ run the attached function (if exists) and enable lsp"
     :prefix "c"
     "g d" #'chatgpt-shell-describe-code
     "g r" #'chatgpt-shell-refactory-code
-    "g u" #'chatgpt-shell-generate-unit-test))
+    "g u" #'chatgpt-shell-generate-unit-test)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "g p" #'chatgpt-shell-proofreading-doc
+    "g r" #'chatgpt-shell-send-and-review-region))
 
 ;; Init rainbow-delimiters for highlighting parens by their depth
 (use-package rainbow-delimiters
