@@ -1677,6 +1677,7 @@ run the attached function (if exists) and enable lsp"
   ( :keymaps 'mo-quick-menu-map
     :prefix "h"
     "f" #'helpful-callable
+    "c" #'helpful-command
     "v" #'helpful-variable
     "k" #'helpful-key
     "h" #'helpful-at-point))
