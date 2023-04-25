@@ -1704,7 +1704,12 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
-    "g" #'chatgpt-shell))
+    "g" #'chatgpt-shell)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "c"
+    "g d" #'chatgpt-shell-describe-code
+    "g r" #'chatgpt-shell-refactory-code
+    "g u" #'chatgpt-shell-generate-unit-test))
 
 ;; Init rainbow-delimiters for highlighting parens by their depth
 (use-package rainbow-delimiters
