@@ -1714,7 +1714,10 @@ run the attached function (if exists) and enable lsp"
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "g p" #'chatgpt-shell-proofreading-doc
-    "g r" #'chatgpt-shell-send-and-review-region))
+    "g r" #'chatgpt-shell-send-and-review-region)
+  :config
+  ;; Display buffer according to the display-buffer rules
+  (setq chatgpt-shell-display-function #'display-buffer))
 
 ;; Init rainbow-delimiters for highlighting parens by their depth
 (use-package rainbow-delimiters
