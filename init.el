@@ -1704,6 +1704,8 @@ run the attached function (if exists) and enable lsp"
 (use-package chatgpt-shell
   :general
   ( :keymaps 'mo-quick-menu-map
+    "DEL" #'chatgpt-shell-prompt)
+  ( :keymaps 'mo-quick-menu-map
     :prefix "x"
     "g" #'chatgpt-shell)
   ( :keymaps 'mo-quick-menu-map
