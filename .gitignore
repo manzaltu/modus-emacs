@@ -15,3 +15,5 @@
 /snippets/
 # Ignore tree-sitter directory
 /tree-sitter/
+# Ignore chatgpt directory
+/chatgpt/

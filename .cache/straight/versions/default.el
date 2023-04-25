@@ -14,6 +14,7 @@
  ("cape" . "db3059af52718c7f55485ef183bdad3e40f58df9")
  ("cdlatex" . "692142603c6229e5aa5c8285eb797e401cef9ac3")
  ("cfrs" . "f3a21f237b2a54e6b9f8a420a9da42b4f0a63121")
+ ("chatgpt-shell" . "82bb787c65c7c4eef3c6abaa68c0870c7eb4fbe1")
  ("closql" . "c3b34a6ec438d2e73309eed7bda26768b9a50335")
  ("cmake" . "3c952e97e2ff44c15a4be693ef6c806c9e7973de")
  ("compat" . "cd28402790821ce95ea4c3ea0de5c2d9dcfce31f")
