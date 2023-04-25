@@ -113,6 +113,8 @@
   (setq evil-split-window-below t)
   ;; Create vertical split windows to the right
   (setq evil-vsplit-window-right t)
+  ;; Cursor can move beyond eol to support Emacs sexp movement
+  (setq evil-move-beyond-eol t)
   :config
   ;; Set word movement to operate on symbol boundaries
   (defalias #'forward-evil-word #'forward-evil-symbol)
