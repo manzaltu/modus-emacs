@@ -1717,6 +1717,9 @@ run the attached function (if exists) and enable lsp"
     :prefix "b"
     "g p" #'chatgpt-shell-proofreading-doc
     "g r" #'chatgpt-shell-send-and-review-region)
+  :hook
+  ;; Disable auto-completion in chat buffer
+  ( shell-maker-mode . (lambda () (setq-local corfu-auto nil)))
   :config
   ;; Display buffer according to the display-buffer rules
   (setq chatgpt-shell-display-function #'display-buffer))
