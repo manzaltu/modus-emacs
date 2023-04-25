@@ -1722,7 +1722,8 @@ run the attached function (if exists) and enable lsp"
   ( shell-maker-mode . (lambda () (setq-local corfu-auto nil)))
   :config
   ;; Display buffer according to the display-buffer rules
-  (setq chatgpt-shell-display-function #'display-buffer))
+  (setq chatgpt-shell-display-function #'display-buffer)
+  (setq chatgpt-shell-request-timeout 240))
 
 ;; Init rainbow-delimiters for highlighting parens by their depth
 (use-package rainbow-delimiters
