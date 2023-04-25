@@ -2,6 +2,8 @@
 /personal.el
 # Ignore customization file
 /custom.el
+# Ignore flycheck init file
+/flycheck_init.el
 # Ignore Emacs backup files
 *~
 # Ignore Emacs cache directory but exclude straight package freeze files
