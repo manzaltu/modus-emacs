@@ -1700,7 +1700,11 @@ run the attached function (if exists) and enable lsp"
   (google-this-mode 1))
 
 ;; Init chatgpt-shell for ChatGPT support in Emacs
-(use-package chatgpt-shell)
+(use-package chatgpt-shell
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "x"
+    "g" #'chatgpt-shell))
 
 ;; Init rainbow-delimiters for highlighting parens by their depth
 (use-package rainbow-delimiters
