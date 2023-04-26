@@ -1647,6 +1647,11 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init which-key for interactively displaying key bindings
 (use-package which-key
+  :demand t
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "h"
+    "w" #'which-key-show-top-level)
   :config
   (setq which-key-idle-delay 0.5)
   (setq which-key-add-column-padding 8)
