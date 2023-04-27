@@ -1793,6 +1793,7 @@ run the attached function (if exists) and enable lsp"
 (use-package ace-window
   :general
   ( :keymaps 'override
+    :states '( normal insert visual motion emacs)
     "M-o" #'ace-window
     "M-O" #'mo-ace-window-with-action)
   :config
