@@ -302,6 +302,11 @@ Ask for action even on single candidate jumps."
   (setq avy-all-windows 'all-frames)
   (setq avy-timeout-seconds 0.25))
 
+;; Init evil-easymotion for using avy with evil motions
+(use-package evil-easymotion
+  :config
+  (evilem-default-keybindings "M"))
+
 ;; Init evil-snipe for an improved 1 char evil search experience
 (use-package evil-snipe
   :config
