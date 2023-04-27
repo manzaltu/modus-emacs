@@ -984,6 +984,8 @@ directory as a fall back."
   (setq tab-bar-format '( tab-bar-format-tabs-groups
                           tab-bar-separator))
   (setq tab-bar-tab-hints t)
+  ;; Switch to tab by pressing C-<hint num>
+  (setq tab-bar-select-tab-modifiers '(control))
   ;; Init tab-bar for supporting multiple window layouts in frame
   (tab-bar-mode))
 
