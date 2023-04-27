@@ -1784,8 +1784,14 @@ run the attached function (if exists) and enable lsp"
 (use-package ace-window
   :general
   ( :keymaps 'override
-    "M-o" #'ace-window)
+    "M-o" #'ace-window
+    "M-O" #'mo-ace-window-with-action)
   :config
+  (defun mo-ace-window-with-action ()
+    "Select window with dispatch action."
+    (interactive)
+    (let ((aw-dispatch-always t))
+      (call-interactively #'ace-window)))
   (setq aw-keys '( ?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
 ;; Init eww for browsing the web using Emacs
