@@ -177,13 +177,6 @@
 (mo-quick-menu-def
   "u" #'universal-argument)
 
-;; Init window for managing windows
-(use-package window
-  :straight nil
-  :general
-  ( :keymaps 'override
-    "M-O" #'other-window))
-
 ;; Init frame for managing frames
 (use-package frame
   :demand t
