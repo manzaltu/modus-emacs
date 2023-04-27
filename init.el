@@ -1795,6 +1795,14 @@ run the attached function (if exists) and enable lsp"
   :config
   (setq aw-keys '( ?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
+;; Init eww for browsing the web using Emacs
+(use-package eww
+  :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "x"
+    "w" #'eww))
+
 ;; Init vterm for terminal emulation
 (use-package vterm
   :demand t
