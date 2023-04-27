@@ -1801,7 +1801,9 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
-    "w" #'eww))
+    "w" #'eww)
+  :config
+  (setq eww-search-prefix "https://www.google.com/search?q="))
 
 ;; Init vterm for terminal emulation
 (use-package vterm
