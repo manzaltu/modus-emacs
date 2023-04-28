@@ -1721,7 +1721,7 @@ run the attached function (if exists) and enable lsp"
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
     "g d" #'chatgpt-shell-describe-code
-    "g r" #'chatgpt-shell-refactory-code
+    "g r" #'chatgpt-shell-refactor-code
     "g u" #'chatgpt-shell-generate-unit-test)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
