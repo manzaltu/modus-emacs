@@ -1883,7 +1883,7 @@ If project root cannot be found, use the buffer's default directory."
   (setq eshell-prompt-function
         (lambda ()
           (concat (propertize (format-time-string "[%H:%M:%S] " (current-time))
-                              'face '( :foreground "plum3"))
+                              'face '( :foreground "plum3" :weight bold))
                   (propertize (let ((dir-name (file-name-nondirectory
                                                (abbreviate-file-name (eshell/pwd)))))
                                 (if (= (length dir-name) 0) "/" dir-name ))
