@@ -1279,6 +1279,7 @@ When a prefix ARG is given always prompt for a command to use."
                                    powershell-mode
                                    dockerfile-mode
                                    dockerfile-ts-mode
+                                   nix-mode
                                    terraform-mode
                                    cmake-mode
                                    cmake-ts-mode
