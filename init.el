@@ -1959,6 +1959,7 @@ If project root cannot be found, use the buffer's default directory."
         doom-themes-enable-italic t) ; if nil, italics is universally disabled
   ;; Set brighter comments
   (setq doom-one-brighter-comments t)
+  (setq doom-one-light-brighter-comments t)
   (setq doom-solarized-light-brighter-comments t)
   (load-theme 'doom-one t)
   ;; Resize org headings
