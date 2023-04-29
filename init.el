@@ -1136,9 +1136,6 @@ When a prefix ARG is given always prompt for a command to use."
           (progn (kill-new branch)
                  (message "%s" branch))
         (user-error "There is not current branch"))))
-  (setq transient-levels-file (mo-cache-path "transient_levels.el"))
-  (setq transient-values-file (mo-cache-path "transient_values.el"))
-  (setq transient-history-file (mo-cache-path "transient_history.el"))
   (setq magit-diff-refine-hunk 'all))
 
 ;; Init git-modes for editing git config files
@@ -2115,6 +2112,13 @@ If project root cannot be found, use the buffer's default directory."
   (setq popper-window-height 0.33)
   (popper-mode +1)
   (popper-echo-mode +1))
+
+;; Init transient for transient menus
+(use-package transient
+  :init
+  (setq transient-levels-file (mo-cache-path "transient_levels.el"))
+  (setq transient-values-file (mo-cache-path "transient_values.el"))
+  (setq transient-history-file (mo-cache-path "transient_history.el")))
 
 ;; Cleanup the frame UI
 (tool-bar-mode -1)
