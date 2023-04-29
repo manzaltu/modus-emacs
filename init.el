@@ -380,7 +380,9 @@ Ask for action even on single candidate jumps."
     "C-M-s-s" #'org-schedule
     "C-M-s-d" #'org-deadline
     "C-M-s-t" #'org-todo
-    "C-M-s-g" #'org-set-tags-command)
+    "C-M-s-g" #'org-set-tags-command
+    "C-M-s-i" #'org-insert-structure-template
+    "C-M-s-e" #'org-edit-special)
   ( :keymaps 'org-agenda-mode-map
     "C-M-s-s" #'org-agenda-schedule
     "C-M-s-d" #'org-agenda-deadline
