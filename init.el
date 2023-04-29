@@ -2023,7 +2023,11 @@ If project root cannot be found, use the buffer's default directory."
   :general ( [remap ispell-word] #'jinx-correct))
 
 ;; Init powerthesaurus for finding synonyms, antonyms and related terms
-(use-package powerthesaurus)
+(use-package powerthesaurus
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "T" #'powerthesaurus-transient))
 
 ;; Init desktop+ for saving session configuration
 (use-package desktop+
