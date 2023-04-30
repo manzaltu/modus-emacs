@@ -195,13 +195,6 @@
     :prefix "b"
     "i" #'ibuffer))
 
-;; Init bookmark for managing bookmarks
-(use-package bookmark
-  :straight nil
-  :hook
-  ;; Recenter after jump
-  ( bookmark-after-jump . recenter))
-
 (defun mo-copy-file-path ()
   "Copy the full path of the current buffer's file."
   (interactive)
@@ -2268,7 +2261,15 @@ If project root cannot be found, use the buffer's default directory."
   :config
   (global-auto-revert-mode))
 
-(setq bookmark-file (mo-cache-path "bookmarks"))
+;; Init bookmark for managing bookmarks
+(use-package bookmark
+  :straight nil
+  :hook
+  ;; Recenter after jump
+  ( bookmark-after-jump . recenter)
+  :config
+  (setq bookmark-file (mo-cache-path "bookmarks")))
+
 (setq tramp-persistency-file-name (mo-cache-path "tramp"))
 
 ;; Init envrc for direnv integration with Emacs
