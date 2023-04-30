@@ -2270,6 +2270,9 @@ If project root cannot be found, use the buffer's default directory."
   :config
   (setq bookmark-file (mo-cache-path "bookmarks")))
 
+;; Init bookmark-in-project for managing per-project bookmarks
+(use-package bookmark-in-project)
+
 (setq tramp-persistency-file-name (mo-cache-path "tramp"))
 
 ;; Init envrc for direnv integration with Emacs
