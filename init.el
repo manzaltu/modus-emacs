@@ -1927,6 +1927,10 @@ If project root cannot be found, use the buffer's default directory."
 
 ;; Init copy-as-format for copying regions as formatted code
 (use-package copy-as-format
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "c"
+    "y" #'mo-copy-as-format-ask)
   :config
   (defun mo-copy-as-format-ask ()
     "Copy as format. Always ask for the format."
