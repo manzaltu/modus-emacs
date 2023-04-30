@@ -747,7 +747,13 @@ Ask for action even on single candidate jumps."
 (use-package dabbrev
   :straight nil
   :config
-  (setq dabbrev-ignored-buffer-regexps '( "^\\*.+::stderr\\*$")))
+  (setq dabbrev-ignored-buffer-regexps '( "^\\*.+::stderr\\*$"))
+  ;; Do not scan buffers that are too big
+  (setq dabbrev-check-all-buffers nil)
+  (defvar mo-dabbrev-max-file-size 1000000)
+  (setq dabbrev-friend-buffer-function
+        (lambda (buffer)
+          (< (buffer-size buffer) mo-dabbrev-max-file-size))))
 
 ;; Used by project.el for project detection
 (defun mo-project-try-local (dir)
