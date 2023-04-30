@@ -2198,6 +2198,8 @@ If project root cannot be found, use the buffer's default directory."
 
 ;; Truncate lines by default
 (setq truncate-lines t)
+;; Disable double space at sentence end
+(setq sentence-end-double-space nil)
 
 ;; Init hi-lock for highlighting lines by regexp
 (use-package hi-lock
