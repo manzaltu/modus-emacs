@@ -1703,6 +1703,11 @@ run the attached function (if exists) and enable lsp"
     "k" #'helpful-key
     "h" #'helpful-at-point))
 
+;; Init mode-minder for showing all modes
+(use-package mode-minder
+  :straight
+  ( mode-minder :type git :host github :repo "jdtsmith/mode-minder"))
+
 ;; Init devdocs for viewing online dev documentation
 (use-package devdocs
   :general
