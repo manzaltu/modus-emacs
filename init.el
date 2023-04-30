@@ -2271,7 +2271,11 @@ If project root cannot be found, use the buffer's default directory."
   (setq bookmark-file (mo-cache-path "bookmarks")))
 
 ;; Init bookmark-in-project for managing per-project bookmarks
-(use-package bookmark-in-project)
+(use-package bookmark-in-project
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "p"
+    "RET" #'bookmark-in-project-jump))
 
 (setq tramp-persistency-file-name (mo-cache-path "tramp"))
 
