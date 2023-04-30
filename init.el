@@ -736,6 +736,8 @@ Ask for action even on single candidate jumps."
 ;; Init cape for completion at point extensions
 (use-package cape
   :config
+  ;; Do not scan every buffer with dabbrev (see dabbrev configuration)
+  (setq cape-dabbrev-check-other-buffers 'some)
   ;; Add completion functions
   (add-to-list 'completion-at-point-functions (cape-capf-prefix-length #'cape-dabbrev 3))
   (add-to-list 'completion-at-point-functions #'cape-file))
