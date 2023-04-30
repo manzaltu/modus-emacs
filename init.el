@@ -2232,6 +2232,13 @@ If project root cannot be found, use the buffer's default directory."
   (setq savehist-file (mo-cache-path "history"))
   (savehist-mode))
 
+;; Init saveplace for saving the last visited location in buffers
+(use-package saveplace
+  :straight nil
+  :config
+  (setq save-place-file (mo-cache-path "places"))
+  (save-place-mode))
+
 ;; Init recentf for tracking recently opened files
 (use-package recentf
   :straight nil
