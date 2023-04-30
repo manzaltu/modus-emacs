@@ -233,6 +233,10 @@
 ;; Add evil key bindings to other, non-default, modes
 (use-package evil-collection
   :after ( evil xref)
+  :demand t
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    "(" #'evil-collection-consult-jump-list)
   :config
   ;; We have our own find references key binding. Remove evil-collection's one.
   ;; evil-collection's find usages overrides evil-mc key bindings.
