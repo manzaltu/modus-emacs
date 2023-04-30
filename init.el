@@ -1926,7 +1926,13 @@ If project root cannot be found, use the buffer's default directory."
   (setq eshell-output-filter-functions (remove 'eshell-handle-ansi-color eshell-output-filter-functions)))
 
 ;; Init copy-as-format for copying regions as formatted code
-(use-package copy-as-format)
+(use-package copy-as-format
+  :config
+  (defun mo-copy-as-format-ask ()
+    "Copy as format. Always ask for the format."
+    (interactive)
+    (let ((current-prefix-arg '(4)))
+      (call-interactively #'copy-as-format))))
 
 ;; Init all-the-icons for icon support
 (use-package all-the-icons
