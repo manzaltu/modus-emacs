@@ -1706,7 +1706,11 @@ run the attached function (if exists) and enable lsp"
 ;; Init mode-minder for showing all modes
 (use-package mode-minder
   :straight
-  ( mode-minder :type git :host github :repo "jdtsmith/mode-minder"))
+  ( mode-minder :type git :host github :repo "jdtsmith/mode-minder")
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "h"
+    "M" #'mode-minder))
 
 ;; Init devdocs for viewing online dev documentation
 (use-package devdocs
