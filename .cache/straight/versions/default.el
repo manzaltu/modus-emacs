@@ -25,6 +25,7 @@
  ("consult-lsp" . "f8db3252c0daa41225ba4ed1c0d178b281cd3e90")
  ("consult-notes" . "4fce058f668945a0a532c49d585be763fa29deda")
  ("consult-org-roam" . "ede01c2710836f055351d2ef0d9fac70b885ac65")
+ ("copy-as-format" . "73cb103311588ce180754cc34e37606c11dbf149")
  ("corfu" . "aa6cd96c6ed80ea5f2a0a5234d9c65bd8c864064")
  ("corfu-terminal" . "2dabbbc365d3e3b8d3f8314f6838ba1ed6c4311a")
  ("csproj-mode" . "a7f0f4610c976a28c41b9b8299892f88b5d0336c")

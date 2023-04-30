@@ -1925,6 +1925,9 @@ If project root cannot be found, use the buffer's default directory."
   (add-to-list 'eshell-preoutput-filter-functions 'xterm-color-filter)
   (setq eshell-output-filter-functions (remove 'eshell-handle-ansi-color eshell-output-filter-functions)))
 
+;; Init copy-as-format for copying regions as formatted code
+(use-package copy-as-format)
+
 ;; Init all-the-icons for icon support
 (use-package all-the-icons
   :if (display-graphic-p))
