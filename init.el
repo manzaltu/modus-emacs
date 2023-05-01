@@ -1092,6 +1092,14 @@ When a prefix ARG is given always prompt for a command to use."
     :states 'normal
     "/" #'dired-narrow-fuzzy))
 
+;; Init calc for Emacs built-in calculator
+(use-package calc
+  :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "x"
+    "l" #'calc))
+
 ;; Init proced for viewing and managing running processes
 (use-package proced
   :straight nil
