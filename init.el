@@ -980,6 +980,15 @@ directory as a fall back."
 ;; Init wgrep for editing grep-style results across files in grep buffer
 (use-package wgrep)
 
+;; Init menu-bar for menu-bar functionality
+(use-package menu-bar
+  :straight nil
+  :general
+  ( :keymaps 'override
+    "<f6>" #'toggle-debug-on-error)
+  :config
+  (menu-bar-mode -1))
+
 ;; Init tab-bar for managing tab views
 (use-package tab-bar
   :straight nil
@@ -2168,7 +2177,6 @@ If project root cannot be found, use the buffer's default directory."
 
 ;; Cleanup the frame UI
 (tool-bar-mode -1)
-(menu-bar-mode -1)
 (scroll-bar-mode -1)
 
 ;; Disable cursor blink
