@@ -1672,6 +1672,13 @@ run the attached function (if exists) and enable lsp"
   (setq which-key-add-column-padding 8)
   (which-key-mode))
 
+;; Init help for built-in help system
+(use-package help
+  :straight nil
+  :general
+  ( :keymaps 'override
+    "<f12>" #'view-echo-area-messages))
+
 ;; Init info for browsing documentation
 (use-package info
   :straight nil
