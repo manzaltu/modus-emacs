@@ -205,6 +205,11 @@
       (kill-new filepath)
       (message "%s" filepath))))
 
+(defun mo-open-init-file ()
+  "Open the user's init file."
+  (interactive)
+  (find-file user-init-file))
+
 (mo-quick-menu-def
   :prefix "b"
   "p" #'mo-copy-file-path
