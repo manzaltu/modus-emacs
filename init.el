@@ -211,6 +211,9 @@
   (find-file user-init-file))
 
 (mo-quick-menu-def
+  "_" #'mo-open-init-file)
+
+(mo-quick-menu-def
   :prefix "b"
   "p" #'mo-copy-file-path
   "t" #'toggle-truncate-lines
