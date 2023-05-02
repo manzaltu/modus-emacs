@@ -2069,6 +2069,8 @@ If project root cannot be found, use the buffer's default directory."
 ;; Init moody for adding tabs and ribbons to the mode line
 (use-package moody
   :config
+  ;; Set mode line height to be calculated based on content height
+  (setq moody-mode-line-height nil)
   (setq x-underline-at-descent-line t)
   (moody-replace-mode-line-buffer-identification)
   (moody-replace-vc-mode)
