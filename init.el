@@ -799,6 +799,12 @@ directory as a fall back."
     "p" #'project-switch-project
     "i" #'project-list-buffers)
   :config
+  (defun mo-project-find-file ()
+    "Open find-file menu in project root directory."
+    (interactive)
+    (let* ((project (project-current t))
+           (default-directory (project-root project)))
+      (call-interactively #'find-file)))
   ;; Enable project detection using .project files
   (add-to-list 'project-find-functions #'mo-project-try-local)
   ;; Set project history file path
