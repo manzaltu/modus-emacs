@@ -1702,7 +1702,9 @@ run the attached function (if exists) and enable lsp"
   (editorconfig-mode 1))
 
 ;; Init request for a HTTP function library in lisp
-(use-package request)
+(use-package request
+  :config
+  (setq request-storage-directory (mo-cache-path "request")))
 
 ;; Init which-key for interactively displaying key bindings
 (use-package which-key
