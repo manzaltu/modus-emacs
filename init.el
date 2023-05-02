@@ -1701,6 +1701,9 @@ run the attached function (if exists) and enable lsp"
   :config
   (editorconfig-mode 1))
 
+;; Init request for a HTTP function library in lisp
+(use-package request)
+
 ;; Init which-key for interactively displaying key bindings
 (use-package which-key
   :demand t
