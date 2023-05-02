@@ -793,6 +793,7 @@ directory as a fall back."
     :prefix "p"
     "w" #'mo-project-save
     "d" #'project-dired
+    "f" #'mo-project-find-file
     "c" #'project-compile
     "x" #'project-async-shell-command
     "k" #'project-kill-buffers
