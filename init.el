@@ -2315,6 +2315,14 @@ If project root cannot be found, use the buffer's default directory."
     "l" #'highlight-lines-matching-regexp
     "L" #'unhighlight-regexp))
 
+;; Init hilit-chg for highlighting changes in buffer
+(use-package hilit-chg
+  :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "c" #'highlight-changes-mode))
+
 ;; Init whitespace for showing trailing whitespaces in code
 (use-package whitespace
   :straight nil
