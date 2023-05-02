@@ -1434,6 +1434,14 @@ run the attached function (if exists) and enable lsp"
   ;; Remove initial async separator as we use spaces for search tokenization
   (consult-customize consult-lsp-symbols :initial nil))
 
+;; Init compile for compiling from Emacs
+(use-package compile
+  :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "c"
+    "C" #'compile))
+
 ;; Init highlight-defined for highlighting Emacs Lisp symbols
 (use-package highlight-defined
   :hook ( emacs-lisp-mode . highlight-defined-mode))
