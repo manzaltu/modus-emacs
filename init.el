@@ -2014,6 +2014,16 @@ If project root cannot be found, use the buffer's default directory."
 ;; Init doom one theme
 (use-package doom-themes
   :config
+  (defun mo-toggle-light-dark-themes ()
+    "Toggle between light and dark themes"
+    (interactive)
+    (let ((theme (if (eq (car custom-enabled-themes) 'doom-one)
+                     'doom-nord-light
+                   'doom-one)))
+      (mapc #'disable-theme custom-enabled-themes)
+      (if (custom-theme-p theme)
+          (enable-theme theme)
+        (load-theme theme t))))
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
         doom-themes-enable-italic t) ; if nil, italics is universally disabled
