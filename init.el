@@ -1440,7 +1440,8 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
-    "C" #'compile))
+    "C" #'compile
+    "c" #'recompile))
 
 ;; Init highlight-defined for highlighting Emacs Lisp symbols
 (use-package highlight-defined
