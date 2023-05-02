@@ -1372,7 +1372,7 @@ run the attached function (if exists) and enable lsp"
     :prefix "c"
     "i" #'lsp-ui-imenu
     "d" #'lsp-ui-doc-glance
-    "c" #'lsp-ui-doc-focus-frame)
+    "'" #'lsp-ui-doc-focus-frame)
   :config
   ;; Do not show documentation automatically
   (setq lsp-ui-doc-show-with-mouse nil)
