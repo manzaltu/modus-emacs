@@ -2013,6 +2013,11 @@ If project root cannot be found, use the buffer's default directory."
 
 ;; Init doom one theme
 (use-package doom-themes
+  :demand t
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "v"
+    "v" #'mo-toggle-light-dark-themes)
   :config
   (defun mo-toggle-light-dark-themes ()
     "Toggle between light and dark themes"
