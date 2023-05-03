@@ -1791,6 +1791,10 @@ run the attached function (if exists) and enable lsp"
 ;; Init re-builder for interactive regexp building
 (use-package re-builder
   :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "h"
+    "x" #'re-builder)
   :config
   (setq reb-re-syntax 'string))
 
