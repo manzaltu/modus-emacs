@@ -563,6 +563,9 @@ Ask for action even on single candidate jumps."
 ;; Init org-download for downloading and embedding images in org mode
 (use-package org-download)
 
+;; Init verb for sending and managing HTTP requests
+(use-package verb)
+
 ;; Init consult-notes for selecting and previewing notes with consult
 (use-package consult-notes
   :after ( org org-roam)
