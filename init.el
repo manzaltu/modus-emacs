@@ -2265,7 +2265,14 @@ If project root cannot be found, use the buffer's default directory."
     "z" #'global-text-scale-adjust))
 
 ;; Init focus for dimming surrounding text
-(use-package focus)
+(use-package focus
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "o o" #'focus-mode
+    "o p" #'focus-pin
+    "o u" #'focus-unpin
+    "o c" #'focus-change-thing))
 
 ;; Init writeroom-mode for distraction free writing mode
 (use-package writeroom-mode
