@@ -2205,6 +2205,23 @@ If project root cannot be found, use the buffer's default directory."
   :hook ( emacs-startup . global-jinx-mode)
   :general ( [remap ispell-word] #'jinx-correct))
 
+;; Init spell check toggle functionality
+(use-package mo-spell-check-toggle
+  :after ( flyspell jinx)
+  :straight nil
+  :no-require t ; Not a package
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "S" #'mo-toggle-spell-check-buffer)
+  :preface
+  (defun mo-toggle-spell-check-buffer ()
+    "Toggle spell checking in current buffer."
+    (interactive)
+    (let ((toggle (if flyspell-mode -1 1)))
+      (flyspell-mode toggle)
+      (jinx-mode toggle))))
+
 ;; Init powerthesaurus for finding synonyms, antonyms and related terms
 (use-package powerthesaurus
   :general
