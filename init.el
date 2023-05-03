@@ -329,6 +329,9 @@ Ask for action even on single candidate jumps."
 (use-package expand-region
   :bind ( "C-=" . er/expand-region))
 
+;; Init evil-numbers for increasing/decreasing number at point
+(use-package evil-numbers)
+
 ;; Init better-jumper for better controlling the jump list logic
 (use-package better-jumper
   :demand t
