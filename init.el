@@ -2264,6 +2264,9 @@ If project root cannot be found, use the buffer's default directory."
     :prefix "v"
     "z" #'global-text-scale-adjust))
 
+;; Init focus for dimming surrounding text
+(use-package focus)
+
 ;; Init writeroom-mode for distraction free writing mode
 (use-package writeroom-mode
   :general
