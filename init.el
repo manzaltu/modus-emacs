@@ -1886,6 +1886,9 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :states '( normal, visual) "gc" #'evilnc-comment-operator))
 
+;; Init string-inflection for changing style of word at point
+(use-package string-inflection)
+
 ;; Init hl-todo for highlighting specific keywords (e.g. TODO)
 (use-package hl-todo
   :hook

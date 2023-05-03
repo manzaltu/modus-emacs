@@ -164,6 +164,7 @@
  ("s.el" . "dda84d38fffdaf0c9b12837b504b402af910d01d")
  ("spinner" . "634529bb3173e09b37499f636de70abf29d9fa8a")
  ("straight.el" . "039e5c9a9b5c00749602afb41341e9e77ba09429")
+ ("string-inflection" . "50ad54970b3cc79b6b83979bde9889ad9a9e1a9c")
  ("styleguide" . "2173b8d68c05993d7ce009b1bd1dba64f1d606de")
  ("svg-lib" . "31085bbf247f0467e2f6af948085610248fce6c5")
  ("swift-mode" . "1244ee48de1895d33f55fed81fc90acda0c901f1")
