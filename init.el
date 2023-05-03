@@ -1239,7 +1239,11 @@ When a prefix ARG is given always prompt for a command to use."
   (setq ediff-forward-word-function #'forward-char))
 
 ;; Init ztree for comparing folder content
-(use-package ztree)
+(use-package ztree
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "f"
+    "z" #'ztree-diff))
 
 ;; Init diff-hl for highlighting uncommitted changes
 (use-package diff-hl
