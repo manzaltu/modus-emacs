@@ -400,7 +400,7 @@ Ask for action even on single candidate jumps."
     "C-M-s-o" #'org-open-at-point
     "C-M-s-l" #'org-insert-link
     "C-M-s-c" #'org-store-link
-    "C-M-s-v" #'org-latex-preview
+    "C-M-s-S-l" #'org-latex-preview
     "C-M-s-p" #'org-toggle-pretty-entities
     "C-M-s-s" #'org-schedule
     "C-M-s-d" #'org-deadline
