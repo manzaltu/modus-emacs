@@ -564,7 +564,23 @@ Ask for action even on single candidate jumps."
 (use-package org-download)
 
 ;; Init verb for sending and managing HTTP requests
-(use-package verb)
+(use-package verb
+  :after org
+  :general
+  ( :keymaps 'org-mode-map
+    "C-M-s-v" '( :keymap verb-command-map :package verb))
+  ( :keymaps 'verb-command-map
+    "C-M-s-<return>" #'verb-send-request-on-point-no-window
+    "C-M-s-b" #'verb-export-request-on-point-verb
+    "C-M-s-e" #'verb-export-request-on-point
+    "C-M-s-f" #'verb-send-request-on-point
+    "C-M-s-k" #'verb-kill-all-response-buffers
+    "C-M-s-r" #'verb-send-request-on-point-other-window-stay
+    "C-M-s-s" #'verb-send-request-on-point-other-window
+    "C-M-s-u" #'verb-export-request-on-point-curl
+    "C-M-s-v" #'verb-mode
+    "C-M-s-S-v" #'verb-set-var
+    "C-M-s-w" #'verb-export-request-on-point-eww))
 
 ;; Init consult-notes for selecting and previewing notes with consult
 (use-package consult-notes
