@@ -1835,7 +1835,9 @@ run the attached function (if exists) and enable lsp"
 (add-hook 'prog-mode-hook 'electric-pair-local-mode)
 
 ;; Init rainbow-mode for highlighting color strings
-(use-package rainbow-mode)
+(use-package rainbow-mode
+  :hook
+  ( prog-mode . rainbow-mode))
 
 ;; Init auto-highlight-symbol for auto highlighting symbols in code.
 ;; This can be used when no LSP based highlighting is available.
