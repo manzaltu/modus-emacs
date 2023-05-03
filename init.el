@@ -2178,17 +2178,17 @@ If project root cannot be found, use the buffer's default directory."
 (use-package flyspell
   :straight nil
   :config
-  (setq flyspell-delay 0))
+  (setq flyspell-delay 0)
+  :hook
+  ;; Enable spell checking
+  ( text-mode . flyspell-mode)
+  ( prog-mode . flyspell-prog-mode))
 
 ;; Init flyspell-correct for spell correction
 (use-package flyspell-correct
   :demand t
   :general
-  ( :states 'normal "z =" #'flyspell-correct-wrapper)
-  :hook
-  ;; Enable spell checking
-  ( text-mode . flyspell-mode)
-  ( prog-mode . flyspell-prog-mode))
+  ( :states 'normal "z =" #'flyspell-correct-wrapper))
 
 ;; Init consult-flyspell for incorporating flyspell into consult
 (use-package consult-flyspell
