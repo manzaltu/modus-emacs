@@ -155,6 +155,7 @@
  ("protobuf" . "344f6dee76ea858acfd4fd575ab386438256842b")
  ("pyvenv" . "31ea715f2164dd611e7fc77b26390ef3ca93509b")
  ("rainbow-delimiters" . "a32b39bdfe6c61c322c37226d66e1b6d4f107ed0")
+ ("rainbow-mode" . "8e96388fb4d616a9dde23e712bad0d9cd048fbf0")
  ("recursion-indicator" . "95eb885d8719e5e31a42fc99a6a76812fd38df8d")
  ("restclient.el" . "0ba72816f92f3d5906cdf76f418fd0a3ee72809b")
  ("rust-mode" . "22fff6a049402584e7120146c3db141c6f530bf6")
