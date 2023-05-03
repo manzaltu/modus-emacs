@@ -163,6 +163,7 @@
  ("rustic" . "39423d1cf4fa054c36bf9577356451f4c06ee148")
  ("s.el" . "dda84d38fffdaf0c9b12837b504b402af910d01d")
  ("spinner" . "634529bb3173e09b37499f636de70abf29d9fa8a")
+ ("sql-indent" . "f170a2746f8dabc888154c9fdc11ffbaae637594")
  ("straight.el" . "039e5c9a9b5c00749602afb41341e9e77ba09429")
  ("string-inflection" . "50ad54970b3cc79b6b83979bde9889ad9a9e1a9c")
  ("styleguide" . "2173b8d68c05993d7ce009b1bd1dba64f1d606de")

@@ -1676,6 +1676,9 @@ run the attached function (if exists) and enable lsp"
 ;; Init protobuf-mode for editing protobuf files
 (use-package protobuf-mode)
 
+;; Init sql-indent for indenting SQL statements
+(use-package sql-indent)
+
 ;; Init markdown-mode for enhanced markdown editing
 (use-package markdown-mode)
 
