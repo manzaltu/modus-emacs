@@ -1494,7 +1494,9 @@ run the attached function (if exists) and enable lsp"
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
     "C" #'compile
-    "c" #'recompile))
+    "c" #'recompile)
+  :config
+  (setq compilation-scroll-output t))
 
 ;; Init highlight-defined for highlighting Emacs Lisp symbols
 (use-package highlight-defined
