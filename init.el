@@ -1238,6 +1238,9 @@ When a prefix ARG is given always prompt for a command to use."
   ;; Set ediff to show diff changes in character-level
   (setq ediff-forward-word-function #'forward-char))
 
+;; Init ztree for comparing folder content
+(use-package ztree)
+
 ;; Init diff-hl for highlighting uncommitted changes
 (use-package diff-hl
   :demand t

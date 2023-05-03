@@ -189,5 +189,6 @@
  ("yaml.el" . "a19fbf948a945571300e5a20ff1dbfa6ecfa0d16")
  ("yasnippet" . "5cbdbf0d2015540c59ed8ee0fcf4788effdf75b6")
  ("yasnippet-snippets" . "8e4c521252501dd9ad71ea78fae14683ab7a14cb")
- ("zoom-window" . "093dd7a5d60141812762eba40b021c76ff41f83d"))
+ ("zoom-window" . "093dd7a5d60141812762eba40b021c76ff41f83d")
+ ("ztree" . "f05677f9696e573c8c607e8876fb4a0cccbc491f"))
 :gamma
