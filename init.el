@@ -1788,6 +1788,12 @@ run the attached function (if exists) and enable lsp"
   :config
   (setq devdocs-data-dir (mo-cache-path "devdocs")))
 
+;; Init re-builder for interactive regexp building
+(use-package re-builder
+  :straight nil
+  :config
+  (setq reb-re-syntax 'string))
+
 ;; Init google-this for quick Google searches from Emacs
 (use-package google-this
   :general
