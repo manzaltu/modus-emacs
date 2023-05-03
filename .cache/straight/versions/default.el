@@ -110,6 +110,7 @@
  ("julia-emacs" . "a20367f2826b26084abd2f403219218813007123")
  ("kind-icon" . "2d333c7e590451cf80ebf48540fdb354f2acdff7")
  ("let-alist" . "021fc10df2e44faba4728d849ee767cf890aa51a")
+ ("link-hint.el" . "36ce929331f2838213bcaa1145ece4b73ce84afe")
  ("log4e" . "737d275eac28dbdfb0b26d28e99da148bfce9d16")
  ("logview" . "7243579358aa1d93ea8c396916c1859e23c6ae33")
  ("lsp-docker" . "81ddb3fc68e1930352b6ca006d0ea609760be7d1")

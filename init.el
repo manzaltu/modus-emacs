@@ -313,6 +313,9 @@ Ask for action even on single candidate jumps."
   :config
   (evilem-default-keybindings "M"))
 
+;; Init link-hint for quick link selection
+(use-package link-hint)
+
 ;; Init evil-snipe for an improved 1 char evil search experience
 (use-package evil-snipe
   :config
