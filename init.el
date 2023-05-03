@@ -370,6 +370,12 @@ Ask for action even on single candidate jumps."
 
 ;; Init origami for text and code folding
 (use-package origami
+  :demand t
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "c"
+    "m" #'origami-recursively-toggle-node
+    "M" #'origami-open-all-nodes)
   :config
   (global-origami-mode))
 
