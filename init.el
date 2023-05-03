@@ -314,7 +314,11 @@ Ask for action even on single candidate jumps."
   (evilem-default-keybindings "M"))
 
 ;; Init link-hint for quick link selection
-(use-package link-hint)
+(use-package link-hint
+  :general
+  ( :keymaps 'override
+    :states '( normal motion emacs)
+    "C-(" #'link-hint-open-link))
 
 ;; Init evil-snipe for an improved 1 char evil search experience
 (use-package evil-snipe
