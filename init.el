@@ -2524,7 +2524,11 @@ If project root cannot be found, use the buffer's default directory."
     :prefix "p"
     "RET" #'bookmark-in-project-jump))
 
-(setq tramp-persistency-file-name (mo-cache-path "tramp"))
+;; Init tramp-cache for caching in tramp
+(use-package tramp-cache
+  :straight nil
+  :config
+  (setq tramp-persistency-file-name (mo-cache-path "tramp")))
 
 ;; Init envrc for direnv integration with Emacs
 ;; This is here on purpose, so that its hooks will be registered as late as possible
