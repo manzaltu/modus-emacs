@@ -53,6 +53,12 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
+;; Show calls to use-package in imenu
+(setq use-package-enable-imenu-support t)
+
+;; Packages should be installed by default using straight
+(setq straight-use-package-by-default t)
+
 ;; Before loading other packages, set exec-path to the PATH var under the default shell
 ;; when executed under a windowing system, using the exec-path-from-shell package.
 ;; This is needed so libgccjit would be found by native compilation
@@ -64,13 +70,6 @@
 ;; Re-enable auto & deferred native compilation
 (setq straight-disable-native-compile nil)
 (setq native-comp-jit-compilation t)
-
-;; Install use-package
-(straight-use-package 'use-package)
-;; Packages should be installed by default using straight
-(setq straight-use-package-by-default t)
-;; Show calls to use-package in imenu
-(setq use-package-enable-imenu-support t)
 
 ;; Optionally, load personal settings
 (load (concat (file-name-directory load-file-name) "personal.el") t)

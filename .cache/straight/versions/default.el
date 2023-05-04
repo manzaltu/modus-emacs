@@ -178,7 +178,6 @@
  ("treepy.el" . "7c4a0d21322506a4d4b2301b4274ec955b429b47")
  ("treesit-auto" . "bac3b9d1d61a4d759f87c80de7be3b808d19cbf6")
  ("typescript.el" . "4fcb4594819caf472ae42ea068a1c7795cf07f46")
- ("use-package" . "77945e002f11440eae72d8730d3de218163d551e")
  ("verb" . "4bc23d78a723c6b184a949507b3061c8da8e831c")
  ("vertico" . "dd8eb3aa3d0d048cc0e1bc455f42a12a4162f5bb")
  ("vi-tilde-fringe" . "f1597a8d54535bb1d84b442577b2024e6f910308")
