@@ -301,19 +301,25 @@
     :prefix "b"
     "i" #'ibuffer))
 
-(defun mo-copy-file-path ()
-  "Copy the full path of the current buffer's file."
-  (interactive)
-  (let ((filepath (if (equal major-mode 'dired-mode)
-                      default-directory
-                    (buffer-file-name))))
-    (when filepath
-      (kill-new filepath)
-      (message "%s" filepath))))
-
-(mo-quick-menu-def
-  :prefix "b"
-  "p" #'mo-copy-file-path)
+;; Init modus-operandi-emacs for non-package related functionality
+(use-package modus-operandi-emacs
+  :after simple
+  :straight nil
+  :no-require t ; Not a package
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "p" #'mo-copy-file-path)
+  :preface
+  (defun mo-copy-file-path ()
+    "Copy the full path of the current buffer's file."
+    (interactive)
+    (let ((filepath (if (equal major-mode 'dired-mode)
+                        default-directory
+                      (buffer-file-name))))
+      (when filepath
+        (kill-new filepath)
+        (message "%s" filepath)))))
 
 ;; Add evil key bindings to other, non-default, modes
 (use-package evil-collection
