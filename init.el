@@ -1070,6 +1070,13 @@ directory as a fall back."
 ;; Init wgrep for editing grep-style results across files in grep buffer
 (use-package wgrep)
 
+;; Init tool-bar for tool-bar functionality
+(use-package tool-bar
+  :straight nil
+  :config
+  ;; Cleanup the frame UI
+  (tool-bar-mode -1))
+
 ;; Init menu-bar for menu-bar functionality
 (use-package menu-bar
   :straight nil
@@ -2366,8 +2373,6 @@ If project root cannot be found, use the buffer's default directory."
   (setq transient-values-file (mo-cache-path "transient_values.el"))
   (setq transient-history-file (mo-cache-path "transient_history.el")))
 
-;; Cleanup the frame UI
-(tool-bar-mode -1)
 (scroll-bar-mode -1)
 
 ;; Disable cursor blink
