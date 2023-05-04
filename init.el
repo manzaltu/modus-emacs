@@ -1604,6 +1604,8 @@ run the attached function (if exists) and enable lsp"
     "C-M-s-a" #'c-beginning-of-statement
     "C-M-s-e" #'c-end-of-statement)
   :config
+  ;; Associate objc-mode with Objective C files
+  (add-to-list 'auto-mode-alist '( "\\.mm\\'" . objc-mode))
   ;; Set the default style
   (setf (alist-get 'other c-default-style) "stroustrup"))
 
@@ -1660,9 +1662,6 @@ run the attached function (if exists) and enable lsp"
     "C-M-s-u" #'rustic-cargo-upgrade
     "C-M-s-d" #'rust-dbg-wrap-or-unwrap
     "C-M-s-p" #'rustic-popup))
-
-;; Associate objc-mode with Objective C files
-(add-to-list 'auto-mode-alist '( "\\.mm\\'" . objc-mode))
 
 ;; Init swift-mode for Swift support
 (use-package swift-mode)
