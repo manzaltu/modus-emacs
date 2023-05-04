@@ -1901,9 +1901,12 @@ run the attached function (if exists) and enable lsp"
   :hook
   ( prog-mode . rainbow-delimiters-mode))
 
-;; Show matching parentheses
-(setq show-paren-delay 0)
-(show-paren-mode 1)
+(use-package paren
+  :straight nil
+  :config
+  ;; Show matching parentheses
+  (setq show-paren-delay 0)
+  (show-paren-mode 1))
 
 ;; Auto insert matching parentheses in code
 (add-hook 'prog-mode-hook 'electric-pair-local-mode)
