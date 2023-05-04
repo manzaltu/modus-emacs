@@ -169,6 +169,38 @@
   (mo-quick-menu-def
     "ESC" #'evil-ex-nohighlight))
 
+;; Init Emacs core settings
+(use-package emacs
+  :straight nil
+  :config
+  ;; Inhibit the splash screen
+  (setq inhibit-splash-screen t)
+  ;; Set the default initial frame size
+  (add-to-list 'default-frame-alist '( height . 55))
+  (add-to-list 'default-frame-alist '( width . 210))
+  ;; Scroll incrementally
+  (setq scroll-step 1)
+  ;; Don't automatically recenter after scrolling
+  (setq scroll-conservatively 101)
+  ;; Don't create lock files
+  (setq create-lockfiles nil)
+  ;; Configure auto-save-list
+  (setq auto-save-list-file-prefix (mo-cache-path "auto-save-list/.saves-"))
+  ;; Disable bell audio
+  (setq ring-bell-function 'ignore)
+  ;; Replace yes or no questions to y or n
+  (defalias 'yes-or-no-p 'y-or-n-p)
+  ;; Truncate lines by default
+  (setq truncate-lines t)
+  ;; Disable double space at sentence end
+  (setq sentence-end-double-space nil)
+  ;; Draw the underline at the descent line
+  (setq x-underline-at-descent-line t)
+  ;; Enable recursive minibuffer
+  (setq enable-recursive-minibuffers t)
+  ;; Enable indentation and completion using the TAB key
+  (setq tab-always-indent 'complete))
+
 ;; Quick save key binding
 (mo-quick-menu-def
   "SPC" #'save-buffer)
@@ -688,9 +720,6 @@ Ask for action even on single candidate jumps."
     "M-k" #'vertico-quick-jump
     "M-j" #'vertico-quick-exit))
 
-;; Enable recursive minibuffer
-(setq enable-recursive-minibuffers t)
-
 ;; Init recursion-indicator for indicating minibuffer recursions
 (use-package recursion-indicator
   :config
@@ -786,9 +815,6 @@ Ask for action even on single candidate jumps."
   ;; Add completion functions
   (add-to-list 'completion-at-point-functions (cape-capf-prefix-length #'cape-dabbrev 3))
   (add-to-list 'completion-at-point-functions #'cape-file))
-
-;; Enable indentation and completion using the TAB key
-(setq tab-always-indent 'complete)
 
 ;; Init dabbrev for the automatic completion of dynamic abbreviations
 (use-package dabbrev
@@ -2164,7 +2190,6 @@ If project root cannot be found, use the buffer's default directory."
   :config
   ;; Set mode line height to be calculated based on content height
   (setq moody-mode-line-height nil)
-  (setq x-underline-at-descent-line t)
   (moody-replace-mode-line-buffer-identification)
   (moody-replace-vc-mode)
   (moody-replace-eldoc-minibuffer-message-function))
@@ -2335,9 +2360,6 @@ If project root cannot be found, use the buffer's default directory."
 ;; Disable cursor blink
 (blink-cursor-mode 0)
 
-;; Inhibit the splash screen
-(setq inhibit-splash-screen t)
-
 ;; Enable winner-mode for window management
 (use-package winner
   :straight nil
@@ -2351,20 +2373,11 @@ If project root cannot be found, use the buffer's default directory."
   (setq winner-dont-bind-my-keys t)
   (winner-mode 1))
 
-;; Set the default initial frame size
-(add-to-list 'default-frame-alist '( height . 55))
-(add-to-list 'default-frame-alist '( width . 210))
-
 ;; Don't split windows vertically by default
 (setq split-height-threshold nil)
 
 ;; Set frame to full screen
 (toggle-frame-fullscreen)
-
-;; Scroll incrementally
-(setq scroll-step 1)
-;; Don't automatically recenter after scrolling
-(setq scroll-conservatively 101)
 
 ;; Init follow-mode for scrolling buffer on multiple windows
 (use-package follow-mode
@@ -2377,17 +2390,9 @@ If project root cannot be found, use the buffer's default directory."
 ;; Ask for confirmation before exiting emacs
 (setq confirm-kill-emacs #'y-or-n-p)
 
-;; Replace yes or no questions to y or n
-(defalias 'yes-or-no-p 'y-or-n-p)
-
-;; Don't create backup, autosave and lock files
+;; Don't create backup and autosave files
 (setq make-backup-files nil)
 (setq auto-save-default nil)
-(setq create-lockfiles nil)
-(setq auto-save-list-file-prefix (mo-cache-path "auto-save-list/.saves-"))
-
-;; Disable bell audio
-(setq ring-bell-function 'ignore)
 
 ;; Show cursor's column number
 (setq column-number-mode t)
@@ -2399,11 +2404,6 @@ If project root cannot be found, use the buffer's default directory."
   ;; Remove average load time indicator from the modeline
   (setq display-time-default-load-average nil)
   (display-time-mode 1))
-
-;; Truncate lines by default
-(setq truncate-lines t)
-;; Disable double space at sentence end
-(setq sentence-end-double-space nil)
 
 ;; Init hi-lock for highlighting lines by regexp
 (use-package hi-lock
