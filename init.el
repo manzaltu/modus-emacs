@@ -201,10 +201,6 @@
   ;; Enable indentation and completion using the TAB key
   (setq tab-always-indent 'complete))
 
-;; Universal argument key binding
-(mo-quick-menu-def
-  "u" #'universal-argument)
-
 ;; Init files for file related functionality
 (use-package files
   :demand t
@@ -272,6 +268,24 @@
   ;; Make sure it also works when the command is using 'switch-to-buffer'.
   (setq switch-to-buffer-obey-display-actions t))
 
+;; Init simple for basic and general Emacs commands
+(use-package simple
+  :demand t
+  :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "t" #'toggle-truncate-lines
+    "k" #'kill-current-buffer)
+  ( :keymaps 'mo-quick-menu-map
+    ;; Universal argument key binding
+    "u" #'universal-argument)
+  :config
+  ;; Disable default tab indentation
+  (setq-default indent-tabs-mode nil)
+  ;; Show cursor's column number
+  (setq column-number-mode t))
+
 ;; Init ibuffer for editing buffer lists
 (use-package ibuffer
   :straight nil
@@ -292,9 +306,7 @@
 
 (mo-quick-menu-def
   :prefix "b"
-  "p" #'mo-copy-file-path
-  "t" #'toggle-truncate-lines
-  "k" #'kill-current-buffer)
+  "p" #'mo-copy-file-path)
 
 ;; Add evil key bindings to other, non-default, modes
 (use-package evil-collection
@@ -1804,9 +1816,6 @@ run the attached function (if exists) and enable lsp"
   :config
   (setq format-all-show-errors 'never))
 
-;; Disable default tab indentation
-(setq-default indent-tabs-mode nil)
-
 ;; Init dtrt-indent for auto indentation detection
 (use-package dtrt-indent
   :hook
@@ -2414,9 +2423,6 @@ If project root cannot be found, use the buffer's default directory."
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "F" #'follow-mode))
-
-;; Show cursor's column number
-(setq column-number-mode t)
 
 ;; Init time for showing time in the modeline
 (use-package time
