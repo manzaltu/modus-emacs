@@ -286,6 +286,13 @@
   ;; Show cursor's column number
   (setq column-number-mode t))
 
+;; Init cus-edit for creating and editing customize buffers
+(use-package cus-edit
+  :straight nil
+  :config
+  ;; Set customization file path
+  (setq custom-file (expand-file-name "custom.el" user-emacs-directory)))
+
 ;; Init ibuffer for editing buffer lists
 (use-package ibuffer
   :straight nil
@@ -2520,9 +2527,6 @@ If project root cannot be found, use the buffer's default directory."
   ;; interferes with other modes that set these vars to be local, such as eshell.
   ;; Until fixed, we should load this package only for specific modes.
   ( python-mode . envrc-mode))
-
-;; Set customization file path
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
 ;; Load customization file
 (when (file-exists-p custom-file)
