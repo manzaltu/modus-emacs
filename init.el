@@ -1086,6 +1086,12 @@ directory as a fall back."
   :config
   (menu-bar-mode -1))
 
+;; Init scroll-bar for scroll-bar functionality
+(use-package scroll-bar
+  :straight nil
+  :config
+  (scroll-bar-mode -1))
+
 ;; Init tab-bar for managing tab views
 (use-package tab-bar
   :straight nil
@@ -2372,8 +2378,6 @@ If project root cannot be found, use the buffer's default directory."
   (setq transient-levels-file (mo-cache-path "transient_levels.el"))
   (setq transient-values-file (mo-cache-path "transient_values.el"))
   (setq transient-history-file (mo-cache-path "transient_history.el")))
-
-(scroll-bar-mode -1)
 
 ;; Disable cursor blink
 (blink-cursor-mode 0)
