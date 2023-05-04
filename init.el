@@ -886,28 +886,6 @@ Ask for action even on single candidate jumps."
         (lambda (buffer)
           (< (buffer-size buffer) mo-dabbrev-max-file-size))))
 
-;; Used by project.el for project detection
-(defun mo-project-try-local (dir)
-  "Determine if DIR is a project.
-DIR must include a .project file to be considered a project."
-  (let ((root (locate-dominating-file dir ".project")))
-    (and root (cons 'transient root))))
-
-(defun mo-project-save ()
-  "Save the current project to the persistent project list."
-  (interactive)
-  (message "Project saved: %s" (cdr (project-current t))))
-
-(defun mo-get-buffer-dir ()
-  "Return buffer's directory.
-
-The project root is used if found by project, with the default
-directory as a fall back."
-  (or
-   (when-let ((project (project-current)))
-     (project-root project))
-   (expand-file-name default-directory)))
-
 ;; Init project for auto project detection
 (use-package project
   :straight nil
@@ -923,6 +901,27 @@ directory as a fall back."
     "p" #'project-switch-project
     "i" #'project-list-buffers)
   :config
+  (defun mo-project-try-local (dir)
+    "Determine if DIR is a project.
+DIR must include a .project file to be considered a project."
+    (let ((root (locate-dominating-file dir ".project")))
+      (and root (cons 'transient root))))
+
+  (defun mo-project-save ()
+    "Save the current project to the persistent project list."
+    (interactive)
+    (message "Project saved: %s" (cdr (project-current t))))
+
+  (defun mo-get-buffer-dir ()
+    "Return buffer's directory.
+
+The project root is used if found by project, with the default
+directory as a fall back."
+    (or
+     (when-let ((project (project-current)))
+       (project-root project))
+     (expand-file-name default-directory)))
+
   (defun mo-project-find-file ()
     "Open find-file menu in project root directory."
     (interactive)
