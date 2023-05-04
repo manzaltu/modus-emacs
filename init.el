@@ -247,6 +247,31 @@
   ;; Set frame to full screen
   (toggle-frame-fullscreen))
 
+;; Init window for managing windows
+(use-package window
+  :demand t
+  :straight nil
+  :general
+  ( :keymaps 'override
+    :states '( normal insert visual motion emacs)
+    "M-[" #'other-window-prefix)
+  ( :keymaps 'mo-quick-menu-map
+    "o" #'other-window-prefix)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "w"
+    "=" #'balance-windows
+    "C" #'delete-other-windows)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "[" #'previous-buffer
+    "]" #'next-buffer)
+  :config
+  ;; Don't split windows vertically by default
+  (setq split-height-threshold nil)
+  ;; A fast key binding for showing the next command's result in another window.
+  ;; Make sure it also works when the command is using 'switch-to-buffer'.
+  (setq switch-to-buffer-obey-display-actions t))
+
 ;; Init ibuffer for editing buffer lists
 (use-package ibuffer
   :straight nil
@@ -269,14 +294,7 @@
   :prefix "b"
   "p" #'mo-copy-file-path
   "t" #'toggle-truncate-lines
-  "k" #'kill-current-buffer
-  "[" #'previous-buffer
-  "]" #'next-buffer)
-
-(mo-quick-menu-def
-  :prefix "w"
-  "=" #'balance-windows
-  "C" #'delete-other-windows)
+  "k" #'kill-current-buffer)
 
 ;; Add evil key bindings to other, non-default, modes
 (use-package evil-collection
@@ -1985,14 +2003,6 @@ run the attached function (if exists) and enable lsp"
   :hook
   ( prog-mode . global-hl-todo-mode))
 
-;; A fast key binding for showing the next command's result in another window.
-;; Make sure it also works when the command is using 'switch-to-buffer'.
-(setq switch-to-buffer-obey-display-actions t)
-(general-define-key "M-[" #'other-window-prefix)
-;; Other window key binding
-(mo-quick-menu-def
-  "o" #'other-window-prefix)
-
 ;; Init ace-window for fast window selection
 (use-package ace-window
   :general
@@ -2396,9 +2406,6 @@ If project root cannot be found, use the buffer's default directory."
   :config
   (setq winner-dont-bind-my-keys t)
   (winner-mode 1))
-
-;; Don't split windows vertically by default
-(setq split-height-threshold nil)
 
 ;; Init follow-mode for scrolling buffer on multiple windows
 (use-package follow-mode
