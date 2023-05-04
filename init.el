@@ -2469,8 +2469,12 @@ If project root cannot be found, use the buffer's default directory."
 ;; Init visual-fill-column for mimicking fill-column in visual-line-mode
 (use-package visual-fill-column)
 
-;; Start Emacs server
-(server-start)
+;; Init server for running Emacs as a server
+(use-package server
+  :straight nil
+  :config
+  ;; Start Emacs server
+  (server-start))
 
 ;; Set url configuration directory
 (setq url-configuration-directory (mo-cache-path "url"))
