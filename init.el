@@ -1969,8 +1969,11 @@ run the attached function (if exists) and enable lsp"
   (setq show-paren-delay 0)
   (show-paren-mode 1))
 
-;; Auto insert matching parentheses in code
-(add-hook 'prog-mode-hook 'electric-pair-local-mode)
+;; Init elec-pair for auto insertion of matching parentheses in code
+(use-package elec-pair
+  :straight nil
+  :hook
+  ( prog-mode . electric-pair-local-mode))
 
 ;; Init rainbow-mode for highlighting color strings
 (use-package rainbow-mode
