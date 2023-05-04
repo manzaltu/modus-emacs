@@ -1083,11 +1083,6 @@ directory as a fall back."
   :config
   (marginalia-mode))
 
-(defun mo-embark-magit-status (file)
-  "Run `magit-status` on repo containing the embark target."
-  (interactive "GFile: ")
-  (magit-status (locate-dominating-file file ".git")))
-
 ;; Init embark for enabling contextual actions
 (use-package embark
   :general
@@ -1101,6 +1096,10 @@ directory as a fall back."
     :prefix "h"
     "b" #'embark-bindings)
   :config
+  (defun mo-embark-magit-status (file)
+    "Run `magit-status` on repo containing the embark target."
+    (interactive "GFile: ")
+    (magit-status (locate-dominating-file file ".git")))
   ;; Hide the mode line of the Embark live/completions buffers
   (add-to-list 'display-buffer-alist
                '( "\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
