@@ -1839,6 +1839,13 @@ run the attached function (if exists) and enable lsp"
   :config
   (editorconfig-mode 1))
 
+;; Init url for url related functionality
+(use-package url
+  :straight nil
+  :config
+  ;; Set url configuration directory
+  (setq url-configuration-directory (mo-cache-path "url")))
+
 ;; Init request for a HTTP function library in lisp
 (use-package request
   :config
@@ -2475,9 +2482,6 @@ If project root cannot be found, use the buffer's default directory."
   :config
   ;; Start Emacs server
   (server-start))
-
-;; Set url configuration directory
-(setq url-configuration-directory (mo-cache-path "url"))
 
 ;; Init savehist for minibuffer history persistence over Emacs restarts
 (use-package savehist
