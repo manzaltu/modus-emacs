@@ -201,13 +201,36 @@
   ;; Enable indentation and completion using the TAB key
   (setq tab-always-indent 'complete))
 
-;; Quick save key binding
-(mo-quick-menu-def
-  "SPC" #'save-buffer)
-
 ;; Universal argument key binding
 (mo-quick-menu-def
   "u" #'universal-argument)
+
+;; Init files for file related functionality
+(use-package files
+  :demand t
+  :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    ;; Quick save key binding
+    "SPC" #'save-buffer)
+  ( :keymaps 'mo-quick-menu-map
+    "_" #'mo-open-init-file)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "f"
+    "f" #'find-file)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "r" #'revert-buffer-quick)
+  :config
+  (defun mo-open-init-file ()
+    "Open the user's init file."
+    (interactive)
+    (find-file user-init-file))
+  ;; Don't create backup and autosave files
+  (setq make-backup-files nil)
+  (setq auto-save-default nil)
+  ;; Ask for confirmation before exiting emacs
+  (setq confirm-kill-emacs #'y-or-n-p))
 
 ;; Init frame for managing frames
 (use-package frame
@@ -237,26 +260,13 @@
       (kill-new filepath)
       (message "%s" filepath))))
 
-(defun mo-open-init-file ()
-  "Open the user's init file."
-  (interactive)
-  (find-file user-init-file))
-
-(mo-quick-menu-def
-  "_" #'mo-open-init-file)
-
 (mo-quick-menu-def
   :prefix "b"
   "p" #'mo-copy-file-path
   "t" #'toggle-truncate-lines
-  "r" #'revert-buffer-quick
   "k" #'kill-current-buffer
   "[" #'previous-buffer
   "]" #'next-buffer)
-
-(mo-quick-menu-def
-  :prefix "f"
-  "f" #'find-file)
 
 (mo-quick-menu-def
   :prefix "w"
@@ -2389,13 +2399,6 @@ If project root cannot be found, use the buffer's default directory."
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "F" #'follow-mode))
-
-;; Ask for confirmation before exiting emacs
-(setq confirm-kill-emacs #'y-or-n-p)
-
-;; Don't create backup and autosave files
-(setq make-backup-files nil)
-(setq auto-save-default nil)
 
 ;; Show cursor's column number
 (setq column-number-mode t)
