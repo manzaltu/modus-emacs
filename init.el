@@ -25,10 +25,6 @@
 
 ;;; Code:
 
-;; Disable deferred & auto native compilation temporarily until we set the exec-path var
-(setq native-comp-jit-compilation nil)
-(defvar straight-disable-native-compile t)
-
 ;; Set a directory path to be used for cache files
 (defvar mo-cache-dir (expand-file-name ".cache" user-emacs-directory))
 
@@ -58,18 +54,6 @@
 
 ;; Packages should be installed by default using straight
 (setq straight-use-package-by-default t)
-
-;; Before loading other packages, set exec-path to the PATH var under the default shell
-;; when executed under a windowing system, using the exec-path-from-shell package.
-;; This is needed so libgccjit would be found by native compilation
-
-(straight-use-package 'exec-path-from-shell)
-(when (memq window-system '( mac ns x))
-  (exec-path-from-shell-initialize))
-
-;; Re-enable auto & deferred native compilation
-(setq straight-disable-native-compile nil)
-(setq native-comp-jit-compilation t)
 
 ;; Optionally, load personal settings
 (load (concat (file-name-directory load-file-name) "personal.el") t)

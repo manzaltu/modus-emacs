@@ -79,7 +79,6 @@
  ("evil-snipe" . "c07788c35cf8cd8e652a494322fdc0643e30a89f")
  ("evil-surround" . "f273821f575ace519066fb106ee45a5b8577475f")
  ("evil-tex" . "3e0a26b91a1a56b0f35cbd450d01431057551750")
- ("exec-path-from-shell" . "ddd24dc823de9a94435b4d8ea7569161657f31e2")
  ("expand-region.el" . "b70feaa644310dc2d599dc277cd20a1f2b6446ac")
  ("extmap" . "5875a4ab27831eb81af6246b12a174c765d52a78")
  ("f.el" . "af7d37c619010b576fd22b50c62c71ff33093f3c")
