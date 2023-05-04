@@ -240,7 +240,12 @@
   ( :keymaps 'mo-quick-menu-map
     :prefix "v"
     "f" #'make-frame-command
-    "c" #'delete-frame))
+    "c" #'delete-frame)
+  :config
+  ;; Disable cursor blink
+  (blink-cursor-mode 0)
+  ;; Set frame to full screen
+  (toggle-frame-fullscreen))
 
 ;; Init ibuffer for editing buffer lists
 (use-package ibuffer
@@ -2379,9 +2384,6 @@ If project root cannot be found, use the buffer's default directory."
   (setq transient-values-file (mo-cache-path "transient_values.el"))
   (setq transient-history-file (mo-cache-path "transient_history.el")))
 
-;; Disable cursor blink
-(blink-cursor-mode 0)
-
 ;; Enable winner-mode for window management
 (use-package winner
   :straight nil
@@ -2397,9 +2399,6 @@ If project root cannot be found, use the buffer's default directory."
 
 ;; Don't split windows vertically by default
 (setq split-height-threshold nil)
-
-;; Set frame to full screen
-(toggle-frame-fullscreen)
 
 ;; Init follow-mode for scrolling buffer on multiple windows
 (use-package follow-mode
