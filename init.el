@@ -2056,6 +2056,8 @@ If project root cannot be found, use the buffer's default directory."
     (interactive)
     (let* ((default-directory (mo-get-buffer-dir)))
       (vterm vterm-buffer-name)))
+  ;; Always compile module
+  (setq vterm-always-compile-module t)
   ;; Set a low response delay
   (setq vterm-timer-delay 0.07)
   ;; Set longer scrollback history
