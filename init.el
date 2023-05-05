@@ -153,6 +153,12 @@
 ;; Init Emacs core settings
 (use-package emacs
   :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "n w" #'widen
+    "n f" #'narrow-to-defun
+    "n r" #'narrow-to-region)
   :config
   ;; Inhibit the splash screen
   (setq inhibit-splash-screen t)
