@@ -93,6 +93,21 @@
   :general
   ( :states 'motion
     "C-S-d" #'evil-scroll-up)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "w"
+    "H" #'evil-window-move-far-left
+    "J" #'evil-window-move-very-bottom
+    "K" #'evil-window-move-very-top
+    "L" #'evil-window-move-far-right
+    "v" #'evil-window-vsplit
+    "s" #'evil-window-split
+    "c" #'evil-window-delete
+    "+" #'evil-window-increase-height
+    "-" #'evil-window-decrease-height
+    ">" #'evil-window-increase-width
+    "<" #'evil-window-decrease-width)
+  ( :keymaps 'mo-quick-menu-map
+    "ESC" #'evil-ex-nohighlight)
   :hook
   ;; Recenter after jump
   ( evil-jumps-post-jump . recenter)
@@ -130,27 +145,6 @@
   ;; Start with Emacs mode in rustic-popup-mode buffers
   (evil-set-initial-state 'rustic-popup-mode 'emacs)
   (evil-mode 1))
-
-;; Create quick menu map and definer
-(general-create-definer mo-quick-menu-def :keymaps 'mo-quick-menu-map)
-
-;; Add evil shortcuts here, after the initialization of the quick menu map
-(when (featurep 'evil)
-  (mo-quick-menu-def
-    :prefix "w"
-    "H" #'evil-window-move-far-left
-    "J" #'evil-window-move-very-bottom
-    "K" #'evil-window-move-very-top
-    "L" #'evil-window-move-far-right
-    "v" #'evil-window-vsplit
-    "s" #'evil-window-split
-    "c" #'evil-window-delete
-    "+" #'evil-window-increase-height
-    "-" #'evil-window-decrease-height
-    ">" #'evil-window-increase-width
-    "<" #'evil-window-decrease-width)
-  (mo-quick-menu-def
-    "ESC" #'evil-ex-nohighlight))
 
 ;; Init Emacs core settings
 (use-package emacs
