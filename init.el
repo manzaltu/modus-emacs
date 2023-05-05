@@ -50,13 +50,13 @@
   (load bootstrap-file nil 'nomessage))
 
 ;; Show calls to use-package in imenu
-(setq use-package-enable-imenu-support t)
+(customize-set-variable 'use-package-enable-imenu-support t)
 
 ;; Init straight for package management
 (use-package straight
-  :config
+  :custom
   ;; Packages should be installed by default using straight
-  (setq straight-use-package-by-default t))
+  ( straight-use-package-by-default t))
 
 ;; Optionally, load personal settings
 (load (concat (file-name-directory load-file-name) "personal.el") t)
@@ -64,6 +64,7 @@
 ;; Add general.el key mapper
 (use-package general
   :demand t
+  :functions general-define-key
   :config
   ;; Prefix keys for quick action menu
   (defvar mo-quick-menu-prefix "SPC")
@@ -318,6 +319,7 @@
 ;; Init evil-org for supporting evil key bindings in org-mode
 (use-package evil-org
   :after org
+  :functions evil-org-agenda-set-keys
   :hook
   ( org-mode . evil-org-mode)
   ( org-agenda-mode . evil-org-mode)
@@ -348,6 +350,7 @@
 
 ;; Init anzu for showing additional search match info
 (use-package anzu
+  :functions global-anzu-mode
   :config
   (global-anzu-mode +1))
 
@@ -380,6 +383,7 @@ Ask for action even on single candidate jumps."
 
 ;; Init evil-easymotion for using avy with evil motions
 (use-package evil-easymotion
+  :functions evilem-default-keybindings
   :config
   (evilem-default-keybindings "M"))
 
@@ -392,6 +396,7 @@ Ask for action even on single candidate jumps."
 
 ;; Init evil-snipe for an improved 1 char evil search experience
 (use-package evil-snipe
+  :functions evil-snipe-override-mode
   :config
   (evil-snipe-override-mode 1))
 
@@ -555,14 +560,17 @@ Ask for action even on single candidate jumps."
 ;; Init consult-org-roam for better searching in org-roam notes
 (use-package consult-org-roam
   :after org-roam
+  :functions consult-org-roam-mode
   :config
   (consult-org-roam-mode))
 
 ;; Init org-modern for a modern org buffer style
 (use-package org-modern
-  :config
+  :functions global-org-modern-mode
+  :custom
   ;; We disable prettifying tables as currently it is not pixel-aligned
-  (setq org-modern-table nil)
+  ( org-modern-table nil)
+  :config
   (global-org-modern-mode))
 
 ;; Init org-pomodoro for using the Pomodoro technique with org mode
@@ -696,6 +704,7 @@ Ask for action even on single candidate jumps."
 (use-package pdf-tools
   ;; don't reinstall when package updates
   :mode  ( "\\.pdf\\'" . pdf-view-mode)
+  :functions pdf-tools-install
   :config
   (setq-default pdf-view-display-size 'fit-page)
   (pdf-tools-install :no-query))
@@ -703,10 +712,15 @@ Ask for action even on single candidate jumps."
 ;; Init orderless for advanced (e.g. fuzzy) completion styles
 (use-package orderless
   :demand t
+  :functions orderless-escapable-split-on-space
   :config
   ;; Set matching style to regexp and literal
-  (setq orderless-matching-styles '( orderless-regexp orderless-literal))
-  (setq orderless-component-separator #'orderless-escapable-split-on-space)
+  :custom
+  ( orderless-matching-styles '( orderless-regexp orderless-literal))
+  ( orderless-component-separator #'orderless-escapable-split-on-space)
+  ( orderless-style-dispatchers '( mo-orderless-exclude-dispatcher))
+  ( completion-styles '( orderless basic))
+  :config
   (setq completion-category-defaults nil)
   (setq completion-category-overrides '( ( file ( styles basic partial-completion))))
 
@@ -717,18 +731,17 @@ Ask for action even on single candidate jumps."
      ((equal "!" pattern)
       '( orderless-literal . ""))
      ((string-prefix-p "!" pattern)
-      `( orderless-without-literal . ,(substring pattern 1)))))
-  (setq orderless-style-dispatchers '( mo-orderless-exclude-dispatcher))
-
-  :custom ( completion-styles '( orderless basic)))
+      `( orderless-without-literal . ,(substring pattern 1))))))
 
 ;; Init vertico for item list selection
 (use-package vertico
   ;; Load extensions
   :straight ( :files ( :defaults "extensions/*"))
+  :functions vertico-mode
+  :custom
+  ( vertico-count 20)
+  ( vertico-cycle t)
   :config
-  (setq vertico-count 20)
-  (setq vertico-cycle t)
   (vertico-mode))
 
 ;; Init vertico-repeat for repeating the last minibuffer command
@@ -760,6 +773,7 @@ Ask for action even on single candidate jumps."
 
 ;; Init recursion-indicator for indicating minibuffer recursions
 (use-package recursion-indicator
+  :functions recursion-indicator-mode
   :config
   (recursion-indicator-mode))
 
@@ -768,17 +782,20 @@ Ask for action even on single candidate jumps."
   ;; Load extensions
   :straight ( :files ( :defaults "extensions/*"))
   :demand t
+  :functions
+  ( corfu-mode
+    global-corfu-mode)
   :general
   ( :keymaps 'corfu-map
     "C-<return>" #'corfu-insert-separator)
-  :init
+  :custom
   ;; Enable auto completion
-  (setq corfu-auto t)
+  ( corfu-auto t)
   ;; Keep popup only if there is a match or the separator was inserted
-  (setq corfu-quit-no-match 'separator)
+  ( corfu-quit-no-match 'separator)
   ;; Set auto completion to be more responsive
-  (setq corfu-auto-delay 0)
-  (setq corfu-auto-prefix 0)
+  ( corfu-auto-delay 0)
+  ( corfu-auto-prefix 0)
   :hook
   ;; Conditionally enable Corfu in the minibuffer
   ( minibuffer-setup . corfu-enable-in-minibuffer)
@@ -842,14 +859,19 @@ Ask for action even on single candidate jumps."
 ;; Init corfu-terminal for using corfu in the terminal
 (use-package corfu-terminal
   :if (not (display-graphic-p))
+  :functions corfu-terminal-mode
   :config
   (corfu-terminal-mode +1))
 
 ;; Init cape for completion at point extensions
 (use-package cape
-  :config
+  :functions
+  ( cape-capf-prefix-length
+    cape-file cape-dabbrev)
+  :custom
   ;; Do not scan every buffer with dabbrev (see dabbrev configuration)
-  (setq cape-dabbrev-check-other-buffers 'some)
+  ( cape-dabbrev-check-other-buffers 'some)
+  :config
   ;; Add completion functions
   (add-to-list 'completion-at-point-functions (cape-capf-prefix-length #'cape-dabbrev 3))
   (add-to-list 'completion-at-point-functions #'cape-file))
@@ -1060,6 +1082,7 @@ directory as a fall back."
 
 ;; Init marginalia for minibuffer result annotations
 (use-package marginalia
+  :functions marginalia-mode
   :config
   (marginalia-mode))
 
@@ -1178,8 +1201,9 @@ When a prefix ARG is given always prompt for a command to use."
 ;; Init dired+ for additional dired functionality
 (use-package dired+
   :after evil-collection
-  :init
-  (setq diredp-hide-details-initially-flag nil)
+  :functions diredp-toggle-find-file-reuse-dir
+  :custom
+  ( diredp-hide-details-initially-flag nil)
   :config
   (diredp-toggle-find-file-reuse-dir 1))
 
@@ -1204,11 +1228,12 @@ When a prefix ARG is given always prompt for a command to use."
 
 ;; Init treemacs-icons-dired for having icons in dired mode
 (use-package treemacs-icons-dired
+  :functions treemacs-icons-dired-mode
   :config
   ;; Enable after every theme load.
   ;; This is needed in order to calculate the correct icon background color.
   (add-hook 'enable-theme-functions
-            (lambda (theme) (treemacs-icons-dired-mode))))
+            (lambda (_) (treemacs-icons-dired-mode))))
 
 ;; Init treemacs-magit for treemacs and magit integration
 (use-package treemacs-magit
@@ -1303,8 +1328,8 @@ When a prefix ARG is given always prompt for a command to use."
 ;; Init forge for working with git forges (e.g. Github, Gitlab)
 (use-package forge
   :after magit
-  :config
-  (setq forge-database-file (mo-cache-path "forge-database.sqlite")))
+  :custom
+  ( forge-database-file (mo-cache-path "forge-database.sqlite")))
 
 ;; Init github-review for helping with code review on github
 (use-package github-review
@@ -1372,6 +1397,7 @@ When a prefix ARG is given always prompt for a command to use."
 
 ;; Init treesit-auto for automatically using tree-sitter major modes
 (use-package treesit-auto
+  :functions global-treesit-auto-mode
   :config
   (global-treesit-auto-mode))
 
@@ -1618,11 +1644,13 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init google-c-style for Google's C/C++ style
 (use-package google-c-style
+  :defines google-c-style
   :config
   (c-add-style "Google" google-c-style))
 
 ;; Init yasnippets for adding code snippet templates
 (use-package yasnippet
+  :functions yas-global-mode
   :config
   (yas-global-mode 1))
 
@@ -1660,12 +1688,12 @@ run the attached function (if exists) and enable lsp"
 ;; Init lsp-sourcekit for SourceKit language server
 (use-package lsp-sourcekit
   :after lsp-mode
-  :config
-  (setq lsp-sourcekit-executable
-        (string-trim
-         (if (eq system-type 'darwin)
-             (shell-command-to-string "xcrun --find sourcekit-lsp")
-           "sourcekit-lsp"))))
+  :custom
+  ( lsp-sourcekit-executable
+    (string-trim
+     (if (eq system-type 'darwin)
+         (shell-command-to-string "xcrun --find sourcekit-lsp")
+       "sourcekit-lsp"))))
 
 ;; Init haskell-mode for Haskell support
 (use-package haskell-mode)
@@ -1681,8 +1709,8 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init lsp-java for Eclipse JDT language server
 (use-package lsp-java
-  :config
-  (setq lsp-java-workspace-dir (mo-cache-path "workspace")))
+  :custom
+  ( lsp-java-workspace-dir (mo-cache-path "workspace")))
 
 ;; Init lsp-pyright for pyright python language server
 (use-package lsp-pyright)
@@ -1696,9 +1724,9 @@ run the attached function (if exists) and enable lsp"
 ;; Init pipenv for supporting pipenv projects and commands
 (use-package pipenv
   :hook ( python-mode . pipenv-mode)
-  :config
+  :custom
   ;; We don't use projectile
-  (setq pipenv-with-projectile nil))
+  ( pipenv-with-projectile nil))
 
 ;; Init js2-mode for enhanced JavaScript editing
 (use-package js2-mode
@@ -1712,8 +1740,8 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init lsp-julia for Julia language server
 (use-package lsp-julia
-  :config
-  (setq lsp-julia-default-environment "~/.julia/environments/v1.8"))
+  :custom
+  ( lsp-julia-default-environment "~/.julia/environments/v1.8"))
 
 ;; Init groovy-mode for Groovy support
 (use-package groovy-mode)
@@ -1808,6 +1836,7 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init dtrt-indent for auto indentation detection
 (use-package dtrt-indent
+  :defines dtrt-indent-hook-mapping-list
   :hook
   ( prog-mode . dtrt-indent-mode)
   :config
@@ -1820,6 +1849,7 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init editorconfig for applying EditorConfig settings
 (use-package editorconfig
+  :functions editorconfig-mode
   :config
   (editorconfig-mode 1))
 
@@ -1832,8 +1862,8 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init request for a HTTP function library in lisp
 (use-package request
-  :config
-  (setq request-storage-directory (mo-cache-path "request")))
+  :custom
+  ( request-storage-directory (mo-cache-path "request")))
 
 ;; Init which-key for interactively displaying key bindings
 (use-package which-key
@@ -2120,6 +2150,9 @@ If project root cannot be found, use the buffer's default directory."
 ;; Init xterm-color for better ANSI color control sequence support
 (use-package xterm-color
   :after eshell
+  :defines
+  ( xterm-color-preserve-properties
+    eshell-preoutput-filter-functions)
   :hook
   ( eshell-before-prompt . (lambda () (setq xterm-color-preserve-properties t)))
   ;; eshell environment variables are buffer local, thus external commands
@@ -2127,7 +2160,8 @@ If project root cannot be found, use the buffer's default directory."
   ( eshell-mode . (lambda () (setenv "TERM" "xterm-256color")))
   :config
   (add-to-list 'eshell-preoutput-filter-functions 'xterm-color-filter)
-  (setq eshell-output-filter-functions (remove 'eshell-handle-ansi-color eshell-output-filter-functions)))
+  :custom
+  ( eshell-output-filter-functions (remove 'eshell-handle-ansi-color eshell-output-filter-functions)))
 
 ;; Init copy-as-format for copying regions as formatted code
 (use-package copy-as-format
@@ -2149,11 +2183,14 @@ If project root cannot be found, use the buffer's default directory."
 ;; Init kind-icon for icon support in auto completion
 (use-package kind-icon
   :after corfu
-  :config
+  :defines corfu-margin-formatters
+  :functions kind-icon-margin-formatter
+  :custom
   ;; Compute blended backgrounds correctly
-  (setq kind-icon-default-face 'corfu-default)
+  ( kind-icon-default-face 'corfu-default)
   ;; Don't use icons, but text symbols
-  (setq kind-icon-use-icons nil)
+  ( kind-icon-use-icons nil)
+  :config
   (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
 
 ;; Init emojify for emoji support
@@ -2168,18 +2205,20 @@ If project root cannot be found, use the buffer's default directory."
 
 ;; Init dashboard for an informative splash screen
 (use-package dashboard
+  :functions dashboard-setup-startup-hook
+  :custom
+  ( dashboard-startup-banner 'logo)
+  ( dashboard-banner-logo-title "Welcome to Modus Operandi Emacs!")
+  ( dashboard-init-info "In Absentia Lucis, Tenebrae Vincunt")
+  ( dashboard-projects-backend 'project-el)
+  ( dashboard-center-content t)
+  ( dashboard-set-heading-icons t)
+  ( dashboard-set-file-icons t)
+  ( dashboard-set-footer nil)
+  ( dashboard-items '( ( projects . 10)
+                       ( recents  . 10)
+                       ( bookmarks . 10)))
   :config
-  (setq dashboard-startup-banner 'logo)
-  (setq dashboard-banner-logo-title "Welcome to Modus Operandi Emacs!")
-  (setq dashboard-init-info "In Absentia Lucis, Tenebrae Vincunt")
-  (setq dashboard-projects-backend 'project-el)
-  (setq dashboard-center-content t)
-  (setq dashboard-set-heading-icons t)
-  (setq dashboard-set-file-icons t)
-  (setq dashboard-set-footer nil)
-  (setq dashboard-items '( ( projects . 10)
-                           ( recents  . 10)
-                           ( bookmarks . 10)))
   (dashboard-setup-startup-hook))
 
 ;; Init doom one theme
@@ -2234,20 +2273,27 @@ If project root cannot be found, use the buffer's default directory."
 
 ;; Init solaire-mode for visually highlighting file backed buffers
 (use-package solaire-mode
+  :functions solaire-global-mode
   :config
   (solaire-global-mode +1))
 
 ;; Init moody for adding tabs and ribbons to the mode line
 (use-package moody
-  :config
+  :functions
+  ( moody-replace-mode-line-buffer-identification
+    moody-replace-vc-mode
+    moody-replace-eldoc-minibuffer-message-function)
+  :custom
   ;; Set mode line height to be calculated based on content height
-  (setq moody-mode-line-height nil)
+  ( moody-mode-line-height nil)
+  :config
   (moody-replace-mode-line-buffer-identification)
   (moody-replace-vc-mode)
   (moody-replace-eldoc-minibuffer-message-function))
 
 ;; Init minions for collapsing the minor mode indicator in the modeline
 (use-package minions
+  :functions minions-mode
   :config
   (minions-mode 1))
 
