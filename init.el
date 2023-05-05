@@ -59,7 +59,33 @@
 (load (concat (file-name-directory load-file-name) "personal.el") t)
 
 ;; Add general.el key mapper
-(use-package general)
+(use-package general
+  :demand t
+  :config
+  ;; Prefix keys for quick action menu
+  (defvar mo-quick-menu-prefix "SPC")
+  (defvar mo-quick-menu-nn-prefix "M-SPC")
+  ;; Bind the quick menu map to the leader key and the relevant states
+  (general-define-key
+   :states '( normal insert visual motion emacs)
+   :keymaps 'override
+   :prefix mo-quick-menu-prefix
+   :non-normal-prefix mo-quick-menu-nn-prefix
+   :prefix-map 'mo-quick-menu-map
+   :which-key "Quick menu prefix key"
+   "b" '( :which-key "Buffer")
+   "f" '( :which-key "File")
+   "s" '( :which-key "Search")
+   "v" '( :which-key "View")
+   "w" '( :which-key "Window")
+   "x" '( :which-key "Utils")
+   "t" '( :which-key "Tab")
+   "h" '( :which-key "Help")
+   "p" '( :which-key "Project")
+   "c" '( :which-key "Code")
+   "g" '( :which-key "Git")
+   "r" '( :which-key "Multiple Cursors")
+   "n" '( :which-key "Notes")))
 
 ;; Init evil mode for Vim emulation in Emacs
 (use-package evil
@@ -105,34 +131,8 @@
   (evil-set-initial-state 'rustic-popup-mode 'emacs)
   (evil-mode 1))
 
-;; Prefix keys for quick action menu
-(defvar mo-quick-menu-prefix "SPC")
-(defvar mo-quick-menu-nn-prefix "M-SPC")
-
 ;; Create quick menu map and definer
 (general-create-definer mo-quick-menu-def :keymaps 'mo-quick-menu-map)
-
-;; Bind the quick menu map to the leader key and the relevant states
-(general-define-key
- :states '( normal insert visual motion emacs)
- :keymaps 'override
- :prefix mo-quick-menu-prefix
- :non-normal-prefix mo-quick-menu-nn-prefix
- :prefix-map 'mo-quick-menu-map
- :which-key "Quick menu prefix key"
- "b" '( :which-key "Buffer")
- "f" '( :which-key "File")
- "s" '( :which-key "Search")
- "v" '( :which-key "View")
- "w" '( :which-key "Window")
- "x" '( :which-key "Utils")
- "t" '( :which-key "Tab")
- "h" '( :which-key "Help")
- "p" '( :which-key "Project")
- "c" '( :which-key "Code")
- "g" '( :which-key "Git")
- "r" '( :which-key "Multiple Cursors")
- "n" '( :which-key "Notes"))
 
 ;; Add evil shortcuts here, after the initialization of the quick menu map
 (when (featurep 'evil)
