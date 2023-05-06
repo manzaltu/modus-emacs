@@ -267,6 +267,10 @@
   ( :keymaps 'mo-quick-menu-map
     ;; Universal argument key binding
     "u" #'universal-argument)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "x"
+    ;; List all sub processes
+    "P" #'list-processes)
   :config
   ;; Disable default tab indentation
   (setq-default indent-tabs-mode nil)
