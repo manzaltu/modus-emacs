@@ -954,7 +954,8 @@ directory as a fall back."
     "/" #'consult-line
     "?" #'consult-line-multi
     "." #'consult-fd
-    "," #'consult-ripgrep)
+    "," #'consult-ripgrep
+    "TAB" #'consult-bookmark)
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
     "," #'consult-git-grep)
@@ -973,8 +974,6 @@ directory as a fall back."
     ";" #'consult-focus-lines
     "m" #'consult-minor-mode-menu
     "B" #'consult-recent-file)
-  ( :keymaps 'mo-quick-menu-map
-    "RET" #'consult-bookmark)
   ;; C-x bindings (ctl-x-map)
   ( "C-x M-:" #'consult-complex-command)     ;; orig. repeat-complex-command
   ( "C-x b" #'consult-buffer)                ;; orig. switch-to-buffer
@@ -2574,7 +2573,7 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "p"
-    "RET" #'bookmark-in-project-jump))
+    "TAB" #'bookmark-in-project-jump))
 
 ;; Init tramp-cache for caching in tramp
 (use-package tramp-cache
