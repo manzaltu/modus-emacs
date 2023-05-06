@@ -439,6 +439,7 @@ Ask for action even on single candidate jumps."
 ;; Init xref for code reference lookup
 (use-package xref
   :demand t
+  :straight nil
   :hook
   ;; Recenter after returning to a pre-jump location
   ( xref-after-return . recenter)
