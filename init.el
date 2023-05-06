@@ -294,7 +294,7 @@
 
 ;; Init modus-operandi-emacs for non-package related functionality
 (use-package modus-operandi-emacs
-  :after ( simple flyspell jinx)
+  :after ( simple flyspell jinx project tab-bar)
   :straight nil
   :no-require t ; Not a package
   :general
@@ -320,7 +320,19 @@
     (interactive)
     (let ((toggle (if flyspell-mode -1 1)))
       (flyspell-mode toggle)
-      (jinx-mode toggle))))
+      (jinx-mode toggle)))
+
+  (defun mo-open-project-with-tab ()
+    "Open project with new tab.
+Tab is named after the project's name."
+    (interactive)
+    (tab-bar-new-tab)
+    (condition-case err
+        (progn
+          (call-interactively #'project-switch-project)
+          (tab-bar-rename-tab (project-name (project-current))))
+      (quit
+       (tab-bar-close-tab)))))
 
 ;; Add evil key bindings to other, non-default, modes
 (use-package evil-collection
