@@ -304,6 +304,8 @@
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "S" #'mo-toggle-spell-check-buffer)
+  ( :keymaps 'mo-quick-menu-map
+    "RET RET" #'mo-open-project-with-tab)
   :preface
   (defun mo-copy-file-path ()
     "Copy the full path of the current buffer's file."
