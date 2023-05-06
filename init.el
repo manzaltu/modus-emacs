@@ -1526,8 +1526,6 @@ run the attached function (if exists) and enable lsp"
                                (seq-find #'mo-maybe-enable-lsp
                                          mo-lsp-enable-for-modes))))
 
-  ;; Enable which-key integration
-  ( lsp-mode . lsp-enable-which-key-integration)
   ;; Setup completion to use orderless
   ( lsp-completion-mode . mo-lsp-mode-setup-completion)
   :commands lsp)
