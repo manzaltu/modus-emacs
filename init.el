@@ -294,13 +294,16 @@
 
 ;; Init modus-operandi-emacs for non-package related functionality
 (use-package modus-operandi-emacs
-  :after simple
+  :after ( simple flyspell jinx)
   :straight nil
   :no-require t ; Not a package
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "p" #'mo-copy-file-path)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "S" #'mo-toggle-spell-check-buffer)
   :preface
   (defun mo-copy-file-path ()
     "Copy the full path of the current buffer's file."
@@ -310,7 +313,14 @@
                       (buffer-file-name))))
       (when filepath
         (kill-new filepath)
-        (message "%s" filepath)))))
+        (message "%s" filepath))))
+
+  (defun mo-toggle-spell-check-buffer ()
+    "Toggle spell checking in current buffer."
+    (interactive)
+    (let ((toggle (if flyspell-mode -1 1)))
+      (flyspell-mode toggle)
+      (jinx-mode toggle))))
 
 ;; Add evil key bindings to other, non-default, modes
 (use-package evil-collection
@@ -2365,23 +2375,6 @@ If project root cannot be found, use the buffer's default directory."
 (use-package jinx
   :hook ( emacs-startup . global-jinx-mode)
   :general ( [remap ispell-word] #'jinx-correct))
-
-;; Init spell check toggle functionality
-(use-package mo-spell-check-toggle
-  :after ( flyspell jinx)
-  :straight nil
-  :no-require t ; Not a package
-  :general
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "b"
-    "S" #'mo-toggle-spell-check-buffer)
-  :preface
-  (defun mo-toggle-spell-check-buffer ()
-    "Toggle spell checking in current buffer."
-    (interactive)
-    (let ((toggle (if flyspell-mode -1 1)))
-      (flyspell-mode toggle)
-      (jinx-mode toggle))))
 
 ;; Init powerthesaurus for finding synonyms, antonyms and related terms
 (use-package powerthesaurus
