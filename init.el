@@ -955,7 +955,8 @@ directory as a fall back."
     "?" #'consult-line-multi
     "." #'consult-fd
     "," #'consult-ripgrep
-    "TAB" #'consult-bookmark)
+    "TAB" #'consult-bookmark
+    "RET SPC" #'mo-consult-buffer-dwim)
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
     "," #'consult-git-grep)
