@@ -606,6 +606,8 @@ Ask for action even on single candidate jumps."
   :custom
   ;; We disable prettifying tables as currently it is not pixel-aligned
   ( org-modern-table nil)
+  ( org-modern-star '( "●" "◉" "◎" "◍" "◌"))
+  ( org-modern-list '( ( 43 . "▸") ( 45 . "▹") ( 42 . "◦")))
   :config
   (global-org-modern-mode))
 
