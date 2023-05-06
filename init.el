@@ -2123,6 +2123,9 @@ If project root cannot be found, use the buffer's default directory."
   ( :keymaps 'mo-quick-menu-map
     :prefix "f"
     "e" #'eshell-new)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "x"
+    "x" #'eshell-command)
   ( :keymaps 'eshell-mode-map
     "C-p" #'eshell-previous-matching-input-from-input
     "C-n" #'eshell-next-matching-input-from-input)
