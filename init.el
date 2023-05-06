@@ -2311,7 +2311,8 @@ If project root cannot be found, use the buffer's default directory."
   (setq doom-solarized-light-brighter-comments t)
   (load-theme 'doom-one t)
   ;; Resize org headings
-  (dolist (face '( ( org-level-1 . 1.2)
+  (dolist (face '( ( org-document-title . 1.3)
+                   ( org-level-1 . 1.2)
                    ( org-level-2 . 1.1)
                    ( org-level-3 . 1.05)
                    ( org-level-4 . 1.0)
