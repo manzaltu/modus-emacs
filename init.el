@@ -1030,6 +1030,13 @@ directory as a fall back."
   ;; Configure the narrowing key.
   (setq consult-narrow-key "C-l")
 
+  (defun mo-consult-buffer-dwim ()
+    "If in project, list project buffers, otherwise show the global list."
+    (interactive)
+    (if (project-current)
+        (call-interactively #'consult-project-buffer)
+      (call-interactively #'consult-buffer)))
+
   ;; Add consult-fd command
   ;; Based on code from consult wiki:
   ;; https://github.com/minad/consult/wiki#find-files-using-fd
