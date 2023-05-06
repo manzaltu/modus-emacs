@@ -608,6 +608,7 @@ Ask for action even on single candidate jumps."
   ( org-modern-table nil)
   ( org-modern-star '( "●" "◉" "◎" "◍" "◌"))
   ( org-modern-list '( ( 43 . "▸") ( 45 . "▹") ( 42 . "◦")))
+  ( org-modern-hide-stars nil)
   :config
   (global-org-modern-mode))
 
