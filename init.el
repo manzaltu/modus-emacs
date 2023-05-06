@@ -550,6 +550,7 @@ Ask for action even on single candidate jumps."
   (setq org-capture-templates '( ( "t" "Task" entry (file+headline org-default-notes-file "Tasks")
                                    "** TODO %? \nSCHEDULED: %t")))
   (setq org-ellipsis " ▼")
+  (setq org-cycle-level-faces nil)
   (setq org-todo-keywords
         '( ( sequence "TODO" "NEXT" "PROG" "HOLD" "|" "DONE" "DONT" "FAIL")))
   (setq org-log-done t)
