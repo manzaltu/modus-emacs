@@ -2090,6 +2090,17 @@ run the attached function (if exists) and enable lsp"
   :config
   (setq eww-search-prefix "https://www.google.com/search?q="))
 
+;; Init term for terminal support
+(use-package term
+  :straight nil
+  :config
+  (defun mo-term-handle-exit (&optional process-name msg)
+    "Close term buffer after process has exited."
+    (message "%s | %s" process-name msg)
+    (kill-buffer (current-buffer)))
+
+  (advice-add 'term-handle-exit :after #'mo-term-handle-exit))
+
 ;; Init vterm for terminal emulation
 (use-package vterm
   :demand t
