@@ -2613,7 +2613,10 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "p"
-    "TAB" #'bookmark-in-project-jump))
+    "TAB" #'bookmark-in-project-jump)
+  :custom
+  ( bookmark-in-project-project-root
+    (lambda () (project-root (project-current)))))
 
 ;; Init tramp-cache for caching in tramp
 (use-package tramp-cache
