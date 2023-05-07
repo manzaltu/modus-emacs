@@ -977,7 +977,15 @@ directory as a fall back."
   ;; Enable project detection using .project files
   (add-to-list 'project-find-functions #'mo-project-try-local)
   ;; Set project history file path
-  (setq project-list-file (mo-cache-path "projects")))
+  (setq project-list-file (mo-cache-path "projects"))
+  ;; Set project switch commands for a quick project based access
+  (setq project-switch-commands
+        '( (consult-project-buffer "Buffers and recent files" ?\r)
+           (consult-fd "Find file" ?f)
+           (consult-ripgrep "Ripgrep" ?r)
+           (magit-status "Magit" ?g)
+           (project-dired "Dired" ?d)
+           (project-eshell "Eshell" ?e))))
 
 ;; Init consult for enhanced search commands
 (use-package consult
@@ -1104,16 +1112,7 @@ directory as a fall back."
 
   (defun mo-consult-line-symbol-at-point ()
     (interactive)
-    (consult-line (thing-at-point 'symbol)))
-
-  ;; On project switch, use consult for file and regexp search
-  (setq project-switch-commands
-        '( (consult-project-buffer "Buffers and recent files" ?\r)
-           (consult-fd "Find file" ?f)
-           (consult-ripgrep "Ripgrep" ?r)
-           (magit-status "Magit" ?g)
-           (project-dired "Dired" ?d)
-           (project-eshell "Eshell" ?e))))
+    (consult-line (thing-at-point 'symbol))))
 
 ;; Init consult-dir for inserting paths into minibuffer prompts
 (use-package consult-dir
