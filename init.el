@@ -982,6 +982,7 @@ directory as a fall back."
   (setq project-switch-commands
         '( (consult-project-buffer "Buffers and recent files" ?\r)
            (mo-project-find-file "Find file" ?f)
+           (bookmark-in-project-jump "Bookmark" ?\t)
            (consult-fd "Fd" ?.)
            (consult-ripgrep "Ripgrep" ?,)
            (magit-status "Magit" ?g)
