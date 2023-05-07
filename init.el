@@ -826,7 +826,12 @@ Ask for action even on single candidate jumps."
     global-corfu-mode)
   :general
   ( :keymaps 'corfu-map
-    "C-<return>" #'corfu-insert-separator)
+    "C-<return>" #'corfu-insert-separator
+    ;; We want TAB to complete
+    "TAB" #'corfu-complete
+    [tab] #'corfu-complete
+    ;; We don't want RET to complete
+    "RET" nil)
   :custom
   ;; Enable auto completion
   ( corfu-auto t)
