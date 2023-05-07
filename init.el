@@ -112,6 +112,9 @@
     "<" #'evil-window-decrease-width)
   ( :keymaps 'mo-quick-menu-map
     "ESC" #'evil-ex-nohighlight)
+  ( :states 'motion
+    ;; We want C-<num> for jumping between tabs
+    "C-6" nil)
   :hook
   ;; Recenter after jump
   ( evil-jumps-post-jump . recenter)
