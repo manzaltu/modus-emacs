@@ -987,7 +987,8 @@ directory as a fall back."
            (consult-ripgrep "Ripgrep" ?,)
            (magit-status "Magit" ?g)
            (project-dired "Dired" ?d)
-           (project-eshell "Eshell" ?e))))
+           (project-eshell "Eshell" ?e)
+           (project-async-shell-command "Async command" ?x))))
 
 ;; Init consult for enhanced search commands
 (use-package consult
