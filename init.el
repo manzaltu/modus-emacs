@@ -981,8 +981,8 @@ directory as a fall back."
   ;; Set project switch commands for a quick project based access
   (setq project-switch-commands
         '( (consult-project-buffer "Buffers and recent files" ?\r)
-           (consult-fd "Find file" ?f)
-           (consult-ripgrep "Ripgrep" ?r)
+           (consult-fd "Fd" ?.)
+           (consult-ripgrep "Ripgrep" ?,)
            (magit-status "Magit" ?g)
            (project-dired "Dired" ?d)
            (project-eshell "Eshell" ?e))))
