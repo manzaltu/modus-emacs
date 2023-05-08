@@ -351,7 +351,20 @@ Tab is named after the project's name."
           (call-interactively #'project-switch-project)
           (tab-bar-rename-tab (project-name (project-current))))
       (quit
-       (tab-bar-close-tab)))))
+       (tab-bar-close-tab))))
+
+  (defun mo-show-modified-buffer-changes ()
+    "If a buffer is different from its file, show the changes."
+    (when (and (buffer-file-name) (buffer-modified-p))
+      (let ((diff-window (diff-buffer-with-file)))
+        (add-hook 'kill-buffer-hook
+                  (lambda ()
+                    (quit-window nil diff-window))
+                  nil t)))
+    t)
+
+  ;; When killing a modified buffer, show the changes
+  (add-to-list 'kill-buffer-query-functions #'mo-show-modified-buffer-changes t))
 
 ;; Add evil key bindings to other, non-default, modes
 (use-package evil-collection
