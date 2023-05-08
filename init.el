@@ -85,7 +85,7 @@
    "x" '( :which-key "Utils")
    "t" '( :which-key "Tab")
    "h" '( :which-key "Help")
-   "p" '( :which-key "Project")
+   "RET" '( :which-key "Project")
    "c" '( :which-key "Code")
    "g" '( :which-key "Git")
    "r" '( :which-key "Multiple Cursors")
@@ -322,7 +322,8 @@
     :prefix "b"
     "S" #'mo-toggle-spell-check-buffer)
   ( :keymaps 'mo-quick-menu-map
-    "RET RET" #'mo-open-project-with-tab)
+    :prefix "RET"
+    "RET" #'mo-open-project-with-tab)
   :preface
   (defun mo-copy-file-path ()
     "Copy the full path of the current buffer's file."
@@ -967,7 +968,7 @@ Ask for action even on single candidate jumps."
   :straight nil
   :general
   ( :keymaps 'mo-quick-menu-map
-    :prefix "p"
+    :prefix "RET"
     "w" #'mo-project-save
     "d" #'project-dired
     "f" #'mo-project-find-file
@@ -1030,8 +1031,10 @@ directory as a fall back."
     "?" #'consult-line-multi
     "." #'consult-fd
     "," #'consult-ripgrep
-    "TAB" #'consult-bookmark
-    "RET SPC" #'mo-consult-buffer-dwim)
+    "TAB" #'consult-bookmark)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "RET"
+    "SPC" #'mo-consult-buffer-dwim)
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
     "," #'consult-git-grep)
@@ -1081,7 +1084,7 @@ directory as a fall back."
     "M-r" #'consult-history                 ;; orig. eshell-previous-matching-input
     "C-r" #'consult-history)
   ( :keymaps 'mo-quick-menu-map
-    :prefix "p"
+    :prefix "RET"
     "b" #'consult-project-buffer)
   ( :keymaps 'mo-quick-menu-map
     "*" #'mo-consult-line-symbol-at-point)
@@ -1294,7 +1297,7 @@ When a prefix ARG is given always prompt for a command to use."
 (use-package treemacs
   :general
   ( :keymaps 'mo-quick-menu-map
-    :prefix "p"
+    :prefix "RET"
     ;; We want to present the current project only
     "s" #'treemacs-add-and-display-current-project-exclusively)
   :config
@@ -2181,7 +2184,7 @@ run the attached function (if exists) and enable lsp"
   :if (not (eq system-type 'windows-nt))
   :general
   ( :keymaps 'mo-quick-menu-map
-    :prefix "p"
+    :prefix "RET"
     "t" #'mo-vterm-project)
   :commands vterm
   :init
@@ -2203,7 +2206,7 @@ If project root cannot be found, use the buffer's default directory."
   :straight nil
   :general
   ( :keymaps 'mo-quick-menu-map
-    :prefix "p"
+    :prefix "RET"
     "e" #'project-eshell)
   ( :keymaps 'mo-quick-menu-map
     :prefix "f"
@@ -2652,7 +2655,7 @@ If project root cannot be found, use the buffer's default directory."
 (use-package bookmark-in-project
   :general
   ( :keymaps 'mo-quick-menu-map
-    :prefix "p"
+    :prefix "RET"
     "TAB" #'bookmark-in-project-jump)
   :custom
   ( bookmark-in-project-project-root
