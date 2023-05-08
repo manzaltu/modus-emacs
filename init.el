@@ -2671,7 +2671,8 @@ If project root cannot be found, use the buffer's default directory."
   ;; envrc kills buffer local env var variables (e.g. process-environment). This
   ;; interferes with other modes that set these vars to be local, such as eshell.
   ;; Until fixed, we should load this package only for specific modes.
-  ( python-mode . envrc-mode))
+  ( python-mode . envrc-mode)
+  ( python-ts-mode . envrc-mode))
 
 ;; Load customization file
 (when (file-exists-p custom-file)
