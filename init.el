@@ -1428,6 +1428,14 @@ When a prefix ARG is given always prompt for a command to use."
   (setq github-review-view-comments-in-code-lines t)
   (setq github-review-reply-inline-comments t))
 
+;; Init diff for diff functionality
+(use-package diff
+  :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "+" #'diff-buffer-with-file))
+
 ;; Init ediff for better diff view and commands
 (use-package ediff
   :straight nil
