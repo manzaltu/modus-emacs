@@ -192,8 +192,8 @@
   (setq auto-save-list-file-prefix (mo-cache-path "auto-save-list/.saves-"))
   ;; Disable bell audio
   (setq ring-bell-function 'ignore)
-  ;; Replace yes or no questions to y or n
-  (defalias 'yes-or-no-p 'y-or-n-p)
+  ;; Use short answers e.g. y or n
+  (setq use-short-answers t)
   ;; Truncate lines by default
   (setq truncate-lines t)
   ;; Disable double space at sentence end
