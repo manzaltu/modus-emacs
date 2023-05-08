@@ -147,6 +147,18 @@
   ;; Cursor can move beyond eol to support Emacs sexp movement
   (setq evil-move-beyond-eol t)
   :config
+  (defun mo-evil-split-above ()
+    "Split and create a new window above."
+    (interactive)
+    (let ((evil-split-window-below nil))
+      (call-interactively #'evil-window-split)))
+
+  (defun mo-evil-vsplit-left ()
+    "Vertically split and create a new window to the left."
+    (interactive)
+    (let ((evil-vsplit-window-right nil))
+      (call-interactively #'evil-window-vsplit)))
+
   ;; Set word movement to operate on symbol boundaries
   (defalias #'forward-evil-word #'forward-evil-symbol)
   ;; Start with Emacs mode in rustic-popup-mode buffers
