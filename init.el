@@ -104,7 +104,9 @@
     "K" #'evil-window-move-very-top
     "L" #'evil-window-move-far-right
     "v" #'evil-window-vsplit
+    "V" #'mo-evil-vsplit-left
     "s" #'evil-window-split
+    "S" #'mo-evil-split-above
     "c" #'evil-window-delete
     "+" #'evil-window-increase-height
     "-" #'evil-window-decrease-height
