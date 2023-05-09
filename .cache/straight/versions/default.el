@@ -105,7 +105,6 @@
  ("inheritenv" . "2102ed2d105a5c9f366cb6503d04794600985598")
  ("jeison" . "19a51770f24eaa7b538c7be6a8a5c25d154b641f")
  ("jenkinsfile-mode" . "1d90c1ff8edc7ea88844af92a206e7c5f083b568")
- ("jinx" . "ba508f7a7e1d67bed0265ca5550ddb087d56ff49")
  ("js2-mode" . "7d928272bc311b1dd6f38d3f6365c18153e28636")
  ("julia-emacs" . "7e301f4414e25b4409859c3b8d371352807a3194")
  ("kind-icon" . "0eae3f73565fccf83f3fd32b18fe9c4ff3e2fdba")
