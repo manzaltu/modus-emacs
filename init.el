@@ -2291,6 +2291,11 @@ If project root cannot be found, use the buffer's default directory."
   :config
   (nerd-icons-completion-mode))
 
+;; Init nerd-icons-dired for icon support in dired
+(use-package nerd-icons-dired
+  :hook
+  ( dired-mode . nerd-icons-dired-mode))
+
 
 ;; Init kind-icon for icon support in auto completion
 (use-package kind-icon

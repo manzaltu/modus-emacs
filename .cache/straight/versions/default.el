@@ -131,6 +131,7 @@
  ("mode-minder" . "7aef58eb351d690096a968820700bff170826739")
  ("moody" . "249c5f1cf22f17c2d1e7793e2ffd3b09cf15bb10")
  ("nerd-icons-completion" . "d88fec04a9169a746a306ecd24f0877d1a95080d")
+ ("nerd-icons-dired" . "5abd8f6d9f395f91d3e67afadbea6c638dee7e6e")
  ("nerd-icons.el" . "6fdb423eabb1c14161cb59af8fd74ee8b572e303")
  ("nix-mode" . "719feb7868fb567ecfe5578f6119892c771ac5e5")
  ("nongnu-elpa" . "0120f3dfe80cffe0c3016080d9205d12be3b741d")
