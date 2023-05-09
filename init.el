@@ -2281,6 +2281,9 @@ If project root cannot be found, use the buffer's default directory."
     (let ((current-prefix-arg '(4)))
       (call-interactively #'copy-as-format))))
 
+;; Init nerd-icons for icon support
+(use-package nerd-icons)
+
 
 ;; Init kind-icon for icon support in auto completion
 (use-package kind-icon
