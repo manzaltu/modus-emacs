@@ -311,16 +311,13 @@
 
 ;; Init modus-operandi-emacs for non-package related functionality
 (use-package modus-operandi-emacs
-  :after ( simple flyspell jinx project tab-bar)
+  :after ( simple project tab-bar)
   :straight nil
   :no-require t ; Not a package
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "p" #'mo-copy-file-path)
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "b"
-    "S" #'mo-toggle-spell-check-buffer)
   ( :keymaps 'mo-quick-menu-map
     :prefix "RET"
     "RET" #'mo-open-project-with-tab)
@@ -334,13 +331,6 @@
       (when filepath
         (kill-new filepath)
         (message "%s" filepath))))
-
-  (defun mo-toggle-spell-check-buffer ()
-    "Toggle spell checking in current buffer."
-    (interactive)
-    (let ((toggle (if flyspell-mode -1 1)))
-      (flyspell-mode toggle)
-      (jinx-mode toggle)))
 
   (defun mo-open-project-with-tab ()
     "Open project with new tab.
@@ -2426,6 +2416,10 @@ If project root cannot be found, use the buffer's default directory."
 ;; Init flyspell for spell checking
 (use-package flyspell
   :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "S" #'flyspell-mode)
   :config
   (setq flyspell-delay 0)
   :hook
