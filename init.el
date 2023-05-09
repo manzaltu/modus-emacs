@@ -2318,6 +2318,7 @@ If project root cannot be found, use the buffer's default directory."
   ( dashboard-projects-backend 'project-el)
   ( dashboard-center-content t)
   ( dashboard-set-heading-icons t)
+  ( dashboard-icon-type 'nerd-icons)
   ( dashboard-set-file-icons t)
   ( dashboard-set-footer nil)
   ( dashboard-items '( ( projects . 10)
