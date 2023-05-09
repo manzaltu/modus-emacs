@@ -176,6 +176,7 @@
  ("themes" . "e4f0b006a516a35f53df2dce2ec116876c5cd7f9")
  ("transient" . "6ff5c51f26fdc9c2d4fba1a0c5e7f728bb911f8e")
  ("treemacs" . "983ea5a66801a5c1f6e32e3d515bd48761677ac6")
+ ("treemacs-nerd-icons" . "c6f4a74ea4f414528fc43a6fe95f7f17687faeb4")
  ("treepy.el" . "7c4a0d21322506a4d4b2301b4274ec955b429b47")
  ("treesit-auto" . "bac3b9d1d61a4d759f87c80de7be3b808d19cbf6")
  ("typescript.el" . "4fcb4594819caf472ae42ea068a1c7795cf07f46")

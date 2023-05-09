@@ -2296,6 +2296,13 @@ If project root cannot be found, use the buffer's default directory."
   :hook
   ( dired-mode . nerd-icons-dired-mode))
 
+;; Init treemacs-nerd-icons for icon support in treemacs
+(use-package treemacs-nerd-icons
+  :after ( treemacs nerd-icons)
+  :straight ( treemacs-nerd-icons
+              :type git :host github :repo "rainstormstudio/treemacs-nerd-icons")
+  :config
+  (treemacs-load-theme "nerd-icons"))
 
 ;; Init kind-icon for icon support in auto completion
 (use-package kind-icon
