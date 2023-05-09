@@ -3,7 +3,6 @@
  ("a.el" . "93e5ed8c495794d1ba3c04b43041b95ce01079b1")
  ("ace-window" . "77115afc1b0b9f633084cf7479c767988106c196")
  ("alert" . "c762380ff71c429faf47552a83605b2578656380")
- ("all-the-icons.el" . "f75c1130b72c718bfaf18b56c445c4b58efc714f")
  ("annalist.el" . "134fa3f0fb91a636a1c005c483516d4b64905a6d")
  ("anzu" . "5abb37455ea44fa401d5f4c1bdc58adb2448db67")
  ("auctex" . "f60d3b907618c2cbb527e59e29821465d6750993")

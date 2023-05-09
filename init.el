@@ -1312,15 +1312,6 @@ When a prefix ARG is given always prompt for a command to use."
 (use-package treemacs-evil
   :after ( treemacs evil))
 
-;; Init treemacs-icons-dired for having icons in dired mode
-(use-package treemacs-icons-dired
-  :functions treemacs-icons-dired-mode
-  :config
-  ;; Enable after every theme load.
-  ;; This is needed in order to calculate the correct icon background color.
-  (add-hook 'enable-theme-functions
-            (lambda (_) (treemacs-icons-dired-mode))))
-
 ;; Init treemacs-magit for treemacs and magit integration
 (use-package treemacs-magit
   :after ( treemacs magit))
@@ -2290,9 +2281,6 @@ If project root cannot be found, use the buffer's default directory."
     (let ((current-prefix-arg '(4)))
       (call-interactively #'copy-as-format))))
 
-;; Init all-the-icons for icon support
-(use-package all-the-icons
-  :if (display-graphic-p))
 
 ;; Init kind-icon for icon support in auto completion
 (use-package kind-icon
