@@ -2284,6 +2284,13 @@ If project root cannot be found, use the buffer's default directory."
 ;; Init nerd-icons for icon support
 (use-package nerd-icons)
 
+;; Init nerd-icons-completion for icon support in completion
+(use-package nerd-icons-completion
+  :demand t
+  :functions nerd-icons-completion-mode
+  :config
+  (nerd-icons-completion-mode))
+
 
 ;; Init kind-icon for icon support in auto completion
 (use-package kind-icon
