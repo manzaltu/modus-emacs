@@ -2622,7 +2622,12 @@ If project root cannot be found, use the buffer's default directory."
   ( prog-mode . whitespace-mode))
 
 ;; Init visual-fill-column for mimicking fill-column in visual-line-mode
-(use-package visual-fill-column)
+(use-package visual-fill-column
+  :demand t
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "V" #'visual-fill-column-mode))
 
 ;; Init server for running Emacs as a server
 (use-package server
