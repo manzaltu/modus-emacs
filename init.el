@@ -1946,8 +1946,7 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
-    "f" #'format-all-region
-    "F" #'format-all-buffer)
+    "f" #'format-all-region)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "f" #'format-all-mode)
