@@ -2518,7 +2518,9 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "w" #'writeroom-mode))
+    "w" #'writeroom-mode)
+  :config
+  (setq writeroom-width 100))
 
 ;; Init buffer-move for moving buffers between windows
 (use-package buffer-move
