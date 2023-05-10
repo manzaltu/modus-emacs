@@ -291,6 +291,8 @@
     ;; List all sub processes
     "P" #'list-processes)
   :config
+  ;; Set a wide enough default fill-column
+  (setq-default fill-column 100)
   ;; Disable default tab indentation
   (setq-default indent-tabs-mode nil)
   ;; Show cursor's column number
