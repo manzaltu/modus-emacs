@@ -281,6 +281,7 @@
     :prefix "b"
     "t" #'toggle-truncate-lines
     "v" #'visual-line-mode
+    "f" #'set-fill-column
     "k" #'kill-current-buffer)
   ( :keymaps 'mo-quick-menu-map
     ;; Universal argument key binding
