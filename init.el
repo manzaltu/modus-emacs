@@ -294,6 +294,16 @@
   ;; Show cursor's column number
   (setq column-number-mode t))
 
+;; Init custom for declaring and initializing user options
+(use-package custom
+  :straight nil
+  :config
+  (defvar after-enable-theme-hook nil
+    "Hook run after a theme is enabled using `enable-theme'.")
+  (defadvice enable-theme (after run-after-enable-theme-hook activate)
+    "Run `after-enable-theme-hook'."
+    (run-hooks 'after-enable-theme-hook)))
+
 ;; Init cus-edit for creating and editing customize buffers
 (use-package cus-edit
   :straight nil
