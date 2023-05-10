@@ -566,6 +566,29 @@ Ask for action even on single candidate jumps."
   ;; Close any loaded org buffer when exiting the agenda buffer
   ( :keymaps 'org-agenda-mode-map
     "q" #'org-agenda-exit)
+  :hook
+  ( after-enable-theme .
+    (lambda ()
+      ;; Resize org headings
+      (dolist (face '( ( org-document-title . 1.3)
+                       ( org-level-1 . 1.2)
+                       ( org-level-2 . 1.1)
+                       ( org-level-3 . 1.05)
+                       ( org-level-4 . 1.0)
+                       ( org-level-5 . 1.0)
+                       ( org-level-6 . 1.0)
+                       ( org-level-7 . 1.0)
+                       ( org-level-8 . 1.0)))
+        (set-face-attribute (car face) nil :height (cdr face)))
+      ;; Make sure certain org faces always use the fixed-pitch face
+      (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
+      (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
+      (set-face-attribute 'org-formula nil :inherit 'fixed-pitch)
+      (set-face-attribute 'org-code nil :inherit '( shadow fixed-pitch))
+      (set-face-attribute 'org-verbatim nil :inherit '( shadow fixed-pitch))
+      (set-face-attribute 'org-special-keyword nil :inherit '( font-lock-comment-face fixed-pitch))
+      (set-face-attribute 'org-meta-line nil :inherit '( font-lock-comment-face fixed-pitch))
+      (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)))
   :config
   (defun mo-org-agenda-and-todo ()
     "Open org agenda with all TODOs"
@@ -2373,26 +2396,6 @@ If project root cannot be found, use the buffer's default directory."
   (setq doom-one-light-brighter-comments t)
   (setq doom-solarized-light-brighter-comments t)
   (load-theme 'doom-one t)
-  ;; Resize org headings
-  (dolist (face '( ( org-document-title . 1.3)
-                   ( org-level-1 . 1.2)
-                   ( org-level-2 . 1.1)
-                   ( org-level-3 . 1.05)
-                   ( org-level-4 . 1.0)
-                   ( org-level-5 . 1.0)
-                   ( org-level-6 . 1.0)
-                   ( org-level-7 . 1.0)
-                   ( org-level-8 . 1.0)))
-    (set-face-attribute (car face) nil :height (cdr face)))
-  ;; Make sure certain org faces always use the fixed-pitch face
-  (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
-  (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
-  (set-face-attribute 'org-formula nil :inherit 'fixed-pitch)
-  (set-face-attribute 'org-code nil :inherit '( shadow fixed-pitch))
-  (set-face-attribute 'org-verbatim nil :inherit '( shadow fixed-pitch))
-  (set-face-attribute 'org-special-keyword nil :inherit '( font-lock-comment-face fixed-pitch))
-  (set-face-attribute 'org-meta-line nil :inherit '( font-lock-comment-face fixed-pitch))
-  (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
   ;; Distinguish between var reads and writes by underlining lsp write highlights
   (set-face-attribute 'lsp-face-highlight-write nil :underline t)
   ;; Corrects (and improves) org-mode's native fontification.
