@@ -280,6 +280,7 @@
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "t" #'toggle-truncate-lines
+    "v" #'visual-line-mode
     "k" #'kill-current-buffer)
   ( :keymaps 'mo-quick-menu-map
     ;; Universal argument key binding
