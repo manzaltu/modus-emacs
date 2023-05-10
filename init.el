@@ -1519,6 +1519,11 @@ When a prefix ARG is given always prompt for a command to use."
 ;; Init lsp mode for lsp support
 (use-package lsp-mode
   :after orderless
+  :hook
+  ( after-enable-theme .
+    (lambda ()
+      ;; Distinguish between var reads and writes by underlining lsp write highlights
+      (set-face-attribute 'lsp-face-highlight-write nil :underline t)))
   :general
   ;; Set the lsp prefix key
   ( :keymaps 'lsp-mode-map
@@ -2396,8 +2401,6 @@ If project root cannot be found, use the buffer's default directory."
   (setq doom-one-light-brighter-comments t)
   (setq doom-solarized-light-brighter-comments t)
   (load-theme 'doom-one t)
-  ;; Distinguish between var reads and writes by underlining lsp write highlights
-  (set-face-attribute 'lsp-face-highlight-write nil :underline t)
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
 
