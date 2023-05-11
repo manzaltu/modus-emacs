@@ -1519,6 +1519,13 @@ When a prefix ARG is given always prompt for a command to use."
     "d" #'eval-defun
     "s" #'eval-last-sexp))
 
+;; Init edebug for debugging lisp code
+(use-package edebug
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "l"
+    "D" #'edebug-defun))
+
 ;; Init treesit for tree-sitter support in Emacs
 (use-package treesit
   :straight nil
