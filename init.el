@@ -292,6 +292,9 @@
     :prefix "x"
     ;; List all sub processes
     "P" #'list-processes)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "l"
+    "e" #'eval-expression)
   :config
   ;; Set a wide enough default fill-column
   (setq-default fill-column 100)
