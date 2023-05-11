@@ -86,6 +86,7 @@
    "h" '( :which-key "Help")
    "RET" '( :which-key "Project")
    "c" '( :which-key "Code")
+   "l" '( :which-key "Lisp")
    "g" '( :which-key "Git")
    "m" '( :which-key "Merge")
    "r" '( :which-key "Multiple Cursors")
