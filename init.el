@@ -378,7 +378,7 @@ Tab is named after the project's name."
 
 ;; Add evil key bindings to other, non-default, modes
 (use-package evil-collection
-  :after ( evil xref)
+  :after ( evil xref magit)
   :demand t
   :general
   ( :keymaps 'mo-quick-menu-map
@@ -1390,6 +1390,7 @@ When a prefix ARG is given always prompt for a command to use."
 
 ;; Init magit for a better git user experience
 (use-package magit
+  :demand t
   ;; Refine diff view to show sub hunk changes
   :general
   ;; Visit files in the other window
