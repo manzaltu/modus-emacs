@@ -2359,8 +2359,7 @@ If project root cannot be found, use the buffer's default directory."
 ;; Init treemacs-nerd-icons for icon support in treemacs
 (use-package treemacs-nerd-icons
   :after ( treemacs nerd-icons)
-  :straight ( treemacs-nerd-icons
-              :type git :host github :repo "rainstormstudio/treemacs-nerd-icons")
+  :functions treemacs-load-theme
   :config
   (treemacs-load-theme "nerd-icons"))
 
