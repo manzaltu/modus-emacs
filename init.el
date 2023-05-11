@@ -1527,7 +1527,13 @@ When a prefix ARG is given always prompt for a command to use."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "l"
-    "D" #'edebug-defun))
+    "D" #'edebug-defun)
+  :config
+  (defun mo-edebug-toggle-trace ()
+    "Toggle edebug trace setting."
+    (interactive)
+    (message "edebug-trace: %s "
+             (setq edebug-trace (not edebug-trace)))))
 
 ;; Init treesit for tree-sitter support in Emacs
 (use-package treesit
