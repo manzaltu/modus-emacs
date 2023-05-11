@@ -2587,7 +2587,7 @@ If project root cannot be found, use the buffer's default directory."
   :straight nil
   :general
   ( :keymaps 'mo-quick-menu-map
-    :prefix "b"
+    :prefix "v"
     "F" #'follow-mode))
 
 ;; Init time for showing time in the modeline
