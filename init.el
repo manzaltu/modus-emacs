@@ -2118,7 +2118,7 @@ run the attached function (if exists) and enable lsp"
     "g u" #'chatgpt-shell-generate-unit-test)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "g p" #'chatgpt-shell-proofreading-doc
+    "g p" #'chatgpt-shell-proofread-region
     "g r" #'chatgpt-shell-send-and-review-region)
   :hook
   ;; Disable auto-completion in chat buffer
