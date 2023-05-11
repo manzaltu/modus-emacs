@@ -1,14 +1,14 @@
 * Modus Operandi Emacs
 
-Modus Operandi Emacs is a project that aims to provide a robust, fast and
-scalabale development environment. It supports multiple programming languages
-and file formats, using relevant language servers and major modes.
+Modus Operandi Emacs is a project that aims to provide a robust, fast and scalabale development
+environment. It supports multiple programming languages and file formats, using relevant language
+servers and major modes.
 
 ** Emacs Version
-This configuration is intended to be used only on Emacs 29 built with tree-sitter support.
-I strongly recommend using Emacs builds with native compilation enabled.
-In addition, I discourage builds with pgtk enabled for now, as it seems to
-negatively impact performance in some scenarios (e.g. corfu auto completion).
+This configuration is intended to be used only on Emacs 29 built with tree-sitter support. I
+strongly recommend using Emacs builds with native compilation enabled. In addition, I discourage
+builds with pgtk enabled for now, as it seems to negatively impact performance in some scenarios
+(e.g. corfu auto completion).
 
 *** Compiling Emacs 29
 Until Emacs 29 is officially released, I recommend building it yourself.
@@ -58,8 +58,8 @@ git clone https://github.com/manzaltu/modus-emacs ~/.emacs.d
 Optionally, you can install [[https://github.com/plexus/chemacs2][chemacs2]] and use this configuration alongside others.
 
 ** Personalized Settings
-You can create a file named personal.el in your Emacs folder and add
-personalized settings. For example:
+You can create a file named personal.el in your Emacs folder and add personalized settings. For
+example:
 
 #+BEGIN_SRC emacs-lisp
 ;;; personal.el --- Personal configuration file -*- lexical-binding: t; -*-
@@ -80,8 +80,7 @@ personalized settings. For example:
 #+END_SRC
 
 ** Getting updates
-You can update the configuration by running the following command inside the
-cloned dir:
+You can update the configuration by running the following command inside the cloned dir:
 #+BEGIN_SRC shell
 git pull -r
 #+END_SRC
@@ -89,15 +88,13 @@ git pull -r
 ** LICENSE
 Copyright © 2021 Yoav Orot.
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU
+General Public License as published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.
 
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>.
+You should have received a copy of the GNU General Public License along with this program. If not,
+see <https://www.gnu.org/licenses/>.
