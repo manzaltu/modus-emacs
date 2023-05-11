@@ -1510,6 +1510,15 @@ When a prefix ARG is given always prompt for a command to use."
   :config
   (setq git-link-use-commit t))
 
+;; Init elisp-mode for editing and running lisp code
+(use-package elisp-mode
+  :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "l"
+    "d" #'eval-defun
+    "s" #'eval-last-sexp))
+
 ;; Init treesit for tree-sitter support in Emacs
 (use-package treesit
   :straight nil
