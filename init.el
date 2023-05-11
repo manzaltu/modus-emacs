@@ -88,6 +88,7 @@
    "RET" '( :which-key "Project")
    "c" '( :which-key "Code")
    "g" '( :which-key "Git")
+   "m" '( :which-key "Merge")
    "r" '( :which-key "Multiple Cursors")
    "n" '( :which-key "Notes")))
 
