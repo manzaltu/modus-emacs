@@ -1528,6 +1528,7 @@ When a prefix ARG is given always prompt for a command to use."
   ( :keymaps 'mo-quick-menu-map
     :prefix "l"
     "D" #'edebug-defun
+    "m" #'edebug-set-initial-mode
     "t" #'mo-edebug-toggle-trace)
   :config
   (defun mo-edebug-toggle-trace ()
