@@ -79,7 +79,6 @@
    :which-key "Quick menu prefix key"
    "b" '( :which-key "Buffer")
    "f" '( :which-key "File")
-   "s" '( :which-key "Search")
    "v" '( :which-key "View")
    "w" '( :which-key "Window")
    "x" '( :which-key "Utils")
