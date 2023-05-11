@@ -1,8 +1,11 @@
 * Modus Operandi Emacs
 
-Modus Operandi Emacs is a project that aims to provide a robust, fast and scalabale development
-environment. It supports multiple programming languages and file formats, using relevant language
-servers and major modes.
+Modus Operandi Emacs is a project that aims to deliver a robust and fast development environment. It
+supports various programming languages and file formats by utilizing relevant language servers and
+modes.
+
+This is my continually evolving Emacs configuration. I recommend drawing inspiration from it and
+adapting it to your own needs.
 
 ** Emacs Version
 This configuration is intended to be used only on Emacs 29 built with tree-sitter support. I
