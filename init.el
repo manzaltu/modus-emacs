@@ -1621,6 +1621,9 @@ When a prefix ARG is given always prompt for a command to use."
   ( :keymaps 'mo-quick-menu-map
     :prefix "h"
     "r" #'lsp-rust-analyzer-open-external-docs)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "n"
+    "l" #'lsp-org)
   :init
   ;; No completion provider as we use corfu
   (setq lsp-completion-provider :none)
