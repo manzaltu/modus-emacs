@@ -630,6 +630,7 @@ Ask for action even on single candidate jumps."
         (concat (file-name-as-directory org-directory) "diary.org"))
   (setq org-id-locations-file (mo-cache-path ".org-id-locations"))
   (setq org-src-preserve-indentation t)
+  (setq org-confirm-babel-evaluate nil)
   (org-babel-do-load-languages
    'org-babel-load-languages
    '( ( emacs-lisp . t)
