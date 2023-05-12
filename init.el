@@ -917,6 +917,7 @@ Ask for action even on single candidate jumps."
     "Enable Corfu in the minibuffer if `completion-at-point' is bound."
     (when (where-is-internal #'completion-at-point (list (current-local-map)))
       (setq-local corfu-echo-delay nil
+                  corfu-auto nil
                   corfu-popupinfo-delay nil)
       (corfu-mode 1)))
 
