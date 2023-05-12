@@ -1690,12 +1690,17 @@ When a prefix ARG is given always prompt for a command to use."
                                    cmake-ts-mode
                                    sh-mode))
 
+  (defvar mo-lsp-recursion-flag nil
+    "Flag used for detecting recursion when enabling lsp.")
   (defun mo-maybe-enable-lsp (lsp-config)
     "If mode in LSP-CONFIG is equal to the current major-mode,
 run the attached function (if exists) and enable lsp"
-    (pcase lsp-config
-      (`( ,(pred (equal major-mode)) ,func) (funcall func) (lsp) t)
-      ((pred (equal major-mode)) (lsp) t)))
+    (if mo-lsp-recursion-flag
+        (message "LSP recursion detected in %s" lsp-config)
+      (let ((mo-lsp-recursion-flag t))
+        (pcase lsp-config
+          (`( ,(pred (equal major-mode)) ,func) (funcall func) (lsp) t)
+          ((pred (equal major-mode)) (lsp) t)))))
 
   ;; Kill language server after the last associated buffer was closed
   (setq lsp-keep-workspace-alive nil)
