@@ -1033,7 +1033,7 @@ Ask for action even on single candidate jumps."
     "w" #'mo-project-save
     "d" #'project-dired
     "f" #'mo-project-find-file
-    "c" #'project-compile
+    "C" #'project-compile
     "x" #'project-async-shell-command
     "k" #'project-kill-buffers
     "p" #'project-switch-project
