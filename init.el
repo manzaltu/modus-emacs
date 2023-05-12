@@ -25,6 +25,8 @@
 
 ;;; Code:
 
+(require 'cl-lib)
+
 ;; Set a directory path to be used for cache files
 (defvar mo-cache-dir (expand-file-name ".cache" user-emacs-directory))
 
