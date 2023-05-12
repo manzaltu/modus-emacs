@@ -383,6 +383,8 @@ Tab is named after the project's name."
   :general
   ( :keymaps 'mo-quick-menu-map
     "(" #'evil-collection-consult-jump-list)
+  :init
+  (defvar forge-add-default-bindings nil)
   :config
   ;; We have our own find references key binding. Remove evil-collection's one.
   ;; evil-collection's find usages overrides evil-mc key bindings.
