@@ -1552,8 +1552,22 @@ When a prefix ARG is given always prompt for a command to use."
 
 ;; Init treesit-auto for automatically using tree-sitter major modes
 (use-package treesit-auto
-  :functions global-treesit-auto-mode
+  :functions
+  ( global-treesit-auto-mode
+    treesit-auto--build-major-mode-remap-alist)
+  :preface
+  ;; Exclude modes from treesit-auto
+  (defvar mo-treesit-auto-exclude-mode-list '()
+    "List of auto treesit excluded modes.")
+  (defun mo-treesit-auto-filter-excluded-mode (remap-alist)
+    "Filter out excluded modes enabled by treesit-auto."
+    (cl-remove-if (lambda (item)
+                    (memq (car item) mo-treesit-auto-exclude-mode-list))
+                  remap-alist))
   :config
+  (advice-add
+   #'treesit-auto--build-major-mode-remap-alist
+   :filter-return #'mo-treesit-auto-filter-excluded-mode)
   (global-treesit-auto-mode))
 
 ;; Init lsp mode for lsp support
