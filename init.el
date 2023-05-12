@@ -1853,7 +1853,9 @@ run the attached function (if exists) and enable lsp"
     "C-M-s-S-r" #'rustic-cargo-rm
     "C-M-s-u" #'rustic-cargo-upgrade
     "C-M-s-d" #'rust-dbg-wrap-or-unwrap
-    "C-M-s-p" #'rustic-popup))
+    "C-M-s-p" #'rustic-popup)
+  :custom
+  ( rustic-cargo-clippy-trigger-fix 'on-compile))
 
 ;; Init swift-mode for Swift support
 (use-package swift-mode)
