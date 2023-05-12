@@ -1557,7 +1557,7 @@ When a prefix ARG is given always prompt for a command to use."
     treesit-auto--build-major-mode-remap-alist)
   :preface
   ;; Exclude modes from treesit-auto
-  (defvar mo-treesit-auto-exclude-mode-list '()
+  (defvar mo-treesit-auto-exclude-mode-list '( rustic-mode)
     "List of auto treesit excluded modes.")
   (defun mo-treesit-auto-filter-excluded-mode (remap-alist)
     "Filter out excluded modes enabled by treesit-auto."
