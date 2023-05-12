@@ -322,6 +322,12 @@
   ;; Set customization file path
   (setq custom-file (expand-file-name "custom.el" user-emacs-directory)))
 
+;; Init imenu for imenu support
+(use-package imenu
+  :straight nil
+  :config
+  (setq imenu-max-item-length nil))
+
 ;; Init ibuffer for editing buffer lists
 (use-package ibuffer
   :straight nil
