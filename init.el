@@ -1066,6 +1066,17 @@ directory as a fall back."
     (let* ((project (project-current t))
            (default-directory (project-root project)))
       (call-interactively #'find-file)))
+
+  (defun mo-project-recompile ()
+    "Run `recompile' in the project root."
+    (declare (interactive-only recompile))
+    (interactive)
+    (let ((default-directory (project-root (project-current t)))
+          (compilation-buffer-name-function
+           (or project-compilation-buffer-name-function
+               compilation-buffer-name-function)))
+      (call-interactively #'recompile)))
+
   ;; Enable project detection using .project files
   (add-to-list 'project-find-functions #'mo-project-try-local)
   ;; Set project history file path
