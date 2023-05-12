@@ -629,7 +629,30 @@ Ask for action even on single candidate jumps."
   (setq org-agenda-diary-file
         (concat (file-name-as-directory org-directory) "diary.org"))
   (setq org-id-locations-file (mo-cache-path ".org-id-locations"))
-  (setq org-src-preserve-indentation t))
+  (setq org-src-preserve-indentation t)
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '( ( emacs-lisp . t)
+      ( lisp . t)
+      ( org . t)
+      ( calc . t)
+      ( python . t)
+      ( ruby . t)
+      ( perl . t)
+      ( C . t)
+      ( java . t)
+      ( groovy . t)
+      ( haskell . t)
+      ( clojure . t)
+      ( julia . t)
+      ( js . t)
+      ( css . t)
+      ( latex . t)
+      ( sql . t)
+      ( sqlite . t)
+      ( makefile . t)
+      ( eshell . t)
+      ( shell . t))))
 
 ;; Init org-contrib for org add-ons
 (use-package org-contrib)
