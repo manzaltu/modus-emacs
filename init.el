@@ -592,7 +592,7 @@ Ask for action even on single candidate jumps."
                        ( org-level-8 . 1.0)))
         (set-face-attribute (car face) nil :height (cdr face)))
       ;; Make sure certain org faces always use the fixed-pitch face
-      (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
+      (set-face-attribute 'org-block nil :inherit 'fixed-pitch)
       (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
       (set-face-attribute 'org-formula nil :inherit 'fixed-pitch)
       (set-face-attribute 'org-code nil :inherit '( shadow fixed-pitch))
