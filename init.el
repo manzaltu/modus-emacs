@@ -2458,25 +2458,6 @@ If project root cannot be found, use the buffer's default directory."
   :config
   (setq emojify-emojis-dir (mo-cache-path "emojis")))
 
-;; Init dashboard for an informative splash screen
-(use-package dashboard
-  :functions dashboard-setup-startup-hook
-  :custom
-  ( dashboard-startup-banner 'logo)
-  ( dashboard-banner-logo-title "Welcome to Modus Operandi Emacs!")
-  ( dashboard-init-info "In Absentia Lucis, Tenebrae Vincunt")
-  ( dashboard-projects-backend 'project-el)
-  ( dashboard-center-content t)
-  ( dashboard-set-heading-icons t)
-  ( dashboard-icon-type 'nerd-icons)
-  ( dashboard-set-file-icons t)
-  ( dashboard-set-footer nil)
-  ( dashboard-items '( ( projects . 10)
-                       ( recents  . 10)
-                       ( bookmarks . 10)))
-  :config
-  (dashboard-setup-startup-hook))
-
 ;; Init doom one theme
 (use-package doom-themes
   :demand t

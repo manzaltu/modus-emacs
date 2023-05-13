@@ -49,7 +49,6 @@
  ("emacs-async" . "34feabe1142863a2c96f75afda1a2ae4aa0813f6")
  ("emacs-bazel-mode" . "55cba9bd31c660d9b313a993979f012f35673ba2")
  ("emacs-bookmark-in-project" . "a1630443887c7fa190411c45269bde575f0807c5")
- ("emacs-dashboard" . "fd7819cc90e5381c3e7788325ef8f1fec3100201")
  ("emacs-deferred" . "2239671d94b38d92e9b28d4e12fd79814cfb9c16")
  ("emacs-emojify" . "1b726412f19896abf5e4857d4c32220e33400b55")
  ("emacs-format-all-the-code" . "332b61a49490925cd2895eda9a4254a5fbc9b3a4")
