@@ -1508,6 +1508,10 @@ When a prefix ARG is given always prompt for a command to use."
         (user-error "There is not current branch"))))
   (setq magit-diff-refine-hunk 'all))
 
+;; Init magit-tbdiff for using git-range-diff command in magit
+(use-package magit-tbdiff
+  :after magit)
+
 ;; Init git-modes for editing git config files
 (use-package git-modes)
 

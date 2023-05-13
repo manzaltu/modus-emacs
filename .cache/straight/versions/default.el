@@ -122,6 +122,7 @@
  ("lsp-treemacs" . "eeb96b05e677147cf40292b86a1e5e8f73a8a586")
  ("lsp-ui" . "295d8984da06a745b0a36c56e28ce915bc389adb")
  ("magit" . "5d91aadd05a8d85d7699c00193638dceb7c95166")
+ ("magit-tbdiff" . "ff416b87a77a2f7cea234d9063ff629fc0e4c6c8")
  ("marginalia" . "b900ec5457068cd2b15b0e3600437f147c6bf636")
  ("markdown-mode" . "5d98592fe516748034d8baf92d7c0ba045e1f87a")
  ("melpa" . "b8b1519b843320207f9402f2b9ba26d64e9f0e6f")
