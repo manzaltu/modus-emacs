@@ -185,6 +185,8 @@
   ;; Set the default initial frame size
   (add-to-list 'default-frame-alist '( height . 55))
   (add-to-list 'default-frame-alist '( width . 210))
+  ;; Don't display startup screen
+  (setq inhibit-startup-screen t)
   ;; Scroll incrementally
   (setq scroll-step 1)
   ;; Don't automatically recenter after scrolling
