@@ -1553,13 +1553,6 @@ When a prefix ARG is given always prompt for a command to use."
 ;; Init ediff for better diff view and commands
 (use-package ediff
   :straight nil
-  :general
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "b"
-    "=" #'ediff-buffers)
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "f"
-    "=" #'ediff-files)
   :init
   ;; Ignore space changes
   (setq ediff-diff-options "-b")
@@ -1595,6 +1588,12 @@ When a prefix ARG is given always prompt for a command to use."
     "C-M-s-w" #'vdiff-save-buffers
     "C-M-s-u" #'vdiff-refresh
     "C-M-s-q" #'vdiff-quit)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "=" #'vdiff-buffers)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "f"
+    "=" #'vdiff-files)
   :custom
   ( vdiff-auto-refine t)
   ( vdiff-diff-algorithm 'git-diff-histogram))
