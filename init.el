@@ -1570,7 +1570,9 @@ When a prefix ARG is given always prompt for a command to use."
   (setq ediff-forward-word-function #'forward-char))
 
 ;; Init vdiff for vimdiff in Emacs
-(use-package vdiff)
+(use-package vdiff
+  :custom
+  ( vdiff-diff-algorithm 'git-diff-histogram))
 
 ;; Init ztree for comparing folder content
 (use-package ztree
