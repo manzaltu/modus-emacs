@@ -1708,6 +1708,8 @@ When a prefix ARG is given always prompt for a command to use."
     "C-c l" '( :keymap lsp-command-map :which-key "lsp"))
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
+    "l" #'lsp
+    "L" #'lsp-disconnect
     "a" #'lsp-execute-code-action
     "r" #'lsp-rename
     "p" #'lsp-signature-activate
