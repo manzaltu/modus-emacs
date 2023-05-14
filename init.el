@@ -1779,14 +1779,15 @@ When a prefix ARG is given always prompt for a command to use."
   (defun mo-maybe-enable-lsp ()
     "If mode in LSP-CONFIG is equal to the current major-mode,
 run the attached function (if exists) and enable lsp"
-    (if mo-lsp-recursion-flag
-        (message "LSP recursion detected in %s" (buffer-name))
-      (let ((mo-lsp-recursion-flag t))
-        (seq-find (lambda (mode-config)
-                    (pcase mode-config
-                      (`( ,(pred (equal major-mode)) ,func) (funcall func) (lsp) t)
-                      ((pred (equal major-mode)) (lsp) t)))
-                  mo-lsp-enable-for-modes))))
+    (unless (string-match "\\.~.+?~$" (buffer-name)) ; Do not load in magit diff buffers
+      (if mo-lsp-recursion-flag
+          (message "LSP recursion detected in %s" (buffer-name))
+        (let ((mo-lsp-recursion-flag t))
+          (seq-find (lambda (mode-config)
+                      (pcase mode-config
+                        (`( ,(pred (equal major-mode)) ,func) (funcall func) (lsp) t)
+                        ((pred (equal major-mode)) (lsp) t)))
+                    mo-lsp-enable-for-modes)))))
 
   ;; Kill language server after the last associated buffer was closed
   (setq lsp-keep-workspace-alive nil)
