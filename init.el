@@ -973,6 +973,18 @@ Ask for action even on single candidate jumps."
   ;; Set auto completion to be more responsive
   ( corfu-auto-delay 0)
   ( corfu-auto-prefix 0)
+  ;; Sort candidates by calling corfu-sort-function on top of display-sort-function
+  ( corfu-sort-override-function
+    (lambda (candidates)
+      (let ((candidates
+             (let ((display-sort-func (corfu--metadata-get 'display-sort-function)))
+               (if display-sort-func
+                   (funcall display-sort-func candidates)
+                 candidates))))
+        (if corfu-sort-function
+            (funcall corfu-sort-function candidates)
+          candidates))))
+
   :hook
   ;; Conditionally enable Corfu in the minibuffer
   ( minibuffer-setup . corfu-enable-in-minibuffer)
