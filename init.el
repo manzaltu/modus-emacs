@@ -1776,15 +1776,17 @@ When a prefix ARG is given always prompt for a command to use."
 
   (defvar mo-lsp-recursion-flag nil
     "Flag used for detecting recursion when enabling lsp.")
-  (defun mo-maybe-enable-lsp (lsp-config)
+  (defun mo-maybe-enable-lsp ()
     "If mode in LSP-CONFIG is equal to the current major-mode,
 run the attached function (if exists) and enable lsp"
     (if mo-lsp-recursion-flag
-        (message "LSP recursion detected in %s" lsp-config)
+        (message "LSP recursion detected in %s" (buffer-name))
       (let ((mo-lsp-recursion-flag t))
-        (pcase lsp-config
-          (`( ,(pred (equal major-mode)) ,func) (funcall func) (lsp) t)
-          ((pred (equal major-mode)) (lsp) t)))))
+        (seq-find (lambda (mode-config)
+                    (pcase mode-config
+                      (`( ,(pred (equal major-mode)) ,func) (funcall func) (lsp) t)
+                      ((pred (equal major-mode)) (lsp) t)))
+                  mo-lsp-enable-for-modes))))
 
   ;; Kill language server after the last associated buffer was closed
   (setq lsp-keep-workspace-alive nil)
@@ -1818,8 +1820,7 @@ run the attached function (if exists) and enable lsp"
   ;; Do not load lsp if dir local vars are not enabled (e.g. on preview)
   ( hack-local-variables . (lambda ()
                              (when enable-dir-local-variables
-                               (seq-find #'mo-maybe-enable-lsp
-                                         mo-lsp-enable-for-modes))))
+                               (mo-maybe-enable-lsp))))
 
   ;; Setup completion to use orderless
   ( lsp-completion-mode . mo-lsp-mode-setup-completion)
