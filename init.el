@@ -1569,6 +1569,9 @@ When a prefix ARG is given always prompt for a command to use."
   ;; Set ediff to show diff changes in character-level
   (setq ediff-forward-word-function #'forward-char))
 
+;; Init vdiff for vimdiff in Emacs
+(use-package vdiff)
+
 ;; Init ztree for comparing folder content
 (use-package ztree
   :general

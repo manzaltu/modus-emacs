@@ -60,6 +60,7 @@
  ("emacs-powerthesaurus" . "4b97797cf789aaba411c61a85fe23474ebc5bedc")
  ("emacs-request" . "01e338c335c07e4407239619e57361944a82cb8a")
  ("emacs-solaire-mode" . "8af65fbdc50b25ed3214da949b8a484527c7cc14")
+ ("emacs-vdiff" . "d5df45f84395f507aba555a54407b60e284b23cd")
  ("emacs-which-key" . "bd34ede7bf77ad3988330b37207f3978e7342c79")
  ("emacsmirror-mirror" . "656527704ebf361ade5b57101ef277e9be61dd34")
  ("emacsql" . "64012261f65fcdd7ea137d1973ef051af1dced42")
