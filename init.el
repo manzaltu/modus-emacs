@@ -569,7 +569,9 @@ Ask for action even on single candidate jumps."
   ( :keymaps 'mo-quick-menu-map
     ":" #'dumb-jump-go)
   :init
-  (setq dumb-jump-selector #'completing-read))
+  (setq dumb-jump-selector #'completing-read)
+  :custom
+  ( dumb-jump-prefer-searcher 'rg))
 
 ;; Init origami for text and code folding
 (use-package origami
