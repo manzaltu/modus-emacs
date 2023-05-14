@@ -1575,6 +1575,9 @@ When a prefix ARG is given always prompt for a command to use."
   ( vdiff-auto-refine t)
   ( vdiff-diff-algorithm 'git-diff-histogram))
 
+;; Init vdiff-magit for vdiff and magit integration
+(use-package vdiff-magit)
+
 ;; Init ztree for comparing folder content
 (use-package ztree
   :general
