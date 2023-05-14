@@ -1576,7 +1576,17 @@ When a prefix ARG is given always prompt for a command to use."
   ( vdiff-diff-algorithm 'git-diff-histogram))
 
 ;; Init vdiff-magit for vdiff and magit integration
-(use-package vdiff-magit)
+(use-package vdiff-magit
+  :after magit
+  :general
+  ( :keymaps 'magit-mode-map
+    "e" #'vdiff-magit-dwim
+    "E" #'vdiff-magit)
+  :config
+  (transient-suffix-put 'magit-dispatch "e" :description "vdiff (dwim)")
+  (transient-suffix-put 'magit-dispatch "e" :command 'vdiff-magit-dwim)
+  (transient-suffix-put 'magit-dispatch "E" :description "vdiff")
+  (transient-suffix-put 'magit-dispatch "E" :command 'vdiff-magit))
 
 ;; Init ztree for comparing folder content
 (use-package ztree
