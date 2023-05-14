@@ -1571,6 +1571,30 @@ When a prefix ARG is given always prompt for a command to use."
 
 ;; Init vdiff for vimdiff in Emacs
 (use-package vdiff
+  :general
+  ( :keymaps '( vdiff-mode-map vdiff-3way-mode-map)
+    "C-M-s-g" #'vdiff-switch-buffer
+    "C-M-s-n" #'vdiff-next-hunk
+    "C-M-s-S-n" #'vdiff-next-fold
+    "C-M-s-p" #'vdiff-previous-hunk
+    "C-M-s-S-p" #'vdiff-previous-fold
+    "C-M-s-r" #'vdiff-receive-changes
+    "C-M-s-S-r" #'vdiff-receive-changes-and-step
+    "C-M-s-s" #'vdiff-send-changes
+    "C-M-s-S-s" #'vdiff-send-changes-and-step
+    "C-M-s-f" #'vdiff-refine-this-hunk
+    "C-M-s-S-f" #'vdiff-refine-all-hunks
+    "C-M-s-c" #'vdiff-close-fold
+    "C-M-s-S-c" #'vdiff-close-all-folds
+    "C-M-s-t" #'vdiff-close-other-folds
+    "C-M-s-o" #'vdiff-open-fold
+    "C-M-s-S-o" #'vdiff-open-all-folds
+    "C-M-s-x" #'vdiff-remove-refinements-in-hunk
+    "C-M-s-i C-M-s-c" #'vdiff-toggle-case
+    "C-M-s-i C-M-s-w" #'vdiff-toggle-whitespace
+    "C-M-s-w" #'vdiff-save-buffers
+    "C-M-s-u" #'vdiff-refresh
+    "C-M-s-q" #'vdiff-quit)
   :custom
   ( vdiff-auto-refine t)
   ( vdiff-diff-algorithm 'git-diff-histogram))
