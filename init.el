@@ -1826,6 +1826,12 @@ run the attached function (if exists) and enable lsp"
 
   ;; Setup completion to use orderless
   ( lsp-completion-mode . mo-lsp-mode-setup-completion)
+  ;; Temporarily disable the breadcrumb headerline when the buffer is in vdiff-mode.
+  ( vdiff-mode . (lambda ()
+                   (when (and lsp-mode lsp-headerline-breadcrumb-enable)
+                     (if vdiff-mode
+                         (lsp-headerline-breadcrumb-mode -1)
+                       (lsp-headerline-breadcrumb-mode)))))
   :commands lsp)
 
 ;; Init lsp-ui for an interactive lsp interface
