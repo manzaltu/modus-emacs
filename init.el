@@ -1572,6 +1572,7 @@ When a prefix ARG is given always prompt for a command to use."
 ;; Init vdiff for vimdiff in Emacs
 (use-package vdiff
   :custom
+  ( vdiff-auto-refine t)
   ( vdiff-diff-algorithm 'git-diff-histogram))
 
 ;; Init ztree for comparing folder content
