@@ -1611,7 +1611,13 @@ When a prefix ARG is given always prompt for a command to use."
   :custom
   ( vdiff-auto-refine t)
   ( vdiff-subtraction-fill-char ?‧)
-  ( vdiff-diff-algorithm 'git-diff-histogram))
+  ;; vdiff has a known bug with setting ignore preferences using minibuffer completions.
+  ;; Set ignore space changes manually, instead.
+  ( vdiff-diff-algorithm 'git-diff-histogram-no-space-changes)
+  :config
+  (add-to-list 'vdiff-diff-algorithms
+               '( git-diff-histogram-no-space-changes .
+                  "git --no-pager diff --histogram --no-index --no-color -b")))
 
 ;; Init vdiff-magit for vdiff and magit integration
 (use-package vdiff-magit
