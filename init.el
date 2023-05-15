@@ -1277,7 +1277,9 @@ directory as a fall back."
 
   (defun mo-consult-line-symbol-at-point ()
     (interactive)
-    (consult-line (thing-at-point 'symbol))))
+    (consult-line (thing-at-point 'symbol)))
+
+  (evil-set-command-property #'mo-consult-line-symbol-at-point :jump t))
 
 ;; Init consult-dir for inserting paths into minibuffer prompts
 (use-package consult-dir
