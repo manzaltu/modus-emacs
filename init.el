@@ -1896,7 +1896,9 @@ run the attached function (if exists) and enable lsp"
   ;; Init lldb debugging
   (require 'dap-lldb)
   ;; Init native debugging
-  (require 'dap-gdb-lldb))
+  (require 'dap-gdb-lldb)
+  ;; Init dotnet debugging
+  (require 'dap-netcore))
 
 ;; Init flycheck for on-the-fly syntax checking
 (use-package flycheck
