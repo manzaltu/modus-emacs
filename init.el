@@ -2428,6 +2428,11 @@ run the attached function (if exists) and enable lsp"
     "t" #'mo-vterm-project)
   :commands vterm
   :init
+  (defun mo-vterm-file ()
+    "Create a vterm buffer with current directory set to the current buffer default directory."
+    (interactive)
+    (vterm vterm-buffer-name))
+
   (defun mo-vterm-project ()
     "Create a vterm buffer with current directory set to the active project root.
 If project root cannot be found, use the buffer's default directory."
