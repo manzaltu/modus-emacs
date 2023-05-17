@@ -1781,6 +1781,7 @@ When a prefix ARG is given always prompt for a command to use."
                                    js2-mode
                                    typescript-mode
                                    typescript-ts-mode
+                                   tsx-ts-mode
                                    julia-mode
                                    groovy-mode
                                    web-mode
