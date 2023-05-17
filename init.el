@@ -1415,6 +1415,12 @@ When a prefix ARG is given always prompt for a command to use."
       (call-process program nil 0 nil current-file-name)))
   (setq dired-dwim-target t))
 
+;; Init image-dired for viewing image thumbnails in dired
+(use-package image-dired
+  :straight nil
+  :init
+  (setq image-dired-dir (mo-cache-path "image-dired")))
+
 ;; Init dired+ for additional dired functionality
 (use-package dired+
   :after evil-collection
