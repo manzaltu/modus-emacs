@@ -227,6 +227,8 @@
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "r" #'revert-buffer-quick)
+  ( :keymaps 'mo-quick-menu-map
+    "q" #'save-buffers-kill-terminal)
   :config
   (defun mo-open-init-file ()
     "Open the user's init file."
