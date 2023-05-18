@@ -339,6 +339,14 @@
     :prefix "b"
     "i" #'ibuffer))
 
+;; Init repeat for repeating previous commands
+(use-package repeat
+  :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "z"
+    "z" #'repeat))
+
 ;; Init modus-operandi-emacs for non-package related functionality
 (use-package modus-operandi-emacs
   :after ( simple project tab-bar)
