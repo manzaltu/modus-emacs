@@ -1233,6 +1233,9 @@ directory as a fall back."
   ( :keymaps 'mo-quick-menu-map
     :prefix "n"
     "/" #'consult-org-heading)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "z"
+    "c" #'consult-complex-command)
 
   :init
   ;; Improve register preview
