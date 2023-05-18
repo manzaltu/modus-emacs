@@ -84,6 +84,7 @@
    "v" '( :which-key "View")
    "w" '( :which-key "Window")
    "x" '( :which-key "Utils")
+   "z" '( :which-key "Repeat")
    "t" '( :which-key "Tab")
    "h" '( :which-key "Help")
    "RET" '( :which-key "Project")
