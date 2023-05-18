@@ -1172,7 +1172,7 @@ directory as a fall back."
     "q" #'consult-compile-error)
   ( :keymaps 'mo-quick-menu-map
     :prefix "h"
-    "I" #'consult-info
+    "," #'consult-info
     "m" #'consult-man)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
