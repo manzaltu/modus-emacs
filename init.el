@@ -54,6 +54,9 @@
 ;; Show calls to use-package in imenu
 (customize-set-variable 'use-package-enable-imenu-support t)
 
+;; Enable package hooks
+(defvar use-package-inject-hooks t)
+
 ;; Init straight for package management
 (use-package straight
   :custom
