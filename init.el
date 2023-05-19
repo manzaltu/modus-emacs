@@ -2853,6 +2853,10 @@ If project root cannot be found, use the buffer's default directory."
 ;; Init whitespace for showing trailing whitespaces in code
 (use-package whitespace
   :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "W" #'whitespace-mode)
   :config
   (setq whitespace-style '( face trailing))
   :hook
