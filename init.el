@@ -1441,12 +1441,15 @@ When a prefix ARG is given always prompt for a command to use."
 
 ;; Init dired+ for additional dired functionality
 (use-package dired+
-  :after evil-collection
   :functions diredp-toggle-find-file-reuse-dir
   :custom
   ( diredp-hide-details-initially-flag nil)
-  :config
-  (diredp-toggle-find-file-reuse-dir 1))
+  :hook
+  ;; Enable reusing dired buffers after evil-collection setup is done.
+  ;; This is needed in-order to be able to override evil-collection's key bindings.
+  ( use-package--evil-collection--post-config .
+    (lambda ()
+      (diredp-toggle-find-file-reuse-dir 1))))
 
 ;; Init treemacs for a tree-like sidebar file navigator
 (use-package treemacs
