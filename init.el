@@ -2904,6 +2904,7 @@ If project root cannot be found, use the buffer's default directory."
 (use-package autorevert
   :straight nil
   :config
+  (setq auto-revert-verbose nil)
   (global-auto-revert-mode))
 
 ;; Init bookmark for managing bookmarks
