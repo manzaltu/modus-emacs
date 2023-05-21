@@ -271,7 +271,8 @@
   ( :keymaps 'mo-quick-menu-map
     :prefix "w"
     "=" #'balance-windows
-    "C" #'delete-other-windows)
+    "C" #'delete-other-windows
+    "x" #'mo-quit-other-window)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "[" #'previous-buffer
