@@ -991,17 +991,7 @@ Ask for action even on single candidate jumps."
   ( corfu-auto-delay 0)
   ( corfu-auto-prefix 0)
   ;; Sort candidates by calling corfu-sort-function on top of display-sort-function
-  ( corfu-sort-override-function
-    (lambda (candidates)
-      (let ((candidates
-             (let ((display-sort-func (corfu--metadata-get 'display-sort-function)))
-               (if display-sort-func
-                   (funcall display-sort-func candidates)
-                 candidates))))
-        (if corfu-sort-function
-            (funcall corfu-sort-function candidates)
-          candidates))))
-
+  ( corfu-sort-override-function #'mo-corfu-combined-sort)
   :hook
   ;; Conditionally enable Corfu in the minibuffer
   ( minibuffer-setup . corfu-enable-in-minibuffer)
@@ -1010,6 +1000,17 @@ Ask for action even on single candidate jumps."
   ;; Close popup when exiting evil insert state
   ( evil-insert-state-exit . corfu-quit)
   :config
+  (defun mo-corfu-combined-sort (candidates)
+    "Sort CANDIDATES using both display-sort-function and corfu-sort-function."
+    (let ((candidates
+           (let ((display-sort-func (corfu--metadata-get 'display-sort-function)))
+             (if display-sort-func
+                 (funcall display-sort-func candidates)
+               candidates))))
+      (if corfu-sort-function
+          (funcall corfu-sort-function candidates)
+        candidates)))
+
   (defun corfu-enable-in-minibuffer ()
     "Enable Corfu in the minibuffer if `completion-at-point' is bound."
     (when (where-is-internal #'completion-at-point (list (current-local-map)))
