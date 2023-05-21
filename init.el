@@ -277,6 +277,10 @@
     "[" #'previous-buffer
     "]" #'next-buffer)
   :config
+  (defun mo-quit-other-window ()
+    "Quit the other window."
+    (interactive)
+    (quit-window nil (previous-window)))
   ;; Don't split windows vertically by default
   (setq split-height-threshold nil)
   ;; A fast key binding for showing the next command's result in another window.
