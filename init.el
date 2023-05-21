@@ -992,6 +992,8 @@ Ask for action even on single candidate jumps."
   ( corfu-auto t)
   ;; Keep popup only if there is a match or the separator was inserted
   ( corfu-quit-no-match 'separator)
+  ;; Quit on exact match
+  ( corfu-on-exact-match 'quit)
   ;; Set auto completion to be more responsive
   ( corfu-auto-delay 0)
   ( corfu-auto-prefix 0)
