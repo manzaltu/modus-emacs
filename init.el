@@ -651,7 +651,7 @@ Ask for action even on single candidate jumps."
   :hook
   ( after-enable-theme .
     (lambda ()
-      ;; Resize org headings
+      ;; Resize org headings and agenda dates
       (dolist (face '( ( org-document-title . 1.3)
                        ( org-level-1 . 1.2)
                        ( org-level-2 . 1.1)
@@ -660,7 +660,11 @@ Ask for action even on single candidate jumps."
                        ( org-level-5 . 1.0)
                        ( org-level-6 . 1.0)
                        ( org-level-7 . 1.0)
-                       ( org-level-8 . 1.0)))
+                       ( org-level-8 . 1.0)
+                       ( org-agenda-date . 1.1)
+                       ( org-agenda-date-today . 1.1)
+                       ( org-agenda-date-weekend . 1.1)
+                       ( org-agenda-date-weekend-today . 1.1)))
         (set-face-attribute (car face) nil :height (cdr face)))
       ;; Make sure certain org faces always use the fixed-pitch face
       (set-face-attribute 'org-block nil :inherit 'fixed-pitch)
