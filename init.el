@@ -272,6 +272,7 @@
     :prefix "w"
     "=" #'balance-windows
     "C" #'delete-other-windows
+    "q" #'quit-window
     "x" #'mo-quit-other-window)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
