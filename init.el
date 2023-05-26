@@ -734,7 +734,13 @@ Ask for action even on single candidate jumps."
 
 ;; Init org-super-agenda for grouping agenda items into sections
 (use-package org-super-agenda
-  :after org)
+  :after org
+  :functions org-super-agenda-mode
+  :custom
+  ;; Enable auto grouping
+  ( org-super-agenda-groups '((:auto-group t)))
+  :config
+  (org-super-agenda-mode))
 
 ;; Init org-roam for Zettelkasten note management
 (use-package org-roam
