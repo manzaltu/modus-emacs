@@ -735,8 +735,13 @@ Ask for action even on single candidate jumps."
 ;; Init org-super-agenda for grouping agenda items into sections
 (use-package org-super-agenda
   :after org
+  :demand t
   :defines org-super-agenda-header-map
   :functions org-super-agenda-mode
+  :hook
+  ( after-enable-theme .
+    (lambda ()
+      (set-face-attribute 'org-super-agenda-header nil :overline t)))
   :custom
   ;; Enable auto grouping
   ( org-super-agenda-groups '((:auto-group t) (:auto-category t)))
