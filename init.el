@@ -283,6 +283,10 @@
     "Quit the other window."
     (interactive)
     (quit-window nil (previous-window)))
+  (defun mo-quit-window-kill-buffer ()
+    "Quit and kill window."
+    (interactive)
+    (quit-window t))
   ;; Don't split windows vertically by default
   (setq split-height-threshold nil)
   ;; A fast key binding for showing the next command's result in another window.
