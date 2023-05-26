@@ -276,6 +276,7 @@
     "x" #'mo-quit-other-window)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
+    "q" #'mo-quit-window-kill-buffer
     "[" #'previous-buffer
     "]" #'next-buffer)
   :config
