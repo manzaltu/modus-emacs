@@ -745,6 +745,7 @@ Ask for action even on single candidate jumps."
   :custom
   ;; Enable auto grouping
   ( org-super-agenda-groups '((:auto-group t) (:auto-category t)))
+  ( org-super-agenda-final-group-separator "\n")
   :config
   ;; Delete super agenda key map to support evil mode
   (setq org-super-agenda-header-map (make-sparse-keymap))
