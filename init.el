@@ -732,6 +732,10 @@ Ask for action even on single candidate jumps."
   :after org-contrib
   :straight nil)
 
+;; Init org-super-agenda for grouping agenda items into sections
+(use-package org-super-agenda
+  :after org)
+
 ;; Init org-roam for Zettelkasten note management
 (use-package org-roam
   :demand t
