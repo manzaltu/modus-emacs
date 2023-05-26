@@ -735,11 +735,14 @@ Ask for action even on single candidate jumps."
 ;; Init org-super-agenda for grouping agenda items into sections
 (use-package org-super-agenda
   :after org
+  :defines org-super-agenda-header-map
   :functions org-super-agenda-mode
   :custom
   ;; Enable auto grouping
   ( org-super-agenda-groups '((:auto-group t)))
   :config
+  ;; Delete super agenda key map to support evil mode
+  (setq org-super-agenda-header-map (make-sparse-keymap))
   (org-super-agenda-mode))
 
 ;; Init org-roam for Zettelkasten note management
