@@ -745,7 +745,9 @@ Ask for action even on single candidate jumps."
   :hook
   ( after-enable-theme .
     (lambda ()
-      (set-face-attribute 'org-super-agenda-header nil :overline t)))
+      (set-face-attribute 'org-super-agenda-header nil
+                          :overline t
+                          :foreground "DarkGoldenrod3")))
   :custom
   ;; Enable auto grouping
   ( org-super-agenda-groups '((:auto-group t) (:auto-category t)))
