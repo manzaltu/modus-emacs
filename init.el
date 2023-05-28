@@ -2056,7 +2056,16 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init yasnippets for adding code snippet templates
 (use-package yasnippet
+  :demand t
   :functions yas-global-mode
+  :general
+  ( :keymaps 'yas-keymap
+    [tab] nil
+    "TAB" nil
+    [shift tab] nil
+    [backtab] nil
+    "C-<return>" (yas-filtered-definition #'yas-next-field-or-maybe-expand)
+    "C-S-<return>" (yas-filtered-definition #'yas-prev-field))
   :config
   (yas-global-mode 1))
 
