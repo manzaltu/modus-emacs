@@ -2820,6 +2820,7 @@ If project root cannot be found, use the buffer's default directory."
         '( "\\*Messages\\*"
            "Output\\*$"
            "\\*Async Shell Command\\*"
+           "^\\*HTTP Response .*\\*$"
            help-mode
            helpful-mode
            devdocs-mode
