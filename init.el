@@ -505,6 +505,15 @@ Tab is named after the project's name."
 
 ;; Init avy for text zapping using free text and a timeout
 (use-package avy
+  :demand t
+  :hook
+  ( after-enable-theme .
+    (lambda()
+      ;; Better highlight the leading characters
+      (set-face-attribute 'avy-lead-face nil :background "gold1")
+      (set-face-attribute 'avy-lead-face-0 nil :background "gold2")
+      (set-face-attribute 'avy-lead-face-1 nil :background "gold3")
+      (set-face-attribute 'avy-lead-face-2 nil :background "gold4")))
   :config
   (defun mo-avy-goto-char-timer-action ()
     "Zap to free text search with timeout.
@@ -518,11 +527,6 @@ Ask for action even on single candidate jumps."
     "C-'" #'avy-goto-char-timer
     "C-\"" #'mo-avy-goto-char-timer-action)
   :config
-  ;; Better highlight the leading characters
-  (set-face-attribute 'avy-lead-face nil :background "gold1")
-  (set-face-attribute 'avy-lead-face-0 nil :background "gold2")
-  (set-face-attribute 'avy-lead-face-1 nil :background "gold3")
-  (set-face-attribute 'avy-lead-face-2 nil :background "gold4")
   (setq avy-all-windows 'all-frames)
   (setq avy-timeout-seconds 0.25))
 
