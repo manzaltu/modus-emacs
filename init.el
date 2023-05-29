@@ -510,10 +510,10 @@ Tab is named after the project's name."
   ( after-enable-theme .
     (lambda()
       ;; Better highlight the leading characters
-      (set-face-attribute 'avy-lead-face nil :background "gold1")
-      (set-face-attribute 'avy-lead-face-0 nil :background "gold2")
-      (set-face-attribute 'avy-lead-face-1 nil :background "gold3")
-      (set-face-attribute 'avy-lead-face-2 nil :background "gold4")))
+      (set-face-attribute 'avy-lead-face nil :background "gold2")
+      (set-face-attribute 'avy-lead-face-0 nil :background "gold3")
+      (set-face-attribute 'avy-lead-face-1 nil :background "gold4")
+      (set-face-attribute 'avy-lead-face-2 nil :background "DarkGoldenrod4")))
   :config
   (defun mo-avy-goto-char-timer-action ()
     "Zap to free text search with timeout.
