@@ -1898,6 +1898,8 @@ run the attached function (if exists) and enable lsp"
   (setq lsp-completion-default-behaviour :insert)
   ;; Disable lenses
   (setq lsp-lens-enable nil)
+  ;; Limit the number of signature doc lines
+  (setq lsp-signature-doc-lines 5)
   ;; Set clangd default parameters
   (setq lsp-clients-clangd-args '( "--header-insertion-decorators=0"
                                    "--completion-style=detailed"))
