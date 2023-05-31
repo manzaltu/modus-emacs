@@ -1565,6 +1565,7 @@ When a prefix ARG is given always prompt for a command to use."
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
     "g" #'magit-status
+    "G" #'magit-clone
     "s" #'magit-stage
     "u" #'magit-unstage
     "c" #'magit-commit
