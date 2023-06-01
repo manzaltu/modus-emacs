@@ -1745,6 +1745,14 @@ When a prefix ARG is given always prompt for a command to use."
     "d" #'eval-defun
     "s" #'eval-last-sexp))
 
+;; Init ielm for lisp REPL
+(use-package ielm
+  :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "l"
+    "i" #'ielm))
+
 ;; Init edebug for debugging lisp code
 (use-package edebug
   :general
