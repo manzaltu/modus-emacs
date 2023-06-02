@@ -2993,6 +2993,14 @@ If project root cannot be found, use the buffer's default directory."
   ( bookmark-in-project-project-root
     (lambda () (project-root (project-current)))))
 
+;; Init tramp for accessing remote files
+(use-package tramp
+  :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "K" #'tramp-cleanup-all-buffers))
+
 ;; Init tramp-cache for caching in tramp
 (use-package tramp-cache
   :straight nil
