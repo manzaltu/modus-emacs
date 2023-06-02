@@ -2999,7 +2999,10 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "K" #'tramp-cleanup-all-buffers))
+    "K" #'tramp-cleanup-all-buffers)
+  :config
+  ;; Set default method to ssh as it is faster than scp
+  (setq tramp-default-method "ssh"))
 
 ;; Init tramp-cache for caching in tramp
 (use-package tramp-cache
