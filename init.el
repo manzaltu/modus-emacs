@@ -459,7 +459,17 @@ Tab is named after the project's name."
   ;; evil-collection's find usages overrides evil-mc key bindings.
   (setq evil-collection-want-find-usages-bindings nil)
   (setq evil-collection-want-unimpaired-p nil)
-  (evil-collection-init))
+  (evil-collection-init)
+
+  ;; Init dired+ for additional dired functionality
+  ;; Init the package after evil-collection is both loaded and configured, so directory
+  ;; reusing will be configured correctly.
+  (use-package dired+
+    :functions diredp-toggle-find-file-reuse-dir
+    :custom
+    ( diredp-hide-details-initially-flag nil)
+    :config
+    (diredp-toggle-find-file-reuse-dir 1)))
 
 ;; Init evil-org for supporting evil key bindings in org-mode
 (use-package evil-org
@@ -1480,18 +1490,6 @@ When a prefix ARG is given always prompt for a command to use."
   :straight nil
   :init
   (setq image-dired-dir (mo-cache-path "image-dired")))
-
-;; Init dired+ for additional dired functionality
-(use-package dired+
-  :functions diredp-toggle-find-file-reuse-dir
-  :custom
-  ( diredp-hide-details-initially-flag nil)
-  :hook
-  ;; Enable reusing dired buffers after evil-collection setup is done.
-  ;; This is needed in-order to be able to override evil-collection's key bindings.
-  ( use-package--evil-collection--post-config .
-    (lambda ()
-      (diredp-toggle-find-file-reuse-dir 1))))
 
 ;; Init treemacs for a tree-like sidebar file navigator
 (use-package treemacs
