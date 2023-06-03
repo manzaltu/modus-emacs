@@ -2978,7 +2978,9 @@ If project root cannot be found, use the buffer's default directory."
     "K" #'tramp-cleanup-all-buffers)
   :config
   ;; Set default method to ssh as it is faster than scp
-  (setq tramp-default-method "ssh"))
+  (setq tramp-default-method "ssh")
+  ;; Preserve remote path value
+  (add-to-list 'tramp-remote-path 'tramp-own-remote-path))
 
 ;; Init tramp-cache for caching in tramp
 (use-package tramp-cache
