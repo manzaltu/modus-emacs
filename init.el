@@ -2628,28 +2628,6 @@ If project root cannot be found, use the buffer's default directory."
     (let ((current-prefix-arg '(4)))
       (call-interactively #'copy-as-format))))
 
-;; Init nerd-icons for icon support
-(use-package nerd-icons)
-
-;; Init nerd-icons-completion for icon support in completion
-(use-package nerd-icons-completion
-  :demand t
-  :functions nerd-icons-completion-mode
-  :config
-  (nerd-icons-completion-mode))
-
-;; Init nerd-icons-dired for icon support in dired
-(use-package nerd-icons-dired
-  :hook
-  ( dired-mode . nerd-icons-dired-mode))
-
-;; Init treemacs-nerd-icons for icon support in treemacs
-(use-package treemacs-nerd-icons
-  :after ( treemacs nerd-icons)
-  :functions treemacs-load-theme
-  :config
-  (treemacs-load-theme "nerd-icons"))
-
 ;; Init kind-icon for icon support in auto completion
 (use-package kind-icon
   :after corfu
