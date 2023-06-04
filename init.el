@@ -2993,6 +2993,9 @@ If project root cannot be found, use the buffer's default directory."
   ( :keymaps 'mo-quick-menu-map
     :prefix "a"
     "c" #'tramp-cleanup-all-buffers)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "a"
+    "C" #'tramp-cleanup-connection)
   :config
   ;; Set default method to ssh as it is faster than scp
   (setq tramp-default-method "ssh")
