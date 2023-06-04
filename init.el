@@ -960,7 +960,21 @@ Ask for action even on single candidate jumps."
   ( :keymaps 'mo-quick-menu-map
     :prefix "a"
     "k" #'dired-async-kill-process)
+  :custom
+  ;; Make sure that the file threshold variable is passed to the async environment.
+  ;; This is needed for disabling the large file warning on dired-async.
+  ( dired-async-env-variables-regexp
+    "\\`\\(\\(tramp-\\(default\\|connection\\|remote\\)\\|ange-ftp\\)-.*
+\\|large-file-warning-threshold\\)")
   :config
+  (defun mo-disable-large-file-warning-advice (func &rest args)
+    "An advice function for disabling the large file warning."
+    (let ((large-file-warning-threshold nil))
+      (apply func args)))
+  ;; Disable large file warning, that can happen, for example, when using tramp with ssh.
+  ;; When large file warning appears in async flows, it blocks the process from
+  ;; completing its job, as it waits for user input in the background.
+  (advice-add 'dired-async-create-files :around #'mo-disable-large-file-warning-advice)
   (dired-async-mode))
 
 ;; Init orderless for advanced (e.g. fuzzy) completion styles
