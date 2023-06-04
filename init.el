@@ -954,7 +954,12 @@ Ask for action even on single candidate jumps."
 (use-package emacs-async
   ;; This is not a loadable package
   :no-require t
+  :demand t
   :functions dired-async-mode
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "a"
+    "k" #'dired-async-kill-process)
   :config
   (dired-async-mode))
 
