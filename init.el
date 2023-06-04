@@ -82,6 +82,7 @@
    :non-normal-prefix mo-quick-menu-nn-prefix
    :prefix-map 'mo-quick-menu-map
    :which-key "Quick menu prefix key"
+   "a" '( :which-key "Action")
    "b" '( :which-key "Buffer")
    "f" '( :which-key "File")
    "v" '( :which-key "View")
