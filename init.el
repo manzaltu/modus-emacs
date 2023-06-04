@@ -952,7 +952,10 @@ Ask for action even on single candidate jumps."
 ;; Init emacs-async for async processing in Emacs
 (use-package emacs-async
   ;; This is not a loadable package
-  :no-require t)
+  :no-require t
+  :functions dired-async-mode
+  :config
+  (dired-async-mode))
 
 ;; Init orderless for advanced (e.g. fuzzy) completion styles
 (use-package orderless
