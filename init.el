@@ -949,6 +949,11 @@ Ask for action even on single candidate jumps."
   (setq-default pdf-view-display-size 'fit-page)
   (pdf-tools-install :no-query))
 
+;; Init emacs-async for async processing in Emacs
+(use-package emacs-async
+  ;; This is not a loadable package
+  :no-require t)
+
 ;; Init orderless for advanced (e.g. fuzzy) completion styles
 (use-package orderless
   :demand t
