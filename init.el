@@ -1592,7 +1592,8 @@ When a prefix ARG is given always prompt for a command to use."
           (progn (kill-new branch)
                  (message "%s" branch))
         (user-error "There is not current branch"))))
-  (setq magit-diff-refine-hunk 'all))
+  (setq magit-diff-refine-hunk 'all)
+  (setq magit-delete-by-moving-to-trash nil))
 
 ;; Init magit-tbdiff for using git-range-diff command in magit
 (use-package magit-tbdiff
