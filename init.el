@@ -2879,7 +2879,7 @@ If project root cannot be found, use the buffer's default directory."
            devdocs-mode
            compilation-mode
            "^\\*\\(.+-\\)?eshell\\*.*$" eshell-mode
-           "^\\*shell.*\\*$" shell-mode
+           "^\\*shell.*\\*.*$" shell-mode
            "^\\*term.*\\*$" term-mode
            "^\\*vterm.*\\*.*$" vterm-mode))
   ;; Group popups by their associated project, with default dir as a fallback
