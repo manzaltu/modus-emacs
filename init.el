@@ -2576,6 +2576,11 @@ If project root cannot be found, use the buffer's default directory."
 (use-package shell
   :straight nil
   :config
+  (defun shell-new ()
+    "Open a new instance of shell."
+    (interactive)
+    (shell (generate-new-buffer-name "*shell*")))
+
   (setq shell-kill-buffer-on-exit t)
   (setq-default explicit-shell-file-name "/bin/bash"))
 
