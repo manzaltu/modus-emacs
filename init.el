@@ -2570,6 +2570,12 @@ If project root cannot be found, use the buffer's default directory."
   ;; Set longer scrollback history
   (setq vterm-max-scrollback 50000))
 
+;; Init shell for terminal emulation
+(use-package shell
+  :straight nil
+  :config
+  (setq-default explicit-shell-file-name "/bin/bash"))
+
 ;; Init eshell for terminal emulation
 (use-package eshell
   :straight nil
