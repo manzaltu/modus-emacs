@@ -2574,7 +2574,12 @@ If project root cannot be found, use the buffer's default directory."
 
 ;; Init shell for terminal emulation
 (use-package shell
+  :demand t
   :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "f"
+    "s" #'shell-new)
   :config
   (defun shell-new ()
     "Open a new instance of shell."
