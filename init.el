@@ -1308,6 +1308,9 @@ directory as a fall back."
   ( :keymaps 'minibuffer-local-map
     "M-s" #'consult-history                 ;; orig. next-matching-history-element
     "M-r" #'consult-history)                ;; orig. previous-matching-history-element
+  ( :keymaps 'comint-mode-map
+    "M-r" #'consult-history                 ;; orig. comint-history-isearch-backward-regexp
+    "C-r" #'consult-history)
   ;; Eshell history
   ( :keymaps 'eshell-hist-mode-map
     "M-s" #'consult-history                 ;; orig. eshell-next-matching-input
