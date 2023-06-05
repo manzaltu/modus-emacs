@@ -2577,7 +2577,12 @@ If project root cannot be found, use the buffer's default directory."
 
 ;; Init comint for general interpreter support
 (use-package comint
+  :demand t
   :straight nil
+  :general
+  ( :keymaps 'comint-mode-map
+    "C-p" #'comint-previous-input
+    "C-n" #'comint-next-input)
   :config
   ;; Prevent deleting the prompt
   (setq comint-prompt-read-only t))
