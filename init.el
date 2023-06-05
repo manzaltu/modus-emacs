@@ -2572,6 +2572,13 @@ If project root cannot be found, use the buffer's default directory."
   ;; Set longer scrollback history
   (setq vterm-max-scrollback 50000))
 
+;; Init comint for general interpreter support
+(use-package comint
+  :straight nil
+  :config
+  ;; Prevent deleting the prompt
+  (setq comint-prompt-read-only t))
+
 ;; Init shell for terminal emulation
 (use-package shell
   :demand t
