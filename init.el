@@ -1081,6 +1081,8 @@ Ask for action even on single candidate jumps."
   ( minibuffer-setup . corfu-enable-in-minibuffer)
   ;; Disable auto mode in eshell
   ( eshell-mode . (lambda () (setq-local corfu-auto nil) (corfu-mode)))
+  ;; Disable auto mode in shell
+  ( shell-mode . (lambda () (setq-local corfu-auto nil) (corfu-mode)))
   ;; Close popup when exiting evil insert state
   ( evil-insert-state-exit . corfu-quit)
   :config
