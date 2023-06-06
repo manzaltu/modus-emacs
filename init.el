@@ -2544,6 +2544,9 @@ run the attached function (if exists) and enable lsp"
 
   (advice-add 'term-handle-exit :after #'mo-term-handle-exit))
 
+;; Init tramp-term for launching term sessions with tramp
+(use-package tramp-term)
+
 ;; Init vterm for terminal emulation
 (use-package vterm
   :demand t

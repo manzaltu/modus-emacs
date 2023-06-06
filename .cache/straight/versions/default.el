@@ -173,6 +173,7 @@
  ("tablist" . "5f7b71a92bfb25418d7da86ad9c45f14b149496f")
  ("terraform-mode" . "56f19abae95afb7e13e48ec3e6aeba3820d31307")
  ("themes" . "e4f0b006a516a35f53df2dce2ec116876c5cd7f9")
+ ("tramp-term.el" . "ed75189122737d301f716a30a8013205aa3736f1")
  ("transient" . "b4127842f200848817103e8d4c45c36bc8fdf3b8")
  ("treemacs" . "a7a877ae173c92ae3c9586be1c593805d931185c")
  ("treepy.el" . "7c4a0d21322506a4d4b2301b4274ec955b429b47")
