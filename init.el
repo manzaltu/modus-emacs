@@ -2575,7 +2575,7 @@ If project root cannot be found, use the buffer's default directory."
   ;; Always compile module
   (setq vterm-always-compile-module t)
   ;; Set a low response delay
-  (setq vterm-timer-delay 0.07)
+  (setq vterm-timer-delay 0.02)
   ;; Set longer scrollback history
   (setq vterm-max-scrollback 50000)
   :config
