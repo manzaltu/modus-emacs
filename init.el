@@ -1188,6 +1188,7 @@ Ask for action even on single candidate jumps."
   ( :keymaps 'mo-quick-menu-map
     :prefix "RET"
     "w" #'mo-project-save
+    "W" #'project-forget-project
     "d" #'project-dired
     "f" #'mo-project-find-file
     "c" #'mo-project-recompile
