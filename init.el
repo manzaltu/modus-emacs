@@ -2577,7 +2577,9 @@ If project root cannot be found, use the buffer's default directory."
   ;; Set a low response delay
   (setq vterm-timer-delay 0.07)
   ;; Set longer scrollback history
-  (setq vterm-max-scrollback 50000))
+  (setq vterm-max-scrollback 50000)
+  :config
+  (setq vterm-tramp-shells (append vterm-tramp-shells '(("ssh" "/bin/bash") ("scp" "/bin/bash")))))
 
 ;; Init comint for general interpreter support
 (use-package comint
