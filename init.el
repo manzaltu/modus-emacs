@@ -3009,6 +3009,8 @@ If project root cannot be found, use the buffer's default directory."
   (setq recentf-save-file (mo-cache-path "recentf"))
   ;; Enlarge the max size of the recent files list
   (setq recentf-max-saved-items 10000)
+  ;; Do not save remote files
+  (add-to-list 'recentf-exclude #'file-remote-p)
   ;; Do not check readability of remote files.
   ;; This is needed in order to prevent tramp from hanging Emacs when killing a buffer.
   (add-to-list 'recentf-keep #'file-remote-p)
