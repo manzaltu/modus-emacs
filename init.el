@@ -2607,6 +2607,13 @@ If project root cannot be found, use the buffer's default directory."
     (interactive)
     (shell (generate-new-buffer-name "*shell*")))
 
+  (defun mo-shell-project ()
+    "Create a shell buffer with current directory set to the active project root.
+If project root cannot be found, use the buffer's default directory."
+    (interactive)
+    (let* ((default-directory (mo-get-buffer-dir)))
+      (shell-new)))
+
   (setq shell-kill-buffer-on-exit t)
   (setq-default explicit-shell-file-name "/bin/bash"))
 
