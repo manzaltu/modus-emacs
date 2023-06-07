@@ -2555,10 +2555,10 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "RET"
-    "t" #'mo-vterm-project)
+    "v" #'mo-vterm-project)
   ( :keymaps 'mo-quick-menu-map
     :prefix "f"
-    "t" #'mo-vterm-file)
+    "v" #'mo-vterm-file)
   :commands vterm
   :init
   (defun mo-vterm-file ()
