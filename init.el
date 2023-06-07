@@ -2536,7 +2536,12 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init term for terminal support
 (use-package term
+  :demand t
   :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "f"
+    "t" #'ansi-term)
   :config
   (defun mo-term-handle-exit (&optional process-name msg)
     "Close term buffer after process has exited."
