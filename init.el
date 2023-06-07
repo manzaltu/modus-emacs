@@ -2542,6 +2542,9 @@ run the attached function (if exists) and enable lsp"
   ( :keymaps 'mo-quick-menu-map
     :prefix "f"
     "t" #'ansi-term)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "RET"
+    "t" #'mo-ansi-term-project)
   :config
   (defun mo-ansi-term-project ()
     "Create an ansi-term buffer with current directory set to the active project root.
