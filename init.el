@@ -1892,6 +1892,7 @@ When a prefix ARG is given always prompt for a command to use."
                                    java-ts-mode
                                    (python-mode (lambda () (require 'lsp-pyright)))
                                    (python-ts-mode (lambda () (require 'lsp-pyright)))
+                                   ruby-ts-mode
                                    js-ts-mode
                                    js2-mode
                                    typescript-mode
