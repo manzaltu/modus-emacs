@@ -1535,7 +1535,7 @@ When a prefix ARG is given always prompt for a command to use."
   ( :keymaps 'mo-quick-menu-map
     :prefix "RET"
     ;; We want to present the current project only
-    "s" #'treemacs-add-and-display-current-project-exclusively)
+    "r" #'treemacs-add-and-display-current-project-exclusively)
   :config
   (setq treemacs-persist-file (mo-cache-path "treemacs-persist"))
   (setq treemacs-width 50)
