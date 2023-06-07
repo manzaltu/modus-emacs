@@ -2543,6 +2543,12 @@ run the attached function (if exists) and enable lsp"
     :prefix "f"
     "t" #'ansi-term)
   :config
+  (defun mo-ansi-term-project ()
+    "Create an ansi-term buffer with current directory set to the active project root.
+If project root cannot be found, use the buffer's default directory."
+    (interactive)
+    (let* ((default-directory (mo-get-buffer-dir)))
+      (call-interactively #'ansi-term)))
   (defun mo-term-handle-exit (&optional process-name msg)
     "Close term buffer after process has exited."
     (message "%s | %s" process-name msg)
