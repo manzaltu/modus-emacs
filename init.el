@@ -2601,6 +2601,9 @@ If project root cannot be found, use the buffer's default directory."
   ( :keymaps 'mo-quick-menu-map
     :prefix "f"
     "s" #'shell-new)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "RET"
+    "s" #'mo-shell-project)
   :config
   (defun shell-new ()
     "Open a new instance of shell."
