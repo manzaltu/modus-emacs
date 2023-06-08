@@ -2561,7 +2561,11 @@ If project root cannot be found, use the buffer's default directory."
   (advice-add 'term-handle-exit :after #'mo-term-handle-exit))
 
 ;; Init tramp-term for launching term sessions with tramp
-(use-package tramp-term)
+(use-package tramp-term
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "x"
+    "t" #'tramp-term))
 
 ;; Init vterm for terminal emulation
 (use-package vterm
