@@ -2613,7 +2613,8 @@ If project root cannot be found, use the buffer's default directory."
     "C-n" #'comint-next-input)
   :config
   ;; Prevent deleting the prompt
-  (setq comint-prompt-read-only t))
+  (setq comint-prompt-read-only t)
+  (setq comint-buffer-maximum-size 100000))
 
 ;; Init shell for terminal emulation
 (use-package shell
