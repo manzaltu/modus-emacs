@@ -403,12 +403,13 @@ Tab is named after the project's name."
 
   (defun mo-show-modified-buffer-changes ()
     "If a buffer is different from its file, show the changes."
-    (when (and (buffer-file-name) (buffer-modified-p))
-      (let ((diff-window (diff-buffer-with-file)))
-        (add-hook 'kill-buffer-hook
-                  (lambda ()
-                    (quit-window nil diff-window))
-                  nil t)))
+    (let ((buffer buffer-file-name))
+      (when (and buffer (file-exists-p buffer) (buffer-modified-p))
+        (let ((diff-window (diff-buffer-with-file)))
+          (add-hook 'kill-buffer-hook
+                    (lambda ()
+                      (quit-window nil diff-window))
+                    nil t))))
     t)
 
   (defun mo-show-welcome-screen ()
