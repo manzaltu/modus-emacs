@@ -2560,7 +2560,8 @@ If project root cannot be found, use the buffer's default directory."
     (message "%s | %s" process-name msg)
     (kill-buffer (current-buffer)))
 
-  (advice-add 'term-handle-exit :after #'mo-term-handle-exit))
+  (advice-add 'term-handle-exit :after #'mo-term-handle-exit)
+  (setq term-buffer-maximum-size 100000))
 
 ;; Init tramp-term for launching term sessions with tramp
 (use-package tramp-term
