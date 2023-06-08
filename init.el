@@ -213,7 +213,9 @@
   ;; Enable recursive minibuffer
   (setq enable-recursive-minibuffers t)
   ;; Enable indentation and completion using the TAB key
-  (setq tab-always-indent 'complete))
+  (setq tab-always-indent 'complete)
+  ;; Increase saved history size
+  (setq history-length 100000))
 
 ;; Init files for file related functionality
 (use-package files
