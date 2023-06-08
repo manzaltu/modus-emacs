@@ -315,7 +315,8 @@
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
     ;; List all sub processes
-    "P" #'list-processes)
+    "P" #'list-processes
+    "x" #'async-shell-command)
   ( :keymaps 'mo-quick-menu-map
     :prefix "l"
     "e" #'eval-expression)
