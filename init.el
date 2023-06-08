@@ -1312,7 +1312,8 @@ directory as a fall back."
   ;; Minibuffer history
   ( :keymaps 'minibuffer-local-map
     "M-s" #'consult-history                 ;; orig. next-matching-history-element
-    "M-r" #'consult-history)                ;; orig. previous-matching-history-element
+    "M-r" #'consult-history                 ;; orig. previous-matching-history-element
+    "C-r" #'consult-history)                ;; orig. isearch-backward
   ( :keymaps 'comint-mode-map
     "M-r" #'consult-history                 ;; orig. comint-history-isearch-backward-regexp
     "C-r" #'consult-history)
