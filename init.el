@@ -3098,6 +3098,8 @@ If project root cannot be found, use the buffer's default directory."
   :config
   ;; Set default method to ssh as it is faster than scp
   (setq tramp-default-method "ssh")
+  ;; Lower verbosity to avoid connection messages in the echo area
+  (setq tramp-verbose 2)
   ;; Preserve remote path value
   (add-to-list 'tramp-remote-path 'tramp-own-remote-path))
 
