@@ -345,6 +345,13 @@
   ;; Set customization file path
   (setq custom-file (expand-file-name "custom.el" user-emacs-directory)))
 
+;; Init minibuffer for minibuffer support
+(use-package minibuffer
+  :straight nil
+  :config
+  ;; Ignore case on file name completions
+  (setq read-file-name-completion-ignore-case t))
+
 ;; Init imenu for imenu support
 (use-package imenu
   :straight nil
