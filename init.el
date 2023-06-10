@@ -1501,7 +1501,9 @@ directory as a fall back."
   ;; Switch to tab by pressing C-<hint num>
   (setq tab-bar-select-tab-modifiers '(control))
   ;; Init tab-bar for supporting multiple window layouts in frame
-  (tab-bar-mode))
+  (tab-bar-mode)
+  ;; Set initial tab name
+  (tab-bar-rename-tab "Initial"))
 
 ;; Init dired for file management
 (use-package dired
