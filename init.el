@@ -2926,12 +2926,25 @@ If project root cannot be found, use the buffer's default directory."
 
 ;; Init popper for managing popup windows
 (use-package popper
+  :after tab-bar
   :demand t
   :general
   ( "C-`" #'popper-toggle-latest
     "M-`" #'popper-cycle
     "C-M-`" #'popper-toggle-type)
   :init
+  (defun mo-popper-group-by-tab ()
+    "Return an identifier (tab name) to group popups."
+    ;; We cannot simply use the current tab, as this function can be called during
+    ;; tab switching, and that will incorrectly attach the popup to the newly
+    ;; switched tab.
+    (let ((tab-name (alist-get 'name (tab-bar-get-buffer-tab nil))))
+      ;; Sometimes this function is called after the current buffer is hidden. In this
+      ;; case, get the current tab. A null tab-name will not be returned when switching
+      ;; tabs, hence there is no risk with just getting the current tab.
+      (or tab-name
+          (alist-get 'name (tab-bar--current-tab)))))
+
   (setq popper-reference-buffers
         '( "\\*Messages\\*"
            "Output\\*$"
@@ -2950,6 +2963,8 @@ If project root cannot be found, use the buffer's default directory."
   (setq popper-group-function #'popper-group-by-directory)
   ;; Set fractional height
   (setq popper-window-height 0.33)
+  ;; Group popups by tabs
+  (setq popper-group-function #'mo-popper-group-by-tab)
   (popper-mode +1)
   (popper-echo-mode +1))
 
