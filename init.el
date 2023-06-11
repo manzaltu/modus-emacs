@@ -409,6 +409,13 @@ Tab is named after the project's name."
       (quit
        (tab-bar-close-tab))))
 
+  (defun mo-close-project-with-tab ()
+    "Kill project buffers and close tab.
+Tab is named after the project's name."
+    (interactive)
+    (call-interactively #'project-kill-buffers)
+    (tab-bar-close-tab))
+
   (defun mo-show-modified-buffer-changes ()
     "If a buffer is different from its file, show the changes."
     (let ((buffer buffer-file-name))
