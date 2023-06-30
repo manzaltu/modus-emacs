@@ -679,6 +679,7 @@ Ask for action even on single candidate jumps."
   ( :keymaps 'mo-quick-menu-map
     :prefix "n"
     "c" #'org-capture
+    "s" #'org-store-link
     "a" #'mo-org-agenda-and-todo)
   ( :keymaps 'org-mode-map
     :states 'normal
