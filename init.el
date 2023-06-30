@@ -691,10 +691,10 @@ Ask for action even on single candidate jumps."
   ( after-enable-theme .
     (lambda ()
       ;; Resize org headings and agenda dates
-      (dolist (face '( ( org-document-title . 1.3)
-                       ( org-level-1 . 1.2)
-                       ( org-level-2 . 1.1)
-                       ( org-level-3 . 1.05)
+      (dolist (face '( ( org-document-title . 1.2)
+                       ( org-level-1 . 1.1)
+                       ( org-level-2 . 1.0)
+                       ( org-level-3 . 1.0)
                        ( org-level-4 . 1.0)
                        ( org-level-5 . 1.0)
                        ( org-level-6 . 1.0)
