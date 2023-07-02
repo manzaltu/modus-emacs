@@ -1062,6 +1062,13 @@ Ask for action even on single candidate jumps."
     "M-k" #'vertico-quick-jump
     "M-j" #'vertico-quick-exit))
 
+;; Init vertico-multiform for per command vertico configuration
+(use-package vertico-multiform
+  :after vertico
+  :straight nil
+  :config
+  (vertico-multiform-mode))
+
 ;; Init recursion-indicator for indicating minibuffer recursions
 (use-package recursion-indicator
   :functions recursion-indicator-mode
