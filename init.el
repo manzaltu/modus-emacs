@@ -1067,6 +1067,16 @@ Ask for action even on single candidate jumps."
   :after vertico
   :straight nil
   :config
+  (defun sort-stack-frames (frames)
+    "Sort stack FRAMES according to frame prefix number."
+    (sort frames
+          (lambda (frame1 frame2)
+            (< (string-to-number (car (split-string frame1 ":")))
+               (string-to-number (car (split-string frame2 ":")))))))
+
+  (setq vertico-multiform-commands
+        '((dap-switch-stack-frame (vertico-sort-function . sort-stack-frames))))
+
   (vertico-multiform-mode))
 
 ;; Init recursion-indicator for indicating minibuffer recursions
