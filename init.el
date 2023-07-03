@@ -184,6 +184,9 @@
     "n w" #'widen
     "n f" #'narrow-to-defun
     "n r" #'narrow-to-region)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "a"
+    "k" #'kill-process)
   :config
   ;; Inhibit the splash screen
   (setq inhibit-splash-screen t)
