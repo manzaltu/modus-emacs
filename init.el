@@ -981,7 +981,7 @@ Ask for action even on single candidate jumps."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "a"
-    "k" #'dired-async-kill-process)
+    "K" #'dired-async-kill-process)
   :custom
   ;; Make sure that the file threshold variable is passed to the async environment.
   ;; This is needed for disabling the large file warning on dired-async.
