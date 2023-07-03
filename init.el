@@ -1287,6 +1287,7 @@ directory as a fall back."
            (magit-status "Magit" ?g)
            (project-dired "Dired" ?d)
            (project-eshell "Eshell" ?e)
+           (mo-vterm-project "Vterm" ?v)
            (project-async-shell-command "Async command" ?x))))
 
 ;; Init consult for enhanced search commands
