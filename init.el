@@ -2043,7 +2043,8 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
-    ";" #'dap-hydra)
+    ";" #'dap-hydra
+    ":" #'dap-stop-thread)
   :config
   (setq dap-breakpoints-file (mo-cache-path "dap-breakpoints"))
   (setq dap-utils-extension-path (mo-cache-path ".extension"))
