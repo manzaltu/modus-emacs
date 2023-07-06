@@ -2486,6 +2486,7 @@ run the attached function (if exists) and enable lsp"
   ;; Display buffer according to the display-buffer rules
   (setq chatgpt-shell-display-function #'display-buffer)
   (setq chatgpt-shell-request-timeout 240)
+  (setq chatgpt-shell-system-prompt 0)
   (setq chatgpt-shell-prompt-query-response-style 'shell))
 
 ;; Init rainbow-delimiters for highlighting parens by their depth
