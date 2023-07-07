@@ -1427,7 +1427,12 @@ directory as a fall back."
     (interactive)
     (consult-line (thing-at-point 'symbol)))
 
-  (evil-set-command-property #'mo-consult-line-symbol-at-point :jump t))
+  (evil-set-command-property #'mo-consult-line-symbol-at-point :jump t)
+
+  (defun mo-consult-ripgrep-current-dir ()
+    "Call consult-ripgrep on buffer's directory."
+    (interactive)
+    (consult-ripgrep default-directory)))
 
 ;; Init consult-dir for inserting paths into minibuffer prompts
 (use-package consult-dir
