@@ -1327,7 +1327,8 @@ directory as a fall back."
     "B" #'consult-recent-file)
   ( :keymaps 'mo-quick-menu-map
     :prefix "f"
-    "," #'mo-consult-ripgrep-current-dir)
+    "," #'mo-consult-ripgrep-current-dir
+    "." #'mo-consult-fd-current-dir)
   ;; C-x bindings (ctl-x-map)
   ( "C-x M-:" #'consult-complex-command)     ;; orig. repeat-complex-command
   ( "C-x b" #'consult-buffer)                ;; orig. switch-to-buffer
