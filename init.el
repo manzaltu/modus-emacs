@@ -2580,7 +2580,9 @@ run the attached function (if exists) and enable lsp"
     (interactive)
     (let ((aw-dispatch-always t))
       (call-interactively #'ace-window)))
-  (setq aw-keys '( ?a ?s ?d ?f ?g ?h ?j ?k ?l)))
+  (setq aw-keys '( ?a ?s ?d ?f ?g ?h ?j ?k ?l))
+  ;; Remove treemacs windows from the ignored buffer list
+  (setq aw-ignored-buffers (remove 'treemacs-mode aw-ignored-buffers)))
 
 ;; Init eww for browsing the web using Emacs
 (use-package eww
