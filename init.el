@@ -1435,7 +1435,12 @@ directory as a fall back."
   (defun mo-consult-ripgrep-current-dir ()
     "Call consult-ripgrep on buffer's directory."
     (interactive)
-    (consult-ripgrep default-directory)))
+    (consult-ripgrep default-directory))
+
+  (defun mo-consult-fd-current-dir ()
+    "Call consult-fd on buffer's directory."
+    (interactive)
+    (consult-fd default-directory)))
 
 ;; Init consult-dir for inserting paths into minibuffer prompts
 (use-package consult-dir
