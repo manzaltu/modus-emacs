@@ -1231,12 +1231,15 @@ Ask for action even on single candidate jumps."
     "W" #'project-forget-project
     "d" #'project-dired
     "f" #'mo-project-find-file
-    "c" #'mo-project-recompile
-    "C" #'project-compile
     "x" #'project-async-shell-command
     "k" #'project-kill-buffers
     "p" #'project-switch-project
     "i" #'project-list-buffers)
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "c"
+    "c" #'mo-project-recompile
+    "C" #'project-compile)
   :config
   (defun mo-project-try-local (dir)
     "Determine if DIR is a project.
@@ -2062,6 +2065,9 @@ run the attached function (if exists) and enable lsp"
     :prefix "c"
     ";" #'dap-hydra
     ":" #'dap-stop-thread)
+  :hook
+  ;; Recenter after cursor position has changed
+  ( dap-position-changed . recenter)
   :config
   (setq dap-breakpoints-file (mo-cache-path "dap-breakpoints"))
   (setq dap-utils-extension-path (mo-cache-path ".extension"))
@@ -2106,11 +2112,6 @@ run the attached function (if exists) and enable lsp"
 ;; Init compile for compiling from Emacs
 (use-package compile
   :straight nil
-  :general
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "c"
-    "C" #'compile
-    "c" #'recompile)
   :config
   (setq compilation-scroll-output t))
 
