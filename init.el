@@ -844,6 +844,9 @@ Ask for action even on single candidate jumps."
   :config
   (global-org-modern-mode))
 
+;; Init org-appear to show invisible org elements on cursor hover
+(use-package org-appear)
+
 ;; Init org-pomodoro for using the Pomodoro technique with org mode
 (use-package org-pomodoro
   :general

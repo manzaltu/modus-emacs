@@ -134,6 +134,7 @@
  ("nix-mode" . "719feb7868fb567ecfe5578f6119892c771ac5e5")
  ("nongnu-elpa" . "c0840d025ba5ad3fc3f2dbd08d3b4ab72cf07574")
  ("orderless" . "e6784026717a8a6a7dcd0bf31fd3414f148c542e")
+ ("org-appear" . "eb9f9db40aa529fe4b977235d86494b115281d17")
  ("org-contrib" . "aed67d095de23bc45446777f7b8fb30b8e5c0c51")
  ("org-download" . "19e166f0a8c539b4144cfbc614309d47a9b2a9b7")
  ("org-modern" . "63372bda43a9d0dd9940c1ec3c53f752b642ac41")
