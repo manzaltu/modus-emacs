@@ -824,6 +824,9 @@ Ask for action even on single candidate jumps."
 (use-package consult-org-roam
   :after org-roam
   :functions consult-org-roam-mode
+  :custom
+  ;; Disable consult-buffer integration, use this package only for note previewing
+  (consult-org-roam-buffer-enabled nil)
   :config
   (consult-org-roam-mode))
 
