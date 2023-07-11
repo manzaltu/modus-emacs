@@ -735,6 +735,9 @@ Ask for action even on single candidate jumps."
   (setq org-cycle-level-faces nil)
   ;; This is needed per org-present-hide-stars-in-headings' documentation
   (setq org-hide-emphasis-markers t)
+  ;; Prevent emphasis from crossing line boundaries
+  ;; This is done to prevent unwanted emphasis and heading interactions
+  (setcar (nthcdr 4 org-emphasis-regexp-components) 0)
   (setq org-todo-keywords
         '( ( sequence "TODO" "NEXT" "PROG" "HOLD" "|" "DONE" "DONT" "FAIL")))
   (setq org-log-done t)
