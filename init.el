@@ -895,7 +895,10 @@ Ask for action even on single candidate jumps."
       (setq visual-fill-column-center-text nil)
       (setq visual-fill-column-width nil)
       (flyspell-mode 1)
-      (org-modern-mode 1))))
+      (org-modern-mode 1)))
+  :config
+  ;; Enable heading stars
+  (setq org-present-hide-stars-in-headings nil))
 
 ;; Init org-download for downloading and embedding images in org mode
 (use-package org-download)
