@@ -733,6 +733,8 @@ Ask for action even on single candidate jumps."
                                    "** TODO %? \nSCHEDULED: %t")))
   (setq org-ellipsis " ▼")
   (setq org-cycle-level-faces nil)
+  ;; This is needed per org-present-hide-stars-in-headings' documentation
+  (setq org-hide-emphasis-markers t)
   (setq org-todo-keywords
         '( ( sequence "TODO" "NEXT" "PROG" "HOLD" "|" "DONE" "DONT" "FAIL")))
   (setq org-log-done t)
