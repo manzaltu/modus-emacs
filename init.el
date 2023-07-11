@@ -1654,6 +1654,11 @@ When a prefix ARG is given always prompt for a command to use."
   :config
   (setq vc-git-diff-switches '( "--histogram")))
 
+;; Init git-commit for editing git commit messages
+;; This package is used by magit.
+(use-package git-commit
+  :demand t)
+
 ;; Init magit for a better git user experience
 (use-package magit
   :demand t
