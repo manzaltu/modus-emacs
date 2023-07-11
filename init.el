@@ -895,17 +895,7 @@ Ask for action even on single candidate jumps."
       (setq visual-fill-column-center-text nil)
       (setq visual-fill-column-width nil)
       (flyspell-mode 1)
-      (org-modern-mode 1)))
-  :config
-  ;; Per slide actions
-  (add-hook 'org-present-after-navigate-functions
-            (lambda (buffer-name heading)
-              ;; Show only top-level headlines
-              (org-overview)
-              ;; Unfold the current entry
-              (org-show-entry)
-              ;; Show only direct subheadings of the slide but don't expand them
-              (org-show-children))))
+      (org-modern-mode 1))))
 
 ;; Init org-download for downloading and embedding images in org mode
 (use-package org-download)
