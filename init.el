@@ -731,6 +731,9 @@ Ask for action even on single candidate jumps."
   (setq org-default-notes-file (concat (file-name-as-directory org-directory) "notes.org"))
   (setq org-capture-templates '( ( "t" "Task" entry (file+headline org-default-notes-file "Tasks")
                                    "** TODO %? \nSCHEDULED: %t")))
+  ;; Unfold everything on startup, except for things that set to be hidden
+  ;; by default (e.g. drawers)
+  (setq org-startup-folded 'showall)
   (setq org-ellipsis " ▼")
   (setq org-cycle-level-faces nil)
   ;; This is needed per org-present-hide-stars-in-headings' documentation
