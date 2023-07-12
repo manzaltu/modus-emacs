@@ -883,8 +883,8 @@ Ask for action even on single candidate jumps."
       (setq header-line-format " ")
       ;; Change org level font sizes
       (setq-local face-remapping-alist
-                  '( ( default ( :height 1.5) default)
-                     ( header-line ( :height 4.0) default)
+                  '( ( default ( :height 2.0) default)
+                     ( header-line ( :height 3.0) default)
                      ( org-document-title ( :height 1.75) org-document-title)
                      ( org-block ( :height 0.75) org-block)))
       ;; We want variable pitch faces
