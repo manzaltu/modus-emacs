@@ -878,42 +878,45 @@ Ask for action even on single candidate jumps."
     "C-M-s-;" #'org-present)
   :hook
   ;; Set style of slides
-  ( org-present-mode .
-    (lambda ()
-      ;; Disable spellchecking
-      (flyspell-mode 0)
-      ;; Center presentation and wrap lines
-      (setq visual-fill-column-width 150)
-      (setq visual-fill-column-center-text t)
-      (visual-fill-column-mode 1)
-      (visual-line-mode 1)
-      ;; Present images
-      (org-display-inline-images)
-      ;; Make slides not modifiable
-      (org-present-read-only)
-      ;; Create a space at the beginning of the slide
-      (setq header-line-format " ")
-      ;; Change org level font sizes
-      (setq-local face-remapping-alist
-                  '( ( default ( :height 2.0) default)
-                     ( header-line ( :height 3.0) default)
-                     ( org-document-title ( :height 1.75) org-document-title)
-                     ( org-block ( :height 0.75) org-block)))
-      ;; We want variable pitch faces
-      (variable-pitch-mode 1)))
+  ( org-present-mode . mo-enter-present-mode)
   ;; Undo style changes
-  ( org-present-mode-quit .
-    (lambda ()
-      (variable-pitch-mode 0)
-      (setq-local face-remapping-alist '( ( default default default)))
-      (setq header-line-format nil)
-      (org-present-read-write)
-      (org-remove-inline-images)
-      (visual-line-mode 0)
-      (visual-fill-column-mode 0)
-      (setq visual-fill-column-center-text nil)
-      (setq visual-fill-column-width nil)
-      (flyspell-mode 1)))
+  ( org-present-mode-quit . mo-exit-present-mode)
+  :init
+  (defun mo-enter-present-mode ()
+    "Initialize settings for present mode."
+    ;; Disable spellchecking
+    (flyspell-mode 0)
+    ;; Center presentation and wrap lines
+    (setq visual-fill-column-width 150)
+    (setq visual-fill-column-center-text t)
+    (visual-fill-column-mode 1)
+    (visual-line-mode 1)
+    ;; Present images
+    (org-display-inline-images)
+    ;; Make slides not modifiable
+    (org-present-read-only)
+    ;; Create a space at the beginning of the slide
+    (setq header-line-format " ")
+    ;; Change org level font sizes
+    (setq-local face-remapping-alist
+                '( ( default ( :height 2.0) default)
+                   ( header-line ( :height 3.0) default)
+                   ( org-document-title ( :height 1.75) org-document-title)
+                   ( org-block ( :height 0.75) org-block)))
+    ;; We want variable pitch faces
+    (variable-pitch-mode 1))
+  (defun mo-exit-present-mode ()
+    "Restore settings for non-present mode."
+    (variable-pitch-mode 0)
+    (setq-local face-remapping-alist '( ( default default default)))
+    (setq header-line-format nil)
+    (org-present-read-write)
+    (org-remove-inline-images)
+    (visual-line-mode 0)
+    (visual-fill-column-mode 0)
+    (setq visual-fill-column-center-text nil)
+    (setq visual-fill-column-width nil)
+    (flyspell-mode 1))
   :config
   ;; Enable heading stars
   (setq org-present-hide-stars-in-headings nil))
