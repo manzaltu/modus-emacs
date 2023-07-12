@@ -812,7 +812,7 @@ Ask for action even on single candidate jumps."
   :demand t
   :general
   ( :keymaps 'org-mode-map
-    "C-M-s-r C-M-s-b" #'org-roam-buffer-toggle
+    "C-M-s-r C-M-s-r" #'org-roam-buffer-toggle
     "C-M-s-r C-M-s-g" #'org-roam-graph
     "C-M-s-r C-M-s-i" #'org-roam-node-insert
     "C-M-s-r C-M-s-t" #'org-roam-tag-add)
