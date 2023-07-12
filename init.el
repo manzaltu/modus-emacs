@@ -871,7 +871,7 @@ Ask for action even on single candidate jumps."
       ;; Disable spellchecking
       (flyspell-mode 0)
       ;; Center presentation and wrap lines
-      (setq visual-fill-column-width 110)
+      (setq visual-fill-column-width 150)
       (setq visual-fill-column-center-text t)
       (visual-fill-column-mode 1)
       (visual-line-mode 1)
