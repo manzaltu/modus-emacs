@@ -902,12 +902,9 @@ Ask for action even on single candidate jumps."
                 '( ( default ( :height 2.0) default)
                    ( header-line ( :height 3.0) default)
                    ( org-document-title ( :height 1.75) org-document-title)
-                   ( org-block ( :height 0.75) org-block)))
-    ;; We want variable pitch faces
-    (variable-pitch-mode 1))
+                   ( org-block ( :height 0.75) org-block))))
   (defun mo-exit-present-mode ()
     "Restore settings for non-present mode."
-    (variable-pitch-mode 0)
     (setq-local face-remapping-alist '( ( default default default)))
     (setq header-line-format nil)
     (org-present-read-write)
