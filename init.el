@@ -825,6 +825,15 @@ Ask for action even on single candidate jumps."
   :init
   (setq org-roam-v2-ack t)
   :config
+  ;; Display link buffer as a side window
+  (add-to-list 'display-buffer-alist
+               '( "\\*org-roam\\*"
+                  ( display-buffer-in-side-window)
+                  ( side . right)
+                  ( slot . 0)
+                  ( window-width . 0.33)
+                  ( window-parameters . ( ( no-other-window . t)
+                                          ( no-delete-other-windows . t)))))
   (setq org-roam-db-location (mo-cache-path "org-roam.db"))
   (org-roam-db-autosync-mode))
 
