@@ -897,6 +897,8 @@ Ask for action even on single candidate jumps."
     (org-present-read-only)
     ;; Create a space at the beginning of the slide
     (setq header-line-format " ")
+    ;; Add space between lines
+    (setq line-spacing 0.5)
     ;; Change org level font sizes
     (setq-local face-remapping-alist
                 '( ( default ( :height 2.0) default)
@@ -906,6 +908,7 @@ Ask for action even on single candidate jumps."
   (defun mo-exit-present-mode ()
     "Restore settings for non-present mode."
     (setq-local face-remapping-alist '( ( default default default)))
+    (setq line-spacing nil)
     (setq header-line-format nil)
     (org-present-read-write)
     (org-remove-inline-images)
