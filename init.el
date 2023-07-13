@@ -741,6 +741,8 @@ Ask for action even on single candidate jumps."
   ;; Prevent emphasis from crossing line boundaries
   ;; This is done to prevent unwanted emphasis and heading interactions
   (setcar (nthcdr 4 org-emphasis-regexp-components) 0)
+  ;; Open links in the same window
+  (setf (cdr (assoc 'file org-link-frame-setup)) 'find-file)
   (setq org-todo-keywords
         '( ( sequence "TODO" "NEXT" "PROG" "HOLD" "|" "DONE" "DONT" "FAIL")))
   (setq org-log-done t)
