@@ -841,8 +841,13 @@ Ask for action even on single candidate jumps."
 
 ;; Init consult-org-roam for better searching in org-roam notes
 (use-package consult-org-roam
+  :demand t
   :after org-roam
   :functions consult-org-roam-mode
+  :general
+  ( :keymaps 'org-mode-map
+    "C-M-s-r C-M-s-b" #'consult-org-roam-backlinks
+    "C-M-s-r C-M-s-f" #'consult-org-roam-forward-links)
   :custom
   ;; Disable consult-buffer integration, use this package only for note previewing
   (consult-org-roam-buffer-enabled nil)
