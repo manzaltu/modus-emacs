@@ -133,6 +133,7 @@
  ("moody" . "888e6fb37eb5122803c70ae60d28fc54589e26c0")
  ("nix-mode" . "719feb7868fb567ecfe5578f6119892c771ac5e5")
  ("nongnu-elpa" . "c0840d025ba5ad3fc3f2dbd08d3b4ab72cf07574")
+ ("ob-async" . "9aac486073f5c356ada20e716571be33a350a982")
  ("orderless" . "e6784026717a8a6a7dcd0bf31fd3414f148c542e")
  ("org-appear" . "eb9f9db40aa529fe4b977235d86494b115281d17")
  ("org-contrib" . "aed67d095de23bc45446777f7b8fb30b8e5c0c51")
