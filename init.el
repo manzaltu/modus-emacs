@@ -2991,6 +2991,7 @@ If project root cannot be found, use the buffer's default directory."
     :prefix "b"
     "w" #'writeroom-mode)
   :config
+  (setq writeroom-maximize-window nil)
   (setq writeroom-width 100))
 
 ;; Init buffer-move for moving buffers between windows
