@@ -217,6 +217,8 @@
   (setq enable-recursive-minibuffers t)
   ;; Enable indentation and completion using the TAB key
   (setq tab-always-indent 'complete)
+  ;; Do not ignore extensions
+  (setq completion-ignored-extensions nil)
   ;; Increase saved history size
   (setq history-length 100000))
 
