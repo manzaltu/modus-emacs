@@ -494,6 +494,7 @@ Tab is named after the project's name."
     :custom
     ( diredp-hide-details-initially-flag nil)
     :config
+    (setq diredp-ignore-compressed-flag nil)
     (diredp-toggle-find-file-reuse-dir 1)))
 
 ;; Init evil-org for supporting evil key bindings in org-mode
