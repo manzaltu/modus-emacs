@@ -1609,6 +1609,8 @@ When a prefix ARG is given always prompt for a command to use."
                         (read-shell-command "Open current file with: ")
                       open)))
       (call-process program nil 0 nil current-file-name)))
+  ;; Do not ignore extensions
+  (setq dired-omit-extensions nil)
   (setq dired-dwim-target t))
 
 ;; Init image-dired for viewing image thumbnails in dired
