@@ -1611,7 +1611,8 @@ When a prefix ARG is given always prompt for a command to use."
                       open)))
       (call-process program nil 0 nil current-file-name)))
   ;; Do not ignore extensions
-  (setq dired-omit-extensions nil)
+  ;; Dired+ breaks when dired-omit-extensions contains no items
+  (setq dired-omit-extensions '( ".qazwsxedc"))
   (setq dired-dwim-target t))
 
 ;; Init image-dired for viewing image thumbnails in dired
