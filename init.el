@@ -1704,6 +1704,7 @@ When a prefix ARG is given always prompt for a command to use."
     "s" #'magit-stage
     "u" #'magit-unstage
     "c" #'magit-commit
+    "d" #'magit-diff-buffer-file
     "b" #'magit-blame-addition
     "C" #'magit-file-checkout
     "l" #'magit-log-buffer-file
