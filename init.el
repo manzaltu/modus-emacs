@@ -1651,6 +1651,15 @@ When a prefix ARG is given always prompt for a command to use."
     :states 'normal
     "/" #'dired-narrow-fuzzy))
 
+;; Init hexl for editing binary files
+(use-package hexl
+  :straight nil
+  :general
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "x" #'hexl-mode))
+
 ;; Init calc for Emacs built-in calculator
 (use-package calc
   :straight nil
