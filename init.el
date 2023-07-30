@@ -326,6 +326,23 @@
     :prefix "l"
     "e" #'eval-expression)
   :config
+  (defvar-local mo-run-code-command nil
+    "A local var that stores the run code command.
+To be used with `mo-async-run-code'.")
+  (put 'mo-run-code-command 'safe-local-variable 'stringp)
+
+  (defun mo-async-run-code ()
+    "Run code by asynchronously executing `mo-run-code-command'.
+When running with a prefix argument, or if `mo-run-code-command' is null, prompt
+the user to input the run command."
+    (interactive)
+    (setq-local mo-run-code-command
+                (if (and (not current-prefix-arg)
+                         (and (boundp 'mo-run-code-command) mo-run-code-command))
+                    mo-run-code-command
+                  (read-string "Run code command: ")))
+    (let ((default-directory (project-root (project-current t))))
+      (async-shell-command mo-run-code-command "*Run Code Command*")))
   ;; Set a wide enough default fill-column
   (setq-default fill-column 100)
   ;; Disable default tab indentation
