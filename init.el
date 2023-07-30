@@ -325,6 +325,9 @@
   ( :keymaps 'mo-quick-menu-map
     :prefix "l"
     "e" #'eval-expression)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "c"
+    "RET" #'mo-async-run-code)
   :config
   (defvar-local mo-run-code-command nil
     "A local var that stores the run code command.
