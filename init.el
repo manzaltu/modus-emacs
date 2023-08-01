@@ -2135,6 +2135,7 @@ run the attached function (if exists) and enable lsp"
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
     "; ;" #'dap-hydra
+    "; d" #'dap-debug
     "; s" #'dap-stop-thread
     "; f" #'dap-switch-stack-frame
     "; r" #'dap-ui-repl)
