@@ -2135,7 +2135,7 @@ run the attached function (if exists) and enable lsp"
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
     "; ;" #'dap-hydra
-    "; :" #'dap-stop-thread)
+    "; s" #'dap-stop-thread)
   :hook
   ;; Recenter after cursor position has changed
   ( dap-position-changed . recenter)
