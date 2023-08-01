@@ -2144,6 +2144,8 @@ run the attached function (if exists) and enable lsp"
   (setq dap-utils-extension-path (mo-cache-path ".extension"))
   ;; Disable control buttons on the top of the screen
   (setq dap-auto-configure-features (delq 'breakpoints (delq 'controls dap-auto-configure-features)))
+  ;; Do not truncate variables
+  (setq dap-ui-variable-length 500)
   (dap-auto-configure-mode)
   ;; Init lldb debugging
   (require 'dap-lldb)
