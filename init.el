@@ -220,7 +220,9 @@
   ;; Do not ignore extensions
   (setq completion-ignored-extensions nil)
   ;; Increase saved history size
-  (setq history-length 100000))
+  (setq history-length 100000)
+  ;; Enable scrolling left
+  (put 'scroll-left 'disabled nil))
 
 ;; Init files for file related functionality
 (use-package files
