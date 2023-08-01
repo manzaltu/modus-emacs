@@ -3086,6 +3086,7 @@ If project root cannot be found, use the buffer's default directory."
            helpful-mode
            devdocs-mode
            compilation-mode
+           dap-ui-repl-mode
            "^\\*\\(.+-\\)?eshell\\*.*$" eshell-mode
            "^\\*shell.*\\*.*$" shell-mode
            "^\\*term.*\\*$" term-mode
