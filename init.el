@@ -2143,6 +2143,7 @@ run the attached function (if exists) and enable lsp"
   :config
   (setq dap-breakpoints-file (mo-cache-path "dap-breakpoints"))
   (setq dap-utils-extension-path (mo-cache-path ".extension"))
+  (setq dap-ui-repl-history-dir mo-cache-dir)
   ;; Disable control buttons on the top of the screen
   (setq dap-auto-configure-features (delq 'breakpoints (delq 'controls dap-auto-configure-features)))
   ;; Do not truncate variables
