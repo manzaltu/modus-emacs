@@ -2139,6 +2139,7 @@ run the attached function (if exists) and enable lsp"
     "; s" #'dap-stop-thread
     "; B" #'dap-ui-breakpoints-browse
     "; f" #'dap-switch-stack-frame
+    "; l" #'dap-ui-locals
     "; r" #'dap-ui-repl)
   :hook
   ;; Recenter after cursor position has changed
