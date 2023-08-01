@@ -2136,6 +2136,7 @@ run the attached function (if exists) and enable lsp"
     :prefix "c"
     "; ;" #'dap-hydra
     "; s" #'dap-stop-thread
+    "; f" #'dap-switch-stack-frame
     "; r" #'dap-ui-repl)
   :hook
   ;; Recenter after cursor position has changed
