@@ -315,6 +315,7 @@
     "v" #'visual-line-mode
     "f" #'auto-fill-mode
     "F" #'set-fill-column
+    "I" #'clone-indirect-buffer
     "k" #'kill-current-buffer)
   ( :keymaps 'mo-quick-menu-map
     ;; Universal argument key binding
