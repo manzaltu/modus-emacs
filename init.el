@@ -2144,7 +2144,8 @@ run the attached function (if exists) and enable lsp"
     "; v" #'dap-ui-eval-variable-in-buffer
     "; e" #'dap-ui-eval-in-buffer
     "; p" #'dap-eval-thing-at-point
-    "; r" #'dap-ui-repl)
+    "; r" #'dap-ui-repl
+    "; q" #'dap-disconnect)
   :hook
   ;; Recenter after cursor position has changed
   ( dap-position-changed . recenter)
