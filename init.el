@@ -3177,6 +3177,12 @@ If project root cannot be found, use the buffer's default directory."
     :prefix "b"
     "V" #'visual-fill-column-mode))
 
+;; Init pixel-scroll for smooth scrolling
+(use-package pixel-scroll
+  :straight nil
+  :config
+  (pixel-scroll-precision-mode))
+
 ;; Init server for running Emacs as a server
 (use-package server
   :straight nil
