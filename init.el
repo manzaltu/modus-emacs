@@ -238,6 +238,9 @@
     :prefix "f"
     "f" #'find-file)
   ( :keymaps 'mo-quick-menu-map
+    :prefix "l"
+    "f" #'load-file)
+  ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "r" #'revert-buffer-quick)
   ( :keymaps 'mo-quick-menu-map
