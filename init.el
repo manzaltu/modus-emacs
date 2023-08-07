@@ -2141,7 +2141,7 @@ run the attached function (if exists) and enable lsp"
     :prefix "c"
     "; ;" #'dap-hydra
     "; d" #'dap-debug
-    "; s" #'dap-stop-thread
+    "; T" #'dap-stop-thread
     "; b" #'dap-breakpoint-toggle
     "; B" #'dap-ui-breakpoints-browse
     "; f" #'dap-switch-stack-frame
