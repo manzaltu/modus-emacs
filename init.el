@@ -3068,8 +3068,8 @@ If project root cannot be found, use the buffer's default directory."
   :demand t
   :general
   ( "C-`" #'popper-toggle-latest
-    "M-`" #'popper-cycle
-    "C-M-`" #'popper-toggle-type)
+    "C-M-`" #'popper-cycle
+    "M-`" #'popper-toggle-type)
   :init
   (defun mo-popper-group-by-tab ()
     "Return an identifier (tab name) to group popups."
