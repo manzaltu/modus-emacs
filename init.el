@@ -3161,6 +3161,14 @@ If project root cannot be found, use the buffer's default directory."
     :prefix "b"
     "c" #'highlight-changes-mode))
 
+;; Init hl-line for highlighting the current line
+(use-package hl-line
+  :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "h" #'hl-line-mode))
+
 ;; Init whitespace for showing trailing whitespaces in code
 (use-package whitespace
   :straight nil
