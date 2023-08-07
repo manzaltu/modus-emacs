@@ -2139,24 +2139,24 @@ run the attached function (if exists) and enable lsp"
   :demand t
   :general
   ( :keymaps 'mo-quick-menu-map
-    :prefix "c"
-    "; ;" #'dap-hydra
-    "; d" #'dap-debug
-    "; c" #'dap-continue
-    "; s" #'dap-switch-session
-    "; t" #'dap-switch-thread
-    "; T" #'dap-stop-thread
-    "; b" #'dap-breakpoint-toggle
-    "; B" #'dap-ui-breakpoints-browse
-    "; f" #'dap-switch-stack-frame
-    "; k" #'dap-up-stack-frame
-    "; j" #'dap-down-stack-frame
-    "; l" #'dap-ui-locals
-    "; v" #'dap-ui-eval-variable-in-buffer
-    "; e" #'dap-ui-eval-in-buffer
-    "; p" #'dap-eval-thing-at-point
-    "; r" #'dap-ui-repl
-    "; q" #'dap-disconnect)
+    :prefix "d"
+    ";" #'dap-hydra
+    "d" #'dap-debug
+    "c" #'dap-continue
+    "s" #'dap-switch-session
+    "t" #'dap-switch-thread
+    "T" #'dap-stop-thread
+    "b" #'dap-breakpoint-toggle
+    "B" #'dap-ui-breakpoints-browse
+    "f" #'dap-switch-stack-frame
+    "k" #'dap-up-stack-frame
+    "j" #'dap-down-stack-frame
+    "l" #'dap-ui-locals
+    "v" #'dap-ui-eval-variable-in-buffer
+    "e" #'dap-ui-eval-in-buffer
+    "p" #'dap-eval-thing-at-point
+    "r" #'dap-ui-repl
+    "q" #'dap-disconnect)
   :hook
   ;; Recenter after cursor position has changed
   ( dap-position-changed . recenter)
