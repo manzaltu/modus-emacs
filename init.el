@@ -2622,7 +2622,7 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "h" #'auto-highlight-symbol-mode)
+    "H" #'auto-highlight-symbol-mode)
   :custom-face
   ( ahs-face ( ( nil ( :inherit 'highlight))))
   ( ahs-face-unfocused ( ( nil ( :inherit 'highlight))))
