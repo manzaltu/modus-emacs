@@ -2148,6 +2148,8 @@ run the attached function (if exists) and enable lsp"
     "; b" #'dap-breakpoint-toggle
     "; B" #'dap-ui-breakpoints-browse
     "; f" #'dap-switch-stack-frame
+    "; k" #'dap-up-stack-frame
+    "; j" #'dap-down-stack-frame
     "; l" #'dap-ui-locals
     "; v" #'dap-ui-eval-variable-in-buffer
     "; e" #'dap-ui-eval-in-buffer
