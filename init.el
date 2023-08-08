@@ -3073,7 +3073,9 @@ If project root cannot be found, use the buffer's default directory."
   :after tab-bar
   :demand t
   :general
-  ( "C-`" #'popper-toggle-latest
+  ( :keymaps 'override
+    :states '( normal insert visual motion emacs)
+    "C-`" #'popper-toggle-latest
     "C-M-`" #'popper-cycle
     "M-`" #'popper-toggle-type)
   :init
