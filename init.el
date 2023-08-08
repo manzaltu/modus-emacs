@@ -2143,6 +2143,9 @@ run the attached function (if exists) and enable lsp"
     ";" #'dap-hydra
     "d" #'dap-debug
     "c" #'dap-continue
+    "n" #'dap-next
+    "i" #'dap-step-in
+    "o" #'dap-step-out
     "s" #'dap-switch-session
     "t" #'dap-switch-thread
     "T" #'dap-stop-thread
