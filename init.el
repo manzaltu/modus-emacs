@@ -1738,6 +1738,7 @@ When a prefix ARG is given always prompt for a command to use."
     :prefix "g"
     "g" #'magit-status
     "G" #'magit-clone
+    "i" #'magit-init
     "s" #'magit-stage
     "u" #'magit-unstage
     "c" #'magit-commit
