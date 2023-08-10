@@ -2455,7 +2455,10 @@ run the attached function (if exists) and enable lsp"
     "f" #'format-all-region
     "F" #'format-all-mode)
   :config
-  (setq format-all-show-errors 'never))
+  (setq format-all-show-errors 'never)
+
+  ;; Use prettier for HTML formatting
+  (setcdr (assoc "HTML" format-all-default-formatters) '(prettier)))
 
 ;; Init dtrt-indent for auto indentation detection
 (use-package dtrt-indent
