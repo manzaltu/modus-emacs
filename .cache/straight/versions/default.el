@@ -108,6 +108,7 @@
  ("jenkinsfile-mode" . "568865ee419e0592de0dd0717d6769a66d9df111")
  ("js2-mode" . "79bc78d77db0d2e8e43dc0f9e0504ad90bcbc26d")
  ("julia-emacs" . "c798df5a4e515b759764468f728f655899ab2196")
+ ("just-mode.el" . "d7f52eab8fa3828106f80acb1e2176e5877b7191")
  ("kind-icon" . "b0fb83be6ff6837446274e44e799ade836854a39")
  ("let-alist" . "021fc10df2e44faba4728d849ee767cf890aa51a")
  ("link-hint.el" . "36ce929331f2838213bcaa1145ece4b73ce84afe")

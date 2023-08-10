@@ -2418,6 +2418,9 @@ run the attached function (if exists) and enable lsp"
 ;; Init bazel for editing Bazel related files
 (use-package bazel)
 
+;; Init just-mode for editing just files
+(use-package just-mode)
+
 ;; Init restclient for sending rest requests from emacs
 (use-package restclient)
 
