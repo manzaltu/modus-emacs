@@ -237,7 +237,8 @@
     "_" #'mo-open-init-file)
   ( :keymaps 'mo-quick-menu-map
     :prefix "f"
-    "f" #'find-file)
+    "f" #'find-file
+    "w" #'write-file)
   ( :keymaps 'mo-quick-menu-map
     :prefix "l"
     "f" #'load-file)
