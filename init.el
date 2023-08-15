@@ -3111,6 +3111,7 @@ If project root cannot be found, use the buffer's default directory."
            "^\\*HTTP Response .*\\*$"
            help-mode
            helpful-mode
+           world-clock-mode
            devdocs-mode
            compilation-mode
            dap-ui-repl-mode
