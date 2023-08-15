@@ -3163,6 +3163,9 @@ If project root cannot be found, use the buffer's default directory."
   (setq display-time-default-load-average nil)
   (display-time-mode 1))
 
+;; Init alarm-clock for an alarm clock in Emacs
+(use-package alarm-clock)
+
 ;; Init hi-lock for highlighting lines by regexp
 (use-package hi-lock
   :straight nil
