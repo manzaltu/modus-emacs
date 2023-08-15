@@ -3168,6 +3168,7 @@ If project root cannot be found, use the buffer's default directory."
   :functions alarm-clock-turn-autosave-on
   :custom
   ( alarm-clock-cache-file (mo-cache-path ".alarm-clock.cache"))
+  ( alarm-clock-play-sound nil)
   :config
   (alarm-clock-turn-autosave-on))
 
