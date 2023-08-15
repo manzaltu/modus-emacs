@@ -3166,6 +3166,11 @@ If project root cannot be found, use the buffer's default directory."
 ;; Init alarm-clock for an alarm clock in Emacs
 (use-package alarm-clock
   :functions alarm-clock-turn-autosave-on
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "x"
+    "a" #'alarm-clock-set
+    "A" #'alarm-clock-list-view)
   :custom
   ( alarm-clock-cache-file (mo-cache-path ".alarm-clock.cache"))
   ( alarm-clock-play-sound nil)
