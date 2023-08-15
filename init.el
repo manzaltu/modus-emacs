@@ -3164,7 +3164,12 @@ If project root cannot be found, use the buffer's default directory."
   (display-time-mode 1))
 
 ;; Init alarm-clock for an alarm clock in Emacs
-(use-package alarm-clock)
+(use-package alarm-clock
+  :functions alarm-clock-turn-autosave-on
+  :custom
+  ( alarm-clock-cache-file (mo-cache-path ".alarm-clock.cache"))
+  :config
+  (alarm-clock-turn-autosave-on))
 
 ;; Init hi-lock for highlighting lines by regexp
 (use-package hi-lock
