@@ -3157,7 +3157,12 @@ If project root cannot be found, use the buffer's default directory."
 
 ;; Init time for showing time in the modeline
 (use-package time
+  :demand t
   :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "x"
+    "C" #'world-clock)
   :config
   ;; Remove average load time indicator from the modeline
   (setq display-time-default-load-average nil)
