@@ -654,6 +654,9 @@ Ask for action even on single candidate jumps."
   ( :keymaps 'mo-quick-menu-map
     ";" #'xref-find-definitions
     "'" #'xref-find-references)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "c"
+    "<" #'xref-find-apropos)
   :config
   ;; When looking for references, don't ask for an identifier
   (setq xref-prompt-for-identifier nil)
