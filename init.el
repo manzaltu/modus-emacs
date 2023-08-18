@@ -2164,7 +2164,7 @@ run the attached function (if exists) and enable lsp"
     "j" #'dap-down-stack-frame
     "l" #'dap-ui-locals
     "v" #'dap-ui-eval-variable-in-buffer
-    "e" #'dap-ui-eval-in-buffer
+    "E" #'dap-ui-eval-in-buffer
     "p" #'dap-eval-thing-at-point
     "r" #'dap-ui-repl
     "x" #'dap-ui-expressions-add
