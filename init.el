@@ -2172,11 +2172,12 @@ run the attached function (if exists) and enable lsp"
   (setq dap-breakpoints-file (mo-cache-path "dap-breakpoints"))
   (setq dap-utils-extension-path (mo-cache-path ".extension"))
   (setq dap-ui-repl-history-dir mo-cache-dir)
-  ;; Disable control buttons on the top of the screen
-  (setq dap-auto-configure-features (delq 'breakpoints (delq 'controls dap-auto-configure-features)))
+  ;; Disable all auto configured features
+  (setq dap-auto-configure-features nil)
   ;; Do not truncate variables
   (setq dap-ui-variable-length 500)
-  (dap-auto-configure-mode)
+  (dap-mode)
+  (dap-ui-mode)
   ;; Init lldb debugging
   (require 'dap-lldb)
   ;; Init native debugging
