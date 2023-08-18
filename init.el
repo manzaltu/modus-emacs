@@ -2153,6 +2153,7 @@ run the attached function (if exists) and enable lsp"
     "n" #'dap-next
     "i" #'dap-step-in
     "o" #'dap-step-out
+    "s" #'dap-ui-sessions
     "S" #'dap-switch-session
     "t" #'dap-switch-thread
     "T" #'dap-stop-thread
