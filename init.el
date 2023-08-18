@@ -2167,6 +2167,9 @@ run the attached function (if exists) and enable lsp"
     "e" #'dap-ui-eval-in-buffer
     "p" #'dap-eval-thing-at-point
     "r" #'dap-ui-repl
+    "x" #'dap-ui-expressions-add
+    "X" #'dap-ui-expressions-remove
+    "@" #'dap-ui-expressions
     "q" #'dap-disconnect)
   :hook
   ;; Recenter after cursor position has changed
