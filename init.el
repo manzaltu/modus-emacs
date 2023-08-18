@@ -420,7 +420,7 @@ the user to input the run command."
     "p" #'mo-copy-file-path)
   ( :keymaps 'mo-quick-menu-map
     :prefix "RET"
-    "RET" #'mo-open-project-with-tab
+    "SPC" #'mo-open-project-with-tab
     "DEL" #'mo-close-project-with-tab)
   :preface
   (defun mo-copy-file-path ()
@@ -1373,7 +1373,7 @@ directory as a fall back."
     "TAB" #'consult-bookmark)
   ( :keymaps 'mo-quick-menu-map
     :prefix "RET"
-    "SPC" #'mo-consult-buffer-dwim)
+    "RET" #'mo-consult-buffer-dwim)
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
     "," #'consult-git-grep)
