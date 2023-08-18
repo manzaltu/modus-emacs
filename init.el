@@ -359,7 +359,9 @@ the user to input the run command."
   ;; Disable default tab indentation
   (setq-default indent-tabs-mode nil)
   ;; Show cursor's column number
-  (setq column-number-mode t))
+  (setq column-number-mode t)
+  ;; Create a new buffer if async shell buffer already in use
+  (setq async-shell-command-buffer 'new-buffer))
 
 ;; Init custom for declaring and initializing user options
 (use-package custom
