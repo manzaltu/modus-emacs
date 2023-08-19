@@ -3196,7 +3196,12 @@ If project root cannot be found, use the buffer's default directory."
 
 ;; Init midnight for executing tasks during night time
 (use-package midnight
+  :demand t
   :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "DEL" #'clean-buffer-list)
   :config
   ;; Kill run code command buffers frequently
   (add-to-list 'clean-buffer-list-kill-regexps "^\\*Run Code Command\\*.*$")
