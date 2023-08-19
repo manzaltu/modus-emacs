@@ -3198,6 +3198,8 @@ If project root cannot be found, use the buffer's default directory."
 (use-package midnight
   :straight nil
   :config
+  ;; Kill run code command buffers frequently
+  (add-to-list 'clean-buffer-list-kill-regexps "^\\*Run Code Command\\*.*$")
   ;; Set to run at 4:30am
   (midnight-delay-set 'midnight-delay "16200"))
 
