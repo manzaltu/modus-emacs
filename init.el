@@ -3194,6 +3194,13 @@ If project root cannot be found, use the buffer's default directory."
   :config
   (alarm-clock-turn-autosave-on))
 
+;; Init midnight for executing tasks during night time
+(use-package midnight
+  :straight nil
+  :config
+  ;; Set to run at 4:30am
+  (midnight-delay-set 'midnight-delay "16200"))
+
 ;; Init hi-lock for highlighting lines by regexp
 (use-package hi-lock
   :straight nil
