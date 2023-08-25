@@ -73,7 +73,7 @@
   :config
   ;; Prefix keys for quick action menu
   (defvar mo-quick-menu-prefix "SPC")
-  (defvar mo-quick-menu-nn-prefix "M-SPC")
+  (defvar mo-quick-menu-nn-prefix "M-<insert>")
   ;; Bind the quick menu map to the leader key and the relevant states
   (general-define-key
    :states '( normal insert visual motion emacs)
