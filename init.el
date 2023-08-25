@@ -1899,8 +1899,8 @@ When a prefix ARG is given always prompt for a command to use."
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
     "R" #'diff-hl-set-reference-rev
-    "]" #'diff-hl-next-hunk
-    "[" #'diff-hl-previous-hunk)
+    "n" #'diff-hl-next-hunk
+    "p" #'diff-hl-previous-hunk)
   :hook
   ( magit-pre-refresh . diff-hl-magit-pre-refresh)
   ( magit-post-refresh . diff-hl-magit-post-refresh)
