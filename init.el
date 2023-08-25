@@ -187,7 +187,8 @@
     "n r" #'narrow-to-region)
   ( :keymaps 'mo-quick-menu-map
     :prefix "a"
-    "k" #'kill-process)
+    "k" #'kill-process
+    "s" #'modify-syntax-entry)
   :config
   ;; Inhibit the splash screen
   (setq inhibit-splash-screen t)
