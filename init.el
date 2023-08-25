@@ -1163,7 +1163,7 @@ Ask for action even on single candidate jumps."
     global-corfu-mode)
   :general
   ( :keymaps 'corfu-map
-    "C-<return>" #'corfu-insert-separator
+    "M-SPC" #'corfu-insert-separator
     ;; We want TAB to complete
     "TAB" #'corfu-complete
     [tab] #'corfu-complete
