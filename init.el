@@ -2464,7 +2464,9 @@ run the attached function (if exists) and enable lsp"
 (use-package apheleia
   :demand t
   :commands apheleia-global-mode
+  :defines apheleia-mode-alist
   :config
+  (add-to-list 'apheleia-mode-alist '(emacs-lisp-mode . lisp-indent))
   (apheleia-global-mode))
 
 ;; Init dtrt-indent for auto indentation detection
