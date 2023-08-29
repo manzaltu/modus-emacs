@@ -2460,6 +2460,9 @@ run the attached function (if exists) and enable lsp"
   (setq logview-views-file (mo-cache-path "logview.views"))
   (setq logview-cache-filename (mo-cache-path "logview-cache.extmap")))
 
+;; Init apheleia for code formatting
+(use-package apheleia)
+
 ;; Init dtrt-indent for auto indentation detection
 (use-package dtrt-indent
   :defines dtrt-indent-hook-mapping-list
