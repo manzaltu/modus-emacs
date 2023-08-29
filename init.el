@@ -2465,6 +2465,11 @@ run the attached function (if exists) and enable lsp"
   :demand t
   :commands apheleia-global-mode
   :defines apheleia-mode-alist
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "c"
+    "f" #'apheleia-mode
+    "F" #'apheleia-format-buffer)
   :config
   (add-to-list 'apheleia-mode-alist '(emacs-lisp-mode . lisp-indent))
   (apheleia-global-mode))
