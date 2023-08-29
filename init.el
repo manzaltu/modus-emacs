@@ -3062,7 +3062,8 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "v"
-    "z" #'global-text-scale-adjust))
+    "z" #'global-text-scale-adjust
+    "Z" #'text-scale-adjust))
 
 ;; Init focus for dimming surrounding text
 (use-package focus
