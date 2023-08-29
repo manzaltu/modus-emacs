@@ -2840,6 +2840,10 @@ If project root cannot be found, use the buffer's default directory."
   ;; Remove pager due to the lack of support for ANSI cursor sequence controls
   ( eshell-mode . (lambda () (setenv "PAGER" "cat")))
   :config
+  (defun mo-run-htop ()
+    "Run htop command."
+    (interactive)
+    (eshell-command "htop"))
   (defun eshell-new()
     "Open a new instance of eshell."
     (interactive)
