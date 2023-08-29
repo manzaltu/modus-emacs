@@ -2460,22 +2460,6 @@ run the attached function (if exists) and enable lsp"
   (setq logview-views-file (mo-cache-path "logview.views"))
   (setq logview-cache-filename (mo-cache-path "logview-cache.extmap")))
 
-;; Init formal-all for a universal code formatter
-(use-package format-all
-  :hook
-  ( prog-mode . format-all-mode)
-  ( format-all-mode . format-all-ensure-formatter)
-  :general
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "c"
-    "f" #'format-all-region
-    "F" #'format-all-mode)
-  :config
-  (setq format-all-show-errors 'never)
-
-  ;; Use prettier for HTML formatting
-  (setcdr (assoc "HTML" format-all-default-formatters) '(prettier)))
-
 ;; Init dtrt-indent for auto indentation detection
 (use-package dtrt-indent
   :defines dtrt-indent-hook-mapping-list
