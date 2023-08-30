@@ -2525,7 +2525,7 @@ run the attached function (if exists) and enable lsp"
   :straight nil
   :general
   ( :keymaps 'override
-    "<f12>" #'view-echo-area-messages)
+    "<f12>" #'mo-toggle-messages-buffer)
   :config
   (defun mo-toggle-messages-buffer ()
     "Toggle *Messages* buffer."
