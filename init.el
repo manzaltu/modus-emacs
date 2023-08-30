@@ -422,7 +422,7 @@ the user to input the run command."
   ( :keymaps 'mo-quick-menu-map
     :prefix "RET"
     "SPC" #'mo-open-project-with-tab
-    "DEL" #'mo-close-project-with-tab)
+    "ESC" #'mo-close-project-with-tab)
   :preface
   (defun mo-copy-file-path ()
     "Copy the full path of the current buffer's file."
