@@ -1168,7 +1168,10 @@ Ask for action even on single candidate jumps."
     "TAB" #'corfu-complete
     [tab] #'corfu-complete
     ;; We don't want RET to complete
-    "RET" nil)
+    "RET" nil
+    ;; We don't want next/previous line to change selection
+    "<remap> <next-line>" nil
+    "<remap> <previous-line>" nil)
   :custom
   ;; Enable auto completion
   ( corfu-auto t)
