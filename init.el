@@ -188,7 +188,8 @@
   ( :keymaps 'mo-quick-menu-map
     :prefix "a"
     "k" #'kill-process
-    "s" #'modify-syntax-entry)
+    "s" #'modify-syntax-entry
+    "r" #'abort-recursive-edit)
   :config
   ;; Inhibit the splash screen
   (setq inhibit-splash-screen t)
