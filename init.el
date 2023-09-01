@@ -1467,6 +1467,9 @@ directory as a fall back."
   ( :keymaps 'mo-quick-menu-map
     :prefix "z"
     "c" #'consult-complex-command)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "k"
+    "l" #'consult-kmacro)
 
   :init
   ;; Improve register preview
