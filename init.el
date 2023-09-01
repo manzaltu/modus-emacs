@@ -411,6 +411,24 @@ the user to input the run command."
     :prefix "z"
     "z" #'repeat))
 
+;; Init kmacro for keyboard macros
+(use-package kmacro
+  :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "k"
+    "k" #'kmacro-start-macro-or-insert-counter
+    "c" #'kmacro-end-or-call-macro
+    "e" #'kmacro-edit-macro
+    "E" #'kmacro-step-edit-macro
+    "s" #'kmacro-set-counter
+    "f" #'kmacro-set-format
+    "r" #'kmacro-edit-lossage
+    "v" #'kmacro-view-macro
+    "d" #'kmacro-delete-ring-head
+    "n" #'kmacro-cycle-ring-next
+    "p" #'kmacro-cycle-ring-previous))
+
 ;; Init modus-operandi-emacs for non-package related functionality
 (use-package modus-operandi-emacs
   :after ( simple project tab-bar)
