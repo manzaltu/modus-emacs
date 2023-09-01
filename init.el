@@ -2629,7 +2629,7 @@ run the attached function (if exists) and enable lsp"
   ( shell-maker-mode . (lambda () (setq-local corfu-auto nil)))
   :config
   ;; Display buffer according to the display-buffer rules
-  (setq chatgpt-shell-display-function #'display-buffer)
+  (setq chatgpt-shell-display-function #'pop-to-buffer)
   (setq chatgpt-shell-request-timeout 240)
   (setq chatgpt-shell-system-prompt 0)
   (setq chatgpt-shell-welcome-function nil)
