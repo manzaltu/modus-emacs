@@ -429,6 +429,14 @@ the user to input the run command."
     "n" #'kmacro-cycle-ring-next
     "p" #'kmacro-cycle-ring-previous))
 
+;; Init macros for controlling macros
+(use-package macros
+  :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "k"
+    "q" #'kbd-macro-query))
+
 ;; Init modus-operandi-emacs for non-package related functionality
 (use-package modus-operandi-emacs
   :after ( simple project tab-bar)
