@@ -2544,7 +2544,7 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "h"
-    "w" #'which-key-show-top-level)
+    "w t" #'which-key-show-top-level)
   :config
   (setq which-key-idle-delay 0.5)
   (setq which-key-add-column-padding 8)
