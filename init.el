@@ -2385,6 +2385,11 @@ run the attached function (if exists) and enable lsp"
   :custom
   ( lsp-java-workspace-dir (mo-cache-path "workspace")))
 
+;; Init python for Python support
+(use-package python
+  :config
+  (setq python-indent-guess-indent-offset-verbose nil))
+
 ;; Init lsp-pyright for pyright python language server
 (use-package lsp-pyright)
 
