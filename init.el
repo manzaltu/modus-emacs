@@ -2513,6 +2513,8 @@ run the attached function (if exists) and enable lsp"
   :defines dtrt-indent-hook-mapping-list
   :hook
   ( prog-mode . dtrt-indent-mode)
+  :custom
+  ( dtrt-indent-verbosity 0)
   :config
   (setq dtrt-indent-hook-mapping-list
         (append dtrt-indent-hook-mapping-list
