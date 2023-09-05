@@ -243,7 +243,8 @@
     "w" #'write-file)
   ( :keymaps 'mo-quick-menu-map
     :prefix "l"
-    "f" #'load-file)
+    "f" #'load-file
+    "b" #'eval-buffer)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "r" #'revert-buffer-quick)
