@@ -3295,7 +3295,10 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "h" #'hl-line-mode))
+    "h" #'hl-line-mode)
+  :hook
+  ( text-mode . hl-line-mode)
+  ( prog-mode . hl-line-mode))
 
 ;; Init whitespace for showing trailing whitespaces in code
 (use-package whitespace
