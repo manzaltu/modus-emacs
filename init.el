@@ -1940,6 +1940,7 @@ When a prefix ARG is given always prompt for a command to use."
   ( magit-post-refresh . diff-hl-magit-post-refresh)
   ( dired-mode . diff-hl-dired-mode-unless-remote)
   :config
+  (setq diff-hl-side 'right)
   (global-diff-hl-mode))
 
 ;; Init git-link for creating URLs for files in web git services
