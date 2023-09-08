@@ -123,6 +123,13 @@
     "<" #'evil-window-decrease-width)
   ( :keymaps 'mo-quick-menu-map
     "ESC" #'evil-ex-nohighlight)
+  ;; We want C-f for moving forward a word
+  ( :keymaps 'evil-ex-completion-map
+    "C-f" nil
+    "C-." #'evil-ex-command-window)
+  ( :keymaps 'evil-ex-search-keymap
+    "C-f" nil
+    "C-." #'evil-ex-search-command-window)
   ( :states 'motion
     ;; We want C-<num> for jumping between tabs
     "C-6" nil)
