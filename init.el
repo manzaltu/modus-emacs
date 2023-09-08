@@ -2263,7 +2263,11 @@ run the attached function (if exists) and enable lsp"
   (setq compilation-scroll-output t))
 
 ;; Init rmsbolt for a compiler explorer in Emacs
-(use-package rmsbolt)
+(use-package rmsbolt
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "c"
+    "b" #'rmsbolt))
 
 ;; Init highlight-defined for highlighting Emacs Lisp symbols
 (use-package highlight-defined
