@@ -163,6 +163,7 @@
  ("rainbow-mode" . "8e96388fb4d616a9dde23e712bad0d9cd048fbf0")
  ("recursion-indicator" . "95eb885d8719e5e31a42fc99a6a76812fd38df8d")
  ("restclient.el" . "0ba72816f92f3d5906cdf76f418fd0a3ee72809b")
+ ("rmsbolt" . "9a53f0775765b5d77fa5fc65afeef0433e64a729")
  ("rust-mode" . "9c26dc1195ec05309ee15c014631fb9abd6cf5d2")
  ("rustic" . "39423d1cf4fa054c36bf9577356451f4c06ee148")
  ("s.el" . "dda84d38fffdaf0c9b12837b504b402af910d01d")

@@ -2262,6 +2262,9 @@ run the attached function (if exists) and enable lsp"
   :config
   (setq compilation-scroll-output t))
 
+;; Init rmsbolt for a compiler explorer in Emacs
+(use-package rmsbolt)
+
 ;; Init highlight-defined for highlighting Emacs Lisp symbols
 (use-package highlight-defined
   :hook ( emacs-lisp-mode . highlight-defined-mode))
