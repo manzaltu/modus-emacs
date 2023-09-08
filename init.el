@@ -3243,8 +3243,9 @@ If project root cannot be found, use the buffer's default directory."
     :prefix "w"
     "u" #'winner-undo
     "r" #'winner-redo)
-  :config
+  :init
   (setq winner-dont-bind-my-keys t)
+  :config
   (winner-mode 1))
 
 ;; Init follow-mode for scrolling buffer on multiple windows
