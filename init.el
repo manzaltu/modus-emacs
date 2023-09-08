@@ -3143,6 +3143,14 @@ If project root cannot be found, use the buffer's default directory."
   :config
   (setq zoom-window-mode-line-color "#3b404e"))
 
+;; Init faces for face related functionality
+(use-package faces
+  :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "h"
+    "l" #'read-color))
+
 ;; Init face-remap for remapping face properties
 (use-package face-remap
   :straight nil
