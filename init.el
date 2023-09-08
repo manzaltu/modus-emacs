@@ -891,8 +891,7 @@ Ask for action even on single candidate jumps."
   ( after-enable-theme .
     (lambda ()
       (set-face-attribute 'org-super-agenda-header nil
-                          :overline t
-                          :foreground "DarkGoldenrod3")))
+                          :foreground "HotPink")))
   :custom
   ;; Enable auto grouping
   ( org-super-agenda-groups '((:auto-group t) (:auto-category t)))
