@@ -571,11 +571,28 @@ Tab is named after the project's name."
 (use-package evil-mc
   :demand t
   :general
-  ( :keymaps 'evil-mc-cursors-map
-    "d" #'evil-mc-make-and-goto-next-match
-    "D" #'evil-mc-make-and-goto-prev-match)
   ( :keymaps 'mo-quick-menu-map
-    "r" '( :keymap evil-mc-cursors-map :package evil-mc))
+    :prefix "r"
+    "RET" #'evil-mc-make-cursor-here
+    "a" #'evil-mc-make-all-cursors
+    "A" #'evil-mc-make-cursor-in-visual-selection-end
+    "I" #'evil-mc-make-cursor-in-visual-selection-beg
+    "o" #'evil-mc-make-cursor-move-next-line
+    "O" #'evil-mc-make-cursor-move-prev-line
+    "p" #'evil-mc-pause-cursors
+    "r" #'evil-mc-resume-cursors
+    "n" #'evil-mc-make-and-goto-next-match
+    "N" #'evil-mc-make-and-goto-prev-match
+    "s" #'evil-mc-skip-and-goto-next-match
+    "S" #'evil-mc-skip-and-goto-prev-match
+    "j" #'evil-mc-make-and-goto-next-cursor
+    "J" #'evil-mc-skip-and-goto-next-cursor
+    "k" #'evil-mc-make-and-goto-prev-cursor
+    "K" #'evil-mc-skip-and-goto-prev-cursor
+    "^" #'evil-mc-make-and-goto-first-cursor
+    "$" #'evil-mc-make-and-goto-last-cursor
+    "u" #'evil-mc-undo-last-added-cursor
+    "ESC" #'evil-mc-undo-all-cursors)
   :config
   (global-evil-mc-mode))
 
