@@ -1723,6 +1723,7 @@ When a prefix ARG is given always prompt for a command to use."
   :config
   (setq treemacs-persist-file (mo-cache-path "treemacs-persist"))
   (setq treemacs-width 50)
+  (setq treemacs-no-png-images t)
   (treemacs-follow-mode t)
   (treemacs-filewatch-mode t)
   (treemacs-fringe-indicator-mode 'always)
