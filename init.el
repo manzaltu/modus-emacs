@@ -2282,9 +2282,15 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init compile for compiling from Emacs
 (use-package compile
+  :after term
   :straight nil
   :config
-  (setq compilation-scroll-output t))
+  (setq compilation-scroll-output t)
+  (defun mo-colorize-compilation-buffer ()
+    "Called to colorize the compilation buffer."
+    (ansi-color-apply-on-region compilation-filter-start (point)))
+  :hook
+  ( compilation-filter . mo-colorize-compilation-buffer))
 
 ;; Init rmsbolt for a compiler explorer in Emacs
 (use-package rmsbolt
