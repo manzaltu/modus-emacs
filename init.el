@@ -887,7 +887,8 @@ Ask for action even on single candidate jumps."
   :custom
   ( org-journal-dir
     (concat (file-name-as-directory org-directory) "journal"))
-  ( org-journal-file-type 'weekly))
+  ( org-journal-file-type 'weekly)
+  ( org-journal-enable-agenda-integration t))
 
 ;; Init org-super-agenda for grouping agenda items into sections
 (use-package org-super-agenda
