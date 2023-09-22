@@ -884,6 +884,10 @@ Ask for action even on single candidate jumps."
 ;; Init org-journal for journal keeping
 (use-package org-journal
   :after org
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "n"
+    "j" #'org-journal-new-entry)
   :custom
   ( org-journal-dir
     (concat (file-name-as-directory org-directory) "journal"))
