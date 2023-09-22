@@ -909,7 +909,7 @@ Ask for action even on single candidate jumps."
     (concat (file-name-as-directory org-directory) "journal"))
   ( org-journal-file-type 'weekly)
   ( org-journal-enable-agenda-integration t)
-  ( org-journal-file-format "%Y%m%d.org")
+  ( org-journal-file-format "%Y-%m-%d.org")
   ( org-journal-carryover-items "")
   :config
   (defun mo-org-journal-new-entry-from-agenda (prefix)
