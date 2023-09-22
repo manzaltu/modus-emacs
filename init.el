@@ -894,6 +894,14 @@ Ask for action even on single candidate jumps."
     "C-M-s-j C-M-s-n" #'org-journal-next-entry
     "C-M-s-j C-M-s-p" #'org-journal-previous-entry
     "C-M-s-j C-M-s-s" #'org-journal-search)
+  ( :keymaps 'calendar-mode-map
+    "C-M-s-j C-M-s-j" #'org-journal-new-date-entry
+    "C-M-s-j C-M-s-d" #'org-journal-display-entry
+    "C-M-s-j C-M-s-n" #'org-journal-next-entry
+    "C-M-s-j C-M-s-p" #'org-journal-previous-entry
+    "C-M-s-j C-M-s-m" #'org-journal-mark-entries
+    "C-M-s-j C-M-s-r" #'org-journal-read-entry
+    "C-M-s-j C-M-s-s" #'org-journal-search-forever)
   :custom
   ( org-journal-dir
     (concat (file-name-as-directory org-directory) "journal"))
