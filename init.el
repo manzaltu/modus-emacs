@@ -908,7 +908,17 @@ Ask for action even on single candidate jumps."
   ( org-journal-file-type 'weekly)
   ( org-journal-enable-agenda-integration t)
   ( org-journal-file-format "%Y%m%d.org")
-  ( org-journal-carryover-items ""))
+  ( org-journal-carryover-items "")
+  :config
+  (defun mo-org-journal-new-entry-from-agenda (prefix)
+    "Add journal entry for the date at point in the agenda."
+    (interactive "P")
+    (org-agenda-check-type t 'agenda)
+    (let* ((day (or (get-text-property (min (1- (point-max)) (point)) 'day)
+                    (user-error "Don't know which date to open in calendar")))
+           (time (org-time-string-to-time
+                  (format-time-string "%Y-%m-%d" (org-time-from-absolute day)))))
+      (org-journal-new-entry prefix time))))
 
 ;; Init org-super-agenda for grouping agenda items into sections
 (use-package org-super-agenda
