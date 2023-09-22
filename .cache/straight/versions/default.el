@@ -139,6 +139,7 @@
  ("org-appear" . "eb9f9db40aa529fe4b977235d86494b115281d17")
  ("org-contrib" . "2380ff9985d3a21aa7746e3e9d1b96a437c748ce")
  ("org-download" . "19e166f0a8c539b4144cfbc614309d47a9b2a9b7")
+ ("org-journal" . "18df4d5ae5e15580df42562c143d007c6d28d75f")
  ("org-modern" . "905a601796d02283e94a603b6011a537ee7e6090")
  ("org-pomodoro" . "3f5bcfb80d61556d35fc29e5ddb09750df962cc6")
  ("org-present" . "4ec04e1b77dea76d7c30066ccf3200d2e0b7bee9")

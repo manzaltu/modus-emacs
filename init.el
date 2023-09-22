@@ -881,6 +881,10 @@ Ask for action even on single candidate jumps."
 ;; Init ob-async for enabling asynchronous execution of org-babel blocks
 (use-package ob-async)
 
+;; Init org-journal for journal keeping
+(use-package org-journal
+  :after org)
+
 ;; Init org-super-agenda for grouping agenda items into sections
 (use-package org-super-agenda
   :after org
