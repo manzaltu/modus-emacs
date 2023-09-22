@@ -887,7 +887,8 @@ Ask for action even on single candidate jumps."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "n"
-    "j" #'org-journal-new-entry)
+    "j" #'org-journal-new-entry
+    "J" #'org-journal-new-date-entry)
   :custom
   ( org-journal-dir
     (concat (file-name-as-directory org-directory) "journal"))
