@@ -902,6 +902,8 @@ Ask for action even on single candidate jumps."
     "C-M-s-j C-M-s-m" #'org-journal-mark-entries
     "C-M-s-j C-M-s-r" #'org-journal-read-entry
     "C-M-s-j C-M-s-s" #'org-journal-search-forever)
+  ( :keymaps '( org-agenda-mode-map org-super-agenda-header-map)
+    "C-M-s-j" #'mo-org-journal-new-entry-from-agenda)
   :custom
   ( org-journal-dir
     (concat (file-name-as-directory org-directory) "journal"))
