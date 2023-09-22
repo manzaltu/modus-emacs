@@ -911,6 +911,7 @@ Ask for action even on single candidate jumps."
   ( org-journal-enable-agenda-integration t)
   ( org-journal-file-format "%Y-%m-%d.org")
   ( org-journal-carryover-items "")
+  ( org-journal-file-header ":PROPERTIES:\n:agenda-group: Journal\n:END:")
   :config
   (defun mo-org-journal-new-entry-from-agenda (prefix)
     "Add journal entry for the date at point in the agenda."
