@@ -889,6 +889,11 @@ Ask for action even on single candidate jumps."
     :prefix "n"
     "j" #'org-journal-new-entry
     "J" #'org-journal-new-date-entry)
+  ( :keymaps 'org-journal-mode-map
+    "C-M-s-j C-M-s-j" #'org-journal-new-entry
+    "C-M-s-j C-M-s-n" #'org-journal-next-entry
+    "C-M-s-j C-M-s-p" #'org-journal-previous-entry
+    "C-M-s-j C-M-s-s" #'org-journal-search)
   :custom
   ( org-journal-dir
     (concat (file-name-as-directory org-directory) "journal"))
