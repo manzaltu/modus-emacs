@@ -883,7 +883,10 @@ Ask for action even on single candidate jumps."
 
 ;; Init org-journal for journal keeping
 (use-package org-journal
-  :after org)
+  :after org
+  :custom
+  ( org-journal-dir
+    (concat (file-name-as-directory org-directory) "journal")))
 
 ;; Init org-super-agenda for grouping agenda items into sections
 (use-package org-super-agenda
