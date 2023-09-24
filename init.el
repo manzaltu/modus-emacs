@@ -75,7 +75,6 @@
   ;; Bind the quick menu map to the leader key and the relevant states
   (general-create-definer mo-quick-menu-definer
     :states '( normal insert visual motion emacs)
-    :keymaps 'override
     :prefix ","
     :non-normal-prefix "M-<insert>")
   (mo-quick-menu-definer
