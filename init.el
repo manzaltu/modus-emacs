@@ -69,36 +69,35 @@
 ;; Add general.el key mapper
 (use-package general
   :demand t
-  :functions general-define-key
+  :defines mo-quick-menu-definer
+  :functions ( general-create-definer mo-quick-menu-definer)
   :config
-  ;; Prefix keys for quick action menu
-  (defvar mo-quick-menu-prefix "SPC")
-  (defvar mo-quick-menu-nn-prefix "M-<insert>")
   ;; Bind the quick menu map to the leader key and the relevant states
-  (general-define-key
-   :states '( normal insert visual motion emacs)
-   :keymaps 'override
-   :prefix mo-quick-menu-prefix
-   :non-normal-prefix mo-quick-menu-nn-prefix
-   :prefix-map 'mo-quick-menu-map
-   :which-key "Quick menu prefix key"
-   "a" '( :which-key "Action")
-   "b" '( :which-key "Buffer")
-   "f" '( :which-key "File")
-   "v" '( :which-key "View")
-   "w" '( :which-key "Window")
-   "x" '( :which-key "Utils")
-   "z" '( :which-key "Repeat")
-   "t" '( :which-key "Tab")
-   "h" '( :which-key "Help")
-   "RET" '( :which-key "Project")
-   "c" '( :which-key "Code")
-   "d" '( :which-key "Debug")
-   "l" '( :which-key "Lisp")
-   "g" '( :which-key "Git")
-   "m" '( :which-key "Merge")
-   "r" '( :which-key "Multiple Cursors")
-   "n" '( :which-key "Notes")))
+  (general-create-definer mo-quick-menu-definer
+    :states '( normal insert visual motion emacs)
+    :keymaps 'override
+    :prefix "SPC"
+    :non-normal-prefix "M-<insert>")
+  (mo-quick-menu-definer
+    :prefix-map 'mo-quick-menu-map
+    :which-key "Quick menu prefix key"
+    "a" '( :which-key "Action")
+    "b" '( :which-key "Buffer")
+    "f" '( :which-key "File")
+    "v" '( :which-key "View")
+    "w" '( :which-key "Window")
+    "x" '( :which-key "Utils")
+    "z" '( :which-key "Repeat")
+    "t" '( :which-key "Tab")
+    "h" '( :which-key "Help")
+    "RET" '( :which-key "Project")
+    "c" '( :which-key "Code")
+    "d" '( :which-key "Debug")
+    "l" '( :which-key "Lisp")
+    "g" '( :which-key "Git")
+    "m" '( :which-key "Merge")
+    "r" '( :which-key "Multiple Cursors")
+    "n" '( :which-key "Notes")))
 
 ;; Init evil mode for Vim emulation in Emacs
 (use-package evil
