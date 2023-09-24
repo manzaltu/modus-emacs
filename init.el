@@ -1822,6 +1822,12 @@ When a prefix ARG is given always prompt for a command to use."
     "<f8>" #'profiler-stop
     "<f9>" #'profiler-report))
 
+;; Init vc for version control functionality
+(use-package vc
+  :straight nil
+  :config
+  (setq vc-follow-symlinks t))
+
 ;; Init vc-git for configuring the git VC backend
 (use-package vc-git
   :straight nil
