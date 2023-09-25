@@ -544,6 +544,11 @@ Tab is named after the project's name."
   :init
   (defvar forge-add-default-bindings nil)
   :config
+  (defun mo-evil-collection-remove-quick-menu-prefix (_mode keymaps &rest _rest)
+    "Remove bindings conflicting with the quick menu prefix key from KEYMAPS."
+    (dolist (keymap keymaps)
+      (when (and (boundp keymap) (symbol-value keymap))
+        (general-define-key :keymaps keymap :states 'normal "," nil))))
   ;; We have our own find references key binding. Remove evil-collection's one.
   ;; evil-collection's find usages overrides evil-mc key bindings.
   (setq evil-collection-want-find-usages-bindings nil)
@@ -559,7 +564,10 @@ Tab is named after the project's name."
     ( diredp-hide-details-initially-flag nil)
     :config
     (setq diredp-ignore-compressed-flag nil)
-    (diredp-toggle-find-file-reuse-dir 1)))
+    (diredp-toggle-find-file-reuse-dir 1))
+
+  :hook
+  ( evil-collection-setup . mo-evil-collection-remove-quick-menu-prefix))
 
 ;; Init evil-org for supporting evil key bindings in org-mode
 (use-package evil-org
