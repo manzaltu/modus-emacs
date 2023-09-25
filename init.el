@@ -2036,7 +2036,7 @@ When a prefix ARG is given always prompt for a command to use."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "l"
-    "d" #'eval-defun
+    "l" #'eval-defun
     "s" #'eval-last-sexp))
 
 ;; Init ielm for lisp REPL
