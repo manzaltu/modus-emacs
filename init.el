@@ -2045,7 +2045,7 @@ When a prefix ARG is given always prompt for a command to use."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "l"
-    "i" #'ielm))
+    "r" #'ielm))
 
 ;; Init edebug for debugging lisp code
 (use-package edebug
