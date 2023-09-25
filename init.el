@@ -277,9 +277,7 @@
     "c" #'delete-frame)
   :config
   ;; Disable cursor blink
-  (blink-cursor-mode 0)
-  ;; Set frame to full screen
-  (toggle-frame-fullscreen))
+  (blink-cursor-mode 0))
 
 ;; Init window for managing windows
 (use-package window
