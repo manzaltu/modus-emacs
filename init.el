@@ -655,7 +655,7 @@ Ask for action even on single candidate jumps."
   :custom
   ( evilem-style 'at-full)
   :config
-  (evilem-default-keybindings "M"))
+  (evilem-default-keybindings ";"))
 
 ;; Init link-hint for quick link selection
 (use-package link-hint
