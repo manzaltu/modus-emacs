@@ -2421,9 +2421,6 @@ run the attached function (if exists) and enable lsp"
     "C-M-s-t" #'rustic-cargo-test
     "C-M-s-S-t" #'rustic-cargo-current-test
     "C-M-s-o" #'rustic-cargo-outdated
-    "C-M-s-r" #'rustic-cargo-run
-    "C-M-s-c" #'rustic-recompile
-    "C-M-s-S-c" #'rustic-compile
     "C-M-s-f" #'rustic-cargo-clippy-fix
     "C-M-s-S-f" #'rustic-cargo-clippy
     "C-M-s-a" #'rustic-cargo-add
@@ -2436,6 +2433,11 @@ run the attached function (if exists) and enable lsp"
     "C-M-s-u" #'rustic-cargo-upgrade
     "C-M-s-d" #'rust-dbg-wrap-or-unwrap
     "C-M-s-p" #'rustic-popup)
+  (mo-quick-menu-definer
+    :keymaps 'rustic-mode-map
+    "c RET" #'rustic-cargo-run
+    "c c" #'rustic-recompile
+    "c C" #'rustic-compile)
   :custom
   ( rustic-cargo-clippy-trigger-fix 'on-compile))
 
