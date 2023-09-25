@@ -667,6 +667,8 @@ Ask for action even on single candidate jumps."
 ;; Init evil-snipe for an improved 1 char evil search experience
 (use-package evil-snipe
   :functions evil-snipe-override-mode
+  :custom
+  ( evil-snipe-override-evil-repeat-keys nil)
   :config
   (evil-snipe-override-mode 1))
 
