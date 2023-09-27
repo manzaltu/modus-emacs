@@ -2048,6 +2048,11 @@ When a prefix ARG is given always prompt for a command to use."
     :prefix "l"
     "s" #'sly
     "c" #'sly-connect)
+  ( :keymaps 'sly-mode-map
+    "C-M-s-e" #'sly-eval-defun
+    "C-M-s-s" #'sly-eval-last-expression
+    "C-M-s-r" #'sly-eval-region
+    "C-M-s-b" #'sly-eval-buffer)
   :custom
   ( inferior-lisp-program "sbcl"))
 
