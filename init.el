@@ -248,8 +248,9 @@
     "w" #'write-file)
   ( :keymaps 'mo-quick-menu-map
     :prefix "l"
-    "f" #'load-file
-    "b" #'eval-buffer)
+    "f" #'load-file)
+  ( :keymaps 'emacs-lisp-mode-map
+    "C-M-s-b" #'eval-buffer)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "r" #'revert-buffer-quick)
@@ -2034,10 +2035,9 @@ When a prefix ARG is given always prompt for a command to use."
 (use-package elisp-mode
   :straight nil
   :general
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "l"
-    "l" #'eval-defun
-    "s" #'eval-last-sexp))
+  ( :keymaps 'emacs-lisp-mode-map
+    "C-M-s-e" #'eval-defun
+    "C-M-s-s" #'eval-last-sexp))
 
 ;; Init ielm for lisp REPL
 (use-package ielm
@@ -2050,12 +2050,11 @@ When a prefix ARG is given always prompt for a command to use."
 ;; Init edebug for debugging lisp code
 (use-package edebug
   :general
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "l"
-    "d" #'edebug-defun
-    "D" #'edebug-remove-instrumentation
-    "m" #'edebug-set-initial-mode
-    "t" #'mo-edebug-toggle-trace)
+  ( :keymaps 'emacs-lisp-mode-map
+    "C-M-s-d" #'edebug-defun
+    "C-M-s-S-d" #'edebug-remove-instrumentation
+    "C-M-s-i" #'edebug-set-initial-mode
+    "C-M-s-t" #'mo-edebug-toggle-trace)
   :config
   (defun mo-edebug-toggle-trace ()
     "Toggle edebug trace setting."
