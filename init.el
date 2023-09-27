@@ -2052,7 +2052,10 @@ When a prefix ARG is given always prompt for a command to use."
   ( inferior-lisp-program "sbcl"))
 
 ;; Init sly-quicklisp for quicklisp support in sly
-(use-package sly-quicklisp)
+(use-package sly-quicklisp
+  :general
+  ( :keymaps 'sly-mode-map
+    "C-M-s-q" #'sly-quickload))
 
 ;; Init ielm for lisp REPL
 (use-package ielm
