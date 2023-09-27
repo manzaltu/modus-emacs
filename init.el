@@ -195,6 +195,8 @@
     "k" #'kill-process
     "s" #'modify-syntax-entry
     "r" #'abort-recursive-edit)
+  ( :keymaps 'emacs-lisp-mode-map
+    "C-M-s-r" #'eval-region)
   :config
   ;; Inhibit the splash screen
   (setq inhibit-splash-screen t)
