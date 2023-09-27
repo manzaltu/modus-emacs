@@ -2055,6 +2055,9 @@ When a prefix ARG is given always prompt for a command to use."
     "C-M-s-s" #'sly-eval-last-expression
     "C-M-s-r" #'sly-eval-region
     "C-M-s-b" #'sly-eval-buffer)
+  (mo-quick-menu-definer
+    :keymaps 'sly-mode-map
+    "h h" #'sly-documentation)
   :custom
   ( inferior-lisp-program "sbcl"))
 
