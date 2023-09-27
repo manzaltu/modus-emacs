@@ -2051,6 +2051,9 @@ When a prefix ARG is given always prompt for a command to use."
   :custom
   ( inferior-lisp-program "sbcl"))
 
+;; Init sly-quicklisp for quicklisp support in sly
+(use-package sly-quicklisp)
+
 ;; Init ielm for lisp REPL
 (use-package ielm
   :straight nil

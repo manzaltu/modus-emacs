@@ -169,6 +169,7 @@
  ("rustic" . "39423d1cf4fa054c36bf9577356451f4c06ee148")
  ("s.el" . "dda84d38fffdaf0c9b12837b504b402af910d01d")
  ("sly" . "9d613cf1c680faa2441348cfc9b9b95977f78451")
+ ("sly-quicklisp" . "34c73d43dd9066262387c626c17a9b486db07b2d")
  ("spinner" . "634529bb3173e09b37499f636de70abf29d9fa8a")
  ("sql-indent" . "f170a2746f8dabc888154c9fdc11ffbaae637594")
  ("straight.el" . "5e84c4e2cd8ca79560477782ee4c9e5187725def")
