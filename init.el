@@ -2046,7 +2046,8 @@ When a prefix ARG is given always prompt for a command to use."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "l"
-    "s" #'sly)
+    "s" #'sly
+    "c" #'sly-connect)
   :custom
   ( inferior-lisp-program "sbcl"))
 
