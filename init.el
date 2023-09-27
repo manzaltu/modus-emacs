@@ -248,7 +248,7 @@
     "w" #'write-file)
   ( :keymaps 'mo-quick-menu-map
     :prefix "l"
-    "f" #'load-file)
+    "l" #'load-file)
   ( :keymaps 'emacs-lisp-mode-map
     "C-M-s-b" #'eval-buffer)
   ( :keymaps 'mo-quick-menu-map
