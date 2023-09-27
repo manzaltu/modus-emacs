@@ -2043,6 +2043,10 @@ When a prefix ARG is given always prompt for a command to use."
 
 ;; Init sly for Common Lisp support
 (use-package sly
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "l"
+    "s" #'sly)
   :custom
   ( inferior-lisp-program "sbcl"))
 
