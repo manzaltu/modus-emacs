@@ -2042,7 +2042,9 @@ When a prefix ARG is given always prompt for a command to use."
     "C-M-s-s" #'eval-last-sexp))
 
 ;; Init sly for Common Lisp support
-(use-package sly)
+(use-package sly
+  :custom
+  ( inferior-lisp-program "sbcl"))
 
 ;; Init ielm for lisp REPL
 (use-package ielm
