@@ -2890,6 +2890,10 @@ run the attached function (if exists) and enable lsp"
   :config
   (setq eww-search-prefix "https://www.google.com/search?q="))
 
+;; Init app-launcher for launching desktop apps
+(use-package app-launcher
+  :straight ( :type git :host github :repo "SebastienWae/app-launcher"))
+
 ;; Init term for terminal support
 (use-package term
   :demand t

@@ -7,6 +7,7 @@
  ("annalist.el" . "134fa3f0fb91a636a1c005c483516d4b64905a6d")
  ("anzu" . "5abb37455ea44fa401d5f4c1bdc58adb2448db67")
  ("apheleia" . "937fe9a940451cb00afc769bef8bbd7e3b281f86")
+ ("app-launcher" . "d5015e394b0a666a8c7c4d4bdf786266e773b145")
  ("auctex" . "573142ba10c5fa7285a212a3714c43525994f098")
  ("auto-highlight-symbol" . "a9aa209ed4c0adaeaa80af81635e58f4505c5c93")
  ("avy" . "be612110cb116a38b8603df367942e2bb3d9bdbe")
