@@ -2893,7 +2893,10 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init app-launcher for launching desktop apps
 (use-package app-launcher
-  :straight ( :type git :host github :repo "SebastienWae/app-launcher"))
+  :straight ( :type git :host github :repo "SebastienWae/app-launcher")
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    "ESC" #'app-launcher-run-app))
 
 ;; Init term for terminal support
 (use-package term
