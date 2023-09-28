@@ -120,6 +120,7 @@
     ">" #'evil-window-increase-width
     "<" #'evil-window-decrease-width)
   ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
     "ESC" #'evil-ex-nohighlight)
   ;; We want C-f for moving forward a word
   ( :keymaps 'evil-ex-completion-map
