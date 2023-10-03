@@ -2898,6 +2898,14 @@ run the attached function (if exists) and enable lsp"
   ( :keymaps 'mo-quick-menu-map
     "ESC" #'app-launcher-run-app))
 
+;; Init executalbe for handling script execution
+(use-package executable
+  :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "f"
+    "x" #'executable-interpret))
+
 ;; Init term for terminal support
 (use-package term
   :demand t
