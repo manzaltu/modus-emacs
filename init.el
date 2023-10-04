@@ -256,7 +256,8 @@
     "C-M-s-b" #'eval-buffer)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "r" #'revert-buffer-quick)
+    "r" #'revert-buffer-quick
+    "R" #'mo-reload-dir-locals-current-buffer)
   ( :keymaps 'mo-quick-menu-map
     "q" #'save-buffers-kill-terminal)
   :config
