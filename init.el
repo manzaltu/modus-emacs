@@ -1456,6 +1456,15 @@ directory as a fall back."
                compilation-buffer-name-function)))
       (call-interactively #'recompile)))
 
+  (defun mo-reload-dir-locals-project ()
+    "Reload dir-locals for the current project."
+    (interactive)
+    (let ((project (project-current)))
+      (dolist (buffer (project-buffers project))
+        (with-current-buffer buffer
+          (mo-reload-dir-locals-current-buffer)))
+      (message "Dir locals loaded for %s" (project-root project))))
+
   ;; Enable project detection using .project files
   (add-to-list 'project-find-functions #'mo-project-try-local)
   ;; Set project history file path
