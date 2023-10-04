@@ -264,6 +264,10 @@
     "Open the user's init file."
     (interactive)
     (find-file user-init-file))
+  (defun mo-reload-dir-locals-current-buffer ()
+    "Reload dir-locals for the current buffer."
+    (interactive)
+    (hack-dir-local-variables-non-file-buffer))
   ;; Don't create backup and autosave files
   (setq make-backup-files nil)
   (setq auto-save-default nil)
@@ -364,6 +368,7 @@ the user to input the run command."
                   (read-string "Run code command: ")))
     (let ((default-directory (project-root (project-current t))))
       (async-shell-command mo-run-code-command "*Run Code Command*")))
+
   ;; Set a wide enough default fill-column
   (setq-default fill-column 100)
   ;; Disable default tab indentation
