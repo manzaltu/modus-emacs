@@ -1411,7 +1411,8 @@ Ask for action even on single candidate jumps."
     "x" #'project-async-shell-command
     "k" #'project-kill-buffers
     "p" #'project-switch-project
-    "i" #'project-list-buffers)
+    "i" #'project-list-buffers
+    "r" #'mo-reload-dir-locals-project)
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
