@@ -418,7 +418,12 @@ the user to input the run command."
     "i" #'ibuffer))
 
 ;; Init bufler for an improved ibuffer
-(use-package bufler)
+(use-package bufler
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "SPC" #'bufler
+    "RET" #'bufler-switch-buffer))
 
 ;; Init repeat for repeating previous commands
 (use-package repeat
