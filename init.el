@@ -1655,6 +1655,8 @@ directory as a fall back."
 ;; Init marginalia for minibuffer result annotations
 (use-package marginalia
   :functions marginalia-mode
+  :custom
+  ( marginalia-field-width 200)
   :config
   (marginalia-mode))
 
