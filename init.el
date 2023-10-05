@@ -417,6 +417,9 @@ the user to input the run command."
     :prefix "b"
     "i" #'ibuffer))
 
+;; Init bufler for an improved ibuffer
+(use-package bufler)
+
 ;; Init repeat for repeating previous commands
 (use-package repeat
   :straight nil
