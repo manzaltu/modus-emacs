@@ -1713,6 +1713,7 @@ directory as a fall back."
   :straight nil
   :general
   ( :keymaps 'override
+    "<f5>" #'toggle-debug-on-quit
     "<f6>" #'toggle-debug-on-error)
   :config
   (menu-bar-mode -1))
