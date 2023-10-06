@@ -2744,7 +2744,8 @@ run the attached function (if exists) and enable lsp"
     :prefix "h"
     "F" #'describe-face
     "s" #'describe-syntax
-    "C" #'describe-char)
+    "C" #'describe-char
+    "B" #'describe-bindings)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "M" #'describe-mode))
