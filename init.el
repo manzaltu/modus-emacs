@@ -2744,7 +2744,10 @@ run the attached function (if exists) and enable lsp"
     :prefix "h"
     "F" #'describe-face
     "s" #'describe-syntax
-    "C" #'describe-char))
+    "C" #'describe-char)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "M" #'describe-mode))
 
 ;; Init helpful for better lisp help
 (use-package helpful
