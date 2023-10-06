@@ -269,6 +269,8 @@
     "Reload dir-locals for the current buffer."
     (interactive)
     (hack-dir-local-variables-non-file-buffer))
+  ;; Do not prevent remembering "risky" local variables
+  (advice-add 'risky-local-variable-p :override #'ignore)
   ;; Don't create backup and autosave files
   (setq make-backup-files nil)
   (setq auto-save-default nil)
