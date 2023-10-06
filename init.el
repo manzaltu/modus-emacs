@@ -582,7 +582,10 @@ Tab is named after the project's name."
     ( diredp-hide-details-initially-flag nil)
     :config
     (setq diredp-ignore-compressed-flag nil)
-    (diredp-toggle-find-file-reuse-dir 1))
+    (diredp-toggle-find-file-reuse-dir 1)
+    ;; These hooks seem to degrade performance on some scenarios
+    (remove-hook 'dired-after-readin-hook 'diredp-nb-marked-in-mode-name)
+    (remove-hook 'dired-mode-hook 'diredp-nb-marked-in-mode-name))
 
   :hook
   ( evil-collection-setup . mo-evil-collection-remove-quick-menu-prefix))
