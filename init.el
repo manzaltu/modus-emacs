@@ -226,6 +226,8 @@
   (setq x-underline-at-descent-line t)
   ;; Enable recursive minibuffer
   (setq enable-recursive-minibuffers t)
+  ;; Set tab width
+  (setq-default tab-width 4)
   ;; Enable indentation and completion using the TAB key
   (setq tab-always-indent 'complete)
   ;; Do not ignore extensions
