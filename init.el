@@ -3426,6 +3426,8 @@ If project root cannot be found, use the buffer's default directory."
   :config
   ;; Remove average load time indicator from the modeline
   (setq display-time-default-load-average nil)
+  ;; Add spacing at the beginning of the time format string
+  (push " " display-time-string-forms)
   (display-time-mode 1))
 
 ;; Init alarm-clock for an alarm clock in Emacs
