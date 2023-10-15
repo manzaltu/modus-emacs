@@ -3362,6 +3362,7 @@ If project root cannot be found, use the buffer's default directory."
   (setq popper-reference-buffers
         '( "\\*Messages\\*"
            "\\*Warnings\\*"
+           "\\*scratch\\*"
            "Output\\*$"
            "\\*Async Shell Command\\*"
            "\\*ielm\\*"
