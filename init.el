@@ -103,7 +103,7 @@
   :demand t
   :general
   ( :states 'motion
-    "M-u" #'evil-scroll-up)
+    "C-S-d" #'evil-scroll-up)
   ( :keymaps 'mo-quick-menu-map
     :prefix "w"
     "H" #'evil-window-move-far-left
