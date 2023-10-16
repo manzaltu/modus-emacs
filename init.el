@@ -2175,7 +2175,9 @@ When a prefix ARG is given always prompt for a command to use."
     "=" #'lsp-format-region
     "o" #'lsp-clangd-find-other-file)
   ( :keymaps 'mo-quick-menu-map
-    "\"" #'lsp-find-implementation)
+    "\"" #'lsp-find-implementation
+    "(" #'lsp-ui-peek-find-implementation
+    "`" #'lsp-ui-peek-find-references)
   ( :keymaps 'mo-quick-menu-map
     :prefix "h"
     "r" #'lsp-rust-analyzer-open-external-docs)
