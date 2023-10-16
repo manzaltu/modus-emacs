@@ -2071,7 +2071,7 @@ When a prefix ARG is given always prompt for a command to use."
 (use-package elisp-mode
   :straight nil
   :general
-  ( :keymaps 'emacs-lisp-mode-map
+  ( :keymaps '( emacs-lisp-mode-map lisp-interaction-mode-map)
     "C-M-s-e" #'eval-defun
     "C-M-s-s" #'eval-last-sexp))
 
