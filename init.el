@@ -560,7 +560,7 @@ Tab is named after the project's name."
   :demand t
   :general
   ( :keymaps 'mo-quick-menu-map
-    "(" #'evil-collection-consult-jump-list)
+    ")" #'evil-collection-consult-jump-list)
   :init
   (defvar forge-add-default-bindings nil)
   :config
