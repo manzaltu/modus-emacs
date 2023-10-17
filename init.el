@@ -2472,6 +2472,9 @@ run the attached function (if exists) and enable lsp"
   :demand t
   :functions yas-global-mode
   :general
+  ( :keymaps 'override
+    :states '( normal insert visual motion emacs)
+    "C-*" #'yas-insert-snippet)
   ( :keymaps 'yas-keymap
     [tab] nil
     "TAB" nil
