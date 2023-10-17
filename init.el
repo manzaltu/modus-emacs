@@ -792,6 +792,7 @@ Ask for action even on single candidate jumps."
     "C-M-s-g" #'org-set-tags-command
     "C-M-s-i" #'org-insert-structure-template
     "C-M-s-e" #'org-edit-special
+    "C-M-s-S-e" #'org-export-dispatch
     "C-M-s-<return>" #'org-open-at-point)
   ( :keymaps 'org-src-mode-map
     "C-M-s-;" #'org-edit-src-exit)
