@@ -777,7 +777,10 @@ Ask for action even on single candidate jumps."
   ( lsp-after-open . lsp-origami-try-enable))
 
 ;; Init kkp for supporting the Kitty Keyboard Protocol
-(use-package kkp)
+(use-package kkp
+  :commands global-kkp-mode
+  :config
+  (global-kkp-mode +1))
 
 ;; Init org mode for editing and managing notes
 (use-package org
