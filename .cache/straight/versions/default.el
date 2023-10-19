@@ -113,6 +113,7 @@
  ("julia-emacs" . "7a8c868e0d3e51ba4a2c621ee22ca9599e0e4bbb")
  ("just-mode.el" . "d7f52eab8fa3828106f80acb1e2176e5877b7191")
  ("kind-icon" . "a09fd7597a4bb7f7e5b6a5e8b7108eabd9b6a226")
+ ("kkp" . "fc42a998d77e50c93b66493d7e6e34126e060f3b")
  ("let-alist" . "021fc10df2e44faba4728d849ee767cf890aa51a")
  ("link-hint.el" . "36ce929331f2838213bcaa1145ece4b73ce84afe")
  ("log4e" . "737d275eac28dbdfb0b26d28e99da148bfce9d16")
