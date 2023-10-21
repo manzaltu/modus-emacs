@@ -2506,6 +2506,8 @@ run the attached function (if exists) and enable lsp"
     "C-M-s-f" #'rustic-cargo-clippy-fix
     "C-M-s-S-f" #'rustic-cargo-clippy
     "C-M-s-a" #'rustic-cargo-add
+    "C-M-s-S-a" #'rustic-beginning-of-defun
+    "C-M-s-S-e" #'rustic-end-of-defun
     "C-M-s-m" #'rustic-cargo-bench
     "C-M-s-x" #'rustic-cargo-clean
     "C-M-s-h" #'rustic-cargo-doc
