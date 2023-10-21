@@ -2664,6 +2664,9 @@ run the attached function (if exists) and enable lsp"
   (setq logview-views-file (mo-cache-path "logview.views"))
   (setq logview-cache-filename (mo-cache-path "logview-cache.extmap")))
 
+;; Init syslog-mode for viewing syslog and strace files
+(use-package syslog-mode)
+
 ;; Init apheleia for code formatting
 (use-package apheleia
   :demand t
