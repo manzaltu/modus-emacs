@@ -677,7 +677,6 @@ Ask for action even on single candidate jumps."
     "C-\"" #'mo-avy-goto-char-timer-action)
   :config
   (setq avy-all-windows 'all-frames)
-  (setq avy-style 'words)
   (setq avy-timeout-seconds 0.25))
 
 ;; Init evil-easymotion for using avy with evil motions
