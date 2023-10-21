@@ -682,8 +682,6 @@ Ask for action even on single candidate jumps."
 ;; Init evil-easymotion for using avy with evil motions
 (use-package evil-easymotion
   :functions evilem-default-keybindings
-  :custom
-  ( evilem-style 'at-full)
   :config
   (evilem-default-keybindings ";"))
 
