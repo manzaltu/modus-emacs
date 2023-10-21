@@ -667,8 +667,7 @@ Tab is named after the project's name."
     "Zap to free text search with timeout.
 Ask for action even on single candidate jumps."
     (interactive)
-    (let ((avy-single-candidate-jump nil)
-          (avy-style 'at-full))
+    (let ((avy-single-candidate-jump nil))
       (call-interactively #'avy-goto-char-timer)))
   :general
   ( :keymaps 'override
