@@ -672,7 +672,6 @@ Ask for action even on single candidate jumps."
   :general
   ( :keymaps 'override
     :states '( normal insert visual motion emacs)
-    "C-'" #'avy-goto-char-timer
     "C-\"" #'mo-avy-goto-char-timer-action)
   :config
   (setq avy-all-windows 'all-frames)
