@@ -688,7 +688,7 @@ Ask for action even on single candidate jumps."
   :general
   ( :keymaps 'override
     :states '( normal motion emacs)
-    "C-(" #'link-hint-open-link))
+    "C-\"" #'link-hint-open-link))
 
 ;; Init evil-snipe for an improved 1 char evil search experience
 (use-package evil-snipe
