@@ -2475,7 +2475,7 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :keymaps 'override
     :states '( normal insert visual motion emacs)
-    "C-*" #'yas-insert-snippet)
+    "C-(" #'yas-insert-snippet)
   ( :keymaps 'yas-keymap
     [tab] nil
     "TAB" nil
