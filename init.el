@@ -125,9 +125,13 @@
   ;; We want C-f for moving forward a word
   ( :keymaps 'evil-ex-completion-map
     "C-f" nil
+    "C-b" nil
+    "C-a" nil
     "C-." #'evil-ex-command-window)
   ( :keymaps 'evil-ex-search-keymap
     "C-f" nil
+    "C-b" nil
+    "C-a" nil
     "C-." #'evil-ex-search-command-window)
   ( :states 'motion
     ;; We want C-<num> for jumping between tabs
