@@ -155,6 +155,8 @@
   (setq evil-search-module 'evil-search)
   ;; Set word search to look for symbol boundaries
   (setq evil-symbol-word-search t)
+  ;; Do not keep highlighting after search
+  (setq evil-ex-search-persistent-highlight nil)
   ;; Set end of line selection to not include the newline character
   (setq evil-want-visual-char-semi-exclusive t)
   ;; Don't kill text when pasting over it
