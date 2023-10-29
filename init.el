@@ -669,17 +669,12 @@ Tab is named after the project's name."
       (set-face-attribute 'avy-lead-face-1 nil :background "gold4")
       (set-face-attribute 'avy-lead-face-2 nil :background "DarkGoldenrod4")))
   :config
-  (defun mo-avy-goto-char-timer-action ()
-    "Zap to free text search with timeout.
-Ask for action even on single candidate jumps."
-    (interactive)
-    (let ((avy-single-candidate-jump nil))
-      (call-interactively #'avy-goto-char-timer)))
   :general
   ( :keymaps 'override
     :states '( normal insert visual motion emacs)
-    "C-'" #'mo-avy-goto-char-timer-action)
+    "C-'" #'avy-goto-char-timer)
   :config
+  (setq avy-single-candidate-jump nil)
   (setq avy-all-windows 'all-frames)
   (setq avy-timeout-seconds 0.25))
 
