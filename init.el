@@ -3392,6 +3392,7 @@ If project root cannot be found, use the buffer's default directory."
            devdocs-mode
            compilation-mode
            dap-ui-repl-mode
+           inferior-python-mode
            "^\\*\\(.+-\\)?eshell\\*.*$" eshell-mode
            "^\\*shell.*\\*.*$" shell-mode
            "^\\*term.*\\*$" term-mode
