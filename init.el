@@ -2553,6 +2553,10 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init python for Python support
 (use-package python
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "x"
+    "r" #'run-python)
   :config
   (setq python-indent-guess-indent-offset-verbose nil))
 
