@@ -2558,7 +2558,9 @@ run the attached function (if exists) and enable lsp"
     :prefix "x"
     "r" #'run-python)
   :config
-  (setq python-indent-guess-indent-offset-verbose nil))
+  (setq python-indent-guess-indent-offset-verbose nil)
+  (setq python-shell-interpreter "ipython")
+  (setq python-shell-interpreter-args "--simple-prompt -i"))
 
 ;; Init lsp-pyright for pyright python language server
 (use-package lsp-pyright)
