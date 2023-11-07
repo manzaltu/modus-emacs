@@ -2169,6 +2169,7 @@ When a prefix ARG is given always prompt for a command to use."
     :prefix "c"
     "l" #'lsp
     "L" #'lsp-disconnect
+    "D" #'lsp-describe-session
     "a" #'lsp-execute-code-action
     "r" #'lsp-rename
     "p" #'lsp-signature-activate
