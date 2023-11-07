@@ -2617,8 +2617,8 @@ run the attached function (if exists) and enable lsp"
 (use-package docker
   :general
   ( :keymaps 'mo-quick-menu-map
-    :prefix "c"
-    "D" #'docker))
+    :prefix "x"
+    "d" #'docker))
 
 ;; Init nix-mode for editing nix files
 (use-package nix-mode
