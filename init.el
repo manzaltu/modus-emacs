@@ -2675,6 +2675,9 @@ run the attached function (if exists) and enable lsp"
 ;; Init syslog-mode for viewing syslog and strace files
 (use-package syslog-mode)
 
+;; Init journalctl-mode for viewing journalctl output
+(use-package journalctl-mode)
+
 ;; Init apheleia for code formatting
 (use-package apheleia
   :demand t

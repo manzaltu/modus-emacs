@@ -111,6 +111,7 @@
  ("inheritenv" . "00106bb208d06e5f1ec25d0c2f41c000cbb25076")
  ("jeison" . "19a51770f24eaa7b538c7be6a8a5c25d154b641f")
  ("jenkinsfile-mode" . "568865ee419e0592de0dd0717d6769a66d9df111")
+ ("journalctl-mode" . "40d77e85528e708b838d4c086183c53878520f55")
  ("js2-mode" . "79bc78d77db0d2e8e43dc0f9e0504ad90bcbc26d")
  ("julia-emacs" . "7a8c868e0d3e51ba4a2c621ee22ca9599e0e4bbb")
  ("just-mode.el" . "d7f52eab8fa3828106f80acb1e2176e5877b7191")
