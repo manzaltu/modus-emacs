@@ -2676,7 +2676,11 @@ run the attached function (if exists) and enable lsp"
 (use-package syslog-mode)
 
 ;; Init journalctl-mode for viewing journalctl output
-(use-package journalctl-mode)
+(use-package journalctl-mode
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "x"
+    "j" #'journalctl))
 
 ;; Init apheleia for code formatting
 (use-package apheleia
