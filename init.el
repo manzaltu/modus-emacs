@@ -389,6 +389,12 @@ the user to input the run command."
   ;; Create a new buffer if async shell buffer already in use
   (setq async-shell-command-buffer 'new-buffer))
 
+;; Init comp for native compilation settings
+(use-package comp
+  :straight nil
+  :config
+  (setq native-comp-async-report-warnings-errors 'silent))
+
 ;; Init custom for declaring and initializing user options
 (use-package custom
   :straight nil
