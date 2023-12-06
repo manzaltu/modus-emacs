@@ -2850,7 +2850,8 @@ run the attached function (if exists) and enable lsp"
     "DEL" #'chatgpt-shell-prompt)
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
-    "g" #'chatgpt-shell)
+    "g" #'chatgpt-shell
+    "G" #'chatgpt-shell-describe-image)
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
     "g d" #'chatgpt-shell-describe-code
