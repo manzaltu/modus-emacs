@@ -1408,7 +1408,17 @@ Tab is named after the project's name."
   :config
   ;; Add completion functions
   (add-hook 'completion-at-point-functions (cape-capf-prefix-length #'cape-dabbrev 3))
-  (add-hook 'completion-at-point-functions #'cape-file))
+  (add-hook 'completion-at-point-functions #'cape-file)
+
+  (defun mo-cape-disable-file-comp-evil-search ()
+    "Disable cape file completion on evil search."
+    (when (or (eq current-minibuffer-command 'evil-ex-search-forward)
+              (eq current-minibuffer-command 'evil-ex-search-backward))
+      (make-local-variable 'completion-at-point-functions)
+      (remove-hook 'completion-at-point-functions #'cape-file t)))
+
+  :hook
+  (minibuffer-setup . mo-cape-disable-file-comp-evil-search))
 
 ;; Init dabbrev for the automatic completion of dynamic abbreviations
 (use-package dabbrev
