@@ -1407,8 +1407,8 @@ Tab is named after the project's name."
   ( cape-dabbrev-check-other-buffers 'some)
   :config
   ;; Add completion functions
-  (add-to-list 'completion-at-point-functions (cape-capf-prefix-length #'cape-dabbrev 3))
-  (add-to-list 'completion-at-point-functions #'cape-file))
+  (add-hook 'completion-at-point-functions (cape-capf-prefix-length #'cape-dabbrev 3))
+  (add-hook 'completion-at-point-functions #'cape-file))
 
 ;; Init dabbrev for the automatic completion of dynamic abbreviations
 (use-package dabbrev
