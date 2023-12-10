@@ -2330,6 +2330,29 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init dape for interactive debugging
 (use-package dape
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "d"
+    "d" #'dape
+    "c" #'dape-continue
+    "n" #'dape-next
+    "i" #'dape-step-in
+    "o" #'dape-step-out
+    "t" #'dape-select-thread
+    "b" #'dape-breakpoint-toggle
+    "B" #'dape-breakpoint-expression
+    "%" #'dape-breakpoint-log
+    "s" #'dape-select-stack
+    "e" #'dape-evaluate-expression
+    "r" #'dape-repl
+    "R" #'dape-restart
+    "m" #'dape-read-memory
+    "p" #'dape-pause
+    "k" #'dape-kill
+    "w" #'dape-watch-dwim
+    "q" #'dape-quit
+    "Q" #'dape-disconnect-quit
+    ";" #'dape-info)
   :custom
   ( dape-adapter-dir (mo-cache-path "debug-adapters"))
   ( dape-buffer-window-arrangment 'right)
