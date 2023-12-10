@@ -2393,7 +2393,8 @@ run the attached function (if exists) and enable lsp"
 ;; Init dape for interactive debugging
 (use-package dape
   :custom
-  ( dape-adapter-dir (mo-cache-path "debug-adapters")))
+  ( dape-adapter-dir (mo-cache-path "debug-adapters"))
+  ( dape-buffer-window-arrangment 'right))
 
 ;; Init flycheck for on-the-fly syntax checking
 (use-package flycheck
