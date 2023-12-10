@@ -2394,7 +2394,16 @@ run the attached function (if exists) and enable lsp"
 (use-package dape
   :custom
   ( dape-adapter-dir (mo-cache-path "debug-adapters"))
-  ( dape-buffer-window-arrangment 'right))
+  ( dape-buffer-window-arrangment 'right)
+
+  :config
+  ;; Do not display info and repl buffers on startup
+  (remove-hook 'dape-on-start-hooks 'dape-info)
+  (remove-hook 'dape-on-start-hooks 'dape-repl)
+
+  ;; Display info and repl buffers on stopped
+  (add-hook 'dape-on-stopped-hooks 'dape-info)
+  (add-hook 'dape-on-stopped-hooks 'dape-repl))
 
 ;; Init flycheck for on-the-fly syntax checking
 (use-package flycheck
