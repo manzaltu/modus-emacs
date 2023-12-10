@@ -2403,7 +2403,10 @@ run the attached function (if exists) and enable lsp"
 
   ;; Display info and repl buffers on stopped
   (add-hook 'dape-on-stopped-hooks 'dape-info)
-  (add-hook 'dape-on-stopped-hooks 'dape-repl))
+  (add-hook 'dape-on-stopped-hooks 'dape-repl)
+
+  ;; Kill compile buffer on build success
+  (add-hook 'dape-compile-compile-hooks 'kill-buffer))
 
 ;; Init flycheck for on-the-fly syntax checking
 (use-package flycheck
