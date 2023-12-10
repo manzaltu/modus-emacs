@@ -2406,7 +2406,12 @@ run the attached function (if exists) and enable lsp"
   (add-hook 'dape-on-stopped-hooks 'dape-repl)
 
   ;; Kill compile buffer on build success
-  (add-hook 'dape-compile-compile-hooks 'kill-buffer))
+  (add-hook 'dape-compile-compile-hooks 'kill-buffer)
+
+  ;; Save buffers on startup, useful for interpreted languages
+  (add-hook 'dape-on-start-hooks
+            (defun mo-dape--save-on-start ()
+              (save-some-buffers t t))))
 
 ;; Init flycheck for on-the-fly syntax checking
 (use-package flycheck
