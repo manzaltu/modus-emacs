@@ -2390,6 +2390,9 @@ run the attached function (if exists) and enable lsp"
   ;; Init dotnet debugging
   (require 'dap-netcore))
 
+;; Init dape for interactive debugging
+(use-package dape)
+
 ;; Init flycheck for on-the-fly syntax checking
 (use-package flycheck
   :general
