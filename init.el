@@ -1268,16 +1268,6 @@ Tab is named after the project's name."
   :after vertico
   :straight nil
   :config
-  (defun sort-stack-frames (frames)
-    "Sort stack FRAMES according to frame prefix number."
-    (sort frames
-          (lambda (frame1 frame2)
-            (< (string-to-number (car (split-string frame1 ":")))
-               (string-to-number (car (split-string frame2 ":")))))))
-
-  (setq vertico-multiform-commands
-        '((dap-switch-stack-frame (vertico-sort-function . sort-stack-frames))))
-
   (vertico-multiform-mode))
 
 ;; Init recursion-indicator for indicating minibuffer recursions
@@ -2338,58 +2328,6 @@ run the attached function (if exists) and enable lsp"
     "t" #'lsp-treemacs-call-hierarchy
     "T" #'lsp-treemacs-type-hierarchy))
 
-;; Init dap-mode for interactive debugging
-(use-package dap-mode
-  :after lsp-mode
-  :demand t
-  :general
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "d"
-    ";" #'dap-hydra
-    "d" #'dap-debug
-    "c" #'dap-continue
-    "n" #'dap-next
-    "i" #'dap-step-in
-    "o" #'dap-step-out
-    "s" #'dap-ui-sessions
-    "S" #'dap-switch-session
-    "t" #'dap-switch-thread
-    "T" #'dap-stop-thread
-    "b" #'dap-breakpoint-toggle
-    "B" #'dap-ui-breakpoints-browse
-    "f" #'dap-switch-stack-frame
-    "k" #'dap-up-stack-frame
-    "j" #'dap-down-stack-frame
-    "l" #'dap-ui-locals
-    "v" #'dap-ui-eval-variable-in-buffer
-    "e" #'dap-eval
-    "E" #'dap-ui-eval-in-buffer
-    "p" #'dap-eval-thing-at-point
-    "r" #'dap-ui-repl
-    "x" #'dap-ui-expressions-add
-    "X" #'dap-ui-expressions-remove
-    "@" #'dap-ui-expressions
-    "q" #'dap-disconnect)
-  :hook
-  ;; Recenter after cursor position has changed
-  ( dap-position-changed . recenter)
-  :config
-  (setq dap-breakpoints-file (mo-cache-path "dap-breakpoints"))
-  (setq dap-utils-extension-path (mo-cache-path ".extension"))
-  (setq dap-ui-repl-history-dir mo-cache-dir)
-  ;; Disable all auto configured features
-  (setq dap-auto-configure-features nil)
-  ;; Do not truncate variables
-  (setq dap-ui-variable-length 500)
-  (dap-mode)
-  (dap-ui-mode)
-  ;; Init lldb debugging
-  (require 'dap-lldb)
-  ;; Init native debugging
-  (require 'dap-gdb-lldb)
-  ;; Init dotnet debugging
-  (require 'dap-netcore))
-
 ;; Init dape for interactive debugging
 (use-package dape
   :custom
@@ -3441,7 +3379,6 @@ If project root cannot be found, use the buffer's default directory."
            world-clock-mode
            devdocs-mode
            compilation-mode
-           dap-ui-repl-mode
            inferior-python-mode
            "^\\*\\(.+-\\)?eshell\\*.*$" eshell-mode
            "^\\*shell.*\\*.*$" shell-mode
