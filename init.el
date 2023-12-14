@@ -1607,6 +1607,8 @@ directory as a fall back."
   :config
   ;; Configure the narrowing key.
   (setq consult-narrow-key "C-l")
+  ;; Suppress file access error messages
+  (setq consult-ripgrep-args (concat consult-ripgrep-args " --no-messages"))
 
   (defun mo-consult-buffer-dwim ()
     "If in project, list project buffers, otherwise show the global list."
