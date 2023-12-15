@@ -120,6 +120,7 @@
  ("kkp" . "fc42a998d77e50c93b66493d7e6e34126e060f3b")
  ("let-alist" . "0c968ff216a2c91080d79272e85132fef6f14988")
  ("link-hint.el" . "43378ae627d79c7645bbd4e756d857fcda2eab79")
+ ("literate-calc-mode.el" . "a1a78f26dea70aac1c4df7f5767c8f5c1643d7d1")
  ("log4e" . "737d275eac28dbdfb0b26d28e99da148bfce9d16")
  ("logview" . "9140067afdc2f0d1eb493dc4dfdb53645289dd2b")
  ("lsp-docker" . "60e1103ac7c8e30d036ea65fad489210682d6259")

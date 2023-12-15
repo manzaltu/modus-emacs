@@ -1857,6 +1857,9 @@ When a prefix ARG is given always prompt for a command to use."
     :prefix "x"
     "l" #'calc))
 
+;; Init literate-calc-mode for inline calculations
+(use-package literate-calc-mode)
+
 ;; Init proced for viewing and managing running processes
 (use-package proced
   :straight nil
