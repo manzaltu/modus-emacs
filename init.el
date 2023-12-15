@@ -1858,7 +1858,11 @@ When a prefix ARG is given always prompt for a command to use."
     "l" #'calc))
 
 ;; Init literate-calc-mode for inline calculations
-(use-package literate-calc-mode)
+(use-package literate-calc-mode
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "n"
+    "C" #'literate-calc-eval-buffer))
 
 ;; Init proced for viewing and managing running processes
 (use-package proced
