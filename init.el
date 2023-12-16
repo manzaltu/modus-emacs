@@ -2975,6 +2975,14 @@ run the attached function (if exists) and enable lsp"
   :config
   (setq eww-search-prefix "https://www.google.com/search?q="))
 
+;; Init erc for accessing IRC through Emacs
+(use-package erc
+  :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "x"
+    "i" #'erc))
+
 ;; Init app-launcher for launching desktop apps
 (use-package app-launcher
   :straight ( :type git :host github :repo "SebastienWae/app-launcher")
