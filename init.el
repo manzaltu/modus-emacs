@@ -2952,6 +2952,19 @@ run the attached function (if exists) and enable lsp"
     (interactive)
     (let ((aw-dispatch-always t))
       (call-interactively #'ace-window)))
+
+  (defun mo-ace-selected-window-prefix ()
+    "Display the buffer of the next command in the selected window."
+    (interactive)
+    (let ((other-window-lambda
+           (lambda (window)
+             (display-buffer-override-next-command
+              (lambda (buffer alist)
+                (cons window 'reuse))
+              nil "[selected-window]")
+             (message "Display next command buffer in the selected window..."))))
+      (aw-select " Ace - Other Window Prefix" other-window-lambda)))
+
   (setq aw-keys '( ?a ?s ?d ?f ?g ?h ?j ?k ?l))
   ;; Remove treemacs windows from the ignored buffer list
   (setq aw-ignored-buffers (remove 'treemacs-mode aw-ignored-buffers)))
