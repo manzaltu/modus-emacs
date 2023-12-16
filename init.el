@@ -2945,7 +2945,8 @@ run the attached function (if exists) and enable lsp"
   ( :keymaps 'override
     :states '( normal insert visual motion emacs)
     "M-o" #'ace-window
-    "M-O" #'mo-ace-window-with-action)
+    "M-O" #'mo-ace-window-with-action
+    "C-S-o" #'mo-ace-selected-window-prefix)
   :config
   (defun mo-ace-window-with-action ()
     "Select window with dispatch action."
