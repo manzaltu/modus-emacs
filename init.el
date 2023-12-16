@@ -303,11 +303,6 @@
   :demand t
   :straight nil
   :general
-  ( :keymaps 'override
-    :states '( normal insert visual motion emacs)
-    "M-[" #'other-window-prefix)
-  ( :keymaps 'mo-quick-menu-map
-    "o" #'other-window-prefix)
   ( :keymaps 'mo-quick-menu-map
     :prefix "w"
     "=" #'balance-windows
