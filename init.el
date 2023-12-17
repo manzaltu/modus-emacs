@@ -1283,6 +1283,9 @@ Tab is named after the project's name."
 (use-package vertico-buffer
   :after vertico
   :straight nil
+  :general
+  ( :keymaps 'override
+    "M-\"" #'mo-vertico-buffer-next-command)
   :config
   (defun mo-vertico-buffer-next-command ()
     "Run next vertico command in a separate buffer."
