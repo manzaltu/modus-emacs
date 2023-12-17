@@ -158,6 +158,8 @@
   :init
   ;; Needed for evil-collection
   (setq evil-want-keybinding nil)
+  ;; Enable in minibuffer
+  (setq evil-want-minibuffer t)
   ;; Undo
   (setq evil-undo-system 'undo-redo)
   (setq evil-want-fine-undo t)
