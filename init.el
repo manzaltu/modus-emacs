@@ -1282,7 +1282,18 @@ Tab is named after the project's name."
 ;; Init vertico-buffer for viewing vertico results in a separate buffer
 (use-package vertico-buffer
   :after vertico
-  :straight nil)
+  :straight nil
+  :config
+  (defun mo-vertico-buffer-next-command ()
+    "Run next vertico command in a separate buffer."
+    (interactive)
+    (defun mo--vertico-buffer-disable-next-command ()
+      "Called by a hook to disable vertico-buffer."
+      (remove-hook 'minibuffer-setup-hook #'mo--vertico-buffer-disable-next-command)
+      (vertico-buffer-mode -1))
+    (add-hook 'minibuffer-setup-hook #'mo--vertico-buffer-disable-next-command 100)
+    (vertico-buffer-mode)
+    (message "Display the next vertico command in a dedicated buffer...")))
 
 ;; Init recursion-indicator for indicating minibuffer recursions
 (use-package recursion-indicator
