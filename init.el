@@ -1689,7 +1689,19 @@ directory as a fall back."
   (defun mo-consult-fd-current-dir ()
     "Call consult-fd on buffer's directory."
     (interactive)
-    (consult-fd default-directory)))
+    (consult-fd default-directory))
+
+  (defvar-local consult-toggle-preview-saved-func nil
+    "Saved consult buffer preview function.")
+
+  (defun mo-consult-toggle-preview ()
+    "Enable or disable consult buffer preview."
+    (interactive)
+    (if consult-toggle-preview-saved-func
+        (setq consult--preview-function consult-toggle-preview-saved-func
+              consult-toggle-preview-saved-func nil)
+      (setq consult-toggle-preview-saved-func consult--preview-function
+            consult--preview-function #'ignore))))
 
 ;; Init consult-dir for inserting paths into minibuffer prompts
 (use-package consult-dir
