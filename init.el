@@ -672,7 +672,6 @@ Tab is named after the project's name."
   :config
   :general
   ( :keymaps 'override
-    :states '( normal insert visual motion emacs)
     "C-'" #'avy-goto-char-timer)
   :config
   (setq avy-single-candidate-jump nil)
@@ -689,7 +688,6 @@ Tab is named after the project's name."
 (use-package link-hint
   :general
   ( :keymaps 'override
-    :states '( normal motion emacs)
     "C-\"" #'link-hint-open-link))
 
 ;; Init evil-snipe for an improved 1 char evil search experience
@@ -2485,7 +2483,6 @@ run the attached function (if exists) and enable lsp"
   :functions yas-global-mode
   :general
   ( :keymaps 'override
-    :states '( normal insert visual motion emacs)
     "C-(" #'yas-insert-snippet)
   ( :keymaps 'yas-keymap
     [tab] nil
@@ -2943,7 +2940,6 @@ run the attached function (if exists) and enable lsp"
 (use-package ace-window
   :general
   ( :keymaps 'override
-    :states '( normal insert visual motion emacs)
     "M-o" #'ace-window
     "M-O" #'mo-ace-window-with-action
     "C-S-o" #'mo-ace-selected-window-prefix)
@@ -3402,7 +3398,6 @@ If project root cannot be found, use the buffer's default directory."
   :demand t
   :general
   ( :keymaps 'override
-    :states '( normal insert visual motion emacs)
     "C-`" #'popper-toggle-latest
     "C-M-`" #'popper-cycle
     "M-`" #'popper-toggle-type)
