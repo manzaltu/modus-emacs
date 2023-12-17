@@ -3017,7 +3017,9 @@ run the attached function (if exists) and enable lsp"
     "i" #'erc)
   :custom
   ( erc-server "irc.libera.chat")
-  ( erc-port 6667))
+  ( erc-port 6667)
+  ;; Hide other users' state change messages
+  ( erc-hide-list '("JOIN" "PART" "QUIT" "NICK")))
 
 ;; Init app-launcher for launching desktop apps
 (use-package app-launcher
