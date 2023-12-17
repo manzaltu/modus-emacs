@@ -1265,6 +1265,11 @@ Tab is named after the project's name."
   :config
   (vertico-multiform-mode))
 
+;; Init vertico-buffer for viewing vertico results in a separate buffer
+(use-package vertico-buffer
+  :after vertico
+  :straight nil)
+
 ;; Init recursion-indicator for indicating minibuffer recursions
 (use-package recursion-indicator
   :functions recursion-indicator-mode
