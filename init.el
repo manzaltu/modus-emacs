@@ -3014,7 +3014,10 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
-    "i" #'erc))
+    "i" #'erc)
+  :custom
+  ( erc-server "irc.libera.chat")
+  ( erc-port 6667))
 
 ;; Init app-launcher for launching desktop apps
 (use-package app-launcher
