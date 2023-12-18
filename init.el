@@ -1702,7 +1702,14 @@ directory as a fall back."
         (setq consult--preview-function consult-toggle-preview-saved-func
               consult-toggle-preview-saved-func nil)
       (setq consult-toggle-preview-saved-func consult--preview-function
-            consult--preview-function #'ignore))))
+            consult--preview-function #'ignore)))
+
+  (defun mo-consult-preview ()
+    "Force consult buffer preview.
+Used while preview is toggled off."
+    (interactive)
+    (when consult-toggle-preview-saved-func
+      (funcall consult-toggle-preview-saved-func))))
 
 ;; Init consult-dir for inserting paths into minibuffer prompts
 (use-package consult-dir
