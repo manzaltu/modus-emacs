@@ -1595,6 +1595,7 @@ directory as a fall back."
   ( "M-s L" #'consult-line-multi)            ;; required by consult-line to detect isearch
   ;; Minibuffer history
   ( :keymaps 'minibuffer-local-map
+    "C-S-p" #'mo-consult-toggle-preview
     "M-s" #'consult-history                 ;; orig. next-matching-history-element
     "M-r" #'consult-history                 ;; orig. previous-matching-history-element
     "C-r" #'consult-history)                ;; orig. isearch-backward
