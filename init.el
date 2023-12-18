@@ -321,6 +321,8 @@
   :demand t
   :straight nil
   :general
+  ( :keymaps 'override
+    "C-M-S-o" #'mo-current-window-prefix)
   ( :keymaps 'mo-quick-menu-map
     :prefix "w"
     "=" #'balance-windows
