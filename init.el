@@ -1467,6 +1467,8 @@ Tab is named after the project's name."
 (use-package project
   :straight nil
   :general
+  ( :keymaps 'override
+    "C-M-<tab>" #'mo-project-other-buffer)
   ( :keymaps 'mo-quick-menu-map
     :prefix "RET"
     "w" #'mo-project-save
