@@ -1531,6 +1531,20 @@ directory as a fall back."
           (mo-reload-dir-locals-current-buffer)))
       (message "Dir locals loaded for %s" (project-root project))))
 
+  (defun mo-project-other-buffer ()
+    "Switch to the next project buffer in buffer the list."
+    (interactive)
+    (let ((project (project-current)))
+      (if project
+          (let ((buffer (cadr (seq-filter
+                               (lambda (buffer)
+                                 (not (minibufferp buffer)))
+                               (project-buffers project)))))
+            (if buffer
+                (switch-to-buffer buffer)
+              (message "No other buffers")))
+        (user-error "Current buffer is not part of a project"))))
+
   ;; Enable project detection using .project files
   (add-to-list 'project-find-functions #'mo-project-try-local)
   ;; Set project history file path
