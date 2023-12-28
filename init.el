@@ -1479,7 +1479,8 @@ Tab is named after the project's name."
     "k" #'project-kill-buffers
     "p" #'project-switch-project
     "i" #'project-list-buffers
-    "r" #'mo-reload-dir-locals-project)
+    "r" #'mo-reload-dir-locals-project
+    "v" #'mo-find-file-dir-locals-project)
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
