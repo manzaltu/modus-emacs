@@ -1533,6 +1533,13 @@ directory as a fall back."
           (mo-reload-dir-locals-current-buffer)))
       (message "Dir locals loaded for %s" (project-root project))))
 
+  (defun mo-find-file-dir-locals-project ()
+    "Edit the dir-locals file in the current project."
+    (interactive)
+    (let* ((project (project-current))
+           (root (project-root project)))
+      (find-file (concat (file-name-as-directory root) dir-locals-file))))
+
   (defun mo-project-other-buffer ()
     "Switch to the next project buffer in buffer the list."
     (interactive)
