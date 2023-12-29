@@ -2549,7 +2549,10 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :keymaps 'c-ts-mode-map
     "C-M-s-S-a" #'treesit-beginning-of-defun
-    "C-M-s-S-e" #'treesit-end-of-defun))
+    "C-M-s-S-e" #'treesit-end-of-defun)
+  :config
+  (setq c-ts-mode-indent-style 'bsd)
+  (setq c-ts-mode-indent-offset 4))
 
 ;; Init c++-ts-mode for C++ support using tree-sitter
 (use-package c++-ts-mode
