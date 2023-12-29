@@ -2231,6 +2231,11 @@ When a prefix ARG is given always prompt for a command to use."
 ;; Init treesit for tree-sitter support in Emacs
 (use-package treesit
   :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "c"
+    "_" #'treesit-explore-mode
+    "-" #'treesit-inspect-node-at-point)
   :config
   (setq treesit-font-lock-level 4))
 
