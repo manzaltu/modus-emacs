@@ -2349,8 +2349,8 @@ run the attached function (if exists) and enable lsp"
           (let ((mo-lsp-recursion-flag t))
             (seq-find (lambda (mode-config)
                         (pcase mode-config
-                          (`( ,(pred (equal major-mode)) ,func) (funcall func) (lsp) t)
-                          ((pred (equal major-mode)) (lsp) t)))
+                          (`( ,(pred (equal major-mode)) ,func) (funcall func) (lsp-deferred) t)
+                          ((pred (equal major-mode)) (lsp-deferred) t)))
                       mo-lsp-enable-for-modes))))))
 
   ;; Kill language server after the last associated buffer was closed
@@ -2397,7 +2397,7 @@ run the attached function (if exists) and enable lsp"
                      (if vdiff-mode
                          (lsp-headerline-breadcrumb-mode -1)
                        (lsp-headerline-breadcrumb-mode)))))
-  :commands lsp)
+  :commands lsp-deferred)
 
 ;; Init lsp-ui for an interactive lsp interface
 (use-package lsp-ui
