@@ -2644,6 +2644,7 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init lsp-java for Eclipse JDT language server
 (use-package lsp-java
+  :defer t
   :custom
   ( lsp-java-workspace-dir (mo-cache-path "workspace")))
 
