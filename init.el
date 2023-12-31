@@ -1958,6 +1958,7 @@ When a prefix ARG is given always prompt for a command to use."
     :prefix "x"
     "p" #'proced)
   :config
+  (setq-default proced-filter 'all)
   (setq proced-enable-color-flag t))
 
 ;; Init profiler for profiling lisp code
