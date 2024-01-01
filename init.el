@@ -2244,6 +2244,8 @@ When a prefix ARG is given always prompt for a command to use."
 (use-package treesit-auto
   :defines treesit-auto-langs
   :functions global-treesit-auto-mode
+  :custom
+  ( treesit-auto-install t)
   :config
   ;; Do not auto enable treesit for the following languages
   (setq treesit-auto-langs
