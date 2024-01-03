@@ -2470,6 +2470,9 @@ run the attached function (if exists) and enable lsp"
             (defun mo-dape--save-on-start ()
               (save-some-buffers t t))))
 
+;; Init dap-mode for interactive debugging
+(use-package dap-mode)
+
 ;; Init flycheck for on-the-fly syntax checking
 (use-package flycheck
   :general
