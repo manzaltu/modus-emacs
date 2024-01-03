@@ -3701,6 +3701,9 @@ If project root cannot be found, use the buffer's default directory."
   (add-to-list 'recentf-keep #'file-remote-p)
   (recentf-mode t))
 
+;; Init persistent-scratch for preserving scratch buffer across sessions
+(use-package persistent-scratch)
+
 ;; Init autorevert for updating buffers that were changed on disk
 (use-package autorevert
   :straight nil

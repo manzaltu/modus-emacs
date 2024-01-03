@@ -160,6 +160,7 @@
  ("ov" . "e2971ad986b6ac441e9849031d34c56c980cf40b")
  ("parent-mode" . "db692cf08deff2f0e973e6e86e26662b44813d1b")
  ("pdf-tools" . "c69e7656a4678fe25afbd29f3503dd19ee7f9896")
+ ("persistent-scratch" . "5ff41262f158d3eb966826314516f23e0cb86c04")
  ("pfuture" . "19b53aebbc0f2da31de6326c495038901bffb73c")
  ("pip-requirements.el" . "216cd1690f80cc965d4ae47b8753fc185f778ff6")
  ("pipenv.el" . "3af159749824c03f59176aff7f66ddd6a5785a10")
