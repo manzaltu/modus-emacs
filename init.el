@@ -2471,7 +2471,9 @@ run the attached function (if exists) and enable lsp"
               (save-some-buffers t t))))
 
 ;; Init dap-mode for interactive debugging
-(use-package dap-mode)
+(use-package dap-mode
+  :custom
+  ( dap-breakpoints-file (mo-cache-path ".dap-breakpoints")))
 
 ;; Init flycheck for on-the-fly syntax checking
 (use-package flycheck
