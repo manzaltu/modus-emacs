@@ -3703,8 +3703,12 @@ If project root cannot be found, use the buffer's default directory."
 
 ;; Init persistent-scratch for preserving scratch buffer across sessions
 (use-package persistent-scratch
+  :demand t
+  :commands persistent-scratch-setup-default
   :custom
-  ( persistent-scratch-save-file (mo-cache-path ".persistent-scratch")))
+  ( persistent-scratch-save-file (mo-cache-path ".persistent-scratch"))
+  :config
+  (persistent-scratch-setup-default))
 
 ;; Init autorevert for updating buffers that were changed on disk
 (use-package autorevert
