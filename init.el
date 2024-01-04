@@ -749,6 +749,8 @@ Tab is named after the project's name."
 (use-package undo-fu-session
   :demand t
   :commands undo-fu-session-global-mode
+  :custom
+  ( undo-fu-session-directory (mo-cache-path "undo-fu-session"))
   :config
   (undo-fu-session-global-mode))
 
