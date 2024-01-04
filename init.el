@@ -745,6 +745,9 @@ Tab is named after the project's name."
     :prefix "b"
     "u" #'vundo))
 
+;; Init undo-fu-session for undo persistence
+(use-package undo-fu-session)
+
 ;; Init better-jumper for better controlling the jump list logic
 (use-package better-jumper
   :demand t

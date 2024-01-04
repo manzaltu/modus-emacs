@@ -63,6 +63,7 @@
  ("emacs-powerthesaurus" . "4b97797cf789aaba411c61a85fe23474ebc5bedc")
  ("emacs-request" . "01e338c335c07e4407239619e57361944a82cb8a")
  ("emacs-solaire-mode" . "8af65fbdc50b25ed3214da949b8a484527c7cc14")
+ ("emacs-undo-fu-session" . "9147a7223ee8136769cf42239c7d9a8577edfaff")
  ("emacs-vdiff" . "170e968c6a46a572b30c52c1b038232d418734cc")
  ("emacs-vdiff-magit" . "413f32c9f7e66f8379c23b5ab6341695dbcc2f20")
  ("emacs-which-key" . "4d20bc852545a2e602f59084a630f888542052b1")
