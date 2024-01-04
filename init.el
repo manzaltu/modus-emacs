@@ -738,6 +738,9 @@ Tab is named after the project's name."
     "z i" #'evil-numbers/inc-at-pt
     "z d" #'evil-numbers/dec-at-pt))
 
+;; Init vundo for viewing and moving in the undo tree history
+(use-package vundo)
+
 ;; Init better-jumper for better controlling the jump list logic
 (use-package better-jumper
   :demand t

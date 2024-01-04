@@ -206,6 +206,7 @@
  ("vertico" . "e8edac107df5883f2fa8690356a8d8deee1a83de")
  ("vi-tilde-fringe" . "f1597a8d54535bb1d84b442577b2024e6f910308")
  ("visual-fill-column" . "db7c7c236555c9c684e1294a277efefdc25fa5c4")
+ ("vundo" . "fa259fac7eea28a206049c093947aa403af4eba4")
  ("web-mode" . "df57cd0beea9c6bdc64259bd11bde0c076a64cc9")
  ("with-editor" . "85c37d356355000de7e5992cf0ec0127868c090a")
  ("writeroom-mode" . "f4d035e91d20bf1dd3f2857b9cc344f844979a78")
