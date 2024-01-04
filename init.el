@@ -258,6 +258,10 @@
   (setq completion-ignored-extensions nil)
   ;; Increase saved history size
   (setq history-length 100000)
+  ;; Increase undo limits
+  (setq undo-limit 33554432)
+  (setq undo-strong-limit 50331648)
+  (setq undo-outer-limit 134217728)
   ;; Enable scrolling left
   (put 'scroll-left 'disabled nil))
 
