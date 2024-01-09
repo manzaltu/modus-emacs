@@ -1147,6 +1147,9 @@ Tab is named after the project's name."
 ;; Init org-download for downloading and embedding images in org mode
 (use-package org-download)
 
+;; Init gnuplot for editing and plotting gnuplot graphs
+(use-package gnuplot)
+
 ;; Init verb for sending and managing HTTP requests
 (use-package verb
   :after org

@@ -96,6 +96,7 @@
  ("github-review" . "725fbc7b385228f53a7ddc46a92c1276bab4aea8")
  ("gntp.el" . "767571135e2c0985944017dc59b0be79af222ef5")
  ("gnu-elpa-mirror" . "ab9bcb0be30511d4fff7e413135507cebc447f7c")
+ ("gnuplot" . "4c6b18f71ff7604e2640033207f5a882ddce78af")
  ("go-mode.el" . "8dce1e3ba1cdc34a856ad53c8421413cfe33660e")
  ("goto-chg" . "278cd3e6d5107693aa2bb33189ca503f22f227d0")
  ("groovy-emacs-modes" . "7b8520b2e2d3ab1d62b35c426e17ac25ed0120bb")
