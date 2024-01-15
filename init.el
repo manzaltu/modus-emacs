@@ -3524,7 +3524,7 @@ If project root cannot be found, use the buffer's default directory."
   :demand t
   :general
   ( :keymaps 'override
-    "C-`" #'popper-toggle-latest
+    "C-`" #'popper-toggle
     "C-M-`" #'popper-cycle
     "M-`" #'popper-toggle-type)
   :init
