@@ -408,6 +408,14 @@ the user to input the run command."
     (let ((default-directory (project-root (project-current t))))
       (async-shell-command mo-run-code-command "*Run Code Command*")))
 
+  (defun mo-toggle-scratch-buffer ()
+    "Toggle the scratch buffer."
+    (interactive)
+    (let ((window (get-buffer-window "*scratch*")))
+      (if window
+          (quit-window nil window)
+        (scratch-buffer))))
+
   ;; Set a wide enough default fill-column
   (setq-default fill-column 100)
   ;; Disable default tab indentation
