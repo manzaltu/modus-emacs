@@ -556,6 +556,24 @@ Tab is named after the project's name."
     (call-interactively #'project-kill-buffers)
     (tab-bar-close-tab))
 
+  (defvar-local mo-predefined-commands nil
+    "An alist containing command names and their respective command lines.")
+
+  (defun mo-execute-predefined-command ()
+    "Select and execute a predefined command."
+    (interactive)
+    (let ((project-dir (project-root (project-current t)))
+          (command (cdr
+                    (assoc
+                     (completing-read
+                      "Execute Command: "
+                      mo-predefined-commands
+                      nil
+                      t)
+                     mo-predefined-commands))))
+      (let ((default-directory project-dir))
+        (async-shell-command command))))
+
   (defun mo-show-modified-buffer-changes ()
     "If a buffer is different from its file, show the changes."
     (let ((buffer buffer-file-name))
