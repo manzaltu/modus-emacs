@@ -738,7 +738,7 @@ Tab is named after the project's name."
   :config
   (setq avy-single-candidate-jump nil)
   (setq avy-all-windows 'all-frames)
-  (setq avy-timeout-seconds 0.25))
+  (setq avy-timeout-seconds 0.2))
 
 ;; Init evil-easymotion for using avy with evil motions
 (use-package evil-easymotion
