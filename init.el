@@ -3058,7 +3058,7 @@ run the attached function (if exists) and enable lsp"
   ( ahs-plugin-default-face ( ( nil ( :inherit 'highlight))))
   ( ahs-plugin-default-face-unfocused ( ( nil ( :inherit 'highlight))))
   :config
-  (setq ahs-idle-interval 0.3))
+  (setq ahs-idle-interval 0.2))
 
 ;; Init highlight-numbers for highlighting numbers in code
 (use-package highlight-numbers
