@@ -1634,10 +1634,8 @@ directory as a fall back."
     "?" #'consult-line-multi
     "." #'consult-fd
     "," #'consult-ripgrep
+    "TAB" #'mo-consult-buffer-dwim
     "<insert>" #'consult-bookmark)
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "RET"
-    "RET" #'mo-consult-buffer-dwim)
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
     "," #'consult-git-grep)
