@@ -1634,7 +1634,7 @@ directory as a fall back."
     "?" #'consult-line-multi
     "." #'consult-fd
     "," #'consult-ripgrep
-    "TAB" #'consult-bookmark)
+    "<insert>" #'consult-bookmark)
   ( :keymaps 'mo-quick-menu-map
     :prefix "RET"
     "RET" #'mo-consult-buffer-dwim)
@@ -3788,7 +3788,7 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "RET"
-    "TAB" #'bookmark-in-project-jump)
+    "<insert>" #'bookmark-in-project-jump)
   :custom
   ( bookmark-in-project-project-root
     (lambda () (project-root (project-current)))))
