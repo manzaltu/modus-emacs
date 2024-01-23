@@ -526,7 +526,7 @@ the user to input the run command."
     :prefix "RET"
     "SPC" #'mo-open-project-with-tab
     "DEL" #'mo-close-project-with-tab
-    "ESC" #'mo-execute-predefined-command)
+    "RET" #'mo-execute-predefined-command)
   :preface
   (defun mo-copy-file-path ()
     "Copy the full path of the current buffer's file."
