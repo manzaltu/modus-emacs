@@ -183,6 +183,7 @@
  ("rust-mode" . "9c26dc1195ec05309ee15c014631fb9abd6cf5d2")
  ("rustic" . "39423d1cf4fa054c36bf9577356451f4c06ee148")
  ("s.el" . "dda84d38fffdaf0c9b12837b504b402af910d01d")
+ ("saveplace-pdf-view" . "abfb5e1f463cffc18218a0f7f2fa141a271b1813")
  ("seq" . "4355cde01767911660f761cf874edb412d06bd7a")
  ("sly" . "ed17d2c2bd7aead0fbb09c3d22861c80a522a097")
  ("sly-quicklisp" . "34c73d43dd9066262387c626c17a9b486db07b2d")

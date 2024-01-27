@@ -1247,6 +1247,9 @@ Tab is named after the project's name."
   (setq-default pdf-view-display-size 'fit-page)
   (pdf-tools-install :no-query))
 
+;; Init saveplace-pdf-view for saving the last location in a pdf document
+(use-package saveplace-pdf-view)
+
 ;; Init emacs-async for async processing in Emacs
 (use-package emacs-async
   ;; This is not a loadable package
