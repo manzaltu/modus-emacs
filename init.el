@@ -2969,6 +2969,12 @@ run the attached function (if exists) and enable lsp"
     :prefix "h"
     "M" #'mode-minder))
 
+;; Init eldoc for viewing documentation in echo area
+(use-package eldoc
+  :straight nil
+  :config
+  (setq eldoc-idle-delay 0.2))
+
 ;; Init devdocs for viewing online dev documentation
 (use-package devdocs
   :general
