@@ -2254,7 +2254,8 @@ When a prefix ARG is given always prompt for a command to use."
     :keymaps 'sly-mode-map
     "h h" #'sly-documentation)
   :custom
-  ( inferior-lisp-program "sbcl"))
+  ( inferior-lisp-program "sbcl")
+  ( sly-db-focus-debugger t))
 
 ;; Init sly-quicklisp for quicklisp support in sly
 (use-package sly-quicklisp
