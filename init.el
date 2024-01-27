@@ -1248,7 +1248,10 @@ Tab is named after the project's name."
   (pdf-tools-install :no-query))
 
 ;; Init saveplace-pdf-view for saving the last location in a pdf document
-(use-package saveplace-pdf-view)
+(use-package saveplace-pdf-view
+  :after bookmark
+  :config
+  (save-place-mode 1))
 
 ;; Init emacs-async for async processing in Emacs
 (use-package emacs-async
@@ -3777,6 +3780,7 @@ If project root cannot be found, use the buffer's default directory."
 
 ;; Init bookmark for managing bookmarks
 (use-package bookmark
+  :demand t
   :straight nil
   :hook
   ;; Recenter after jump
