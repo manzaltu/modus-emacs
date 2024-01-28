@@ -625,7 +625,7 @@ Tab is named after the project's name."
 
 ;; Add evil key bindings to other, non-default, modes
 (use-package evil-collection
-  :after ( evil xref magit)
+  :after ( evil xref magit sly)
   :demand t
   :general
   ( :keymaps 'mo-quick-menu-map
@@ -2238,6 +2238,7 @@ When a prefix ARG is given always prompt for a command to use."
 
 ;; Init sly for Common Lisp support
 (use-package sly
+  :demand t
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "l"
