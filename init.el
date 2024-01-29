@@ -2253,6 +2253,8 @@ When a prefix ARG is given always prompt for a command to use."
     "C-M-s-b" #'sly-eval-buffer
     "C-M-s-l" #'sly-load-file
     "C-M-s-d" #'sly-compile-defun)
+  ( :keymaps 'sly-mrepl-mode-map
+    "C-r" #'consult-history)
   (mo-quick-menu-definer
     :keymaps 'sly-mode-map
     "h h" #'sly-documentation
