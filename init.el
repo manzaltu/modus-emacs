@@ -3203,7 +3203,7 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
-    "t" #'tramp-term))
+    "T" #'tramp-term))
 
 ;; Init vterm for terminal emulation
 (use-package vterm
