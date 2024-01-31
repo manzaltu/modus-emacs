@@ -3179,10 +3179,10 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
-    "t t" #'ansi-term)
+    "t" #'ansi-term)
   ( :keymaps 'mo-quick-menu-map
     :prefix "RET"
-    "t t" #'mo-ansi-term-project)
+    "t" #'mo-ansi-term-project)
   :config
   (defun mo-ansi-term-project ()
     "Create an ansi-term buffer with current directory set to the active project root.
@@ -3212,10 +3212,10 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "RET"
-    "t v" #'mo-vterm-project)
+    "v" #'mo-vterm-project)
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
-    "t v" #'mo-vterm-file)
+    "v" #'mo-vterm-file)
   :commands vterm
   :init
   (defun mo-vterm-file ()
@@ -3258,10 +3258,10 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
-    "t s" #'shell-new)
+    "s" #'shell-new)
   ( :keymaps 'mo-quick-menu-map
     :prefix "RET"
-    "t s" #'mo-shell-project)
+    "s" #'mo-shell-project)
   :config
   (defun shell-new ()
     "Open a new instance of shell."
@@ -3284,10 +3284,10 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "RET"
-    "t e" #'project-eshell)
+    "e" #'project-eshell)
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
-    "t e" #'eshell-new)
+    "e" #'eshell-new)
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
     "X" #'eshell-command
