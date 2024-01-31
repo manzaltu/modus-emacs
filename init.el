@@ -3178,7 +3178,7 @@ run the attached function (if exists) and enable lsp"
   :straight nil
   :general
   ( :keymaps 'mo-quick-menu-map
-    :prefix "f"
+    :prefix "x"
     "t t" #'ansi-term)
   ( :keymaps 'mo-quick-menu-map
     :prefix "RET"
@@ -3214,7 +3214,7 @@ If project root cannot be found, use the buffer's default directory."
     :prefix "RET"
     "t v" #'mo-vterm-project)
   ( :keymaps 'mo-quick-menu-map
-    :prefix "f"
+    :prefix "x"
     "t v" #'mo-vterm-file)
   :commands vterm
   :init
@@ -3257,7 +3257,7 @@ If project root cannot be found, use the buffer's default directory."
   :straight nil
   :general
   ( :keymaps 'mo-quick-menu-map
-    :prefix "f"
+    :prefix "x"
     "t s" #'shell-new)
   ( :keymaps 'mo-quick-menu-map
     :prefix "RET"
@@ -3286,7 +3286,7 @@ If project root cannot be found, use the buffer's default directory."
     :prefix "RET"
     "t e" #'project-eshell)
   ( :keymaps 'mo-quick-menu-map
-    :prefix "f"
+    :prefix "x"
     "t e" #'eshell-new)
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
