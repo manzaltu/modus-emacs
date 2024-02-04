@@ -524,9 +524,9 @@ the user to input the run command."
     "p" #'mo-copy-file-path)
   ( :keymaps 'mo-quick-menu-map
     :prefix "RET"
-    "SPC" #'mo-open-project-with-tab
+    "RET" #'mo-open-project-with-tab
     "ESC" #'mo-close-project-with-tab
-    "RET" #'mo-execute-predefined-command)
+    "SPC" #'mo-execute-predefined-command)
   :preface
   (defun mo-copy-file-path ()
     "Copy the full path of the current buffer's file."
