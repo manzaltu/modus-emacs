@@ -3132,6 +3132,7 @@ run the attached function (if exists) and enable lsp"
   (setq aw-keys '( ?a ?s ?d ?f ?g ?h ?j ?k ?l))
   ;; Remove treemacs windows from the ignored buffer list
   (setq aw-ignored-buffers (remove 'treemacs-mode aw-ignored-buffers))
+  (set-face-attribute 'aw-leading-char-face nil :height 2.0)
   (ace-window-posframe-mode))
 
 ;; Init eww for browsing the web using Emacs
