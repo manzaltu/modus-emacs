@@ -1772,6 +1772,18 @@ directory as a fall back."
     (interactive)
     (consult-line (thing-at-point 'symbol)))
 
+  (defun mo-consult-line-symbol-at-point-other-window ()
+    (interactive)
+    (let ((thing (thing-at-point 'symbol))
+          (src-window (selected-window)))
+      (condition-case err
+          (progn
+            (other-window 1)
+            (consult-line thing))
+        (quit
+         (when (window-live-p src-window)
+           (select-window src-window))))))
+
   (evil-set-command-property #'mo-consult-line-symbol-at-point :jump t)
 
   (defun mo-consult-ripgrep-current-dir ()
