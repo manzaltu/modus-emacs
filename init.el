@@ -1703,7 +1703,8 @@ directory as a fall back."
     :prefix "RET"
     "b" #'consult-project-buffer)
   ( :keymaps 'mo-quick-menu-map
-    "*" #'mo-consult-line-symbol-at-point)
+    "*" #'mo-consult-line-symbol-at-point
+    "&" #'mo-consult-line-symbol-at-point-other-window)
   ( :keymaps 'mo-quick-menu-map
     :prefix "v"
     "t" #'consult-theme)
