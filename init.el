@@ -774,6 +774,9 @@ Tab is named after the project's name."
 ;; Init paredit for parenthetical editing in Emacs
 (use-package paredit)
 
+;; Init evil-paredit for making paredit work in evil-mode
+(use-package evil-paredit)
+
 ;; Init vundo for viewing and moving in the undo tree history
 (use-package vundo
   :general
