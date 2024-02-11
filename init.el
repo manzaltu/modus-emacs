@@ -3057,6 +3057,7 @@ run the attached function (if exists) and enable lsp"
   :hook
   ( prog-mode . rainbow-delimiters-mode))
 
+;; Init paren for showing matching parentheses
 (use-package paren
   :straight nil
   :config
