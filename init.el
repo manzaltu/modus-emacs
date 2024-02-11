@@ -772,7 +772,9 @@ Tab is named after the project's name."
     "z d" #'evil-numbers/dec-at-pt))
 
 ;; Init paredit for parenthetical editing in Emacs
-(use-package paredit)
+(use-package paredit
+  :hook
+  (lisp-data-mode . enable-paredit-mode))
 
 ;; Init evil-paredit for making paredit work in evil-mode
 (use-package evil-paredit
