@@ -775,7 +775,9 @@ Tab is named after the project's name."
 (use-package paredit)
 
 ;; Init evil-paredit for making paredit work in evil-mode
-(use-package evil-paredit)
+(use-package evil-paredit
+  :hook
+  (paredit-mode . evil-paredit-mode))
 
 ;; Init vundo for viewing and moving in the undo tree history
 (use-package vundo
