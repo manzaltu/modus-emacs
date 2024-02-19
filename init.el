@@ -476,8 +476,8 @@ the user to input the run command."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "SPC" #'bufler
-    "RET" #'bufler-switch-buffer))
+    "RET" #'bufler
+    "SPC" #'bufler-switch-buffer))
 
 ;; Init repeat for repeating previous commands
 (use-package repeat
