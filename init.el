@@ -932,6 +932,7 @@ Used for the compatibility of evil-paredit with newer evil-mode versions."
       (set-face-attribute 'org-special-keyword nil :inherit '( font-lock-comment-face fixed-pitch))
       (set-face-attribute 'org-meta-line nil :inherit '( font-lock-comment-face fixed-pitch))
       (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)))
+  (org-mode . visual-line-mode)
   :config
   (defun mo-org-agenda-and-todo ()
     "Open org agenda with all TODOs"
