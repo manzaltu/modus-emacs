@@ -1098,6 +1098,7 @@ Used for the compatibility of evil-paredit with newer evil-mode versions."
                   ( window-parameters . ( ( no-other-window . t)
                                           ( no-delete-other-windows . t)))))
   (setq org-roam-db-location (mo-cache-path "org-roam.db"))
+  (setq org-roam-node-default-sort nil)
   (org-roam-db-autosync-mode))
 
 ;; Init consult-org-roam for better searching in org-roam notes
