@@ -901,7 +901,7 @@ Used for the compatibility of evil-paredit with newer evil-mode versions."
     "a" #'mo-org-agenda-and-todo)
   ( :keymaps 'org-mode-map
     :states 'normal
-    "TAB" #'org-cycle)
+    "<tab>" #'org-cycle)
   ;; Close any loaded org buffer when exiting the agenda buffer
   ( :keymaps 'org-agenda-mode-map
     "q" #'org-agenda-exit)
