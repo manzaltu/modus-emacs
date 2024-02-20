@@ -1329,6 +1329,17 @@ Used for the compatibility of evil-paredit with newer evil-mode versions."
   ( vertico-count 20)
   ( vertico-cycle t)
   :config
+  (defun mo-vertico-combined-sort (candidates)
+    "Sort CANDIDATES using both display-sort-function and vertico-sort-function."
+    (let ((candidates
+           (let ((display-sort-func (vertico--metadata-get 'display-sort-function)))
+             (if display-sort-func
+                 (funcall display-sort-func candidates)
+               candidates))))
+      (if vertico-sort-function
+          (funcall vertico-sort-function candidates)
+        candidates)))
+
   (vertico-mode))
 
 ;; Init vertico-repeat for repeating the last minibuffer command
