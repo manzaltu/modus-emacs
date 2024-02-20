@@ -1082,7 +1082,7 @@ Used for the compatibility of evil-paredit with newer evil-mode versions."
     "C-M-s-r C-M-s-t" #'org-roam-tag-add)
   ( :keymaps 'mo-quick-menu-map
     :prefix "n"
-    "r" #'org-roam-node-find
+    "r" #'mo-org-roam-node-find-recency-sorted
     "n" #'org-roam-capture)
   :custom
   ( org-roam-directory "~/roam")
