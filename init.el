@@ -773,6 +773,14 @@ Tab is named after the project's name."
 
 ;; Init paredit for parenthetical editing in Emacs
 (use-package paredit
+  :general
+  ( :keymaps 'paredit-mode-map
+    "C-{" #'paredit-forward-barf-sexp
+    "C-}" #'paredit-forward-slurp-sexp
+    "M-{" #'paredit-backward-slurp-sexp
+    "M-}" #'paredit-backward-barf-sexp
+    "C-M-{" #'paredit-splice-sexp-killing-backward
+    "C-M-}" #'paredit-splice-sexp-killing-forward)
   :hook
   (lisp-data-mode . enable-paredit-mode))
 
