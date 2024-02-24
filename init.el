@@ -1391,7 +1391,7 @@ Used for the compatibility of evil-paredit with newer evil-mode versions."
   :straight nil
   :general
   ( :keymaps 'override
-    "M-\"" #'mo-vertico-buffer-next-command)
+    "C-|" #'mo-vertico-buffer-next-command)
   :config
   (defun mo-vertico-buffer-next-command ()
     "Run next vertico command in a separate buffer."
