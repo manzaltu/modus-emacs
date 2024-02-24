@@ -782,7 +782,8 @@ Tab is named after the project's name."
     "C-M-{" #'paredit-splice-sexp-killing-backward
     "C-M-}" #'paredit-splice-sexp-killing-forward)
   :hook
-  (lisp-data-mode . enable-paredit-mode))
+  (lisp-data-mode . enable-paredit-mode)
+  (sly-mrepl . enable-paredit-mode))
 
 ;; Init evil-paredit for making paredit work in evil-mode
 (use-package evil-paredit
