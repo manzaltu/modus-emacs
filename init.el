@@ -3112,7 +3112,8 @@ run the attached function (if exists) and enable lsp"
 (use-package elec-pair
   :straight nil
   :hook
-  ( prog-mode . electric-pair-local-mode))
+  ( prog-mode . electric-pair-local-mode)
+  ( lisp-data-mode . (lambda () (electric-pair-local-mode -1))))
 
 ;; Init rainbow-mode for highlighting color strings
 (use-package rainbow-mode
