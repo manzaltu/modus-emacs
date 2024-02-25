@@ -2316,6 +2316,8 @@ When a prefix ARG is given always prompt for a command to use."
     "C-M-s-d" #'sly-compile-defun)
   ( :keymaps 'sly-mrepl-mode-map
     "C-r" #'consult-history
+    "C-M-s-c" #'sly-mrepl-clear-recent-output
+    "C-M-s-S-c" #'sly-mrepl-clear-repl
     "C-<return>" #'sly-mrepl-return)
   (mo-quick-menu-definer
     :keymaps 'sly-mode-map
