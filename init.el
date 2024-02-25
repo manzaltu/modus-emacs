@@ -152,6 +152,10 @@
   ( :states 'motion
     ;; We want C-<num> for jumping between tabs
     "C-6" nil)
+  ( :states 'insert
+    ;; Evil, for historical reasons, binds the <delete> key to delete-char.
+    ;; Today this is unnecessary, and may override other modes keybindings.
+    "<delete>" nil)
   :hook
   ;; Recenter after jump
   ( evil-jumps-post-jump . recenter)
