@@ -3104,7 +3104,8 @@ run the attached function (if exists) and enable lsp"
 ;; Init rainbow-delimiters for highlighting parens by their depth
 (use-package rainbow-delimiters
   :hook
-  ( prog-mode . rainbow-delimiters-mode))
+  ( prog-mode . rainbow-delimiters-mode)
+  ( sly-mrepl . rainbow-delimiters-mode))
 
 ;; Init paren for showing matching parentheses
 (use-package paren
