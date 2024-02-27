@@ -3526,8 +3526,6 @@ If project root cannot be found, use the buffer's default directory."
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "S" #'flyspell-mode)
-  :config
-  (setq flyspell-delay 0)
   :hook
   ;; Enable spell checking
   ( text-mode . flyspell-mode)
