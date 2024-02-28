@@ -2942,6 +2942,10 @@ run the attached function (if exists) and enable lsp"
                    ( java-ts-mode c/c++/java c-ts-mode-indent-offset)
                    ( json-ts-mode c/c++/java c-ts-mode-indent-offset)))))
 
+;; Init indent-bars for showing indentation guides
+(use-package indent-bars
+  :straight (indent-bars :type git :host github :repo "jdtsmith/indent-bars"))
+
 ;; Init editorconfig for applying EditorConfig settings
 (use-package editorconfig
   :functions editorconfig-mode

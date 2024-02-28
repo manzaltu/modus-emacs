@@ -112,6 +112,7 @@
  ("hsluv-emacs" . "c3bc5228e30d66e7dee9ff1a0694c2b976862fc0")
  ("ht.el" . "1c49aad1c820c86f7ee35bf9fff8429502f60fef")
  ("hydra" . "317e1de33086637579a7aeb60f77ed0405bf359b")
+ ("indent-bars" . "7acbd9124ba054a12bdfc352806f03bd7b180881")
  ("inheritenv" . "bac62ca6324828623cf8ce5a3d6aee0fcb65d620")
  ("jeison" . "19a51770f24eaa7b538c7be6a8a5c25d154b641f")
  ("jenkinsfile-mode" . "568865ee419e0592de0dd0717d6769a66d9df111")
