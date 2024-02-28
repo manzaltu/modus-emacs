@@ -2944,7 +2944,11 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init indent-bars for showing indentation guides
 (use-package indent-bars
-  :straight (indent-bars :type git :host github :repo "jdtsmith/indent-bars"))
+  :straight (indent-bars :type git :host github :repo "jdtsmith/indent-bars")
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "c"
+    "|" #'indent-bars-mode))
 
 ;; Init editorconfig for applying EditorConfig settings
 (use-package editorconfig
