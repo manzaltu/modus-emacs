@@ -2521,10 +2521,7 @@ run the attached function (if exists) and enable lsp"
   (setq lsp-auto-execute-action nil)
   ;; Force lsp mode to forget the workspace folders for multi root servers
   ;; so the folders are added on demand
-  (advice-add 'lsp :before
-              (lambda (&rest _args)
-                (eval
-                 '(setf (lsp-session-server-id->folders (lsp-session)) (ht)))))
+  (advice-add 'lsp :before #'mo-lsp-forget-workspace-folders)
   ;; Flatten imenu results and show their respective types
   (setq lsp-imenu-index-function #'lsp-imenu-create-categorized-index)
   ;; Enable semantic token highlighting
@@ -2562,6 +2559,9 @@ run the attached function (if exists) and enable lsp"
     "Enable lsp mode if local variables are enabled."
     (when enable-dir-local-variables
       (mo-maybe-enable-lsp)))
+  (defun mo-lsp-forget-workspace-folders (&rest _args)
+    "Force lsp mode to forget the workspace folders for multi root servers."
+    (eval '(setf (lsp-session-server-id->folders (lsp-session)) (ht))))
   (defun mo-lsp-configure-theme ()
     "Set lsp-mode theme configuration."
     ;; Distinguish between var reads and writes by underlining lsp write highlights
