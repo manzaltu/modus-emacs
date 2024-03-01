@@ -2419,10 +2419,7 @@ When a prefix ARG is given always prompt for a command to use."
 (use-package lsp-mode
   :after orderless
   :hook
-  ( after-enable-theme .
-    (lambda ()
-      ;; Distinguish between var reads and writes by underlining lsp write highlights
-      (set-face-attribute 'lsp-face-highlight-write nil :underline t)))
+  ( after-enable-theme . mo-lsp-configure-theme)
   :general
   ;; Set the lsp prefix key
   ( :keymaps 'lsp-mode-map
@@ -2565,6 +2562,10 @@ run the attached function (if exists) and enable lsp"
     "Enable lsp mode if local variables are enabled."
     (when enable-dir-local-variables
       (mo-maybe-enable-lsp)))
+  (defun mo-lsp-configure-theme ()
+    "Set lsp-mode theme configuration."
+    ;; Distinguish between var reads and writes by underlining lsp write highlights
+    (set-face-attribute 'lsp-face-highlight-write nil :underline t))
   :commands lsp-deferred)
 
 ;; Init lsp-ui for an interactive lsp interface
