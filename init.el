@@ -628,10 +628,13 @@ Tab is named after the project's name."
       (switch-to-buffer (current-buffer))
       (read-only-mode +1)))
 
+  (defun mo-show-welcome-screen-graphic-mode ()
+    "Show welcome screen only on graphic mode."
+    (when (display-graphic-p)
+      (mo-show-welcome-screen)))
+
   (when (< (length command-line-args) 2)
-    (add-hook 'emacs-startup-hook (lambda ()
-                                    (when (display-graphic-p)
-                                      (mo-show-welcome-screen)))))
+    (add-hook 'emacs-startup-hook #'mo-show-welcome-screen-graphic-mode))
 
   ;; When killing a modified buffer, show the changes
   (add-to-list 'kill-buffer-query-functions #'mo-show-modified-buffer-changes t))
