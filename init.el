@@ -3134,8 +3134,11 @@ run the attached function (if exists) and enable lsp"
     "g r" #'chatgpt-shell-send-and-review-region)
   :hook
   ;; Disable auto-completion in chat buffer
-  ( shell-maker-mode . (lambda () (setq-local corfu-auto nil)))
+  ( shell-maker-mode . mo-chatgpt-shell-disable-corfu-auto)
   :config
+  (defun mo-chatgpt-shell-disable-corfu-auto ()
+    "Disable corfu auto completion."
+    (setq-local corfu-auto nil))
   ;; Display buffer according to the display-buffer rules
   (setq chatgpt-shell-display-function #'pop-to-buffer)
   (setq chatgpt-shell-request-timeout 240)
