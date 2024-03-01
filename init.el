@@ -3471,11 +3471,14 @@ If project root cannot be found, use the buffer's default directory."
   ( eshell-before-prompt . mo-xterm-color-perserve-properties)
   ;; eshell environment variables are buffer local, thus external commands
   ;; will be kept running with a "dumb" term.
-  ( eshell-mode . (lambda () (setenv "TERM" "xterm-256color")))
+  ( eshell-mode . mo-xterm-color-enable-256color-in-shell)
   :config
   (defun mo-xterm-color-perserve-properties ()
     "Enable xterm-color to preserve properties."
     (setq xterm-color-preserve-properties t))
+  (defun mo-xterm-color-enable-256color-in-shell ()
+    "Enable xterm-256color in shell."
+    (setenv "TERM" "xterm-256color"))
   (add-to-list 'eshell-preoutput-filter-functions 'xterm-color-filter)
   :custom
   ( eshell-output-filter-functions (remove 'eshell-handle-ansi-color eshell-output-filter-functions)))
