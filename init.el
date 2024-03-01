@@ -224,6 +224,9 @@
     "k" #'kill-process
     "s" #'modify-syntax-entry
     "r" #'abort-recursive-edit)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "l"
+    "b" #'mo-toggle-lexical-binding)
   ( :keymaps 'emacs-lisp-mode-map
     "C-M-s-r" #'eval-region)
   :config
