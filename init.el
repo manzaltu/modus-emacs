@@ -794,7 +794,8 @@ Tab is named after the project's name."
     "M-}" #'paredit-backward-barf-sexp
     "C-M-{" #'paredit-splice-sexp-killing-backward
     "C-M-}" #'paredit-splice-sexp-killing-forward
-    "M-(" #'mo-paredit-wrap-round-with-space)
+    "M-(" #'mo-paredit-wrap-round-with-space
+    "C-M-(" #'paredit-wrap-round)
   :config
   (defun mo-paredit-wrap-round-with-space ()
     "Wrap the following S-expression and insert a space."
