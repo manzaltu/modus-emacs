@@ -3165,7 +3165,11 @@ run the attached function (if exists) and enable lsp"
   :straight nil
   :hook
   ( prog-mode . electric-pair-local-mode)
-  ( lisp-data-mode . (lambda () (electric-pair-local-mode -1))))
+  ( lisp-data-mode . mo-electric-pair-disable-local)
+  :config
+  (defun mo-electric-pair-disable-local ()
+    "Disable electric pair local mode."
+    (electric-pair-local-mode -1)))
 
 ;; Init rainbow-mode for highlighting color strings
 (use-package rainbow-mode
