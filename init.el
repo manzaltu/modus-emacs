@@ -2542,9 +2542,7 @@ run the attached function (if exists) and enable lsp"
   :hook
   ;; Postpone lsp load for after dir local vars are read
   ;; Do not load lsp if dir local vars are not enabled (e.g. on preview)
-  ( hack-local-variables . (lambda ()
-                             (when enable-dir-local-variables
-                               (mo-maybe-enable-lsp))))
+  ( hack-local-variables . mo-lsp-enable-when-local-vars-enabled)
 
   ;; Setup completion to use orderless
   ( lsp-completion-mode . mo-lsp-mode-setup-completion)
@@ -2554,6 +2552,11 @@ run the attached function (if exists) and enable lsp"
                      (if vdiff-mode
                          (lsp-headerline-breadcrumb-mode -1)
                        (lsp-headerline-breadcrumb-mode)))))
+  :config
+  (defun mo-lsp-enable-when-local-vars-enabled ()
+    "Enable lsp mode if local variables are enabled."
+    (when enable-dir-local-variables
+      (mo-maybe-enable-lsp)))
   :commands lsp-deferred)
 
 ;; Init lsp-ui for an interactive lsp interface
