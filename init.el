@@ -2127,7 +2127,11 @@ When a prefix ARG is given always prompt for a command to use."
 (use-package git-commit
   :demand t
   :hook
-  ( git-commit-setup . (lambda () (setq fill-column 72))))
+  ( git-commit-setup . mo-git-commit-set-fill-column)
+  :config
+  (defun mo-git-commit-set-fill-column ()
+    "Set fill-column in git-commit mode."
+    (setq fill-column 72)))
 
 ;; Init magit for a better git user experience
 (use-package magit
