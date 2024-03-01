@@ -3134,7 +3134,7 @@ run the attached function (if exists) and enable lsp"
     "g r" #'chatgpt-shell-send-and-review-region)
   :hook
   ;; Disable auto-completion in chat buffer
-  ( shell-maker-mode . mo-chatgpt-shell-disable-corfu-auto)
+  ( chatgpt-shell-mode . mo-chatgpt-shell-disable-corfu-auto)
   :config
   (defun mo-chatgpt-shell-disable-corfu-auto ()
     "Disable corfu auto completion."
