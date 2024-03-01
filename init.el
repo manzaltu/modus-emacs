@@ -227,6 +227,11 @@
   ( :keymaps 'emacs-lisp-mode-map
     "C-M-s-r" #'eval-region)
   :config
+  (defun mo-toggle-lexical-binding ()
+    "Toggle lexical binding in the current buffer."
+    (interactive)
+    (message "Lexical binding is %s."
+             (if (setq lexical-binding (not lexical-binding)) "on" "off")))
   ;; Inhibit the splash screen
   (setq inhibit-splash-screen t)
   ;; Set the default initial frame size
