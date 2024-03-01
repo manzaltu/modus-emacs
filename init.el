@@ -1476,12 +1476,17 @@ Used for the compatibility of evil-paredit with newer evil-mode versions."
   ;; Conditionally enable Corfu in the minibuffer
   ( minibuffer-setup . corfu-enable-in-minibuffer)
   ;; Disable auto mode in eshell
-  ( eshell-mode . (lambda () (setq-local corfu-auto nil) (corfu-mode)))
+  ( eshell-mode . mo-corfu-enable-no-auto)
   ;; Disable auto mode in shell
-  ( shell-mode . (lambda () (setq-local corfu-auto nil) (corfu-mode)))
+  ( shell-mode . mo-corfu-enable-no-auto)
   ;; Close popup when exiting evil insert state
   ( evil-insert-state-exit . corfu-quit)
   :config
+  (defun mo-corfu-enable-no-auto()
+    "Enable corfu without auto completion."
+    (setq-local corfu-auto nil)
+    (corfu-mode))
+
   (defun mo-corfu-combined-sort (candidates)
     "Sort CANDIDATES using both display-sort-function and corfu-sort-function."
     (let ((candidates
