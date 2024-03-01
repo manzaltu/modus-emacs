@@ -2547,12 +2547,14 @@ run the attached function (if exists) and enable lsp"
   ;; Setup completion to use orderless
   ( lsp-completion-mode . mo-lsp-mode-setup-completion)
   ;; Temporarily disable the breadcrumb headerline when the buffer is in vdiff-mode.
-  ( vdiff-mode . (lambda ()
-                   (when (and lsp-mode lsp-headerline-breadcrumb-enable)
-                     (if vdiff-mode
-                         (lsp-headerline-breadcrumb-mode -1)
-                       (lsp-headerline-breadcrumb-mode)))))
+  ( vdiff-mode . mo-lsp-disable-breadcrumb-on-vdiff)
   :config
+  (defun mo-lsp-disable-breadcrumb-on-vdiff ()
+    "Disable lsp breadcrumb when using vdiff."
+    (when (and lsp-mode lsp-headerline-breadcrumb-enable)
+      (if vdiff-mode
+          (lsp-headerline-breadcrumb-mode -1)
+        (lsp-headerline-breadcrumb-mode))))
   (defun mo-lsp-enable-when-local-vars-enabled ()
     "Enable lsp mode if local variables are enabled."
     (when enable-dir-local-variables
