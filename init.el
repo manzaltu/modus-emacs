@@ -740,18 +740,19 @@ Tab is named after the project's name."
 (use-package avy
   :demand t
   :hook
-  ( after-enable-theme .
-    (lambda()
-      ;; Better highlight the leading characters
-      (set-face-attribute 'avy-lead-face nil :background "gold2")
-      (set-face-attribute 'avy-lead-face-0 nil :background "gold3")
-      (set-face-attribute 'avy-lead-face-1 nil :background "gold4")
-      (set-face-attribute 'avy-lead-face-2 nil :background "DarkGoldenrod4")))
+  ( after-enable-theme . mo-avy-configure-theme)
   :config
   :general
   ( :keymaps 'override
     "C-'" #'avy-goto-char-timer)
   :config
+  (defun mo-avy-configure-theme ()
+    "Set avy theme configuration."
+    ;; Better highlight the leading characters
+    (set-face-attribute 'avy-lead-face nil :background "gold2")
+    (set-face-attribute 'avy-lead-face-0 nil :background "gold3")
+    (set-face-attribute 'avy-lead-face-1 nil :background "gold4")
+    (set-face-attribute 'avy-lead-face-2 nil :background "DarkGoldenrod4"))
   (setq avy-single-candidate-jump nil)
   (setq avy-all-windows 'all-frames)
   (setq avy-timeout-seconds 0.2))
