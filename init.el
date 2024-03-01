@@ -1093,15 +1093,16 @@ Used for the compatibility of evil-paredit with newer evil-mode versions."
   :defines org-super-agenda-header-map
   :functions org-super-agenda-mode
   :hook
-  ( after-enable-theme .
-    (lambda ()
-      (set-face-attribute 'org-super-agenda-header nil
-                          :foreground "HotPink")))
+  ( after-enable-theme . mo-org-super-agenda-configure-theme)
   :custom
   ;; Enable auto grouping
   ( org-super-agenda-groups '((:auto-group t) (:auto-category t)))
   ( org-super-agenda-final-group-separator "\n")
   :config
+  (defun mo-org-super-agenda-configure-theme ()
+    "Set org-super-agenda theme configuration."
+    (set-face-attribute 'org-super-agenda-header nil
+                        :foreground "HotPink"))
   ;; Delete super agenda key map to support evil mode
   (setq org-super-agenda-header-map (make-sparse-keymap))
   (org-super-agenda-mode))
