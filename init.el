@@ -2662,6 +2662,7 @@ run the attached function (if exists) and enable lsp"
     :prefix "c"
     "E" #'consult-lsp-diagnostics
     "/" #'consult-lsp-file-symbols
+    "." #'mo-consult-lsp-project-symbols
     "," #'consult-lsp-symbols)
   :config
 
