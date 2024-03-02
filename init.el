@@ -2664,6 +2664,51 @@ run the attached function (if exists) and enable lsp"
     "/" #'consult-lsp-file-symbols
     "," #'consult-lsp-symbols)
   :config
+
+  (defun mo-consult-lsp-project-symbols (arg)
+    "Query project symbols. When ARG is set through prefix, query all workspaces."
+    (interactive "P")
+    (let* ((initial "")
+           (all-workspaces? arg)
+           (ws (or (and all-workspaces? (-uniq
+                                         (-flatten
+                                          (ht-values
+                                           (lsp-session-folder->servers
+                                            (lsp-session))))))
+                   (lsp-workspaces)
+                   (lsp-get (lsp-session-folder->servers (lsp-session))
+                            (lsp-workspace-root default-directory)))))
+      (unless ws
+        (user-error "There is no active workspace!"))
+      (consult--read
+       (thread-first
+         (consult--async-sink)
+         (consult--async-refresh-immediate)
+         (consult--async-map consult-lsp-symbols-transformer-function)
+         (consult--async-filter #'mo-consult-lsp-project-symbol-filter)
+         (consult-lsp--symbols--make-async-source ws)
+         (consult--async-throttle)
+         (consult--async-split))
+       :prompt "LSP Symbols "
+       :annotate (funcall consult-lsp-symbols-annotate-builder-function)
+       :require-match t
+       :history t
+       :add-history (consult--async-split-thingatpt 'symbol)
+       :initial (consult--async-split-initial initial)
+       :category 'consult-lsp-symbols
+       :lookup #'consult--lookup-candidate
+       :group (consult--type-group consult-lsp-symbols-narrow)
+       :narrow (consult--type-narrow consult-lsp-symbols-narrow)
+       :state (consult-lsp--symbols--state))))
+
+  (defun mo-consult-lsp-project-symbol-filter (symbol-info)
+    "Filter SYMBOL-INFO that is only part of the current project."
+    (let ((file (lsp--uri-to-path
+                 (lsp:location-uri
+                  (lsp:symbol-information-location symbol-info))))
+          (project-dir (project-root (project-current t))))
+      (file-in-directory-p file project-dir)))
+
   ;; Manual preview key for symbols results
   (consult-customize consult-lsp-symbols :preview-key "M-.")
   ;; Remove initial async separator as we use spaces for search tokenization
