@@ -2621,6 +2621,12 @@ run the attached function (if exists) and enable lsp"
   ( dape-buffer-window-arrangment 'right)
 
   :config
+  (defun mo-dape-select-stack-ordered ()
+    "Dape select stack with stack ordering according to execution."
+    (interactive)
+    (let ((vertico-sort-function nil))
+      (call-interactively #'dape-select-stack)))
+
   ;; Do not display info and repl buffers on startup
   (remove-hook 'dape-on-start-hooks 'dape-info)
   (remove-hook 'dape-on-start-hooks 'dape-repl)
