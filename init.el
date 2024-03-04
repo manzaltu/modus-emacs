@@ -1373,6 +1373,7 @@ Used for the compatibility of evil-paredit with newer evil-mode versions."
   :custom
   ( vertico-count 20)
   ( vertico-cycle t)
+  ( vertico-sort-function #'vertico-sort-history-alpha)
   :config
   (defun mo-vertico-combined-sort (candidates)
     "Sort CANDIDATES using both display-sort-function and vertico-sort-function."
