@@ -2621,6 +2621,22 @@ run the attached function (if exists) and enable lsp"
   ( dape-buffer-window-arrangment 'right)
 
   :config
+  (defun dape-read-pid ()
+    "Read pid of active processes if possible."
+    (if-let ((pids (list-system-processes)))
+        (let ((collection
+               (mapcar (lambda (pid)
+                         (let ((args (alist-get 'args (process-attributes pid))))
+                           (cons (concat
+                                  (format "%d" pid)
+                                  (when args
+                                    (format ": %s" args)))
+                                 pid)))
+                       pids)))
+          (alist-get (completing-read "Pid: " collection)
+                     collection nil nil 'equal))
+      (read-number "Pid: ")))
+
   (defun mo-dape-select-stack-ordered ()
     "Dape select stack with stack ordering according to execution."
     (interactive)
