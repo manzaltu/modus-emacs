@@ -2605,6 +2605,9 @@ run the attached function (if exists) and enable lsp"
     "b b" #'dape-breakpoint-toggle
     "b e" #'dape-breakpoint-expression
     "b t" #'dape-breakpoint-log
+    "b l" #'dape-breakpoint-load
+    "b s" #'dape-breakpoint-save
+    "b r" #'dape-breakpoint-remove-all
     "s" #'mo-dape-select-stack-ordered
     "SPC" #'dape-stack-select-down
     "RET" #'dape-stack-select-up
