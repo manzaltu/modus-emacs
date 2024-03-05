@@ -2602,9 +2602,9 @@ run the attached function (if exists) and enable lsp"
     "i" #'dape-step-in
     "o" #'dape-step-out
     "t" #'dape-select-thread
-    "b" #'dape-breakpoint-toggle
-    "B" #'dape-breakpoint-expression
-    "%" #'dape-breakpoint-log
+    "b b" #'dape-breakpoint-toggle
+    "b e" #'dape-breakpoint-expression
+    "b t" #'dape-breakpoint-log
     "s" #'mo-dape-select-stack-ordered
     "SPC" #'dape-stack-select-down
     "RET" #'dape-stack-select-up
