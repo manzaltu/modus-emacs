@@ -2619,6 +2619,7 @@ run the attached function (if exists) and enable lsp"
   :custom
   ( dape-adapter-dir (mo-cache-path "debug-adapters"))
   ( dape-buffer-window-arrangment 'right)
+  ( dape-request-timeout 60)
 
   :config
   (defun dape-read-pid ()
