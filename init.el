@@ -3242,7 +3242,9 @@ run the attached function (if exists) and enable lsp"
     "C-p" #'copilot-previous-completion
     "C-n" #'copilot-next-completion)
   :custom
-  ( copilot-max-char -1))
+  ( copilot-max-char -1)
+  :hook
+  ( prog-mode . copilot-mode))
 
 ;; Init rainbow-delimiters for highlighting parens by their depth
 (use-package rainbow-delimiters
