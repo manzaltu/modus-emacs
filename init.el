@@ -3232,7 +3232,11 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init copilot for copilot support in Emacs
 (use-package copilot
-  :straight (:host github :repo "copilot-emacs/copilot.el" :files ("dist" "*.el")))
+  :straight (:host github :repo "copilot-emacs/copilot.el" :files ("dist" "*.el"))
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "c"
+    "SPC" #'copilot-mode))
 
 ;; Init rainbow-delimiters for highlighting parens by their depth
 (use-package rainbow-delimiters
