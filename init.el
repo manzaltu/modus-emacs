@@ -3230,6 +3230,10 @@ run the attached function (if exists) and enable lsp"
   (setq chatgpt-shell-welcome-function nil)
   (setq chatgpt-shell-prompt-query-response-style 'shell))
 
+;; Init copilot for copilot support in Emacs
+(use-package copilot
+  :straight (:host github :repo "copilot-emacs/copilot.el" :files ("dist" "*.el")))
+
 ;; Init rainbow-delimiters for highlighting parens by their depth
 (use-package rainbow-delimiters
   :hook
