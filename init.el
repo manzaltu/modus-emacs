@@ -3236,7 +3236,11 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
-    "SPC" #'copilot-mode))
+    "SPC" #'copilot-mode)
+  ( :keymaps 'copilot-completion-map
+    "M-<return>" #'copilot-accept-completion
+    "C-p" #'copilot-previous-completion
+    "C-n" #'copilot-next-completion))
 
 ;; Init rainbow-delimiters for highlighting parens by their depth
 (use-package rainbow-delimiters
