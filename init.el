@@ -3240,7 +3240,9 @@ run the attached function (if exists) and enable lsp"
   ( :keymaps 'copilot-completion-map
     "M-<return>" #'copilot-accept-completion
     "C-p" #'copilot-previous-completion
-    "C-n" #'copilot-next-completion))
+    "C-n" #'copilot-next-completion)
+  :custom
+  ( copilot-max-char -1))
 
 ;; Init rainbow-delimiters for highlighting parens by their depth
 (use-package rainbow-delimiters
