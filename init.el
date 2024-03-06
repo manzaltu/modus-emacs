@@ -3243,6 +3243,7 @@ run the attached function (if exists) and enable lsp"
     "C-n" #'copilot-next-completion)
   :custom
   ( copilot-max-char -1)
+  ( copilot-indent-offset-warning-disable t)
   :hook
   ( prog-mode . copilot-mode))
 
