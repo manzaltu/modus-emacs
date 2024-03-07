@@ -3461,7 +3461,8 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'comint-mode-map
     "C-p" #'comint-previous-input
-    "C-n" #'comint-next-input)
+    "C-n" #'comint-next-input
+    "C-M-s-c" #'comint-clear-buffer)
   :config
   ;; Prevent deleting the prompt
   (setq comint-prompt-read-only t)
