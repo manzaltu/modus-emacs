@@ -3241,6 +3241,19 @@ run the attached function (if exists) and enable lsp"
     "M-<return>" #'copilot-accept-completion
     "C-p" #'copilot-previous-completion
     "C-n" #'copilot-next-completion)
+  :config
+  (defvar mo-copilot-disable-globally t
+    "Flag to disable copilot globally.")
+  (defun mo-copilot-disable-globally-predicate ()
+    "Predicate to disable copilot globally."
+    mo-copilot-disable-globally)
+  (defun mo-copilot-toggle-globally ()
+    "Toggle copilot globally."
+    (interactive)
+    (if (setq mo-copilot-disable-globally (not mo-copilot-disable-globally))
+        (message "Copilot globally disabled")
+      (message "Copilot globally enabled")))
+  (push #'mo-copilot-disable-globally-predicate copilot-disable-predicates)
   :custom
   ( copilot-max-char -1)
   ( copilot-indent-offset-warning-disable t)
