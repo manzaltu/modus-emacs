@@ -4022,6 +4022,9 @@ If project root cannot be found, use the buffer's default directory."
   (add-to-list 'recentf-keep #'file-remote-p)
   (recentf-mode t))
 
+;; Init persist for persistent variables between sessions
+(use-package persist)
+
 ;; Init persistent-scratch for preserving scratch buffer across sessions
 (use-package persistent-scratch
   :demand t
