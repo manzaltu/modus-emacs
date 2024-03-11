@@ -4023,7 +4023,10 @@ If project root cannot be found, use the buffer's default directory."
   (recentf-mode t))
 
 ;; Init persist for persistent variables between sessions
-(use-package persist)
+(use-package persist
+  :defines persist--directory-location
+  :init
+  (setq persist--directory-location (mo-cache-path "persist")))
 
 ;; Init persistent-scratch for preserving scratch buffer across sessions
 (use-package persistent-scratch
