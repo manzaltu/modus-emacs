@@ -2627,6 +2627,7 @@ run the attached function (if exists) and enable lsp"
   ( dape-adapter-dir (mo-cache-path "debug-adapters"))
   ( dape-buffer-window-arrangment 'right)
   ( dape-request-timeout 60)
+  ( dape-stack-trace-levels 1000) ; Retrieve all stack frames
 
   :config
   (defun dape-read-pid ()
