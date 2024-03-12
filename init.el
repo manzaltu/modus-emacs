@@ -3846,7 +3846,6 @@ If project root cannot be found, use the buffer's default directory."
            helpful-mode
            "\\*sly-description\\*"
            world-clock-mode
-           devdocs-mode
            compilation-mode
            inferior-python-mode
            "^\\*\\(.+-\\)?eshell\\*.*$" eshell-mode
