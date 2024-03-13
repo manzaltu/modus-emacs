@@ -1983,6 +1983,7 @@ Used while preview is toggled off."
 
 ;; Init tab-bar for managing tab views
 (use-package tab-bar
+  :after doom-themes
   :straight nil
   :general
   ( :keymaps 'mo-quick-menu-map
