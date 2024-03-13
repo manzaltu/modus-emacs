@@ -531,6 +531,7 @@ the user to input the run command."
   :after ( simple project tab-bar)
   :straight nil
   :no-require t ; Not a package
+  :demand t
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
@@ -638,6 +639,7 @@ Tab is named after the project's name."
     (when (display-graphic-p)
       (mo-show-welcome-screen)))
 
+  :config
   (when (< (length command-line-args) 2)
     (add-hook 'emacs-startup-hook #'mo-show-welcome-screen-graphic-mode))
 
