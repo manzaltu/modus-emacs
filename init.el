@@ -559,7 +559,12 @@ Tab is named after the project's name."
     (condition-case err
         (progn
           (call-interactively #'project-switch-project)
-          (tab-bar-rename-tab (project-name (project-current))))
+          (let ((project-dir (directory-file-name (project-root (project-current))))
+                (tab-name nil))
+            (cl-loop for path-part in (reverse (file-name-split project-dir))
+                     do (setq tab-name (file-name-concat path-part tab-name))
+                     while (tab-bar--tab-index-by-name tab-name))
+            (tab-bar-rename-tab tab-name)))
       (quit
        (tab-bar-close-tab))))
 
