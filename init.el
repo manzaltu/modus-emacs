@@ -1984,7 +1984,6 @@ Used while preview is toggled off."
 ;; Init tab-bar for managing tab views
 (use-package tab-bar
   :straight nil
-  :init
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "t"
