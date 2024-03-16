@@ -2345,7 +2345,7 @@ When a prefix ARG is given always prompt for a command to use."
   :demand t
   :general
   ( :keymaps 'mo-quick-menu-map
-    :prefix "l"
+    :prefix "s"
     "s" #'sly
     "S" #'sly-quit-lisp
     "c" #'sly-connect
