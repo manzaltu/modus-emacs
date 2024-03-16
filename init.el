@@ -2356,7 +2356,8 @@ When a prefix ARG is given always prompt for a command to use."
     "C-M-s-r" #'sly-eval-region
     "C-M-s-b" #'sly-eval-buffer
     "C-M-s-l" #'sly-load-file
-    "C-M-s-d" #'sly-compile-defun)
+    "C-M-s-d" #'sly-compile-defun
+    "C-M-s-<return>" #'sly-expand-1)
   ( :keymaps 'sly-mrepl-mode-map
     "C-r" #'consult-history
     "C-M-s-c" #'sly-mrepl-clear-recent-output
