@@ -376,6 +376,16 @@
   ;; Make sure it also works when the command is using 'switch-to-buffer'.
   (setq switch-to-buffer-obey-display-actions t))
 
+;; Init windmove for directional window selection
+(use-package windmove
+  :straight nil
+  :general
+  ( :keymaps 'override
+    "M-<right>" #'windmove-right
+    "M-<left>" #'windmove-left
+    "M-<up>" #'windmove-up
+    "M-<down>" #'windmove-down))
+
 ;; Init simple for basic and general Emacs commands
 (use-package simple
   :demand t
