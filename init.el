@@ -2376,7 +2376,9 @@ When a prefix ARG is given always prompt for a command to use."
   (mo-quick-menu-definer
     :keymaps 'sly-mode-map
     "h h" #'sly-documentation
-    "c d" #'sly-hyperspec-lookup)
+    "c d" #'sly-hyperspec-lookup
+    ";" #'sly-edit-definition
+    "'" #'sly-edit-uses)
   :custom
   ( inferior-lisp-program "sbcl")
   ( sly-db-focus-debugger t))
