@@ -1000,7 +1000,7 @@ Used for the compatibility of evil-paredit with newer evil-mode versions."
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.8))
   (setq org-directory "~/org")
   (setq org-default-notes-file (concat (file-name-as-directory org-directory) "notes.org"))
-  (setq org-capture-templates '( ( "t" "Task" entry (file+headline org-default-notes-file "Tasks")
+  (setq org-capture-templates '( ( "t" "Task" entry (file+function org-default-notes-file org-goto)
                                    "** TODO %? \nSCHEDULED: %t")))
   (setq org-goto-interface 'outline-path-completion)
   ;; Unfold everything on startup, except for things that set to be hidden
