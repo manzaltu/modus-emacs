@@ -2072,6 +2072,10 @@ When a prefix ARG is given always prompt for a command to use."
   (setq treemacs-persist-file (mo-cache-path "treemacs-persist"))
   (setq treemacs-width 50)
   (setq treemacs-no-png-images t)
+  ;; Remove treemacs windows from ace-window ignored buffer list
+  (with-eval-after-load 'ace-window
+    (when (boundp 'aw-ignored-buffers)
+      (setq aw-ignored-buffers (remove 'treemacs-mode aw-ignored-buffers))))
   (treemacs-follow-mode t)
   (treemacs-filewatch-mode t)
   (treemacs-fringe-indicator-mode 'always)
@@ -3382,8 +3386,6 @@ run the attached function (if exists) and enable lsp"
       (aw-select " Ace - Other Window Prefix" other-window-lambda)))
 
   (setq aw-keys '( ?a ?s ?d ?f ?g ?h ?j ?k ?l))
-  ;; Remove treemacs windows from the ignored buffer list
-  (setq aw-ignored-buffers (remove 'treemacs-mode aw-ignored-buffers))
   (set-face-attribute 'aw-leading-char-face nil :height 2.0)
   (ace-window-posframe-mode))
 
