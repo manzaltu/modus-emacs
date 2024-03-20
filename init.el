@@ -888,7 +888,8 @@ Used for the compatibility of evil-paredit with newer evil-mode versions."
   ;; When looking for references, don't ask for an identifier
   (setq xref-prompt-for-identifier nil)
   ;; Increase xref marker stack length
-  (setq xref-marker-ring-length 100))
+  (setq xref-marker-ring-length 100)
+  (setq xref-history-storage #'xref-window-local-history))
 
 ;; Init dump-jump for heuristics based reference lookup
 (use-package dumb-jump
