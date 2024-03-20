@@ -1005,6 +1005,7 @@ Used for the compatibility of evil-paredit with newer evil-mode versions."
   ;; Unfold everything on startup, except for things that set to be hidden
   ;; by default (e.g. drawers)
   (setq org-startup-folded 'showall)
+  (setq org-blank-before-new-entry '( ( heading . nil) ( plain-list-item . nil)))
   (setq org-ellipsis " ▼")
   (setq org-cycle-level-faces nil)
   ;; This is needed per org-present-hide-stars-in-headings' documentation
