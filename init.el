@@ -1002,6 +1002,7 @@ Used for the compatibility of evil-paredit with newer evil-mode versions."
   (setq org-default-notes-file (concat (file-name-as-directory org-directory) "notes.org"))
   (setq org-capture-templates '( ( "t" "Task" entry (file+headline org-default-notes-file "Tasks")
                                    "** TODO %? \nSCHEDULED: %t")))
+  (setq org-goto-interface 'outline-path-completion)
   ;; Unfold everything on startup, except for things that set to be hidden
   ;; by default (e.g. drawers)
   (setq org-startup-folded 'showall)
