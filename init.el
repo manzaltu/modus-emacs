@@ -2382,7 +2382,7 @@ When a prefix ARG is given always prompt for a command to use."
     "C-<return>" #'sly-mrepl-return)
   (mo-quick-menu-definer
     :keymaps 'sly-mode-map
-    "h h" #'sly-documentation
+    "h h" #'sly-describe-symbol
     "c d" #'sly-hyperspec-lookup
     ";" #'sly-edit-definition
     "'" #'sly-edit-uses)
