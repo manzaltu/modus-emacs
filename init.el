@@ -414,7 +414,7 @@
     "e" #'eval-expression)
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
-    "RET" #'mo-async-run-code)
+    "SPC" #'mo-async-run-code)
   :config
   (defvar-local mo-run-code-command nil
     "A local var that stores the run code command.
@@ -3266,7 +3266,7 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
-    "SPC" #'mo-copilot-toggle-globally
+    "RET" #'mo-copilot-toggle-globally
     "P" #'copilot-mode)
   ( :keymaps 'copilot-completion-map
     "M-<return>" #'copilot-accept-completion
