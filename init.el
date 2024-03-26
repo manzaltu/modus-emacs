@@ -3229,7 +3229,9 @@ run the attached function (if exists) and enable lsp"
   (google-this-mode 1))
 
 ;; Init shell-maker for building shells
-(use-package shell-maker)
+(use-package shell-maker
+  :custom
+  ( shell-maker-prompt-before-killing-buffer nil))
 
 ;; Init chatgpt-shell for ChatGPT support in Emacs
 (use-package chatgpt-shell
