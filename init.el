@@ -446,6 +446,8 @@ the user to input the run command."
   (setq-default fill-column 100)
   ;; Disable default tab indentation
   (setq-default indent-tabs-mode nil)
+  ;; Disable blinking matching paren as we use show-paren-mode instead
+  (setq blink-matching-paren nil)
   ;; Show cursor's column number
   (setq column-number-mode t)
   ;; Create a new buffer if async shell buffer already in use
