@@ -3268,7 +3268,10 @@ run the attached function (if exists) and enable lsp"
   (setq chatgpt-shell-request-timeout 240)
   (setq chatgpt-shell-system-prompt 2)
   (setq chatgpt-shell-welcome-function nil)
-  (setq chatgpt-shell-prompt-query-response-style 'shell))
+  (setq chatgpt-shell-prompt-query-response-style 'shell)
+  ;; Use Python script output as source block results
+  (push '( :results . "output")
+        (cdr (assoc "python" chatgpt-shell-babel-headers))))
 
 ;; Init copilot for copilot support in Emacs
 (use-package copilot
