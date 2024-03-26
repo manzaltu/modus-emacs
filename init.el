@@ -3266,12 +3266,24 @@ run the attached function (if exists) and enable lsp"
   ;; Display buffer according to the display-buffer rules
   (setq chatgpt-shell-display-function #'pop-to-buffer)
   (setq chatgpt-shell-request-timeout 240)
-  (setq chatgpt-shell-system-prompt 2)
+  (setq chatgpt-shell-system-prompt 0)
   (setq chatgpt-shell-welcome-function nil)
   (setq chatgpt-shell-prompt-query-response-style 'shell)
   ;; Use Python script output as source block results
   (push '( :results . "output")
-        (cdr (assoc "python" chatgpt-shell-babel-headers))))
+        (cdr (assoc "python" chatgpt-shell-babel-headers)))
+  (setq chatgpt-shell-system-prompts
+        (let ((prompt `( "Dev" . ,(chatgpt-shell--append-system-info
+                                   "The user is a programmer with very limited time.
+You treat their time as precious.
+You do not repeat obvious things, including their query.
+You are as concise as possible in responses.
+You never apologize for confusions because it would waste their time.
+You use markdown liberally to structure responses.
+Always show code snippets in markdown blocks with language labels.
+Don't explain code snippets."))))
+          (cons prompt
+                (assoc-delete-all (car prompt) chatgpt-shell-system-prompts)))))
 
 ;; Init copilot for copilot support in Emacs
 (use-package copilot
