@@ -3228,6 +3228,9 @@ run the attached function (if exists) and enable lsp"
   :config
   (google-this-mode 1))
 
+;; Init shell-maker for building shells
+(use-package shell-maker)
+
 ;; Init chatgpt-shell for ChatGPT support in Emacs
 (use-package chatgpt-shell
   :general
