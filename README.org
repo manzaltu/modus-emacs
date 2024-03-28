@@ -49,7 +49,6 @@ You should have the following software installed:
 3. [[https://github.com/GNUAspell/aspell][aspell]] - for spell check
 4. [[https://github.com/Kitware/CMake][cmake]] - for compiling vterm
 5. [[https://direnv.net][direnv]] - for managing environment variables based on current directory
-6. [[https://github.com/ryanoasis/nerd-fonts/releases][nerd-fonts]] (symbols only font) - for icon support
 
 Additional software might be needed based on usage. Follow *Messages* buffer for details.
 
