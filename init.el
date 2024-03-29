@@ -539,6 +539,14 @@ the user to input the run command."
     :prefix "k"
     "q" #'kbd-macro-query))
 
+;; Init env for manipulating environment variables
+(use-package env
+  :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "a"
+    "e" #'setenv))
+
 ;; Init modus-operandi-emacs for non-package related functionality
 (use-package modus-operandi-emacs
   :after ( simple project tab-bar)
