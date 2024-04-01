@@ -3257,7 +3257,9 @@ run the attached function (if exists) and enable lsp"
     "g r" #'chatgpt-shell-send-and-review-region)
   ( :keymaps 'chatgpt-shell-mode-map
     "M-p" #'chatgpt-shell-previous-source-block
-    "M-n" #'chatgpt-shell-next-source-block)
+    "M-n" #'chatgpt-shell-next-source-block
+    "C-M-s-s" #'chatgpt-shell-save-session-transcript
+    "C-M-s-l" #'chatgpt-shell-restore-session-from-transcript)
   :hook
   ;; Disable auto-completion in chat buffer
   ( chatgpt-shell-mode . mo-chatgpt-shell-disable-corfu-auto)
