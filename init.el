@@ -3396,7 +3396,13 @@ Don't explain code snippets."))))
     "M-o" #'ace-window
     "M-O" #'mo-ace-window-with-action
     "C-M-o" #'mo-ace-selected-window-prefix)
+  :hook
+  ( after-enable-theme . mo-ace-window-configure-theme)
   :config
+  (defun mo-ace-window-configure-theme ()
+    "Set ace-window theme configuration."
+    (set-face-attribute 'aw-leading-char-face nil :height 2.0))
+
   (defun mo-ace-window-with-action ()
     "Select window with dispatch action."
     (interactive)
@@ -3416,7 +3422,6 @@ Don't explain code snippets."))))
       (aw-select " Ace - Other Window Prefix" other-window-lambda)))
 
   (setq aw-keys '( ?a ?s ?d ?f ?g ?h ?j ?k ?l))
-  (set-face-attribute 'aw-leading-char-face nil :height 2.0)
   (ace-window-posframe-mode))
 
 ;; Init eww for browsing the web using Emacs
