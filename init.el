@@ -1906,6 +1906,13 @@ directory as a fall back."
     (interactive)
     (consult-fd default-directory))
 
+  (defun mo-consult-xref-history ()
+    "Jump to a position in the xref history list."
+    (interactive)
+    (if-let ((xref-history (delq nil (car (funcall xref-history-storage)))))
+        (consult-global-mark xref-history)
+      (user-error "Xref history is empty")))
+
   (defvar-local consult-toggle-preview-saved-func nil
     "Saved consult buffer preview function.")
 
