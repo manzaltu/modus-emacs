@@ -3167,6 +3167,9 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :keymaps 'override
     "<f12>" #'mo-toggle-messages-buffer)
+  ;; Unbind global help menu shortcut binding
+  ( :keymaps 'global
+    "<f1>" nil)
   :config
   (defun mo-toggle-messages-buffer ()
     "Toggle *Messages* buffer."
