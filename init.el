@@ -2689,6 +2689,11 @@ run the attached function (if exists) and enable lsp"
     ";" #'dape-info)
   ( :keymaps 'dape-info-parent-mode-map
     "<backtab>" #'dape--info-buffer-tab)
+  ( :keymaps 'override
+    "<f1>" #'dape-next
+    "<f2>" #'dape-step-in
+    "<f3>" #'dape-step-out
+    "<f4>" #'dape-continue)
   :custom
   ( dape-adapter-dir (mo-cache-path "debug-adapters"))
   ( dape-buffer-window-arrangment 'right)
