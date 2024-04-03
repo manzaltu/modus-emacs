@@ -1750,6 +1750,7 @@ directory as a fall back."
     "." #'consult-fd
     "," #'consult-ripgrep
     "M" #'mo-consult-xref-history
+    "<" #'mo-consult-xref-pop
     "TAB" #'mo-consult-buffer-dwim
     "<insert>" #'consult-bookmark)
   ( :keymaps 'mo-quick-menu-map
