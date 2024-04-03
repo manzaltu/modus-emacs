@@ -1907,6 +1907,18 @@ directory as a fall back."
     (interactive)
     (consult-fd default-directory))
 
+  (defun mo-consult-xref-pop ()
+    "Pop xref history list to a selected position.
+The popped xref(s) will be pushed to the forward-history."
+    (interactive)
+    (let ((current-marker (point-marker))
+          (history (funcall xref-history-storage))
+          (dest-marker (call-interactively #'mo-consult-xref-history)))
+      (push current-marker (car history))
+      (cl-loop for item = (pop (car history))
+               until (or (null item) (= item dest-marker))
+               do (push item (cdr history)))))
+
   (defun mo-consult-xref-history ()
     "Jump to a position in the xref history list."
     (interactive)
