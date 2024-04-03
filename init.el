@@ -820,6 +820,14 @@ Tab is named after the project's name."
     "z i" #'evil-numbers/inc-at-pt
     "z d" #'evil-numbers/dec-at-pt))
 
+;; Init two-column for editing two-column texts
+(use-package two-column
+  :straight nil
+  :general
+  ;; Unbind global menu shortcut binding
+  ( :keymaps 'global
+    "<f2>" nil))
+
 ;; Init paredit for parenthetical editing in Emacs
 (use-package paredit
   :general
