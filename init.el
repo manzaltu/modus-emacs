@@ -529,7 +529,11 @@ the user to input the run command."
     "v" #'kmacro-view-macro
     "d" #'kmacro-delete-ring-head
     "n" #'kmacro-cycle-ring-next
-    "p" #'kmacro-cycle-ring-previous))
+    "p" #'kmacro-cycle-ring-previous)
+  ;; Unbind global macro bindings
+  ( :keymaps 'global
+    "<f3>" nil
+    "<f4>" nil))
 
 ;; Init macros for controlling macros
 (use-package macros
