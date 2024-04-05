@@ -415,6 +415,8 @@
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
     "SPC" #'mo-async-run-code)
+  ( :states 'motion
+    "g \"" #'end-of-buffer)
   :config
   (defvar-local mo-run-code-command nil
     "A local var that stores the run code command.
