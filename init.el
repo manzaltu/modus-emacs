@@ -2161,7 +2161,7 @@ When a prefix ARG is given always prompt for a command to use."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
-    "l" #'calc))
+    "C" #'calc))
 
 ;; Init literate-calc-mode for inline calculations
 (use-package literate-calc-mode
