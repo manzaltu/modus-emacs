@@ -1054,7 +1054,8 @@ Used for the compatibility of evil-paredit with newer evil-mode versions."
   (setq org-agenda-diary-file
         (concat (file-name-as-directory org-directory) "diary.org"))
   (setq org-id-locations-file (mo-cache-path ".org-id-locations"))
-  (setq org-src-preserve-indentation t)
+  (setq org-src-preserve-indentation nil)
+  (setq org-edit-src-content-indentation 0)
   (setq org-confirm-babel-evaluate nil)
   (org-babel-do-load-languages
    'org-babel-load-languages
