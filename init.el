@@ -2082,7 +2082,7 @@ Used while preview is toggled off."
   ( :keymaps 'mo-quick-menu-map
     :prefix "f"
     "d" #'dired-jump
-    "o" #'mo-open-with)
+    "RET" #'mo-open-with)
   :hook
   ;; Watch directories for changes
   ( dired-mode . auto-revert-mode)
