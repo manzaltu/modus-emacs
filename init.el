@@ -969,7 +969,7 @@ Used for the compatibility of evil-paredit with newer evil-mode versions."
     "C-M-s-S-e" #'org-export-dispatch
     "C-M-s-<return>" #'org-open-at-point)
   ( :keymaps 'org-src-mode-map
-    "C-M-s-;" #'org-edit-src-exit)
+    "C-M-s-e" #'org-edit-src-exit)
   ( :keymaps 'org-agenda-mode-map
     "C-M-s-s" #'org-agenda-schedule
     "C-M-s-d" #'org-agenda-deadline
