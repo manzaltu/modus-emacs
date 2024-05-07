@@ -1057,6 +1057,7 @@ Used for the compatibility of evil-paredit with newer evil-mode versions."
   (setq org-id-locations-file (mo-cache-path ".org-id-locations"))
   (setq org-src-preserve-indentation nil)
   (setq org-edit-src-content-indentation 0)
+  (setq org-edit-src-persistent-message nil)
   (setq org-confirm-babel-evaluate nil)
   (org-babel-do-load-languages
    'org-babel-load-languages
