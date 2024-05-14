@@ -2593,6 +2593,8 @@ run the attached function (if exists) and enable lsp"
   (setq lsp-keep-workspace-alive nil)
   (setq lsp-session-file (mo-cache-path "lsp-session-v1"))
   (setq lsp-eslint-library-choices-file (mo-cache-path ".lsp-eslint-choices"))
+  ;; Increase log size
+  (setq lsp-log-max 100000)
   ;; Always ask before executing auto actions
   (setq lsp-auto-execute-action nil)
   ;; Force lsp mode to forget the workspace folders for multi root servers
