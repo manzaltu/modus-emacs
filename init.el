@@ -3146,7 +3146,7 @@ run the attached function (if exists) and enable lsp"
   :straight (indent-bars :type git :host github :repo "jdtsmith/indent-bars")
   :general
   ( :keymaps 'mo-quick-menu-map
-    :prefix "c"
+    :prefix "b"
     "|" #'indent-bars-mode))
 
 ;; Init editorconfig for applying EditorConfig settings
