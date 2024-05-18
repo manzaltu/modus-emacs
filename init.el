@@ -963,6 +963,7 @@ Used for the compatibility of evil-paredit with newer evil-mode versions."
     "C-M-s-s" #'org-schedule
     "C-M-s-d" #'org-deadline
     "C-M-s-t" #'org-todo
+    "C-M-s-S-t" #'org-time-stamp
     "C-M-s-g" #'org-set-tags-command
     "C-M-s-i" #'org-insert-structure-template
     "C-M-s-e" #'org-edit-special
