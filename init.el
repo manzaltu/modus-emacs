@@ -4206,12 +4206,17 @@ If project root cannot be found, use the buffer's default directory."
 ;; Init envrc for direnv integration with Emacs
 ;; This is here on purpose, so that its hooks will be registered as late as possible
 (use-package envrc
+  :commands envrc-mode
+  :config
+  (defun mo-envrc-disable-local ()
+    "Disable envrc mode in buffer."
+    (envrc-mode -1))
   :hook
+  ( after-init . envrc-global-mode)
   ;; envrc kills buffer local env var variables (e.g. process-environment). This
   ;; interferes with other modes that set these vars to be local, such as eshell.
-  ;; Until fixed, we should load this package only for specific modes.
-  ( python-mode . envrc-mode)
-  ( python-ts-mode . envrc-mode))
+  ;; Until fixed, we should disable this package on incompatible modes.
+  ( eshell-mode . mo-envrc-disable-local))
 
 ;; Load customization file
 (when (file-exists-p custom-file)
