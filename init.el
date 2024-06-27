@@ -3311,6 +3311,7 @@ run the attached function (if exists) and enable lsp"
   ( :keymaps 'chatgpt-shell-mode-map
     "M-p" #'chatgpt-shell-previous-source-block
     "M-n" #'chatgpt-shell-next-source-block
+    "C-M-s-c" #'chatgpt-shell-clear-buffer
     "C-M-s-s" #'chatgpt-shell-save-session-transcript
     "C-M-s-l" #'chatgpt-shell-restore-session-from-transcript
     "C-M-s-p" #'chatgpt-shell-swap-system-prompt)
