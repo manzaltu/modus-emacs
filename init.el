@@ -1374,6 +1374,7 @@ Used for the compatibility of evil-paredit with newer evil-mode versions."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "a"
+    "a" #'dired-async-mode
     "K" #'dired-async-kill-process)
   :custom
   ;; Make sure that the file threshold variable is passed to the async environment.
