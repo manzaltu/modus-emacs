@@ -45,6 +45,7 @@
  ("diff-hl" . "11f3113e790526d5ee00f61f8e7cd0d01e323b2e")
  ("dired-hacks" . "5f582edf3f7c2db0812ba162a69f0748cba13a96")
  ("dired-plus" . "d75d3d390b119b21016e5d0aaa2b78aeafba6cf3")
+ ("dired-rsync" . "5bcb851f3bf9c4f7c07299fcc25be7c408a68cda")
  ("docker.el" . "d5255a65b7240d0038cc417f301b43df05a27922")
  ("dockerfile-mode" . "39a012a27fcf6fb629c447d13b6974baf906714c")
  ("dtrt-indent" . "339755e4fb5245862737babf7f2c1e3bae1c129c")

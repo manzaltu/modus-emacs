@@ -2116,6 +2116,9 @@ When a prefix ARG is given always prompt for a command to use."
   :init
   (setq image-dired-dir (mo-cache-path "image-dired")))
 
+;; Init dired-rsync for rsync support in dired
+(use-package dired-rsync)
+
 ;; Init treemacs for a tree-like sidebar file navigator
 (use-package treemacs
   :general
