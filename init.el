@@ -1382,20 +1382,10 @@ Used for the compatibility of evil-paredit with newer evil-mode versions."
   :custom
   ( orderless-matching-styles '( orderless-regexp orderless-literal))
   ( orderless-component-separator #'orderless-escapable-split-on-space)
-  ( orderless-style-dispatchers '( mo-orderless-exclude-dispatcher))
   ( completion-styles '( orderless basic))
   :config
   (setq completion-category-defaults nil)
-  (setq completion-category-overrides '( ( file ( styles basic partial-completion))))
-
-  ;; Add exclude pattern style
-  (defun mo-orderless-exclude-dispatcher (pattern _index _total)
-    "Handle orderless exclude pattern."
-    (cond
-     ((equal "!" pattern)
-      '( orderless-literal . ""))
-     ((string-prefix-p "!" pattern)
-      `( orderless-without-literal . ,(substring pattern 1))))))
+  (setq completion-category-overrides '( ( file ( styles basic partial-completion)))))
 
 ;; Init vertico for item list selection
 (use-package vertico
