@@ -1171,7 +1171,7 @@ Used for the compatibility of evil-paredit with newer evil-mode versions."
   ( :keymaps 'mo-quick-menu-map
     :prefix "n"
     "r" #'org-roam-node-find
-    "n" #'org-roam-capture)
+    "R" #'org-roam-capture)
   :custom
   ( org-roam-directory "~/roam")
   :init
