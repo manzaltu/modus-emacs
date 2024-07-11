@@ -1177,12 +1177,6 @@ Used for the compatibility of evil-paredit with newer evil-mode versions."
   :init
   (setq org-roam-v2-ack t)
   :config
-  (defun mo-org-roam-node-find-recency-sorted ()
-    "Find roam node and sort candidates by recency."
-    (interactive)
-    (let ((vertico-sort-override-function #'mo-vertico-combined-sort))
-      (call-interactively #'org-roam-node-find)))
-
   ;; Display link buffer as a side window
   (add-to-list 'display-buffer-alist
                '( "\\*org-roam\\*"
