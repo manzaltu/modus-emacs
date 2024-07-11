@@ -1291,7 +1291,7 @@ Used for the compatibility of evil-paredit with newer evil-mode versions."
 
 ;; Init consult-notes for selecting and previewing notes with consult
 (use-package consult-notes
-  :after ( org org-roam)
+  :after ( org org-roam consult)
   :demand t
   :general
   ( :keymaps 'mo-quick-menu-map
@@ -1300,6 +1300,7 @@ Used for the compatibility of evil-paredit with newer evil-mode versions."
     "n" #'consult-notes)
   :config
   (setq consult-notes-file-dir-sources '( ( "Org" ?o "~/org")))
+  (consult-customize consult-notes :group nil) ; Remove grouping
   (consult-notes-org-roam-mode))
 
 ;; Init calendar for showing a calendar
