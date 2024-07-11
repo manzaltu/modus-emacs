@@ -1196,21 +1196,6 @@ Used for the compatibility of evil-paredit with newer evil-mode versions."
   (setq org-roam-node-default-sort nil)
   (org-roam-db-autosync-mode))
 
-;; Init consult-org-roam for better searching in org-roam notes
-(use-package consult-org-roam
-  :demand t
-  :after org-roam
-  :functions consult-org-roam-mode
-  :general
-  ( :keymaps 'org-mode-map
-    "C-M-s-r C-M-s-b" #'consult-org-roam-backlinks
-    "C-M-s-r C-M-s-f" #'consult-org-roam-forward-links)
-  :custom
-  ;; Disable consult-buffer integration, use this package only for note previewing
-  (consult-org-roam-buffer-enabled nil)
-  :config
-  (consult-org-roam-mode))
-
 ;; Init org-modern for a modern org buffer style
 (use-package org-modern
   :functions global-org-modern-mode
