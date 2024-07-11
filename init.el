@@ -1299,6 +1299,45 @@ Used for the compatibility of evil-paredit with newer evil-mode versions."
     "," #'consult-notes-search-in-all-notes
     "n" #'consult-notes)
   :config
+  (defun mo-consult-notes-org-roam-annotate (cand)
+    "Annotate org roam candidate with useful info."
+    (let* ((node
+            (org-roam-node-from-title-or-alias cand))
+           (file
+            (org-roam-node-file node))
+           (dir
+            (abbreviate-file-name (directory-file-name (file-name-directory file))))
+           (size
+            (file-size-human-readable (file-attribute-size (file-attributes file))))
+           (time
+            (consult-notes--time (org-roam-node-file-mtime node)))
+           (links (caar (org-roam-db-query
+                         [:select (funcall count source)
+                                  :from links
+                                  :where (= dest $s1)
+                                  :and (= type "id")]
+                         (org-roam-node-id node))))
+           (tags (mapconcat (lambda (tag) (concat "#" (car tag)))
+                            (org-roam-db-query
+                             [:select [tag]
+                                      :from tags
+                                      :where (=  node-id $s1)]
+                             (org-roam-node-id (org-roam-node-from-title-or-alias cand))) " "))
+           (name "Roam"))
+
+      (put-text-property 0 (length name) 'face 'consult-notes-name name)
+      (put-text-property 0 (length dir) 'face 'consult-notes-dir dir)
+      (put-text-property 0 (length size) 'face 'consult-notes-size size)
+      (put-text-property 0 (length time) 'face 'consult-notes-time time)
+      (put-text-property 0 (length tags) 'face 'org-tag tags)
+
+      (if (> links 0)
+          (propertize (format "%3s" links) 'face 'consult-notes-backlinks)
+        (propertize (format "%3s" "nil") 'face 'shadow))
+
+      (format "%7s %8s  %12s  %8s %s %s" name size time dir links tags)))
+
+  (setq consult-notes-org-roam-annotate-function #'mo-consult-notes-org-roam-annotate)
   (setq consult-notes-file-dir-sources '( ( "Org" ?o "~/org")))
   (consult-customize consult-notes :group nil) ; Remove grouping
   (consult-notes-org-roam-mode))
