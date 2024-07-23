@@ -4192,7 +4192,7 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "RET"
-    "<insert>" #'bookmark-in-project-jump)
+    "<deletechar>" #'bookmark-in-project-jump)
   :custom
   ( bookmark-in-project-project-root
     (lambda () (project-root (project-current)))))
