@@ -1782,7 +1782,7 @@ directory as a fall back."
     "M" #'mo-consult-xref-history
     "<" #'mo-consult-xref-pop
     "TAB" #'mo-consult-buffer-dwim
-    "<insert>" #'consult-bookmark)
+    "<deletechar>" #'consult-bookmark)
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
     "," #'consult-git-grep)
