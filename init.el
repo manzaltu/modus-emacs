@@ -677,7 +677,7 @@ Tab is named after the project's name."
 
 ;; Add evil key bindings to other, non-default, modes
 (use-package evil-collection
-  :after ( evil xref magit sly)
+  :after ( general evil xref magit sly)
   :demand t
   :init
   (defvar forge-add-default-bindings nil)
