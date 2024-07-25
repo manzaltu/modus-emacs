@@ -679,9 +679,6 @@ Tab is named after the project's name."
 (use-package evil-collection
   :after ( evil xref magit sly)
   :demand t
-  :general
-  ( :keymaps 'mo-quick-menu-map
-    ">" #'evil-collection-consult-jump-list)
   :init
   (defvar forge-add-default-bindings nil)
   :config
