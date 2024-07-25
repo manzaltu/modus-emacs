@@ -892,6 +892,8 @@ Used for the compatibility of evil-paredit with newer evil-mode versions."
   :general
   ( [remap evil-jump-forward] 'better-jumper-jump-forward)
   ( [remap evil-jump-backward] 'better-jumper-jump-backward)
+  ( :keymaps 'override
+    "C-&" #'better-jumper-set-jump)
   :config
   (defvar mo-better-jumper-set-jump-on-push-mark 't
     "Dynamically controls if a jump is set on push-mark.
