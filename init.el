@@ -892,6 +892,24 @@ Used for the compatibility of evil-paredit with newer evil-mode versions."
   ( [remap evil-jump-forward] 'better-jumper-jump-forward)
   ( [remap evil-jump-backward] 'better-jumper-jump-backward)
   :config
+  (defvar mo-better-jumper-set-jump-on-push-mark 't
+    "Dynamically controls if a jump is set on push-mark.
+Used for preventing recursion when recording new jumps.")
+
+  (defun mo-better-jumper-set-jump-on-push-mark (func &optional location nomsg activate)
+    "Set jump on push-mark, if allowed."
+    (when mo-better-jumper-set-jump-on-push-mark
+      (better-jumper-set-jump location))
+    (apply func (list location nomsg activate)))
+
+  (defun mo-better-jumper-disable-set-jump-on-push-mark (func &rest args)
+    "Disable setting jumps on push-mark to prevent recursion."
+    (let ((mo-better-jumper-set-jump-on-push-mark nil))
+      (apply func args)))
+
+  ;; Record jumps when marks are pushed to the mark ring
+  (advice-add 'better-jumper-set-jump :around #'mo-better-jumper-disable-set-jump-on-push-mark)
+  (advice-add 'push-mark :around #'mo-better-jumper-set-jump-on-push-mark)
   ;; Jump list to work as a stack
   (setq better-jumper-add-jump-behavior 'replace)
   (better-jumper-mode +1))
