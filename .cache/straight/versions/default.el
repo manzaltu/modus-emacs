@@ -158,6 +158,7 @@
  ("org-download" . "19e166f0a8c539b4144cfbc614309d47a9b2a9b7")
  ("org-journal" . "17b34ce8df9649a73b715c13698220bde1628668")
  ("org-modern" . "c3c97156ecb45cd666bb0bb9d8e7d08e923cb65e")
+ ("org-modern-indent" . "f2b859bc53107b2a1027b76dbf4aaebf14c03433")
  ("org-pomodoro" . "3f5bcfb80d61556d35fc29e5ddb09750df962cc6")
  ("org-present" . "4ec04e1b77dea76d7c30066ccf3200d2e0b7bee9")
  ("org-roam" . "8667e441876cd2583fbf7282a65796ea149f0e5f")
