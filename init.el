@@ -915,6 +915,8 @@ Used for preventing recursion when recording new jumps.")
   (advice-add 'push-mark :around #'mo-better-jumper-set-jump-on-push-mark)
   ;; Jump list to work as a stack
   (setq better-jumper-add-jump-behavior 'replace)
+  (setq better-jumper-max-length 10000)
+  (setq better-jumper-buffer-savehist-size 1000)
   (better-jumper-mode +1))
 
 ;; Init xref for code reference lookup
