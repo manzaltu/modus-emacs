@@ -1227,7 +1227,10 @@ Used for preventing recursion when recording new jumps.")
 
 ;; Init org-modern-indent for a modern org indentation style
 (use-package org-modern-indent
-  :straight ( org-modern-indent :type git :host github :repo "jdtsmith/org-modern-indent"))
+  :straight ( org-modern-indent :type git :host github :repo "jdtsmith/org-modern-indent")
+  :functions org-modern-indent-mode
+  :config
+  (add-hook 'org-mode-hook #'org-modern-indent-mode 90))
 
 ;; Init org-appear to show invisible org elements on cursor hover
 (use-package org-appear
