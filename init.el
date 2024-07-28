@@ -901,7 +901,9 @@ Used for preventing recursion when recording new jumps.")
 
   (defun mo-better-jumper-set-jump-on-push-mark (func &optional location nomsg activate)
     "Set jump on push-mark, if allowed."
-    (when mo-better-jumper-set-jump-on-push-mark
+    (unless (or (not mo-better-jumper-set-jump-on-push-mark)
+                (eq this-command 'better-jumper-jump-backward)
+                (eq this-command 'better-jumper-jump-forward))
       (better-jumper-set-jump location))
     (apply func (list location nomsg activate)))
 
