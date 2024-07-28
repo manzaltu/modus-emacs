@@ -1415,7 +1415,9 @@ Used for preventing recursion when recording new jumps.")
 
 ;; Init nov for reading epub files in Emacs
 (use-package nov
-  :mode ( "\\.epub\\'" . nov-mode))
+  :mode ( "\\.epub\\'" . nov-mode)
+  :custom
+  ( nov-save-place-file (mo-cache-path "nov-places")))
 
 ;; Init emacs-async for async processing in Emacs
 (use-package emacs-async
