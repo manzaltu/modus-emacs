@@ -1210,7 +1210,6 @@ Used for preventing recursion when recording new jumps.")
                   ( window-parameters . ( ( no-other-window . t)
                                           ( no-delete-other-windows . t)))))
   (setq org-roam-db-location (mo-cache-path "org-roam.db"))
-  (setq org-roam-node-default-sort nil)
   (org-roam-db-autosync-mode))
 
 ;; Init org-modern for a modern org buffer style
