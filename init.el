@@ -3378,6 +3378,7 @@ run the attached function (if exists) and enable lsp"
   (setq chatgpt-shell-system-prompt 0)
   (setq chatgpt-shell-welcome-function nil)
   (setq chatgpt-shell-prompt-query-response-style 'shell)
+  (setq chatgpt-shell-root-path mo-cache-dir)
   ;; Use Python script output as source block results
   (push '( :results . "output")
         (cdr (assoc "python" chatgpt-shell-babel-headers)))
