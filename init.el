@@ -1818,7 +1818,7 @@ directory as a fall back."
     "," #'consult-ripgrep
     "M" #'mo-consult-xref-history
     "<" #'mo-consult-xref-pop
-    "TAB" #'mo-consult-buffer-dwim
+    "DEL" #'mo-consult-buffer-dwim
     "<deletechar>" #'consult-bookmark)
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
@@ -3348,7 +3348,7 @@ run the attached function (if exists) and enable lsp"
 (use-package chatgpt-shell
   :general
   ( :keymaps 'mo-quick-menu-map
-    "DEL" #'chatgpt-shell-prompt)
+    "TAB" #'chatgpt-shell-prompt)
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
     "g" #'chatgpt-shell
