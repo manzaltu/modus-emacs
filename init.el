@@ -3217,6 +3217,13 @@ run the attached function (if exists) and enable lsp"
   ;; Set url configuration directory
   (setq url-configuration-directory (mo-cache-path "url")))
 
+;; Init browse-url for configuring default openers for URLs
+(use-package browse-url
+  :straight nil
+  :custom
+  ( browse-url-handlers '( ( "hyperspec/body" . eww)
+	                       ( "." . browse-url-default-browser))))
+
 ;; Init request for a HTTP function library in lisp
 (use-package request
   :custom
