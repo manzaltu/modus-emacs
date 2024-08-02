@@ -3062,6 +3062,11 @@ run the attached function (if exists) and enable lsp"
   ;; We don't use projectile
   ( pipenv-with-projectile nil))
 
+;; Init typescript-ts-mode for typescript support
+(use-package typescript-ts-mode
+  :straight nil
+  :mode "\\.ts\\'")
+
 ;; Init julia-mode for Julia support
 (use-package julia-mode)
 
