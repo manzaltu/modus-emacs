@@ -2608,7 +2608,6 @@ When a prefix ARG is given always prompt for a command to use."
                                    (python-ts-mode (lambda () (require 'lsp-pyright)))
                                    ruby-ts-mode
                                    js-ts-mode
-                                   typescript-mode
                                    typescript-ts-mode
                                    tsx-ts-mode
                                    julia-mode
@@ -3062,9 +3061,6 @@ run the attached function (if exists) and enable lsp"
   :custom
   ;; We don't use projectile
   ( pipenv-with-projectile nil))
-
-;; Init typescript-mode for enhanced TypeScript editing
-(use-package typescript-mode)
 
 ;; Init julia-mode for Julia support
 (use-package julia-mode)
