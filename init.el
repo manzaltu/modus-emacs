@@ -3568,7 +3568,7 @@ Don't explain code snippets."))))
   :after orderless
   :general
   ( :keymaps 'mo-quick-menu-map
-    "ESC" #'app-launcher-run-app)
+    "ESC" #'mo-app-launcher-run-app-literal-prefix)
   :config
   (defun mo-app-launcher-run-app-literal-prefix ()
     "Launch applications matched by the literal prefix style."
