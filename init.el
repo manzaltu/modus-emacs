@@ -3565,9 +3565,16 @@ Don't explain code snippets."))))
 ;; Init app-launcher for launching desktop apps
 (use-package app-launcher
   :straight ( :type git :host github :repo "SebastienWae/app-launcher")
+  :after orderless
   :general
   ( :keymaps 'mo-quick-menu-map
-    "ESC" #'app-launcher-run-app))
+    "ESC" #'app-launcher-run-app)
+  :config
+  (defun mo-app-launcher-run-app-literal-prefix ()
+    "Launch applications matched by the literal prefix style."
+    (interactive)
+    (let ((orderless-matching-styles '( orderless-literal-prefix)))
+      (call-interactively #'app-launcher-run-app))))
 
 ;; Init executalbe for handling script execution
 (use-package executable
