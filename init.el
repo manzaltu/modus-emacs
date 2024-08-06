@@ -3722,6 +3722,7 @@ If project root cannot be found, use the buffer's default directory."
     (eshell 'N))
   (defun mo-eshell-disable-pager ()
     "Disable shell pager."
+    (setenv "SYSTEMD_PAGER" "cat")
     (setenv "PAGER" "cat"))
   (setq eshell-history-size 100000)
   (setq eshell-buffer-maximum-lines 100000)
