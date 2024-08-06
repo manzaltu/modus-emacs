@@ -1836,6 +1836,7 @@ directory as a fall back."
     "/" #'consult-imenu
     "?" #'consult-imenu-multi
     ";" #'consult-focus-lines
+    ":" #'consult-keep-lines
     "m" #'consult-minor-mode-menu
     "B" #'consult-recent-file)
   ( :keymaps 'mo-quick-menu-map
