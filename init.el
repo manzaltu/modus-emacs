@@ -3000,9 +3000,7 @@ run the attached function (if exists) and enable lsp"
     :keymaps 'rustic-mode-map
     "c RET" #'rustic-cargo-run
     "c c" #'rustic-recompile
-    "c C" #'rustic-compile)
-  :custom
-  ( rustic-cargo-clippy-trigger-fix 'on-compile))
+    "c C" #'rustic-compile))
 
 ;; Init swift-mode for Swift support
 (use-package swift-mode)
