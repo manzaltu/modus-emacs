@@ -3536,7 +3536,8 @@ Don't explain code snippets."))))
       (aw-select " Ace - Other Window Prefix" other-window-lambda)))
 
   (setq aw-keys '( ?a ?s ?d ?f ?g ?h ?j ?k ?l))
-  (ace-window-posframe-mode))
+  (when (display-graphic-p)
+    (ace-window-posframe-mode)))
 
 ;; Init eww for browsing the web using Emacs
 (use-package eww
