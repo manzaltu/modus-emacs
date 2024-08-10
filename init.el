@@ -2758,7 +2758,8 @@ run the attached function (if exists) and enable lsp"
     "<f1>" #'dape-next
     "<f2>" #'dape-step-in
     "<f3>" #'dape-step-out
-    "<f4>" #'dape-continue)
+    "<f4>" #'dape-continue
+    "<f5>" #'dape-breakpoint-toggle)
   :custom
   ( dape-adapter-dir (mo-cache-path "debug-adapters"))
   ( dape-buffer-window-arrangment 'right)
