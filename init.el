@@ -2762,7 +2762,7 @@ run the attached function (if exists) and enable lsp"
     "<f5>" #'dape-breakpoint-toggle)
   :custom
   ( dape-adapter-dir (mo-cache-path "debug-adapters"))
-  ( dape-buffer-window-arrangment 'right)
+  ( dape-buffer-window-arrangement 'right)
   ( dape-request-timeout 60)
   ( dape-stack-trace-levels 1000) ; Retrieve all stack frames
 
