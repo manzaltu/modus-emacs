@@ -2763,6 +2763,8 @@ run the attached function (if exists) and enable lsp"
   :custom
   ( dape-adapter-dir (mo-cache-path "debug-adapters"))
   ( dape-buffer-window-arrangement 'right)
+  ( dape-info-variable-table-row-config
+    `( (name . 0) (value . 0) (type . 0)))
   ( dape-request-timeout 60)
   ( dape-stack-trace-levels 1000) ; Retrieve all stack frames
 
