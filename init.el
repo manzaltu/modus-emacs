@@ -3362,6 +3362,8 @@ run the attached function (if exists) and enable lsp"
     "C-M-s-d" #'gptel-context-flag-deletion
     "C-M-s-n" #'gptel-context-next
     "C-M-s-p" #'gptel-context-previous)
+  :custom
+  ( gptel-default-mode 'org-mode)
   :config
   (add-hook 'gptel-post-response-functions #'gptel-end-of-response))
 
