@@ -3344,7 +3344,10 @@ run the attached function (if exists) and enable lsp"
 (use-package gptel
   :general
   ( :keymaps 'mo-quick-menu-map
-    "TAB" #'gptel))
+    "TAB" #'gptel)
+  ( :keymaps 'gptel-mode-map
+    "C-<return>" #'gptel-send
+    "C-<escape>" #'gptel-menu))
 
 ;; Init copilot for copilot support in Emacs
 (use-package copilot
