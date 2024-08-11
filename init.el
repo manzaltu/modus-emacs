@@ -3345,6 +3345,12 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :keymaps 'mo-quick-menu-map
     "TAB" #'gptel)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "g" #'gptel-add)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "f"
+    "g" #'gptel-add-file)
   ( :keymaps 'gptel-mode-map
     "C-<return>" #'gptel-send
     "C-<escape>" #'gptel-menu))
