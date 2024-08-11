@@ -20,7 +20,6 @@
  ("cape" . "5c468d6d657e8dc604ddf3feb80f70e1e05ac0a1")
  ("cdlatex" . "33770dec73138909714711b05a63e79da5a19ccd")
  ("cfrs" . "f3a21f237b2a54e6b9f8a420a9da42b4f0a63121")
- ("chatgpt-shell" . "96f40272f64384915afe01274f8ae595d3ddb216")
  ("closql" . "c1a346d56ecee16d1f0d7707f0d62c72604a8802")
  ("cmake" . "0dc5cd674e271da6eb7bd2b0c38bcf7e4d7b3226")
  ("compat" . "99d74e635b76c3fa0b8403391e9d2efbd29f9901")

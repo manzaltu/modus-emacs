@@ -3340,66 +3340,6 @@ run the attached function (if exists) and enable lsp"
   :config
   (google-this-mode 1))
 
-;; Init shell-maker for building shells
-(use-package shell-maker
-  :custom
-  ( shell-maker-prompt-before-killing-buffer nil))
-
-;; Init chatgpt-shell for ChatGPT support in Emacs
-(use-package chatgpt-shell
-  :general
-  ( :keymaps 'mo-quick-menu-map
-    "TAB" #'chatgpt-shell-prompt)
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "x"
-    "g" #'chatgpt-shell
-    "G" #'chatgpt-shell-describe-image)
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "c"
-    "g d" #'chatgpt-shell-describe-code
-    "g r" #'chatgpt-shell-refactor-code
-    "g u" #'chatgpt-shell-generate-unit-test)
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "b"
-    "g p" #'chatgpt-shell-proofread-region
-    "g r" #'chatgpt-shell-send-and-review-region)
-  ( :keymaps 'chatgpt-shell-mode-map
-    "M-p" #'chatgpt-shell-previous-source-block
-    "M-n" #'chatgpt-shell-next-source-block
-    "C-M-s-c" #'chatgpt-shell-clear-buffer
-    "C-M-s-s" #'chatgpt-shell-save-session-transcript
-    "C-M-s-l" #'chatgpt-shell-restore-session-from-transcript
-    "C-M-s-p" #'chatgpt-shell-swap-system-prompt)
-  :hook
-  ;; Disable auto-completion in chat buffer
-  ( chatgpt-shell-mode . mo-chatgpt-shell-disable-corfu-auto)
-  :config
-  (defun mo-chatgpt-shell-disable-corfu-auto ()
-    "Disable corfu auto completion."
-    (setq-local corfu-auto nil))
-  ;; Display buffer according to the display-buffer rules
-  (setq chatgpt-shell-display-function #'pop-to-buffer)
-  (setq chatgpt-shell-request-timeout 240)
-  (setq chatgpt-shell-system-prompt 0)
-  (setq chatgpt-shell-welcome-function nil)
-  (setq chatgpt-shell-prompt-query-response-style 'shell)
-  (setq chatgpt-shell-root-path mo-cache-dir)
-  ;; Use Python script output as source block results
-  (push '( :results . "output")
-        (cdr (assoc "python" chatgpt-shell-babel-headers)))
-  (setq chatgpt-shell-system-prompts
-        (let ((prompt `( "Dev" . ,(chatgpt-shell--append-system-info
-                                   "The user is a programmer with very limited time.
-You treat their time as precious.
-You do not repeat obvious things, including their query.
-You are as concise as possible in responses.
-You never apologize for confusions because it would waste their time.
-You use markdown liberally to structure responses.
-Always show code snippets in markdown blocks with language labels.
-Don't explain code snippets."))))
-          (cons prompt
-                (assoc-delete-all (car prompt) chatgpt-shell-system-prompts)))))
-
 ;; Init copilot for copilot support in Emacs
 (use-package copilot
   :straight (:host github :repo "copilot-emacs/copilot.el" :files ("dist" "*.el"))
