@@ -2774,6 +2774,7 @@ run the attached function (if exists) and enable lsp"
     `( (name . 0) (value . 0) (type . 0)))
   ( dape-request-timeout 60)
   ( dape-stack-trace-levels 1000) ; Retrieve all stack frames
+  ( dape-default-breakpoints-file (mo-cache-path "dape-breakpoints"))
 
   :config
   (defun dape-read-pid ()
