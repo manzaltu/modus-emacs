@@ -3340,6 +3340,9 @@ run the attached function (if exists) and enable lsp"
   :config
   (google-this-mode 1))
 
+;; Init gptel for LLM support in Emacs
+(use-package gptel)
+
 ;; Init copilot for copilot support in Emacs
 (use-package copilot
   :straight (:host github :repo "copilot-emacs/copilot.el" :files ("dist" "*.el"))

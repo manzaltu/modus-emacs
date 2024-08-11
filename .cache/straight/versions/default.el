@@ -102,6 +102,7 @@
  ("gnuplot" . "4c6b18f71ff7604e2640033207f5a882ddce78af")
  ("go-mode.el" . "602d73e22646b1b98b2eb97927fd426c0d1d2f92")
  ("goto-chg" . "72f556524b88e9d30dc7fc5b0dc32078c166fda7")
+ ("gptel" . "175e8d2efe0e6b8757f06b863096e514fd731f50")
  ("groovy-emacs-modes" . "7b8520b2e2d3ab1d62b35c426e17ac25ed0120bb")
  ("haskell-mode" . "727f72a2a4b8e4fd0a7b62129668baea55a2c3e0")
  ("hcl-mode" . "37f2cb1bf6fb51fbf99d4fac256298fcd6d1dd24")
