@@ -3341,7 +3341,10 @@ run the attached function (if exists) and enable lsp"
   (google-this-mode 1))
 
 ;; Init gptel for LLM support in Emacs
-(use-package gptel)
+(use-package gptel
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    "TAB" #'gptel))
 
 ;; Init copilot for copilot support in Emacs
 (use-package copilot
