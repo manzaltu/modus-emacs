@@ -3354,6 +3354,14 @@ run the attached function (if exists) and enable lsp"
   ( :keymaps 'gptel-mode-map
     "C-<return>" #'gptel-send
     "C-<escape>" #'gptel-menu)
+  ( :keymaps 'gptel-context-buffer-mode-map
+    :states 'normal
+    "RET" #'gptel-context-visit
+    "C-M-s-c" #'gptel-context-confirm
+    "C-M-s-k" #'gptel-context-quit
+    "C-M-s-d" #'gptel-context-flag-deletion
+    "C-M-s-n" #'gptel-context-next
+    "C-M-s-p" #'gptel-context-previous)
   :config
   (add-hook 'gptel-post-response-functions #'gptel-end-of-response))
 
