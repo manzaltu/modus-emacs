@@ -2792,14 +2792,6 @@ run the attached function (if exists) and enable lsp"
     (let ((vertico-sort-function nil))
       (call-interactively #'dape-select-stack)))
 
-  ;; Do not display info and repl buffers on startup
-  (remove-hook 'dape-on-start-hooks 'dape-info)
-  (remove-hook 'dape-on-start-hooks 'dape-repl)
-
-  ;; Display info and repl buffers on stopped
-  (add-hook 'dape-on-stopped-hooks 'dape-info)
-  (add-hook 'dape-on-stopped-hooks 'dape-repl)
-
   ;; Kill compile buffer on build success
   (add-hook 'dape-compile-compile-hooks 'kill-buffer)
 
