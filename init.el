@@ -2761,6 +2761,12 @@ run the attached function (if exists) and enable lsp"
     "<f4>" #'dape-continue
     "C-<f4>" #'dape-pause
     "<f5>" #'dape-breakpoint-toggle)
+  :hook
+  ;; Kill compile buffer on build success
+  ( dape-compile-compile . kill-buffer)
+  ;; Save buffers on startup, useful for interpreted languages
+  ( dape-on-start . mo-dape--save-on-start)
+
   :custom
   ( dape-adapter-dir (mo-cache-path "debug-adapters"))
   ( dape-buffer-window-arrangement 'right)
@@ -2792,13 +2798,9 @@ run the attached function (if exists) and enable lsp"
     (let ((vertico-sort-function nil))
       (call-interactively #'dape-select-stack)))
 
-  ;; Kill compile buffer on build success
-  (add-hook 'dape-compile-compile-hooks 'kill-buffer)
-
-  ;; Save buffers on startup, useful for interpreted languages
-  (add-hook 'dape-on-start-hooks
-            (defun mo-dape--save-on-start ()
-              (save-some-buffers t t))))
+  (defun mo-dape--save-on-start ()
+    "Save dape buffers."
+    (save-some-buffers t t)))
 
 ;; Init dap-mode for interactive debugging
 (use-package dap-mode
