@@ -3353,7 +3353,9 @@ run the attached function (if exists) and enable lsp"
     "g" #'gptel-add-file)
   ( :keymaps 'gptel-mode-map
     "C-<return>" #'gptel-send
-    "C-<escape>" #'gptel-menu))
+    "C-<escape>" #'gptel-menu)
+  :config
+  (add-hook 'gptel-post-response-functions #'gptel-end-of-response))
 
 ;; Init copilot for copilot support in Emacs
 (use-package copilot
