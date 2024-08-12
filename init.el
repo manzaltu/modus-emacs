@@ -3346,7 +3346,8 @@ run the attached function (if exists) and enable lsp"
 (use-package gptel
   :general
   ( :keymaps 'mo-quick-menu-map
-    "TAB" #'gptel)
+    "TAB" #'gptel
+    "<backtab>" #'gptel-send)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "g" #'gptel-add)
