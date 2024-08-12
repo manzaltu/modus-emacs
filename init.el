@@ -2754,6 +2754,8 @@ run the attached function (if exists) and enable lsp"
     ";" #'dape-info)
   ( :keymaps 'dape-info-parent-mode-map
     "<backtab>" #'dape--info-buffer-tab)
+  ( :keymaps 'dape-repl-mode-map
+    "C-<return>" #'newline)
   ( :keymaps 'override
     "<f1>" #'dape-next
     "<f2>" #'dape-step-in
