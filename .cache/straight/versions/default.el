@@ -2,7 +2,6 @@
  ("Focus" . "17c471544f540f2cf9a05fd6cd87e52e5de317e2")
  ("a.el" . "93e5ed8c495794d1ba3c04b43041b95ce01079b1")
  ("ace-window" . "77115afc1b0b9f633084cf7479c767988106c196")
- ("activities" . "6ccc1d38493f50aa263ab8836bc240b5d3fb26e6")
  ("alarm-clock" . "f924d0e75eb7ce29055bdc1a1e644bb1dcabda09")
  ("alert" . "7774b5fd2feb98d4910ff06435d08c19fba93e26")
  ("annalist.el" . "e1ef5dad75fa502d761f70d9ddf1aeb1c423f41d")

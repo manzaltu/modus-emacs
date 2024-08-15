@@ -3878,14 +3878,6 @@ If project root cannot be found, use the buffer's default directory."
     :prefix "b"
     "T" #'powerthesaurus-transient))
 
-;; Init activities for managing activities in Emacs
-(use-package activities
-  :demand t
-  :commands ( activities-mode activities-tabs-mode)
-  :config
-  (activities-mode)
-  (activities-tabs-mode))
-
 ;; Init desktop+ for saving session configuration
 (use-package desktop+
   :general
