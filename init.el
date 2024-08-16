@@ -314,9 +314,6 @@
     (hack-dir-local-variables-non-file-buffer))
   ;; Do not prevent remembering "risky" local variables
   (advice-add 'risky-local-variable-p :override #'ignore)
-  ;; Don't create backup and autosave files
-  (setq make-backup-files nil)
-  (setq auto-save-default nil)
   ;; Ask for confirmation before exiting emacs
   (setq confirm-kill-emacs #'y-or-n-p))
 
