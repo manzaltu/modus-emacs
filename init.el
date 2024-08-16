@@ -4216,6 +4216,7 @@ If project root cannot be found, use the buffer's default directory."
 
 ;; Init tramp for accessing remote files
 (use-package tramp
+  :after files
   :straight nil
   :general
   ( :keymaps 'mo-quick-menu-map
@@ -4224,11 +4225,23 @@ If project root cannot be found, use the buffer's default directory."
   ( :keymaps 'mo-quick-menu-map
     :prefix "a"
     "C" #'tramp-cleanup-connection)
+  :hook
+  ;; Disable auto-save
+  ( find-file . mo-tramp-disable-auto-save)
   :config
+  (defun mo-tramp-disable-auto-save ()
+    "Disable auto-save when using TRAMP."
+    (when (file-remote-p (buffer-file-name))
+      (auto-save-mode -1)))
+  (defun mo-tramp-disable-backup-predicate (name)
+    "A predicate for disabling backup when using TRAMP."
+    (not (file-remote-p name)))
   ;; Set default method to ssh as it is faster than scp
   (setq tramp-default-method "ssh")
   ;; Lower verbosity to avoid connection messages in the echo area
   (setq tramp-verbose 2)
+  ;; Disable backup
+  (setq backup-enable-predicate #'mo-tramp-disable-backup-predicate)
   ;; Preserve remote path value
   (add-to-list 'tramp-remote-path 'tramp-own-remote-path))
 
