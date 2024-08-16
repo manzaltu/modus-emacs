@@ -316,7 +316,14 @@
   (advice-add 'risky-local-variable-p :override #'ignore)
   ;; Configure backup and auto-saves
   (setq backup-directory-alist `( ( "." . ,(mo-cache-path "backups"))))
+  (setq backup-by-copying t)
+  (setq delete-old-versions t)
+  (setq version-control t)
+  (setq kept-new-versions 6)
+  (setq kept-old-versions 2)
   (setq auto-save-file-name-transforms `( ( ".*" ,(mo-cache-path "backups/") t)))
+  (setq auto-save-include-big-deletions t)
+  (setq auto-save-no-message t)
   ;; Ask for confirmation before exiting emacs
   (setq confirm-kill-emacs #'y-or-n-p))
 
