@@ -81,7 +81,6 @@
  ("evil-nerd-commenter" . "ae52c5070a48793e2c24474c9c8dbf20175d18a0")
  ("evil-numbers" . "c7899894515d6be40dfcd589fb27c1801c5b199c")
  ("evil-org-mode" . "b1f309726b1326e1a103742524ec331789f2bf94")
- ("evil-paredit" . "e058fbdcf9dbf7ad6cc77f0172d7517ef233d55f")
  ("evil-snipe" . "c2108d3932fcd2f75ac3e48250d6badd668f5b4f")
  ("evil-surround" . "da05c60b0621cf33161bb4335153f75ff5c29d91")
  ("evil-tex" . "2a3177c818f106e6c11032ac261f8691f5e11f74")

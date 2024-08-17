@@ -892,16 +892,6 @@ Tab is named after the project's name."
   (lisp-data-mode . enable-paredit-mode)
   (sly-mrepl . enable-paredit-mode))
 
-;; Init evil-paredit for making paredit work in evil-mode
-(use-package evil-paredit
-  :config
-  (defun evil-called-interactively-p ()
-    "Call called-interactively-p with any as KIND.
-Used for the compatibility of evil-paredit with newer evil-mode versions."
-    (called-interactively-p 'any))
-  :hook
-  (paredit-mode . evil-paredit-mode))
-
 ;; Init vundo for viewing and moving in the undo tree history
 (use-package vundo
   :general
