@@ -894,6 +894,14 @@ Tab is named after the project's name."
 
 ;; Init evil-cleverparens for lisp modal editing
 (use-package evil-cleverparens
+  :general
+  ( :keymaps 'evil-cleverparens-mode-map
+    :states 'normal
+    "M-k" #'evil-cp-drag-backward
+    "M-j" #'evil-cp-drag-forward
+    "M-a" #'evil-cp-insert-at-end-of-form
+    "M-i" #'evil-cp-insert-at-beginning-of-form
+    "M-w" #' evil-cp-copy-paste-form)
   :custom
   ( evil-cleverparens-use-additional-bindings nil)
   ( evil-cleverparens-use-additional-movement-keys nil)
