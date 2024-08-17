@@ -701,7 +701,10 @@ Tab is named after the project's name."
             (insert consult-async-delimiter)))
         (goto-char (point-max))
         ;; Insert exclusion pattern and move cursor to pattern insertion point
-        (insert " !" (car mo-minibuffer-file-excl-pattern) (cdr mo-minibuffer-file-excl-pattern))
+        (insert " !")
+        (dolist (pattern (list (car mo-minibuffer-file-excl-pattern)
+                               (cdr mo-minibuffer-file-excl-pattern)))
+          (insert (propertize pattern 'display (propertize (make-string 1 ?:) 'face 'shadow))))
         (backward-char (length (cdr mo-minibuffer-file-excl-pattern))))))
 
   :config
