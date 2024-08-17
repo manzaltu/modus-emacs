@@ -894,6 +894,10 @@ Tab is named after the project's name."
 
 ;; Init evil-cleverparens for lisp modal editing
 (use-package evil-cleverparens
+  :custom
+  ( evil-cleverparens-use-additional-bindings nil)
+  ( evil-cleverparens-use-additional-movement-keys nil)
+  ( evil-cleverparens-use-s-and-S nil)
   :hook
   (lisp-data-mode . evil-cleverparens-mode)
   (sly-mrepl . evil-cleverparens-mode))
