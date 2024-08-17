@@ -892,6 +892,9 @@ Tab is named after the project's name."
   (lisp-data-mode . enable-paredit-mode)
   (sly-mrepl . enable-paredit-mode))
 
+;; Init evil-cleverparens for lisp modal editing
+(use-package evil-cleverparens)
+
 ;; Init vundo for viewing and moving in the undo tree history
 (use-package vundo
   :general
