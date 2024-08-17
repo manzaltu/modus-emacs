@@ -564,7 +564,7 @@ the user to input the run command."
 
 ;; Init modus-operandi-emacs for non-package related functionality
 (use-package modus-operandi-emacs
-  :after ( simple project tab-bar)
+  :after ( simple project tab-bar vertico consult)
   :straight nil
   :no-require t ; Not a package
   :demand t
@@ -674,6 +674,33 @@ Tab is named after the project's name."
     "Show welcome screen only on graphic mode."
     (when (display-graphic-p)
       (mo-show-welcome-screen)))
+
+  (defvar mo-minibuffer-file-excl-pattern '( ".*?" . ".*?:[[:digit:]]+:")
+    "Minibuffer file exclusion pattern.")
+
+  (defun mo-minibuffer-insert-file-excl-pattern ()
+    "Insert a file exclusion pattern to the minibuffer filter."
+    (interactive)
+    (when (minibufferp)
+      (let* ((consult-asyncp (member consult-async-map (current-local-map)))
+             (consult-async-style (and consult-asyncp consult-async-split-style))
+             (consult-async-delimiter ?#)
+             (prompt-end (minibuffer-prompt-end)))
+        (when consult-async-style
+          (unless (eq consult-async-style 'perl)
+            (user-error "Only 'perl' consult async split style is supported"))
+          ;; Ensure initial consult async delimiter
+          (goto-char prompt-end)
+          (unless (eq (char-after) ?#)
+            (insert consult-async-delimiter))
+          ;; Ensure the second async delimiter
+          (goto-char (point-max))
+          (unless (> (how-many (char-to-string consult-async-delimiter) prompt-end) 1)
+            (insert consult-async-delimiter)))
+        (goto-char (point-max))
+        ;; Insert exclusion pattern and move cursor to pattern insertion point
+        (insert " !" (car mo-minibuffer-file-excl-pattern) (cdr mo-minibuffer-file-excl-pattern))
+        (backward-char (length (cdr mo-minibuffer-file-excl-pattern))))))
 
   :config
   (when (< (length command-line-args) 2)
@@ -1472,6 +1499,7 @@ Used for preventing recursion when recording new jumps.")
 
 ;; Init vertico for item list selection
 (use-package vertico
+  :demand t
   ;; Load extensions
   :straight ( :files ( :defaults "extensions/*"))
   :functions vertico-mode
