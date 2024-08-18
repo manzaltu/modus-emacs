@@ -4046,6 +4046,14 @@ If project root cannot be found, use the buffer's default directory."
            "\\*sly-description\\*"
            world-clock-mode
            compilation-mode
+           rustic-compilation-mode
+           rustic-cargo-run-mode
+           rustic-cargo-plain-run-mode
+           rustic-cargo-test-mode
+           rustic-cargo-clippy-mode
+           rustic-rustfix-mode
+           rustic-cargo-install-mode
+           rustic-cargo-expand-mode
            inferior-python-mode
            "^\\*\\(.+-\\)?eshell\\*.*$" eshell-mode
            "^\\*shell.*\\*.*$" shell-mode
