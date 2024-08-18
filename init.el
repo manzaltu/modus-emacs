@@ -3056,7 +3056,7 @@ run the attached function (if exists) and enable lsp"
     "C-M-s-p" #'rustic-popup)
   (mo-quick-menu-definer
     :keymaps 'rustic-mode-map
-    "c RET" #'rustic-cargo-run
+    "c SPC" #'rustic-cargo-run
     "c c" #'rustic-recompile
     "c C" #'rustic-compile))
 
