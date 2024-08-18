@@ -16,7 +16,7 @@
  ("bufler.el" . "ef3b28bbdcb1e813a1d5b06a91d09774998967c5")
  ("bui.el" . "f3a137628e112a91910fd33c0cff0948fa58d470")
  ("burly.el" . "d5b7133b5b629dd6bca29bb16660a9e472e82e25")
- ("cape" . "5c468d6d657e8dc604ddf3feb80f70e1e05ac0a1")
+ ("cape" . "944c60cc3ff81ceceeb239746f7dd9d8e7d0a663")
  ("cdlatex" . "33770dec73138909714711b05a63e79da5a19ccd")
  ("cfrs" . "f3a21f237b2a54e6b9f8a420a9da42b4f0a63121")
  ("closql" . "c1a346d56ecee16d1f0d7707f0d62c72604a8802")
