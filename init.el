@@ -3403,7 +3403,10 @@ run the attached function (if exists) and enable lsp"
   (google-this-mode 1))
 
 ;; Init engine-mode for querying search engines
-(use-package engine-mode)
+(use-package engine-mode
+  :config
+  (defengine google
+    "https://www.google.com/search?q=%s"))
 
 ;; Init gptel for LLM support in Emacs
 (use-package gptel
