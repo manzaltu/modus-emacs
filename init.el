@@ -688,20 +688,24 @@ Tab is named after the project's name."
              (consult-async-style (and consult-asyncp consult-async-split-style))
              (consult-async-delimiter ?#)
              (prompt-end (minibuffer-prompt-end)))
-        (when consult-async-style
-          (unless (eq consult-async-style 'perl)
-            (user-error "Only 'perl' consult async split style is supported"))
-          ;; Ensure initial consult async delimiter
-          (goto-char prompt-end)
-          (unless (eq (char-after) ?#)
-            (insert consult-async-delimiter))
-          ;; Ensure the second async delimiter
+        (if consult-async-style
+            (progn
+              (unless (eq consult-async-style 'perl)
+                (user-error "Only 'perl' consult async split style is supported"))
+              ;; Ensure initial consult async delimiter
+              (goto-char prompt-end)
+              (unless (eq (char-after) consult-async-delimiter)
+                (insert consult-async-delimiter))
+              ;; Ensure the second async delimiter
+              (goto-char (point-max))
+              (if (> (how-many (char-to-string consult-async-delimiter) prompt-end) 1)
+                  (insert " ")
+                (insert consult-async-delimiter)))
           (goto-char (point-max))
-          (unless (> (how-many (char-to-string consult-async-delimiter) prompt-end) 1)
-            (insert consult-async-delimiter)))
-        (goto-char (point-max))
-        ;; Insert exclusion pattern and move cursor to pattern insertion point
-        (insert " !")
+          (unless (eq (minibuffer-prompt-end) (point))
+            (insert " ")))
+        ;; Insert exclusion pattern
+        (insert "!")
         (dolist (pattern (list (car mo-minibuffer-file-excl-pattern)
                                (cdr mo-minibuffer-file-excl-pattern)))
           (insert (propertize pattern 'display (propertize (make-string 1 ?:) 'face 'shadow))))
