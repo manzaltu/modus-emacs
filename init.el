@@ -3393,15 +3393,6 @@ run the attached function (if exists) and enable lsp"
   :config
   (setq reb-re-syntax 'string))
 
-;; Init google-this for quick Google searches from Emacs
-(use-package google-this
-  :general
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "h"
-    "g" #'google-this)
-  :config
-  (google-this-mode 1))
-
 ;; Init engine-mode for querying search engines
 (use-package engine-mode
   :config
