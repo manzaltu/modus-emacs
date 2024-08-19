@@ -71,6 +71,7 @@
  ("emacsmirror-mirror" . "8febae097a9fd033e0e98d125b1fbd05f12b57b4")
  ("emacsql" . "3d9622aabbf3ab925beadd12ce928370d7704573")
  ("embark" . "19a13e344e04bbf861eaa74491b23da52b398672")
+ ("engine-mode" . "19fbf8e21df8f45083a904fdba2fac85b3b02dd0")
  ("envrc" . "532ecdab48d073963ba5b581c06f3c0b83db05a6")
  ("esxml" . "225693096a587492d76bf696d1f0c25c61f7d531")
  ("evil" . "5db0bdc7dcd9300b983526d37cbe480f35e36211")

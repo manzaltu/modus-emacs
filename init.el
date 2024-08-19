@@ -3402,6 +3402,9 @@ run the attached function (if exists) and enable lsp"
   :config
   (google-this-mode 1))
 
+;; Init engine-mode for querying search engines
+(use-package engine-mode)
+
 ;; Init gptel for LLM support in Emacs
 (use-package gptel
   :general
