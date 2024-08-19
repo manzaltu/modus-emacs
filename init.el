@@ -3395,6 +3395,10 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init engine-mode for querying search engines
 (use-package engine-mode
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "h"
+    "g" #'engine/search-google)
   :config
   (defengine google
     "https://www.google.com/search?q=%s"))
