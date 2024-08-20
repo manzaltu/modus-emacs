@@ -33,6 +33,7 @@
  ("corfu" . "5e3a959766d2313651c5db3beedd937bfc27b57a")
  ("corfu-terminal" . "501548c3d51f926c687e8cd838c5865ec45d03cc")
  ("csproj-mode" . "a7f0f4610c976a28c41b9b8299892f88b5d0336c")
+ ("csv-mode" . "6979fc18ebe133cfe2fca02efda9a9f0cd13428a")
  ("dap-mode" . "496dd3a60f71a396df7e9a5ff6c500127d00ec03")
  ("dape" . "4a195ed312f769768c654164b787f6c408865d61")
  ("dash.el" . "1de9dcb83eacfb162b6d9a118a4770b1281bcd84")

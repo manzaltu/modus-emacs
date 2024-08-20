@@ -3172,6 +3172,9 @@ run the attached function (if exists) and enable lsp"
 ;; Init protobuf-mode for editing protobuf files
 (use-package protobuf-mode)
 
+;; Init csv-mode for editing CSV files
+(use-package csv-mode)
+
 ;; Init sql-indent for indenting SQL statements
 (use-package sql-indent)
 
