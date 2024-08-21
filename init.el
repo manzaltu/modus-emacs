@@ -2766,7 +2766,7 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
-    "i" #'lsp-ui-imenu
+    "I" #'lsp-ui-imenu
     "d" #'lsp-ui-doc-glance
     "'" #'lsp-ui-doc-focus-frame)
   :config
