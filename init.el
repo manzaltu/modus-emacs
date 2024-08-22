@@ -2781,7 +2781,9 @@ run the attached function (if exists) and enable lsp"
     :prefix "c"
     "t" #'lsp-treemacs-call-hierarchy
     "T" #'lsp-treemacs-type-hierarchy
-    "i" #'lsp-treemacs-symbols))
+    "i" #'lsp-treemacs-symbols)
+  :config
+  (setf (alist-get 'side lsp-treemacs-symbols-position-params) 'right))
 
 ;; Init dape for interactive debugging
 (use-package dape
