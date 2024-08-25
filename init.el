@@ -3839,6 +3839,13 @@ If project root cannot be found, use the buffer's default directory."
                       ("terminfo/65" "terminfo/65/*")
                       ("integration" "integration/*")
                       (:exclude ".dir-locals.el" "*-tests.el")))
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "x"
+    "s" #'eat)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "RET"
+    "s" #'eat-project)
   :custom
   ( eat-shell "/bin/zsh"))
 
