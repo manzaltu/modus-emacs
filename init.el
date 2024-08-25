@@ -3847,7 +3847,8 @@ If project root cannot be found, use the buffer's default directory."
     :prefix "RET"
     "s" #'eat-project)
   :custom
-  ( eat-shell "/bin/zsh"))
+  ( eat-shell "/bin/zsh")
+  ( eat-kill-buffer-on-exit t))
 
 ;; Init kind-icon for icon support in auto completion
 (use-package kind-icon
