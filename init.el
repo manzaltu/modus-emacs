@@ -3730,6 +3730,7 @@ If project root cannot be found, use the buffer's default directory."
 ;; Init eshell for terminal emulation
 (use-package eshell
   :straight nil
+  :demand t
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "RET"
@@ -3812,6 +3813,8 @@ If project root cannot be found, use the buffer's default directory."
 
 ;; Init eat for terminal emulation
 (use-package eat
+  :demand t
+  :after eshell
   :straight ( :files ("*.el" ("term" "term/*.el") "*.texi"
                       "*.ti" ("terminfo/e" "terminfo/e/*")
                       ("terminfo/65" "terminfo/65/*")
@@ -3826,7 +3829,9 @@ If project root cannot be found, use the buffer's default directory."
     "s" #'eat-project)
   :custom
   ( eat-shell "/bin/zsh")
-  ( eat-kill-buffer-on-exit t))
+  ( eat-kill-buffer-on-exit t)
+  :config
+  (eat-eshell-mode))
 
 ;; Init kind-icon for icon support in auto completion
 (use-package kind-icon
