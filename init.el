@@ -3788,7 +3788,9 @@ If project root cannot be found, use the buffer's default directory."
   ;; Remove login banner
   (delq 'eshell-banner eshell-modules-list)
   ;; Set eshell cache directory
-  (setq eshell-directory-name (file-name-as-directory (mo-cache-path "eshell"))))
+  (setq eshell-directory-name (file-name-as-directory (mo-cache-path "eshell")))
+  ;; Clear visual command list as we use eat for terminal emulation
+  (setq eshell-visual-commands nil))
 
 ;; Init copy-as-format for copying regions as formatted code
 (use-package copy-as-format
