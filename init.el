@@ -3838,7 +3838,9 @@ If project root cannot be found, use the buffer's default directory."
                       "*.ti" ("terminfo/e" "terminfo/e/*")
                       ("terminfo/65" "terminfo/65/*")
                       ("integration" "integration/*")
-                      (:exclude ".dir-locals.el" "*-tests.el"))))
+                      (:exclude ".dir-locals.el" "*-tests.el")))
+  :custom
+  ( eat-shell "/bin/zsh"))
 
 ;; Init kind-icon for icon support in auto completion
 (use-package kind-icon
