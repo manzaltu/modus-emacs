@@ -3831,6 +3831,14 @@ If project root cannot be found, use the buffer's default directory."
     (let ((current-prefix-arg '(4)))
       (call-interactively #'copy-as-format))))
 
+;; Init eat for terminal emulation
+(use-package eat
+  :straight ( :files ("*.el" ("term" "term/*.el") "*.texi"
+                      "*.ti" ("terminfo/e" "terminfo/e/*")
+                      ("terminfo/65" "terminfo/65/*")
+                      ("integration" "integration/*")
+                      (:exclude ".dir-locals.el" "*-tests.el"))))
+
 ;; Init kind-icon for icon support in auto completion
 (use-package kind-icon
   :after corfu
