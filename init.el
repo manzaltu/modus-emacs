@@ -3740,16 +3740,11 @@ If project root cannot be found, use the buffer's default directory."
     "e" #'eshell-new)
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
-    "X" #'eshell-command
-    "h" #'mo-run-htop)
+    "X" #'eshell-command)
   ( :keymaps 'eshell-mode-map
     "C-p" #'eshell-previous-matching-input-from-input
     "C-n" #'eshell-next-matching-input-from-input)
   :config
-  (defun mo-run-htop ()
-    "Run htop command."
-    (interactive)
-    (eshell-command "htop"))
   (defun eshell-new()
     "Open a new instance of eshell."
     (interactive)
@@ -3819,10 +3814,18 @@ If project root cannot be found, use the buffer's default directory."
   ( :keymaps 'mo-quick-menu-map
     :prefix "RET"
     "s" #'eat-project)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "x"
+    "h" #'mo-run-htop)
   :custom
   ( eat-shell "/bin/zsh")
   ( eat-kill-buffer-on-exit t)
   :config
+  (defun mo-run-htop ()
+    "Run htop command."
+    (interactive)
+    (eat "htop"))
+
   (defun mo-eat-check-compile-terminfo ()
     "If needed, compile eat terminfo databases."
     (unless (file-directory-p eat-term-terminfo-directory)
