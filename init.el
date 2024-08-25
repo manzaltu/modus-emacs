@@ -3745,9 +3745,6 @@ If project root cannot be found, use the buffer's default directory."
   ( :keymaps 'eshell-mode-map
     "C-p" #'eshell-previous-matching-input-from-input
     "C-n" #'eshell-next-matching-input-from-input)
-  :hook
-  ;; Remove pager due to the lack of support for ANSI cursor sequence controls
-  ( eshell-mode . mo-eshell-disable-pager)
   :config
   (defun mo-run-htop ()
     "Run htop command."
@@ -3757,11 +3754,6 @@ If project root cannot be found, use the buffer's default directory."
     "Open a new instance of eshell."
     (interactive)
     (eshell 'N))
-  (defun mo-eshell-disable-pager ()
-    "Disable shell pager."
-    (setq-local process-environment (copy-sequence process-environment))
-    (setenv "SYSTEMD_PAGER" "cat")
-    (setenv "PAGER" "cat"))
   (setq eshell-history-size 100000)
   (setq eshell-buffer-maximum-lines 100000)
   (defun eshell/ecat (&optional file)
