@@ -3707,10 +3707,10 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
-    "s" #'shell-new)
+    "S" #'shell-new)
   ( :keymaps 'mo-quick-menu-map
     :prefix "RET"
-    "s" #'mo-shell-project)
+    "S" #'mo-shell-project)
   :config
   (defun shell-new ()
     "Open a new instance of shell."
