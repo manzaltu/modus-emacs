@@ -4084,6 +4084,7 @@ If project root cannot be found, use the buffer's default directory."
            rustic-cargo-install-mode
            rustic-cargo-expand-mode
            inferior-python-mode
+           eat-mode
            "^\\*\\(.+-\\)?eshell\\*.*$" eshell-mode
            "^\\*shell.*\\*.*$" shell-mode
            "^\\*term.*\\*$" term-mode
