@@ -3810,9 +3810,7 @@ If project root cannot be found, use the buffer's default directory."
   :demand t
   :after eshell
   :straight ( :files ("*.el" ("term" "term/*.el") "*.texi"
-                      "*.ti" ("terminfo/e" "terminfo/e/*")
-                      ("terminfo/65" "terminfo/65/*")
-                      ("integration" "integration/*")
+                      "*.ti" ("integration" "integration/*")
                       (:exclude ".dir-locals.el" "*-tests.el")))
   :general
   ( :keymaps 'mo-quick-menu-map
@@ -3825,6 +3823,12 @@ If project root cannot be found, use the buffer's default directory."
   ( eat-shell "/bin/zsh")
   ( eat-kill-buffer-on-exit t)
   :config
+  (defun mo-eat-check-compile-terminfo ()
+    "If needed, compile eat terminfo databases."
+    (unless (file-directory-p eat-term-terminfo-directory)
+      (eat-compile-terminfo)))
+
+  (mo-eat-check-compile-terminfo)
   (eat-eshell-mode))
 
 ;; Init kind-icon for icon support in auto completion
