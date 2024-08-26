@@ -2559,6 +2559,9 @@ When a prefix ARG is given always prompt for a command to use."
   ( :keymaps 'sly-mode-map
     "C-M-s-q" #'sly-quickload))
 
+;; Init sly-asdf for asdf support in sly
+(use-package sly-asdf)
+
 ;; Init ielm for lisp REPL
 (use-package ielm
   :straight nil

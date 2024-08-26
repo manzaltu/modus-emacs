@@ -195,6 +195,7 @@
  ("saveplace-pdf-view" . "ee95460cd934080338f03a16f95b549577425216")
  ("seq" . "da86da9bf111f68fb81efd466d76d53af5aebc00")
  ("sly" . "742355f7554ab6c46e5c1c9bdb89068f55359eaa")
+ ("sly-asdf" . "6f9d751469bb82530db1673c22e7437ca6c95f45")
  ("sly-quicklisp" . "34c73d43dd9066262387c626c17a9b486db07b2d")
  ("smartparens" . "c7519a1b69f196050a13e2230b7532893b077086")
  ("spinner" . "fa117f0893788f3fe24673715a6b83bb34d238dd")
