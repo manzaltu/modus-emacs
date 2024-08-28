@@ -270,7 +270,7 @@
   ;; Do not ignore extensions
   (setq completion-ignored-extensions nil)
   ;; Increase saved history size
-  (setq history-length 100000)
+  (setq history-length 1000)
   ;; Increase undo limits
   (setq undo-limit 33554432)
   (setq undo-strong-limit 50331648)
