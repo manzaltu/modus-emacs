@@ -687,7 +687,7 @@ Tab is named after the project's name."
     (when (minibufferp)
       (let* ((consult-asyncp (member consult-async-map (current-local-map)))
              (consult-async-style (and consult-asyncp consult-async-split-style))
-             (consult-async-delimiter ?#)
+             (consult-async-delimiter ?`)
              (prompt-end (minibuffer-prompt-end)))
         (if consult-async-style
             (progn
@@ -1973,6 +1973,9 @@ directory as a fall back."
   (setq consult-narrow-key "C-l")
   ;; Suppress file access error messages
   (setq consult-ripgrep-args (concat consult-ripgrep-args " --no-messages"))
+
+  ;; Change default async split character
+  (plist-put (cdr (assq 'perl consult-async-split-styles-alist)) :initial "`")
 
   (defun mo-consult-buffer-dwim ()
     "If in project, list project buffers, otherwise show the global list."
