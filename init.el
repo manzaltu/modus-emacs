@@ -2950,9 +2950,7 @@ run the attached function (if exists) and enable lsp"
       (file-in-directory-p file project-dir)))
 
   ;; Manual preview key for symbols results
-  (consult-customize consult-lsp-symbols :preview-key "M-.")
-  ;; Remove initial async separator as we use spaces for search tokenization
-  (consult-customize consult-lsp-symbols :initial nil))
+  (consult-customize consult-lsp-symbols :preview-key "M-."))
 
 ;; Init compile for compiling from Emacs
 (use-package compile
