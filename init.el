@@ -291,6 +291,7 @@
   ( :keymaps 'mo-quick-menu-map
     :prefix "f"
     "f" #'find-file
+    "F" #'find-file-literally
     "w" #'write-file
     "r" #'recover-this-file)
   ( :keymaps 'mo-quick-menu-map
