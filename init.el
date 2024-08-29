@@ -2696,7 +2696,8 @@ When a prefix ARG is given always prompt for a command to use."
                                    terraform-mode
                                    cmake-mode
                                    cmake-ts-mode
-                                   sh-mode))
+                                   sh-mode
+                                   bash-ts-mode))
 
   (defvar mo-lsp-recursion-flag nil
     "Flag used for detecting recursion when enabling lsp.")
