@@ -1001,8 +1001,6 @@ Used for preventing recursion when recording new jumps.")
   :config
   ;; When looking for references, don't ask for an identifier
   (setq xref-prompt-for-identifier nil)
-  ;; Increase xref marker stack length
-  (setq xref-marker-ring-length 10000)
   (setq xref-history-storage #'xref-window-local-history))
 
 ;; Init dump-jump for heuristics based reference lookup
