@@ -3079,7 +3079,10 @@ run the attached function (if exists) and enable lsp"
     :keymaps 'rustic-mode-map
     "c SPC" #'rustic-cargo-run
     "c c" #'rustic-recompile
-    "c C" #'rustic-compile))
+    "c C" #'rustic-compile)
+  :config
+  ;; Add mode to markdown code block highlighting (needed for docs)
+  (add-to-list 'markdown-code-lang-modes '( "rust" . rustic-mode)))
 
 ;; Init swift-mode for Swift support
 (use-package swift-mode)
