@@ -925,6 +925,7 @@ Tab is named after the project's name."
   ( evil-cleverparens-use-additional-bindings nil)
   ( evil-cleverparens-use-additional-movement-keys nil)
   ( evil-cleverparens-use-s-and-S nil)
+  ( evil-cleverparens-use-regular-insert t)
   :hook
   (lisp-data-mode . evil-cleverparens-mode)
   (sly-mrepl . evil-cleverparens-mode))
