@@ -2650,6 +2650,10 @@ When a prefix ARG is given always prompt for a command to use."
   ( :keymaps 'mo-quick-menu-map
     :prefix "n"
     "l" #'lsp-org)
+  (mo-quick-menu-definer
+    :keymaps 'lsp-mode
+    :definer 'minor-mode
+    "h h" #'lsp-describe-thing-at-point)
   :init
   ;; No completion provider as we use corfu
   (setq lsp-completion-provider :none)
