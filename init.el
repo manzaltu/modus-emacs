@@ -4043,6 +4043,7 @@ If project root cannot be found, use the buffer's default directory."
   ( :keymaps 'override
     "C-`" #'popper-toggle
     "C-M-`" #'popper-cycle
+    "M-`" #'popper-cycle-backwards
     "M-~" #'popper-toggle-type)
   :init
   (defun mo-popper-group-by-tab ()
