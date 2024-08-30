@@ -4056,15 +4056,19 @@ If project root cannot be found, use the buffer's default directory."
   :init
   (defun mo-popper-group-by-tab ()
     "Return an identifier (tab name) to group popups."
-    ;; We cannot simply use the current tab, as this function can be called during
-    ;; tab switching, and that will incorrectly attach the popup to the newly
-    ;; switched tab.
-    (let ((tab-name (alist-get 'name (tab-bar-get-buffer-tab nil))))
-      ;; Sometimes this function is called after the current buffer is hidden. In this
-      ;; case, get the current tab. A null tab-name will not be returned when switching
-      ;; tabs, hence there is no risk with just getting the current tab.
-      (or tab-name
-          (alist-get 'name (tab-bar--current-tab)))))
+    (let ((buf-name (buffer-name)))
+      ;; Do not group messages and scratch buffers with tabs
+      (unless (or (string-equal buf-name "*Messages*")
+                  (string-equal buf-name "*scratch*"))
+        ;; We cannot simply use the current tab, as this function can be called during
+        ;; tab switching, and that will incorrectly attach the popup to the newly
+        ;; switched tab.
+        (let ((tab-name (alist-get 'name (tab-bar-get-buffer-tab nil))))
+          ;; Sometimes this function is called after the current buffer is hidden. In this
+          ;; case, get the current tab. A null tab-name will not be returned when switching
+          ;; tabs, hence there is no risk with just getting the current tab.
+          (or tab-name
+              (alist-get 'name (tab-bar--current-tab)))))))
 
   (setq popper-reference-buffers
         '( "\\*Messages\\*"
