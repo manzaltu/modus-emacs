@@ -4043,7 +4043,7 @@ If project root cannot be found, use the buffer's default directory."
   ( :keymaps 'override
     "C-`" #'popper-toggle
     "C-M-`" #'popper-cycle
-    "M-`" #'popper-toggle-type)
+    "M-~" #'popper-toggle-type)
   :init
   (defun mo-popper-group-by-tab ()
     "Return an identifier (tab name) to group popups."
