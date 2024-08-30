@@ -4096,7 +4096,7 @@ If project root cannot be found, use the buffer's default directory."
   ;; Group popups by their associated project, with default dir as a fallback
   (setq popper-group-function #'popper-group-by-directory)
   ;; Set fractional height
-  (setq popper-window-height 0.33)
+  (setq popper-window-height 0.4)
   ;; Group popups by tabs
   (setq popper-group-function #'mo-popper-group-by-tab)
   (popper-mode +1)
