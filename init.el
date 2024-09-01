@@ -3381,7 +3381,8 @@ run the attached function (if exists) and enable lsp"
     "c" #'helpful-command
     "v" #'helpful-variable
     "k" #'helpful-key
-    "h" #'helpful-at-point))
+    "h" #'helpful-at-point
+    "ESC" #'helpful-kill-buffers))
 
 ;; Init mode-minder for showing all modes
 (use-package mode-minder
