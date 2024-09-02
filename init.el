@@ -4057,12 +4057,14 @@ If project root cannot be found, use the buffer's default directory."
     "M-`" #'popper-cycle-backwards
     "M-~" #'popper-toggle-type)
   :init
+  (defvar mo-popper-exclude-grouping '( "*Messages*" "*scratch*")
+    "Buffer names to exclude from popper grouping.")
+
   (defun mo-popper-group-by-tab ()
     "Return an identifier (tab name) to group popups."
     (let ((buf-name (buffer-name)))
-      ;; Do not group messages and scratch buffers with tabs
-      (unless (or (string-equal buf-name "*Messages*")
-                  (string-equal buf-name "*scratch*"))
+      ;; Group buffers if not in exclusion list
+      (unless (member buf-name mo-popper-exclude-grouping)
         ;; We cannot simply use the current tab, as this function can be called during
         ;; tab switching, and that will incorrectly attach the popup to the newly
         ;; switched tab.
