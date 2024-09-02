@@ -4057,7 +4057,7 @@ If project root cannot be found, use the buffer's default directory."
     "M-`" #'popper-cycle-backwards
     "M-~" #'popper-toggle-type)
   :init
-  (defvar mo-popper-exclude-grouping '( "*Messages*" "*scratch*")
+  (defvar mo-popper-exclude-grouping '( "*Messages*" "*Warnings*" "*scratch*")
     "Buffer names to exclude from popper grouping.")
 
   (defun mo-popper-group-by-tab ()
