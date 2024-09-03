@@ -49,6 +49,7 @@
  ("dtrt-indent" . "a8aa356684804c52f26602d4e315f1306c6f3e59")
  ("dumb-jump" . "cd65a743370ac7b1a12e9ef0a7371b285a2597fb")
  ("eat" . "3a6f418f55d183b9d86f99c140caed4ba3d44f93")
+ ("edit-indirect" . "82a28d8a85277cfe453af464603ea330eae41c05")
  ("editorconfig-emacs" . "648f0cf9aeb72db77b252832a58367332b7bc055")
  ("el-get" . "c0713e8d8e8ad987fe1283d76b9c637a10f048ef")
  ("eldoc" . "91a8ae2fa66ac09f45337f9eca6c7aa643a063f4")

@@ -3249,6 +3249,9 @@ run the attached function (if exists) and enable lsp"
     :prefix "x"
     "j" #'journalctl))
 
+;; Init edit-indirect for editing regions in separate buffers
+(use-package edit-indirect)
+
 ;; Init apheleia for code formatting
 (use-package apheleia
   :demand t
