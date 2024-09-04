@@ -1226,8 +1226,7 @@ Used for preventing recursion when recording new jumps.")
 
 ;; Init org-super-agenda for grouping agenda items into sections
 (use-package org-super-agenda
-  :after org
-  :demand t
+  :after ( org evil-collection)
   :defines org-super-agenda-header-map
   :functions org-super-agenda-mode
   :hook
