@@ -4077,6 +4077,24 @@ If project root cannot be found, use the buffer's default directory."
           (or tab-name
               (alist-get 'name (tab-bar--current-tab)))))))
 
+  (defvar mo-popper-window-height-high 0.6
+    "High popper window height.")
+
+  (defvar mo-popper-window-height-low 0.3
+    "High popper window height.")
+
+  (defun mo-popper-toggle-window-height ()
+    "Toggle between lower and higher popup window heights."
+    (interactive)
+    (when popper-open-popup-alist
+      (setq popper-window-height
+            (if (eql popper-window-height mo-popper-window-height-high)
+                mo-popper-window-height-low
+              mo-popper-window-height-high))
+      ;; Refresh popup
+      (popper-toggle)
+      (popper-toggle)))
+
   (setq popper-reference-buffers
         '( "\\*Messages\\*"
            "\\*Warnings\\*"
@@ -4107,7 +4125,7 @@ If project root cannot be found, use the buffer's default directory."
            "^\\*term.*\\*$" term-mode
            "^\\*vterm.*\\*.*$" vterm-mode))
   ;; Set fractional height
-  (setq popper-window-height 0.4)
+  (setq popper-window-height mo-popper-window-height-low)
   ;; Group popups by tabs
   (setq popper-group-function #'mo-popper-group-by-tab)
   (popper-mode +1)
