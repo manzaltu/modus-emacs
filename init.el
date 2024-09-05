@@ -205,6 +205,16 @@
     (let ((evil-vsplit-window-right nil))
       (call-interactively #'evil-window-vsplit)))
 
+  (defun mo-evil-correct-last-sexp (command &rest args)
+    "In normal-state or motion-state, last sexp ends at point."
+    ;; A false evil-move-beyond-eol is covered by evil-collection
+    (if (and evil-move-beyond-eol
+             (or (evil-normal-state-p) (evil-motion-state-p)))
+        (save-excursion
+          (unless (or (eobp) (eolp)) (forward-char))
+          (apply command args))
+      (apply command args)))
+
   ;; Set word movement to operate on symbol boundaries
   (defalias #'forward-evil-word #'forward-evil-symbol)
   ;; Start with Emacs mode in rustic-popup-mode buffers
