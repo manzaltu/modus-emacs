@@ -2567,7 +2567,9 @@ When a prefix ARG is given always prompt for a command to use."
     "'" #'sly-edit-uses)
   :custom
   ( inferior-lisp-program "sbcl")
-  ( sly-db-focus-debugger t))
+  ( sly-db-focus-debugger t)
+  :config
+  (advice-add 'sly-eval-last-expression :around #'mo-evil-correct-last-sexp))
 
 ;; Init sly-quicklisp for quicklisp support in sly
 (use-package sly-quicklisp
