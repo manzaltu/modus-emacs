@@ -3966,7 +3966,8 @@ If project root cannot be found, use the buffer's default directory."
 (use-package flyspell-correct
   :demand t
   :general
-  ( :states 'normal "z =" #'flyspell-correct-wrapper))
+  ( :keymaps 'override
+    "M-+" #'flyspell-correct-wrapper))
 
 ;; Init consult-flyspell for incorporating flyspell into consult
 (use-package consult-flyspell
