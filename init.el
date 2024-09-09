@@ -1184,6 +1184,11 @@ Used for preventing recursion when recording new jumps.")
 ;; Init org-contrib for org add-ons
 (use-package org-contrib)
 
+;; Init org-checklist for handling checklists in org mode
+(use-package org-checklist
+  :after org-contrib
+  :straight nil)
+
 ;; Init ob-async for enabling asynchronous execution of org-babel blocks
 (use-package ob-async)
 
