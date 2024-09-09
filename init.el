@@ -1184,11 +1184,6 @@ Used for preventing recursion when recording new jumps.")
 ;; Init org-contrib for org add-ons
 (use-package org-contrib)
 
-;; Init ox-confluence for exporting org to confluence
-(use-package ox-confluence
-  :after org-contrib
-  :straight nil)
-
 ;; Init ob-async for enabling asynchronous execution of org-babel blocks
 (use-package ob-async)
 
