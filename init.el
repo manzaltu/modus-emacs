@@ -3832,6 +3832,9 @@ If project root cannot be found, use the buffer's default directory."
   ;; Clear visual command list as we use eat for terminal emulation
   (setq eshell-visual-commands nil))
 
+;; Init bash-completion for shell completions based on bash completion
+(use-package bash-completion)
+
 ;; Init copy-as-format for copying regions as formatted code
 (use-package copy-as-format
   :general

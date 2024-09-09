@@ -56,6 +56,7 @@
  ("elisp-refs" . "541a064c3ce27867872cf708354a65d83baf2a6d")
  ("emacs-aio" . "da93523e235529fa97d6f251319d9e1d6fc24a41")
  ("emacs-async" . "e1d46f97a56e0c57206bd1ea31d04311097a8cbb")
+ ("emacs-bash-completion" . "f1daac0386c24cbe8a244a62c7588cc6847b07ae")
  ("emacs-bazel-mode" . "769b30dc18282564d614d7044195b5a0c1a0a5f3")
  ("emacs-bookmark-in-project" . "369161f257921747c3b540eac7bc8eb4aa8186b9")
  ("emacs-deferred" . "2239671d94b38d92e9b28d4e12fd79814cfb9c16")
