@@ -3834,9 +3834,26 @@ If project root cannot be found, use the buffer's default directory."
 
 ;; Init bash-completion for shell completions based on bash completion
 (use-package bash-completion
+  :after ( eshell)
   :demand t
   :commands ( bash-completion-setup)
+  :functions ( bash-completion-dynamic-complete-nocomint
+               eshell-bol)
+  :hook ( eshell-mode . mo-bash-completion-setup-eshell)
   :config
+  (defun mo-bash-completion-setup-eshell ()
+    "Setup bash completions in eshell."
+    (add-hook 'completion-at-point-functions
+              'mo-bash-completion-eshell-capf nil t))
+
+  (defun mo-bash-completion-eshell-capf ()
+    "Bash completion function for eshell."
+    (let ((compl (bash-completion-dynamic-complete-nocomint
+                  (save-excursion (eshell-bol))
+                  (point) t)))
+      (when compl
+        (append compl '(:exclusive no)))))
+
   (bash-completion-setup))
 
 ;; Init copy-as-format for copying regions as formatted code
