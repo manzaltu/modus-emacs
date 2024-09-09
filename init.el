@@ -1189,6 +1189,11 @@ Used for preventing recursion when recording new jumps.")
   :after org-contrib
   :straight nil)
 
+;; Init ol-git-link for org links to files with git revisions
+(use-package ol-git-link
+  :after org-contrib
+  :straight nil)
+
 ;; Init ob-async for enabling asynchronous execution of org-babel blocks
 (use-package ob-async)
 
