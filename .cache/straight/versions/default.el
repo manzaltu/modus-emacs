@@ -167,6 +167,7 @@
  ("org-super-agenda" . "05a710065af5ee4b3982f9619f864f7af12ca1d3")
  ("origami.el" . "e558710a975e8511b9386edc81cd6bdd0a5bda74")
  ("ov" . "e2971ad986b6ac441e9849031d34c56c980cf40b")
+ ("ox-pandoc" . "34e6ea97b586e20529d07158a73af3cf33cdd1d5")
  ("paredit" . "037b9b8acbca75151f133b6c0f7f3ff97d9042e5")
  ("parent-mode" . "fbd49857ab2e4cd0c5611c0cc83f93711657b298")
  ("pdf-tools" . "30b50544e55b8dbf683c2d932d5c33ac73323a16")

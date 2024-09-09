@@ -1194,6 +1194,9 @@ Used for preventing recursion when recording new jumps.")
   :after org-contrib
   :straight nil)
 
+;; Init ox-pandoc for exporting org files using pandoc
+(use-package ox-pandoc)
+
 ;; Init ob-async for enabling asynchronous execution of org-babel blocks
 (use-package ob-async)
 
