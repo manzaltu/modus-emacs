@@ -68,8 +68,6 @@
  ("emacs-request" . "01e338c335c07e4407239619e57361944a82cb8a")
  ("emacs-solaire-mode" . "c9334666bd208f3322e6118d30eba1b2438e2bb9")
  ("emacs-undo-fu-session" . "beb0e285d074145eaf481a959c903b77c19ae91e")
- ("emacs-vdiff" . "170e968c6a46a572b30c52c1b038232d418734cc")
- ("emacs-vdiff-magit" . "413f32c9f7e66f8379c23b5ab6341695dbcc2f20")
  ("emacs-which-key" . "38d4308d1143b61e4004b6e7a940686784e51500")
  ("emacsmirror-mirror" . "8febae097a9fd033e0e98d125b1fbd05f12b57b4")
  ("emacsql" . "3d9622aabbf3ab925beadd12ce928370d7704573")
