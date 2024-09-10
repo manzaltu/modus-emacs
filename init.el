@@ -2453,7 +2453,9 @@ When a prefix ARG is given always prompt for a command to use."
   ;; Open ediff window in the current frame
   (setq ediff-window-setup-function #'ediff-setup-windows-plain)
   ;; Set ediff to show diff changes in character-level
-  (setq ediff-forward-word-function #'forward-char))
+  (setq ediff-forward-word-function #'forward-char)
+  ;; Split windows horizontally
+  (setq ediff-split-window-function #'split-window-horizontally))
 
 ;; Init ztree for comparing folder content
 (use-package ztree
