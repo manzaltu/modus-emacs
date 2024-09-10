@@ -2465,6 +2465,7 @@ When a prefix ARG is given always prompt for a command to use."
     "=" #'vdiff-files)
   :custom
   ( vdiff-auto-refine t)
+  ( vdiff-disable-folding t)
   ( vdiff-subtraction-fill-char ?‧)
   ( vdiff-diff-algorithm 'git-diff-histogram))
 
