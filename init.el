@@ -1242,26 +1242,6 @@ Used for preventing recursion when recording new jumps.")
                   (format-time-string "%Y-%m-%d" (org-time-from-absolute day)))))
       (org-journal-new-entry prefix time))))
 
-;; Init org-super-agenda for grouping agenda items into sections
-(use-package org-super-agenda
-  :after ( org evil-collection)
-  :defines org-super-agenda-header-map
-  :functions org-super-agenda-mode
-  :hook
-  ( after-enable-theme . mo-org-super-agenda-configure-theme)
-  :custom
-  ;; Enable auto grouping
-  ( org-super-agenda-groups '((:auto-group t) (:auto-category t)))
-  ( org-super-agenda-final-group-separator "\n")
-  :config
-  (defun mo-org-super-agenda-configure-theme ()
-    "Set org-super-agenda theme configuration."
-    (set-face-attribute 'org-super-agenda-header nil
-                        :foreground "HotPink"))
-  ;; Delete super agenda key map to support evil mode
-  (setq org-super-agenda-header-map (make-sparse-keymap))
-  (org-super-agenda-mode))
-
 ;; Init org-roam for Zettelkasten note management
 (use-package org-roam
   :after vertico
