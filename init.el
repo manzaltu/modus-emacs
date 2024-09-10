@@ -1069,28 +1069,20 @@ Used for preventing recursion when recording new jumps.")
   ( :keymaps 'org-src-mode-map
     "C-M-s-e" #'org-edit-src-exit
     "C-M-s-k" #'org-edit-src-abort)
-  ( :keymaps 'org-agenda-mode-map
-    "C-M-s-s" #'org-agenda-schedule
-    "C-M-s-d" #'org-agenda-deadline
-    "C-M-s-g" #'org-agenda-set-tags)
   ( :keymaps 'mo-quick-menu-map
     :prefix "n"
     "c" #'org-capture
-    "s" #'org-store-link
-    "a" #'mo-org-agenda-and-todo)
+    "s" #'org-store-link)
   ( :keymaps 'org-mode-map
     :states 'normal
     "<tab>" #'org-cycle)
-  ;; Close any loaded org buffer when exiting the agenda buffer
-  ( :keymaps 'org-agenda-mode-map
-    "q" #'org-agenda-exit)
   :hook
   ( after-enable-theme . mo-org-configure-theme)
   (org-mode . visual-line-mode)
   :config
   (defun mo-org-configure-theme ()
     "Set org theme configuration."
-    ;; Resize org headings and agenda dates
+    ;; Resize org headings
     (dolist (face '( ( org-document-title . 1.2)
                      ( org-level-1 . 1.1)
                      ( org-level-2 . 1.0)
@@ -1099,11 +1091,7 @@ Used for preventing recursion when recording new jumps.")
                      ( org-level-5 . 1.0)
                      ( org-level-6 . 1.0)
                      ( org-level-7 . 1.0)
-                     ( org-level-8 . 1.0)
-                     ( org-agenda-date . 1.1)
-                     ( org-agenda-date-today . 1.1)
-                     ( org-agenda-date-weekend . 1.1)
-                     ( org-agenda-date-weekend-today . 1.1)))
+                     ( org-level-8 . 1.0)))
       (set-face-attribute (car face) nil :height (cdr face)))
     ;; Make sure certain org faces always use the fixed-pitch face
     (set-face-attribute 'org-block nil :inherit 'fixed-pitch)
@@ -1114,10 +1102,6 @@ Used for preventing recursion when recording new jumps.")
     (set-face-attribute 'org-special-keyword nil :inherit '( font-lock-comment-face fixed-pitch))
     (set-face-attribute 'org-meta-line nil :inherit '( font-lock-comment-face fixed-pitch))
     (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch))
-  (defun mo-org-agenda-and-todo ()
-    "Open org agenda with all TODOs"
-    (interactive)
-    (org-agenda nil "n"))
   ;; Visually indent text under bullets
   (setq org-startup-indented t)
   ;; Allow resizing inline images
@@ -1145,13 +1129,6 @@ Used for preventing recursion when recording new jumps.")
   (setq org-todo-keywords
         '( ( sequence "TODO" "NEXT" "PROG" "HOLD" "|" "DONE" "DONT" "FAIL")))
   (setq org-log-done t)
-  (setq org-agenda-files `( ,org-directory))
-  (setq org-agenda-window-setup 'current-window)
-  (setq org-agenda-include-diary t)
-  (setq org-agenda-use-time-grid t)
-  (setq org-agenda-start-with-log-mode t)
-  (setq org-agenda-diary-file
-        (concat (file-name-as-directory org-directory) "diary.org"))
   (setq org-id-locations-file (mo-cache-path ".org-id-locations"))
   (setq org-src-preserve-indentation nil)
   (setq org-edit-src-content-indentation 0)
@@ -1180,6 +1157,46 @@ Used for preventing recursion when recording new jumps.")
       ( makefile . t)
       ( eshell . t)
       ( shell . t))))
+
+;; Init org-agenda for org agenda view
+(use-package org-agenda
+  :straight ( :type built-in)
+  :after org
+  :general
+  ( :keymaps 'org-agenda-mode-map
+    "C-M-s-s" #'org-agenda-schedule
+    "C-M-s-d" #'org-agenda-deadline
+    "C-M-s-g" #'org-agenda-set-tags)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "n"
+    "a" #'mo-org-agenda-and-todo)
+  ;; Close any loaded org buffer when exiting the agenda buffer
+  ( :keymaps 'org-agenda-mode-map
+    "q" #'org-agenda-exit)
+  :hook
+  ( after-enable-theme . mo-org-agenda-configure-theme)
+  :config
+  (defun mo-org-agenda-configure-theme ()
+    "Set org theme configuration."
+    ;; Resize org headings and agenda dates
+    (dolist (face '(( org-agenda-date . 1.1)
+                    ( org-agenda-date-today . 1.1)
+                    ( org-agenda-date-weekend . 1.1)
+                    ( org-agenda-date-weekend-today . 1.1)))
+      (set-face-attribute (car face) nil :height (cdr face))))
+
+  (defun mo-org-agenda-and-todo ()
+    "Open org agenda with all TODOs"
+    (interactive)
+    (org-agenda nil "n"))
+
+  (setq org-agenda-files `( ,org-directory))
+  (setq org-agenda-window-setup 'current-window)
+  (setq org-agenda-include-diary t)
+  (setq org-agenda-use-time-grid t)
+  (setq org-agenda-start-with-log-mode t)
+  (setq org-agenda-diary-file
+        (concat (file-name-as-directory org-directory) "diary.org")))
 
 ;; Init org-contrib for org add-ons
 (use-package org-contrib)
