@@ -1196,7 +1196,12 @@ Used for preventing recursion when recording new jumps.")
   (setq org-agenda-use-time-grid t)
   (setq org-agenda-start-with-log-mode t)
   (setq org-agenda-diary-file
-        (concat (file-name-as-directory org-directory) "diary.org")))
+        (concat (file-name-as-directory org-directory) "diary.org"))
+  (setq org-agenda-prefix-format
+        '( (agenda . "%-20c%?-12t% s")
+           (todo . "%-20c")
+           (tags . "%-20c")
+           (search . "%-20c"))))
 
 ;; Init org-contrib for org add-ons
 (use-package org-contrib)
