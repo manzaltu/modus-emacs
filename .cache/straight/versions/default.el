@@ -162,6 +162,7 @@
  ("org-modern-indent" . "f2b859bc53107b2a1027b76dbf4aaebf14c03433")
  ("org-pomodoro" . "3f5bcfb80d61556d35fc29e5ddb09750df962cc6")
  ("org-present" . "4ec04e1b77dea76d7c30066ccf3200d2e0b7bee9")
+ ("org-remark" . "afc237d04da1df1f4d5947f8600924f15e6d25c9")
  ("org-roam" . "0b9fcbc97b65b349826e63bad89ca121a08fd2be")
  ("origami.el" . "e558710a975e8511b9386edc81cd6bdd0a5bda74")
  ("ov" . "e2971ad986b6ac441e9849031d34c56c980cf40b")

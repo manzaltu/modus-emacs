@@ -1318,6 +1318,9 @@ Used for preventing recursion when recording new jumps.")
 (use-package org-appear
   :hook ( org-mode . org-appear-mode))
 
+;; Init org-remark for highlighting text in org mode
+(use-package org-remark)
+
 ;; Init org-pomodoro for using the Pomodoro technique with org mode
 (use-package org-pomodoro
   :general
