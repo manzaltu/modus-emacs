@@ -3045,8 +3045,12 @@ run the attached function (if exists) and enable lsp"
 ;; Init yasnippet-snippets for common code templates
 (use-package yasnippet-snippets)
 
-;; Init rustic for Rust support
+;; Init rust-mode for Rust support
+(use-package rust-mode)
+
+;; Init rustic for extended Rust support
 (use-package rustic
+  :after rust-mode
   :general
   ( :keymaps 'rustic-mode-map
     "C-M-s-;" #'rustic-docstring-dwim
