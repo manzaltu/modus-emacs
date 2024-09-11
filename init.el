@@ -3046,7 +3046,10 @@ run the attached function (if exists) and enable lsp"
 (use-package yasnippet-snippets)
 
 ;; Init rust-mode for Rust support
-(use-package rust-mode)
+(use-package rust-mode
+  :defines rust-mode-treesitter-derive
+  :init
+  (setq rust-mode-treesitter-derive t))
 
 ;; Init rustic for extended Rust support
 (use-package rustic
