@@ -1198,10 +1198,12 @@ Used for preventing recursion when recording new jumps.")
   (setq org-agenda-diary-file
         (concat (file-name-as-directory org-directory) "diary.org"))
   (setq org-agenda-prefix-format
-        '( (agenda . "%-20c%?-12t% s")
-           (todo . "%-20c")
-           (tags . "%-20c")
-           (search . "%-20c"))))
+        '( (agenda . "%i %-20c%?-12t% s")
+           (todo . "%i %-20c")
+           (tags . "%i %-20c")
+           (search . "%i %-20c")))
+  (add-to-list 'org-agenda-category-icon-alist
+               '( ".*" ("☑️‍") nil nil :ascent center) t))
 
 ;; Init org-contrib for org add-ons
 (use-package org-contrib)
