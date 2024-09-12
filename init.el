@@ -4078,8 +4078,8 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'override
     "C-`" #'popper-toggle
-    "C-M-`" #'popper-cycle
-    "M-`" #'popper-cycle-backwards
+    "M-`" #'popper-cycle
+    "C-M-`" #'popper-cycle-backwards
     "M-~" #'popper-toggle-type
     "C-~" #'mo-popper-toggle-window-height)
   :init
