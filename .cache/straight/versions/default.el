@@ -28,6 +28,7 @@
  ("consult-flyspell" . "7011e6634598530ea2d874e7e7389dc1bb94e1ca")
  ("consult-lsp" . "68583913168bf66fd4d542b2517a2dcab19c447c")
  ("consult-notes" . "6ece62337d6065e88a91b222fac5e252c00a8d53")
+ ("consult-org-roam" . "a6dec09dcd06a3014409044399c4f8860ca45ef1")
  ("copilot.el" . "3af3a5f8877fd5c6c55454f5c5bf076a56608939")
  ("copy-as-format" . "b9f6f725ca9701c5a02bfb479573fdfcce2e1e30")
  ("corfu" . "5e3a959766d2313651c5db3beedd937bfc27b57a")
