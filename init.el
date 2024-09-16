@@ -3573,7 +3573,7 @@ run the attached function (if exists) and enable lsp"
   ( :keymaps 'override
     "M-o" #'ace-window
     "M-O" #'mo-ace-window-with-action
-    "C-M-o" #'mo-ace-selected-window-prefix)
+    "C-M-S-o" #'mo-ace-selected-window-prefix)
   :hook
   ( after-enable-theme . mo-ace-window-configure-theme)
   :config
