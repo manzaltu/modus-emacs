@@ -119,8 +119,6 @@
 (use-package evil
   :demand t
   :general
-  ( :states 'motion
-    "C-S-d" #'evil-scroll-up)
   ( :keymaps 'mo-quick-menu-map
     :prefix "w"
     "H" #'evil-window-move-far-left
@@ -152,7 +150,8 @@
     "C-." #'evil-ex-search-command-window)
   ( :states 'motion
     ;; We want C-<num> for jumping between tabs
-    "C-6" nil)
+    "C-6" nil
+    "C-S-d" #'evil-scroll-up)
   ( :states 'insert
     ;; Evil, for historical reasons, binds the <delete> key to delete-char.
     ;; Today this is unnecessary, and may override other modes keybindings.
