@@ -1300,6 +1300,9 @@ Used for preventing recursion when recording new jumps.")
   (setq org-roam-db-location (mo-cache-path "org-roam.db"))
   (org-roam-db-autosync-mode))
 
+;; Init consult-org-roam for org-roam and consult integration
+(use-package consult-org-roam)
+
 ;; Init org-modern for a modern org buffer style
 (use-package org-modern
   :functions global-org-modern-mode
