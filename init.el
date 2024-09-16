@@ -1305,7 +1305,8 @@ Used for preventing recursion when recording new jumps.")
   :custom
   ;; We disable prettifying tables as currently it is not pixel-aligned
   ( org-modern-table nil)
-  ( org-modern-star '( "●" "◉" "◎" "◍" "◌"))
+  ( org-modern-star 'replace)
+  ( org-modern-replace-stars '( "●" "◉" "◎" "◍" "◌"))
   ( org-modern-list '( ( ?+ . "▸") ( ?- . "▹") ( ?* . "◦")))
   ( org-modern-hide-stars nil)
   :config
