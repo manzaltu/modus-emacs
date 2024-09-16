@@ -1305,6 +1305,11 @@ Used for preventing recursion when recording new jumps.")
   :after org-roam
   :demand t
   :commands consult-org-roam-mode
+  :general
+  ( :keymaps 'org-mode-map
+    "C-M-s-r C-M-s-b" #'consult-org-roam-backlinks
+    "C-M-s-r C-M-s-S-b" #'consult-org-roam-backlinks-recursive
+    "C-M-s-r C-M-s-f" #'consult-org-roam-forward-links)
   :config
   (consult-org-roam-mode))
 
