@@ -1301,7 +1301,12 @@ Used for preventing recursion when recording new jumps.")
   (org-roam-db-autosync-mode))
 
 ;; Init consult-org-roam for org-roam and consult integration
-(use-package consult-org-roam)
+(use-package consult-org-roam
+  :after org-roam
+  :demand t
+  :commands consult-org-roam-mode
+  :config
+  (consult-org-roam-mode))
 
 ;; Init org-modern for a modern org buffer style
 (use-package org-modern
