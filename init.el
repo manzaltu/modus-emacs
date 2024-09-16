@@ -361,7 +361,7 @@
   :general
   ( :keymaps 'override
     "C-S-o" #'other-window-prefix
-    "C-M-S-o" #'mo-current-window-prefix)
+    "C-M->" #'mo-current-window-prefix)
   ( :keymaps 'mo-quick-menu-map
     :prefix "w"
     "=" #'balance-windows
