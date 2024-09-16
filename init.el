@@ -157,6 +157,8 @@
     ;; Evil, for historical reasons, binds the <delete> key to delete-char.
     ;; Today this is unnecessary, and may override other modes keybindings.
     "<delete>" nil)
+  ( :keymaps 'global
+    "C-M-o" #'evil-window-mru)
   :hook
   ;; Recenter after jump
   ( evil-jumps-post-jump . recenter)
