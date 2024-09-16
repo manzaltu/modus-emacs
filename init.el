@@ -2204,6 +2204,10 @@ Used while preview is toggled off."
     "b" #'tab-bar-move-tab-backward
     "[" #'tab-previous
     "]" #'tab-next)
+  ( :keymaps 'global
+    "C-<tab>" nil
+    "C-S-<tab>" nil
+    "C-S-<iso-lefttab>" nil)
   :config
   ;; Disable tab bar buttons
   (setq tab-bar-close-button-show nil)
