@@ -1202,8 +1202,10 @@ Used for preventing recursion when recording new jumps.")
            (todo . "%i %-20c")
            (tags . "%i %-20c")
            (search . "%i %-20c")))
-  (add-to-list 'org-agenda-category-icon-alist
-               '( ".*" ("☑️‍") nil nil :ascent center) t))
+  (setq org-agenda-category-icon-alist
+        (append org-agenda-category-icon-alist
+                '( ( "Diary" ("📆‍") nil nil :ascent center)
+                   ( ".*" ("☑️‍") nil nil :ascent center)))))
 
 ;; Init org-contrib for org add-ons
 (use-package org-contrib)
