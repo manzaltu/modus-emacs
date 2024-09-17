@@ -1102,7 +1102,9 @@ Used for preventing recursion when recording new jumps.")
     (set-face-attribute 'org-verbatim nil :inherit '( shadow fixed-pitch))
     (set-face-attribute 'org-special-keyword nil :inherit '( font-lock-comment-face fixed-pitch))
     (set-face-attribute 'org-meta-line nil :inherit '( font-lock-comment-face fixed-pitch))
-    (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch))
+    (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
+    ;; Set link style without changing foreground color
+    (set-face-attribute 'org-link nil :inherit nil :foreground 'unspecified :underline t :slant 'italic))
   ;; Visually indent text under bullets
   (setq org-startup-indented t)
   ;; Allow resizing inline images
