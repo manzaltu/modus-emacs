@@ -3582,8 +3582,10 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init hl-todo for highlighting specific keywords (e.g. TODO)
 (use-package hl-todo
-  :hook
-  ( prog-mode . global-hl-todo-mode))
+  :demand t
+  :commands global-hl-todo-mode
+  :config
+  (global-hl-todo-mode))
 
 ;; Init ace-window for fast window selection
 (use-package ace-window
