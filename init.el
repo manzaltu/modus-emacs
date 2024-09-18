@@ -2929,7 +2929,7 @@ run the attached function (if exists) and enable lsp"
     "E" #'consult-lsp-diagnostics
     "/" #'consult-lsp-file-symbols
     "." #'mo-consult-lsp-project-symbols
-    "," #'consult-lsp-symbols)
+    "," #'mo-consult-lsp-symbols-unsorted)
   :config
 
   (defun mo-consult-lsp-symbols-unsorted ()
