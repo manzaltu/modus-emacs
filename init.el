@@ -2932,6 +2932,12 @@ run the attached function (if exists) and enable lsp"
     "," #'consult-lsp-symbols)
   :config
 
+  (defun mo-consult-lsp-symbols-unsorted ()
+    "Query workspace symbols, disabling vertico sorting."
+    (interactive)
+    (let ((vertico-sort-function nil))
+      (call-interactively #'consult-lsp-symbols)))
+
   (defun mo-consult-lsp-project-symbols (arg)
     "Query project symbols. When ARG is set through prefix, query all workspaces."
     (interactive "P")
