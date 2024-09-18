@@ -151,7 +151,9 @@
   ( :states 'motion
     ;; We want C-<num> for jumping between tabs
     "C-6" nil
-    "C-S-d" #'evil-scroll-up)
+    "C-S-d" #'evil-scroll-up
+    "C-}" #'mo-evil-forward-paragraph-recenter
+    "C-{" #'mo-evil-backward-paragraph-recenter)
   ( :states 'insert
     ;; Evil, for historical reasons, binds the <delete> key to delete-char.
     ;; Today this is unnecessary, and may override other modes keybindings.
