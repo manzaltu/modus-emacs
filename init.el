@@ -216,6 +216,22 @@
           (apply command args))
       (apply command args)))
 
+  (defun mo-evil-forward-paragraph-recenter ()
+    "Move to the end of the next paragraph and recenter.
+Briefly highlight previous location."
+    (interactive)
+    (pulse-momentary-highlight-one-line)
+    (call-interactively #'evil-forward-paragraph)
+    (recenter))
+
+  (defun mo-evil-backward-paragraph-recenter ()
+    "Move to the beginning of the previous paragraph and recenter.
+Briefly highlight previous location."
+    (interactive)
+    (pulse-momentary-highlight-one-line)
+    (call-interactively #'evil-backward-paragraph)
+    (recenter))
+
   ;; Set word movement to operate on symbol boundaries
   (defalias #'forward-evil-word #'forward-evil-symbol)
   ;; Start with Emacs mode in rustic-popup-mode buffers
