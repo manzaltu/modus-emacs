@@ -116,7 +116,7 @@
  ("hsluv-emacs" . "c3bc5228e30d66e7dee9ff1a0694c2b976862fc0")
  ("ht.el" . "1c49aad1c820c86f7ee35bf9fff8429502f60fef")
  ("hydra" . "317e1de33086637579a7aeb60f77ed0405bf359b")
- ("indent-bars" . "8a0c294841f9897ad26dd8c2251f5e4a6011924c")
+ ("indent-bars" . "c1c9026763cd41b9e2da9d13edf9d0944812d6b3")
  ("jeison" . "19a51770f24eaa7b538c7be6a8a5c25d154b641f")
  ("jenkinsfile-mode" . "568865ee419e0592de0dd0717d6769a66d9df111")
  ("journalctl-mode" . "631d10a5c8f466c94c38c3cd7410a27026f5f822")
