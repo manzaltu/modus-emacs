@@ -307,7 +307,9 @@ Briefly highlight previous location."
   (setq undo-strong-limit 50331648)
   (setq undo-outer-limit 134217728)
   ;; Enable scrolling left
-  (put 'scroll-left 'disabled nil))
+  (put 'scroll-left 'disabled nil)
+  ;; Remove vc info from modeline
+  (setq-default mode-line-format (remove '(vc-mode vc-mode) (default-value 'mode-line-format))))
 
 ;; Init files for file related functionality
 (use-package files
