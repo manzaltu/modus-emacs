@@ -3988,20 +3988,6 @@ If project root cannot be found, use the buffer's default directory."
   :config
   (solaire-global-mode +1))
 
-;; Init moody for adding tabs and ribbons to the mode line
-(use-package moody
-  :functions
-  ( moody-replace-mode-line-buffer-identification
-    moody-replace-vc-mode
-    moody-replace-eldoc-minibuffer-message-function)
-  :custom
-  ;; Set mode line height to be calculated based on content height
-  ( moody-mode-line-height nil)
-  :config
-  (moody-replace-mode-line-buffer-identification)
-  (moody-replace-vc-mode)
-  (moody-replace-eldoc-minibuffer-message-function))
-
 ;; Init minions for collapsing the minor mode indicator in the modeline
 (use-package minions
   :functions minions-mode
