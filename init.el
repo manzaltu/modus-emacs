@@ -2252,7 +2252,9 @@ Used while preview is toggled off."
   (setq tab-bar-new-button-show nil)
   ;; Customize the tab bar
   (setq tab-bar-format '( tab-bar-format-tabs-groups
-                          tab-bar-separator))
+                          tab-bar-separator
+                          tab-bar-format-align-right
+                          tab-bar-format-global))
   (setq tab-bar-tab-hints t)
   (setq tab-bar-auto-width-max '(300 27))
   ;; Switch to tab by pressing C-<hint num>
