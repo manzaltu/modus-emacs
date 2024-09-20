@@ -2867,7 +2867,9 @@ run the attached function (if exists) and enable lsp"
   :config
   ;; Do not show documentation automatically
   (setq lsp-ui-doc-show-with-mouse nil)
-  (setq lsp-ui-doc-max-height 60))
+  (setq lsp-ui-doc-max-height 60)
+  ;; Show only symbols in headerline breadcrumb
+  (setq lsp-headerline-breadcrumb-segments '(symbols)))
 
 ;; Init lsp-treemacs for an interactive lsp tree-like interface
 (use-package lsp-treemacs
