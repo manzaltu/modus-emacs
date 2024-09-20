@@ -2800,6 +2800,32 @@ run the attached function (if exists) and enable lsp"
   (defun mo-lsp-mode-setup-completion ()
     (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
           '( orderless)))
+
+  ;; Move lsp status from global mode string to modeline
+  (defun mo-lsp-mode-move-global-string-to-mode-line (func &rest args)
+    "Advice function that moves lsp global string modifications to modeline."
+    (make-local-variable 'global-mode-string)
+
+    ;; Make sure global-mode-string is a list
+    (unless (listp global-mode-string)
+      (setq global-mode-string (list global-mode-string)))
+
+    (let ((global-mode-string-before global-mode-string)
+          (global-mode-string (append mo-lsp-mode-mode-line global-mode-string)))
+      (apply func args)
+      (setq mo-lsp-mode-mode-line
+            (cl-set-difference global-mode-string global-mode-string-before :test #'equal))))
+
+  (advice-add 'lsp-modeline-code-actions-mode :around
+              #'mo-lsp-mode-move-global-string-to-mode-line)
+  (advice-add 'lsp-modeline-diagnostics-mode :around
+              #'mo-lsp-mode-move-global-string-to-mode-line)
+  (advice-add 'lsp-modeline--enable-workspace-status :around
+              #'mo-lsp-mode-move-global-string-to-mode-line)
+  (advice-add 'lsp-modeline--disable-workspace-status :around
+              #'mo-lsp-mode-move-global-string-to-mode-line)
+  (advice-add 'lsp-on-progress-modeline :around
+              #'mo-lsp-mode-move-global-string-to-mode-line)
   :hook
   ;; Postpone lsp load for after dir local vars are read
   ;; Do not load lsp if dir local vars are not enabled (e.g. on preview)
