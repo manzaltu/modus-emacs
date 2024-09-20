@@ -3961,7 +3961,12 @@ If project root cannot be found, use the buffer's default directory."
   ( :keymaps 'mo-quick-menu-map
     :prefix "v"
     "v" #'mo-toggle-light-dark-themes)
+  :hook ( after-enable-theme . mo-doom-themes-configure-theme)
   :config
+  (defun mo-doom-themes-configure-theme ()
+    "Set doom-themes configuration on theme change."
+    ;; Make tab-bar text visible
+    (set-face-attribute 'tab-bar nil :foreground (doom-color 'fg)))
   (defun mo-toggle-light-dark-themes ()
     "Toggle between light and dark themes"
     (interactive)
@@ -3981,6 +3986,7 @@ If project root cannot be found, use the buffer's default directory."
   (setq doom-one-light-brighter-comments t)
   (setq doom-solarized-light-brighter-comments t)
   (load-theme 'doom-one t)
+  (mo-doom-themes-configure-theme)
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
 
