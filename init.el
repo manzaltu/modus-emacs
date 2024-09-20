@@ -746,6 +746,19 @@ Tab is named after the project's name."
           (insert (propertize pattern 'display (propertize (make-string 1 ?:) 'face 'shadow))))
         (backward-char (length (cdr mo-minibuffer-file-excl-pattern))))))
 
+  ;; Modeline configuration
+  (defvar-local mo-lsp-mode-mode-line nil
+    "Holds the modeline list for lsp-mode.")
+
+  ;; Needed for displaying in `mode-line-format'
+  (put 'mo-lsp-mode-mode-line 'risky-local-variable t)
+
+  ;; Add lsp modeline string to modeline format
+  (setq-default mode-line-format (append
+                                  (butlast (default-value 'mode-line-format) 2)
+                                  (list 'mo-lsp-mode-mode-line)
+                                  (last (default-value 'mode-line-format) 2)))
+
   :config
   (when (< (length command-line-args) 2)
     (add-hook 'emacs-startup-hook #'mo-show-welcome-screen-graphic-mode))
