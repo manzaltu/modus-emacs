@@ -1099,7 +1099,8 @@ Used for preventing recursion when recording new jumps.")
     "C-M-s-i" #'org-insert-structure-template
     "C-M-s-e" #'org-edit-special
     "C-M-s-S-e" #'org-export-dispatch
-    "C-M-s-<return>" #'org-open-at-point)
+    "C-M-s-<return>" #'org-open-at-point
+    "C-M-s-," #'org-mark-ring-goto)
   ( :keymaps 'org-src-mode-map
     "C-M-s-e" #'org-edit-src-exit
     "C-M-s-k" #'org-edit-src-abort)
