@@ -872,7 +872,7 @@ Tab is named after the project's name."
   :config
   :general
   ( :keymaps 'override
-    "C-\"" #'avy-goto-char-timer)
+    "C-;" #'avy-goto-char-timer)
   :config
   (defun mo-avy-configure-theme ()
     "Set avy theme configuration."
@@ -895,7 +895,7 @@ Tab is named after the project's name."
 (use-package link-hint
   :general
   ( :keymaps 'override
-    "C-'" #'link-hint-open-link))
+    "C-\"" #'link-hint-open-link))
 
 ;; Init evil-snipe for an improved 1 char evil search experience
 (use-package evil-snipe
@@ -2190,9 +2190,9 @@ Used while preview is toggled off."
 (use-package embark
   :general
   ( :keymaps 'override
-    "C-;" #'embark-act
-    "C-:" #'embark-collect
-    "C-)" #'embark-export)
+    "C-'" #'embark-act
+    "M-'" #'embark-collect
+    "C-M-'" #'embark-export)
   ( :keymaps 'embark-file-map
     "g" #'mo-embark-magit-status)
   ( :keymaps 'mo-quick-menu-map
