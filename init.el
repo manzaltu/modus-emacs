@@ -66,6 +66,9 @@
 ;; Optionally, load personal settings
 (load (concat (file-name-directory load-file-name) "personal.el") t)
 
+(defvar mo-font "PragmataPro Mono Liga-16"
+  "Font to use.")
+
 ;; Add general.el key mapper
 (use-package general
   :demand t
@@ -373,7 +376,9 @@ Briefly highlight previous location."
     "c" #'delete-frame)
   :config
   ;; Disable cursor blink
-  (blink-cursor-mode 0))
+  (blink-cursor-mode 0)
+  ;; Set font
+  (set-frame-font mo-font nil t))
 
 ;; Init window for managing windows
 (use-package window
