@@ -1374,6 +1374,7 @@ Used for preventing recursion when recording new jumps.")
   :straight ( org-modern-indent :type git :host github :repo "jdtsmith/org-modern-indent")
   :functions org-modern-indent-mode
   :config
+  (set-face-attribute 'fixed-pitch nil :family mo-font :height 1.0)
   (add-hook 'org-mode-hook #'org-modern-indent-mode 90))
 
 ;; Init org-appear to show invisible org elements on cursor hover
