@@ -2699,15 +2699,15 @@ When a prefix ARG is given always prompt for a command to use."
     "(" #'lsp-ui-peek-find-implementation
     "`" #'lsp-ui-peek-find-references)
   ( :keymaps 'mo-quick-menu-map
-    :prefix "h"
-    "r" #'lsp-rust-analyzer-open-external-docs)
-  ( :keymaps 'mo-quick-menu-map
     :prefix "n"
     "l" #'lsp-org)
   (mo-quick-menu-definer
     :keymaps 'lsp-mode
     :definer 'minor-mode
     "h h" #'lsp-describe-thing-at-point)
+  (mo-quick-menu-definer
+    :keymaps 'rustic-mode-map
+    "h H" #'lsp-rust-analyzer-open-external-docs)
   :init
   ;; No completion provider as we use corfu
   (setq lsp-completion-provider :none)
