@@ -1247,7 +1247,8 @@ Used for preventing recursion when recording new jumps.")
   (setq org-agenda-category-icon-alist
         (append org-agenda-category-icon-alist
                 '( ( "Diary" ("📆‍") nil nil :ascent center)
-                   ( ".*" ("☑️‍") nil nil :ascent center)))))
+                   ( ".+" ("☑️‍") nil nil :ascent center)
+                   ( "" ("  ") nil nil :ascent center)))))
 
 ;; Init org-contrib for org add-ons
 (use-package org-contrib)
