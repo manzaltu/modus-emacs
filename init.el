@@ -2187,7 +2187,7 @@ Used while preview is toggled off."
 
 ;; Init marginalia for minibuffer result annotations
 (use-package marginalia
-  :functions marginalia-mode
+  :commands marginalia-mode
   :custom
   ( marginalia-field-width 200)
   :config
