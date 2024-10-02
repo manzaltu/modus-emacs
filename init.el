@@ -2187,10 +2187,31 @@ Used while preview is toggled off."
 
 ;; Init marginalia for minibuffer result annotations
 (use-package marginalia
+  :demand t
+  :after project
   :commands marginalia-mode
+  :functions ( project-name
+               marginalia-annotate-buffer
+               marginalia--fields)
+  :defines marginalia-annotator-registry
   :custom
   ( marginalia-field-width 200)
   :config
+  (defun mo-marginalia-annotate-buffer-with-project (cand)
+    "Annotate buffer with project name and other annotations."
+    (let ((buffer-annotation (marginalia-annotate-buffer cand))
+          (proj-name (when-let* ((buffer (get-buffer cand))
+                                 (project (with-current-buffer buffer
+                                            (project-current))))
+                       (project-name project))))
+      (marginalia--fields
+       (proj-name :truncate 0.2 :face 'marginalia-function)
+       (buffer-annotation))))
+
+  ;; Add project name to buffer annotation
+  (setf (alist-get 'buffer marginalia-annotator-registry)
+        '( mo-marginalia-annotate-buffer-with-project builtin none))
+
   (marginalia-mode))
 
 ;; Init embark for enabling contextual actions
