@@ -2030,6 +2030,8 @@ directory as a fall back."
     "M-s" #'consult-history                 ;; orig. eshell-next-matching-input
     "M-r" #'consult-history                 ;; orig. eshell-previous-matching-input
     "C-r" #'consult-history)
+  ( :keymaps 'evil-command-line-map
+    "C-r" #'consult-history)                ;; orig. evil-paste-from-register
   ( :keymaps 'mo-quick-menu-map
     :prefix "RET"
     "b" #'consult-project-buffer)
