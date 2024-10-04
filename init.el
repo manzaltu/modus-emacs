@@ -146,7 +146,7 @@
     "C-b" nil
     "C-a" nil
     "C-." #'evil-ex-command-window)
-  ( :keymaps 'evil-ex-search-keymap
+  ( :keymaps 'evil-command-line-map
     "C-f" nil
     "C-b" nil
     "C-a" nil)
