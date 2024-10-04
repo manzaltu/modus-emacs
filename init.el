@@ -149,7 +149,8 @@
   ( :keymaps 'evil-command-line-map
     "C-f" nil
     "C-b" nil
-    "C-a" nil)
+    "C-a" nil
+    "M-r" #'evil-paste-from-register)
   ( :states 'motion
     ;; We want C-<num> for jumping between tabs
     "C-6" nil
