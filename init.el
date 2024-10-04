@@ -149,8 +149,7 @@
   ( :keymaps 'evil-ex-search-keymap
     "C-f" nil
     "C-b" nil
-    "C-a" nil
-    "C-." #'evil-ex-search-command-window)
+    "C-a" nil)
   ( :states 'motion
     ;; We want C-<num> for jumping between tabs
     "C-6" nil
