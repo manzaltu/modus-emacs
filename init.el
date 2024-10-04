@@ -2733,6 +2733,8 @@ When a prefix ARG is given always prompt for a command to use."
     :keymaps 'lsp-mode
     :definer 'minor-mode
     "h h" #'lsp-describe-thing-at-point)
+  ( :keymaps 'rustic-mode-map
+    "C-M-s-c" #'lsp-rust-analyzer-open-cargo-toml)
   (mo-quick-menu-definer
     :keymaps 'rustic-mode-map
     "h H" #'lsp-rust-analyzer-open-external-docs)
