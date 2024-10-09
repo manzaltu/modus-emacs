@@ -2423,12 +2423,47 @@ When a prefix ARG is given always prompt for a command to use."
     :prefix "x"
     "p" #'proced)
   :config
+  (defvar mo-proced-instant-cpu-usage-cache nil
+    "Instantaneous process CPU usage cache.")
+
+  (defun mo-proced-instant-cpu-usage (attributes)
+    "Add instantaneous process CPU usage percentage to proced process attributes."
+    ;; Run top and cache process CPU usage if needed
+    (when (or (not (car mo-proced-instant-cpu-usage-cache))
+              (time-less-p (seconds-to-time 1)
+                           (time-subtract nil (car mo-proced-instant-cpu-usage-cache))))
+      (setq mo-proced-instant-cpu-usage-cache
+            (cons (current-time)
+                  (let ((cpu-data (make-hash-table)))
+                    (with-temp-buffer
+                      (insert (shell-command-to-string "top -bn1"))
+                      (goto-char (point-min))
+                      (when (search-forward-regexp "^[[:blank:]]*PID[[:blank:]]" nil t)
+                        (forward-line 1))
+                      (while (not (eobp))
+                        (when-let* ((line (split-string (thing-at-point 'line t) nil t))
+                                    (pid (string-to-number (nth 0 line)))
+                                    (cpu-usage (string-to-number (nth 8 line))))
+                          (puthash pid cpu-usage cpu-data))
+                        (forward-line 1)))
+                    cpu-data))))
+    ;; Find CPU usage by PID
+    (cons 'picpu
+          (when-let* ((pid (cdr (assoc 'pid attributes))))
+            (gethash pid (cdr mo-proced-instant-cpu-usage-cache)))))
+
+  ;; Add instantaneous CPU usage stats
+  (when (executable-find "top")
+    (add-to-list 'proced-grammar-alist
+                 '( picpu "%ICPU" proced-format-cpu right proced-< t ( picpu pid) ( nil t t)))
+    (add-to-list 'proced-custom-attributes #'mo-proced-instant-cpu-usage))
+
   (setq-default proced-filter 'all)
   (setq proced-enable-color-flag t)
   (add-to-list 'proced-format-alist '( custom start etime time utime
-                                       stime vsize thcount pri nice
-                                       group user pid ppid pcpu pmem
-                                       rss state (args comm)))
+                                       stime pcpu vsize thcount pri
+                                       nice group user pid ppid picpu
+                                       pmem rss state (args comm)))
   (setq-default proced-format 'custom))
 
 ;; Init profiler for profiling lisp code
