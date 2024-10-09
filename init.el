@@ -2424,7 +2424,12 @@ When a prefix ARG is given always prompt for a command to use."
     "p" #'proced)
   :config
   (setq-default proced-filter 'all)
-  (setq proced-enable-color-flag t))
+  (setq proced-enable-color-flag t)
+  (add-to-list 'proced-format-alist '( custom start etime time utime
+                                       stime vsize thcount pri nice
+                                       group user pid ppid pcpu pmem
+                                       rss state (args comm)))
+  (setq-default proced-format 'custom))
 
 ;; Init profiler for profiling lisp code
 (use-package profiler
