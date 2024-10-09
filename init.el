@@ -2456,7 +2456,8 @@ When a prefix ARG is given always prompt for a command to use."
   (when (executable-find "top")
     (add-to-list 'proced-grammar-alist
                  '( picpu "%ICPU" proced-format-cpu right proced-< t ( picpu pid) ( nil t t)))
-    (add-to-list 'proced-custom-attributes #'mo-proced-instant-cpu-usage))
+    (add-to-list 'proced-custom-attributes #'mo-proced-instant-cpu-usage)
+    (setq-default proced-sort '( picpu pcpu)))
 
   (setq-default proced-filter 'all)
   (setq proced-enable-color-flag t)
