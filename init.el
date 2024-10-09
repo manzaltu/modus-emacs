@@ -3417,6 +3417,14 @@ run the attached function (if exists) and enable lsp"
     :prefix "b"
     "|" #'indent-bars-mode))
 
+;; Init display-fill-column-indicator for displaying fill column indicator
+(use-package display-fill-column-indicator
+  :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "\\" #'display-fill-column-indicator-mode))
+
 ;; Init editorconfig for applying EditorConfig settings
 (use-package editorconfig
   :functions editorconfig-mode
