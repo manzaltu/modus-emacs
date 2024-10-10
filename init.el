@@ -461,7 +461,7 @@ Briefly highlight previous location."
     "e" #'eval-expression)
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
-    "SPC" #'mo-async-run-code)
+    "RET" #'mo-async-run-code)
   ( :states 'motion
     "g \"" #'end-of-buffer)
   ( :states 'motion
@@ -616,7 +616,7 @@ the user to input the run command."
     :prefix "DEL"
     "DEL" #'mo-open-project-with-tab
     "ESC" #'mo-close-project-with-tab
-    "SPC" #'mo-execute-predefined-command)
+    "RET" #'mo-execute-predefined-command)
   ( :keymaps 'vertico-map
     "C-<escape>" #'mo-minibuffer-insert-file-excl-pattern)
   :preface
@@ -3245,7 +3245,7 @@ run the attached function (if exists) and enable lsp"
     "C-M-s-p" #'rustic-popup)
   (mo-quick-menu-definer
     :keymaps 'rustic-mode-map
-    "c SPC" #'rustic-cargo-run
+    "c RET" #'rustic-cargo-run
     "c c" #'rustic-recompile
     "c C" #'rustic-compile)
   :config
@@ -3639,7 +3639,7 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
-    "RET" #'mo-copilot-toggle-globally
+    "DEL" #'mo-copilot-toggle-globally
     "P" #'copilot-mode)
   ( :keymaps 'copilot-completion-map
     "M-<return>" #'copilot-accept-completion
