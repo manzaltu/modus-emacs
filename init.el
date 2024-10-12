@@ -3202,8 +3202,8 @@ run the attached function (if exists) and enable lsp"
     "TAB" nil
     [shift tab] nil
     [backtab] nil
-    "C-n" (yas-filtered-definition #'yas-next-field)
-    "C-p" (yas-filtered-definition #'yas-prev-field))
+    "M-n" (yas-filtered-definition #'yas-next-field)
+    "M-p" (yas-filtered-definition #'yas-prev-field))
   :config
   (yas-global-mode 1))
 
