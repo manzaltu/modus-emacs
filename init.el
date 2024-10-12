@@ -1713,10 +1713,7 @@ Used for preventing recursion when recording new jumps.")
     "TAB" #'corfu-complete
     [tab] #'corfu-complete
     ;; We don't want RET to complete
-    "RET" nil
-    ;; We don't want next/previous line to change selection
-    "<remap> <next-line>" nil
-    "<remap> <previous-line>" nil)
+    "RET" nil)
   :custom
   ;; Enable auto completion
   ( corfu-auto t)
