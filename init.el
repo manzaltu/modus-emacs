@@ -1713,7 +1713,10 @@ Used for preventing recursion when recording new jumps.")
     "TAB" #'corfu-complete
     [tab] #'corfu-complete
     ;; We don't want RET to complete
-    "RET" nil)
+    "RET" nil
+    ;; We don't want M-n/p to complete
+    "M-n" nil
+    "M-p" nil)
   :custom
   ;; Enable auto completion
   ( corfu-auto t)
