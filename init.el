@@ -723,6 +723,12 @@ Tab is named after the project's name."
   (defun mo-minibuffer-insert-file-excl-pattern ()
     "Insert a file exclusion pattern to the minibuffer filter."
     (interactive)
+    (mo-minibuffer-insert-file-pattern t))
+
+  (defun mo-minibuffer-insert-file-pattern (&optional arg)
+    "Insert a file pattern to the minibuffer filter.
+If universal ARG is set, exclude the pattern."
+    (interactive "P")
     (when (minibufferp)
       (let* ((consult-asyncp (member consult-async-map (current-local-map)))
              (consult-async-style (and consult-asyncp consult-async-split-style))
@@ -744,8 +750,12 @@ Tab is named after the project's name."
           (goto-char (point-max))
           (unless (eq (minibuffer-prompt-end) (point))
             (insert " ")))
-        ;; Insert exclusion pattern
-        (insert "!")
+
+        ;; Insert negation operator, if excluding
+        (when arg
+          (insert "!"))
+
+        ;; Insert file pattern
         (dolist (pattern (list (car mo-minibuffer-file-excl-pattern)
                                (cdr mo-minibuffer-file-excl-pattern)))
           (insert (propertize pattern 'display (propertize (make-string 1 ?:) 'face 'shadow))))
