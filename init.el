@@ -618,7 +618,7 @@ the user to input the run command."
     "ESC" #'mo-close-project-with-tab
     "RET" #'mo-execute-predefined-command)
   ( :keymaps 'vertico-map
-    "C-<escape>" #'mo-minibuffer-insert-file-excl-pattern)
+    "C-M-<escape>" #'mo-minibuffer-insert-file-excl-pattern)
   :preface
   (defun mo-copy-file-path ()
     "Copy the full path of the current buffer's file."
