@@ -1163,7 +1163,7 @@ Used for preventing recursion when recording new jumps.")
   (setq org-directory "~/org")
   (setq org-default-notes-file (concat (file-name-as-directory org-directory) "notes.org"))
   (setq org-capture-templates '( ( "t" "Task" entry (file+function org-default-notes-file org-goto)
-                                   "** TODO %? \nSCHEDULED: %t")))
+                                   "** TODO %?\nSCHEDULED: %t")))
   (setq org-goto-interface 'outline-path-completion)
   ;; Unfold everything on startup, except for things that set to be hidden
   ;; by default (e.g. drawers)
