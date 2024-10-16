@@ -4532,7 +4532,6 @@ If project root cannot be found, use the buffer's default directory."
 (use-package bookmark-in-project
   :general
   ( :keymaps 'mo-quick-menu-map
-    :prefix "DEL"
     "<deletechar>" #'bookmark-in-project-jump)
   :custom
   ( bookmark-in-project-project-root
