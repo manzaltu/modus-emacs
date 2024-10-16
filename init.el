@@ -1982,7 +1982,7 @@ directory as a fall back."
     "M" #'mo-consult-xref-history
     "<" #'mo-consult-xref-pop
     "RET" #'mo-consult-buffer-dwim
-    "<deletechar>" #'consult-bookmark)
+    "<insert>" #'consult-bookmark)
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
     "," #'consult-git-grep)
