@@ -149,6 +149,7 @@
  ("melpa" . "167e18767d96bdac08b5d10b1feb1c6fcaafd074")
  ("minions" . "413b95a0d1c7c10d0f8d440d1982062b73d5ea4a")
  ("mode-minder" . "5ada69ca537d7b06daddf6181419b9205415eb89")
+ ("nhexl-mode" . "0b27339bdb3e5255353de457ad99724b0d83dcaf")
  ("nix-mode" . "719feb7868fb567ecfe5578f6119892c771ac5e5")
  ("nongnu-elpa" . "94966229ca17882de6cbc1b709120e19a030d35d")
  ("nov.el" . "bbb5c60bfd6b09cffe0406a56930105335f07887")
