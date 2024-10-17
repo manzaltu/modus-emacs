@@ -2404,6 +2404,15 @@ When a prefix ARG is given always prompt for a command to use."
 (use-package nhexl-mode
   :demand t
   :general
+  ( :definer 'minor-mode
+    :keymaps 'nhexl-mode
+    :states 'motion
+    "j" #'nhexl-next-line
+    "k" #'nhexl-previous-line
+    "l" #'forward-char
+    "h" #'backward-char
+    "^" #'nhexl-move-beginning-of-line
+    "$" #'nhexl-move-end-of-line)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "x" #'nhexl-mode)
