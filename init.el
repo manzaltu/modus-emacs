@@ -2400,14 +2400,6 @@ When a prefix ARG is given always prompt for a command to use."
     :states 'normal
     "/" #'dired-narrow-fuzzy))
 
-;; Init hexl for editing binary files
-(use-package hexl
-  :straight nil
-  :general
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "b"
-    "x" #'hexl-mode))
-
 ;; Init nhexl-mode for editing binary files
 (use-package nhexl-mode)
 
