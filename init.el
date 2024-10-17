@@ -2406,7 +2406,10 @@ When a prefix ARG is given always prompt for a command to use."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "x" #'nhexl-mode))
+    "x" #'nhexl-mode)
+  :custom
+  ( nhexl-group-size 4)
+  ( nhexl-line-width 32))
 
 ;; Init calc for Emacs built-in calculator
 (use-package calc
