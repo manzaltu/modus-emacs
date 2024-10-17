@@ -2408,6 +2408,9 @@ When a prefix ARG is given always prompt for a command to use."
     :prefix "b"
     "x" #'hexl-mode))
 
+;; Init nhexl-mode for editing binary files
+(use-package nhexl-mode)
+
 ;; Init calc for Emacs built-in calculator
 (use-package calc
   :straight nil
