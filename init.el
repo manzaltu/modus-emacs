@@ -2401,7 +2401,12 @@ When a prefix ARG is given always prompt for a command to use."
     "/" #'dired-narrow-fuzzy))
 
 ;; Init nhexl-mode for editing binary files
-(use-package nhexl-mode)
+(use-package nhexl-mode
+  :demand t
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "x" #'nhexl-mode))
 
 ;; Init calc for Emacs built-in calculator
 (use-package calc
