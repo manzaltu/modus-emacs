@@ -2404,7 +2404,6 @@ When a prefix ARG is given always prompt for a command to use."
 (use-package hexl
   :straight nil
   :general
-  :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "x" #'hexl-mode))
