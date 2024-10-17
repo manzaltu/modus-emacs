@@ -2786,8 +2786,8 @@ When a prefix ARG is given always prompt for a command to use."
     :prefix "n"
     "l" #'lsp-org)
   (mo-quick-menu-definer
-    :keymaps 'lsp-mode
     :definer 'minor-mode
+    :keymaps 'lsp-mode
     "h h" #'lsp-describe-thing-at-point)
   ( :keymaps 'rustic-mode-map
     "C-M-s-c" #'lsp-rust-analyzer-open-cargo-toml)
