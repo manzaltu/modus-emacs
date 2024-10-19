@@ -101,6 +101,7 @@
     :which-key "Quick menu prefix key"
     "a" '( :which-key "Action")
     "b" '( :which-key "Buffer")
+    "<insert>" '( :which-key Bookmark)
     "f" '( :which-key "File")
     "v" '( :which-key "View")
     "w" '( :which-key "Window")
@@ -1981,8 +1982,7 @@ directory as a fall back."
     "," #'consult-ripgrep
     "M" #'mo-consult-xref-history
     "<" #'mo-consult-xref-pop
-    "RET" #'mo-consult-buffer-dwim
-    "<insert>" #'consult-bookmark)
+    "RET" #'mo-consult-buffer-dwim)
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
     "," #'consult-git-grep)
@@ -2002,6 +2002,9 @@ directory as a fall back."
     ":" #'consult-keep-lines
     "m" #'consult-minor-mode-menu
     "B" #'consult-recent-file)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "<insert>"
+    "<insert>" #'consult-bookmark)
   ( :keymaps 'mo-quick-menu-map
     :prefix "f"
     "," #'mo-consult-ripgrep-current-dir
