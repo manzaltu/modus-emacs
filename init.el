@@ -4539,6 +4539,9 @@ If project root cannot be found, use the buffer's default directory."
   :config
   (setq bookmark-file (mo-cache-path "bookmarks")))
 
+;; Init bookmark+ for enhanced bookmark functionality
+(use-package bookmark+)
+
 ;; Init bookmark-in-project for managing per-project bookmarks
 (use-package bookmark-in-project
   :general

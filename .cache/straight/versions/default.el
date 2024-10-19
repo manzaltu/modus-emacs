@@ -12,6 +12,7 @@
  ("auto-highlight-symbol" . "83386efa624bdb27ada5bd4346c586e4d32040a9")
  ("avy" . "be612110cb116a38b8603df367942e2bb3d9bdbe")
  ("better-jumper" . "47622213783ece37d5337dc28d33b530540fc319")
+ ("bookmark-plus" . "e07702390622534dce2a3a250e9e295041aa7e65")
  ("buffer-move" . "e7800b3ab1bd76ee475ef35507ec51ecd5a3f065")
  ("bufler.el" . "ef3b28bbdcb1e813a1d5b06a91d09774998967c5")
  ("bui.el" . "f3a137628e112a91910fd33c0cff0948fa58d470")
