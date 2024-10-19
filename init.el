@@ -4550,6 +4550,8 @@ If project root cannot be found, use the buffer's default directory."
   ( :keymaps 'mo-quick-menu-map
     :prefix "<insert>"
     "RET" #'bookmark-bmenu-list
+    "SPC" #'bmkp-bookmark-set-confirm-overwrite
+    "d" #'bmkp-delete-bookmarks
     "a" #'bookmark-show-annotation
     "e" #'bookmark-edit-annotation))
 
