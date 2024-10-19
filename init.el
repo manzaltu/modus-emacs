@@ -4321,6 +4321,7 @@ If project root cannot be found, use the buffer's default directory."
            "\\*Async Shell Command\\*"
            "\\*ielm\\*"
            "^\\*HTTP Response .*\\*$"
+           "^\\*.* Annotation\\*$"
            help-mode
            lsp-help-mode
            helpful-mode
