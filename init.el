@@ -2895,6 +2895,8 @@ run the attached function (if exists) and enable lsp"
   ;; Set clangd default parameters
   (setq lsp-clients-clangd-args '( "--header-insertion-decorators=0"
                                    "--completion-style=detailed"))
+  ;; Use clippy as the default linter
+  (setq lsp-rust-analyzer-cargo-watch-command "clippy")
   ;; Set completion style to orderless
   (defun mo-lsp-mode-setup-completion ()
     (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
