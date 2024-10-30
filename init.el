@@ -3660,6 +3660,9 @@ run the attached function (if exists) and enable lsp"
   :config
   (add-hook 'gptel-post-response-functions #'gptel-end-of-response))
 
+;; Init elysium for applying AI generated code changes
+(use-package elysium)
+
 ;; Init copilot for copilot support in Emacs
 (use-package copilot
   :straight (:host github :repo "copilot-emacs/copilot.el" :files ("dist" "*.el"))
