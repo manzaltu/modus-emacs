@@ -3663,7 +3663,12 @@ run the attached function (if exists) and enable lsp"
   (add-hook 'gptel-post-response-functions #'gptel-end-of-response))
 
 ;; Init elysium for applying AI generated code changes
-(use-package elysium)
+(use-package elysium
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "c"
+    "TAB" #'elysium-query
+    "<backtab>" #'elysium-toggle-window))
 
 ;; Init copilot for copilot support in Emacs
 (use-package copilot
