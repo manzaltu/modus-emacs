@@ -1884,6 +1884,8 @@ Used for preventing recursion when recording new jumps.")
     :prefix "c"
     "c" #'mo-project-recompile
     "C" #'project-compile)
+  :hook
+  ( lisp-data-mode . mo-enable-reload-dir-locals-on-save)
   :config
   (defun mo-project-try-local (dir)
     "Determine if DIR is a project.
@@ -1931,6 +1933,12 @@ directory as a fall back."
         (with-current-buffer buffer
           (mo-reload-dir-locals-current-buffer)))
       (message "Dir locals loaded for %s" (project-root project))))
+
+  (defun mo-enable-reload-dir-locals-on-save ()
+    "Enable project dir-locals reload on dir-locals file save."
+    (when-let ((buf-name (buffer-file-name)))
+      (when (equal dir-locals-file (file-name-nondirectory buf-name))
+        (add-hook 'after-save-hook #'mo-reload-dir-locals-project nil t))))
 
   (defun mo-find-file-dir-locals-project ()
     "Edit the dir-locals file in the current project."
