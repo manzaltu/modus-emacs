@@ -2576,7 +2576,9 @@ When a prefix ARG is given always prompt for a command to use."
   :straight nil
   :general
   ( :keymaps 'mo-quick-menu-map
-    "m" '( :keymap smerge-basic-map :package smerge)))
+    "m" '( :keymap smerge-basic-map :package smerge))
+  :hook
+  ( prog-mode . smerge-mode))
 
 ;; Init forge for working with git forges (e.g. Github, Gitlab)
 (use-package forge
