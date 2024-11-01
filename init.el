@@ -2626,10 +2626,15 @@ When a prefix ARG is given always prompt for a command to use."
   ( :keymaps 'mo-quick-menu-map
     :prefix "f"
     "=" #'ediff-files)
+  :hook
+  ( after-enable-theme . mo-ediff-configure-theme)
   :init
   ;; Ignore space changes
   (setq ediff-diff-options "-b")
   :config
+  (defun mo-ediff-configure-theme ()
+    "Set ace-window theme configuration."
+    (set-face-attribute 'ediff-even-diff-A nil :inherit nil :background "DarkSlateGray"))
   ;; Open ediff window in the current frame
   (setq ediff-window-setup-function #'ediff-setup-windows-plain)
   ;; Set ediff to show diff changes in character-level
