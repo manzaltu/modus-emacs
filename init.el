@@ -2624,6 +2624,9 @@ When a prefix ARG is given always prompt for a command to use."
     :prefix "b"
     "=" #'ediff-buffers)
   ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "+" #'ediff-regions-linewise)
+  ( :keymaps 'mo-quick-menu-map
     :prefix "f"
     "=" #'ediff-files)
   :hook
