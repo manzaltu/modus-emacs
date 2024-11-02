@@ -924,7 +924,10 @@ If universal ARG is set, exclude the pattern."
 
 ;; Init expand-region for expanding the selected region by semantic units
 (use-package expand-region
-  :bind ( "C-=" . er/expand-region))
+  :general
+  ( :keymaps 'override
+    "C-M-<return>" #'er/expand-region
+    "C-M-<escape>" #'er/contract-region))
 
 ;; Init evil-numbers for increasing/decreasing number at point
 (use-package evil-numbers
