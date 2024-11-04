@@ -3676,6 +3676,9 @@ run the attached function (if exists) and enable lsp"
     "C-M-s-p" #'gptel-context-previous)
   :custom
   ( gptel-default-mode 'org-mode)
+  ( gptel-response-prefix-alist '( ( markdown-mode . "AI:\n")
+                                   ( org-mode . "AI:\n")
+                                   ( text-mode . "AI:\n")))
   :config
   (add-hook 'gptel-post-response-functions #'gptel-end-of-response))
 
