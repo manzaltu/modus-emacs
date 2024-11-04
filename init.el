@@ -1431,8 +1431,6 @@ Used for preventing recursion when recording new jumps.")
     (setq visual-fill-column-center-text t)
     (visual-fill-column-mode 1)
     (visual-line-mode 1)
-    ;; Present images
-    (org-display-inline-images)
     ;; Make slides not modifiable
     (org-present-read-only)
     ;; Create a space at the beginning of the slide
@@ -1451,7 +1449,6 @@ Used for preventing recursion when recording new jumps.")
     (setq line-spacing nil)
     (setq header-line-format nil)
     (org-present-read-write)
-    (org-remove-inline-images)
     (visual-line-mode 0)
     (visual-fill-column-mode 0)
     (setq visual-fill-column-center-text nil)
