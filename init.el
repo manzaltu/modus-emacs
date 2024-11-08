@@ -3680,6 +3680,12 @@ run the attached function (if exists) and enable lsp"
                                    ( org-mode . "AI:\n")
                                    ( text-mode . "AI:\n")))
   :config
+
+  (add-to-list 'gptel-directives
+               '( reviewer . "You are a large language model and a careful programmer. \
+Your purpose is to help review and improve code. \
+Provide code changes as GNU diff format, followed by brief explanations for each change.")
+               t)
   (add-hook 'gptel-post-response-functions #'gptel-end-of-response))
 
 ;; Init elysium for applying AI generated code changes
