@@ -4631,6 +4631,12 @@ If project root cannot be found, use the buffer's default directory."
   :config
   (setq tramp-persistency-file-name (mo-cache-path "tramp")))
 
+;; Init tramp-gvfs for gvfs support in tramp
+(use-package tramp-gvfs
+  :straight nil
+  :config
+  (setq tramp-gvfs-enabled t))
+
 ;; Load customization file
 (when (file-exists-p custom-file)
   (load custom-file))
