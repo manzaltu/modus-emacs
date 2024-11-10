@@ -2041,7 +2041,7 @@ directory as a fall back."
   ;; Minibuffer history
   ( :keymaps 'minibuffer-local-map
     "C-S-p" #'mo-consult-toggle-preview
-    "C-<return>" #'mo-consult-preview
+    "C-<menu>" #'mo-consult-preview
     "M-s" #'consult-history                 ;; orig. next-matching-history-element
     "M-r" #'consult-history                 ;; orig. previous-matching-history-element
     "C-r" #'consult-history)                ;; orig. isearch-backward
