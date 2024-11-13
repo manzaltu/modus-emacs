@@ -1139,6 +1139,9 @@ Used for preventing recursion when recording new jumps.")
   ( :keymaps 'org-mode-map
     "C-<return>" #'org-meta-return
     "<tab>" #'org-cycle)
+  ( :keymaps 'org-mode-map
+    :states '( normal insert emacs)
+    "M-<return>" #'org-insert-heading-respect-content)
   :hook
   ( after-enable-theme . mo-org-configure-theme)
   (org-mode . visual-line-mode)
