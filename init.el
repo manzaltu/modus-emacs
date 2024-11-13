@@ -1137,9 +1137,7 @@ Used for preventing recursion when recording new jumps.")
     "c" #'org-capture
     "s" #'org-store-link)
   ( :keymaps 'org-mode-map
-    "C-<return>" #'org-meta-return)
-  ( :keymaps 'org-mode-map
-    :states 'normal
+    "C-<return>" #'org-meta-return
     "<tab>" #'org-cycle)
   :hook
   ( after-enable-theme . mo-org-configure-theme)
