@@ -1121,6 +1121,7 @@ Used for preventing recursion when recording new jumps.")
     "C-M-s-s" #'org-schedule
     "C-M-s-d" #'org-deadline
     "C-M-s-t" #'org-todo
+    "C-M-s-h" #'org-toggle-heading
     "C-M-s-S-t" #'org-time-stamp
     "C-M-s-g" #'org-set-tags-command
     "C-M-s-i" #'org-insert-structure-template
