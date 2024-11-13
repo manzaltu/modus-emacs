@@ -1393,7 +1393,7 @@ Used for preventing recursion when recording new jumps.")
   ( org-modern-table nil)
   ( org-modern-star 'replace)
   ( org-modern-replace-stars '( "●" "◍" "◉" "◎" "◌"))
-  ( org-modern-list '( ( ?+ . "▸") ( ?- . "▹") ( ?* . "◦")))
+  ( org-modern-list '( ( ?- . "▸") ( ?+ . "▹") ( ?* . "◦")))
   ( org-modern-hide-stars nil)
   :config
   (global-org-modern-mode))
