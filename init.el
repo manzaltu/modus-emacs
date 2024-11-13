@@ -1180,6 +1180,7 @@ Used for preventing recursion when recording new jumps.")
   ;; by default (e.g. drawers)
   (setq org-startup-folded 'showall)
   (setq org-blank-before-new-entry '( ( heading . nil) ( plain-list-item . nil)))
+  (setq org-M-RET-may-split-line '( ( default . nil)))
   (setq org-ellipsis " ▼")
   (setq org-cycle-level-faces nil)
   ;; This is needed per org-present-hide-stars-in-headings' documentation
