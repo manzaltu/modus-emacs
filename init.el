@@ -826,6 +826,13 @@ If universal ARG is set, exclude the pattern."
 (use-package evil-org
   :after org
   :functions evil-org-agenda-set-keys
+  :general
+  ( :definer 'minor-mode
+    :keymaps 'evil-org-mode
+    :states 'normal
+    ;; Remove evil org insert heading bindings
+    "C-<return>" nil
+    "C-S-<return>" nil)
   :hook
   ( org-mode . evil-org-mode)
   ( org-agenda-mode . evil-org-mode)
