@@ -4600,6 +4600,7 @@ If project root cannot be found, use the buffer's default directory."
     "RET" #'bookmark-bmenu-list
     "SPC" #'bmkp-bookmark-set-confirm-overwrite
     "d" #'bmkp-delete-bookmarks
+    "e" #'bmkp-edit-bookmark-name-and-location
     "a" #'bookmark-show-annotation
     "A" #'bookmark-edit-annotation))
 
