@@ -4599,6 +4599,7 @@ If project root cannot be found, use the buffer's default directory."
     :prefix "<insert>"
     "RET" #'bookmark-bmenu-list
     "SPC" #'bmkp-bookmark-set-confirm-overwrite
+    "f" #'bmkp-file-target-set
     "d" #'bmkp-delete-bookmarks
     "e" #'bmkp-edit-bookmark-name-and-location
     "E" #'bmkp-edit-bookmark-record
