@@ -658,6 +658,7 @@ Tab is named after the project's name."
 
   (defvar-local mo-predefined-commands nil
     "An alist containing command names and their respective command lines.")
+  (put 'mo-predefined-commands 'safe-local-variable #'listp)
 
   (defun mo-execute-predefined-command ()
     "Select and execute a predefined command."
