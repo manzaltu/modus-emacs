@@ -1387,6 +1387,9 @@ Used for preventing recursion when recording new jumps.")
   :config
   (consult-org-roam-mode))
 
+;; Init org-ql for advanced org search functionality
+(use-package org-ql)
+
 ;; Init org-modern for a modern org buffer style
 (use-package org-modern
   :functions global-org-modern-mode
