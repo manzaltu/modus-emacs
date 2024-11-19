@@ -569,14 +569,6 @@ the user to input the run command."
     (unless (eq ibuffer-sorting-mode 'project-file-relative)
       (ibuffer-do-sort-by-project-file-relative))))
 
-;; Init bufler for an improved ibuffer
-(use-package bufler
-  :general
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "b"
-    "RET" #'bufler
-    "SPC" #'bufler-switch-buffer))
-
 ;; Init repeat for repeating previous commands
 (use-package repeat
   :straight nil
