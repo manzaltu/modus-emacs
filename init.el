@@ -550,7 +550,18 @@ the user to input the run command."
     "i" #'ibuffer))
 
 ;; Init ibuffer-project for grouping buffers per project in ibuffer
-(use-package ibuffer-project)
+(use-package ibuffer-project
+  :functions ( ibuffer-project-generate-filter-groups
+               ibuffer-do-sort-by-project-file-relative)
+  :defines ( ibuffer-filter-groups ibuffer-sorting-mode)
+  :hook
+  ( ibuffer . mo-ibuffer-project-init)
+  :config
+  (defun mo-ibuffer-project-init ()
+    "Init ibuffer-project."
+    (setq ibuffer-filter-groups (ibuffer-project-generate-filter-groups))
+    (unless (eq ibuffer-sorting-mode 'project-file-relative)
+      (ibuffer-do-sort-by-project-file-relative))))
 
 ;; Init bufler for an improved ibuffer
 (use-package bufler
