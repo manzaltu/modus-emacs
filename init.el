@@ -547,7 +547,13 @@ the user to input the run command."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "i" #'ibuffer))
+    "i" #'ibuffer)
+  :custom
+  ( ibuffer-formats '((mark modified read-only locked
+                            " " (name 50 50 :left :elide)
+				            " " (size 9 -1 :right)
+				            " " (mode 16 16 :left :elide) " " filename-and-process)
+			          (mark " " (name 16 -1) " " filename))))
 
 ;; Init ibuffer-project for grouping buffers per project in ibuffer
 (use-package ibuffer-project
