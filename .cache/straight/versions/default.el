@@ -63,6 +63,7 @@
  ("emacs-bookmark-in-project" . "369161f257921747c3b540eac7bc8eb4aa8186b9")
  ("emacs-deferred" . "2239671d94b38d92e9b28d4e12fd79814cfb9c16")
  ("emacs-emojify" . "1b726412f19896abf5e4857d4c32220e33400b55")
+ ("emacs-ibuffer-project" . "9002abd9cb4c8753fe4f6c522d9407b4d52e7873")
  ("emacs-kv" . "721148475bce38a70e0b678ba8aa923652e8900e")
  ("emacs-libvterm" . "988279316fc89e6d78947b48513f248597ba969a")
  ("emacs-load-env-vars" . "3808520efaf9492033f6e11a9bffd68eabf02a0f")
