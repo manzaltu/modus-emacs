@@ -549,6 +549,9 @@ the user to input the run command."
     :prefix "b"
     "i" #'ibuffer))
 
+;; Init ibuffer-project for grouping buffers per project in ibuffer
+(use-package ibuffer-project)
+
 ;; Init bufler for an improved ibuffer
 (use-package bufler
   :general
