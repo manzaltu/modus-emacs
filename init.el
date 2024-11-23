@@ -3015,6 +3015,7 @@ run the attached function (if exists) and enable lsp"
     "'" #'lsp-ui-doc-focus-frame)
   :config
   ;; Do not show documentation automatically
+  (setq lsp-ui-doc-position 'at-point)
   (setq lsp-ui-doc-show-with-mouse nil)
   (setq lsp-ui-doc-max-height 60)
   ;; Show only symbols in headerline breadcrumb
