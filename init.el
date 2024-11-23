@@ -4382,9 +4382,6 @@ If project root cannot be found, use the buffer's default directory."
            "\\*ielm\\*"
            "^\\*HTTP Response .*\\*$"
            "^\\*.* Annotation\\*$"
-           help-mode
-           lsp-help-mode
-           helpful-mode
            "\\*sly-description\\*"
            world-clock-mode
            compilation-mode
