@@ -3596,7 +3596,9 @@ run the attached function (if exists) and enable lsp"
     (let ((window (get-buffer-window "*Messages*")))
       (if window
           (quit-window nil window)
-        (view-echo-area-messages)))))
+        (view-echo-area-messages))))
+  ;; Always select help windows
+  (setq help-window-select t))
 
 ;; Init info for browsing documentation
 (use-package info
