@@ -2624,6 +2624,13 @@ When a prefix ARG is given always prompt for a command to use."
   :custom
   ( forge-database-file (mo-cache-path "forge-database.sqlite")))
 
+;; Init ghub for working with various git forges
+(use-package ghub
+  :defines ghub-graphql-items-per-request
+  :config
+  ;; Lower per request item limit to avoid hitting service rate limits
+  (setq ghub-graphql-items-per-request 20))
+
 ;; Init github-review for helping with code review on github
 (use-package github-review
   :general
