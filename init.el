@@ -2525,8 +2525,8 @@ When a prefix ARG is given always prompt for a command to use."
   (setq-default proced-filter 'all)
   (setq proced-enable-color-flag t)
   (add-to-list 'proced-format-alist '( custom start etime time utime
-                                       stime pcpu vsize thcount pri
-                                       nice group user pid ppid picpu
+                                       stime vsize thcount pri nice
+                                       group user pid ppid pcpu picpu
                                        pmem rss state (args comm)))
   (setq-default proced-format 'custom))
 
