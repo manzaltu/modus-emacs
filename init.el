@@ -3033,7 +3033,7 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
-    "t" #'lsp-treemacs-call-hierarchy
+    "'" #'lsp-treemacs-call-hierarchy
     "T" #'lsp-treemacs-type-hierarchy
     "i" #'lsp-treemacs-symbols)
   :config
