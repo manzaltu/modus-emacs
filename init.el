@@ -3034,6 +3034,7 @@ run the attached function (if exists) and enable lsp"
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
     "'" #'lsp-treemacs-call-hierarchy
+    "\"" #'mo-lsp-treemacs-outgoing-call-hierarchy
     "T" #'lsp-treemacs-type-hierarchy
     "i" #'lsp-treemacs-symbols)
   :config
