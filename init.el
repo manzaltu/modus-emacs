@@ -3035,7 +3035,7 @@ run the attached function (if exists) and enable lsp"
     :prefix "c"
     "'" #'lsp-treemacs-call-hierarchy
     "\"" #'mo-lsp-treemacs-outgoing-call-hierarchy
-    "T" #'lsp-treemacs-type-hierarchy
+    "t" #'lsp-treemacs-type-hierarchy
     "i" #'lsp-treemacs-symbols)
   :config
   (defun mo-lsp-treemacs-outgoing-call-hierarchy ()
