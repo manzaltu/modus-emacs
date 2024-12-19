@@ -3019,7 +3019,7 @@ run the attached function (if exists) and enable lsp"
     :prefix "c"
     "I" #'lsp-ui-imenu
     "d" #'lsp-ui-doc-glance
-    "'" #'lsp-ui-doc-focus-frame)
+    ";" #'lsp-ui-doc-focus-frame)
   :config
   ;; Do not show documentation automatically
   (setq lsp-ui-doc-position 'at-point)
