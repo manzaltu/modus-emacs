@@ -3880,7 +3880,7 @@ Provide code changes as GNU diff format, followed by brief explanations for each
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
-    "w" #'eww)
+    "w" #'mo-eww-new-buffer)
   :config
   (defun mo-eww-new-buffer ()
     "Open URL in a new buffer."
