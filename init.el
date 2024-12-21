@@ -3882,6 +3882,12 @@ Provide code changes as GNU diff format, followed by brief explanations for each
     :prefix "x"
     "w" #'eww)
   :config
+  (defun mo-eww-new-buffer ()
+    "Open URL in a new buffer."
+    (interactive)
+    (let ((current-prefix-arg '( 4)))
+      (call-interactively #'eww)))
+
   (setq eww-search-prefix "https://www.google.com/search?q="))
 
 ;; Init erc for accessing IRC through Emacs
