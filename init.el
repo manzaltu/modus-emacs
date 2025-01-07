@@ -4357,7 +4357,7 @@ If project root cannot be found, use the buffer's default directory."
     "M-`" #'popper-cycle
     "C-M-`" #'popper-cycle-backwards
     "M-~" #'popper-toggle-type
-    "C-~" #'mo-popper-toggle-window-height)
+    "C-~" #'mo-popper-change-window-height)
   :init
   (defvar mo-popper-exclude-grouping '( "*Messages*" "*Warnings*" "*scratch*")
     "Buffer names to exclude from popper grouping.")
@@ -4377,20 +4377,22 @@ If project root cannot be found, use the buffer's default directory."
           (or tab-name
               (alist-get 'name (tab-bar--current-tab)))))))
 
-  (defvar mo-popper-window-height-high 0.6
-    "High popper window height.")
+  (defvar mo-popper-window-heights '( 0.2 0.33 0.5 0.66)
+    "Popper window heights.")
 
-  (defvar mo-popper-window-height-low 0.3
-    "High popper window height.")
+  (defvar mo-popper-current-window-height-idx 1
+    "An index into `mo-popper-window-heights' selecting the current popper window height.")
 
-  (defun mo-popper-toggle-window-height ()
+  (defun mo-popper-change-window-height ()
     "Toggle between lower and higher popup window heights."
     (interactive)
     (when popper-open-popup-alist
+      (setq mo-popper-current-window-height-idx
+            (mod (1+ mo-popper-current-window-height-idx)
+                 (length mo-popper-window-heights)))
       (setq popper-window-height
-            (if (eql popper-window-height mo-popper-window-height-high)
-                mo-popper-window-height-low
-              mo-popper-window-height-high))
+            (nth mo-popper-current-window-height-idx
+                 mo-popper-window-heights))
       ;; Refresh popup
       (popper-toggle)
       (popper-toggle)))
@@ -4423,7 +4425,8 @@ If project root cannot be found, use the buffer's default directory."
            "^\\*term.*\\*$" term-mode
            "^\\*vterm.*\\*.*$" vterm-mode))
   ;; Set fractional height
-  (setq popper-window-height mo-popper-window-height-low)
+  (setq popper-window-height (nth mo-popper-current-window-height-idx
+                                  mo-popper-window-heights))
   ;; Group popups by tabs
   (setq popper-group-function #'mo-popper-group-by-tab)
   (popper-mode +1)
