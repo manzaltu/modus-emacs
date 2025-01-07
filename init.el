@@ -4383,12 +4383,12 @@ If project root cannot be found, use the buffer's default directory."
   (defvar mo-popper-current-window-height-idx 1
     "An index into `mo-popper-window-heights' selecting the current popper window height.")
 
-  (defun mo-popper-change-window-height ()
+  (defun mo-popper-change-window-height (arg)
     "Toggle between lower and higher popup window heights."
-    (interactive)
+    (interactive "P")
     (when popper-open-popup-alist
       (setq mo-popper-current-window-height-idx
-            (mod (1+ mo-popper-current-window-height-idx)
+            (mod (funcall (if arg '1- '1+) mo-popper-current-window-height-idx)
                  (length mo-popper-window-heights)))
       (setq popper-window-height
             (nth mo-popper-current-window-height-idx
