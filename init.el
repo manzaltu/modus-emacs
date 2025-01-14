@@ -310,6 +310,9 @@ Briefly highlight previous location."
   (setq undo-limit 33554432)
   (setq undo-strong-limit 50331648)
   (setq undo-outer-limit 134217728)
+  ;; Bind super keys in Windows
+  (setq w32-lwindow-modifier 'super)
+  (setq w32-rwindow-modifier 'super)
   ;; Enable scrolling left
   (put 'scroll-left 'disabled nil)
   ;; Remove vc info from modeline
