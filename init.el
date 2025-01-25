@@ -3343,7 +3343,8 @@ run the attached function (if exists) and enable lsp"
     "c C" #'rustic-compile)
   :config
   ;; Add mode to markdown code block highlighting (needed for docs)
-  (add-to-list 'markdown-code-lang-modes '( "rust" . rustic-mode)))
+  (add-to-list 'markdown-code-lang-modes '( "rust" . rustic-mode))
+  (setq rustic-compile-directory-method #'rustic-buffer-workspace))
 
 ;; Init swift-mode for Swift support
 (use-package swift-mode)
