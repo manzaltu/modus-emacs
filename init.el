@@ -3740,6 +3740,9 @@ Provide code changes as GNU diff format, followed by brief explanations for each
                t)
   (add-hook 'gptel-post-response-functions #'gptel-end-of-response))
 
+;; Init elysium for applying AI generated changes
+(use-package elysium)
+
 ;; Init copilot for copilot support in Emacs
 (use-package copilot
   :general
