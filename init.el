@@ -3741,7 +3741,11 @@ Provide code changes as GNU diff format, followed by brief explanations for each
   (add-hook 'gptel-post-response-functions #'gptel-end-of-response))
 
 ;; Init elysium for applying AI generated changes
-(use-package elysium)
+(use-package elysium
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "c"
+    "<backtab>" #'elysium-query))
 
 ;; Init copilot for copilot support in Emacs
 (use-package copilot
