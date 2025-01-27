@@ -54,6 +54,7 @@
  ("el-get" . "c5ab1b334e6d0e1afcfc203fe460faed10c3e1ae")
  ("eldoc" . "607cb786411471aff2e22232695e714a0ae4825d")
  ("elisp-refs" . "541a064c3ce27867872cf708354a65d83baf2a6d")
+ ("elysium" . "98476a2b7165dc31a9e25c4528db70efecf57f1e")
  ("emacs-aio" . "da93523e235529fa97d6f251319d9e1d6fc24a41")
  ("emacs-async" . "b99658e831bc7e7d20ed4bb0a85bdb5c7dd74142")
  ("emacs-bash-completion" . "a4c8fbc90221b01d5376ad068d3640350d9130a8")
