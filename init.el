@@ -3751,9 +3751,7 @@ Provide code changes as GNU diff format, followed by brief explanations for each
     "C-n" #'copilot-next-completion)
   :custom
   ( copilot-max-char -1)
-  ( copilot-indent-offset-warning-disable t)
-  :hook
-  ( prog-mode . copilot-mode))
+  ( copilot-indent-offset-warning-disable t))
 
 ;; Init rainbow-delimiters for highlighting parens by their depth
 (use-package rainbow-delimiters
