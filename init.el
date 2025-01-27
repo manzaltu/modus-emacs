@@ -2558,6 +2558,8 @@ When a prefix ARG is given always prompt for a command to use."
 ;; This package is used by magit.
 (use-package git-commit
   :demand t
+  :straight nil
+  :after magit
   :hook
   ( git-commit-setup . mo-git-commit-set-fill-column)
   :config
