@@ -3742,7 +3742,6 @@ Provide code changes as GNU diff format, followed by brief explanations for each
 
 ;; Init copilot for copilot support in Emacs
 (use-package copilot
-  :straight (:host github :repo "copilot-emacs/copilot.el" :files ("dist" "*.el"))
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
