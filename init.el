@@ -1772,6 +1772,8 @@ Used for preventing recursion when recording new jumps.")
   ;; Set auto completion to be more responsive
   ( corfu-auto-delay 0)
   ( corfu-auto-prefix 0)
+  ;; Increase max number of candidates
+  ( corfu-count 20)
   ;; Sort candidates by calling corfu-sort-function on top of display-sort-function
   ( corfu-sort-override-function #'mo-corfu-combined-sort)
   :hook
