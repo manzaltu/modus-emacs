@@ -1491,6 +1491,9 @@ Used for preventing recursion when recording new jumps.")
   ;; Enable heading stars
   (setq org-present-hide-stars-in-headings nil))
 
+;; Init dslide for creating presentations in Emacs
+(use-package dslide)
+
 ;; Init org-download for downloading and embedding images in org mode
 (use-package org-download)
 
