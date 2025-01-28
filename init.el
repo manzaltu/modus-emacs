@@ -1494,6 +1494,10 @@ Used for preventing recursion when recording new jumps.")
 ;; Init dslide for creating presentations in Emacs
 (use-package dslide
   :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "n"
+    "RET" #'dslide-deck-present
+    "SPC" #'dslide-deck-start)
   ( :keymaps 'dslide-mode-map
     "C-M-s-j" #'dslide-deck-forward
     "C-M-s-k" #'dslide-deck-backward
