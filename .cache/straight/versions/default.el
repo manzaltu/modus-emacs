@@ -46,6 +46,7 @@
  ("dired-rsync" . "5bcb851f3bf9c4f7c07299fcc25be7c408a68cda")
  ("docker.el" . "46b597a711492e1c19d1260951f39372450278f5")
  ("dockerfile-mode" . "4d893bd2da15833ce056332e6c972d5d93e78f04")
+ ("dslide" . "be47f2dcb939779067f8c77c3493162bcf242b83")
  ("dtrt-indent" . "ad5e58858c14a99b6fa1c4b655cd07f5d91e54f0")
  ("dumb-jump" . "cd65a743370ac7b1a12e9ef0a7371b285a2597fb")
  ("eat" . "3a6f418f55d183b9d86f99c140caed4ba3d44f93")
