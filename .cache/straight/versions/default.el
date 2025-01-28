@@ -165,7 +165,6 @@
  ("org-modern" . "ae0d91fa16f0e72df50633d0941242eecd78721b")
  ("org-modern-indent" . "52b46c6ecd63e627ab5bfb83c580b51f68a23774")
  ("org-pomodoro" . "3f5bcfb80d61556d35fc29e5ddb09750df962cc6")
- ("org-present" . "4ec04e1b77dea76d7c30066ccf3200d2e0b7bee9")
  ("org-ql" . "98c62ab0a6c084ae4132110e24d9fe1ace91d363")
  ("org-remark" . "01d1c1dd40347cfd8a0f3f9e2c769042055c0abf")
  ("org-roam" . "425d53d56d0d338c781741df87824b1bfe7f88bc")
