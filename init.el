@@ -1215,6 +1215,8 @@ Used for preventing recursion when recording new jumps.")
   (setq org-todo-keywords
         '( ( sequence "TODO" "NEXT" "PROG" "HOLD" "|" "DONE" "DONT" "FAIL")))
   (setq org-log-done t)
+  (setq org-clock-persist t)
+  (org-clock-persistence-insinuate)
   (setq org-id-locations-file (mo-cache-path ".org-id-locations"))
   (setq org-src-preserve-indentation nil)
   (setq org-export-preserve-breaks t)
