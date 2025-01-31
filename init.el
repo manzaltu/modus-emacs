@@ -701,40 +701,6 @@ Tab is named after the project's name."
                     nil t))))
     t)
 
-  (defun mo-show-welcome-screen ()
-    "Show welcome screen."
-    (with-current-buffer (get-buffer-create "*Welcome*")
-      (setq truncate-lines t)
-      (let* ((buffer-read-only)
-             (image-path (expand-file-name "emacs.png" user-emacs-directory))
-             (image (create-image image-path))
-             (size (image-size image))
-             (height (cdr size))
-             (width (car size))
-             (top-margin (floor (/ (- (window-height) height) 2)))
-             (left-margin (floor (/ (- (window-width) width) 2)))
-             (title "Welcome to Modus Operandi Emacs!")
-             (subtitle "In Absentia Lucis, Tenebrae Vincunt."))
-        (setq mode-line-format nil)
-        (goto-char (point-min))
-        (insert (make-string top-margin ?\n ))
-        (insert (make-string left-margin ?\ ))
-        (insert-image image)
-        (insert "\n\n\n")
-        (insert (make-string (floor (/ (- (window-width) (string-width title)) 2)) ?\ ))
-        (insert (propertize title 'face 'bold))
-        (insert "\n")
-        (insert (make-string (floor (/ (- (window-width) (string-width subtitle)) 2)) ?\ ))
-        (insert (propertize subtitle 'face 'font-lock-comment-face))
-        (goto-char (point-min)))
-      (switch-to-buffer (current-buffer))
-      (read-only-mode +1)))
-
-  (defun mo-show-welcome-screen-graphic-mode ()
-    "Show welcome screen only on graphic mode."
-    (when (display-graphic-p)
-      (mo-show-welcome-screen)))
-
   (defvar mo-minibuffer-file-excl-pattern '( ".*?" . ".*?:[[:digit:]]+:")
     "Minibuffer file exclusion pattern.")
 
@@ -793,9 +759,6 @@ If universal ARG is set, exclude the pattern."
                                   (last (default-value 'mode-line-format) 2)))
 
   :config
-  (when (< (length command-line-args) 2)
-    (add-hook 'emacs-startup-hook #'mo-show-welcome-screen-graphic-mode))
-
   ;; When killing a modified buffer, show the changes
   (add-to-list 'kill-buffer-query-functions #'mo-show-modified-buffer-changes t))
 
