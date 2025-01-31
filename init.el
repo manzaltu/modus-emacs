@@ -1258,7 +1258,11 @@ Used for preventing recursion when recording new jumps.")
         (append org-agenda-category-icon-alist
                 '( ( "Diary" ("📆‍") nil nil :ascent center)
                    ( ".+" ("☑️‍") nil nil :ascent center)
-                   ( "" ("  ") nil nil :ascent center)))))
+                   ( "" ("  ") nil nil :ascent center))))
+
+  :hook
+  ;; Show agenda on startup
+  ( emacs-startup . mo-org-agenda-and-todo))
 
 ;; Init org-contrib for org add-ons
 (use-package org-contrib)
@@ -2300,7 +2304,7 @@ Used while preview is toggled off."
   ;; Init tab-bar for supporting multiple window layouts in frame
   (tab-bar-mode)
   ;; Set initial tab name
-  (tab-bar-rename-tab "Initial"))
+  (tab-bar-rename-tab "Agenda"))
 
 ;; Init dired for file management
 (use-package dired
