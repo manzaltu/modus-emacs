@@ -1242,6 +1242,16 @@ Used for preventing recursion when recording new jumps.")
     (interactive)
     (org-agenda nil "n"))
 
+  (defvar mo-org-agenda-auto-save-agenda-interval 30
+    "Interval in seconds for auto-saving opened agenda files.")
+
+  (defun mo-org-agenda-save-agenda ()
+    "Save all currently opened agenda files."
+    (dolist (file (org-agenda-files))
+      (when-let ((buffer (find-buffer-visiting file)))
+        (with-current-buffer buffer
+          (save-buffer)))))
+
   (setq org-agenda-files `( ,org-directory))
   (setq org-agenda-window-setup 'current-window)
   (setq org-agenda-include-diary t)
@@ -1259,6 +1269,9 @@ Used for preventing recursion when recording new jumps.")
                 '( ( "Diary" ("📆‍") nil nil :ascent center)
                    ( ".+" ("☑️‍") nil nil :ascent center)
                    ( "" ("  ") nil nil :ascent center))))
+
+  ;; Auto-save agenda files
+  (run-with-timer 0 mo-org-agenda-auto-save-agenda-interval #'mo-org-agenda-save-agenda)
 
   :hook
   ;; Show agenda on startup
