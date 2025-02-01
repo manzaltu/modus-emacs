@@ -1222,6 +1222,8 @@ Used for preventing recursion when recording new jumps.")
   ( :keymaps 'mo-quick-menu-map
     :prefix "n"
     "a" #'mo-org-agenda-and-todo)
+  ( :keymaps 'mo-quick-menu-map
+    "-" #'mo-org-agenda-and-todo)
   ;; Close any loaded org buffer when exiting the agenda buffer
   ( :keymaps 'org-agenda-mode-map
     "q" #'org-agenda-exit)
