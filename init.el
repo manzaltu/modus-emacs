@@ -1149,6 +1149,13 @@ Used for preventing recursion when recording new jumps.")
     (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
     ;; Set link style without changing foreground color
     (set-face-attribute 'org-link nil :inherit nil :foreground 'unspecified :underline t :slant 'italic))
+  (defun mo-org-clock-toggle ()
+    "If not clocked, ask to start a recent clocks from list. If clocked, clock out."
+    (interactive)
+    (if org-clock-current-task
+        (call-interactively #'org-clock-out)
+      (let ((current-prefix-arg '( 4)))
+        (call-interactively #'org-clock-in-last))))
   ;; Visually indent text under bullets
   (setq org-startup-indented t)
   ;; Allow resizing inline images
