@@ -1115,6 +1115,9 @@ Used for preventing recursion when recording new jumps.")
     :prefix "n"
     "c" #'org-capture
     "s" #'org-store-link)
+  ( :keymaps 'override
+    "<f12>" #'mo-org-clock-toggle
+    "C-<f12>" #'org-clock-cancel)
   ( :keymaps 'org-mode-map
     "C-<return>" #'org-meta-return
     "<tab>" #'org-cycle)
