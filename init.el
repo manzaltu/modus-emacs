@@ -443,7 +443,7 @@ Briefly highlight previous location."
   :straight nil
   :general
   ( :keymaps 'override
-    "C-<f12>" #'mo-toggle-scratch-buffer)
+    "C-<f10>" #'mo-toggle-scratch-buffer)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "t" #'toggle-truncate-lines
