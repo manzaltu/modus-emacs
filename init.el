@@ -1151,7 +1151,9 @@ Used for preventing recursion when recording new jumps.")
     (set-face-attribute 'org-meta-line nil :inherit '( font-lock-comment-face fixed-pitch))
     (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
     ;; Set link style without changing foreground color
-    (set-face-attribute 'org-link nil :inherit nil :foreground 'unspecified :underline t :slant 'italic))
+    (set-face-attribute 'org-link nil :inherit nil :foreground 'unspecified :underline t :slant 'italic)
+    ;; Emphasis org clock status
+    (copy-face 'org-clock-overlay 'org-mode-line-clock))
   (defun mo-org-clock-toggle ()
     "If not clocked, ask to start a recent clocks from list. If clocked, clock out."
     (interactive)
