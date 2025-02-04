@@ -1127,6 +1127,10 @@ Used for preventing recursion when recording new jumps.")
   :hook
   ( after-enable-theme . mo-org-configure-theme)
   (org-mode . visual-line-mode)
+  ;; Redraw global string on clock state change
+  ( org-clock-in . redraw-display)
+  ( org-clock-out . redraw-display)
+  ( org-clock-cancel . redraw-display)
   :config
   (defun mo-org-configure-theme ()
     "Set org theme configuration."
