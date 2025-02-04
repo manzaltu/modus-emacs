@@ -3668,10 +3668,10 @@ run the attached function (if exists) and enable lsp"
     "<backtab>" #'gptel-send)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "g" #'gptel-add)
+    "TAB" #'gptel-add)
   ( :keymaps 'mo-quick-menu-map
     :prefix "f"
-    "g" #'gptel-add-file)
+    "TAB" #'gptel-add-file)
   ( :keymaps 'gptel-mode-map
     "C-<return>" #'gptel-send
     "C-<escape>" #'gptel-menu)
