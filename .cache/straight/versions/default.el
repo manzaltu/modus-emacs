@@ -163,7 +163,6 @@
  ("org-download" . "c8be2611786d1d8d666b7b4f73582de1093f25ac")
  ("org-journal" . "17b34ce8df9649a73b715c13698220bde1628668")
  ("org-modern" . "ae0d91fa16f0e72df50633d0941242eecd78721b")
- ("org-modern-indent" . "52b46c6ecd63e627ab5bfb83c580b51f68a23774")
  ("org-pomodoro" . "3f5bcfb80d61556d35fc29e5ddb09750df962cc6")
  ("org-ql" . "98c62ab0a6c084ae4132110e24d9fe1ace91d363")
  ("org-remark" . "01d1c1dd40347cfd8a0f3f9e2c769042055c0abf")
