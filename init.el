@@ -1116,8 +1116,7 @@ Used for preventing recursion when recording new jumps.")
     "c" #'org-capture
     "s" #'org-store-link)
   ( :keymaps 'override
-    "C-<f12>" #'org-clock-cancel
-    "M-<f12>" #'org-clock-goto)
+    "C-<f12>" #'org-clock-cancel)
   ( :keymaps 'org-mode-map
     "C-<return>" #'org-meta-return
     "<tab>" #'org-cycle)
@@ -1430,7 +1429,8 @@ Used for preventing recursion when recording new jumps.")
   :commands ( org-mru-clock-in)
   :general
   ( :keymaps 'override
-    "<f12>" #'mo-org-clock-toggle)
+    "<f12>" #'mo-org-clock-toggle
+    "M-<f12>" #'org-mru-clock-goto)
   :config
   (defun mo-org-clock-toggle ()
     "If not clocked, ask to start a recent clocks from list. If clocked, clock out."
