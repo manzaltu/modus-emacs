@@ -1439,7 +1439,9 @@ Used for preventing recursion when recording new jumps.")
     (if org-clock-current-task
         (call-interactively #'org-clock-out)
       (let ((current-prefix-arg '( 4)))
-        (call-interactively #'org-mru-clock-in)))))
+        (call-interactively #'org-mru-clock-in))))
+
+  (setq org-mru-clock-files #'org-agenda-files))
 
 ;; Init org-pomodoro for using the Pomodoro technique with org mode
 (use-package org-pomodoro
