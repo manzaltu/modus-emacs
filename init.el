@@ -1116,7 +1116,6 @@ Used for preventing recursion when recording new jumps.")
     "c" #'org-capture
     "s" #'org-store-link)
   ( :keymaps 'override
-    "<f12>" #'mo-org-clock-toggle
     "C-<f12>" #'org-clock-cancel
     "M-<f12>" #'org-clock-goto)
   ( :keymaps 'org-mode-map
@@ -1159,13 +1158,6 @@ Used for preventing recursion when recording new jumps.")
     (set-face-attribute 'org-link nil :inherit nil :foreground 'unspecified :underline t :slant 'italic)
     ;; Emphasis org clock status
     (copy-face 'org-clock-overlay 'org-mode-line-clock))
-  (defun mo-org-clock-toggle ()
-    "If not clocked, ask to start a recent clocks from list. If clocked, clock out."
-    (interactive)
-    (if org-clock-current-task
-        (call-interactively #'org-clock-out)
-      (let ((current-prefix-arg '( 4)))
-        (call-interactively #'org-clock-in-last))))
   ;; Visually indent text under bullets
   (setq org-startup-indented t)
   ;; Allow resizing inline images
@@ -1431,7 +1423,23 @@ Used for preventing recursion when recording new jumps.")
   (org-remark-global-tracking-mode))
 
 ;; Init org-mru-clock for quick task clock-ins
-(use-package org-mru-clock)
+(use-package org-mru-clock
+  :ensure t
+  :defines ( org-clock-current-task)
+  :functions ( org-clock-out)
+  :commands ( org-mru-clock-in)
+  :general
+  ( :keymaps 'override
+    "<f12>" #'mo-org-clock-toggle)
+  :config
+  (defun mo-org-clock-toggle ()
+    "If not clocked, ask to start a recent clocks from list. If clocked, clock out."
+    (interactive)
+    (require 'org-clock)
+    (if org-clock-current-task
+        (call-interactively #'org-clock-out)
+      (let ((current-prefix-arg '( 4)))
+        (call-interactively #'org-mru-clock-in)))))
 
 ;; Init org-pomodoro for using the Pomodoro technique with org mode
 (use-package org-pomodoro
