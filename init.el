@@ -1441,7 +1441,8 @@ Used for preventing recursion when recording new jumps.")
       (let ((current-prefix-arg '( 4)))
         (call-interactively #'org-mru-clock-in))))
 
-  (setq org-mru-clock-files #'org-agenda-files))
+  (setq org-mru-clock-files #'org-agenda-files)
+  (setq org-mru-clock-predicate #'org-entry-is-todo-p))
 
 ;; Init org-pomodoro for using the Pomodoro technique with org mode
 (use-package org-pomodoro
