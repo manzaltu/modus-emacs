@@ -3064,12 +3064,12 @@ run the attached function (if exists) and enable lsp"
   ( :keymaps 'dape-repl-mode-map
     "C-<return>" #'newline)
   ( :keymaps 'override
-    "<f1>" #'dape-next
-    "<f2>" #'dape-step-in
-    "<f3>" #'dape-step-out
-    "<f4>" #'dape-continue
-    "M-<f4>" #'dape-pause
-    "<f5>" #'dape-breakpoint-toggle)
+    "<f2>" #'dape-next
+    "<f3>" #'dape-step-in
+    "<f4>" #'dape-step-out
+    "<f5>" #'dape-continue
+    "M-<f5>" #'dape-pause
+    "M-<f2>" #'dape-breakpoint-toggle)
   :hook
   ;; Kill compile buffer on build success
   ( dape-compile-compile . kill-buffer)
