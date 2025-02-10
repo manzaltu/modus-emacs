@@ -1430,6 +1430,9 @@ Used for preventing recursion when recording new jumps.")
   :config
   (org-remark-global-tracking-mode))
 
+;; Init org-mru-clock for quick task clock-ins
+(use-package org-mru-clock)
+
 ;; Init org-pomodoro for using the Pomodoro technique with org mode
 (use-package org-pomodoro
   :general
