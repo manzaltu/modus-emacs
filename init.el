@@ -443,7 +443,7 @@ Briefly highlight previous location."
   :straight nil
   :general
   ( :keymaps 'override
-    "C-<f10>" #'mo-toggle-scratch-buffer)
+    "M-<f1>" #'mo-toggle-scratch-buffer)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "t" #'toggle-truncate-lines
@@ -3582,11 +3582,11 @@ run the attached function (if exists) and enable lsp"
 (use-package help
   :straight nil
   :general
-  ( :keymaps 'override
-    "<f10>" #'mo-toggle-messages-buffer)
   ;; Unbind global help menu shortcut binding
   ( :keymaps 'global
     "<f1>" nil)
+  ( :keymaps 'override
+    "<f1>" #'mo-toggle-messages-buffer)
   :config
   (defun mo-toggle-messages-buffer ()
     "Toggle *Messages* buffer."
