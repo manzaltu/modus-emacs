@@ -2788,8 +2788,7 @@ When a prefix ARG is given always prompt for a command to use."
   :config
   ;; Do not auto enable treesit for the following languages
   (setq treesit-auto-langs
-        (cl-set-difference treesit-auto-langs '( rust
-                                                 c
+        (cl-set-difference treesit-auto-langs '( c
                                                  cpp
                                                  c-sharp)))
   (global-treesit-auto-mode))
