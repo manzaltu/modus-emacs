@@ -2944,17 +2944,20 @@ run the attached function (if exists) and enable lsp"
   ;; Move lsp status from global mode string to modeline
   (defun mo-lsp-mode-move-global-string-to-mode-line (func &rest args)
     "Advice function that moves lsp global string modifications to modeline."
-    (make-local-variable 'global-mode-string)
-
     ;; Make sure global-mode-string is a list
     (unless (listp global-mode-string)
       (setq global-mode-string (list global-mode-string)))
 
-    (let ((global-mode-string-before global-mode-string)
-          (global-mode-string (append mo-lsp-mode-mode-line global-mode-string)))
-      (apply func args)
-      (setq mo-lsp-mode-mode-line
-            (cl-set-difference global-mode-string global-mode-string-before :test #'equal))))
+    (setq mo-lsp-mode-mode-line
+          (cl-set-difference
+           (unwind-protect
+               (progn
+                 (setq-local global-mode-string (append mo-lsp-mode-mode-line global-mode-string))
+                 (apply func args)
+                 global-mode-string)
+             (kill-local-variable 'global-mode-string))
+           global-mode-string
+           :test #'equal)))
 
   (advice-add 'lsp-modeline-code-actions-mode :around
               #'mo-lsp-mode-move-global-string-to-mode-line)
