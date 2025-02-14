@@ -2,6 +2,7 @@
  ("Focus" . "29b412b209c3542a7932c201f0166e48c9fd7fee")
  ("a.el" . "93e5ed8c495794d1ba3c04b43041b95ce01079b1")
  ("ace-window" . "77115afc1b0b9f633084cf7479c767988106c196")
+ ("aidermacs" . "d775ffafaa138fa9d25abc27be1af5225362c7bf")
  ("alarm-clock" . "8a805d365aa38be32041c4e968bb624d3bb1b54b")
  ("alert" . "7774b5fd2feb98d4910ff06435d08c19fba93e26")
  ("annalist.el" . "e1ef5dad75fa502d761f70d9ddf1aeb1c423f41d")
