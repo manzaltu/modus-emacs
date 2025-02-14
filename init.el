@@ -3728,8 +3728,8 @@ Provide code changes as GNU diff format, followed by brief explanations for each
 (use-package elysium
   :general
   ( :keymaps 'mo-quick-menu-map
-    :prefix "c"
-    "<backtab>" #'elysium-query))
+    :prefix "TAB"
+    "e" #'elysium-query))
 
 ;; Init copilot for copilot support in Emacs
 (use-package copilot
