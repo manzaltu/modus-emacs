@@ -183,7 +183,7 @@
  ("pip-requirements.el" . "31e0dc62abb2d88fa765e0ea88b919d756cc0e4f")
  ("pipenv.el" . "3af159749824c03f59176aff7f66ddd6a5785a10")
  ("popon" . "bf8174cb7e6e8fe0fe91afe6b01b6562c4dc39da")
- ("popper" . "faf155059e519fb036324af579c342365795dbbb")
+ ("popper" . "c0dced3cdff15d3ebfc56a52d7616b390255eb76")
  ("popup-el" . "7a05700a37aae66d2b24f0cd8851f65383a5cf96")
  ("posframe" . "81651536827c96bf5af5265ee7918ab70e1dd5b1")
  ("powershell.el" . "38727f1cdaf0c937a62b68ee52ec7196b8149f93")
