@@ -4418,6 +4418,8 @@ If project root cannot be found, use the buffer's default directory."
                                   mo-popper-window-heights))
   ;; Group popups by tabs
   (setq popper-group-function #'mo-popper-group-by-tab)
+  ;; Set 1 based dispatch keys
+  (setq popper-echo-dispatch-keys '( "M-1" "M-2" "M-3" "M-4" "M-5" "M-6" "M-7" "M-8" "M-9"))
   (popper-mode +1)
   (popper-tab-line-mode +1))
 
