@@ -4419,7 +4419,7 @@ If project root cannot be found, use the buffer's default directory."
   ;; Group popups by tabs
   (setq popper-group-function #'mo-popper-group-by-tab)
   (popper-mode +1)
-  (popper-echo-mode +1))
+  (popper-tab-line-mode +1))
 
 ;; Init transient for transient menus
 (use-package transient
