@@ -4262,6 +4262,9 @@ If project root cannot be found, use the buffer's default directory."
 ;; Init dictionary for a dictionary in Emacs
 (use-package dictionary
   :straight nil
+  :general
+  ( :keymaps 'override
+    "M--" #'dictionary-lookup-definition)
   :config
   (setq dictionary-server "dict.org"))
 
