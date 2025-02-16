@@ -4259,6 +4259,12 @@ If project root cannot be found, use the buffer's default directory."
     :prefix "b"
     "T" #'powerthesaurus-transient))
 
+;; Init dictionary for a dictionary in Emacs
+(use-package dictionary
+  :straight nil
+  :config
+  (setq dictionary-server "dict.org"))
+
 ;; Init desktop+ for saving session configuration
 (use-package desktop+
   :general
