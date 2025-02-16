@@ -3701,6 +3701,7 @@ run the attached function (if exists) and enable lsp"
     "TAB" #'gptel-add-file)
   ( :keymaps 'gptel-mode-map
     "C-<return>" #'gptel-send
+    "C-S-<return>" #'gptel-abort
     "C-<escape>" #'gptel-menu)
   ( :keymaps 'gptel-context-buffer-mode-map
     :states 'normal
