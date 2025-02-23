@@ -3898,7 +3898,9 @@ Provide code changes as GNU diff format, followed by brief explanations for each
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
-    "f" #'elfeed))
+    "f" #'elfeed)
+  :config
+  (setq elfeed-show-entry-switch #'pop-to-buffer))
 
 ;; Init app-launcher for launching desktop apps
 (use-package app-launcher
