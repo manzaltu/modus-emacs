@@ -3894,7 +3894,11 @@ Provide code changes as GNU diff format, followed by brief explanations for each
   ( erc-hide-list '("JOIN" "PART" "QUIT" "NICK")))
 
 ;; Init elfeed for reading web feeds in Emacs
-(use-package elfeed)
+(use-package elfeed
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "x"
+    "f" #'elfeed))
 
 ;; Init app-launcher for launching desktop apps
 (use-package app-launcher
