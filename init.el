@@ -1131,6 +1131,8 @@ Used for preventing recursion when recording new jumps.")
   ( org-clock-in . redraw-display)
   ( org-clock-out . redraw-display)
   ( org-clock-cancel . redraw-display)
+  :init
+  (setq org-clock-x11idle-program-name "xprintidle")
   :config
   (defun mo-org-configure-theme ()
     "Set org theme configuration."
@@ -1190,6 +1192,7 @@ Used for preventing recursion when recording new jumps.")
   (setq org-clock-persist-file (mo-cache-path "org-clock-save.el"))
   (org-clock-persistence-insinuate)
   (setq org-clock-mode-line-total 'current)
+  (setq org-clock-idle-time 5)
   (setq org-id-locations-file (mo-cache-path ".org-id-locations"))
   (setq org-src-preserve-indentation nil)
   (setq org-export-preserve-breaks t)
