@@ -3568,6 +3568,7 @@ run the attached function (if exists) and enable lsp"
 ;; Init which-key for interactively displaying key bindings
 (use-package which-key
   :demand t
+  :straight nil
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "h"
