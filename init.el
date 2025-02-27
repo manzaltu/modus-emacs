@@ -3013,8 +3013,9 @@ run the attached function (if exists) and enable lsp"
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
     "I" #'lsp-ui-imenu
-    "d" #'lsp-ui-doc-glance
     ";" #'lsp-ui-doc-focus-frame)
+  ( :keymaps 'embark-identifier-map
+    "g" #'lsp-ui-doc-glance)
   :config
   ;; Do not show documentation automatically
   (setq lsp-ui-doc-position 'at-point)
