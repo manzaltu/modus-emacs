@@ -1981,6 +1981,8 @@ directory as a fall back."
 
   ;; Enable project detection using .project files
   (add-to-list 'project-find-functions #'mo-project-try-local)
+  ;; Show project in mode-line
+  (setq project-mode-line t)
   ;; Set project history file path
   (setq project-list-file (mo-cache-path "projects"))
   ;; Set project switch commands for a quick project based access
