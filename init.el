@@ -3542,7 +3542,7 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init editorconfig for applying EditorConfig settings
 (use-package editorconfig
-  :functions editorconfig-mode
+  :straight nil
   :config
   (editorconfig-mode 1))
 
