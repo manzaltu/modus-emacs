@@ -2275,6 +2275,8 @@ Used while preview is toggled off."
     "Run `magit-status` on repo containing the embark target."
     (interactive "GFile: ")
     (magit-status (locate-dominating-file file ".git")))
+  ;; Don't quit the minibuffer after an action is taken
+  (setq embark-quit-after-action nil)
   ;; Hide the mode line of the Embark live/completions buffers
   (add-to-list 'display-buffer-alist
                '( "\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
