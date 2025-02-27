@@ -2839,10 +2839,6 @@ When a prefix ARG is given always prompt for a command to use."
     "=" #'lsp-format-region
     "o" #'lsp-clangd-find-other-file)
   ( :keymaps 'mo-quick-menu-map
-    "\"" #'lsp-find-implementation
-    "(" #'lsp-ui-peek-find-implementation
-    "`" #'lsp-ui-peek-find-references)
-  ( :keymaps 'mo-quick-menu-map
     :prefix "n"
     "l" #'lsp-org)
   (mo-quick-menu-definer
@@ -2854,6 +2850,8 @@ When a prefix ARG is given always prompt for a command to use."
   (mo-quick-menu-definer
     :keymaps 'rustic-mode-map
     "h H" #'lsp-rust-analyzer-open-external-docs)
+  ( :keymaps 'embark-identifier-map
+    "i" #'lsp-find-implementation)
   :init
   ;; No completion provider as we use corfu
   (setq lsp-completion-provider :none)
