@@ -1045,9 +1045,6 @@ Used for preventing recursion when recording new jumps.")
   ( xref-after-return . recenter)
   :general
   ( :keymaps 'mo-quick-menu-map
-    ";" #'xref-find-definitions
-    "'" #'xref-find-references)
-  ( :keymaps 'mo-quick-menu-map
     :prefix "c"
     "<" #'xref-find-apropos)
   :config
