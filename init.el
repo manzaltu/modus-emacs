@@ -2262,9 +2262,7 @@ Used while preview is toggled off."
 (use-package embark
   :general
   ( :keymaps 'override
-    "C-'" #'embark-act
-    "M-'" #'embark-collect
-    "C-M-'" #'embark-export)
+    "C-'" #'embark-act)
   ( :keymaps 'embark-file-map
     "g" #'mo-embark-magit-status)
   ( :keymaps 'mo-quick-menu-map
