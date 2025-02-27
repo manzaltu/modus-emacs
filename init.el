@@ -2639,7 +2639,9 @@ When a prefix ARG is given always prompt for a command to use."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "-" #'diff-buffers))
+    "-" #'diff-buffers)
+  :config
+  (setq diff-refine-nonmodified t))
 
 ;; Init ediff for better diff view and commands
 (use-package ediff
