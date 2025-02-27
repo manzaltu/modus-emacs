@@ -2824,7 +2824,8 @@ When a prefix ARG is given always prompt for a command to use."
   :general
   ;; Set the lsp prefix key
   ( :keymaps 'lsp-mode-map
-    "C-c l" '( :keymap lsp-command-map :which-key "lsp"))
+    "C-c l" '( :keymap lsp-command-map :which-key "lsp")
+    [remap display-local-help] 'lsp-describe-thing-at-point)
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
     "l" #'lsp
