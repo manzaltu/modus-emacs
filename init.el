@@ -522,9 +522,13 @@ the user to input the run command."
   :config
   (defvar after-enable-theme-hook nil
     "Hook run after a theme is enabled using `enable-theme'.")
-  (defadvice enable-theme (after run-after-enable-theme-hook activate)
+
+  (defun mo-run-after-enable-theme-hook (&rest _)
     "Run `after-enable-theme-hook'."
-    (run-hooks 'after-enable-theme-hook)))
+    (run-hooks 'after-enable-theme-hook))
+
+  ;; Run `after-enable-theme-hook' after calling `enable-theme'
+  (advice-add 'enable-theme :after #'mo-run-after-enable-theme-hook))
 
 ;; Init cus-edit for creating and editing customize buffers
 (use-package cus-edit
