@@ -2588,13 +2588,6 @@ Used while preview is toggled off."
 ;; Init git-modes for editing git config files
 (use-package git-modes)
 
-;; Init smerge for helping with git merges
-(use-package smerge-mode
-  :straight nil
-  :general
-  ( :keymaps 'mo-quick-menu-map
-    "m" '( :keymap smerge-basic-map :package smerge)))
-
 ;; Init forge for working with git forges (e.g. Github, Gitlab)
 (use-package forge
   :after magit
