@@ -2089,6 +2089,9 @@ directory as a fall back."
   ( :keymaps 'mo-quick-menu-map
     :prefix "k"
     "l" #'consult-kmacro)
+  ( :keymaps 'embark-general-map
+    "C-*" #'consult-ripgrep
+    "C-]" #'consult-line)
 
   :init
   ;; Improve register preview
