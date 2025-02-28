@@ -2752,10 +2752,12 @@ Used while preview is toggled off."
 (use-package edebug
   :general
   ( :keymaps 'emacs-lisp-mode-map
-    "C-M-s-d" #'edebug-defun
-    "C-M-s-S-d" #'edebug-remove-instrumentation
     "C-M-s-i" #'edebug-set-initial-mode
     "C-M-s-t" #'mo-edebug-toggle-trace)
+  ( :keymaps '( embark-command-map
+                embark-function-map)
+    "M-d" #'edebug-defun
+    "M-D" #'edebug-remove-instrumentation)
   :config
   (defun mo-edebug-toggle-trace ()
     "Toggle edebug trace setting."
