@@ -368,7 +368,8 @@ Briefly highlight previous location."
   (setq auto-save-include-big-deletions t)
   (setq auto-save-no-message t)
   ;; Ask for confirmation before exiting emacs
-  (setq confirm-kill-emacs #'y-or-n-p))
+  (setq confirm-kill-emacs #'y-or-n-p)
+  (setq remote-file-name-access-timeout 5))
 
 ;; Init frame for managing frames
 (use-package frame
