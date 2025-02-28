@@ -2361,28 +2361,11 @@ Used while preview is toggled off."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "f"
-    "d" #'dired-jump
-    "RET" #'mo-open-with)
+    "d" #'dired-jump)
   :hook
   ;; Watch directories for changes
   ( dired-mode . auto-revert-mode)
   :config
-  (defun mo-open-with (arg)
-    "Open the visited file in the default external program.
-When in Dired mode, open the file under the cursor.
-When a prefix ARG is given always prompt for a command to use."
-    (interactive "P")
-    (let* ((current-file-name
-            (if (derived-mode-p 'dired-mode)
-                (dired-get-file-for-visit)
-              buffer-file-name))
-           (open (pcase system-type
-                   (`darwin "open")
-                   ((or `gnu `gnu/linux `gnu/kfreebsd) "xdg-open")))
-           (program (if (or arg (not open))
-                        (read-shell-command "Open current file with: ")
-                      open)))
-      (call-process program nil 0 nil current-file-name)))
   ;; Do not ignore extensions
   ;; Dired+ breaks when dired-omit-extensions contains no items
   (setq dired-omit-extensions '( ".qazwsxedc"))
