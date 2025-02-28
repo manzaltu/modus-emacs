@@ -3641,7 +3641,6 @@ run the attached function (if exists) and enable lsp"
     "c" #'helpful-command
     "v" #'helpful-variable
     "k" #'helpful-key
-    "h" #'helpful-at-point
     "ESC" #'helpful-kill-buffers)
   ( :keymaps 'embark-function-map
     "h" #'helpful-function)
