@@ -2078,9 +2078,6 @@ directory as a fall back."
     :prefix "DEL"
     "b" #'consult-project-buffer)
   ( :keymaps 'mo-quick-menu-map
-    "*" #'mo-consult-line-symbol-at-point
-    "&" #'mo-consult-line-symbol-at-point-other-window)
-  ( :keymaps 'mo-quick-menu-map
     :prefix "v"
     "t" #'consult-theme)
   ( :keymaps 'mo-quick-menu-map
@@ -2146,22 +2143,6 @@ directory as a fall back."
        (consult--find prompt
                       (lambda (input) (consult--fd-builder input dir))
                       initial))))
-
-  (defun mo-consult-line-symbol-at-point ()
-    (interactive)
-    (consult-line (thing-at-point 'symbol)))
-
-  (defun mo-consult-line-symbol-at-point-other-window ()
-    (interactive)
-    (let ((thing (thing-at-point 'symbol))
-          (src-window (selected-window)))
-      (condition-case err
-          (progn
-            (other-window 1)
-            (consult-line thing))
-        (quit
-         (when (window-live-p src-window)
-           (select-window src-window))))))
 
   (evil-set-command-property #'mo-consult-line-symbol-at-point :jump t)
 
