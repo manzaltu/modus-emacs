@@ -3646,7 +3646,15 @@ run the attached function (if exists) and enable lsp"
     "v" #'helpful-variable
     "k" #'helpful-key
     "h" #'helpful-at-point
-    "ESC" #'helpful-kill-buffers))
+    "ESC" #'helpful-kill-buffers)
+  ( :keymaps 'embark-function-map
+    "h" #'helpful-function)
+  ( :keymaps 'embark-variable-map
+    "h" #'helpful-variable)
+  ( :keymaps 'embark-command-map
+    "h" #'helpful-command)
+  ( :keymaps 'embark-symbol-map
+    "h" #'helpful-symbol))
 
 ;; Init mode-minder for showing all modes
 (use-package mode-minder
