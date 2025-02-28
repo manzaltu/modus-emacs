@@ -262,8 +262,6 @@ Briefly highlight previous location."
   ( :keymaps 'mo-quick-menu-map
     :prefix "l"
     "b" #'mo-toggle-lexical-binding)
-  ( :keymaps 'emacs-lisp-mode-map
-    "C-M-s-r" #'eval-region)
   :config
   (defun mo-toggle-lexical-binding ()
     "Toggle lexical binding in the current buffer."
@@ -2690,10 +2688,6 @@ Used while preview is toggled off."
 ;; Init elisp-mode for editing and running lisp code
 (use-package elisp-mode
   :straight nil
-  :general
-  ( :keymaps '( emacs-lisp-mode-map lisp-interaction-mode-map)
-    "C-M-s-e" #'eval-defun
-    "C-M-s-s" #'eval-last-sexp)
   :config
   (advice-add 'eval-last-sexp :around #'mo-evil-correct-last-sexp))
 
