@@ -2259,6 +2259,14 @@ Used while preview is toggled off."
                              embark-highlight-indicator
                              embark-isearch-highlight-indicator))
   :config
+  ;; Enable editing on selected commands
+  (dolist (cmd '( lsp-rename
+                  lsp-execute-code-action))
+    (push 'embark--allow-edit (alist-get cmd embark-target-injection-hooks)))
+  ;; Enable ignoring target on selected commands
+  (dolist (cmd '( lsp-rename
+                  lsp-execute-code-action))
+    (push 'embark--ignore-target (alist-get cmd embark-target-injection-hooks)))
   ;; Don't quit the minibuffer after an action is taken
   (setq embark-quit-after-action nil)
   ;; Hide the mode line of the Embark live/completions buffers
@@ -2795,8 +2803,6 @@ Used while preview is toggled off."
     "l" #'lsp
     "L" #'lsp-disconnect
     "D" #'lsp-describe-session
-    "a" #'lsp-execute-code-action
-    "r" #'lsp-rename
     "p" #'lsp-signature-activate
     "n" #'lsp-inlay-hints-mode
     "s" #'lsp-toggle-symbol-highlight
@@ -2812,7 +2818,9 @@ Used while preview is toggled off."
     :keymaps 'rustic-mode-map
     "h H" #'lsp-rust-analyzer-open-external-docs)
   ( :keymaps 'embark-identifier-map
-    "i" #'lsp-find-implementation)
+    "i" #'lsp-find-implementation
+    "e" #'lsp-execute-code-action
+    "R" #'lsp-rename)
   :init
   ;; No completion provider as we use corfu
   (setq lsp-completion-provider :none)
