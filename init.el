@@ -1704,6 +1704,7 @@ Used for preventing recursion when recording new jumps.")
   :after vertico
   :straight nil
   :config
+  (add-to-list 'vertico-multiform-categories '( embark-keybinding grid))
   (vertico-multiform-mode))
 
 ;; Init vertico-buffer for viewing vertico results in a separate buffer
