@@ -2802,7 +2802,7 @@ Used while preview is toggled off."
     :prefix "c"
     "l" #'lsp
     "L" #'lsp-disconnect
-    "D" #'lsp-describe-session
+    "d" #'lsp-describe-session
     "p" #'lsp-signature-activate
     "n" #'lsp-inlay-hints-mode
     "s" #'lsp-toggle-symbol-highlight
