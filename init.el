@@ -2252,6 +2252,11 @@ Used while preview is toggled off."
   ( :keymaps 'mo-quick-menu-map
     :prefix "h"
     "b" #'embark-bindings)
+  :init
+  ;; Use minimal indicators
+  (setq embark-indicators '( embark-minimal-indicator
+                             embark-highlight-indicator
+                             embark-isearch-highlight-indicator))
   :config
   ;; Don't quit the minibuffer after an action is taken
   (setq embark-quit-after-action nil)
