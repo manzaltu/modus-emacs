@@ -2278,6 +2278,8 @@ Used while preview is toggled off."
                              embark-highlight-indicator
                              embark-isearch-highlight-indicator))
   :config
+  ;; Don't quit the minibuffer after an action is taken
+  (setq embark-quit-after-action nil)
   ;; Hide the mode line of the Embark live/completions buffers
   (add-to-list 'display-buffer-alist
                '( "\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
