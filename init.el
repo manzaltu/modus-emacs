@@ -2272,6 +2272,11 @@ Used while preview is toggled off."
   ( :keymaps 'mo-quick-menu-map
     :prefix "h"
     "b" #'embark-bindings)
+  :init
+  ;; Use minimal indicators
+  (setq embark-indicators '( embark-minimal-indicator
+                             embark-highlight-indicator
+                             embark-isearch-highlight-indicator))
   :config
   ;; Hide the mode line of the Embark live/completions buffers
   (add-to-list 'display-buffer-alist
