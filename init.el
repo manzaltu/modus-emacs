@@ -2269,16 +2269,10 @@ Used while preview is toggled off."
     "C-'" #'embark-act
     "M-'" #'embark-collect
     "C-M-'" #'embark-export)
-  ( :keymaps 'embark-file-map
-    "g" #'mo-embark-magit-status)
   ( :keymaps 'mo-quick-menu-map
     :prefix "h"
     "b" #'embark-bindings)
   :config
-  (defun mo-embark-magit-status (file)
-    "Run `magit-status` on repo containing the embark target."
-    (interactive "GFile: ")
-    (magit-status (locate-dominating-file file ".git")))
   ;; Hide the mode line of the Embark live/completions buffers
   (add-to-list 'display-buffer-alist
                '( "\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
@@ -2584,9 +2578,15 @@ When a prefix ARG is given always prompt for a command to use."
   ( :keymaps 'magit-mode-map
     :states '( normal)
     "y n" #'mo-magit-yank-branch-name)
+  ( :keymaps 'embark-file-map
+    "g" #'mo-embark-magit-status)
   :init
   (setq magit-define-global-key-bindings nil)
   :config
+  (defun mo-embark-magit-status (file)
+    "Run `magit-status' on repo containing the embark target."
+    (interactive "GFile: ")
+    (magit-status (locate-dominating-file file ".git")))
   (defun mo-magit-yank-branch-name ()
     "Yank the current branch name."
     (interactive)
