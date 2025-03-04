@@ -3712,6 +3712,8 @@ run the attached function (if exists) and enable lsp"
     "C-M-s-d" #'gptel-context-flag-deletion
     "C-M-s-n" #'gptel-context-next
     "C-M-s-p" #'gptel-context-previous)
+  :hook
+  ( gptel-mode . (lambda () (whitespace-mode -1)))
   :custom
   ( gptel-default-mode 'org-mode)
   ( gptel-response-prefix-alist '( ( markdown-mode . "AI:\n")
