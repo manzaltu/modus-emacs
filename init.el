@@ -3722,6 +3722,7 @@ run the attached function (if exists) and enable lsp"
   (add-to-list 'gptel-directives
                '( reviewer . "You are a large language model and a careful programmer. \
 Your purpose is to help review and improve code. \
+You live in Emacs and your output is viewed in an org mode buffer. \
 Provide code changes as GNU diff format, followed by brief explanations for each change.")
                t)
   (add-hook 'gptel-post-response-functions #'gptel-end-of-response))
