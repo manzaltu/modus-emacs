@@ -3718,7 +3718,11 @@ run the attached function (if exists) and enable lsp"
                                    ( org-mode . "AI:\n")
                                    ( text-mode . "AI:\n")))
   :config
-
+  (setcdr (assoc 'default gptel-directives)
+          "You are a large language model living in Emacs and a helpful assistant. \
+Your output is viewed in an org mode buffer. \
+Respond concisely.")
+  (setq gptel--system-message (alist-get 'default gptel-directives))
   (add-to-list 'gptel-directives
                '( reviewer . "You are a large language model and a careful programmer. \
 Your purpose is to help review and improve code. \
