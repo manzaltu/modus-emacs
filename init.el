@@ -1122,7 +1122,7 @@ Used for preventing recursion when recording new jumps.")
     "c" #'org-capture
     "s" #'org-store-link)
   ( :keymaps 'override
-    "C-<f12>" #'org-clock-cancel)
+    "C-<f12>" #'mo-org-clock-cancel-ask)
   ( :keymaps 'org-mode-map
     "C-<return>" #'org-meta-return
     "<tab>" #'org-cycle)
@@ -1165,6 +1165,11 @@ Used for preventing recursion when recording new jumps.")
     (set-face-attribute 'org-link nil :inherit nil :foreground 'unspecified :underline t :slant 'italic)
     ;; Emphasis org clock status
     (copy-face 'org-clock-overlay 'org-mode-line-clock))
+  (defun mo-org-clock-cancel-ask ()
+    "Ask user if they want to cancel the current clock."
+    (interactive)
+    (when (y-or-n-p "Are you sure you want to cancel the current clock?")
+      (call-interactively #'org-clock-cancel)))
   ;; Visually indent text under bullets
   (setq org-startup-indented t)
   ;; Allow resizing inline images
