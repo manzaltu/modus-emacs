@@ -1443,7 +1443,8 @@ Used for preventing recursion when recording new jumps.")
     (interactive)
     (require 'org-clock)
     (if org-clock-current-task
-        (call-interactively #'org-clock-out)
+        (when (y-or-n-p "Are you sure you want to clock out?")
+          (call-interactively #'org-clock-out))
       (let ((current-prefix-arg '( 4)))
         (call-interactively #'org-mru-clock-in))))
 
