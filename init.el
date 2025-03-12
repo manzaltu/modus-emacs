@@ -3137,6 +3137,9 @@ run the attached function (if exists) and enable lsp"
     :prefix "c"
     "]" #'flycheck-next-error
     "[" #'flycheck-previous-error)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "l"
+    "f" #'mo-flycheck-load-path-inherit-toggle)
   :init
   (global-flycheck-mode)
   :config
