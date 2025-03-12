@@ -3138,6 +3138,12 @@ run the attached function (if exists) and enable lsp"
   :init
   (global-flycheck-mode)
   :config
+  (defun mo-flycheck-load-path-inherit-toggle ()
+    "Toggle flycheck load path inherit setting."
+    (interactive)
+    (setq flycheck-emacs-lisp-load-path
+          (if flycheck-emacs-lisp-load-path nil 'inherit))
+    (message "Load path: %s" flycheck-emacs-lisp-load-path))
   ;; Update diagnostics on switching to buffer
   (add-to-list 'flycheck-check-syntax-automatically 'idle-buffer-switch))
 
