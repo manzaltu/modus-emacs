@@ -774,7 +774,8 @@ If universal ARG is set, exclude the pattern."
   :commands ( general-define-key
               evil-collection-init)
   :defines ( evil-collection-want-find-usages-bindings
-             evil-collection-want-unimpaired-p)
+             evil-collection-want-unimpaired-p
+             evil-collection-key-blacklist)
   :demand t
   :init
   (defvar forge-add-default-bindings nil)
@@ -788,6 +789,7 @@ If universal ARG is set, exclude the pattern."
   ;; evil-collection's find usages overrides evil-mc key bindings.
   (setq evil-collection-want-find-usages-bindings nil)
   (setq evil-collection-want-unimpaired-p nil)
+  (setq evil-collection-key-blacklist '( "M-o"))
   (evil-collection-init)
 
   ;; Init dired+ for additional dired functionality
