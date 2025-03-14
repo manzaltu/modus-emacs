@@ -942,14 +942,6 @@ If universal ARG is set, exclude the pattern."
     "C-M-}" #'paredit-splice-sexp-killing-forward
     "M-(" #'mo-paredit-wrap-round-with-space
     "C-M-(" #'paredit-wrap-round)
-  ( :keymaps 'paredit-mode-map
-    :states 'motion
-    "[" nil
-    "]" nil)
-  ( :keymaps 'paredit-mode-map
-    :states 'normal
-    "[" #'paredit-splice-sexp-killing-backward
-    "]" #'paredit-splice-sexp-killing-forward)
   :config
   (defun mo-paredit-wrap-round-with-space ()
     "Wrap the following S-expression and insert a space."
