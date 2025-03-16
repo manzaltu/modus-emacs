@@ -109,7 +109,7 @@
     "z" '( :which-key "Repeat")
     "t" '( :which-key "Tab")
     "h" '( :which-key "Help")
-    "DEL" '( :which-key "Project")
+    "j" '( :which-key "Project")
     "c" '( :which-key "Code")
     "d" '( :which-key "Debug")
     "TAB" '( :which-key "AI")
@@ -635,8 +635,8 @@ the user to input the run command."
     :prefix "b"
     "p" #'mo-copy-file-path)
   ( :keymaps 'mo-quick-menu-map
-    :prefix "DEL"
-    "DEL" #'mo-open-project-with-tab
+    :prefix "j"
+    "j" #'mo-open-project-with-tab
     "ESC" #'mo-close-project-with-tab
     "RET" #'mo-execute-predefined-command)
   ( :keymaps 'vertico-map
@@ -1883,7 +1883,7 @@ Used for preventing recursion when recording new jumps.")
   ( :keymaps 'override
     "C-M-<tab>" #'mo-project-other-buffer)
   ( :keymaps 'mo-quick-menu-map
-    :prefix "DEL"
+    :prefix "j"
     "w" #'mo-project-save
     "W" #'project-forget-project
     "d" #'project-dired
@@ -2072,7 +2072,7 @@ directory as a fall back."
   ( :keymaps 'evil-command-line-map
     "C-r" #'consult-history)                ;; orig. evil-paste-from-register
   ( :keymaps 'mo-quick-menu-map
-    :prefix "DEL"
+    :prefix "j"
     "b" #'consult-project-buffer)
   ( :keymaps 'mo-quick-menu-map
     "*" #'mo-consult-line-symbol-at-point
@@ -2381,7 +2381,7 @@ Used while preview is toggled off."
 (use-package treemacs
   :general
   ( :keymaps 'mo-quick-menu-map
-    :prefix "DEL"
+    :prefix "j"
     ;; We want to present the current project only
     "m" #'treemacs-add-and-display-current-project-exclusively)
   :config
@@ -3942,7 +3942,7 @@ Provide code changes as GNU diff format, followed by brief explanations for each
     :prefix "x"
     "t" #'ansi-term)
   ( :keymaps 'mo-quick-menu-map
-    :prefix "DEL"
+    :prefix "j"
     "t" #'mo-ansi-term-project)
   :config
   (defun mo-ansi-term-project ()
@@ -3972,7 +3972,7 @@ If project root cannot be found, use the buffer's default directory."
   :if (not (eq system-type 'windows-nt))
   :general
   ( :keymaps 'mo-quick-menu-map
-    :prefix "DEL"
+    :prefix "j"
     "v" #'mo-vterm-project)
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
@@ -4022,7 +4022,7 @@ If project root cannot be found, use the buffer's default directory."
     :prefix "x"
     "S" #'shell-new)
   ( :keymaps 'mo-quick-menu-map
-    :prefix "DEL"
+    :prefix "j"
     "S" #'mo-shell-project)
   :config
   (defun shell-new ()
@@ -4046,7 +4046,7 @@ If project root cannot be found, use the buffer's default directory."
   :demand t
   :general
   ( :keymaps 'mo-quick-menu-map
-    :prefix "DEL"
+    :prefix "j"
     "e" #'project-eshell)
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
@@ -4151,7 +4151,7 @@ If project root cannot be found, use the buffer's default directory."
     :prefix "x"
     "s" #'eat)
   ( :keymaps 'mo-quick-menu-map
-    :prefix "DEL"
+    :prefix "j"
     "s" #'eat-project)
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
