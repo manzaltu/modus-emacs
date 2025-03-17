@@ -3722,7 +3722,7 @@ run the attached function (if exists) and enable lsp"
   (setcdr (assoc 'default gptel-directives)
           "You are a large language model living in Emacs and a helpful assistant. \
 Your output is viewed in an org mode buffer. \
-Respond concisely.")
+Make sure to output code in src blocks.")
   (setq gptel--system-message (alist-get 'default gptel-directives))
   (add-to-list 'gptel-directives
                '( reviewer . "You are a large language model and a careful programmer. \
