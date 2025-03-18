@@ -472,6 +472,9 @@ Briefly highlight previous location."
     "g \"" #'end-of-buffer)
   ( :states 'motion
     "g '" #'beginning-of-buffer)
+  :general
+  ( :states '( normal visual)
+    "z C" #'count-words)
   :config
   (defvar-local mo-run-code-command nil
     "A local var that stores the run code command.
