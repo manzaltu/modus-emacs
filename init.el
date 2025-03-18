@@ -3975,6 +3975,8 @@ If project root cannot be found, use the buffer's default directory."
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
     "v" #'mo-vterm-file)
+  ( :keymaps '( vterm-mode-map vterm-copy-mode-map)
+    "C-M-s-c" #'vterm-copy-mode)
   :commands vterm
   :init
   (defun mo-vterm-file ()
