@@ -3309,8 +3309,8 @@ run the attached function (if exists) and enable lsp"
     "C-M-s-S-t" #'rustic-cargo-current-test
     "C-M-s-o" #'rustic-cargo-outdated
     "C-M-s-c" #'rustic-open-dependency-file
-    "C-M-s-f" #'rustic-cargo-clippy-fix
-    "C-M-s-S-f" #'rustic-cargo-clippy
+    "C-M-s-S-f" #'rustic-cargo-clippy-fix
+    "C-M-s-f" #'rustic-cargo-clippy
     "C-M-s-a" #'rustic-cargo-add
     "C-M-s-S-a" #'rustic-beginning-of-defun
     "C-M-s-S-e" #'rustic-end-of-defun
