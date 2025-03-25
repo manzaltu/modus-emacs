@@ -2723,7 +2723,7 @@ Used while preview is toggled off."
     "C-M-s-b" #'sly-eval-buffer
     "C-M-s-l" #'sly-load-file
     "C-M-s-d" #'sly-compile-defun
-    "C-M-s-<return>" #'sly-expand-1)
+    "C-M-s-SPC" #'sly-expand-1)
   ( :keymaps 'sly-mrepl-mode-map
     "C-r" #'consult-history
     "C-M-s-c" #'sly-mrepl-clear-recent-output
