@@ -434,10 +434,10 @@ Briefly highlight previous location."
   :straight nil
   :general
   ( :keymaps 'override
-    "M-<right>" #'windmove-right
-    "M-<left>" #'windmove-left
-    "M-<up>" #'windmove-up
-    "M-<down>" #'windmove-down))
+    "C-M-s-<right>" #'windmove-right
+    "C-M-s-<left>" #'windmove-left
+    "C-M-s-<up>" #'windmove-up
+    "C-M-s-<down>" #'windmove-down))
 
 ;; Init simple for basic and general Emacs commands
 (use-package simple
