@@ -1103,6 +1103,18 @@ Used for preventing recursion when recording new jumps.")
     "C-M-s-S-e" #'org-export-dispatch
     "C-M-s-SPC" #'org-open-at-point
     "C-M-s-," #'org-mark-ring-goto)
+  ( :keymaps 'org-mode-map
+    :prefix "C-M-s-b"
+    "C-M-s-b" #'org-table-create-or-convert-from-region
+    "C-M-s-a" #'org-table-align
+    "C-M-s-x" #'org-table-blank-field
+    "C-M-s-s" #'org-table-sum
+    "C-M-s-S-s" #'org-table-sort-lines
+    "C-M-s-e" #'org-table-edit-field
+    "C-M-s-l" #'org-table-hline-and-move
+    "C-M-s-i" #'org-table-field-info
+    "C-M-s-f" #'org-table-eval-formula
+    "C-M-s-c" #'org-table-recalculate)
   ( :keymaps 'org-src-mode-map
     "C-M-s-q" #'org-edit-src-exit
     "C-M-s-k" #'org-edit-src-abort)
