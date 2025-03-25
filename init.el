@@ -1486,7 +1486,7 @@ Used for preventing recursion when recording new jumps.")
   ( :keymaps 'org-mode-map
     "C-M-s-v" '( :keymap verb-command-map :package verb))
   ( :keymaps 'verb-command-map
-    "C-M-s-<return>" #'verb-send-request-on-point-no-window
+    "C-M-s-SPC" #'verb-send-request-on-point-no-window
     "C-M-s-b" #'verb-export-request-on-point-verb
     "C-M-s-e" #'verb-export-request-on-point
     "C-M-s-f" #'verb-send-request-on-point
