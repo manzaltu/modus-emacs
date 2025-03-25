@@ -2256,6 +2256,8 @@ Used while preview is toggled off."
 
 ;; Init embark for enabling contextual actions
 (use-package embark
+  :demand t
+  :after embark-consult
   :general
   ( :keymaps 'override
     "C-'" #'embark-act
@@ -2272,6 +2274,8 @@ Used while preview is toggled off."
   :config
   ;; Don't quit the minibuffer after an action is taken
   (setq embark-quit-after-action nil)
+  ;; Use prefix help command globally
+  (setq prefix-help-command #'embark-prefix-help-command)
   ;; Hide the mode line of the Embark live/completions buffers
   (add-to-list 'display-buffer-alist
                '( "\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
@@ -2281,7 +2285,6 @@ Used while preview is toggled off."
 ;; Init embark-consult for enabling embark actions on consult results
 (use-package embark-consult
   :demand t
-  :after ( embark consult)
   :hook
   ( embark-collect-mode . consult-preview-at-point-mode))
 
@@ -3582,6 +3585,7 @@ run the attached function (if exists) and enable lsp"
   :config
   (setq which-key-idle-delay 0.5)
   (setq which-key-add-column-padding 8)
+  (setq which-key-use-C-h-commands nil)
   (which-key-mode))
 
 ;; Init help for built-in help system
