@@ -4258,7 +4258,9 @@ If project root cannot be found, use the buffer's default directory."
 ;; Init minions for collapsing the minor mode indicator in the modeline
 (use-package minions
   :functions minions-mode
+  :defines minions-prominent-modes
   :config
+  (add-to-list 'minions-prominent-modes 'dired-async--modeline-mode)
   (minions-mode 1))
 
 ;; Init flyspell for spell checking
