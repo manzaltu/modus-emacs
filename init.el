@@ -2102,6 +2102,11 @@ directory as a fall back."
     "l" #'consult-kmacro)
 
   :init
+  ;; Make async operations snappier
+  (setq consult-async-min-input 1)
+  (setq consult-async-input-debounce 0.001)
+  (setq consult-async-input-throttle 0.001)
+  (setq consult-async-refresh-delay 0.001)
   ;; Improve register preview
   (setq register-preview-delay 0.5)
   (setq register-preview-function #'consult-register-format)
