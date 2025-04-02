@@ -1280,6 +1280,8 @@ Used for preventing recursion when recording new jumps.")
   (setq org-agenda-window-setup 'current-window)
   (setq org-agenda-include-diary t)
   (setq org-agenda-use-time-grid t)
+  (setq org-agenda-scheduled-leaders '( "Today:"
+                                        "Prev.:"))
   (setq org-agenda-diary-file
         (concat (file-name-as-directory org-directory) "diary.org"))
   (setq org-agenda-prefix-format
