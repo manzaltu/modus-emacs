@@ -1197,7 +1197,8 @@ Used for preventing recursion when recording new jumps.")
   ;; Open links in the same window
   (setf (cdr (assoc 'file org-link-frame-setup)) 'find-file)
   (setq org-todo-keywords
-        '( ( sequence "TODO" "NEXT" "PROG" "REVW" "HOLD" "|" "DONE" "DONT" "FAIL")))
+        '( ( sequence "TODO(t)" "NEXT(n)" "PROG(p)" "REVW(r)" "HOLD(h)" "|"
+             "DONE(d)" "DONT(D)" "FAIL(f)")))
   (setq org-log-done t)
   (setq org-clock-persist t)
   (setq org-clock-persist-file (mo-cache-path "org-clock-save.el"))
