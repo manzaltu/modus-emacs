@@ -141,7 +141,7 @@
     "<" #'evil-window-decrease-width)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "ESC" #'evil-ex-nohighlight)
+    "DEL" #'evil-ex-nohighlight)
   ;; We want C-f for moving forward a word
   ( :keymaps 'evil-ex-completion-map
     "C-f" nil
@@ -4553,7 +4553,7 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "DEL" #'clean-buffer-list)
+    "ESC" #'clean-buffer-list)
   :config
   ;; Kill run code command buffers frequently
   (add-to-list 'clean-buffer-list-kill-regexps "^\\*Run Code Command\\*.*$")
