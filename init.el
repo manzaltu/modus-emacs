@@ -4279,6 +4279,13 @@ If project root cannot be found, use the buffer's default directory."
   (add-to-list 'minions-prominent-modes 'dired-async--modeline-mode)
   (minions-mode 1))
 
+;; Init ispell for interfacing with spell checkers
+(use-package ispell
+  :straight nil
+  :init
+  (setq ispell-dictionary "en_US")
+  (setq ispell-extra-args '( "--camel-case")))
+
 ;; Init flyspell for spell checking
 (use-package flyspell
   :straight nil
