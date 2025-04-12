@@ -4298,7 +4298,7 @@ If project root cannot be found, use the buffer's default directory."
   :hook
   ;; Enable spell checking
   ( text-mode . flyspell-mode)
-  ( prog-mode . flyspell-prog-mode))
+  ( prog-mode . flyspell-mode))
 
 ;; Init flyspell-correct for spell correction
 (use-package flyspell-correct
