@@ -4293,7 +4293,14 @@ If project root cannot be found, use the buffer's default directory."
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "S" #'flyspell-mode)
+  :config
+  (defun mo-flyspell-configure-theme ()
+    "Set flyspell theme configuration."
+    (set-face-attribute 'flyspell-incorrect nil :underline '( :style dots :color "SpringGreen3"))
+    (set-face-attribute 'flyspell-duplicate nil :underline '( :style dots :color "DeepSkyBlue2")))
+  (mo-flyspell-configure-theme)
   :hook
+  ( after-enable-theme . mo-flyspell-configure-theme)
   ;; Enable spell checking
   ( text-mode . flyspell-mode)
   ( prog-mode . flyspell-mode))
