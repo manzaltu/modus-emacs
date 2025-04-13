@@ -4289,10 +4289,6 @@ If project root cannot be found, use the buffer's default directory."
 ;; Init flyspell for spell checking
 (use-package flyspell
   :straight nil
-  :general
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "b"
-    "S" #'flyspell-mode)
   :config
   (defun mo-flyspell-configure-theme ()
     "Set flyspell theme configuration."
