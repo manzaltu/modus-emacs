@@ -2309,7 +2309,11 @@ Used while preview is toggled off."
   ( embark-collect-mode . consult-preview-at-point-mode))
 
 ;; Init wgrep for editing grep-style results across files in grep buffer
-(use-package wgrep)
+(use-package wgrep
+  :general
+  ( :keymaps 'grep-mode-map
+    :states 'normal
+    "s" #'wgrep-save-all-buffers))
 
 ;; Init tool-bar for tool-bar functionality
 (use-package tool-bar
