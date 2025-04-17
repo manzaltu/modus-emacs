@@ -4608,6 +4608,14 @@ If project root cannot be found, use the buffer's default directory."
   ( text-mode . hl-line-mode)
   ( prog-mode . hl-line-mode))
 
+;; Init display-line-numbers-mode for displaying line numbers
+(use-package display-line-numbers-mode
+  :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "N" #'display-line-numbers-mode))
+
 ;; Init whitespace for showing trailing whitespaces in code
 (use-package whitespace
   :straight nil
