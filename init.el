@@ -66,7 +66,7 @@
 ;; Optionally, load personal settings
 (load (concat (file-name-directory load-file-name) "personal.el") t)
 
-(defvar mo-font "PragmataPro Mono Liga-14"
+(defvar mo-font "PragmataPro Mono Liga-12"
   "Font to use.")
 
 ;; Add general.el key mapper
