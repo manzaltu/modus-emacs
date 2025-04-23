@@ -3874,6 +3874,9 @@ Provide code changes as GNU diff format, followed by brief explanations for each
   :config
   (global-hl-todo-mode))
 
+;; Init posframe for child frame support
+(use-package posframe)
+
 ;; Init ace-window for fast window selection
 (use-package ace-window
   :general
