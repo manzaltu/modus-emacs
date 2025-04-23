@@ -3875,7 +3875,14 @@ Provide code changes as GNU diff format, followed by brief explanations for each
   (global-hl-todo-mode))
 
 ;; Init posframe for child frame support
-(use-package posframe)
+(use-package posframe
+  :commands posframe-delete-all
+  :hook
+  ( after-enable-theme . mo-posframe-configure-theme)
+  :config
+  (defun mo-posframe-configure-theme ()
+    "Delete all child frames on theme change."
+    (posframe-delete-all)))
 
 ;; Init ace-window for fast window selection
 (use-package ace-window
