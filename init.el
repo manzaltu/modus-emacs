@@ -1663,7 +1663,7 @@ Used for preventing recursion when recording new jumps.")
   :straight ( :files ( :defaults "extensions/*"))
   :functions vertico-mode
   :custom
-  ( vertico-count 20)
+  ( vertico-count 25)
   ( vertico-cycle t)
   ( vertico-sort-function #'vertico-sort-history-alpha)
   :config
