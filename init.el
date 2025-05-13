@@ -3354,6 +3354,7 @@ run the attached function (if exists) and enable lsp"
     "C-M-s-h" #'rustic-cargo-doc
     "C-M-s-i" #'rustic-cargo-init
     "C-M-s-n" #'rustic-cargo-new
+    "C-M-s-e" #'rustic-cargo-expand
     "C-M-s-S-r" #'rustic-cargo-rm
     "C-M-s-u" #'rustic-cargo-upgrade
     "C-M-s-d" #'rust-dbg-wrap-or-unwrap
