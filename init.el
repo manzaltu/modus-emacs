@@ -2611,6 +2611,10 @@ Used while preview is toggled off."
 (use-package magit-tbdiff
   :after magit)
 
+;; Init magit-imerge for a git-imerge magit interface
+(use-package magit-imerge
+  :after magit)
+
 ;; Init git-modes for editing git config files
 (use-package git-modes)
 

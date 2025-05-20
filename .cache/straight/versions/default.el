@@ -144,6 +144,7 @@
  ("lsp-treemacs" . "3e5550f278db74f15ebe34add0138b138207ec08")
  ("lsp-ui" . "a0dde8b52b4411cbac2eb053ef1515635ea0b7ed")
  ("magit" . "531e7ca6190e71e6d500ddd1a1f6e5cf8402aeca")
+ ("magit-imerge" . "05532a364f52b0dfed445256cb052592234183a5")
  ("magit-tbdiff" . "1cb315269df2df2382edc3db21ed52418f13a0d6")
  ("map" . "8dc8c119d92ad61f352134e3078e32b2c6cb0719")
  ("marginalia" . "2ff4d690f78fb86573c11a32631e53627947ebee")
