@@ -4232,8 +4232,13 @@ If project root cannot be found, use the buffer's default directory."
 
 ;; Init claude-code for claude-code support in Emacs
 (use-package claude-code
+  :after eat
   :straight ( :type git :host github :repo "stevemolitor/claude-code.el" :branch "main"
-              :files ("*.el" (:exclude "demo.gif"))))
+              :files ("*.el" (:exclude "demo.gif")))
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "TAB"
+    "c" '( :keymap claude-code-command-map :package claude-code)))
 
 ;; Init kind-icon for icon support in auto completion
 (use-package kind-icon
