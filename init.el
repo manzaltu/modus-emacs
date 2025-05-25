@@ -3789,7 +3789,7 @@ Provide code changes as GNU diff format, followed by brief explanations for each
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "TAB"
-    "c" #'copilot-mode)
+    "p" #'copilot-mode)
   ( :keymaps 'copilot-completion-map
     "M-<return>" #'copilot-accept-completion
     "C-p" #'copilot-previous-completion
