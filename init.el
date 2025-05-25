@@ -4199,8 +4199,10 @@ If project root cannot be found, use the buffer's default directory."
   :demand t
   :after eshell
   :straight ( :files ("*.el" ("term" "term/*.el") "*.texi"
-                      "*.ti" ("integration" "integration/*")
-                      (:exclude ".dir-locals.el" "*-tests.el")))
+                      "*.ti" ("terminfo/e" "terminfo/e/*")
+                      ("terminfo/65" "terminfo/65/*")
+                      ("integration" "integration/*")
+                      ( :exclude ".dir-locals.el" "*-tests.el")))
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
