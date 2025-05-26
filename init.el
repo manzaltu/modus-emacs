@@ -1125,11 +1125,11 @@ Used for preventing recursion when recording new jumps.")
   ( :keymaps 'override
     "C-<f12>" #'mo-org-clock-cancel-ask)
   ( :keymaps 'org-mode-map
-    "C-<return>" #'org-meta-return
+    "C-<return>" #'org-insert-heading-respect-content
     "<tab>" #'org-cycle)
   ( :keymaps 'org-mode-map
     :states '( normal insert emacs)
-    "M-<return>" #'org-insert-heading-respect-content)
+    "M-<return>" #'org-meta-return)
   :hook
   ( after-enable-theme . mo-org-configure-theme)
   (org-mode . visual-line-mode)
