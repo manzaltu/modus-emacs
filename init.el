@@ -3646,7 +3646,14 @@ run the attached function (if exists) and enable lsp"
           (quit-window nil window)
         (view-echo-area-messages))))
   ;; Always select help windows
-  (setq help-window-select t))
+  (setq help-window-select t)
+  ;; Prevent binding help text from changing echo area height
+  (set-face-attribute 'help-key-binding nil
+                      :weight 'bold
+                      :foreground 'unspecified
+                      :background 'unspecified
+                      :box 'unspecified
+                      :inherit 'unspecified))
 
 ;; Init info for browsing documentation
 (use-package info
