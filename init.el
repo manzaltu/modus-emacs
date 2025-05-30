@@ -4581,6 +4581,7 @@ If project root cannot be found, use the buffer's default directory."
     :prefix "x"
     "W" #'world-clock)
   :config
+  (setq display-time-24hr-format t)
   ;; Remove average load time indicator from the modeline
   (setq display-time-default-load-average nil)
   ;; Add spacing at the beginning of the time format string
