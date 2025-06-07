@@ -4515,6 +4515,7 @@ If project root cannot be found, use the buffer's default directory."
            "^\\*HTTP Response .*\\*$"
            "^\\*.* Annotation\\*$"
            "\\*sly-description\\*"
+           proced-mode
            world-clock-mode
            compilation-mode
            rustic-compilation-mode
