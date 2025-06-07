@@ -4322,6 +4322,7 @@ If project root cannot be found, use the buffer's default directory."
 (use-package ispell
   :straight nil
   :init
+  (setq ispell-program-name "aspell")
   (setq ispell-dictionary "en_US")
   (setq ispell-extra-args '( "--camel-case")))
 
