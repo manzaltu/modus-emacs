@@ -3606,6 +3606,9 @@ run the attached function (if exists) and enable lsp"
   :custom
   ( request-storage-directory (mo-cache-path "request")))
 
+;; Init websocket for a websocket function library in lisp
+(use-package websocket)
+
 ;; Init which-key for interactively displaying key bindings
 (use-package which-key
   :demand t
