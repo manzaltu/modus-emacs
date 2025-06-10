@@ -529,7 +529,10 @@ the user to input the run command."
     (run-hooks 'after-enable-theme-hook))
 
   ;; Run `after-enable-theme-hook' after calling `enable-theme'
-  (advice-add 'enable-theme :after #'mo-run-after-enable-theme-hook))
+  (advice-add 'enable-theme :after #'mo-run-after-enable-theme-hook)
+  :hook
+  ;; Fire up theme hook after init
+  (after-init . mo-run-after-enable-theme-hook))
 
 ;; Init cus-edit for creating and editing customize buffers
 (use-package cus-edit
