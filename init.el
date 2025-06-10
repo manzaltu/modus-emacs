@@ -4314,7 +4314,11 @@ If project root cannot be found, use the buffer's default directory."
   (solaire-global-mode +1))
 
 ;; Init auto-dim-other-buffers for dimming unfocused buffers
-(use-package auto-dim-other-buffers)
+(use-package auto-dim-other-buffers
+  :demand t
+  :commands auto-dim-other-buffers-mode
+  :config
+  (auto-dim-other-buffers-mode))
 
 ;; Init minions for collapsing the minor mode indicator in the modeline
 (use-package minions
