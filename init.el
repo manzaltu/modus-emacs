@@ -4307,12 +4307,6 @@ If project root cannot be found, use the buffer's default directory."
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
 
-;; Init solaire-mode for visually highlighting file backed buffers
-(use-package solaire-mode
-  :functions solaire-global-mode
-  :config
-  (solaire-global-mode +1))
-
 ;; Init auto-dim-other-buffers for dimming unfocused buffers
 (use-package auto-dim-other-buffers
   :demand t

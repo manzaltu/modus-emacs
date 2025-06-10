@@ -72,7 +72,6 @@
  ("emacs-load-env-vars" . "3808520efaf9492033f6e11a9bffd68eabf02a0f")
  ("emacs-powerthesaurus" . "4b97797cf789aaba411c61a85fe23474ebc5bedc")
  ("emacs-request" . "c22e3c23a6dd90f64be536e176ea0ed6113a5ba6")
- ("emacs-solaire-mode" . "c9334666bd208f3322e6118d30eba1b2438e2bb9")
  ("emacs-undo-fu-session" . "d90d42ddba8fa42ef5dc109196545caeabb42b75")
  ("emacs-websocket" . "40c208eaab99999d7c1e4bea883648da24c03be3")
  ("emacsmirror-mirror" . "9a98bd28948f28b7cd0e6f80d7c31d2f89a71c77")
