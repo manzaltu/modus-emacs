@@ -10,6 +10,7 @@
  ("apheleia" . "7eaaf3f45703d49e494f6dd0555633cf6b355817")
  ("app-launcher" . "d5015e394b0a666a8c7c4d4bdf786266e773b145")
  ("auctex" . "318c89e221fba1f2658163d7ad36cc62b1b24389")
+ ("auto-dim-other-buffers.el" . "d8591d048f97478e75c71830fb6d7c009351c73d")
  ("auto-highlight-symbol" . "e8dee4cb3a80a303af370cf2d8ba8e5e919c34c2")
  ("avy" . "933d1f36cca0f71e4acb5fac707e9ae26c536264")
  ("better-jumper" . "b1bf7a3c8cb820d942a0305e0e6412ef369f819c")
