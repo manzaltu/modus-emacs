@@ -4294,9 +4294,7 @@ If project root cannot be found, use the buffer's default directory."
                      'doom-nord-light
                    'doom-one)))
       (mapc #'disable-theme custom-enabled-themes)
-      (if (custom-theme-p theme)
-          (enable-theme theme)
-        (load-theme theme t))))
+      (load-theme theme t)))
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
         doom-themes-enable-italic t) ; if nil, italics is universally disabled
