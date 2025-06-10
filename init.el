@@ -4045,6 +4045,25 @@ If project root cannot be found, use the buffer's default directory."
     "C-M-s-c" #'vterm-copy-mode)
   :commands vterm
   :init
+  (defun mo-vterm--get-color-override (index &rest args)
+    "This is the old version of vterm--get-color before it was broken by commit
+https://github.com/akermu/emacs-libvterm/commit/e96c53f5035c841b20937b65142498bd8e161a40.
+Re-introducing the old version fixes auto-dim-other-buffers for vterm buffers."
+    (cond
+     ((and (>= index 0) (< index 16))
+      (face-foreground
+       (elt vterm-color-palette index)
+       nil 'default))
+     ((= index -11)
+      (face-foreground 'vterm-color-underline nil 'default))
+     ((= index -12)
+      (face-background 'vterm-color-inverse-video nil 'default))
+     (t
+      nil)))
+
+  ;; Override vterm get color functionality to support auto-dim-other-buffers for vterm buffers
+  (advice-add 'vterm--get-color :override #'mo-vterm--get-color-override)
+
   (defun mo-vterm-file ()
     "Create a vterm buffer with current directory set to the current buffer default directory."
     (interactive)
