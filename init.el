@@ -588,7 +588,9 @@ the user to input the run command."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "z"
-    "z" #'repeat))
+    "z" #'repeat)
+  :config
+  (repeat-mode))
 
 ;; Init kmacro for keyboard macros
 (use-package kmacro
