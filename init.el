@@ -886,10 +886,10 @@ If universal ARG is set, exclude the pattern."
   (defun mo-avy-configure-theme ()
     "Set avy theme configuration."
     ;; Better highlight the leading characters
-    (set-face-attribute 'avy-lead-face nil :background "gold2")
-    (set-face-attribute 'avy-lead-face-0 nil :background "gold3")
-    (set-face-attribute 'avy-lead-face-1 nil :background "gold4")
-    (set-face-attribute 'avy-lead-face-2 nil :background "DarkGoldenrod4"))
+    (set-face-attribute 'avy-lead-face nil :background "orange1")
+    (set-face-attribute 'avy-lead-face-0 nil :background "gold2")
+    (set-face-attribute 'avy-lead-face-1 nil :background "LightGoldenrod2")
+    (set-face-attribute 'avy-lead-face-2 nil :background "LightGoldenrod2"))
   (setq avy-single-candidate-jump nil)
   (setq avy-all-windows 'all-frames)
   (setq avy-timeout-seconds 0.2))
