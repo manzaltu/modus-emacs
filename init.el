@@ -4533,6 +4533,16 @@ If project root cannot be found, use the buffer's default directory."
       (popper-toggle)
       (popper-toggle)))
 
+  (defun mo-popper-vterm-filter (buf)
+    "Return t if BUF is a vterm buffer that should be treated as a popup.
+Matches by either vterm-mode or vterm name pattern.
+Excludes vterm buffers with names matching *claude-code*."
+    (let ((name (buffer-name buf)))
+      (and (not (string-match-p "\\*claude-code" name))
+           (or (with-current-buffer buf
+                 (derived-mode-p 'vterm-mode))
+               (string-match-p "^\\*vterm.*\\*.*$" name)))))
+
   (setq popper-reference-buffers
         '( "\\*Messages\\*"
            "\\*Warnings\\*"
@@ -4560,7 +4570,7 @@ If project root cannot be found, use the buffer's default directory."
            "^\\*\\(.+-\\)?eshell\\*.*$" eshell-mode
            "^\\*shell.*\\*.*$" shell-mode
            "^\\*term.*\\*$" term-mode
-           "^\\*vterm.*\\*.*$" vterm-mode))
+           mo-popper-vterm-filter))
   ;; Set fractional height
   (setq popper-window-height (nth mo-popper-current-window-height-idx
                                   mo-popper-window-heights))
