@@ -4262,6 +4262,11 @@ If project root cannot be found, use the buffer's default directory."
   (mo-eat-check-compile-terminfo)
   (eat-eshell-mode))
 
+;; Init claude-code-ide for Claude Code IDE integration in Emacs
+(use-package claude-code-ide
+  :after vterm
+  :straight (:type git :host github :repo "manzaltu/claude-code-ide.el"))
+
 ;; Init kind-icon for icon support in auto completion
 (use-package kind-icon
   :after corfu
