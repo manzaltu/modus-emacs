@@ -4265,7 +4265,18 @@ If project root cannot be found, use the buffer's default directory."
 ;; Init claude-code-ide for Claude Code IDE integration in Emacs
 (use-package claude-code-ide
   :after vterm
-  :straight (:type git :host github :repo "manzaltu/claude-code-ide.el"))
+  :straight (:type git :host github :repo "manzaltu/claude-code-ide.el")
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "TAB"
+    "TAB" #'claude-code-ide
+    "r" #'claude-code-ide-resume
+    "k" #'claude-code-ide-stop
+    "SPC" #'claude-code-ide-switch-to-buffer
+    "l" #'claude-code-ide-list-sessions
+    "i" #'claude-code-ide-insert-at-mentioned
+    "ESC" #'claude-code-ide-send-escape
+    "RET" #'claude-code-ide-insert-newline))
 
 ;; Init kind-icon for icon support in auto completion
 (use-package kind-icon
