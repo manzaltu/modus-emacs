@@ -4276,7 +4276,9 @@ If project root cannot be found, use the buffer's default directory."
     "l" #'claude-code-ide-list-sessions
     "i" #'claude-code-ide-insert-at-mentioned
     "ESC" #'claude-code-ide-send-escape
-    "RET" #'claude-code-ide-insert-newline))
+    "RET" #'claude-code-ide-insert-newline)
+  :custom
+  ( claude-code-ide-focus-claude-after-ediff nil))
 
 ;; Init kind-icon for icon support in auto completion
 (use-package kind-icon
