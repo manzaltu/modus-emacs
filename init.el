@@ -2130,7 +2130,7 @@ directory as a fall back."
   (setq consult-ripgrep-args (concat consult-ripgrep-args " --no-messages"))
 
   ;; Change default async split character
-  (plist-put (cdr (assq 'perl consult-async-split-styles-alist)) :initial "`")
+  (plist-put (cdr (assq 'perl consult-async-split-styles-alist)) :initial ?`)
 
   (defun mo-consult-buffer-dwim ()
     "If in project, list project buffers, otherwise show the global list."
