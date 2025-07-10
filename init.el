@@ -4410,7 +4410,10 @@ If project root cannot be found, use the buffer's default directory."
 
 ;; Init consult-gh for github consult integration
 (use-package consult-gh
-  :after consult)
+  :after consult
+  :custom
+  ( consult-gh-show-preview t)
+  ( consult-gh-preview-key "M-."))
 
 ;; Init consult-gh-embark for github embark integration
 (use-package consult-gh-embark
