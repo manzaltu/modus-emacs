@@ -4408,6 +4408,10 @@ If project root cannot be found, use the buffer's default directory."
   :config
   (setq consult-flyspell-select-function 'flyspell-correct-at-point))
 
+;; Init consult-gh for github consult integration
+(use-package consult-gh
+  :after consult)
+
 ;; Init powerthesaurus for finding synonyms, antonyms and related terms
 (use-package powerthesaurus
   :general
