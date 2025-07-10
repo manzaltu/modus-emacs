@@ -4412,6 +4412,13 @@ If project root cannot be found, use the buffer's default directory."
 (use-package consult-gh
   :after consult)
 
+;; Init consult-gh-embark for github embark integration
+(use-package consult-gh-embark
+  :after ( consult-gh embark)
+  :commands consult-gh-embark-mode
+  :config
+  (consult-gh-embark-mode +1))
+
 ;; Init powerthesaurus for finding synonyms, antonyms and related terms
 (use-package powerthesaurus
   :general
