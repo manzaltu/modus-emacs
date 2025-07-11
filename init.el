@@ -4411,6 +4411,10 @@ If project root cannot be found, use the buffer's default directory."
 ;; Init consult-gh for github consult integration
 (use-package consult-gh
   :after consult
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "g"
+    "h h" #'consult-gh)
   :custom
   ( consult-gh-show-preview t)
   ( consult-gh-preview-key "M-."))
