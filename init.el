@@ -4430,6 +4430,10 @@ If project root cannot be found, use the buffer's default directory."
 (use-package consult-gh-forge
   :after ( consult-gh forge)
   :commands consult-gh-forge-mode
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "g"
+    "h f" #'consult-gh-forge-open-topic-in-consult-gh)
   :config
   (consult-gh-forge-mode +1))
 
