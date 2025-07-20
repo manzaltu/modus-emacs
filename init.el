@@ -112,7 +112,6 @@
     "j" '( :which-key "Project")
     "c" '( :which-key "Code")
     "d" '( :which-key "Debug")
-    "TAB" '( :which-key "AI")
     "l" '( :which-key "Emacs Lisp")
     "s" '( :which-key "Lisp")
     "g" '( :which-key "Git")
