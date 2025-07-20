@@ -3804,15 +3804,6 @@ Provide code changes as GNU diff format, followed by brief explanations for each
   ( copilot-max-char -1)
   ( copilot-indent-offset-warning-disable t))
 
-;; Init aidermacs for aider support in Emacs
-(use-package aidermacs
-  :straight
-  ( :host github :repo "MatthewZMD/aidermacs" :files ( "*.el"))
-  :general
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "TAB"
-    "a" #'aidermacs-transient-menu))
-
 ;; Init rainbow-delimiters for highlighting parens by their depth
 (use-package rainbow-delimiters
   :hook
