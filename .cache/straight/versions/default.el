@@ -19,7 +19,7 @@
  ("cape" . "f925182957ea11119e27c2ac7200cc1fbba5612a")
  ("cdlatex" . "fac070f0164ac9f5859cb4cccba7d29a65c337f3")
  ("cfrs" . "f3a21f237b2a54e6b9f8a420a9da42b4f0a63121")
- ("claude-code-ide.el" . "bb36c81457d7ba39c164407310a17d35101a720b")
+ ("claude-code-ide.el" . "3449f5b7ba9c616ad9877035711ce9391b527d15")
  ("closql" . "05a2b048fd4e5c90aa971479cb9e71cf9aeba2bf")
  ("cmake" . "79b5b4ae263f3fa0c671333f66cca6b00fdd2928")
  ("compat" . "97f24af413a38a7f1aaedb29f5aaaa333796a5b4")
