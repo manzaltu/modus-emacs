@@ -3753,10 +3753,10 @@ run the attached function (if exists) and enable lsp"
     "G" #'gptel-send)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "TAB" #'gptel-add)
+    "g" #'gptel-add)
   ( :keymaps 'mo-quick-menu-map
     :prefix "f"
-    "TAB" #'gptel-add-file)
+    "g" #'gptel-add-file)
   ( :keymaps 'gptel-mode-map
     "C-<return>" #'gptel-send
     "C-S-<return>" #'gptel-abort
