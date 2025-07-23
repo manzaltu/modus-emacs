@@ -72,6 +72,7 @@
  ("emacs-powerthesaurus" . "4b97797cf789aaba411c61a85fe23474ebc5bedc")
  ("emacs-request" . "c22e3c23a6dd90f64be536e176ea0ed6113a5ba6")
  ("emacs-undo-fu-session" . "99d1b5099f432123577c51b6a67210b0c37716e6")
+ ("emacs-web-server" . "6357a1c2d1718778503f7ee0909585094117525b")
  ("emacs-websocket" . "40c208eaab99999d7c1e4bea883648da24c03be3")
  ("emacsmirror-mirror" . "5f795cc476f24d011e2cd83159a38522fe832a97")
  ("emacsql" . "ced062890061b6e4fbe4d00c0617f7ff84fff25c")

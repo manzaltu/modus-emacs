@@ -3613,6 +3613,9 @@ run the attached function (if exists) and enable lsp"
 ;; Init websocket for a websocket function library in lisp
 (use-package websocket)
 
+;; Init web-server for web server functionality in lisp
+(use-package web-server)
+
 ;; Init which-key for interactively displaying key bindings
 (use-package which-key
   :demand t
