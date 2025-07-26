@@ -4255,6 +4255,8 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'mo-quick-menu-map
     "TAB" #'claude-code-ide-menu)
+  :config
+  (claude-code-ide-emacs-tools-setup)
   :custom
   ( claude-code-ide-focus-claude-after-ediff nil))
 
