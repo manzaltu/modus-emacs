@@ -3759,6 +3759,9 @@ run the attached function (if exists) and enable lsp"
   ( :keymaps 'mo-quick-menu-map
     :prefix "f"
     "DEL" #'gptel-add-file)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "a"
+    "DEL" #'gptel-context-remove-all)
   ( :keymaps 'gptel-mode-map
     "C-<return>" #'gptel-send
     "C-S-<return>" #'gptel-abort
