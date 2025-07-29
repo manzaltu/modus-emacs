@@ -3751,7 +3751,8 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :keymaps 'mo-quick-menu-map
     "DEL" #'gptel
-    "C-<backspace>" #'gptel-send)
+    "C-<backspace>" #'gptel-send
+    "M-<backspace>" #'gptel-abort)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "DEL" #'gptel-add)
