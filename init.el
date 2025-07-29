@@ -3750,15 +3750,14 @@ run the attached function (if exists) and enable lsp"
 (use-package gptel
   :general
   ( :keymaps 'mo-quick-menu-map
-    :prefix "x"
-    "g" #'gptel
-    "G" #'gptel-send)
+    "DEL" #'gptel
+    "C-<backspace>" #'gptel-send)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "g" #'gptel-add)
+    "DEL" #'gptel-add)
   ( :keymaps 'mo-quick-menu-map
     :prefix "f"
-    "g" #'gptel-add-file)
+    "DEL" #'gptel-add-file)
   ( :keymaps 'gptel-mode-map
     "C-<return>" #'gptel-send
     "C-S-<return>" #'gptel-abort
