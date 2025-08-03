@@ -4563,6 +4563,14 @@ If project root cannot be found, use the buffer's default directory."
       (popper-toggle)
       (popper-toggle)))
 
+  (defun mo-popper-eat-filter (buf)
+    "Return t if BUF is an eat buffer that should be treated as a popup.
+Excludes eat buffers with names matching *claude-code*."
+    (let ((name (buffer-name buf)))
+      (and (not (string-match-p "\\*claude-code" name))
+           (with-current-buffer buf
+             (derived-mode-p 'eat-mode)))))
+
   (defun mo-popper-vterm-filter (buf)
     "Return t if BUF is a vterm buffer that should be treated as a popup.
 Matches by either vterm-mode or vterm name pattern.
@@ -4596,7 +4604,7 @@ Excludes vterm buffers with names matching *claude-code*."
            rustic-cargo-expand-mode
            sly-mrepl-mode
            inferior-python-mode
-           eat-mode
+           mo-popper-eat-filter
            "^\\*\\(.+-\\)?eshell\\*.*$" eshell-mode
            "^\\*shell.*\\*.*$" shell-mode
            "^\\*term.*\\*$" term-mode
