@@ -4253,7 +4253,6 @@ If project root cannot be found, use the buffer's default directory."
 
 ;; Init claude-code-ide for Claude Code IDE integration in Emacs
 (use-package claude-code-ide
-  :after vterm
   :straight (:type git :host github :repo "manzaltu/claude-code-ide.el")
   :general
   ( :keymaps 'mo-quick-menu-map
@@ -4261,6 +4260,7 @@ If project root cannot be found, use the buffer's default directory."
   :config
   (claude-code-ide-emacs-tools-setup)
   :custom
+  ( claude-code-ide-terminal-backend 'eat)
   ( claude-code-ide-focus-claude-after-ediff nil))
 
 ;; Init kind-icon for icon support in auto completion
