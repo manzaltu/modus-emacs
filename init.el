@@ -101,7 +101,7 @@
     :which-key "Quick menu prefix key"
     "a" '( :which-key "Action")
     "b" '( :which-key "Buffer")
-    "<insert>" '( :which-key Bookmark)
+    "ESC" '( :which-key "Bookmark")
     "f" '( :which-key "File")
     "v" '( :which-key "View")
     "w" '( :which-key "Window")
@@ -2047,8 +2047,8 @@ directory as a fall back."
     "m" #'consult-minor-mode-menu
     "B" #'consult-recent-file)
   ( :keymaps 'mo-quick-menu-map
-    :prefix "<insert>"
-    "<insert>" #'consult-bookmark)
+    :prefix "ESC"
+    "ESC" #'consult-bookmark)
   ( :keymaps 'mo-quick-menu-map
     :prefix "f"
     "," #'mo-consult-ripgrep-current-dir
@@ -4831,7 +4831,7 @@ Excludes vterm buffers with names matching *claude-code*."
   :demand t
   :general
   ( :keymaps 'mo-quick-menu-map
-    :prefix "<insert>"
+    :prefix "ESC"
     "RET" #'bookmark-bmenu-list
     "SPC" #'bmkp-bookmark-set-confirm-overwrite
     "f" #'bmkp-file-target-set
