@@ -3972,7 +3972,8 @@ Provide code changes as GNU diff format, followed by brief explanations for each
   :after orderless
   :general
   ( :keymaps 'mo-quick-menu-map
-    "ESC" #'mo-app-launcher-run-app-literal-prefix)
+    :prefix "x"
+    "RET" #'mo-app-launcher-run-app-literal-prefix)
   :config
   (defun mo-app-launcher-run-app-literal-prefix ()
     "Launch applications matched by the literal prefix style."
