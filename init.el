@@ -4784,7 +4784,7 @@ Excludes vterm buffers with names matching *claude-code*."
   (defun mo-recentf-file-remote-no-sudo-p (file)
     "Returns t if file is remote, except for local sudo paths."
     (and (string-match tramp-file-name-regexp file)
-         (not (string-match "^/sudo:root@" file))))
+         (not (string-match "^/sudo:" file))))
   (setq recentf-save-file (mo-cache-path "recentf"))
   ;; Enlarge the max size of the recent files list
   (setq recentf-max-saved-items 10000)
