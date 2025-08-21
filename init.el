@@ -4792,8 +4792,9 @@ Excludes vterm buffers with names matching *claude-code*."
 ;; Init saveplace for saving the last visited location in buffers
 (use-package saveplace
   :straight nil
-  :config
+  :init
   (setq save-place-file (mo-cache-path "places"))
+  :config
   (save-place-mode))
 
 ;; Init recentf for tracking recently opened files
