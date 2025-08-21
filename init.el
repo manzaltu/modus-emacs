@@ -2146,12 +2146,16 @@ Returns the selected project root directory or nil if cancelled."
   ;; Change default async split character
   (plist-put (cdr (assq 'perl consult-async-split-styles-alist)) :initial ?`)
 
-  (defun mo-consult-buffer-dwim ()
-    "If in project, list project buffers, otherwise show the global list."
-    (interactive)
-    (if (project-current)
+  (defun mo-consult-buffer-dwim (&optional arg)
+    "If in project, list project buffers, otherwise select from open projects.
+With universal argument ARG, always show list of open projects."
+    (interactive "P")
+    (if (and (not arg) (project-current))
         (call-interactively #'consult-project-buffer)
-      (call-interactively #'consult-buffer)))
+      ;; Universal arg or no active project, show selection of open projects
+      (when-let ((selected-project (mo-project-select-open-project)))
+        (let ((default-directory selected-project))
+          (call-interactively #'consult-project-buffer)))))
 
   ;; Add consult-fd command
   ;; Based on code from consult wiki:
