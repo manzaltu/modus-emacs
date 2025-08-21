@@ -2263,7 +2263,10 @@ Used while preview is toggled off."
     (let ((buffer-annotation (marginalia-annotate-buffer cand))
           (proj-name (when-let* ((buffer (get-buffer cand))
                                  (project (with-current-buffer buffer
-                                            (project-current))))
+                                            ;; Skip remote buffers except sudo
+                                            (when (or (not (file-remote-p default-directory))
+                                                      (string-match-p "^/sudo:" default-directory))
+                                              (project-current)))))
                        (project-name project))))
       (marginalia--fields
        (proj-name :truncate 0.2 :face 'marginalia-function)
