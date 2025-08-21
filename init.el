@@ -1607,9 +1607,7 @@ Used for preventing recursion when recording new jumps.")
 
 ;; Init saveplace-pdf-view for saving the last location in a pdf document
 (use-package saveplace-pdf-view
-  :after bookmark
-  :config
-  (save-place-mode 1))
+  :after bookmark)
 
 ;; Init nov for reading epub files in Emacs
 (use-package nov
