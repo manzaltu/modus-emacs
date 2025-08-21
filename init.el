@@ -1995,6 +1995,23 @@ directory as a fall back."
               (message "No other buffers")))
         (user-error "Current buffer is not part of a project"))))
 
+  (defun mo-project-select-open-project ()
+    "Select from currently open projects based on opened buffers.
+Returns the selected project root directory or nil if cancelled."
+    (let* ((open-projects (seq-uniq
+                           (delq nil
+                                 (mapcar (lambda (buf)
+                                           (with-current-buffer buf
+                                             ;; Skip remote buffers except sudo
+                                             (when (or (not (file-remote-p default-directory))
+                                                       (string-match-p "^/sudo:" default-directory))
+                                               (when-let ((proj (project-current)))
+                                                 (project-root proj)))))
+                                         (buffer-list))))))
+      (if open-projects
+          (completing-read "Select project: " open-projects nil t)
+        (user-error "No other open projects"))))
+
   ;; Enable project detection using .project files
   (add-to-list 'project-find-functions #'mo-project-try-local)
   ;; Set project history file path
