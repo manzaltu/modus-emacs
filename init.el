@@ -3636,6 +3636,12 @@ run the attached function (if exists) and enable lsp"
 ;; Init web-server for web server functionality in lisp
 (use-package web-server)
 
+;; Init warnings for displaying Emacs warnings and errors
+(use-package warnings
+  :straight nil
+  :config
+  (setq warning-minimum-level :error))
+
 ;; Init which-key for interactively displaying key bindings
 (use-package which-key
   :demand t
