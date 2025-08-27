@@ -831,13 +831,13 @@ If universal ARG is set, exclude the pattern."
   ( :keymaps 'mo-quick-menu-map
     :prefix "r"
     "RET" #'evil-mc-make-cursor-here
-    "a" #'evil-mc-make-all-cursors
-    "A" #'evil-mc-make-cursor-in-visual-selection-end
-    "I" #'evil-mc-make-cursor-in-visual-selection-beg
+    "r" #'evil-mc-make-all-cursors
+    "a" #'evil-mc-make-cursor-in-visual-selection-end
+    "i" #'evil-mc-make-cursor-in-visual-selection-beg
     "o" #'evil-mc-make-cursor-move-next-line
     "O" #'evil-mc-make-cursor-move-prev-line
     "p" #'evil-mc-pause-cursors
-    "r" #'evil-mc-resume-cursors
+    "P" #'evil-mc-resume-cursors
     "n" #'evil-mc-make-and-goto-next-match
     "N" #'evil-mc-make-and-goto-prev-match
     "s" #'evil-mc-skip-and-goto-next-match
