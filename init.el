@@ -646,7 +646,7 @@ the user to input the run command."
     "RET" #'mo-execute-predefined-command)
   ( :keymaps 'vertico-map
     "C-<return>" #'mo-minibuffer-insert-file-pattern
-    "C-<escape>" #'mo-minibuffer-insert-file-excl-pattern)
+    "C-S-<return>" #'mo-minibuffer-insert-file-excl-pattern)
   :preface
   (defun mo-copy-file-path ()
     "Copy the full path of the current buffer's file."
