@@ -3790,8 +3790,7 @@ run the attached function (if exists) and enable lsp"
     "DEL" #'gptel-context-remove-all)
   ( :keymaps 'gptel-mode-map
     "C-<return>" #'gptel-send
-    "C-S-<return>" #'gptel-abort
-    "C-<escape>" #'gptel-menu)
+    "C-S-<return>" #'gptel-abort)
   ( :keymaps 'gptel-context-buffer-mode-map
     :states 'normal
     "RET" #'gptel-context-visit
