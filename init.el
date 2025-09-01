@@ -4620,6 +4620,7 @@ Excludes vterm buffers with names matching *claude-code*."
            "^\\*.* Annotation\\*$"
            "\\*sly-description\\*"
            proced-mode
+           process-menu-mode
            world-clock-mode
            compilation-mode
            rustic-compilation-mode
