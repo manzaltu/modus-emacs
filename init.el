@@ -85,7 +85,7 @@
   ;; Create a definer and a leader for quick menu when not in evil-mode
   (general-create-definer mo--quick-menu-definer-non-evil
     :keymaps 'override
-    :prefix "M-<insert>")
+    :prefix "M-;")
 
   (defmacro mo-quick-menu-definer (&rest args)
     "Define bindings for both the evil and the non-evil leaders."
