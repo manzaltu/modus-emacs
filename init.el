@@ -782,7 +782,7 @@ If universal ARG is set, exclude the pattern."
   ;; evil-collection's find usages overrides evil-mc key bindings.
   (setq evil-collection-want-find-usages-bindings nil)
   (setq evil-collection-want-unimpaired-p nil)
-  (setq evil-collection-key-blacklist '( "," "M-o"))
+  (setq evil-collection-key-blacklist '( "<menu>" "M-o"))
   (evil-collection-init)
 
   ;; Init dired+ for additional dired functionality
