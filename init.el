@@ -78,23 +78,10 @@
     mo--quick-menu-definer-non-evil)
   :functions ( general-create-definer mo-quick-menu-definer)
   :config
-  ;; Create a definer and a leader for quick menu when in evil-mode
-  (general-create-definer mo--quick-menu-definer-evil
-    :states '( normal visual motion emacs)
-    :prefix ",")
-  ;; Create a definer and a leader for quick menu when not in evil-mode
-  (general-create-definer mo--quick-menu-definer-non-evil
+  ;; Create a definer and a leader key for the quick menu
+  (general-create-definer mo-quick-menu-definer
     :keymaps 'override
     :prefix "M-;")
-
-  (defmacro mo-quick-menu-definer (&rest args)
-    "Define bindings for both the evil and the non-evil leaders."
-    (declare (indent defun))
-    `(progn
-       (mo--quick-menu-definer-evil
-         ,@args)
-       (mo--quick-menu-definer-non-evil
-         ,@args)))
 
   (mo-quick-menu-definer
     :prefix-map 'mo-quick-menu-map
