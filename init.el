@@ -310,7 +310,7 @@ Briefly highlight previous location."
   :general
   ( :keymaps 'mo-quick-menu-map
     ;; Quick save key binding
-    "SPC" #'save-buffer)
+    ";" #'save-buffer)
   ( :keymaps 'mo-quick-menu-map
     "_" #'mo-open-init-file)
   ( :keymaps 'mo-quick-menu-map
