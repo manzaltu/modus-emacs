@@ -1773,6 +1773,8 @@ Used for preventing recursion when recording new jumps.")
   ( eshell-mode . mo-corfu-enable-no-auto)
   ;; Disable auto mode in shell
   ( shell-mode . mo-corfu-enable-no-auto)
+  ;; Disable auto mode in comint
+  ( comint-mode . mo-corfu-enable-no-auto)
   ;; Close popup when exiting evil insert state
   ( evil-insert-state-exit . corfu-quit)
   :config
