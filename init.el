@@ -674,7 +674,7 @@ Tab is named after the project's name."
   (put 'mo-predefined-commands 'safe-local-variable #'listp)
 
   (defun mo-execute-predefined-command ()
-    "Select and execute a predefined command."
+    "Select and execute a predefined command or Elisp code."
     (interactive)
     (let ((project-dir (project-root (project-current t)))
           (command (cdr
@@ -686,7 +686,13 @@ Tab is named after the project's name."
                       t)
                      mo-predefined-commands))))
       (let ((default-directory project-dir))
-        (async-shell-command command))))
+        (cond
+         ((stringp command)
+          (async-shell-command command))
+         ((listp command)
+          (eval command))
+         (t
+          (error "Invalid command type: must be string or list"))))))
 
   (defun mo-show-modified-buffer-changes ()
     "If a buffer is different from its file, show the changes."
