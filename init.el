@@ -88,7 +88,7 @@
     :which-key "Quick menu prefix key"
     "a" '( :which-key "Action")
     "b" '( :which-key "Buffer")
-    "ESC" '( :which-key "Bookmark")
+    "DEL" '( :which-key "Bookmark")
     "f" '( :which-key "File")
     "v" '( :which-key "View")
     "w" '( :which-key "Window")
@@ -2055,8 +2055,8 @@ Returns the selected project root directory or nil if cancelled."
     "m" #'consult-minor-mode-menu
     "B" #'consult-recent-file)
   ( :keymaps 'mo-quick-menu-map
-    :prefix "ESC"
-    "ESC" #'consult-bookmark)
+    :prefix "DEL"
+    "DEL" #'consult-bookmark)
   ( :keymaps 'mo-quick-menu-map
     :prefix "f"
     "," #'mo-consult-ripgrep-current-dir
@@ -4853,7 +4853,7 @@ Excludes vterm buffers with names matching *claude-code*."
   :demand t
   :general
   ( :keymaps 'mo-quick-menu-map
-    :prefix "ESC"
+    :prefix "DEL"
     "RET" #'bookmark-bmenu-list
     "SPC" #'bmkp-bookmark-set-confirm-overwrite
     "f" #'bmkp-file-target-set
