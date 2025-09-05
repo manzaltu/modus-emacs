@@ -1048,7 +1048,7 @@ Used for preventing recursion when recording new jumps.")
 (use-package dumb-jump
   :general
   ( :keymaps 'mo-quick-menu-map
-    ":" #'dumb-jump-go)
+    "C-S-j" #'dumb-jump-go)
   :init
   (setq dumb-jump-selector #'completing-read)
   :custom
