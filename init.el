@@ -2082,7 +2082,7 @@ Returns the selected project root directory or nil if cancelled."
   ;; Minibuffer history
   ( :keymaps 'minibuffer-local-map
     "C-S-p" #'mo-consult-toggle-preview
-    "C-<menu>" #'mo-consult-preview
+    "M-," #'mo-consult-preview
     "M-s" #'consult-history                 ;; orig. next-matching-history-element
     "M-r" #'consult-history                 ;; orig. previous-matching-history-element
     "C-r" #'consult-history)                ;; orig. isearch-backward
