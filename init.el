@@ -3200,7 +3200,7 @@ run the attached function (if exists) and enable lsp"
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
     "E" #'consult-lsp-diagnostics
-    "/" #'consult-lsp-file-symbols
+    "<menu>" #'consult-lsp-file-symbols
     "." #'mo-consult-lsp-project-symbols
     "," #'mo-consult-lsp-symbols-unsorted)
   :config
