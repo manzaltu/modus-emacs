@@ -81,7 +81,7 @@
   ;; Create a definer and a leader key for the quick menu
   (general-create-definer mo-quick-menu-definer
     :keymaps 'override
-    :prefix "M-;")
+    :prefix "<menu>")
 
   (mo-quick-menu-definer
     :prefix-map 'mo-quick-menu-map
