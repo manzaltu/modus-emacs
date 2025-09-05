@@ -2872,9 +2872,9 @@ Used while preview is toggled off."
     "=" #'lsp-format-region
     "o" #'lsp-clangd-find-other-file)
   ( :keymaps 'mo-quick-menu-map
-    "\"" #'lsp-find-implementation
-    "(" #'lsp-ui-peek-find-implementation
-    "`" #'lsp-ui-peek-find-references)
+    "C-l" #'lsp-find-implementation
+    "C-S-l" #'lsp-ui-peek-find-implementation
+    "C-S-k" #'lsp-ui-peek-find-references)
   ( :keymaps 'mo-quick-menu-map
     :prefix "n"
     "l" #'lsp-org)
