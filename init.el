@@ -2028,8 +2028,8 @@ Returns the selected project root directory or nil if cancelled."
   :general
   ;; Quick bindings
   ( :keymaps 'mo-quick-menu-map
-    "/" #'consult-line
-    "?" #'consult-line-multi
+    "<menu>" #'consult-line
+    "C-<menu>" #'consult-line-multi
     "." #'consult-fd
     "," #'consult-ripgrep
     "M" #'mo-consult-xref-history
@@ -2048,8 +2048,8 @@ Returns the selected project root directory or nil if cancelled."
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "b" #'consult-buffer
-    "/" #'consult-imenu
-    "?" #'consult-imenu-multi
+    "<menu>" #'consult-imenu
+    "C-<menu>" #'consult-imenu-multi
     "," #'consult-focus-lines
     "." #'consult-keep-lines
     "m" #'consult-minor-mode-menu
@@ -2107,7 +2107,7 @@ Returns the selected project root directory or nil if cancelled."
     "t" #'consult-theme)
   ( :keymaps 'mo-quick-menu-map
     :prefix "n"
-    "/" #'consult-org-heading)
+    "<menu>" #'consult-org-heading)
   ( :keymaps 'mo-quick-menu-map
     :prefix "z"
     "c" #'consult-complex-command)
