@@ -4279,7 +4279,6 @@ If project root cannot be found, use the buffer's default directory."
   :config
   (claude-code-ide-emacs-tools-setup)
   :custom
-  ( claude-code-ide-terminal-backend 'eat)
   ( claude-code-ide-focus-claude-after-ediff nil))
 
 ;; Init kind-icon for icon support in auto completion
