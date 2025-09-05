@@ -2779,8 +2779,8 @@ Used while preview is toggled off."
     :keymaps 'sly-mode-map
     "h h" #'sly-describe-symbol
     "c d" #'sly-hyperspec-lookup
-    ";" #'sly-edit-definition
-    "'" #'sly-edit-uses)
+    "C-j" #'sly-edit-definition
+    "C-k" #'sly-edit-uses)
   :custom
   ( inferior-lisp-program "sbcl")
   ( sly-db-focus-debugger t)
