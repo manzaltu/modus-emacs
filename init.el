@@ -4277,7 +4277,7 @@ If project root cannot be found, use the buffer's default directory."
   :straight (:type git :host github :repo "manzaltu/claude-code-ide.el")
   :general
   ( :keymaps 'mo-quick-menu-map
-    "TAB" #'claude-code-ide-menu)
+    "SPC" #'claude-code-ide-menu)
   :config
   (claude-code-ide-emacs-tools-setup)
   :custom
