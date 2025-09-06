@@ -74,14 +74,44 @@
   :demand t
   :defines
   ( mo-quick-menu-definer
-    mo--quick-menu-definer-evil
-    mo--quick-menu-definer-non-evil)
+    mo--quick-menu-definer-main
+    mo--quick-menu-definer-ctrl
+    mo--quick-menu-definer-meta
+    mo--quick-menu-definer-ctrl-meta)
   :functions ( general-create-definer mo-quick-menu-definer)
   :config
   ;; Create a definer and a leader key for the quick menu
-  (general-create-definer mo-quick-menu-definer
+  (general-create-definer mo--quick-menu-definer-main
     :keymaps 'override
     :prefix "<menu>")
+
+  ;; Create a ctrl definer and a leader key for the quick menu
+  (general-create-definer mo--quick-menu-definer-ctrl
+    :keymaps 'override
+    :prefix "C-<menu>")
+
+  ;; Create a meta definer and a leader key for the quick menu
+  (general-create-definer mo--quick-menu-definer-meta
+    :keymaps 'override
+    :prefix "M-<menu>")
+
+  ;; Create a ctrl-meta definer and a leader key for the quick menu
+  (general-create-definer mo--quick-menu-definer-ctrl-meta
+    :keymaps 'override
+    :prefix "C-M-<menu>")
+
+  (defmacro mo-quick-menu-definer (&rest args)
+    "Define bindings for both the evil and the non-evil leaders."
+    (declare (indent defun))
+    `(progn
+       (mo--quick-menu-definer-main
+         ,@args)
+       (mo--quick-menu-definer-ctrl
+         ,@args)
+       (mo--quick-menu-definer-meta
+         ,@args)
+       (mo--quick-menu-definer-ctrl-meta
+         ,@args)))
 
   (mo-quick-menu-definer
     :prefix-map 'mo-quick-menu-map
