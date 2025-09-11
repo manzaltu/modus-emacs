@@ -4380,7 +4380,7 @@ If project root cannot be found, use the buffer's default directory."
   (defun mo-auto-dim-configure-theme ()
     "Set auto-dim-other-buffers-mode theme configuration."
     (let* ((bg (doom-color 'bg))
-           (darkened-bg (doom-darken bg 0.25)))
+           (darkened-bg (doom-darken bg 0.35)))
       (set-face-attribute 'auto-dim-other-buffers nil
                           :background darkened-bg)
       (set-face-attribute 'auto-dim-other-buffers-hide nil
