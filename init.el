@@ -3802,7 +3802,7 @@ run the attached function (if exists) and enable lsp"
 (use-package gptel
   :general
   ( :keymaps 'mo-quick-menu-map
-    "<insert>" #'gptel)
+    "<tab>" #'gptel)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "DEL" #'gptel-add)
