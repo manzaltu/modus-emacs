@@ -1993,8 +1993,12 @@ directory as a fall back."
 
   (defun mo-enable-reload-dir-locals-on-save ()
     "Enable project dir-locals reload on dir-locals file save."
-    (when-let ((buf-name (buffer-file-name)))
-      (when (equal dir-locals-file (file-name-nondirectory buf-name))
+    (when-let* ((buf-name (buffer-file-name))
+                (base-name (file-name-nondirectory buf-name))
+                (dir-local-files (cons dir-locals-file
+                                       (when (string-match "\\.el\\'" dir-locals-file)
+                                         (list (replace-match "-2.el" t nil dir-locals-file))))))
+      (when (member base-name dir-local-files)
         (add-hook 'after-save-hook #'mo-reload-dir-locals-project nil t))))
 
   (defun mo-find-file-dir-locals-project ()
