@@ -2690,20 +2690,6 @@ Used while preview is toggled off."
   ;; Lower per request item limit to avoid hitting service rate limits
   (setq ghub-graphql-items-per-request 20))
 
-;; Init github-review for helping with code review on github
-(use-package github-review
-  :general
-  ( :keymaps 'github-review-mode-map
-    "C-M-s-a" #'github-review-approve
-    "C-M-s-c" #'github-review-comment
-    "C-M-s-r" #'github-review-reject)
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "g"
-    "r" #'github-review-forge-pr-at-point)
-  :config
-  (setq github-review-view-comments-in-code-lines t)
-  (setq github-review-reply-inline-comments t))
-
 ;; Init diff for diff functionality
 (use-package diff
   :straight nil
