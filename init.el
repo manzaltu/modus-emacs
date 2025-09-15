@@ -2690,6 +2690,9 @@ Used while preview is toggled off."
   ;; Lower per request item limit to avoid hitting service rate limits
   (setq ghub-graphql-items-per-request 20))
 
+;; Init pr-review for reviewing github PRs
+(use-package pr-review)
+
 ;; Init diff for diff functionality
 (use-package diff
   :straight nil

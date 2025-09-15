@@ -69,6 +69,7 @@
  ("emacs-libvterm" . "056ad74653704bc353d8ec8ab52ac75267b7d373")
  ("emacs-load-env-vars" . "3808520efaf9492033f6e11a9bffd68eabf02a0f")
  ("emacs-powerthesaurus" . "4b97797cf789aaba411c61a85fe23474ebc5bedc")
+ ("emacs-pr-review" . "469e2e1f0f111773899627f81ae433f6ec14e5b5")
  ("emacs-request" . "c22e3c23a6dd90f64be536e176ea0ed6113a5ba6")
  ("emacs-undo-fu-session" . "e50147230b63fc305b4ffda9a4c8be0d79c938c5")
  ("emacs-web-server" . "6357a1c2d1718778503f7ee0909585094117525b")
