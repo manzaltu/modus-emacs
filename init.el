@@ -4465,6 +4465,18 @@ If project root cannot be found, use the buffer's default directory."
   :config
   (consult-gh-forge-mode +1))
 
+;; Init consult-gh-with-pr-review for github pr-review integration
+(use-package consult-gh-with-pr-review
+  :demand t
+  :after ( consult-gh pr-review)
+  :commands consult-gh-with-pr-review-open-topic
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "g"
+    "h r" #'consult-gh-with-pr-review-open-topic)
+  :config
+  (consult-gh-with-pr-review-mode +1))
+
 ;; Init powerthesaurus for finding synonyms, antonyms and related terms
 (use-package powerthesaurus
   :general
