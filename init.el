@@ -2695,7 +2695,19 @@ Used while preview is toggled off."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
-    "r" #'pr-review-search-open))
+    "r" #'pr-review-search-open)
+  ( :keymaps 'pr-review-mode-map
+    "C-M-s-a" #'pr-review-context-action
+    "C-M-s-r" #'pr-review-request-reviews
+    "C-M-s-R" #'pr-review-refresh
+    "C-M-s-o" #'pr-review-open-in-default-browser
+    "C-M-s-l" #'pr-review-set-labels
+    "C-M-s-E" #'pr-review-update-reactions
+    "C-M-s-f" #'pr-review-goto-file
+    "C-M-s-v" #'pr-review-view-file
+    "C-M-s-e" #'pr-review-context-edit
+    "C-M-s-d" #'pr-review-ediff-file
+    "C-M-s-c" #'pr-review-context-comment))
 
 ;; Init diff for diff functionality
 (use-package diff
