@@ -2691,7 +2691,11 @@ Used while preview is toggled off."
   (setq ghub-graphql-items-per-request 20))
 
 ;; Init pr-review for reviewing github PRs
-(use-package pr-review)
+(use-package pr-review
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "g"
+    "r" #'pr-review-search-open))
 
 ;; Init diff for diff functionality
 (use-package diff
