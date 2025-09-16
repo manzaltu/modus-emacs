@@ -4435,6 +4435,7 @@ If project root cannot be found, use the buffer's default directory."
 
 ;; Init consult-gh for github consult integration
 (use-package consult-gh
+  :demand t
   :after consult
   :general
   ( :keymaps 'mo-quick-menu-map
@@ -4446,6 +4447,7 @@ If project root cannot be found, use the buffer's default directory."
 
 ;; Init consult-gh-embark for github embark integration
 (use-package consult-gh-embark
+  :demand t
   :after ( consult-gh embark)
   :commands consult-gh-embark-mode
   :config
@@ -4453,6 +4455,7 @@ If project root cannot be found, use the buffer's default directory."
 
 ;; Init consult-gh-forge for github forge integration
 (use-package consult-gh-forge
+  :demand t
   :after ( consult-gh forge)
   :commands consult-gh-forge-mode
   :general
