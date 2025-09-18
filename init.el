@@ -82,22 +82,18 @@
   :config
   ;; Create a definer and a leader key for the quick menu
   (general-create-definer mo--quick-menu-definer-main
-    :keymaps 'override
     :prefix "<menu>")
 
   ;; Create a ctrl definer and a leader key for the quick menu
   (general-create-definer mo--quick-menu-definer-ctrl
-    :keymaps 'override
     :prefix "C-<menu>")
 
   ;; Create a meta definer and a leader key for the quick menu
   (general-create-definer mo--quick-menu-definer-meta
-    :keymaps 'override
     :prefix "M-<menu>")
 
   ;; Create a ctrl-meta definer and a leader key for the quick menu
   (general-create-definer mo--quick-menu-definer-ctrl-meta
-    :keymaps 'override
     :prefix "C-M-<menu>")
 
   (defmacro mo-quick-menu-definer (&rest args)
