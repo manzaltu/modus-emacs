@@ -3585,7 +3585,12 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
-    "j" #'journalctl))
+    "j" #'journalctl)
+  ( :keymaps 'journalctl-mode-map
+    "C-M-s-m" #'journalctl
+    "C-M-s-n" #'journalctl-next-chunk
+    "C-M-s-p" #'journalctl-previous-chunk
+    "C-M-s-q" #'journalctl-quit))
 
 ;; Init edit-indirect for editing regions in separate buffers
 (use-package edit-indirect)
