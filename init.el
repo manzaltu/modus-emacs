@@ -2914,8 +2914,7 @@ Used while preview is toggled off."
     :prefix "n"
     "l" #'lsp-org)
   (mo-quick-menu-definer
-    :definer 'minor-mode
-    :keymaps 'lsp-mode
+    :keymaps 'lsp-mode-map
     "h h" #'lsp-describe-thing-at-point)
   (mo-quick-menu-definer
     :keymaps 'rustic-mode-map
