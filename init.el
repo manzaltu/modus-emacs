@@ -2061,8 +2061,8 @@ Returns the selected project root directory or nil if cancelled."
     "C-<menu>" #'consult-line-multi
     "." #'consult-fd
     "," #'consult-ripgrep
-    "M" #'mo-consult-xref-history
-    "<" #'mo-consult-xref-pop
+    "M-," #'mo-consult-xref-history
+    "C-M-," #'mo-consult-xref-pop
     "RET" #'mo-consult-buffer-dwim)
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
