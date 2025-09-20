@@ -4014,15 +4014,6 @@ Provide code changes as GNU diff format, followed by brief explanations for each
   ;; Hide other users' state change messages
   ( erc-hide-list '("JOIN" "PART" "QUIT" "NICK")))
 
-;; Init elfeed for reading web feeds in Emacs
-(use-package elfeed
-  :general
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "x"
-    "f" #'elfeed)
-  :config
-  (setq elfeed-show-entry-switch #'pop-to-buffer))
-
 ;; Init app-launcher for launching desktop apps
 (use-package app-launcher
   :straight ( :type git :host github :repo "SebastienWae/app-launcher")
