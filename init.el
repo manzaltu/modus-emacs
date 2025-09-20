@@ -4023,7 +4023,8 @@ Provide code changes as GNU diff format, followed by brief explanations for each
     :prefix "x"
     "n" #'newsticker-show-news)
   :config
-  (setq newsticker-dir (mo-cache-path "newsticker")))
+  (setq newsticker-dir (mo-cache-path "newsticker"))
+  (setq newsticker-treeview-listwindow-height 30))
 
 ;; Init app-launcher for launching desktop apps
 (use-package app-launcher
