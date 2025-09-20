@@ -4017,6 +4017,11 @@ Provide code changes as GNU diff format, followed by brief explanations for each
 ;; Init newsticker for reading news feeds
 (use-package newsticker
   :straight nil
+  :demand t
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "x"
+    "n" #'newsticker-show-news)
   :config
   (setq newsticker-dir (mo-cache-path "newsticker")))
 
