@@ -4014,6 +4014,12 @@ Provide code changes as GNU diff format, followed by brief explanations for each
   ;; Hide other users' state change messages
   ( erc-hide-list '("JOIN" "PART" "QUIT" "NICK")))
 
+;; Init newsticker for reading news feeds
+(use-package newsticker
+  :straight nil
+  :config
+  (setq newsticker-dir (mo-cache-path "newsticker")))
+
 ;; Init app-launcher for launching desktop apps
 (use-package app-launcher
   :straight ( :type git :host github :repo "SebastienWae/app-launcher")
