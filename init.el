@@ -3743,7 +3743,7 @@ run the attached function (if exists) and enable lsp"
     "B" #'describe-bindings)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "M" #'describe-mode))
+    "m" #'describe-mode))
 
 ;; Init helpful for better lisp help
 (use-package helpful
