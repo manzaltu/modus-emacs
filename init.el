@@ -4021,10 +4021,32 @@ Provide code changes as GNU diff format, followed by brief explanations for each
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
-    "n" #'newsticker-show-news)
+    "n" #'mo-newsticker-show-news-in-tab)
+  ( :keymaps 'newsticker-treeview-mode-map
+    "q" #'mo-newsticker-quit-and-close-tab)
+  ( :keymaps 'newsticker-treeview-mode-map
+    :states 'normal
+    "q" #'mo-newsticker-quit-and-close-tab)
   :config
   (setq newsticker-dir (mo-cache-path "newsticker"))
-  (setq newsticker-treeview-listwindow-height 30))
+  (setq newsticker-treeview-listwindow-height 30)
+
+  (defvar mo-newsticker-tab-name "Newsticker"
+    "Newsticker tab name")
+
+  (defun mo-newsticker-show-news-in-tab ()
+    "Open newsticker in a new tab named 'Newsticker'."
+    (interactive)
+    (tab-bar-new-tab)
+    (tab-bar-rename-tab mo-newsticker-tab-name)
+    (newsticker-treeview))
+
+  (defun mo-newsticker-quit-and-close-tab ()
+    "Quit newsticker and close the tab if it's named 'Newsticker'."
+    (interactive)
+    (newsticker-treeview-quit)
+    (when (string= (alist-get 'name (tab-bar--current-tab)) mo-newsticker-tab-name)
+      (tab-bar-close-tab))))
 
 ;; Init app-launcher for launching desktop apps
 (use-package app-launcher
