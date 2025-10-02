@@ -1339,6 +1339,9 @@ Used for preventing recursion when recording new jumps.")
 ;; Init ox-pandoc for exporting org files using pandoc
 (use-package ox-pandoc)
 
+;; Init ox-gfm for exporting org files in the gfm format
+(use-package ox-gfm)
+
 ;; Init ob-async for enabling asynchronous execution of org-babel blocks
 (use-package ob-async)
 
