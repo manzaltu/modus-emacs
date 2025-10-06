@@ -3816,13 +3816,13 @@ run the attached function (if exists) and enable lsp"
     "<tab>" #'gptel)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "DEL" #'gptel-add)
+    "<tab>" #'gptel-add)
   ( :keymaps 'mo-quick-menu-map
     :prefix "f"
-    "DEL" #'gptel-add-file)
+    "<tab>" #'gptel-add-file)
   ( :keymaps 'mo-quick-menu-map
     :prefix "a"
-    "DEL" #'gptel-context-remove-all)
+    "<tab>" #'gptel-context-remove-all)
   ( :keymaps 'gptel-mode-map
     "C-<return>" #'gptel-send
     "C-S-<return>" #'gptel-abort)
