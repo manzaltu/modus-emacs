@@ -153,7 +153,7 @@
     "<" #'evil-window-decrease-width)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "SPC" #'evil-ex-nohighlight)
+    "DEL" #'evil-ex-nohighlight)
   ;; We want C-f for moving forward a word
   ( :keymaps 'evil-ex-completion-map
     "C-f" nil
