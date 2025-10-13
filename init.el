@@ -4708,6 +4708,7 @@ Excludes vterm buffers with names matching *claude-code*."
            sly-mrepl-mode
            inferior-python-mode
            mo-popper-eat-filter
+           shell-command-mode
            "^\\*\\(.+-\\)?eshell\\*.*$" eshell-mode
            "^\\*shell.*\\*.*$" shell-mode
            "^\\*term.*\\*$" term-mode
