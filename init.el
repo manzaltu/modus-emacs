@@ -153,7 +153,7 @@
     "<" #'evil-window-decrease-width)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "DEL" #'evil-ex-nohighlight)
+    "ESC" #'evil-ex-nohighlight)
   ;; We want C-f for moving forward a word
   ( :keymaps 'evil-ex-completion-map
     "C-f" nil
@@ -4789,7 +4789,7 @@ Excludes vterm buffers with names matching *claude-code*."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "ESC" #'clean-buffer-list)
+    "DEL" #'clean-buffer-list)
   :config
   ;; Kill run code command buffers frequently
   (add-to-list 'clean-buffer-list-kill-regexps "^\\*Run Code Command\\*.*$")
