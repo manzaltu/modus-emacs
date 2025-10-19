@@ -815,10 +815,11 @@ If universal ARG is set, exclude the pattern."
   ;; reusing will be configured correctly.
   (use-package dired+
     :functions diredp-toggle-find-file-reuse-dir
+    :defines diredp-ignore-compressed-flag
     :custom
     ( diredp-hide-details-initially-flag nil)
+    ( diredp-ignore-compressed-flag nil)
     :config
-    (setq diredp-ignore-compressed-flag nil)
     (diredp-toggle-find-file-reuse-dir 1)
     ;; These hooks seem to degrade performance on some scenarios
     (remove-hook 'dired-after-readin-hook 'diredp-nb-marked-in-mode-name)
