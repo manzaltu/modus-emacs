@@ -816,6 +816,12 @@ If universal ARG is set, exclude the pattern."
   (use-package dired+
     :functions diredp-toggle-find-file-reuse-dir
     :defines diredp-ignore-compressed-flag
+    :hook
+    ( after-enable-theme . mo-diredp-window-configure-theme)
+    :config
+    (defun mo-diredp-window-configure-theme ()
+      "Set dired+ theme configuration."
+      (set-face-attribute 'diredp-compressed-file-name nil :foreground "green3"))
     :custom
     ( diredp-hide-details-initially-flag nil)
     ( diredp-ignore-compressed-flag nil)
