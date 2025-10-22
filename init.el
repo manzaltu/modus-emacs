@@ -2523,7 +2523,7 @@ Used while preview is toggled off."
     :prefix "x"
     "C" #'calc)
   ( :keymaps 'mo-quick-menu-map
-    "C" #'quick-calc))
+    "+" #'quick-calc))
 
 ;; Init literate-calc-mode for inline calculations
 (use-package literate-calc-mode
