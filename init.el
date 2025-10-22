@@ -138,14 +138,14 @@
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "w"
-    "H" #'evil-window-move-far-left
-    "J" #'evil-window-move-very-bottom
-    "K" #'evil-window-move-very-top
-    "L" #'evil-window-move-far-right
+    "C-h" #'evil-window-move-far-left
+    "C-j" #'evil-window-move-very-bottom
+    "C-k" #'evil-window-move-very-top
+    "C-l" #'evil-window-move-far-right
     "v" #'evil-window-vsplit
-    "V" #'mo-evil-vsplit-left
+    "C-v" #'mo-evil-vsplit-left
     "s" #'evil-window-split
-    "S" #'mo-evil-split-above
+    "C-s" #'mo-evil-split-above
     "c" #'evil-window-delete
     "+" #'evil-window-increase-height
     "-" #'evil-window-decrease-height
@@ -342,7 +342,7 @@ Briefly highlight previous location."
   ( :keymaps 'mo-quick-menu-map
     :prefix "f"
     "f" #'find-file
-    "F" #'find-file-literally
+    "C-f" #'find-file-literally
     "w" #'write-file
     "r" #'recover-this-file)
   ( :keymaps 'mo-quick-menu-map
@@ -353,7 +353,7 @@ Briefly highlight previous location."
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "r" #'revert-buffer-quick
-    "R" #'mo-reload-dir-locals-current-buffer)
+    "C-r" #'mo-reload-dir-locals-current-buffer)
   ( :keymaps 'mo-quick-menu-map
     "q" #'save-buffers-kill-terminal)
   :config
@@ -406,7 +406,7 @@ Briefly highlight previous location."
   ( :keymaps 'mo-quick-menu-map
     :prefix "w"
     "=" #'balance-windows
-    "C" #'delete-other-windows
+    "C-c" #'delete-other-windows
     "q" #'quit-window
     "x" #'mo-quit-other-window)
   ( :keymaps 'mo-quick-menu-map
@@ -460,8 +460,8 @@ Briefly highlight previous location."
     "t" #'toggle-truncate-lines
     "v" #'visual-line-mode
     "f" #'auto-fill-mode
-    "F" #'set-fill-column
-    "I" #'clone-indirect-buffer
+    "C-f" #'set-fill-column
+    "C-i" #'clone-indirect-buffer
     "k" #'kill-current-buffer)
   ( :keymaps 'mo-quick-menu-map
     ;; Universal argument key binding
@@ -469,7 +469,7 @@ Briefly highlight previous location."
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
     ;; List all sub processes
-    "P" #'list-processes
+    "C-p" #'list-processes
     "x" #'async-shell-command)
   ( :keymaps 'mo-quick-menu-map
     :prefix "l"
@@ -612,7 +612,7 @@ the user to input the run command."
     "k" #'kmacro-start-macro-or-insert-counter
     "c" #'kmacro-end-or-call-macro
     "e" #'kmacro-edit-macro
-    "E" #'kmacro-step-edit-macro
+    "C-e" #'kmacro-step-edit-macro
     "s" #'kmacro-set-counter
     "f" #'kmacro-set-format
     "r" #'kmacro-edit-lossage
@@ -860,17 +860,17 @@ If universal ARG is set, exclude the pattern."
     "a" #'evil-mc-make-cursor-in-visual-selection-end
     "i" #'evil-mc-make-cursor-in-visual-selection-beg
     "o" #'evil-mc-make-cursor-move-next-line
-    "O" #'evil-mc-make-cursor-move-prev-line
+    "C-o" #'evil-mc-make-cursor-move-prev-line
     "p" #'evil-mc-pause-cursors
-    "P" #'evil-mc-resume-cursors
+    "C-p" #'evil-mc-resume-cursors
     "n" #'evil-mc-make-and-goto-next-match
-    "N" #'evil-mc-make-and-goto-prev-match
+    "C-n" #'evil-mc-make-and-goto-prev-match
     "s" #'evil-mc-skip-and-goto-next-match
-    "S" #'evil-mc-skip-and-goto-prev-match
+    "C-s" #'evil-mc-skip-and-goto-prev-match
     "j" #'evil-mc-make-and-goto-next-cursor
-    "J" #'evil-mc-skip-and-goto-next-cursor
+    "C-j" #'evil-mc-skip-and-goto-next-cursor
     "k" #'evil-mc-make-and-goto-prev-cursor
-    "K" #'evil-mc-skip-and-goto-prev-cursor
+    "C-k" #'evil-mc-skip-and-goto-prev-cursor
     "^" #'evil-mc-make-and-goto-first-cursor
     "$" #'evil-mc-make-and-goto-last-cursor
     "u" #'evil-mc-undo-last-added-cursor
@@ -1093,7 +1093,7 @@ Used for preventing recursion when recording new jumps.")
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
     "m" #'origami-recursively-toggle-node
-    "M" #'origami-open-all-nodes)
+    "C-m" #'origami-open-all-nodes)
   :config
   (global-origami-mode))
 
@@ -1359,7 +1359,7 @@ Used for preventing recursion when recording new jumps.")
   ( :keymaps 'mo-quick-menu-map
     :prefix "n"
     "j" #'org-journal-new-entry
-    "J" #'org-journal-new-date-entry)
+    "C-j" #'org-journal-new-date-entry)
   ( :keymaps 'org-journal-mode-map
     "C-M-s-j C-M-s-j" #'org-journal-new-entry
     "C-M-s-j C-M-s-n" #'org-journal-next-entry
@@ -1407,7 +1407,7 @@ Used for preventing recursion when recording new jumps.")
   ( :keymaps 'mo-quick-menu-map
     :prefix "n"
     "r" #'org-roam-node-find
-    "R" #'org-roam-capture)
+    "C-r" #'org-roam-capture)
   :custom
   ( org-roam-directory "~/roam")
   :init
@@ -1653,7 +1653,7 @@ Used for preventing recursion when recording new jumps.")
   ( :keymaps 'mo-quick-menu-map
     :prefix "a"
     "a" #'dired-async-mode
-    "K" #'dired-async-kill-process)
+    "C-k" #'dired-async-kill-process)
   :custom
   ;; Make sure that the file threshold variable is passed to the async environment.
   ;; This is needed for disabling the large file warning on dired-async.
@@ -1932,7 +1932,7 @@ Used for preventing recursion when recording new jumps.")
   ( :keymaps 'mo-quick-menu-map
     :prefix "j"
     "w" #'mo-project-save
-    "W" #'project-forget-project
+    "C-w" #'project-forget-project
     "d" #'project-dired
     "f" #'mo-project-find-file
     "x" #'project-async-shell-command
@@ -1945,7 +1945,7 @@ Used for preventing recursion when recording new jumps.")
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
     "c" #'mo-project-recompile
-    "C" #'project-compile)
+    "C-c" #'project-compile)
   :hook
   ( lisp-data-mode . mo-enable-reload-dir-locals-on-save)
   :config
@@ -2091,8 +2091,8 @@ Returns the selected project root directory or nil if cancelled."
     "C-<menu>" #'consult-imenu-multi
     "," #'consult-focus-lines
     "." #'consult-keep-lines
-    "M" #'consult-minor-mode-menu
-    "B" #'consult-recent-file)
+    "C-m" #'consult-minor-mode-menu
+    "C-b" #'consult-recent-file)
   ( :keymaps 'mo-quick-menu-map
     :prefix "DEL"
     "DEL" #'consult-bookmark)
@@ -2521,7 +2521,7 @@ Used while preview is toggled off."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
-    "C" #'calc)
+    "C-c" #'calc)
   ( :keymaps 'mo-quick-menu-map
     "+" #'quick-calc))
 
@@ -2530,7 +2530,7 @@ Used while preview is toggled off."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "n"
-    "C" #'literate-calc-eval-buffer))
+    "C-c" #'literate-calc-eval-buffer))
 
 ;; Init proced for viewing and managing running processes
 (use-package proced
@@ -2627,18 +2627,18 @@ Used while preview is toggled off."
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
     "g" #'magit-status
-    "G" #'magit-clone
+    "C-g" #'magit-clone
     "i" #'magit-init
     "s" #'magit-stage
     "u" #'magit-unstage
     "c" #'magit-commit
     "d" #'magit-diff-buffer-file
     "b" #'magit-blame-addition
-    "C" #'magit-file-checkout
+    "C-c" #'magit-file-checkout
     "l" #'magit-log-buffer-file
     "k" #'magit-toggle-buffer-lock
     "f" #'magit-file-dispatch
-    "F" #'magit-find-file)
+    "C-f" #'magit-find-file)
   ( :keymaps 'magit-diff-section-base-map
     "C-<return>" #'magit-diff-visit-worktree-file-other-window)
   ( :keymaps 'magit-mode-map
@@ -2766,7 +2766,7 @@ Used while preview is toggled off."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
-    "R" #'diff-hl-set-reference-rev
+    "C-r" #'diff-hl-set-reference-rev
     "n" #'diff-hl-next-hunk
     "p" #'diff-hl-previous-hunk)
   :hook
@@ -2782,7 +2782,7 @@ Used while preview is toggled off."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
-    "L" #'git-link)
+    "C-l" #'git-link)
   :config
   (setq git-link-use-commit t))
 
@@ -2803,9 +2803,9 @@ Used while preview is toggled off."
   ( :keymaps 'mo-quick-menu-map
     :prefix "s"
     "s" #'sly
-    "S" #'sly-quit-lisp
+    "C-s" #'sly-quit-lisp
     "c" #'sly-connect
-    "C" #'sly-disconnect)
+    "C-c" #'sly-disconnect)
   ( :keymaps 'sly-mode-map
     "C-M-s-e" #'sly-eval-defun
     "C-M-s-s" #'sly-eval-last-expression
@@ -2905,14 +2905,14 @@ Used while preview is toggled off."
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
     "l" #'lsp
-    "L" #'lsp-disconnect
-    "D" #'lsp-describe-session
+    "C-l" #'lsp-disconnect
+    "C-d" #'lsp-describe-session
     "a" #'lsp-execute-code-action
     "r" #'lsp-rename
     "p" #'lsp-signature-activate
     "n" #'lsp-inlay-hints-mode
     "s" #'lsp-toggle-symbol-highlight
-    "R" #'lsp-workspace-restart
+    "C-r" #'lsp-workspace-restart
     "=" #'lsp-format-region
     "o" #'lsp-clangd-find-other-file)
   ( :keymaps 'mo-quick-menu-map
@@ -3095,7 +3095,7 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
-    "I" #'lsp-ui-imenu
+    "C-i" #'lsp-ui-imenu
     "d" #'lsp-ui-doc-glance
     ";" #'lsp-ui-doc-focus-frame)
   :config
@@ -3149,13 +3149,13 @@ run the attached function (if exists) and enable lsp"
     "RET" #'dape-stack-select-up
     "e" #'dape-evaluate-expression
     "r" #'dape-repl
-    "R" #'dape-restart
+    "C-r" #'dape-restart
     "m" #'dape-read-memory
     "p" #'dape-pause
     "k" #'dape-kill
     "w" #'dape-watch-dwim
     "q" #'dape-quit
-    "Q" #'dape-disconnect-quit
+    "C-q" #'dape-disconnect-quit
     ";" #'dape-info)
   ( :keymaps 'dape-info-parent-mode-map
     "<backtab>" #'dape--info-buffer-tab)
@@ -3243,7 +3243,7 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
-    "E" #'consult-lsp-diagnostics
+    "C-e" #'consult-lsp-diagnostics
     "<menu>" #'consult-lsp-file-symbols
     "." #'mo-consult-lsp-project-symbols
     "," #'mo-consult-lsp-symbols-unsorted)
@@ -3614,7 +3614,7 @@ run the attached function (if exists) and enable lsp"
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
     "f" #'apheleia-mode
-    "F" #'apheleia-format-buffer)
+    "C-f" #'apheleia-format-buffer)
   :config
   (add-to-list 'apheleia-mode-alist '(lisp-data-mode . lisp-indent))
   (apheleia-global-mode))
@@ -3747,10 +3747,10 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "h"
-    "F" #'describe-face
+    "C-f" #'describe-face
     "s" #'describe-syntax
-    "C" #'describe-char
-    "B" #'describe-bindings)
+    "C-c" #'describe-char
+    "C-b" #'describe-bindings)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "m" #'describe-mode))
@@ -3779,7 +3779,7 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "h"
-    "M" #'mode-minder))
+    "C-m" #'mode-minder))
 
 ;; Init eldoc for viewing documentation in echo area
 (use-package eldoc
@@ -3912,7 +3912,7 @@ Provide code changes as GNU diff format, followed by brief explanations for each
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "H" #'auto-highlight-symbol-mode)
+    "C-h" #'auto-highlight-symbol-mode)
   :custom-face
   ( ahs-face ( ( nil ( :inherit 'highlight))))
   ( ahs-face-unfocused ( ( nil ( :inherit 'highlight))))
@@ -4112,7 +4112,7 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
-    "T" #'tramp-term))
+    "C-t" #'tramp-term))
 
 ;; Init vterm for terminal emulation
 (use-package vterm
@@ -4189,10 +4189,10 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
-    "S" #'shell-new)
+    "C-s" #'shell-new)
   ( :keymaps 'mo-quick-menu-map
     :prefix "j"
-    "S" #'mo-shell-project)
+    "C-s" #'mo-shell-project)
   :config
   (defun shell-new ()
     "Open a new instance of shell."
@@ -4222,7 +4222,7 @@ If project root cannot be found, use the buffer's default directory."
     "e" #'eshell-new)
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
-    "X" #'eshell-command)
+    "C-x" #'eshell-command)
   ( :keymaps 'eshell-mode-map
     "C-p" #'eshell-previous-matching-input-from-input
     "C-n" #'eshell-next-matching-input-from-input)
@@ -4373,7 +4373,7 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "E" #'emojify-mode
+    "C-e" #'emojify-mode
     "e" #'emojify-insert-emoji)
   :config
   (setq emojify-emojis-dir (mo-cache-path "emojis")))
@@ -4453,7 +4453,7 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "S" #'flyspell-buffer)
+    "C-s" #'flyspell-buffer)
   :config
   (defun mo-flyspell-configure-theme ()
     "Set flyspell theme configuration."
@@ -4532,7 +4532,7 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "T" #'powerthesaurus-transient))
+    "C-t" #'powerthesaurus-transient))
 
 ;; Init dictionary for a dictionary in Emacs
 (use-package dictionary
@@ -4549,7 +4549,7 @@ If project root cannot be found, use the buffer's default directory."
   ( :keymaps 'mo-quick-menu-map
     :prefix "v"
     "d" #'desktop+-load
-    "D" #'desktop+-create)
+    "C-d" #'desktop+-create)
   :commands desktop+-create
   :init
   (setq desktop+-base-dir (mo-cache-path "desktops"))
@@ -4757,7 +4757,7 @@ Excludes vterm buffers with names matching *claude-code*."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "v"
-    "F" #'follow-mode))
+    "C-f" #'follow-mode))
 
 ;; Init time for showing time in the modeline
 (use-package time
@@ -4766,7 +4766,7 @@ Excludes vterm buffers with names matching *claude-code*."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
-    "W" #'world-clock)
+    "C-w" #'world-clock)
   :config
   (setq display-time-24hr-format t)
   ;; Remove average load time indicator from the modeline
@@ -4782,7 +4782,7 @@ Excludes vterm buffers with names matching *claude-code*."
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
     "a" #'alarm-clock-set
-    "A" #'alarm-clock-list-view)
+    "C-a" #'alarm-clock-list-view)
   :custom
   ( alarm-clock-cache-file (mo-cache-path ".alarm-clock.cache"))
   ( alarm-clock-play-sound nil)
@@ -4810,7 +4810,7 @@ Excludes vterm buffers with names matching *claude-code*."
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "l" #'highlight-lines-matching-regexp
-    "L" #'unhighlight-regexp))
+    "C-l" #'unhighlight-regexp))
 
 ;; Init hilit-chg for highlighting changes in buffer
 (use-package hilit-chg
@@ -4837,7 +4837,7 @@ Excludes vterm buffers with names matching *claude-code*."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "N" #'display-line-numbers-mode))
+    "C-n" #'display-line-numbers-mode))
 
 ;; Init whitespace for showing trailing whitespaces in code
 (use-package whitespace
@@ -4845,7 +4845,7 @@ Excludes vterm buffers with names matching *claude-code*."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "W" #'whitespace-mode)
+    "C-w" #'whitespace-mode)
   :config
   (setq whitespace-style '( face trailing))
   :hook
@@ -4857,7 +4857,7 @@ Excludes vterm buffers with names matching *claude-code*."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "V" #'visual-fill-column-mode))
+    "C-v" #'visual-fill-column-mode))
 
 ;; Init pixel-scroll for smooth scrolling
 (use-package pixel-scroll
@@ -4948,9 +4948,9 @@ Excludes vterm buffers with names matching *claude-code*."
     "f" #'bmkp-file-target-set
     "d" #'bmkp-delete-bookmarks
     "e" #'bmkp-edit-bookmark-name-and-location
-    "E" #'bmkp-edit-bookmark-record
+    "C-e" #'bmkp-edit-bookmark-record
     "a" #'bookmark-show-annotation
-    "A" #'bookmark-edit-annotation))
+    "C-a" #'bookmark-edit-annotation))
 
 ;; Init bookmark-in-project for managing per-project bookmarks
 (use-package bookmark-in-project
@@ -4971,7 +4971,7 @@ Excludes vterm buffers with names matching *claude-code*."
     "c" #'tramp-cleanup-all-buffers)
   ( :keymaps 'mo-quick-menu-map
     :prefix "a"
-    "C" #'tramp-cleanup-connection)
+    "C-c" #'tramp-cleanup-connection)
   :hook
   ;; Disable auto-save
   ( find-file . mo-tramp-disable-auto-save)
