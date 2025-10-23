@@ -2977,12 +2977,14 @@ Used while preview is toggled off."
                                    sh-mode
                                    bash-ts-mode))
 
+  (defvar-local mo-lsp-disable nil
+    "Flag used for disabling automatic lsp mode loading.")
   (defvar mo-lsp-recursion-flag nil
     "Flag used for detecting recursion when enabling lsp.")
   (defun mo-maybe-enable-lsp ()
     "If mode in LSP-CONFIG is equal to the current major-mode,
 run the attached function (if exists) and enable lsp"
-    (unless lsp-mode ; Do not load if lsp is already loaded
+    (unless (or lsp-mode mo-lsp-disable) ; Do not load if lsp is already loaded or disabled
       (unless (string-match "\\.~.+?~$" (buffer-name)) ; Do not load in magit diff buffers
         (if mo-lsp-recursion-flag
             (message "LSP recursion detected in %s" (buffer-name))
