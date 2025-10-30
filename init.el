@@ -2307,7 +2307,7 @@ Used while preview is toggled off."
   :functions ( project-name
                marginalia-annotate-buffer
                marginalia--fields)
-  :defines marginalia-annotator-registry
+  :defines marginalia-annotators
   :custom
   ( marginalia-field-width 200)
   :config
@@ -2326,7 +2326,7 @@ Used while preview is toggled off."
        (buffer-annotation))))
 
   ;; Add project name to buffer annotation
-  (setf (alist-get 'buffer marginalia-annotator-registry)
+  (setf (alist-get 'buffer marginalia-annotators)
         '( mo-marginalia-annotate-buffer-with-project builtin none))
 
   (marginalia-mode))
