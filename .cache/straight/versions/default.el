@@ -169,6 +169,7 @@
  ("org-remark" . "8359e3eef4f5da5d7bfb33c72d783acd3f614a64")
  ("org-roam" . "41f9a10be587b47454ca8ef26f6a8247605cbe34")
  ("org-super-agenda" . "fb20ad9c8a9705aa05d40751682beae2d094e0fe")
+ ("org-tree-slide" . "e2599a106a26ce5511095e23df4ea04be6687a8a")
  ("origami.el" . "e558710a975e8511b9386edc81cd6bdd0a5bda74")
  ("ov" . "e2971ad986b6ac441e9849031d34c56c980cf40b")
  ("ox-gfm" . "4f774f13d34b3db9ea4ddb0b1edc070b1526ccbb")

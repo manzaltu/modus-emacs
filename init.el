@@ -1497,6 +1497,9 @@ Used for preventing recursion when recording new jumps.")
     :prefix "n"
     "p" #'org-pomodoro))
 
+;; Init org-tree-slide for creating presentations in Emacs
+(use-package org-tree-slide)
+
 ;; Init org-download for downloading and embedding images in org mode
 (use-package org-download)
 
