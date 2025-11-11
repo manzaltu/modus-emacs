@@ -1502,7 +1502,12 @@ Used for preventing recursion when recording new jumps.")
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "n"
-    "RET" #'org-tree-slide-mode))
+    "RET" #'org-tree-slide-mode)
+  ( :keymaps 'org-tree-slide-mode-map
+    "C-M-s-j" #'org-tree-slide-move-next-tree
+    "C-M-s-k" #'org-tree-slide-move-previous-tree
+    "C-M-s-c" #'org-tree-slide-content
+    "C-M-s-q" #'org-tree-slide-mode))
 
 ;; Init org-download for downloading and embedding images in org mode
 (use-package org-download)
