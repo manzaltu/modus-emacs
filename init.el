@@ -1510,7 +1510,8 @@ Used for preventing recursion when recording new jumps.")
     "C-M-s-q" #'org-tree-slide-mode)
   :custom
   ;; Start presenting from cursor position
-  ( org-tree-slide-cursor-init nil))
+  ( org-tree-slide-cursor-init nil)
+  ( org-tree-slide-heading-emphasis t))
 
 ;; Init org-download for downloading and embedding images in org mode
 (use-package org-download)
