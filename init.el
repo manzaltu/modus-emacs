@@ -1497,28 +1497,6 @@ Used for preventing recursion when recording new jumps.")
     :prefix "n"
     "p" #'org-pomodoro))
 
-;; Init dslide for creating presentations in Emacs
-(use-package dslide
-  :general
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "n"
-    "RET" #'dslide-deck-present
-    "SPC" #'dslide-deck-start)
-  ( :keymaps 'dslide-mode-map
-    "C-M-s-j" #'dslide-deck-forward
-    "C-M-s-k" #'dslide-deck-backward
-    "C-M-s-s" #'dslide-deck-start
-    "C-M-s-q" #'dslide-deck-stop)
-  :config
-  (defun mo-dslide-hide-evil-cursor ()
-    "Hide evil cursor."
-    (setq-local evil-default-cursor '( ignore))
-    (dslide-cursor-hide))
-  :hook
-  ( dslide-develop . mo-dslide-hide-evil-cursor)
-  ( dslide-present . mo-dslide-hide-evil-cursor)
-  ( dslide-start . mo-dslide-hide-evil-cursor))
-
 ;; Init org-download for downloading and embedding images in org mode
 (use-package org-download)
 
