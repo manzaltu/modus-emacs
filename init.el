@@ -336,7 +336,7 @@ Briefly highlight previous location."
   :general
   ( :keymaps 'mo-quick-menu-map
     ;; Quick save key binding
-    ";" #'save-buffer)
+    "<menu>" #'save-buffer)
   ( :keymaps 'mo-quick-menu-map
     "_" #'mo-open-init-file)
   ( :keymaps 'mo-quick-menu-map
@@ -2061,8 +2061,8 @@ Returns the selected project root directory or nil if cancelled."
   :general
   ;; Quick bindings
   ( :keymaps 'mo-quick-menu-map
-    "<menu>" #'consult-line
-    "C-<menu>" #'consult-line-multi
+    ";" #'consult-line
+    "C-;" #'consult-line-multi
     "." #'consult-fd
     "," #'consult-ripgrep
     "M-," #'mo-consult-xref-history
@@ -2081,8 +2081,8 @@ Returns the selected project root directory or nil if cancelled."
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "b" #'consult-buffer
-    "<menu>" #'consult-imenu
-    "C-<menu>" #'consult-imenu-multi
+    ";" #'consult-imenu
+    "C-;" #'consult-imenu-multi
     "," #'consult-focus-lines
     "." #'consult-keep-lines
     "C-m" #'consult-minor-mode-menu
@@ -2140,7 +2140,7 @@ Returns the selected project root directory or nil if cancelled."
     "t" #'consult-theme)
   ( :keymaps 'mo-quick-menu-map
     :prefix "n"
-    "<menu>" #'consult-org-heading)
+    ";" #'consult-org-heading)
   ( :keymaps 'mo-quick-menu-map
     :prefix "z"
     "c" #'consult-complex-command)
@@ -3093,7 +3093,7 @@ run the attached function (if exists) and enable lsp"
     :prefix "c"
     "C-i" #'lsp-ui-imenu
     "d" #'lsp-ui-doc-glance
-    ";" #'lsp-ui-doc-focus-frame)
+    "<menu>" #'lsp-ui-doc-focus-frame)
   :config
   ;; Do not show documentation automatically
   (setq lsp-ui-doc-position 'at-point)
@@ -3240,7 +3240,7 @@ run the attached function (if exists) and enable lsp"
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
     "C-e" #'consult-lsp-diagnostics
-    "<menu>" #'consult-lsp-file-symbols
+    ";" #'consult-lsp-file-symbols
     "." #'mo-consult-lsp-project-symbols
     "," #'mo-consult-lsp-symbols-unsorted)
   :config
