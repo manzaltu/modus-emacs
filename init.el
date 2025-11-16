@@ -3948,6 +3948,10 @@ Provide code changes as GNU diff format, followed by brief explanations for each
 ;; Init posframe for child frame support
 (use-package posframe
   :commands posframe-delete-all
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "a"
+    "p" #'posframe-delete-all)
   :hook
   ( after-enable-theme . mo-posframe-configure-theme)
   :config
