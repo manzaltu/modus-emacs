@@ -4519,7 +4519,7 @@ If project root cannot be found, use the buffer's default directory."
 ;; Init consult-gh-with-pr-review for github pr-review integration
 (use-package consult-gh-with-pr-review
   :demand t
-  :after ( consult-gh pr-review)
+  :after consult-gh
   :commands consult-gh-with-pr-review-open-topic
   :general
   ( :keymaps 'mo-quick-menu-map
