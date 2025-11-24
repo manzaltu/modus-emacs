@@ -282,6 +282,8 @@ Briefly highlight previous location."
              (if (setq lexical-binding (not lexical-binding)) "on" "off")))
   ;; Inhibit the splash screen
   (setq inhibit-splash-screen t)
+  ;; Remove frame decoration
+  (setq default-frame-alist '( ( undecorated . t)))
   ;; Set the default initial frame size
   (add-to-list 'default-frame-alist '( height . 55))
   (add-to-list 'default-frame-alist '( width . 210))
