@@ -437,6 +437,8 @@ Briefly highlight previous location."
       (message "Display next command buffer in the current window...")))
   ;; Don't split windows vertically by default
   (setq split-height-threshold nil)
+  ;; Increase width splitting threshold for wider screens
+  (setq split-width-threshold 180)
   ;; A fast key binding for showing the next command's result in another window.
   ;; Make sure it also works when the command is using 'switch-to-buffer'.
   (setq switch-to-buffer-obey-display-actions t))
