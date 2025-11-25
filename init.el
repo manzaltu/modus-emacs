@@ -4755,6 +4755,12 @@ Excludes vterm buffers with names matching *claude-code*."
   :config
   (winner-mode 1))
 
+;; Init mouse-avoidance for getting the mouse out of our way
+(use-package avoid
+  :straight nil
+  :config
+  (mouse-avoidance-mode 'banish))
+
 ;; Init follow-mode for scrolling buffer on multiple windows
 (use-package follow-mode
   :straight nil
