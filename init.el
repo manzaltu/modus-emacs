@@ -2135,8 +2135,8 @@ Returns the selected project root directory or nil if cancelled."
     :prefix "j"
     "b" #'consult-project-buffer)
   ( :keymaps 'mo-quick-menu-map
-    "]" #'mo-consult-line-symbol-at-point
-    "&" #'mo-consult-line-symbol-at-point-other-window)
+    "M-;" #'mo-consult-line-symbol-at-point
+    "C-M-;" #'mo-consult-line-symbol-at-point-other-window)
   ( :keymaps 'mo-quick-menu-map
     :prefix "v"
     "t" #'consult-theme)
