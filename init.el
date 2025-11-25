@@ -404,6 +404,7 @@ Briefly highlight previous location."
   :straight nil
   :general
   ( :keymaps 'override
+    "C-M-S-o" #'other-window-prefix
     "C-M->" #'mo-current-window-prefix)
   ( :keymaps 'mo-quick-menu-map
     :prefix "w"
