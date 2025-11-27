@@ -284,6 +284,8 @@ Briefly highlight previous location."
   (setq inhibit-splash-screen t)
   ;; Remove frame decoration
   (setq default-frame-alist '( ( undecorated . t)))
+  ;; Enable pixelwise resizing
+  (setq frame-resize-pixelwise t)
   ;; Set the default initial frame size
   (add-to-list 'default-frame-alist '( height . 55))
   (add-to-list 'default-frame-alist '( width . 210))
