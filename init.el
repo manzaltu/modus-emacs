@@ -1558,7 +1558,7 @@ Used for preventing recursion when recording new jumps.")
   (defun mo-consult-notes-org-roam-annotate (cand)
     "Annotate org roam candidate with useful info."
     (let* ((node
-            (org-roam-node-from-title-or-alias cand))
+            (get-text-property 0 'node cand))
            (file
             (org-roam-node-file node))
            (dir
@@ -1578,7 +1578,7 @@ Used for preventing recursion when recording new jumps.")
                              [:select [tag]
                                       :from tags
                                       :where (=  node-id $s1)]
-                             (org-roam-node-id (org-roam-node-from-title-or-alias cand))) " "))
+                             (org-roam-node-id node)) " "))
            (name "Roam"))
 
       (put-text-property 0 (length name) 'face 'consult-notes-name name)
