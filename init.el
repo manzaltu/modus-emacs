@@ -1350,6 +1350,9 @@ Used for preventing recursion when recording new jumps.")
   :after org-contrib
   :straight nil)
 
+;; Init ox-hugo for exporting org files to hugo markdown
+(use-package ox-hugo)
+
 ;; Init ox-pandoc for exporting org files using pandoc
 (use-package ox-pandoc)
 
