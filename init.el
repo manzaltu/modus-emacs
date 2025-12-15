@@ -2470,6 +2470,12 @@ Used while preview is toggled off."
     :states 'normal
     "s" #'dired-rsync))
 
+;; Init image for viewing images in Emacs
+(use-package image
+  :straight nil
+  :config
+  (setq image-use-external-converter t))
+
 ;; Init treemacs for a tree-like sidebar file navigator
 (use-package treemacs
   :general
