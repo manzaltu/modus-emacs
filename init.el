@@ -4360,6 +4360,8 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'mo-quick-menu-map
     "SPC" #'claude-code-ide-menu)
+  ( :keymaps 'override
+    "C-:" #'claude-code-ide-send-prompt)
   :config
   (claude-code-ide-emacs-tools-setup)
   :custom
