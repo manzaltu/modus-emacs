@@ -2357,6 +2357,12 @@ Used while preview is toggled off."
   (setq embark-quit-after-action nil)
   ;; Use prefix help command globally
   (setq prefix-help-command #'embark-prefix-help-command)
+  ;; Add lsp-find-implementation to identifier actions
+  (defun mo-embark-lsp-find-implementation (_target)
+    "Find implementation at point, ignoring Embark TARGET."
+    (interactive "s")
+    (call-interactively #'lsp-find-implementation))
+  (keymap-set embark-identifier-map "i" #'mo-embark-lsp-find-implementation)
   ;; Hide the mode line of the Embark live/completions buffers
   (add-to-list 'display-buffer-alist
                '( "\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
