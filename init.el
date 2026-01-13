@@ -2488,7 +2488,7 @@ Used while preview is toggled off."
   (treemacs-follow-mode t)
   (treemacs-filewatch-mode t)
   (treemacs-fringe-indicator-mode 'always)
-  (treemacs-git-mode 'simple))
+  (treemacs-git-mode 'deferred))
 
 ;; Init treemacs-evil for treemacs and evil integration
 (use-package treemacs-evil
