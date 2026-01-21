@@ -79,6 +79,7 @@
     mo--quick-menu-definer-meta
     mo--quick-menu-definer-ctrl-meta)
   :functions ( general-create-definer mo-quick-menu-definer)
+  :hook ( emacs-startup . mo--quick-menu-setup-modifier-variants)
   :config
   ;; Create a definer and a leader key for the quick menu
   (general-create-definer mo--quick-menu-definer-main
@@ -109,28 +110,45 @@
        (mo--quick-menu-definer-ctrl-meta
          ,@args)))
 
-  (mo-quick-menu-definer
-    :prefix-map 'mo-quick-menu-map
-    :which-key "Quick menu prefix key"
-    "a" '( :which-key "Action")
-    "b" '( :which-key "Buffer")
-    "DEL" '( :which-key "Bookmark")
-    "f" '( :which-key "File")
-    "v" '( :which-key "View")
-    "w" '( :which-key "Window")
-    "x" '( :which-key "Utils")
-    "z" '( :which-key "Repeat")
-    "t" '( :which-key "Tab")
-    "h" '( :which-key "Help")
-    "j" '( :which-key "Project")
-    "c" '( :which-key "Code")
-    "d" '( :which-key "Debug")
-    "l" '( :which-key "Emacs Lisp")
-    "s" '( :which-key "Lisp")
-    "g" '( :which-key "Git")
-    "m" '( :which-key "Merge")
-    "r" '( :which-key "Multiple Cursors")
-    "n" '( :which-key "Notes")))
+  (defvar mo--quick-menu-groups
+    '( ( "a" . "Action")
+       ( "b" . "Buffer")
+       ( "DEL" . "Bookmark")
+       ( "f" . "File")
+       ( "v" . "View")
+       ( "w" . "Window")
+       ( "x" . "Utils")
+       ( "z" . "Repeat")
+       ( "t" . "Tab")
+       ( "h" . "Help")
+       ( "j" . "Project")
+       ( "c" . "Code")
+       ( "d" . "Debug")
+       ( "l" . "Emacs Lisp")
+       ( "s" . "Lisp")
+       ( "g" . "Git")
+       ( "m" . "Merge")
+       ( "r" . "Multiple Cursors")
+       ( "n" . "Notes"))
+    "Alist of (KEY . DESCRIPTION) for quick menu groups.")
+
+  (defun mo--quick-menu-setup-modifier-variants ()
+    "Bind C-/M-/C-M- variants of group keys to the same keymaps."
+    (dolist (group mo--quick-menu-groups)
+      (let* ((key (car group))
+             (keymap (lookup-key mo-quick-menu-map (kbd key))))
+        (when (keymapp keymap)
+          (define-key mo-quick-menu-map (kbd (concat "C-" key)) keymap)
+          (define-key mo-quick-menu-map (kbd (concat "M-" key)) keymap)
+          (define-key mo-quick-menu-map (kbd (concat "C-M-" key)) keymap)))))
+
+  (eval
+   `(mo-quick-menu-definer
+      :prefix-map 'mo-quick-menu-map
+      :which-key "Quick menu prefix key"
+      ,@(mapcan (lambda (group)
+                  (list (car group) `'(:which-key ,(cdr group))))
+                mo--quick-menu-groups))))
 
 ;; Init evil mode for Vim emulation in Emacs
 (use-package evil
