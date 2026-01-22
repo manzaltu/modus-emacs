@@ -2663,18 +2663,18 @@ Used while preview is toggled off."
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
     "g" #'magit-status
-    "C-g" #'magit-clone
+    "M-g" #'magit-clone
     "i" #'magit-init
     "s" #'magit-stage
     "u" #'magit-unstage
     "c" #'magit-commit
     "d" #'magit-diff-buffer-file
     "b" #'magit-blame-addition
-    "C-c" #'magit-file-checkout
+    "M-c" #'magit-file-checkout
     "l" #'magit-log-buffer-file
     "k" #'magit-toggle-buffer-lock
     "f" #'magit-file-dispatch
-    "C-f" #'magit-find-file)
+    "M-f" #'magit-find-file)
   ( :keymaps 'magit-diff-section-base-map
     "C-<return>" #'magit-diff-visit-worktree-file-other-window)
   ( :keymaps 'magit-mode-map
@@ -2802,7 +2802,7 @@ Used while preview is toggled off."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
-    "C-r" #'diff-hl-set-reference-rev
+    "M-r" #'diff-hl-set-reference-rev
     "n" #'diff-hl-next-hunk
     "p" #'diff-hl-previous-hunk)
   :hook
@@ -2818,7 +2818,7 @@ Used while preview is toggled off."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
-    "C-l" #'git-link)
+    "M-l" #'git-link)
   :config
   (setq git-link-use-commit t))
 
