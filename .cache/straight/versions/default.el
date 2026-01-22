@@ -107,6 +107,7 @@
  ("go-mode.el" . "0ed3c5227e7f622589f1411b4939c3ee34711ebd")
  ("goto-chg" . "72f556524b88e9d30dc7fc5b0dc32078c166fda7")
  ("gptel" . "5027bb7d5b9c39dce4729ac83012353e9d1d6bec")
+ ("gptel-agent" . "ba4aed51fe4ae4ddf73dc538aeaec7fe9bc364be")
  ("groovy-emacs-modes" . "7b8520b2e2d3ab1d62b35c426e17ac25ed0120bb")
  ("haskell-mode" . "383b4b77753ef83420c7a755f86e1ec4770f551b")
  ("hcl-mode" . "1da895ed75d28d9f87cbf9b74f075d90ba31c0ed")

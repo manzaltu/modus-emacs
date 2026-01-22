@@ -3898,6 +3898,13 @@ Provide code changes as GNU diff format, followed by brief explanations for each
                t)
   (add-hook 'gptel-post-response-functions #'gptel-end-of-response))
 
+;; Init gptel-agent for tool use with gptel
+(use-package gptel-agent
+  :after gptel
+  :functions gptel-agent-update
+  :config
+  (gptel-agent-update))
+
 ;; Init copilot for copilot support in Emacs
 (use-package copilot
   :general
