@@ -133,12 +133,14 @@
     "Alist of (KEY . DESCRIPTION) for quick menu groups.")
 
   (defun mo--quick-menu-setup-modifier-variants ()
-    "Bind C-/M-/C-M- variants of group keys to the same keymaps."
+    "Bind C-/M-/C-M- variants of group keys to the same keymaps.
+Excludes C-g to allow aborting menu sequences."
     (dolist (group mo--quick-menu-groups)
       (let* ((key (car group))
              (keymap (lookup-key mo-quick-menu-map (kbd key))))
         (when (keymapp keymap)
-          (define-key mo-quick-menu-map (kbd (concat "C-" key)) keymap)
+          (unless (string= key "g")
+            (define-key mo-quick-menu-map (kbd (concat "C-" key)) keymap))
           (define-key mo-quick-menu-map (kbd (concat "M-" key)) keymap)
           (define-key mo-quick-menu-map (kbd (concat "C-M-" key)) keymap)))))
 
