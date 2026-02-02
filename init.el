@@ -2721,8 +2721,15 @@ Used while preview is toggled off."
 ;; Init forge for working with git forges (e.g. Github, Gitlab)
 (use-package forge
   :after magit
+  :defines ( forge-status-buffer-default-topic-filters
+             forge-list-buffer-default-topic-filters)
+  :functions forge--topics-spec
   :custom
-  ( forge-database-file (mo-cache-path "forge-database.sqlite")))
+  ( forge-database-file (mo-cache-path "forge-database.sqlite"))
+  ( forge-status-buffer-default-topic-filters
+    (forge--topics-spec :active nil :state 'open :order 'newest))
+  ( forge-list-buffer-default-topic-filters
+    (forge--topics-spec :active nil :state 'open :order 'newest)))
 
 ;; Init ghub for working with various git forges
 (use-package ghub
