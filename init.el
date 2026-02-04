@@ -955,7 +955,14 @@ If universal ARG is set, exclude the pattern."
 (use-package link-hint
   :general
   ( :keymaps 'override
-    "C-\"" #'link-hint-open-link))
+    "C-\"" #'link-hint-open-link
+    "C-M-\"" #'mo-link-hint-open-link-other-window)
+  :config
+  (defun mo-link-hint-open-link-other-window ()
+    "Open link in other window."
+    (interactive)
+    (other-window-prefix)
+    (link-hint-open-link)))
 
 ;; Init evil-snipe for an improved 1 char evil search experience
 (use-package evil-snipe
