@@ -4506,6 +4506,13 @@ If project root cannot be found, use the buffer's default directory."
   (add-to-list 'minions-prominent-modes 'dired-async--modeline-mode)
   (minions-mode 1))
 
+;; Init text-mode for editing plain text
+(use-package text-mode
+  :straight nil
+  :custom
+  ;; Use cape-dict instead of built-in ispell completion
+  ( text-mode-ispell-word-completion nil))
+
 ;; Init ispell for interfacing with spell checkers
 (use-package ispell
   :straight nil
