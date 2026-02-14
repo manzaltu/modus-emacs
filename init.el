@@ -480,8 +480,8 @@ Briefly highlight previous location."
   :demand t
   :straight nil
   :general
-  ( :keymaps 'override
-    "M-<f1>" #'mo-toggle-scratch-buffer)
+  ( :keymaps 'mo-quick-menu-map
+    "<insert>" #'mo-toggle-scratch-buffer)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "t" #'toggle-truncate-lines
