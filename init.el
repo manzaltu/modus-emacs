@@ -1923,14 +1923,21 @@ Used for preventing recursion when recording new jumps.")
 ;; Init cape for completion at point extensions
 (use-package cape
   :functions
-  ( cape-capf-prefix-length
+  ( cape-wrap-prefix-length cape-wrap-super
     cape-file cape-dabbrev)
   :custom
   ;; Do not scan every buffer with dabbrev (see dabbrev configuration)
   ( cape-dabbrev-check-other-buffers 'some)
   :config
   ;; Add completion functions
-  (add-hook 'completion-at-point-functions (cape-capf-prefix-length #'cape-dabbrev 3))
+  (defun mo-cape-dabbrev-or-merged ()
+    "Dabbrev capf, merged with ispell in text-mode derived buffers."
+    (if (derived-mode-p 'text-mode)
+        (cape-wrap-prefix-length
+         (lambda () (cape-wrap-super #'cape-dabbrev #'ispell-completion-at-point))
+         3)
+      (cape-wrap-prefix-length #'cape-dabbrev 3)))
+  (add-hook 'completion-at-point-functions #'mo-cape-dabbrev-or-merged)
   (add-hook 'completion-at-point-functions #'cape-file)
 
   (defun mo-cape-disable-file-comp-evil-search ()
