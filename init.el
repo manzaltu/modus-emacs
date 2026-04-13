@@ -3373,6 +3373,16 @@ run the attached function (if exists) and enable lsp"
   :hook
   ( compilation-filter . mo-colorize-compilation-buffer))
 
+;; Init fancy-compilation for terminal-like compilation output
+(use-package fancy-compilation
+  :commands fancy-compilation-mode
+  :custom
+  ( fancy-compilation-override-colors nil)
+  ( fancy-compilation-term "")
+  :init
+  (with-eval-after-load 'compile
+    (fancy-compilation-mode)))
+
 ;; Init rmsbolt for a compiler explorer in Emacs
 (use-package rmsbolt
   :general

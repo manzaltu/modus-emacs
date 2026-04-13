@@ -63,6 +63,7 @@
  ("emacs-bazel-mode" . "769b30dc18282564d614d7044195b5a0c1a0a5f3")
  ("emacs-bookmark-in-project" . "bf923ddd3e74fe99e086221e461a5fa7599d0644")
  ("emacs-emojify" . "1b726412f19896abf5e4857d4c32220e33400b55")
+ ("emacs-fancy-compilation" . "502d36e0fb4c4daedc16ea5d732dcbc8285d6fb1")
  ("emacs-ibuffer-project" . "9002abd9cb4c8753fe4f6c522d9407b4d52e7873")
  ("emacs-libvterm" . "a01a2894a1c1e81a39527835a9169e35b7ec5dec")
  ("emacs-load-env-vars" . "3808520efaf9492033f6e11a9bffd68eabf02a0f")
