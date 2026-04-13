@@ -2241,7 +2241,7 @@ With universal argument ARG, always show list of open projects."
         (when re
           (cons (append
                  (list fd-command
-                       "--color=never" "-i" "-p" "-H" "-t" "f"
+                       "--color=never" "-p" "-H" "-t" "f"
                        (concat (tramp-file-local-name dir) ".*" (consult--join-regexps re 'extended)))
                  opts)
                 hl)))))
