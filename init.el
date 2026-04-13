@@ -3366,7 +3366,8 @@ run the attached function (if exists) and enable lsp"
   :after term
   :straight nil
   :config
-  (setq compilation-scroll-output t))
+  (setq compilation-scroll-output t)
+  (setq compilation-environment '("TERM=xterm-256color")))
 
 ;; Init fancy-compilation for terminal-like compilation output
 (use-package fancy-compilation
