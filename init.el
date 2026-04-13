@@ -3366,12 +3366,7 @@ run the attached function (if exists) and enable lsp"
   :after term
   :straight nil
   :config
-  (setq compilation-scroll-output t)
-  (defun mo-colorize-compilation-buffer ()
-    "Called to colorize the compilation buffer."
-    (ansi-color-apply-on-region compilation-filter-start (point)))
-  :hook
-  ( compilation-filter . mo-colorize-compilation-buffer))
+  (setq compilation-scroll-output t))
 
 ;; Init fancy-compilation for terminal-like compilation output
 (use-package fancy-compilation
