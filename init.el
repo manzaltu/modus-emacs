@@ -558,7 +558,13 @@ the user to input the run command."
   ;; Show cursor's column number
   (setq column-number-mode t)
   ;; Create a new buffer if async shell buffer already in use
-  (setq async-shell-command-buffer 'new-buffer))
+  (setq async-shell-command-buffer 'new-buffer)
+  ;; Preserve system clipboard in kill ring before overwriting
+  (setq save-interprogram-paste-before-kill t)
+  ;; Deduplicate kill ring entries
+  (setq kill-do-not-save-duplicates t)
+  ;; After C-u C-SPC, keep popping with just C-SPC
+  (setq set-mark-command-repeat-pop t))
 
 ;; Init comp for native compilation settings
 (use-package comp
