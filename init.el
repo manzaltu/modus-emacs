@@ -466,6 +466,8 @@ Briefly highlight previous location."
          (cons window 'reuse))
        nil "[current-window]")
       (message "Display next command buffer in the current window...")))
+  ;; Resize all windows proportionally when splitting
+  (setq window-combination-resize t)
   ;; Don't split windows vertically by default
   (setq split-height-threshold nil)
   ;; Increase width splitting threshold for wider screens
