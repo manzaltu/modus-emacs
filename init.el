@@ -3891,6 +3891,10 @@ run the attached function (if exists) and enable lsp"
 ;; Init ffap for find-file-at-point
 (use-package ffap
   :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "f"
+    "p" #'ffap)
   :config
   (setq ffap-machine-p-known 'reject))
 
