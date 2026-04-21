@@ -5000,6 +5000,17 @@ Excludes vterm buffers with names matching *claude-code*."
   :init
   (setq save-place-file (mo-cache-path "places"))
   :config
+  ;; Recenter after restoring position
+  (advice-add 'save-place-find-file-hook :after
+              (lambda (&rest _)
+                (when buffer-file-name
+                  (run-with-timer 0 nil
+                                  (lambda (buf)
+                                    (when (buffer-live-p buf)
+                                      (when-let ((win (get-buffer-window buf)))
+                                        (with-selected-window win
+                                          (recenter)))))
+                                  (current-buffer)))))
   (save-place-mode))
 
 ;; Init recentf for tracking recently opened files
