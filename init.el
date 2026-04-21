@@ -4986,6 +4986,12 @@ Excludes vterm buffers with names matching *claude-code*."
   :straight nil
   :config
   (setq savehist-file (mo-cache-path "history"))
+  (add-to-list 'savehist-additional-variables 'kill-ring)
+  (add-hook 'savehist-save-hook
+            (lambda ()
+              (setq kill-ring
+                    (mapcar #'substring-no-properties
+                            (cl-remove-if-not #'stringp kill-ring)))))
   (savehist-mode))
 
 ;; Init saveplace for saving the last visited location in buffers
