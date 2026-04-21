@@ -356,6 +356,9 @@ Briefly highlight previous location."
   (setq bidi-inhibit-bpa t)
   ;; Defer fontification while typing for smoother input
   (setq redisplay-skip-fontification-on-input t)
+  ;; Hide cursor and selection highlight in non-focused windows
+  (setq-default cursor-in-non-selected-windows nil)
+  (setq highlight-nonselected-windows nil)
   ;; Remove vc info from modeline
   (setq-default mode-line-format (remove '(vc-mode vc-mode) (default-value 'mode-line-format))))
 
