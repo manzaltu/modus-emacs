@@ -4172,7 +4172,9 @@ Provide code changes as GNU diff format, followed by brief explanations for each
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "f"
-    "x" #'executable-interpret))
+    "x" #'executable-interpret)
+  :config
+  (add-hook 'after-save-hook #'executable-make-buffer-file-executable-if-script-p))
 
 ;; Init term for terminal support
 (use-package term
