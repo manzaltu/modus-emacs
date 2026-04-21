@@ -3888,6 +3888,12 @@ run the attached function (if exists) and enable lsp"
   :config
   (setq reb-re-syntax 'string))
 
+;; Init ffap for find-file-at-point
+(use-package ffap
+  :straight nil
+  :config
+  (setq ffap-machine-p-known 'reject))
+
 ;; Init engine-mode for querying search engines
 (use-package engine-mode
   :general
