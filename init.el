@@ -4851,9 +4851,17 @@ Excludes vterm buffers with names matching *claude-code*."
     :prefix "w"
     "u" #'winner-undo
     "r" #'winner-redo)
+  ( :keymaps 'override
+    "C-x 1" #'mo-toggle-delete-other-windows)
   :init
   (setq winner-dont-bind-my-keys t)
   :config
+  (defun mo-toggle-delete-other-windows ()
+    "Delete other windows in frame if any, or restore previous window config."
+    (interactive)
+    (if (equal (selected-window) (next-window))
+        (winner-undo)
+      (delete-other-windows)))
   (winner-mode 1))
 
 ;; Init mouse-avoidance for getting the mouse out of our way
