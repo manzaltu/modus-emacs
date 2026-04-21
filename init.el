@@ -350,6 +350,12 @@ Briefly highlight previous location."
   (setq w32-rwindow-modifier 'super)
   ;; Enable scrolling left
   (put 'scroll-left 'disabled nil)
+  ;; Skip bidirectional text scanning for LTR-only usage
+  (setq-default bidi-display-reordering 'left-to-right
+                bidi-paragraph-direction 'left-to-right)
+  (setq bidi-inhibit-bpa t)
+  ;; Defer fontification while typing for smoother input
+  (setq redisplay-skip-fontification-on-input t)
   ;; Remove vc info from modeline
   (setq-default mode-line-format (remove '(vc-mode vc-mode) (default-value 'mode-line-format))))
 
