@@ -63,6 +63,11 @@
   ;; Packages should be installed by default using straight
   ( straight-use-package-by-default t))
 
+;; Init exec-path-from-shell for inheriting shell environment variables
+(use-package exec-path-from-shell
+  :config
+  (exec-path-from-shell-initialize))
+
 ;; Optionally, load personal settings
 (load (concat (file-name-directory load-file-name) "personal.el") t)
 
