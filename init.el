@@ -2476,17 +2476,35 @@ Used while preview is toggled off."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "t"
+    ;; nil because `mo-quick-menu-map' is itself a prefix under <menu>;
+    ;; otherwise general anchors :wk regexes to "t N" and never matches.
+    :wk-full-keys nil
     "t" #'tab-bar-switch-to-tab
     "r" #'tab-bar-rename-tab
     "c" #'tab-bar-close-tab
     "f" #'tab-bar-move-tab
     "b" #'tab-bar-move-tab-backward
     "[" #'tab-previous
-    "]" #'tab-next)
+    "]" #'tab-next
+    "1" '( :def mo-tab-bar-select-1 :wk "tab 1")
+    "2" '( :def mo-tab-bar-select-2 :wk "tab 2")
+    "3" '( :def mo-tab-bar-select-3 :wk "tab 3")
+    "4" '( :def mo-tab-bar-select-4 :wk "tab 4")
+    "5" '( :def mo-tab-bar-select-5 :wk "tab 5")
+    "6" '( :def mo-tab-bar-select-6 :wk "tab 6")
+    "7" '( :def mo-tab-bar-select-7 :wk "tab 7")
+    "8" '( :def mo-tab-bar-select-8 :wk "tab 8")
+    "9" '( :def mo-tab-bar-select-9 :wk "tab 9"))
   ( :keymaps 'global
     "C-<tab>" nil
     "C-S-<tab>" nil
     "C-S-<iso-lefttab>" nil)
+  :preface
+  (dotimes (i 9)
+    (let ((n (1+ i)))
+      (defalias (intern (format "mo-tab-bar-select-%d" n))
+        (lambda () (interactive) (tab-bar-select-tab n))
+        (format "Select tab %d." n))))
   :config
   ;; Disable tab bar buttons
   (setq tab-bar-close-button-show nil)
