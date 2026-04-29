@@ -163,7 +163,9 @@ Excludes C-g (abort) and C-m (RET alias)."
   :hook
   ( tty-setup . (lambda ()
                   ;; Alternative leader key for keyboards that do not have a menu key
-                  (define-key input-decode-map (kbd "¯") (kbd "<menu>")))))
+                  (define-key input-decode-map (kbd "¯") (kbd "<menu>"))
+                  ;; Decode the CSI-u sequence for Ctrl-Escape that xterm.el does not register
+                  (define-key input-decode-map "\e[27;5~" (kbd "C-<escape>")))))
 
 ;; Init evil mode for Vim emulation in Emacs
 (use-package evil
