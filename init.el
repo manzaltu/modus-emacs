@@ -157,6 +157,14 @@ Excludes C-g (abort) and C-m (RET alias)."
                   (list (car group) `'(:which-key ,(cdr group))))
                 mo--quick-menu-groups))))
 
+;; Init faces for tty terminal setup
+(use-package faces
+  :straight nil
+  :hook
+  ( tty-setup . (lambda ()
+                  ;; Alternative leader key for keyboards that do not have a menu key
+                  (define-key input-decode-map (kbd "¯") (kbd "<menu>")))))
+
 ;; Init evil mode for Vim emulation in Emacs
 (use-package evil
   :demand t
