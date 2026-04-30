@@ -2804,10 +2804,13 @@ Used while preview is toggled off."
 
 ;; Init pr-review for reviewing github PRs
 (use-package pr-review
+  :functions forge-get-url
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
     "r" #'pr-review-search-open)
+  ( :keymaps '(forge-topics-mode-map forge-pullreq-mode-map)
+    "r" #'mo-forge-visit-pullreq-with-pr-review)
   ( :keymaps 'pr-review-mode-map
     "C-M-s-a" #'pr-review-context-action
     "C-M-s-r" #'pr-review-request-reviews
@@ -2819,7 +2822,12 @@ Used while preview is toggled off."
     "C-M-s-v" #'pr-review-view-file
     "C-M-s-e" #'pr-review-context-edit
     "C-M-s-d" #'pr-review-ediff-file
-    "C-M-s-c" #'pr-review-context-comment))
+    "C-M-s-c" #'pr-review-context-comment)
+  :config
+  (defun mo-forge-visit-pullreq-with-pr-review ()
+    "Open the forge pull-request at point with `pr-review'."
+    (interactive)
+    (pr-review (forge-get-url (forge-current-pullreq t)))))
 
 ;; Init diff for diff functionality
 (use-package diff
