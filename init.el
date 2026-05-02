@@ -4317,7 +4317,9 @@ If project root cannot be found, use the buffer's default directory."
 ;; Init ghostel for terminal emulation
 (use-package ghostel
   :defines project-switch-commands
+  :commands ghostel-compile-global-mode
   :config
+  (ghostel-compile-global-mode 1)
   (add-to-list 'project-switch-commands '( ghostel-project "Ghostel" ?t) t))
 
 ;; Init evil-ghostel for supporting ghostel with evil mode
