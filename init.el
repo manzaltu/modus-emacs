@@ -2808,6 +2808,7 @@ Used while preview is toggled off."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
+    "r" #'pr-review
     "R" #'pr-review-search-open)
   ( :keymaps '(forge-topics-mode-map forge-pullreq-mode-map)
     "r" #'mo-forge-visit-pullreq-with-pr-review)
