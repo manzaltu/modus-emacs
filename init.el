@@ -4317,6 +4317,11 @@ If project root cannot be found, use the buffer's default directory."
 ;; Init ghostel for terminal emulation
 (use-package ghostel)
 
+;; Init evil-ghostel for supporting ghostel with evil mode
+(use-package evil-ghostel
+  :after ( ghostel evil)
+  :hook ( ghostel-mode . evil-ghostel-mode))
+
 ;; Init comint for general interpreter support
 (use-package comint
   :demand t
