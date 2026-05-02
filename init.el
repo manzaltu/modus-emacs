@@ -2882,8 +2882,8 @@ Used while preview is toggled off."
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
     "M-r" #'diff-hl-set-reference-rev
-    "n" #'diff-hl-next-hunk
-    "p" #'diff-hl-previous-hunk)
+    "]" #'diff-hl-next-hunk
+    "[" #'diff-hl-previous-hunk)
   :hook
   ( magit-pre-refresh . diff-hl-magit-pre-refresh)
   ( magit-post-refresh . diff-hl-magit-post-refresh)
