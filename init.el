@@ -4318,7 +4318,24 @@ If project root cannot be found, use the buffer's default directory."
 ;; Init ghostel for terminal emulation
 (use-package ghostel
   :commands ghostel-compile-global-mode
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "x"
+    "g" #'mo-ghostel-file)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "j"
+    "g" #'mo-ghostel-project)
   :config
+  (defun mo-ghostel-file ()
+    "Create a new ghostel buffer with current directory set to the current buffer default directory."
+    (interactive)
+    (ghostel t))
+
+  (defun mo-ghostel-project ()
+    "Create a new ghostel buffer with current directory set to the current project root directory."
+    (interactive)
+    (ghostel-project t))
+
   (ghostel-compile-global-mode 1))
 
 ;; Init evil-ghostel for supporting ghostel with evil mode
