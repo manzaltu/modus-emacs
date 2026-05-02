@@ -2813,7 +2813,7 @@ Used while preview is toggled off."
     "r" #'mo-forge-visit-pullreq-with-pr-review)
   ( :keymaps 'pr-review-mode-map
     "C-M-s-a" #'pr-review-context-action
-    "C-M-s-r" #'pr-review-request-reviews
+    "C-M-s-q" #'pr-review-request-reviews
     "C-M-s-R" #'pr-review-refresh
     "C-M-s-o" #'pr-review-open-in-default-browser
     "C-M-s-l" #'pr-review-set-labels
