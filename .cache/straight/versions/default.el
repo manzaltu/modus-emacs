@@ -100,6 +100,7 @@
  ("flyspell-correct" . "c6dfb9bebb90ecbcaa3fbd4d747a677e17698e02")
  ("forge" . "d4eb8d1be55398e350c8a68b0c355f5166418843")
  ("general.el" . "a48768f85a655fe77b5f45c2880b420da1b1b9c3")
+ ("ghostel" . "fdd369d44604b2fc6ac33e9771a3cb757c638221")
  ("ghub" . "c438abc865964554d0ee0b2d1a7def60de47a224")
  ("git-link" . "ca1a170343448c6d5d265ec12f934d865f7e0aee")
  ("git-modes" . "c3faeeea1982786f78d8c38397dec0f078eaec84")

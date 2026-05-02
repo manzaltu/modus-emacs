@@ -4314,6 +4314,9 @@ If project root cannot be found, use the buffer's default directory."
   :config
   (setq vterm-tramp-shells (append vterm-tramp-shells '(("ssh" "/bin/bash") ("scp" "/bin/bash")))))
 
+;; Init ghostel for terminal emulation
+(use-package ghostel)
+
 ;; Init comint for general interpreter support
 (use-package comint
   :demand t
