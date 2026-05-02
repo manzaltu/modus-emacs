@@ -4888,6 +4888,7 @@ Excludes vterm buffers with names matching *claude-code*."
            "^\\*\\(.+-\\)?eshell\\*.*$" eshell-mode
            "^\\*shell.*\\*.*$" shell-mode
            "^\\*term.*\\*$" term-mode
+           "^\\*ghostel.*\\*$" ghostel-mode
            mo-popper-vterm-filter))
   ;; Set fractional height
   (setq popper-window-height (nth mo-popper-current-window-height-idx
