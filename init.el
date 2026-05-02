@@ -4316,7 +4316,10 @@ If project root cannot be found, use the buffer's default directory."
   (setq vterm-tramp-shells (append vterm-tramp-shells '(("ssh" "/bin/bash") ("scp" "/bin/bash")))))
 
 ;; Init ghostel for terminal emulation
-(use-package ghostel)
+(use-package ghostel
+  :commands ghostel-compile-global-mode
+  :config
+  (ghostel-compile-global-mode 1))
 
 ;; Init evil-ghostel for supporting ghostel with evil mode
 (use-package evil-ghostel
