@@ -3823,10 +3823,36 @@ run the attached function (if exists) and enable lsp"
     "w I" #'which-key-show-full-minor-mode-keymap
     "w m" #'which-key-show-major-mode
     "w M" #'which-key-show-full-major-mode)
+  ( :keymaps 'which-key-mode-map
+    "C-M-s-?" #'mo-which-key-show-multi-modifier)
   :config
   (setq which-key-idle-delay 0.5)
   (setq which-key-add-column-padding 8)
   (setq which-key-use-C-h-commands nil)
+  (defun mo-which-key-show-multi-modifier ()
+    "Show current bindings using the C-M-s- multi-modifier prefix."
+    (interactive)
+    ;; Cannot rely on which-key's filter argument: when it recurses
+    ;; through the ESC prefix to pick up Meta bindings, it drops the
+    ;; filter (see `which-key--get-keymap-bindings-1'), so all
+    ;; M-/C-M- bindings leak through. Post-filter instead.
+    (let* ((filter (lambda (b) (string-prefix-p "C-M-s-" (car b))))
+           (raw (cl-remove-if-not filter (which-key--get-current-bindings)))
+           (sorted (if which-key-sort-order
+                       (sort raw which-key-sort-order)
+                     raw))
+           (formatted (which-key--format-and-replace sorted))
+           (title "C-M-s- bindings"))
+      (cond ((null formatted)
+             (message "which-key: No C-M-s- bindings found"))
+            ((listp which-key-side-window-location)
+             (setq which-key--last-try-2-loc
+                   (apply #'which-key--try-2-side-windows
+                          formatted nil title
+                          which-key-side-window-location)))
+            (t (setq which-key--pages-obj
+                     (which-key--create-pages formatted nil title))
+               (which-key--show-page)))))
   (which-key-mode))
 
 ;; Init help for built-in help system
