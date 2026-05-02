@@ -2129,6 +2129,7 @@ Returns the selected project root directory or nil if cancelled."
            (project-dired "Dired" ?d)
            (project-eshell "Eshell" ?e)
            (mo-vterm-project "Vterm" ?v)
+           (ghostel-project "Ghostel" ?t)
            (project-async-shell-command "Async command" ?x))))
 
 ;; Init consult for enhanced search commands
