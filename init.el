@@ -2815,7 +2815,11 @@ Used while preview is toggled off."
   ( :keymaps 'pr-review-mode-map
     "C-M-s-a" #'pr-review-context-action
     "C-M-s-q" #'pr-review-request-reviews
+    "C-M-s-r" #'pr-review-resolve-thread
     "C-M-s-R" #'pr-review-refresh
+    "C-M-s-m" #'pr-review-merge
+    "C-M-s-x" #'pr-review-close-or-reopen
+    "C-M-s-s" #'pr-review-select-commit
     "C-M-s-o" #'pr-review-open-in-default-browser
     "C-M-s-l" #'pr-review-set-labels
     "C-M-s-E" #'pr-review-update-reactions
