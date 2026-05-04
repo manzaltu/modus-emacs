@@ -2434,6 +2434,21 @@ Used while preview is toggled off."
   (setq embark-quit-after-action nil)
   ;; Use prefix help command globally
   (setq prefix-help-command #'embark-prefix-help-command)
+  (defun mo-embark-bindings-in-major-mode ()
+    "Completing-read over the active major mode's keymap."
+    (interactive)
+    (embark-bindings-in-keymap
+     (symbol-value (intern (format "%s-map" major-mode)))))
+  (defun mo-embark-bindings-in-minor-mode (mode)
+    "Completing-read over MODE's keymap (prompts for an active minor mode)."
+    (interactive
+     (list (intern (completing-read
+                    "Minor mode: "
+                    (cl-loop for (m . _) in minor-mode-map-alist
+                             when (and (boundp m) (symbol-value m))
+                             collect m)
+                    nil t))))
+    (embark-bindings-in-keymap (cdr (assq mode minor-mode-map-alist))))
   ;; Add lsp-find-implementation to identifier actions
   (defun mo-embark-lsp-find-implementation (_target)
     "Find implementation at point, ignoring Embark TARGET."
