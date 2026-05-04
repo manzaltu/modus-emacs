@@ -3848,15 +3848,6 @@ run the attached function (if exists) and enable lsp"
   :demand t
   :straight nil
   :general
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "h"
-    "w t" #'which-key-show-top-level
-    "w k" #'which-key-show-keymap
-    "w K" #'which-key-show-full-keymap
-    "w i" #'which-key-show-minor-mode-keymap
-    "w I" #'which-key-show-full-minor-mode-keymap
-    "w m" #'which-key-show-major-mode
-    "w M" #'which-key-show-full-major-mode)
   ( :keymaps 'which-key-mode-map
     "C-M-s-?" #'mo-which-key-show-multi-modifier)
   :config
