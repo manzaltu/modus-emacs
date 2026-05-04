@@ -2423,7 +2423,10 @@ Used while preview is toggled off."
     "C-M-'" #'embark-dwim)
   ( :keymaps 'mo-quick-menu-map
     :prefix "h"
-    "b" #'embark-bindings)
+    "b b" #'embark-bindings
+    "b k" #'embark-bindings-in-keymap
+    "b m" #'mo-embark-bindings-in-major-mode
+    "b i" #'mo-embark-bindings-in-minor-mode)
   :init
   ;; Use minimal indicators
   (setq embark-indicators '( embark-minimal-indicator
