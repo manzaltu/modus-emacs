@@ -2904,8 +2904,32 @@ Used while preview is toggled off."
   (setq ediff-diff-options "-b")
   :config
   (defun mo-ediff-configure-theme ()
-    "Set ace-window theme configuration."
-    (set-face-attribute 'ediff-even-diff-A nil :inherit nil :background "DarkSlateGray"))
+    "Adjust ediff faces to integrate with the current theme."
+    (require 'color)
+    (set-face-attribute 'ediff-even-diff-A nil :inherit nil :background "DarkSlateGray")
+    ;; Drop the theme-supplied foreground on current-diff faces so syntax
+    ;; highlighting shows through the diff background tint.
+    (dolist (face '( ediff-current-diff-A
+                     ediff-current-diff-B
+                     ediff-current-diff-C
+                     ediff-current-diff-Ancestor))
+      (set-face-foreground face 'unspecified))
+    ;; Fine-diff faces inherit foreground from `diff-refine-*' parents, so
+    ;; clearing :foreground alone is not enough — break inheritance and derive
+    ;; the background from the matching current-diff face, slightly lightened
+    ;; and saturated so it reads as a bolder tint of the same hue.
+    (dolist (pair '(( ediff-fine-diff-A . ediff-current-diff-A)
+                    ( ediff-fine-diff-B . ediff-current-diff-B)
+                    ( ediff-fine-diff-C . ediff-current-diff-C)
+                    ( ediff-fine-diff-Ancestor . ediff-current-diff-Ancestor)))
+      (let ((bg (face-background (cdr pair) nil t)))
+        (set-face-attribute (car pair) nil
+                            :inherit 'unspecified
+                            :foreground 'unspecified
+                            :background (if bg
+                                            (color-saturate-name
+                                             (color-lighten-name bg 12) 15)
+                                          'unspecified)))))
   ;; Open ediff window in the current frame
   (setq ediff-window-setup-function #'ediff-setup-windows-plain)
   ;; Set ediff to show diff changes in character-level
