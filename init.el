@@ -2420,7 +2420,8 @@ Used while preview is toggled off."
   ( :keymaps 'override
     "C-'" #'embark-act
     "M-'" #'embark-act-all
-    "C-M-'" #'embark-dwim)
+    "C-M-'" #'embark-dwim
+    "C-M-s-?" #'mo-embark-bindings-multi-modifier)
   ( :keymaps 'mo-quick-menu-map
     :prefix "h"
     "b b" #'embark-bindings
