@@ -2452,6 +2452,16 @@ Used while preview is toggled off."
                              collect m)
                     nil t))))
     (embark-bindings-in-keymap (cdr (assq mode minor-mode-map-alist))))
+  (defun mo-embark-bindings-multi-modifier ()
+    "Completing-read over current C-M-s- multi-modifier bindings."
+    (interactive)
+    (let ((map (make-sparse-keymap)))
+      (dolist (b (which-key--get-current-bindings))
+        (when (string-prefix-p "C-M-s-" (car b))
+          (let ((cmd (key-binding (kbd (car b)))))
+            (when (commandp cmd)
+              (define-key map (kbd (car b)) cmd)))))
+      (embark-bindings-in-keymap map)))
   ;; Add lsp-find-implementation to identifier actions
   (defun mo-embark-lsp-find-implementation (_target)
     "Find implementation at point, ignoring Embark TARGET."
