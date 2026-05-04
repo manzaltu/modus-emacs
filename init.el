@@ -1758,6 +1758,9 @@ Used for preventing recursion when recording new jumps.")
   ( vertico-count 25)
   ( vertico-cycle t)
   ( vertico-sort-function #'vertico-sort-history-alpha)
+  :general
+  ( :keymaps 'vertico-map
+    "M-SPC" #'mo-vertico-toggle-sort)
   :config
   (defun mo-vertico-combined-sort (candidates)
     "Sort CANDIDATES using both display-sort-function and vertico-sort-function."
@@ -1769,6 +1772,14 @@ Used for preventing recursion when recording new jumps.")
       (if vertico-sort-function
           (funcall vertico-sort-function candidates)
         candidates)))
+
+  (defun mo-vertico-toggle-sort ()
+    "Toggle sorting off/on in the current Vertico session."
+    (interactive)
+    (setq-local vertico-sort-override-function
+                (and (not vertico-sort-override-function) #'identity))
+    (setq vertico--input t)
+    (vertico--update))
 
   (vertico-mode))
 
