@@ -2872,7 +2872,24 @@ Used while preview is toggled off."
   (defun mo-forge-visit-pullreq-with-pr-review ()
     "Open the forge pull-request at point with `pr-review'."
     (interactive)
-    (pr-review (forge-get-url (forge-current-pullreq t)))))
+    (pr-review (forge-get-url (forge-current-pullreq t))))
+  (defun mo--pr-review-ediff-restore-windows-advice (orig-fn &rest args)
+    "Restore window config and kill variant buffers across `pr-review-ediff-file'."
+    (let* ((winconf (current-window-configuration))
+           (ediff-startup-hook
+            (cons (lambda ()
+                    (let ((buf-a ediff-buffer-A)
+                          (buf-b ediff-buffer-B))
+                      (add-hook 'ediff-quit-hook
+                                (lambda ()
+                                  (set-window-configuration winconf)
+                                  (when (buffer-live-p buf-a) (kill-buffer buf-a))
+                                  (when (buffer-live-p buf-b) (kill-buffer buf-b)))
+                                t t)))
+                  ediff-startup-hook)))
+      (apply orig-fn args)))
+  (advice-add 'pr-review-ediff-file :around
+              #'mo--pr-review-ediff-restore-windows-advice))
 
 ;; Init diff for diff functionality
 (use-package diff
