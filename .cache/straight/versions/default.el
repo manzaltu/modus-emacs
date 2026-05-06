@@ -207,6 +207,7 @@
  ("s.el" . "dda84d38fffdaf0c9b12837b504b402af910d01d")
  ("saveplace-pdf-view" . "dc1e0b28a5ed8319a0b6725abaffba7c2fa8c730")
  ("seq" . "da86da9bf111f68fb81efd466d76d53af5aebc00")
+ ("simply-annotate" . "fe7ed2ebcda0d1899f97f06191adbf260cc5b1eb")
  ("sly" . "759c0ff8741ced8793257f2b7ed95a23e13e1407")
  ("sly-asdf" . "6f9d751469bb82530db1673c22e7437ca6c95f45")
  ("sly-quicklisp" . "34c73d43dd9066262387c626c17a9b486db07b2d")
