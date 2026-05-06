@@ -3981,6 +3981,10 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init simply-annotate for inline file annotations
 (use-package simply-annotate
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "n"
+    "a" #'simply-annotate-menu)
   :custom
   ( simply-annotate-file (mo-cache-path "simply-annotations.el")))
 
