@@ -3979,6 +3979,9 @@ run the attached function (if exists) and enable lsp"
     :prefix "h"
     "C-m" #'mode-minder))
 
+;; Init simply-annotate for inline file annotations
+(use-package simply-annotate)
+
 ;; Init eldoc for viewing documentation in echo area
 (use-package eldoc
   :straight nil
