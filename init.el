@@ -4643,8 +4643,14 @@ If project root cannot be found, use the buffer's default directory."
   :config
   (defun mo-doom-themes-configure-theme ()
     "Set doom-themes configuration on theme change."
-    ;; Make tab-bar text visible
-    (set-face-attribute 'tab-bar nil :foreground (doom-color 'fg)))
+    (set-face-attribute 'tab-bar nil :foreground (doom-color 'fg))
+    (if (eq (car custom-enabled-themes) 'doom-one)
+        (face-spec-set 'default
+                       '(( ( ( type tty) ( min-colors 256) ( background dark))
+                           :background "#1c1c1c")
+                         ( t nil))
+                       'face-override-spec)
+      (face-spec-set 'default nil 'face-override-spec)))
   (defun mo-toggle-light-dark-themes ()
     "Toggle between light and dark themes"
     (interactive)
