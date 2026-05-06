@@ -3986,7 +3986,10 @@ run the attached function (if exists) and enable lsp"
     :prefix "n"
     "a" #'simply-annotate-menu)
   :custom
-  ( simply-annotate-file (mo-cache-path "simply-annotations.el")))
+  ( simply-annotate-file (mo-cache-path "simply-annotations.el"))
+  :hook
+  ( find-file . simply-annotate-mode)
+  ( dired-mode . simply-annotate-dired-mode))
 
 ;; Init eldoc for viewing documentation in echo area
 (use-package eldoc
