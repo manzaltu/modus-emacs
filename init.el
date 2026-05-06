@@ -4682,13 +4682,14 @@ If project root cannot be found, use the buffer's default directory."
   :config
   (defun mo-auto-dim-configure-theme ()
     "Set auto-dim-other-buffers-mode theme configuration."
-    (let* ((bg (doom-color 'bg))
-           (darkened-bg (doom-darken bg 0.35)))
-      (set-face-attribute 'auto-dim-other-buffers nil
-                          :background darkened-bg)
-      (set-face-attribute 'auto-dim-other-buffers-hide nil
-                          :background darkened-bg
-                          :foreground darkened-bg)))
+    (let ((gui-bg (doom-darken (doom-color 'bg) 0.35))
+          (tty-bg "#000000"))
+      (face-spec-set 'auto-dim-other-buffers
+                     `(( ( ( type tty)) :background ,tty-bg)
+                       ( t :background ,gui-bg)))
+      (face-spec-set 'auto-dim-other-buffers-hide
+                     `(( ( ( type tty)) :background ,tty-bg :foreground ,tty-bg)
+                       ( t :background ,gui-bg :foreground ,gui-bg)))))
   (auto-dim-other-buffers-mode))
 
 ;; Init minions for collapsing the minor mode indicator in the modeline
