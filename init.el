@@ -3981,7 +3981,9 @@ run the attached function (if exists) and enable lsp"
     "C-m" #'mode-minder))
 
 ;; Init simply-annotate for inline file annotations
-(use-package simply-annotate)
+(use-package simply-annotate
+  :custom
+  ( simply-annotate-file (mo-cache-path "simply-annotations.el")))
 
 ;; Init eldoc for viewing documentation in echo area
 (use-package eldoc
