@@ -3985,6 +3985,13 @@ run the attached function (if exists) and enable lsp"
   ( :keymaps 'mo-quick-menu-map
     :prefix "n"
     "a" #'simply-annotate-menu)
+  ( :keymaps 'simply-annotate-project-table-mode-map
+    :states 'normal
+    "D" #'simply-annotate-table-delete
+    "S" #'tabulated-list-sort
+    "RET" #'simply-annotate-table-goto-source
+    "r" #'simply-annotate-table-refresh
+    "t" #'simply-annotate-table-filter-by-tag)
   :custom
   ( simply-annotate-file (mo-cache-path "simply-annotations.el"))
   :hook
