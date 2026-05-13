@@ -2424,7 +2424,7 @@ Used while preview is toggled off."
     "C-M-s-?" #'mo-embark-bindings-multi-modifier)
   ( :keymaps 'mo-quick-menu-map
     :prefix "h"
-    "b b" #'embark-bindings
+    "b b" #'mo-embark-bindings
     "b k" #'embark-bindings-in-keymap
     "b m" #'mo-embark-bindings-in-major-mode
     "b i" #'mo-embark-bindings-in-minor-mode)
@@ -2438,6 +2438,12 @@ Used while preview is toggled off."
   (setq embark-quit-after-action nil)
   ;; Use prefix help command globally
   (setq prefix-help-command #'embark-prefix-help-command)
+  (defun mo-embark-bindings ()
+    "Like `embark-bindings', but always include global bindings.
+The leader keymap `mo-quick-menu-map' lives on the global map, so
+without GLOBAL non-nil `embark-bindings' filters it out."
+    (interactive)
+    (embark-bindings t))
   (defun mo-embark-bindings-in-major-mode ()
     "Completing-read over the active major mode's keymap."
     (interactive)
