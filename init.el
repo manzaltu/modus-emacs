@@ -4000,6 +4000,7 @@ run the attached function (if exists) and enable lsp"
     "t" #'simply-annotate-table-filter-by-tag)
   :custom
   ( simply-annotate-file (mo-cache-path "simply-annotations.el"))
+  ( simply-annotate-inline-default t)
   :hook
   ( find-file . simply-annotate-mode)
   ( dired-mode . simply-annotate-dired-mode))
