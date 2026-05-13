@@ -132,7 +132,7 @@
        ( "l" . "Emacs Lisp")
        ( "s" . "Lisp")
        ( "g" . "Git")
-       ( "r" . "Multiple Cursors")
+       ( "m" . "Multiple Cursors")
        ( "n" . "Notes"))
     "Alist of (KEY . DESCRIPTION) for quick menu groups.")
 
@@ -912,9 +912,9 @@ If universal ARG is set, exclude the pattern."
   :demand t
   :general
   ( :keymaps 'mo-quick-menu-map
-    :prefix "r"
+    :prefix "m"
     "RET" #'evil-mc-make-cursor-here
-    "r" #'evil-mc-make-all-cursors
+    "m" #'evil-mc-make-all-cursors
     "a" #'evil-mc-make-cursor-in-visual-selection-end
     "i" #'evil-mc-make-cursor-in-visual-selection-beg
     "o" #'evil-mc-make-cursor-move-next-line
