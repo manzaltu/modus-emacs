@@ -132,7 +132,6 @@
        ( "l" . "Emacs Lisp")
        ( "s" . "Lisp")
        ( "g" . "Git")
-       ( "m" . "Merge")
        ( "r" . "Multiple Cursors")
        ( "n" . "Notes"))
     "Alist of (KEY . DESCRIPTION) for quick menu groups.")
@@ -2825,8 +2824,23 @@ without GLOBAL non-nil `embark-bindings' filters it out."
 (use-package smerge-mode
   :straight nil
   :general
-  ( :keymaps 'mo-quick-menu-map
-    "m" '( :keymap smerge-basic-map :package smerge)))
+  ( :keymaps 'smerge-mode-map
+    "C-M-s-= <" #'smerge-diff-base-upper
+    "C-M-s-= ="  #'smerge-diff-upper-lower
+    "C-M-s-= >"  #'smerge-diff-base-lower
+    "C-M-s-c"    #'smerge-combine-with-next
+    "C-M-s-E"    #'smerge-ediff
+    "C-M-s-R"    #'smerge-refine
+    "C-M-s-SPC"  #'smerge-keep-current
+    "C-M-s-a"    #'smerge-keep-all
+    "C-M-s-b"    #'smerge-keep-base
+    "C-M-s-l"    #'smerge-keep-lower
+    "C-M-s-m"    #'smerge-keep-upper
+    "C-M-s-n"    #'smerge-next
+    "C-M-s-o"    #'smerge-keep-lower
+    "C-M-s-p"    #'smerge-prev
+    "C-M-s-r"    #'smerge-resolve
+    "C-M-s-u"    #'smerge-keep-upper))
 
 ;; Init forge for working with git forges (e.g. Github, Gitlab)
 (use-package forge
