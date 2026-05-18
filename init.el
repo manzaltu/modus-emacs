@@ -1536,7 +1536,6 @@ Used for preventing recursion when recording new jumps.")
 
 ;; Init org-mru-clock for quick task clock-ins
 (use-package org-mru-clock
-  :ensure t
   :defines ( org-clock-current-task)
   :functions ( org-clock-out)
   :commands ( org-mru-clock-in)
