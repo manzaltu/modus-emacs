@@ -4014,6 +4014,7 @@ run the attached function (if exists) and enable lsp"
   :custom
   ( simply-annotate-file (mo-cache-path "simply-annotations.el"))
   ( simply-annotate-inline-default t)
+  ( simply-annotate-background-threshold nil)
   :hook
   ( find-file . simply-annotate-mode)
   ( dired-mode . simply-annotate-dired-mode))
