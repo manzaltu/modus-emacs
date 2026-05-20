@@ -4003,7 +4003,8 @@ run the attached function (if exists) and enable lsp"
   :general
   ( :keymaps 'mo-quick-menu-map
     "r" #'simply-annotate-menu)
-  ( :keymaps 'simply-annotate-project-table-mode-map
+  ( :keymaps '( simply-annotate-table-mode-map
+                simply-annotate-project-table-mode-map)
     :states 'normal
     "D" #'simply-annotate-table-delete
     "S" #'tabulated-list-sort
