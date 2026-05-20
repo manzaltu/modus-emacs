@@ -4014,6 +4014,8 @@ run the attached function (if exists) and enable lsp"
   :custom
   ( simply-annotate-file (mo-cache-path "simply-annotations.el"))
   ( simply-annotate-inline-default t)
+  ( simply-annotate-display-style 'tint)
+  ( simply-annotate-tint-amount 25)
   ( simply-annotate-background-threshold nil)
   :hook
   ( find-file . simply-annotate-mode)
