@@ -2257,6 +2257,11 @@ Returns the selected project root directory or nil if cancelled."
   ;; Change default async split character
   (plist-put (cdr (assq 'perl consult-async-split-styles-alist)) :initial ?`)
 
+  ;; Match files by full path, including hidden ones
+  (setq consult-fd-args
+        '( (if (executable-find "fdfind" 'remote) "fdfind" "fd")
+           "--full-path --hidden --type file --color=never"))
+
   (defun mo-consult-buffer-dwim (&optional arg)
     "If in project, list project buffers, otherwise select from open projects.
 With universal argument ARG, always show list of open projects."
@@ -2267,34 +2272,6 @@ With universal argument ARG, always show list of open projects."
       (when-let ((selected-project (mo-project-select-open-project)))
         (let ((default-directory selected-project))
           (call-interactively #'consult-project-buffer)))))
-
-  ;; Add consult-fd command
-  ;; Based on code from consult wiki:
-  ;; https://github.com/minad/consult/wiki#find-files-using-fd
-  (defun consult--fd-builder (input dir)
-    (let ((fd-command
-           (if (eq 0 (process-file-shell-command "fdfind"))
-               "fdfind"
-             "fd")))
-      (pcase-let* ((`( ,arg . ,opts) (consult--command-split input))
-                   (`( ,re . ,hl) (funcall consult--regexp-compiler
-                                           arg 'extended t)))
-        (when re
-          (cons (append
-                 (list fd-command
-                       "--color=never" "-p" "-H" "-t" "f"
-                       (concat (tramp-file-local-name dir) ".*" (consult--join-regexps re 'extended)))
-                 opts)
-                hl)))))
-
-  (defun consult-fd (&optional dir initial)
-    (interactive "P")
-    (pcase-let* ((`( ,prompt ,paths ,dir) (consult--directory-prompt "fd" dir))
-                 (default-directory dir))
-      (find-file
-       (consult--find prompt
-                      (lambda (input) (consult--fd-builder input dir))
-                      initial))))
 
   (defun mo-consult-line-symbol-at-point ()
     (interactive)
