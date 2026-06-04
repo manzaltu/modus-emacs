@@ -31,4 +31,20 @@
 ;; We use straight.el to manage our packages. Disable package.el.
 (setq package-enable-at-startup nil)
 
+;; Configure the initial frame shape here, before the frame is created, to
+;; avoid a visible reflow when these would otherwise be applied post-creation.
+;; Inhibit the splash screen
+(setq inhibit-splash-screen t)
+;; Don't display startup screen
+(setq inhibit-startup-screen t)
+;; Remove frame decoration
+(setq default-frame-alist '( ( undecorated . t)))
+;; Enable pixelwise resizing
+(setq frame-resize-pixelwise t)
+;; Don't let implied resizes negotiate with the WM during early frame setup
+(setq frame-inhibit-implied-resize t)
+;; Set the default initial frame size
+(add-to-list 'default-frame-alist '( height . 55))
+(add-to-list 'default-frame-alist '( width . 210))
+
 ;;; early-init.el ends here

@@ -314,17 +314,8 @@ Briefly highlight previous location."
     (interactive)
     (message "Lexical binding is %s."
              (if (setq lexical-binding (not lexical-binding)) "on" "off")))
-  ;; Inhibit the splash screen
-  (setq inhibit-splash-screen t)
-  ;; Remove frame decoration
-  (setq default-frame-alist '( ( undecorated . t)))
-  ;; Enable pixelwise resizing
-  (setq frame-resize-pixelwise t)
-  ;; Set the default initial frame size
-  (add-to-list 'default-frame-alist '( height . 55))
-  (add-to-list 'default-frame-alist '( width . 210))
-  ;; Don't display startup screen
-  (setq inhibit-startup-screen t)
+  ;; Frame shape and startup-display inhibits are set in early-init.el so the
+  ;; initial frame is created with the right geometry, avoiding a reflow.
   ;; Scroll incrementally
   (setq scroll-step 1)
   ;; Don't automatically recenter after scrolling
