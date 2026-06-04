@@ -4168,7 +4168,7 @@ Provide code changes as GNU diff format, followed by brief explanations for each
 (use-package evil-nerd-commenter
   :after evil
   :general
-  ( :states '( normal, visual) "gc" #'evilnc-comment-operator))
+  ( :states '( normal visual) "gc" #'evilnc-comment-operator))
 
 ;; Init string-inflection for changing style of word at point
 (use-package string-inflection
