@@ -2441,6 +2441,22 @@ without GLOBAL non-nil `embark-bindings' filters it out."
     (interactive "s")
     (call-interactively #'lsp-find-implementation))
   (keymap-set embark-identifier-map "j" #'mo-embark-lsp-find-implementation)
+  ;; Add lsp-ui-peek search actions to identifier actions
+  (defun mo-embark-lsp-ui-peek-find-references (_target)
+    "Peek references at point, ignoring Embark TARGET."
+    (interactive "s")
+    (call-interactively #'lsp-ui-peek-find-references))
+  (defun mo-embark-lsp-ui-peek-find-definitions (_target)
+    "Peek definitions at point, ignoring Embark TARGET."
+    (interactive "s")
+    (call-interactively #'lsp-ui-peek-find-definitions))
+  (defun mo-embark-lsp-ui-peek-find-implementation (_target)
+    "Peek implementation at point, ignoring Embark TARGET."
+    (interactive "s")
+    (call-interactively #'lsp-ui-peek-find-implementation))
+  (keymap-set embark-identifier-map "C-r" #'mo-embark-lsp-ui-peek-find-references)
+  (keymap-set embark-identifier-map "C-<return>" #'mo-embark-lsp-ui-peek-find-definitions)
+  (keymap-set embark-identifier-map "C-j" #'mo-embark-lsp-ui-peek-find-implementation)
   ;; Hide the mode line of the Embark live/completions buffers
   (add-to-list 'display-buffer-alist
                '( "\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
