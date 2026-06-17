@@ -2440,7 +2440,7 @@ without GLOBAL non-nil `embark-bindings' filters it out."
     "Find implementation at point, ignoring Embark TARGET."
     (interactive "s")
     (call-interactively #'lsp-find-implementation))
-  (keymap-set embark-identifier-map "i" #'mo-embark-lsp-find-implementation)
+  (keymap-set embark-identifier-map "j" #'mo-embark-lsp-find-implementation)
   ;; Hide the mode line of the Embark live/completions buffers
   (add-to-list 'display-buffer-alist
                '( "\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
