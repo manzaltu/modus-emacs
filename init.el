@@ -2939,7 +2939,138 @@ without GLOBAL non-nil `embark-bindings' filters it out."
   ;; Set ediff to show diff changes in character-level
   (setq ediff-forward-word-function #'forward-char)
   ;; Split windows horizontally
-  (setq ediff-split-window-function #'split-window-horizontally))
+  (setq ediff-split-window-function #'split-window-horizontally)
+
+  ;; Make ediff compute diffs with git instead of GNU `diff'. Ediff shells out
+  ;; to GNU `diff' (Myers only) and parses its "normal" output, so it can't use
+  ;; git's other algorithms (e.g. histogram). Compute the diff with git and
+  ;; rewrite its unified output into the normal format ediff parses;
+  ;; `--no-index' covers every ediff job. The algorithm is selectable below.
+  (defcustom mo-ediff-git-diff-algorithm nil
+    "Diff algorithm git uses to compute diffs for `ediff'.
+A string passed to git's `--diff-algorithm' (e.g. \"histogram\",
+\"patience\", \"minimal\", \"myers\"). When nil, the flag is omitted and
+git uses its configured `diff.algorithm' default."
+    :type '( choice (const :tag "git default (diff.algorithm config)" nil)
+             (const "histogram") (const "patience")
+             (const "minimal") (const "myers")
+             (string :tag "Other"))
+    :group 'ediff)
+
+  (defvar mo--ediff-git-diff-program "git"
+    "Git executable used to compute diffs for `ediff'.")
+
+  (defun mo--ediff-git-diff-args (options)
+    "Build the git diff argument list for `ediff', honoring OPTIONS.
+OPTIONS is ediff's diff option string; its whitespace/case flags are
+translated to git equivalents. The configured
+`mo-ediff-git-diff-algorithm' is appended when non-nil."
+    (let (args)
+      (dolist (opt (split-string (or options "") nil t))
+        (pcase opt
+          ((or "-b" "--ignore-space-change") (push "--ignore-space-change" args))
+          ((or "-w" "--ignore-all-space") (push "--ignore-all-space" args))
+          ((or "-i" "--ignore-case") (push "--ignore-case" args))
+          ((or "-B" "--ignore-blank-lines") (push "--ignore-blank-lines" args))))
+      (when mo-ediff-git-diff-algorithm
+        (push (concat "--diff-algorithm=" mo-ediff-git-diff-algorithm) args))
+      (nreverse args)))
+
+  (defun mo--ediff-git-diff-convert (unified-buffer out-buffer)
+    "Convert git's unified diff in UNIFIED-BUFFER to normal diff in OUT-BUFFER.
+Only the hunk headers and the +/- body lines matter to `ediff'; the
+git-specific preamble (\"diff --git\", \"index\", \"--- \"/\"+++ \", mode
+and rename lines) is dropped."
+    (with-current-buffer unified-buffer
+      (goto-char (point-min))
+      ;; Skip git's preamble entirely (it includes "--- "/"+++ " lines that
+      ;; would otherwise be misread as body lines); convert only from the first
+      ;; hunk header onward.
+      (let ((pending-deletions nil)
+            (seen-hunk nil))
+        (while (not (eobp))
+          (cond
+           ;; Unified hunk header: @@ -ls,lc +rs,rc @@ -> normal command line.
+           ((looking-at "^@@ -\\([0-9]+\\)\\(?:,\\([0-9]+\\)\\)? \\+\\([0-9]+\\)\\(?:,\\([0-9]+\\)\\)? @@")
+            (setq seen-hunk t)
+            (let* ((os (string-to-number (match-string 1)))
+                   (oc (if (match-string 2) (string-to-number (match-string 2)) 1))
+                   (ns (string-to-number (match-string 3)))
+                   (nc (if (match-string 4) (string-to-number (match-string 4)) 1))
+                   (orange (if (= oc 1) (number-to-string os)
+                             (format "%d,%d" os (+ os oc -1))))
+                   (nrange (if (= nc 1) (number-to-string ns)
+                             (format "%d,%d" ns (+ ns nc -1)))))
+              (setq pending-deletions nil)
+              (with-current-buffer out-buffer
+                (insert (cond ((= oc 0) (format "%da%s\n" os nrange))
+                              ((= nc 0) (format "%sd%d\n" orange ns))
+                              (t (format "%sc%s\n" orange nrange)))))))
+           ;; Deleted line -> "< ...". Capture the body from the unified buffer
+           ;; before switching to OUT-BUFFER, so `point' refers to the source.
+           ((and seen-hunk (eq (char-after) ?-))
+            (setq pending-deletions t)
+            (let ((body (buffer-substring (1+ (point)) (line-end-position))))
+              (with-current-buffer out-buffer (insert "< " body "\n"))))
+           ;; Added line -> "> ...", separated from any deletions by "---".
+           ((and seen-hunk (eq (char-after) ?+))
+            (let ((body (buffer-substring (1+ (point)) (line-end-position))))
+              (when pending-deletions
+                (setq pending-deletions nil)
+                (with-current-buffer out-buffer (insert "---\n")))
+              (with-current-buffer out-buffer (insert "> " body "\n"))))
+           ;; "\ No newline at end of file" marker -> pass through verbatim, as
+           ;; GNU diff does. ediff ignores it, but preserving it keeps the
+           ;; output byte-faithful to GNU diff and applyable by `patch'.
+           ((and seen-hunk (eq (char-after) ?\\))
+            (let ((line (buffer-substring (line-beginning-position) (line-end-position))))
+              (with-current-buffer out-buffer (insert line "\n")))))
+          (forward-line 1)))))
+
+  (defun mo--ediff-git-make-diff2-buffer (orig-fn diff-buffer file1 file2)
+    "Fill DIFF-BUFFER with a git diff of FILE1 and FILE2 for `ediff'.
+Falls back to ORIG-FN (GNU `diff') when git is unavailable or errors,
+preserving ediff's normal behavior. Returns the diff buffer size, matching
+the contract of `ediff-make-diff2-buffer' (ediff keys \"files differ\" off
+the produced output, not the process exit code)."
+    (if (not (executable-find mo--ediff-git-diff-program))
+        (funcall orig-fn diff-buffer file1 file2)
+      (let ((file1-size (ediff-file-size file1))
+            (file2-size (ediff-file-size file2)))
+        (cond
+         ((not (numberp file1-size))
+          (message "Can't find file: %s" (ediff-abbreviate-file-name file1))
+          (sit-for 2) 1)
+         ((not (numberp file2-size))
+          (message "Can't find file: %s" (ediff-abbreviate-file-name file2))
+          (sit-for 2) 1)
+         (t
+          (let ((unified (get-buffer-create " *mo-ediff-git-diff*"))
+                (status nil))
+            (with-current-buffer unified
+              (erase-buffer)
+              (setq default-directory "/")
+              (setq status
+                    (apply #'call-process mo--ediff-git-diff-program nil unified nil
+                           (append '( "diff" "--no-index" "--no-color" "-U0")
+                                   (mo--ediff-git-diff-args
+                                    ediff-actual-diff-options)
+                                   (list "--"
+                                         (file-name-unquote
+                                          (or (file-local-copy file1) file1))
+                                         (file-name-unquote
+                                          (or (file-local-copy file2) file2)))))))
+            ;; git diff --no-index exits 0 (same) or 1 (differ); anything else
+            ;; is an error, so fall back to GNU diff rather than show nothing.
+            (if (memq status '( 0 1))
+                (progn
+                  (with-current-buffer diff-buffer (erase-buffer))
+                  (mo--ediff-git-diff-convert unified diff-buffer)
+                  (message "")
+                  (ediff-with-current-buffer diff-buffer (buffer-size)))
+              (funcall orig-fn diff-buffer file1 file2))))))))
+
+  (advice-add 'ediff-make-diff2-buffer :around #'mo--ediff-git-make-diff2-buffer))
 
 ;; Init ztree for comparing folder content
 (use-package ztree
