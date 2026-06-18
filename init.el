@@ -4948,7 +4948,8 @@ If project root cannot be found, use the buffer's default directory."
   :config
   (claude-code-ide-emacs-tools-setup)
   :custom
-  ( claude-code-ide-focus-claude-after-ediff nil))
+  ( claude-code-ide-focus-claude-after-ediff nil)
+  ( claude-code-ide-terminal-backend 'ghostel))
 
 ;; Init kind-icon for icon support in auto completion
 (use-package kind-icon
