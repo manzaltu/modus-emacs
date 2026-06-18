@@ -3435,7 +3435,17 @@ run the attached function (if exists) and enable lsp"
     "C-i" #'lsp-ui-imenu
     "d" #'lsp-ui-doc-glance
     "<menu>" #'lsp-ui-doc-focus-frame)
+  :hook
+  ( after-enable-theme . mo-lsp-ui-configure-theme)
   :config
+  (defun mo-lsp-ui-configure-theme ()
+    "Set lsp-ui theme configuration."
+    ;; Blend the buffer background toward blue so the peek stands out; the list
+    ;; column is a touch deeper and the selection stronger still.
+    (let ((bg (face-background 'default nil t)))
+      (set-face-attribute 'lsp-ui-peek-peek nil :background (doom-blend "#5b8cff" bg 0.11))
+      (set-face-attribute 'lsp-ui-peek-list nil :background (doom-blend "#5b8cff" bg 0.17))
+      (set-face-attribute 'lsp-ui-peek-selection nil :background (doom-blend "#5b8cff" bg 0.30))))
   ;; Do not show documentation automatically
   (setq lsp-ui-doc-position 'at-point)
   (setq lsp-ui-doc-show-with-mouse nil)
