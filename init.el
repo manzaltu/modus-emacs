@@ -2852,9 +2852,14 @@ without GLOBAL non-nil `embark-bindings' filters it out."
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
     "r" #'pr-review
-    "R" #'pr-review-search-open)
+    "R" #'pr-review-search-open
+    "j" #'mo-pr-review-goto-from-code)
   ( :keymaps '(forge-topics-mode-map forge-pullreq-mode-map)
     "r" #'mo-forge-visit-pullreq-with-pr-review)
+  ( :states '( normal motion)
+    :keymaps 'pr-review-mode-map
+    "RET" #'mo-pr-review-visit-file-worktree
+    "C-<return>" #'mo-pr-review-visit-file-revision)
   ( :keymaps 'pr-review-mode-map
     "C-M-s-a" #'pr-review-context-action
     "C-M-s-q" #'pr-review-request-reviews
