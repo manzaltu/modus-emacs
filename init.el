@@ -3441,6 +3441,7 @@ run the attached function (if exists) and enable lsp"
   (setq lsp-ui-doc-show-with-mouse nil)
   (setq lsp-ui-doc-max-height 60)
   (setq lsp-ui-peek-peek-height 40)
+  (setq lsp-ui-peek-fontify 'always)
   ;; Show code actions in sideline
   (setq lsp-ui-sideline-show-code-actions t)
   ;; Show only symbols in headerline breadcrumb
