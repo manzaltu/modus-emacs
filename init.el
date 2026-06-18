@@ -2876,6 +2876,174 @@ without GLOBAL non-nil `embark-bindings' filters it out."
     "Open the forge pull-request at point with `pr-review'."
     (interactive)
     (pr-review (forge-get-url (forge-current-pullreq t))))
+
+  (defun mo--pr-review-local-root ()
+    "Return the local worktree of the PR shown in the current buffer.
+Resolve the repo via `forge' first (its cached worktree), then fall
+back to scanning `project-known-project-roots': `forge-get-worktree'
+records and returns the worktree when `default-directory' is inside
+the repo, so it both matches identity and caches the hit.  Return the
+directory, or nil."
+    (when pr-review--pr-path
+      (let* ((owner (car pr-review--pr-path))
+             (name (cadr pr-review--pr-path))
+             (repo (ignore-errors
+                     (forge-get-repository
+                      (list pr-review--host owner name) nil :tracked?))))
+        (when repo
+          (or (forge-get-worktree repo)
+              (seq-some
+               (lambda (root)
+                 (let ((default-directory root))
+                   (ignore-errors (forge-get-worktree repo))))
+               (project-known-project-roots)))))))
+
+  (defun mo--pr-review-diff-line-info ()
+    "Return diff-line info at point, or signal if point is not on one.
+The result is (SIDE . (FILE . LINE)) as from `pr-review--get-diff-line-info'."
+    (or (pr-review--get-diff-line-info (point))
+        (user-error "Point is not on a diff line")))
+
+  (defun mo--pr-review-diff-line-commit (line-info)
+    "Return the PR commit LINE-INFO's line number is relative to.
+Right-side (added) lines are relative to the head commit, left-side
+\(removed) lines to the base commit."
+    (if (equal (car line-info) "LEFT")
+        (pr-review--current-commit-base)
+      (pr-review--current-commit-head)))
+
+  (defun mo--pr-review-visit-file (rev line-info &optional offset-rev)
+    "Visit the file in LINE-INFO in a local checkout at REV.
+REV is a git revision string (or \"{worktree}\"); LINE-INFO is as
+returned by `mo--pr-review-diff-line-info'.  The blob is read via
+`magit-find-file-noselect'; its built-in line/column restore does not
+apply here (the previous buffer is the PrReview buffer, not the file),
+so move to LINE explicitly.
+
+The diff line number is relative to the PR commit, so when REV's
+content differs from it (e.g. visiting the worktree) translate the
+line through `magit-diff-visit--offset' against OFFSET-REV, mirroring
+how Magit visits a worktree file from a committed diff."
+    (let ((root (or (mo--pr-review-local-root)
+                    (user-error "No local checkout found for %s/%s"
+                                (car pr-review--pr-path)
+                                (cadr pr-review--pr-path)))))
+      (let* ((file (cadr line-info))
+             (line (cddr line-info))
+             (default-directory root)
+             (line (if (and line offset-rev)
+                       (magit-diff-visit--offset line file offset-rev)
+                     line))
+             (buffer (magit-find-file-noselect rev file)))
+        (switch-to-buffer-other-window buffer)
+        (when line
+          (goto-char (point-min))
+          (forward-line (1- line))))))
+
+  (defun mo-pr-review-visit-file-worktree ()
+    "Visit the diff line at point in the local working tree.
+Open the file from the matching local checkout (see
+`mo--pr-review-local-root') at the line under point, mirroring
+the way \\[magit-find-file] visits a worktree file from a diff:
+the diff line is translated into the worktree's line numbering."
+    (interactive)
+    (let ((line-info (mo--pr-review-diff-line-info)))
+      (mo--pr-review-visit-file
+       "{worktree}" line-info (mo--pr-review-diff-line-commit line-info))))
+
+  (defun mo-pr-review-visit-file-revision ()
+    "Visit the diff line at point at the PR's commit, as a magit blob.
+Use the head commit for right-side (added) lines and the base commit
+for left-side (removed) lines.  Read the blob from the matching local
+checkout via `magit-find-file', so the commit must be fetched locally."
+    (interactive)
+    (let* ((line-info (mo--pr-review-diff-line-info))
+           (rev (mo--pr-review-diff-line-commit line-info)))
+      (mo--pr-review-visit-file rev line-info)))
+
+  (defun mo--pr-review-buffers-for-file (abs-file)
+    "Return a list of (BUFFER . RELPATH) for ABS-FILE across PrReview buffers.
+A PrReview buffer qualifies when its local checkout (see
+`mo--pr-review-local-root') is an ancestor of ABS-FILE and the buffer
+actually contains a diff section for that file; RELPATH is ABS-FILE
+relative to that checkout, i.e. the path used inside the PR."
+    (seq-keep
+     (lambda (buffer)
+       (with-current-buffer buffer
+         (when (derived-mode-p 'pr-review-mode)
+           (when-let* ((root (mo--pr-review-local-root))
+                       ((file-in-directory-p abs-file root))
+                       (relpath (file-relative-name abs-file root))
+                       ((pr-review--find-section-with-value relpath)))
+             (cons buffer relpath)))))
+     (buffer-list)))
+
+  (defun mo--pr-review-goto-nearest-right-line (relpath line)
+    "Move point to the nearest head-side diff line for RELPATH at or after LINE.
+Search the file's section for the first `pr-review-diff-line-right'
+property whose line is >= LINE, falling back to the section start.
+Return t when a section for RELPATH exists, nil otherwise."
+    (when-let ((section (pr-review--find-section-with-value relpath)))
+      (save-restriction
+        (narrow-to-region (oref section start) (oref section end))
+        (goto-char (point-min))
+        (if-let ((match (text-property-search-forward
+                         'pr-review-diff-line-right
+                         (cons relpath line)
+                         (lambda (target prop)
+                           (let-alist prop
+                             (and (equal (car target) .path)
+                                  .line
+                                  (>= .line (cdr target))))))))
+            (goto-char (prop-match-beginning match))
+          (goto-char (point-min))))
+      t))
+
+  (defun mo--pr-review-goto-file-line (relpath line)
+    "Move point to RELPATH at LINE within the current PrReview buffer.
+Prefer the exact head-side (right) diff line; otherwise land on the
+nearest changed line at or after LINE in that file; otherwise on the
+file section header.  Reuses the `pr-review-diff-line-right' text
+properties that the diff render attaches to every added/context line."
+    (or (pr-review--goto-diff-line relpath "RIGHT" line)
+        (mo--pr-review-goto-nearest-right-line relpath line)
+        (pr-review-goto-file relpath)))
+
+  (defun mo-pr-review-goto-from-code ()
+    "Jump from the current file line into a PrReview buffer showing it.
+Resolve the visited file against open PrReview buffers: when exactly
+one shows it, switch there; when several do, prompt.  Land on the exact
+diff line for the current line, or the nearest changed line, or the
+file section.  Assumes the checkout matches the PR head; when it does
+not, the landing line may be approximate."
+    (interactive)
+    (let ((abs-file (buffer-file-name)))
+      (unless abs-file
+        (user-error "Current buffer is not visiting a file"))
+      (let* ((line (line-number-at-pos nil t))
+             (candidates (mo--pr-review-buffers-for-file abs-file)))
+        (pcase candidates
+          ('nil
+           (user-error "No PrReview buffer shows %s"
+                       (file-name-nondirectory abs-file)))
+          (`((,buffer . ,relpath))
+           (mo--pr-review-pop-to buffer relpath line))
+          (_
+           (let* ((labels (mapcar
+                           (lambda (cand)
+                             (cons (buffer-name (car cand)) cand))
+                           candidates))
+                  (choice (completing-read "PrReview buffer: " labels nil t))
+                  (cand (cdr (assoc choice labels))))
+             (mo--pr-review-pop-to (car cand) (cdr cand) line)))))))
+
+  (defun mo--pr-review-pop-to (buffer relpath line)
+    "Display BUFFER and move point to RELPATH at LINE within it.
+Select BUFFER's window first so that point motion and `recenter'
+act on the window that actually displays it."
+    (pop-to-buffer buffer)
+    (mo--pr-review-goto-file-line relpath line)
+    (recenter))
   (defun mo--pr-review-ediff-restore-windows-advice (orig-fn &rest args)
     "Restore window config and kill variant buffers across `pr-review-ediff-file'."
     (let* ((winconf (current-window-configuration))
