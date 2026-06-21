@@ -2851,8 +2851,6 @@ without GLOBAL non-nil `embark-bindings' filters it out."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
-    "r" #'pr-review
-    "R" #'pr-review-search-open
     "j" #'mo-pr-review-goto-from-code)
   ( :keymaps '(forge-topics-mode-map forge-pullreq-mode-map)
     "r" #'mo-forge-visit-pullreq-with-pr-review)
