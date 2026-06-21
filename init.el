@@ -3281,6 +3281,19 @@ the produced output, not the process exit code)."
   ( dired-mode . diff-hl-dired-mode-unless-remote)
   :config
   (setq diff-hl-side 'right)
+
+  (defun mo-diff-hl-set-reference-merge-base-in-project (base)
+    "Reference the merge base of BASE branch and `HEAD' for the project.
+Shows only changes made since branching off BASE, ignoring commits that
+landed on BASE afterwards."
+    (interactive (list (vc-read-revision "Base branch: ")))
+    (unless (and base (not (string-empty-p base)))
+      (user-error "No base branch specified"))
+    (let ((merge-base (vc-git-mergebase base "HEAD")))
+      (unless (and merge-base (not (string-empty-p merge-base)))
+        (user-error "Could not find a merge base between %s and HEAD" base))
+      (diff-hl-set-reference-rev-in-project merge-base)))
+
   (global-diff-hl-mode))
 
 ;; Init git-link for creating URLs for files in web git services
