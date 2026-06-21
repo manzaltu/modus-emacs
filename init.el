@@ -4327,6 +4327,9 @@ run the attached function (if exists) and enable lsp"
   :config
   (setq eldoc-idle-delay 0.2))
 
+;; Init eldoc-box for showing eldoc strings in a childframe
+(use-package eldoc-box)
+
 ;; Init devdocs for viewing online dev documentation
 (use-package devdocs
   :general
