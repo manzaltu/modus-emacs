@@ -55,6 +55,7 @@
  ("editorconfig-emacs" . "b18fcf7fdea1ce84b7fdc60360ad8016b5c00d79")
  ("el-get" . "447b7efc9fca29a087f4ec29c5d8ccb580cd1c78")
  ("eldoc" . "69030e0802f47b5fd32b559f2c92b7a8bf0ad2e3")
+ ("eldoc-box" . "e458cefba4013785ef6099c6245463689a50dd7d")
  ("elisp-refs" . "541a064c3ce27867872cf708354a65d83baf2a6d")
  ("emacs-aio" . "0e94a06bb035953cbbb4242568b38ca15443ad4c")
  ("emacs-async" . "5faab28916603bb324d9faba057021ce028ca847")
