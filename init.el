@@ -2794,7 +2794,10 @@ without GLOBAL non-nil `embark-bindings' filters it out."
 
 ;; Init magit-tbdiff for using git-range-diff command in magit
 (use-package magit-tbdiff
-  :after magit)
+  :after magit
+  :config
+  ;; Enable range-diff's --dual-color by default
+  (oset (get 'magit-tbdiff 'transient--prefix) default-value '( "--dual-color")))
 
 ;; Init magit-imerge for a git-imerge magit interface
 (use-package magit-imerge
