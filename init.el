@@ -4983,16 +4983,6 @@ If project root cannot be found, use the buffer's default directory."
   :config
   (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
 
-;; Init emojify for emoji support
-(use-package emojify
-  :general
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "b"
-    "C-e" #'emojify-mode
-    "e" #'emojify-insert-emoji)
-  :config
-  (setq emojify-emojis-dir (mo-cache-path "emojis")))
-
 ;; Init doom one theme
 (use-package doom-themes
   :demand t
