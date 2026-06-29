@@ -1512,6 +1512,15 @@ Used for preventing recursion when recording new jumps.")
   ( org-modern-replace-stars '( "●" "◍" "◉" "◎" "◌"))
   ( org-modern-list '( ( ?- . "▸") ( ?+ . "▹") ( ?* . "◦")))
   ( org-modern-hide-stars nil)
+  ;; Per-keyword todo badge colors
+  ( org-modern-todo-faces
+    '( ( "TODO" :foreground "#98be65" :background "#000000" :weight semibold :inverse-video t)
+       ( "NEXT" :foreground "#f5c542" :background "#000000" :weight semibold :inverse-video t)
+       ( "PROG" :foreground "#4a9ee8" :background "#000000" :weight semibold :inverse-video t)
+       ( "WAIT" :foreground "#e8893a" :background "#000000" :weight semibold :inverse-video t)
+       ( "FAIL" :foreground "#e05a4f" :background "#000000" :weight semibold :inverse-video t)
+       ( "DONT" :foreground "#c8c8c8" :background "#000000" :weight semibold :inverse-video t)
+       ( "DONE" :foreground "#5B6268" :background "#000000" :weight semibold :inverse-video t)))
   :config
   (global-org-modern-mode))
 
