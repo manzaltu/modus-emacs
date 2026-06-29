@@ -5588,6 +5588,11 @@ Excludes vterm buffers with names matching *claude-code*."
   :config
   (persistent-scratch-setup-default))
 
+;; Init multisession for multisession storage for variables
+(use-package multisession
+  :config
+  (setq multisession-directory (mo-cache-path "multisession")))
+
 ;; Init autorevert for updating buffers that were changed on disk
 (use-package autorevert
   :straight nil
