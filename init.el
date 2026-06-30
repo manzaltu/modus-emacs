@@ -1368,6 +1368,7 @@ Used for preventing recursion when recording new jumps.")
 
   (setq org-agenda-files `( ,org-directory))
   (setq org-agenda-window-setup 'current-window)
+  (setq org-agenda-compact-blocks t)
   (setq org-agenda-include-diary t)
   (setq org-agenda-use-time-grid t)
   (setq org-agenda-tags-column 0)
@@ -1375,6 +1376,17 @@ Used for preventing recursion when recording new jumps.")
                                         "Prev.:"))
   (setq org-agenda-diary-file
         (concat (file-name-as-directory org-directory) "diary.org"))
+  (setq org-agenda-custom-commands
+        '( ( "n" "Agenda and grouped TODOs"
+             ( ( agenda "")
+               ( todo "PROG"
+                 ( ( org-agenda-overriding-header "In progress")))
+               ( todo "NEXT"
+                 ( ( org-agenda-overriding-header "Next")))
+               ( todo "WAIT"
+                 ( ( org-agenda-overriding-header "Waiting")))
+               ( todo "TODO"
+                 ( ( org-agenda-overriding-header "Todo")))))))
   (setq org-agenda-prefix-format
         '( (agenda . "%i %-20c%?-12t% s")
            (todo . "%i %-20c")
