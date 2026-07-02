@@ -1266,6 +1266,7 @@ Used for preventing recursion when recording new jumps.")
   (setq org-capture-templates '( ( "t" "Task" entry (file+function org-default-notes-file org-goto)
                                    "** TODO %?\n")))
   (setq org-goto-interface 'outline-path-completion)
+  (setq org-outline-path-complete-in-steps nil)
   ;; Unfold everything on startup, except for things that set to be hidden
   ;; by default (e.g. drawers)
   (setq org-startup-folded 'showall)
