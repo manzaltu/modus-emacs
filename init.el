@@ -334,6 +334,8 @@ Briefly highlight previous location."
   (setq sentence-end-double-space nil)
   ;; Draw the underline at the descent line
   (setq x-underline-at-descent-line t)
+  ;; Display fringes outside the margins, next to the window edge
+  (setq-default fringes-outside-margins t)
   ;; Enable recursive minibuffer
   (setq enable-recursive-minibuffers t)
   ;; Set tab width
