@@ -5035,9 +5035,13 @@ If project root cannot be found, use the buffer's default directory."
     "v" #'mo-toggle-light-dark-themes)
   :hook ( after-enable-theme . mo-doom-themes-configure-theme)
   :config
+  (defun mo-doom-themes-dim-bg ()
+    "Return the dimmed background color of the current theme."
+    (doom-darken (doom-color 'bg) 0.35))
   (defun mo-doom-themes-configure-theme ()
     "Set doom-themes configuration on theme change."
     (set-face-attribute 'tab-bar nil :foreground (doom-color 'fg))
+    (set-face-attribute 'fringe nil :background (mo-doom-themes-dim-bg))
     (if (eq (car custom-enabled-themes) 'doom-one)
         (face-spec-set 'default
                        '(( ( ( type tty) ( min-colors 256) ( background dark))
