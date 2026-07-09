@@ -3318,8 +3318,6 @@ the produced output, not the process exit code)."
   ( magit-post-refresh . diff-hl-magit-post-refresh)
   ( dired-mode . diff-hl-dired-mode-unless-remote)
   :config
-  (setq diff-hl-side 'right)
-
   (defun mo-diff-hl-set-reference-merge-base-in-project (base)
     "Reference the merge base of BASE branch and `HEAD' for the project.
 Shows only changes made since branching off BASE, ignoring commits that
@@ -3332,7 +3330,8 @@ landed on BASE afterwards."
         (user-error "Could not find a merge base between %s and HEAD" base))
       (diff-hl-set-reference-rev-in-project merge-base)))
 
-  (global-diff-hl-mode))
+  (global-diff-hl-mode)
+  (diff-hl-margin-mode))
 
 ;; Init git-link for creating URLs for files in web git services
 (use-package git-link
