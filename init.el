@@ -5357,6 +5357,16 @@ Excludes vterm buffers with names matching *claude-code*."
                  (derived-mode-p 'vterm-mode))
                (string-match-p "^\\*vterm.*\\*.*$" name)))))
 
+  (defun mo-popper-ghostel-filter (buf)
+    "Return t if BUF is a ghostel buffer that should be treated as a popup.
+Matches by either ghostel-mode or ghostel name pattern.
+Excludes ghostel buffers with names matching *claude-code*."
+    (let ((name (buffer-name buf)))
+      (and (not (string-match-p "\\*claude-code" name))
+           (or (with-current-buffer buf
+                 (derived-mode-p 'ghostel-mode))
+               (string-match-p "^\\*ghostel.*\\*$" name)))))
+
   (setq popper-reference-buffers
         '( "\\*Messages\\*"
            "\\*Warnings\\*"
@@ -5386,7 +5396,7 @@ Excludes vterm buffers with names matching *claude-code*."
            "^\\*\\(.+-\\)?eshell\\*.*$" eshell-mode
            "^\\*shell.*\\*.*$" shell-mode
            "^\\*term.*\\*$" term-mode
-           "^\\*ghostel.*\\*$" ghostel-mode
+           mo-popper-ghostel-filter
            mo-popper-vterm-filter))
   ;; Set fractional height
   (setq popper-window-height (nth mo-popper-current-window-height-idx
