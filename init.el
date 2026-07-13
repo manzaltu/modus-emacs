@@ -1354,7 +1354,11 @@ Used for preventing recursion when recording new jumps.")
                     ( org-agenda-date-today . 1.1)
                     ( org-agenda-date-weekend . 1.1)
                     ( org-agenda-date-weekend-today . 1.1)))
-      (set-face-attribute (car face) nil :height (cdr face))))
+      (set-face-attribute (car face) nil :height (cdr face)))
+    (set-face-attribute 'org-scheduled-today nil
+                        :foreground (face-attribute 'default :foreground))
+    (set-face-attribute 'org-scheduled-previously nil
+                        :foreground "#51afef"))
 
   (defun mo-org-agenda-and-todo ()
     "Open org agenda with all TODOs"
@@ -1371,22 +1375,63 @@ Used for preventing recursion when recording new jumps.")
         (with-current-buffer buffer
           (save-buffer)))))
 
+  (defun mo-org-agenda-decorate-todo-entry (entry)
+    "Decorate todo ENTRY with deadline and overdue planning information."
+    (let ((marker (get-text-property 0 'org-hd-marker entry)))
+      (if (and marker (equal (get-text-property 0 'type entry) "todo"))
+          (let* ((deadline (org-get-deadline-time marker))
+                 (scheduled (org-get-scheduled-time marker))
+                 (days (and deadline (- (time-to-days deadline) (org-today))))
+                 (scheduled-days (and scheduled
+                                      (- (time-to-days scheduled) (org-today))))
+                 (face (cond
+                        ((and days (< days 0)) (org-agenda-deadline-face 2.0))
+                        ((and days (= days 0)) (org-agenda-deadline-face 1.0))
+                        ((and scheduled-days (< scheduled-days 0))
+                         'org-scheduled-previously)))
+                 (info (delq nil
+                             (list
+                              (and scheduled
+                                   (format-time-string "%-d/%-m" scheduled))
+                              (and days
+                                   (cond
+                                    ((> days 0) (format "deadline in %d d." days))
+                                    ((< days 0) (format "deadline %d d. ago" (- days)))
+                                    (t "deadline today"))))))
+                 (entry (if info
+                            (concat entry
+                                    (org-add-props
+                                        (concat " <" (mapconcat #'identity info "; ") ">")
+                                        (text-properties-at (1- (length entry)) entry)))
+                          entry)))
+            (if face
+                (org-add-props entry nil
+                  'face face 'undone-face face 'done-face 'org-agenda-done)
+              entry))
+        entry)))
+
   (setq org-agenda-files `( ,org-directory))
   (setq org-agenda-window-setup 'current-window)
   (setq org-agenda-compact-blocks t)
   (setq org-agenda-tags-todo-honor-ignore-options t)
-  (setq org-agenda-todo-ignore-scheduled 'future)
-  (setq org-agenda-todo-ignore-deadlines 'far)
+  (setq org-agenda-before-sorting-filter-function
+        #'mo-org-agenda-decorate-todo-entry)
+  (setq org-agenda-skip-scheduled-if-deadline-is-shown t)
   (setq org-agenda-include-diary t)
   (setq org-agenda-use-time-grid t)
   (setq org-agenda-tags-column 0)
-  (setq org-agenda-scheduled-leaders '( "Today:"
-                                        "Prev.:"))
+  ;; Deadlines on their day are yellow; passed deadlines (fraction > 1) are red
+  (setq org-agenda-deadline-faces
+        '( ( 1.001 . ( :foreground "#ff6c6b"))
+           ( 1.0 . org-imminent-deadline)
+           ( 0.5 . org-upcoming-deadline)
+           ( 0.0 . org-upcoming-distant-deadline)))
   (setq org-agenda-diary-file
         (concat (file-name-as-directory org-directory) "diary.org"))
   (setq org-agenda-custom-commands
         '( ( "n" "Agenda and grouped TODOs"
-             ( ( agenda "")
+             ( ( agenda ""
+                 ( ( org-deadline-warning-days 0)))
                ( todo "PROG"
                  ( ( org-agenda-overriding-header "In progress")))
                ( todo "NEXT"
@@ -1396,7 +1441,7 @@ Used for preventing recursion when recording new jumps.")
                ( todo "TODO"
                  ( ( org-agenda-overriding-header "Todo")))))))
   (setq org-agenda-prefix-format
-        '( (agenda . "%i %-20c%?-12t% s")
+        '( (agenda . "%i %-20c%?-12t")
            (todo . "%i %-20c")
            (tags . "%i %-20c")
            (search . "%i %-20c")))
