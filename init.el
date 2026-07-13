@@ -893,6 +893,8 @@ If universal ARG is set, exclude the pattern."
     ;; Remove evil org insert heading bindings
     "C-<return>" nil
     "C-S-<return>" nil)
+  :custom
+  ( evil-org-key-theme '( navigation textobjects additional shift calendar))
   :hook
   ( org-mode . evil-org-mode)
   ( org-agenda-mode . evil-org-mode)
