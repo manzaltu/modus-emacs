@@ -306,6 +306,8 @@ Briefly highlight previous location."
   ( :keymaps 'mo-quick-menu-map
     :prefix "l"
     "b" #'mo-toggle-lexical-binding)
+  ( :keymaps 'override
+    "M-<print>" #'mo-export-frame-screenshot)
   ( :keymaps 'emacs-lisp-mode-map
     "C-M-s-r" #'eval-region)
   :config
@@ -314,6 +316,18 @@ Briefly highlight previous location."
     (interactive)
     (message "Lexical binding is %s."
              (if (setq lexical-binding (not lexical-binding)) "on" "off")))
+  (defun mo-export-frame-screenshot ()
+    "Export a screenshot of the selected frame into a png image buffer."
+    (interactive)
+    (let ((data (x-export-frames nil 'png))
+          (buffer (generate-new-buffer
+                   (format-time-string "screenshot-%Y%m%d-%H%M%S.png"))))
+      (with-current-buffer buffer
+        (set-buffer-multibyte nil)
+        (insert data)
+        (set-buffer-file-coding-system 'no-conversion)
+        (image-mode))
+      (pop-to-buffer buffer)))
   ;; Frame shape and startup-display inhibits are set in early-init.el so the
   ;; initial frame is created with the right geometry, avoiding a reflow.
   ;; Scroll incrementally
