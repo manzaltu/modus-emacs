@@ -4409,29 +4409,6 @@ run the attached function (if exists) and enable lsp"
     :prefix "h"
     "C-m" #'mode-minder))
 
-;; Init simply-annotate for inline file annotations
-(use-package simply-annotate
-  :general
-  ( :keymaps 'mo-quick-menu-map
-    "r" #'simply-annotate-menu)
-  ( :keymaps '( simply-annotate-table-mode-map
-                simply-annotate-project-table-mode-map)
-    :states 'normal
-    "D" #'simply-annotate-table-delete
-    "S" #'tabulated-list-sort
-    "RET" #'simply-annotate-table-goto-source
-    "r" #'simply-annotate-table-refresh
-    "t" #'simply-annotate-table-filter-by-tag)
-  :custom
-  ( simply-annotate-file (mo-cache-path "simply-annotations.el"))
-  ( simply-annotate-inline-default t)
-  ( simply-annotate-display-style 'tint)
-  ( simply-annotate-tint-amount 25)
-  ( simply-annotate-background-threshold nil)
-  :hook
-  ( find-file . simply-annotate-mode)
-  ( dired-mode . simply-annotate-dired-mode))
-
 ;; Init eldoc for viewing documentation in echo area
 (use-package eldoc
   :straight nil
