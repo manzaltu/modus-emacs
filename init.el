@@ -5043,6 +5043,11 @@ If project root cannot be found, use the buffer's default directory."
   ( claude-code-ide-focus-claude-after-ediff nil)
   ( claude-code-ide-terminal-backend 'ghostel))
 
+;; Init claude-emacs-annotate for Claude Code inline file annotations
+(use-package claude-emacs-annotate
+  :straight ( :type git :host github :repo "manzaltu/claude-emacs-annotate"
+              :files ("lisp/*.el")))
+
 ;; Init kind-icon for icon support in auto completion
 (use-package kind-icon
   :after corfu
