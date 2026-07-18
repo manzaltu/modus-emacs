@@ -5062,6 +5062,27 @@ If project root cannot be found, use the buffer's default directory."
     "p" #'claude-emacs-annotate-previous
     "a" #'claude-emacs-annotate-reanchor
     "g" #'claude-emacs-annotate-refresh)
+  ( :keymaps 'claude-emacs-annotate-table-mode-map
+    :states 'normal
+    "D" #'claude-emacs-annotate-table-delete
+    "S" #'tabulated-list-sort
+    "RET" #'claude-emacs-annotate-table-goto
+    "r" #'claude-emacs-annotate-table-refresh
+    "R" #'claude-emacs-annotate-table-reanchor
+    "s" #'claude-emacs-annotate-table-set-status
+    "t" #'claude-emacs-annotate-table-filter-by-tag
+    "a" #'claude-emacs-annotate-table-filter-by-author
+    "o" #'claude-emacs-annotate-table-filter-by-status
+    "q" #'quit-window)
+  ( :keymaps 'claude-emacs-annotate-thread-mode-map
+    :states 'normal
+    "r" #'claude-emacs-annotate-thread-reply
+    "e" #'claude-emacs-annotate-thread-edit-comment
+    "s" #'claude-emacs-annotate-thread-set-status
+    "D" #'claude-emacs-annotate-thread-delete-comment
+    "RET" #'claude-emacs-annotate-thread-goto-source
+    "gr" #'claude-emacs-annotate-thread-rerender
+    "q" #'quit-window)
   :custom
   ( claude-emacs-annotate-directory (mo-cache-path "claude-emacs-annotate/"))
   :config
