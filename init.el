@@ -4744,10 +4744,10 @@ Provide code changes as GNU diff format, followed by brief explanations for each
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
-    "t" #'ansi-term)
+    "C-t" #'ansi-term)
   ( :keymaps 'mo-quick-menu-map
     :prefix "j"
-    "t" #'mo-ansi-term-project)
+    "C-t" #'mo-ansi-term-project)
   :config
   (defun mo-ansi-term-project ()
     "Create an ansi-term buffer with current directory set to the active project root.
