@@ -4932,10 +4932,10 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
-    "s" #'eat)
+    "C-e" #'eat)
   ( :keymaps 'mo-quick-menu-map
     :prefix "j"
-    "s" #'eat-project)
+    "C-e" #'eat-project)
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
     "h" #'mo-run-htop)
