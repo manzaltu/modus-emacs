@@ -65,7 +65,6 @@
  ("emacs-bookmark-in-project" . "bf923ddd3e74fe99e086221e461a5fa7599d0644")
  ("emacs-fancy-compilation" . "502d36e0fb4c4daedc16ea5d732dcbc8285d6fb1")
  ("emacs-ibuffer-project" . "9002abd9cb4c8753fe4f6c522d9407b4d52e7873")
- ("emacs-libvterm" . "d8157e74339e02b70fa5dcd9d572960dd5c8214a")
  ("emacs-load-env-vars" . "3808520efaf9492033f6e11a9bffd68eabf02a0f")
  ("emacs-powerthesaurus" . "4b97797cf789aaba411c61a85fe23474ebc5bedc")
  ("emacs-pr-review" . "938db766007f3444a2899b2457d9e2f4b4ffbebf")

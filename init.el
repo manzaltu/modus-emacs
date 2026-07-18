@@ -4771,60 +4771,6 @@ If project root cannot be found, use the buffer's default directory."
     :prefix "x"
     "C-t" #'tramp-term))
 
-;; Init vterm for terminal emulation
-(use-package vterm
-  :demand t
-  :if (not (eq system-type 'windows-nt))
-  :general
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "j"
-    "v" #'mo-vterm-project)
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "x"
-    "v" #'mo-vterm-file)
-  ( :keymaps '( vterm-mode-map vterm-copy-mode-map)
-    "C-M-s-c" #'vterm-copy-mode)
-  :commands vterm
-  :init
-  (defun mo-vterm--get-color-override (index &rest args)
-    "This is the old version of vterm--get-color before it was broken by commit
-https://github.com/akermu/emacs-libvterm/commit/e96c53f5035c841b20937b65142498bd8e161a40.
-Re-introducing the old version fixes auto-dim-other-buffers for vterm buffers."
-    (cond
-     ((and (>= index 0) (< index 16))
-      (face-foreground
-       (elt vterm-color-palette index)
-       nil 'default))
-     ((= index -11)
-      (face-foreground 'vterm-color-underline nil 'default))
-     ((= index -12)
-      (face-background 'vterm-color-inverse-video nil 'default))
-     (t
-      nil)))
-
-  ;; Override vterm get color functionality to support auto-dim-other-buffers for vterm buffers
-  (advice-add 'vterm--get-color :override #'mo-vterm--get-color-override)
-
-  (defun mo-vterm-file ()
-    "Create a vterm buffer with current directory set to the current buffer default directory."
-    (interactive)
-    (vterm vterm-buffer-name))
-
-  (defun mo-vterm-project ()
-    "Create a vterm buffer with current directory set to the active project root.
-If project root cannot be found, use the buffer's default directory."
-    (interactive)
-    (let* ((default-directory (mo-get-buffer-dir)))
-      (vterm vterm-buffer-name)))
-  ;; Always compile module
-  (setq vterm-always-compile-module t)
-  ;; Set a low response delay
-  (setq vterm-timer-delay 0.02)
-  ;; Set longer scrollback history
-  (setq vterm-max-scrollback 50000)
-  :config
-  (setq vterm-tramp-shells (append vterm-tramp-shells '(("ssh" "/bin/bash") ("scp" "/bin/bash")))))
-
 ;; Init ghostel for terminal emulation
 (use-package ghostel
   :commands ghostel-compile-global-mode
