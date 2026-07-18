@@ -5047,6 +5047,21 @@ If project root cannot be found, use the buffer's default directory."
 (use-package claude-emacs-annotate
   :straight ( :type git :host github :repo "manzaltu/claude-emacs-annotate"
               :files ("lisp/*.el"))
+  :demand t
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "r"
+    "r" #'claude-emacs-annotate-dwim
+    "c" #'claude-emacs-annotate-create
+    "l" #'claude-emacs-annotate-list
+    "t" #'claude-emacs-annotate-thread-open-at-point
+    "i" #'claude-emacs-annotate-toggle-inline
+    "s" #'claude-emacs-annotate-set-status-at-point
+    "d" #'claude-emacs-annotate-delete-at-point
+    "n" #'claude-emacs-annotate-next
+    "p" #'claude-emacs-annotate-previous
+    "a" #'claude-emacs-annotate-reanchor
+    "g" #'claude-emacs-annotate-refresh)
   :custom
   ( claude-emacs-annotate-directory (mo-cache-path "claude-emacs-annotate/"))
   :config
