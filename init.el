@@ -4777,10 +4777,10 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
-    "g" #'mo-ghostel-file)
+    "t" #'mo-ghostel-file)
   ( :keymaps 'mo-quick-menu-map
     :prefix "j"
-    "g" #'mo-ghostel-project)
+    "t" #'mo-ghostel-project)
   :config
   (defun mo-ghostel-file ()
     "Create a new ghostel buffer with current directory set to the current buffer default directory."
