@@ -5046,7 +5046,11 @@ If project root cannot be found, use the buffer's default directory."
 ;; Init claude-emacs-annotate for Claude Code inline file annotations
 (use-package claude-emacs-annotate
   :straight ( :type git :host github :repo "manzaltu/claude-emacs-annotate"
-              :files ("lisp/*.el")))
+              :files ("lisp/*.el"))
+  :custom
+  ( claude-emacs-annotate-directory (mo-cache-path "claude-emacs-annotate/"))
+  :config
+  (claude-emacs-annotate-global-mode 1))
 
 ;; Init kind-icon for icon support in auto completion
 (use-package kind-icon
