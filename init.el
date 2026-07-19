@@ -741,6 +741,22 @@ the user to input the run command."
   (with-eval-after-load 'desktop
     (add-to-list 'desktop-globals-to-save 'mo--project-tabs))
 
+  (defun mo--project-tab-root ()
+    "Return the root directory of the project associated with the current tab.
+Return nil if the current tab is not associated with an open project."
+    (when-let* ((tab-name (alist-get 'name (tab-bar--current-tab)))
+                (root (car (rassoc tab-name mo--project-tabs))))
+      (when (file-directory-p root)
+        (file-name-as-directory root))))
+
+  (defmacro mo-with-project-tab-scope (&rest body)
+    "Evaluate BODY with `default-directory' set to the current tab's project root.
+If the current tab is not associated with an open project, evaluate BODY
+with the scope unchanged."
+    (declare (indent 0) (debug t))
+    `(let ((default-directory (or (mo--project-tab-root) default-directory)))
+       ,@body))
+
   (defun mo-open-project-with-tab ()
     "Open project with new tab.
 Tab is named after the project's name.
@@ -773,36 +789,46 @@ If the project is already open in a tab, jump to that tab instead."
     "Kill project buffers and close tab.
 Tab is named after the project's name."
     (interactive)
-    (let ((project-key (directory-file-name
-                        (expand-file-name (project-root (project-current t))))))
-      (call-interactively #'project-kill-buffers)
-      (setq mo--project-tabs (assoc-delete-all project-key mo--project-tabs)))
+    (mo-with-project-tab-scope
+      (let ((project-key (directory-file-name
+                          (expand-file-name (project-root (project-current t))))))
+        (call-interactively #'project-kill-buffers)
+        (setq mo--project-tabs (assoc-delete-all project-key mo--project-tabs))))
     (tab-bar-close-tab))
 
   (defvar-local mo-predefined-commands nil
     "An alist containing command names and their respective command lines.")
   (put 'mo-predefined-commands 'safe-local-variable #'listp)
 
+  (defun mo--project-predefined-commands (project-dir)
+    "Return the predefined commands defined in PROJECT-DIR's dir-locals."
+    (with-temp-buffer
+      (setq default-directory project-dir)
+      (hack-dir-local-variables-non-file-buffer)
+      mo-predefined-commands))
+
   (defun mo-execute-predefined-command ()
     "Select and execute a predefined command or Elisp code."
     (interactive)
-    (let ((project-dir (project-root (project-current t)))
-          (command (cdr
-                    (assoc
-                     (completing-read
-                      "Execute Command: "
-                      mo-predefined-commands
-                      nil
-                      t)
-                     mo-predefined-commands))))
-      (let ((default-directory project-dir))
-        (cond
-         ((stringp command)
-          (async-shell-command command))
-         ((listp command)
-          (eval command))
-         (t
-          (error "Invalid command type: must be string or list"))))))
+    (mo-with-project-tab-scope
+      (let* ((project-dir (project-root (project-current t)))
+             (commands (mo--project-predefined-commands project-dir))
+             (command (cdr
+                       (assoc
+                        (completing-read
+                         "Execute Command: "
+                         commands
+                         nil
+                         t)
+                        commands))))
+        (let ((default-directory project-dir))
+          (cond
+           ((stringp command)
+            (async-shell-command command))
+           ((listp command)
+            (eval command))
+           (t
+            (error "Invalid command type: must be string or list")))))))
 
   (defun mo-show-modified-buffer-changes ()
     "If a buffer is different from its file, show the changes."
@@ -2120,12 +2146,12 @@ Used for preventing recursion when recording new jumps.")
     :prefix "j"
     "w" #'mo-project-save
     "C-w" #'project-forget-project
-    "d" #'project-dired
+    "d" #'mo-project-dired
     "f" #'mo-project-find-file
-    "x" #'project-async-shell-command
-    "k" #'project-kill-buffers
+    "x" #'mo-project-async-shell-command
+    "k" #'mo-project-kill-buffers
     "p" #'project-switch-project
-    "i" #'project-list-buffers
+    "i" #'mo-project-list-buffers
     "r" #'mo-reload-dir-locals-project
     "l" #'mo-find-file-dir-locals-project)
   :general
@@ -2147,6 +2173,31 @@ DIR must include a .project file to be considered a project."
     (interactive)
     (message "Project saved: %s" (cdr (project-current t))))
 
+  (defun mo-project-dired ()
+    "Open Dired in the current tab's project, or in the current project."
+    (interactive)
+    (mo-with-project-tab-scope
+      (call-interactively #'project-dired)))
+
+  (defun mo-project-async-shell-command ()
+    "Run `async-shell-command' in the current tab's project, or in the
+current project."
+    (interactive)
+    (mo-with-project-tab-scope
+      (call-interactively #'project-async-shell-command)))
+
+  (defun mo-project-kill-buffers ()
+    "Kill the buffers of the current tab's project, or of the current project."
+    (interactive)
+    (mo-with-project-tab-scope
+      (call-interactively #'project-kill-buffers)))
+
+  (defun mo-project-list-buffers ()
+    "List the buffers of the current tab's project, or of the current project."
+    (interactive)
+    (mo-with-project-tab-scope
+      (call-interactively #'project-list-buffers)))
+
   (defun mo-get-buffer-dir ()
     "Return buffer's directory.
 
@@ -2160,9 +2211,10 @@ directory as a fall back."
   (defun mo-project-find-file ()
     "Open find-file menu in project root directory."
     (interactive)
-    (let* ((project (project-current t))
-           (default-directory (project-root project)))
-      (call-interactively #'find-file)))
+    (mo-with-project-tab-scope
+      (let* ((project (project-current t))
+             (default-directory (project-root project)))
+        (call-interactively #'find-file))))
 
   (defun mo-project-recompile ()
     "Run `recompile' in the project root."
@@ -2174,14 +2226,22 @@ directory as a fall back."
                compilation-buffer-name-function)))
       (call-interactively #'recompile)))
 
+  (defun mo--reload-dir-locals (project)
+    "Reload dir-locals in all of PROJECT's buffers."
+    (dolist (buffer (project-buffers project))
+      (with-current-buffer buffer
+        (mo-reload-dir-locals-current-buffer)))
+    (message "Dir locals loaded for %s" (project-root project)))
+
   (defun mo-reload-dir-locals-project ()
-    "Reload dir-locals for the current project."
+    "Reload dir-locals for the current tab's project, or the current project."
     (interactive)
-    (let ((project (project-current)))
-      (dolist (buffer (project-buffers project))
-        (with-current-buffer buffer
-          (mo-reload-dir-locals-current-buffer)))
-      (message "Dir locals loaded for %s" (project-root project))))
+    (mo-with-project-tab-scope
+      (mo--reload-dir-locals (project-current))))
+
+  (defun mo--reload-dir-locals-after-save ()
+    "Reload dir-locals for the saved buffer's project."
+    (mo--reload-dir-locals (project-current)))
 
   (defun mo-enable-reload-dir-locals-on-save ()
     "Enable project dir-locals reload on dir-locals file save."
@@ -2191,14 +2251,15 @@ directory as a fall back."
                                        (when (string-match "\\.el\\'" dir-locals-file)
                                          (list (replace-match "-2.el" t nil dir-locals-file))))))
       (when (member base-name dir-local-files)
-        (add-hook 'after-save-hook #'mo-reload-dir-locals-project nil t))))
+        (add-hook 'after-save-hook #'mo--reload-dir-locals-after-save nil t))))
 
   (defun mo-find-file-dir-locals-project ()
     "Edit the dir-locals file in the current project."
     (interactive)
-    (let* ((project (project-current))
-           (root (project-root project)))
-      (find-file (concat (file-name-as-directory root) dir-locals-file))))
+    (mo-with-project-tab-scope
+      (let* ((project (project-current))
+             (root (project-root project)))
+        (find-file (concat (file-name-as-directory root) dir-locals-file)))))
 
   (defun mo-project-other-buffer ()
     "Switch to the next project buffer in buffer the list."
@@ -2325,7 +2386,7 @@ Returns the selected project root directory or nil if cancelled."
     "C-r" #'consult-history)                ;; orig. evil-paste-from-register
   ( :keymaps 'mo-quick-menu-map
     :prefix "j"
-    "b" #'consult-project-buffer)
+    "b" #'mo-consult-project-buffer)
   ( :keymaps 'mo-quick-menu-map
     "M-;" #'mo-consult-line-symbol-at-point
     "C-M-;" #'mo-consult-line-symbol-at-point-other-window)
@@ -2373,14 +2434,22 @@ Returns the selected project root directory or nil if cancelled."
 
   (defun mo-consult-buffer-dwim (&optional arg)
     "If in project, list project buffers, otherwise select from open projects.
+The project is resolved from the current tab, or from the current buffer.
 With universal argument ARG, always show list of open projects."
     (interactive "P")
-    (if (and (not arg) (project-current))
-        (call-interactively #'consult-project-buffer)
-      ;; Universal arg or no active project, show selection of open projects
-      (when-let ((selected-project (mo-project-select-open-project)))
-        (let ((default-directory selected-project))
-          (call-interactively #'consult-project-buffer)))))
+    (mo-with-project-tab-scope
+      (if (and (not arg) (project-current))
+          (call-interactively #'consult-project-buffer)
+        ;; Universal arg or no active project, show selection of open projects
+        (when-let ((selected-project (mo-project-select-open-project)))
+          (let ((default-directory selected-project))
+            (call-interactively #'consult-project-buffer))))))
+
+  (defun mo-consult-project-buffer ()
+    "Switch buffer in the current tab's project, or in the current project."
+    (interactive)
+    (mo-with-project-tab-scope
+      (call-interactively #'consult-project-buffer)))
 
   (defun mo-consult-line-symbol-at-point ()
     (interactive)
@@ -2712,8 +2781,14 @@ without GLOBAL non-nil `embark-bindings' filters it out."
   ( :keymaps 'mo-quick-menu-map
     :prefix "j"
     ;; We want to present the current project only
-    "m" #'treemacs-add-and-display-current-project-exclusively)
+    "m" #'mo-treemacs-display-project-exclusively)
   :config
+  (defun mo-treemacs-display-project-exclusively ()
+    "Display the current tab's project, or the current project, in treemacs."
+    (interactive)
+    (mo-with-project-tab-scope
+      (call-interactively #'treemacs-add-and-display-current-project-exclusively)))
+
   (setq treemacs-persist-file (mo-cache-path "treemacs-persist"))
   (setq treemacs-width 50)
   (setq treemacs-no-png-images t)
@@ -4774,8 +4849,9 @@ Provide code changes as GNU diff format, followed by brief explanations for each
     "Create an ansi-term buffer with current directory set to the active project root.
 If project root cannot be found, use the buffer's default directory."
     (interactive)
-    (let* ((default-directory (mo-get-buffer-dir)))
-      (call-interactively #'ansi-term)))
+    (mo-with-project-tab-scope
+      (let* ((default-directory (mo-get-buffer-dir)))
+        (call-interactively #'ansi-term))))
   (defun mo-term-handle-exit (&optional process-name msg)
     "Close term buffer after process has exited."
     (message "%s | %s" process-name msg)
@@ -4810,7 +4886,8 @@ If project root cannot be found, use the buffer's default directory."
   (defun mo-ghostel-project ()
     "Create a new ghostel buffer with current directory set to the current project root directory."
     (interactive)
-    (ghostel-project t))
+    (mo-with-project-tab-scope
+      (ghostel-project t)))
 
   (ghostel-compile-global-mode 1))
 
@@ -4848,7 +4925,7 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "j"
-    "e" #'project-eshell)
+    "e" #'mo-project-eshell)
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
     "e" #'eshell-new)
@@ -4859,6 +4936,12 @@ If project root cannot be found, use the buffer's default directory."
     "C-p" #'eshell-previous-matching-input-from-input
     "C-n" #'eshell-next-matching-input-from-input)
   :config
+  (defun mo-project-eshell ()
+    "Start Eshell in the current tab's project, or in the current project."
+    (interactive)
+    (mo-with-project-tab-scope
+      (call-interactively #'project-eshell)))
+
   (defun eshell-new()
     "Open a new instance of eshell."
     (interactive)
@@ -4955,7 +5038,7 @@ If project root cannot be found, use the buffer's default directory."
     "C-e" #'eat)
   ( :keymaps 'mo-quick-menu-map
     :prefix "j"
-    "C-e" #'eat-project)
+    "C-e" #'mo-eat-project)
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
     "h" #'mo-run-htop)
@@ -4963,6 +5046,12 @@ If project root cannot be found, use the buffer's default directory."
   ( eat-shell "/bin/zsh")
   ( eat-kill-buffer-on-exit t)
   :config
+  (defun mo-eat-project ()
+    "Start Eat in the current tab's project, or in the current project."
+    (interactive)
+    (mo-with-project-tab-scope
+      (call-interactively #'eat-project)))
+
   (defun mo-run-htop ()
     "Run htop command."
     (interactive)
