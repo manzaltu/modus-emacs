@@ -735,20 +735,37 @@ the user to input the run command."
         (kill-new filepath)
         (message "%s" filepath))))
 
+  (defvar mo--project-tabs nil
+    "Alist mapping project root directories to their tab names.")
+
+  (with-eval-after-load 'desktop
+    (add-to-list 'desktop-globals-to-save 'mo--project-tabs))
+
   (defun mo-open-project-with-tab ()
     "Open project with new tab.
-Tab is named after the project's name."
+Tab is named after the project's name.
+If the project is already open in a tab, jump to that tab instead."
     (interactive)
     (tab-bar-new-tab)
     (condition-case err
-        (progn
-          (call-interactively #'project-switch-project)
-          (let ((project-dir (directory-file-name (project-root (project-current))))
-                (tab-name nil))
-            (cl-loop for path-part in (reverse (file-name-split project-dir))
-                     do (setq tab-name (file-name-concat path-part tab-name))
-                     while (tab-bar--tab-index-by-name tab-name))
-            (tab-bar-rename-tab tab-name)))
+        (let* ((project-dir (project-prompt-project-dir))
+               (project-key (directory-file-name (expand-file-name project-dir)))
+               (open-tab (alist-get project-key mo--project-tabs nil nil #'equal)))
+          (if (and open-tab (tab-bar--tab-index-by-name open-tab))
+              (progn
+                (tab-bar-close-tab)
+                (tab-bar-switch-to-tab open-tab)
+                (message "Project already open"))
+            (project-switch-project project-dir)
+            (let ((tab-name nil))
+              (cl-loop for path-part in (reverse (file-name-split project-key))
+                       do (setq tab-name (file-name-concat path-part tab-name))
+                       while (tab-bar--tab-index-by-name tab-name))
+              (tab-bar-rename-tab tab-name)
+              (setq mo--project-tabs
+                    (cl-delete tab-name mo--project-tabs :key #'cdr :test #'equal))
+              (setf (alist-get project-key mo--project-tabs nil nil #'equal)
+                    tab-name))))
       (quit
        (tab-bar-close-tab))))
 
@@ -756,7 +773,10 @@ Tab is named after the project's name."
     "Kill project buffers and close tab.
 Tab is named after the project's name."
     (interactive)
-    (call-interactively #'project-kill-buffers)
+    (let ((project-key (directory-file-name
+                        (expand-file-name (project-root (project-current t))))))
+      (call-interactively #'project-kill-buffers)
+      (setq mo--project-tabs (assoc-delete-all project-key mo--project-tabs)))
     (tab-bar-close-tab))
 
   (defvar-local mo-predefined-commands nil
