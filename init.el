@@ -5092,6 +5092,7 @@ If project root cannot be found, use the buffer's default directory."
     "l" #'claude-emacs-annotate-list
     "t" #'claude-emacs-annotate-thread-open-at-point
     "i" #'claude-emacs-annotate-toggle-inline
+    "o" #'claude-emacs-annotate-toggle-inline-at-point
     "s" #'claude-emacs-annotate-set-status-at-point
     "d" #'claude-emacs-annotate-delete-at-point
     "n" #'claude-emacs-annotate-next
