@@ -505,7 +505,38 @@ Briefly highlight previous location."
     "C-M-s-<right>" #'windmove-right
     "C-M-s-<left>" #'windmove-left
     "C-M-s-<up>" #'windmove-up
-    "C-M-s-<down>" #'windmove-down))
+    "C-M-s-<down>" #'windmove-down)
+  :config
+  (defun mo--windmove-closest-frame (dir)
+    "Return the closest visible frame in direction DIR, or nil if none."
+    (let* ((horizontal (memq dir '( left right)))
+           (backward (memq dir '( left up)))
+           (frame-coord (lambda (frame)
+                          (let ((position (frame-position frame)))
+                            (if horizontal (car position) (cdr position)))))
+           (current-coord (funcall frame-coord (selected-frame)))
+           closest)
+      (dolist (frame (visible-frame-list) closest)
+        (let ((coord (funcall frame-coord frame)))
+          (when (and (not (eq frame (selected-frame)))
+                     (not (frame-parent frame))
+                     (if backward (< coord current-coord) (> coord current-coord))
+                     (or (not closest)
+                         (if backward
+                             (> coord (funcall frame-coord closest))
+                           (< coord (funcall frame-coord closest)))))
+            (setq closest frame))))))
+  (defun mo--windmove-select-frame (func dir &rest args)
+    "Select the closest frame in direction DIR when no window is found."
+    (condition-case err
+        (apply func dir args)
+      (user-error
+       (let ((frame (mo--windmove-closest-frame dir)))
+         (if frame
+             (select-frame-set-input-focus frame)
+           (signal (car err) (cdr err)))))))
+  ;; Jump to the frame in the same direction when running out of windows
+  (advice-add 'windmove-do-window-select :around #'mo--windmove-select-frame))
 
 ;; Init simple for basic and general Emacs commands
 (use-package simple
