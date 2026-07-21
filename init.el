@@ -5095,6 +5095,7 @@ If project root cannot be found, use the buffer's default directory."
     "o" #'claude-emacs-annotate-toggle-inline-at-point
     "s" #'claude-emacs-annotate-set-status-at-point
     "d" #'claude-emacs-annotate-delete-at-point
+    "f" #'claude-emacs-annotate-filter-by-tag
     "n" #'claude-emacs-annotate-next
     "p" #'claude-emacs-annotate-previous
     "a" #'claude-emacs-annotate-reanchor
@@ -5110,6 +5111,7 @@ If project root cannot be found, use the buffer's default directory."
     "t" #'claude-emacs-annotate-table-filter-by-tag
     "a" #'claude-emacs-annotate-table-filter-by-author
     "o" #'claude-emacs-annotate-table-filter-by-status
+    "f" #'claude-emacs-annotate-filter-by-tag
     "q" #'quit-window)
   ( :keymaps 'claude-emacs-annotate-thread-mode-map
     :states 'normal
