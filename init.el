@@ -392,8 +392,6 @@ Briefly highlight previous location."
     ;; Quick save key binding
     "<menu>" #'save-buffer)
   ( :keymaps 'mo-quick-menu-map
-    "_" #'mo-open-init-file)
-  ( :keymaps 'mo-quick-menu-map
     :prefix "f"
     "f" #'find-file
     "C-f" #'find-file-literally
@@ -401,7 +399,8 @@ Briefly highlight previous location."
     "r" #'recover-this-file)
   ( :keymaps 'mo-quick-menu-map
     :prefix "l"
-    "l" #'load-file)
+    "l" #'load-file
+    "c" #'mo-open-init-file)
   ( :keymaps 'emacs-lisp-mode-map
     "C-M-s-b" #'eval-buffer)
   ( :keymaps 'mo-quick-menu-map
