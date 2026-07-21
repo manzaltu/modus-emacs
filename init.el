@@ -1433,7 +1433,8 @@ Used for preventing recursion when recording new jumps.")
     "C-M-s-g" #'org-agenda-set-tags
     "C-M-s-p" #'org-agenda-priority)
   ( :keymaps 'mo-quick-menu-map
-    "-" #'mo-org-agenda-and-todo)
+    :prefix "n"
+    "a" #'mo-org-agenda-and-todo)
   ;; Close any loaded org buffer when exiting the agenda buffer
   ( :keymaps 'org-agenda-mode-map
     "q" #'org-agenda-exit)
