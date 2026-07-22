@@ -5273,13 +5273,6 @@ If project root cannot be found, use the buffer's default directory."
   ( text-mode . flyspell-mode)
   ( prog-mode . flyspell-mode))
 
-;; Init flyspell-correct for spell correction
-(use-package flyspell-correct
-  :demand t
-  :general
-  ( :keymaps 'override
-    "M-+" #'flyspell-correct-wrapper))
-
 ;; Init consult-gh for github consult integration
 (use-package consult-gh
   :demand t
