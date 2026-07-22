@@ -95,7 +95,6 @@
  ("extmap" . "bb4867e13ec7480d4dbc1d99888627e4cc8ef2f6")
  ("f.el" . "931b6d0667fe03e7bf1c6c282d6d8d7006143c52")
  ("flycheck" . "476cc0095f833880abf35dd16e0befd3e38dc115")
- ("flyspell-correct" . "cabf0c9bdba3a08ae3c517302ea6ad55cd638098")
  ("forge" . "9628f76740aec9270e9fb31457ff4cb38d9f3f16")
  ("general.el" . "a48768f85a655fe77b5f45c2880b420da1b1b9c3")
  ("ghostel" . "af41a8b461bbd353bdf07e27c73521aea7311151")
