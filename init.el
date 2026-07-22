@@ -5256,6 +5256,11 @@ If project root cannot be found, use the buffer's default directory."
 
 ;; Init jinx for spell checking
 (use-package jinx
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "s" #'jinx-correct-all
+    "C-s" #'jinx-mode)
   :hook ( emacs-startup . global-jinx-mode))
 
 ;; Init consult-gh for github consult integration
