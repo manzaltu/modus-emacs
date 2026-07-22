@@ -5261,6 +5261,8 @@ If project root cannot be found, use the buffer's default directory."
     :prefix "b"
     "s" #'jinx-correct-all
     "C-s" #'jinx-mode)
+  ( :keymaps 'override
+    "M-+" #'jinx-correct-nearest)
   :hook ( emacs-startup . global-jinx-mode))
 
 ;; Init consult-gh for github consult integration
