@@ -3729,7 +3729,7 @@ landed on BASE afterwards."
   (defun mo-maybe-enable-lsp ()
     "If mode in LSP-CONFIG is equal to the current major-mode,
 run the attached function (if exists) and enable lsp"
-    (unless (or lsp-mode mo-lsp-disable) ; Do not load if lsp is already loaded or disabled
+    (unless (or lsp-mode lsp--buffer-deferred mo-lsp-disable) ; Do not load if lsp is already loaded, deferred or disabled
       (unless (string-match "\\.~.+?~$" (buffer-name)) ; Do not load in magit diff buffers
         (if mo-lsp-recursion-flag
             (message "LSP recursion detected in %s" (buffer-name))
