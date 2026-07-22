@@ -5280,16 +5280,6 @@ If project root cannot be found, use the buffer's default directory."
   ( :keymaps 'override
     "M-+" #'flyspell-correct-wrapper))
 
-;; Init consult-flyspell for incorporating flyspell into consult
-(use-package consult-flyspell
-  :after flyspell-correct
-  :general
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "b"
-    "s" #'consult-flyspell)
-  :config
-  (setq consult-flyspell-select-function 'flyspell-correct-at-point))
-
 ;; Init consult-gh for github consult integration
 (use-package consult-gh
   :demand t
