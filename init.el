@@ -5254,6 +5254,9 @@ If project root cannot be found, use the buffer's default directory."
   (setq ispell-dictionary "en_US")
   (setq ispell-extra-args '( "--camel-case")))
 
+;; Init jinx for spell checking
+(use-package jinx)
+
 ;; Init consult-gh for github consult integration
 (use-package consult-gh
   :demand t
