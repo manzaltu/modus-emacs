@@ -3500,8 +3500,8 @@ the produced output, not the process exit code)."
     :prefix "g"
     "r" #'mo-diff-hl-set-reference-merge-base-in-project
     "M-r" #'diff-hl-set-reference-rev-in-project
-    "]" #'diff-hl-next-hunk
-    "[" #'diff-hl-previous-hunk)
+    "n" #'diff-hl-next-hunk
+    "p" #'diff-hl-previous-hunk)
   :hook
   ( magit-pre-refresh . diff-hl-magit-pre-refresh)
   ( magit-post-refresh . diff-hl-magit-post-refresh)
