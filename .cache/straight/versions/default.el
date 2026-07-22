@@ -123,6 +123,7 @@
  ("indent-bars" . "a8ff2fad8dde8f7712a6c869f6cd3358385b4548")
  ("jeison" . "19a51770f24eaa7b538c7be6a8a5c25d154b641f")
  ("jenkinsfile-mode" . "568865ee419e0592de0dd0717d6769a66d9df111")
+ ("jinx" . "80b3618d401a654137a48be7d4f90b67cad92748")
  ("journalctl-mode" . "0b9294f8f2b53375aa4f4fb3eb7f73be7cd15add")
  ("jsonrpc" . "d8143c52679eaeebcca26dd41e015dc73d167b49")
  ("julia-emacs" . "1b5a4c2f5b7c3f842785985bf8778b8805cc6766")
