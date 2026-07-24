@@ -154,7 +154,6 @@
  ("markdown-mode" . "1f72cefa6a4b759f90e335e4908725a721b17ad9")
  ("melpa" . "6a860645041c1ca63437f4ce06ad73bfdd3ff356")
  ("minions" . "7ec2810c9b3019f8e379022b0ca7ce61e9e7c810")
- ("mode-minder" . "5ada69ca537d7b06daddf6181419b9205415eb89")
  ("nhexl-mode" . "0b27339bdb3e5255353de457ad99724b0d83dcaf")
  ("nix-mode" . "719feb7868fb567ecfe5578f6119892c771ac5e5")
  ("nongnu-elpa" . "c60c2d7ae50999938338f30a544b412b2153e861")
