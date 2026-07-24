@@ -1242,8 +1242,7 @@ Used for preventing recursion when recording new jumps.")
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
-    "m" #'origami-recursively-toggle-node
-    "C-m" #'origami-open-all-nodes)
+    "m" #'origami-recursively-toggle-node)
   :config
   (global-origami-mode))
 
