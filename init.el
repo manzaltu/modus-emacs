@@ -4526,15 +4526,6 @@ run the attached function (if exists) and enable lsp"
     "h" #'helpful-at-point
     "ESC" #'helpful-kill-buffers))
 
-;; Init mode-minder for showing all modes
-(use-package mode-minder
-  :straight
-  ( mode-minder :type git :host github :repo "jdtsmith/mode-minder")
-  :general
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "h"
-    "C-m" #'mode-minder))
-
 ;; Init eldoc for viewing documentation in echo area
 (use-package eldoc
   :straight nil
