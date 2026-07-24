@@ -2370,7 +2370,7 @@ Returns the selected project root directory or nil if cancelled."
     "C-;" #'consult-imenu-multi
     "," #'consult-focus-lines
     "." #'consult-keep-lines
-    "C-m" #'consult-minor-mode-menu
+    "RET" #'consult-minor-mode-menu
     "C-b" #'consult-recent-file)
   ( :keymaps 'mo-quick-menu-map
     :prefix "DEL"
