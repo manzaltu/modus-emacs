@@ -63,6 +63,37 @@
   ;; Packages should be installed by default using straight
   ( straight-use-package-by-default t))
 
+;; Init use-package for extending package configuration with custom keywords
+(use-package use-package
+  :straight nil
+  :config
+  ;; The `:recenter-jump-always' and `:recenter-jump-never' keywords
+  ;; accept a list of package commands and set their `mo-recenter-jump'
+  ;; symbol property accordingly. See `mo--recenter-on-jump'.
+  (defalias 'use-package-normalize/:recenter-jump-always
+    #'use-package-normalize-symlist)
+  (defalias 'use-package-normalize/:recenter-jump-never
+    #'use-package-normalize-symlist)
+
+  (defun use-package-handler/:recenter-jump-always (name _keyword commands rest state)
+    "Set the `mo-recenter-jump' property of COMMANDS to `always'."
+    (use-package-concat
+     (mapcar (lambda (command)
+               `(put ',command 'mo-recenter-jump 'always))
+             commands)
+     (use-package-process-keywords name rest state)))
+
+  (defun use-package-handler/:recenter-jump-never (name _keyword commands rest state)
+    "Set the `mo-recenter-jump' property of COMMANDS to `never'."
+    (use-package-concat
+     (mapcar (lambda (command)
+               `(put ',command 'mo-recenter-jump 'never))
+             commands)
+     (use-package-process-keywords name rest state)))
+
+  (add-to-list 'use-package-keywords :recenter-jump-always t)
+  (add-to-list 'use-package-keywords :recenter-jump-never t))
+
 ;; Init exec-path-from-shell for inheriting shell environment variables
 (use-package exec-path-from-shell
   :config
@@ -212,6 +243,12 @@ Excludes C-g (abort) and C-m (RET alias)."
   :hook
   ;; Recenter after jump
   ( evil-jumps-post-jump . recenter)
+  ;; Line motion should never trigger jump recentering
+  :recenter-jump-never
+  ( evil-next-line
+    evil-previous-line
+    evil-next-visual-line
+    evil-previous-visual-line)
   :init
   ;; Needed for evil-collection
   (setq evil-want-keybinding nil)
@@ -310,6 +347,12 @@ Briefly highlight previous location."
     "M-<print>" #'mo-export-frame-screenshot)
   ( :keymaps 'emacs-lisp-mode-map
     "C-M-s-r" #'eval-region)
+  :hook
+  ;; Recenter after a command jumps point off-window
+  ( post-command . mo--recenter-on-jump)
+  ;; Line motion should never trigger jump recentering
+  :recenter-jump-never
+  ( next-line previous-line)
   :config
   (defun mo-toggle-lexical-binding ()
     "Toggle lexical binding in the current buffer."
@@ -334,6 +377,38 @@ Briefly highlight previous location."
   (setq scroll-step 1)
   ;; Don't automatically recenter after scrolling
   (setq scroll-conservatively 101)
+  ;; Center the view on locations that commands jump to, while keeping
+  ;; incremental scrolling at the window edges. A low `scroll-conservatively'
+  ;; cannot replace this, as line motion can cross tall overlays
+  ;; (e.g. inline annotations), moving point many screen lines at once and
+  ;; triggering a redisplay-based recentering.
+  (defvar mo-recenter-jump-min-lines 2
+    "Minimum number of screen lines outside the window that counts as a jump.")
+  (defun mo--recenter-on-jump ()
+    "Recenter the window when the last command moved point off-window.
+Commands can control this with their `mo-recenter-jump' symbol
+property: `always' recenters even when point is still visible, while
+`never' disables recentering, keeping incremental scrolling at the
+window edges unaffected."
+    (when (and (not (minibufferp))
+               (eq (current-buffer) (window-buffer)))
+      (let ((jump-type (or (and (symbolp this-command)
+                                (get this-command 'mo-recenter-jump))
+                           (and (symbolp real-this-command)
+                                (get real-this-command 'mo-recenter-jump)))))
+        (cond
+         ((eq jump-type 'always) (recenter))
+         ((eq jump-type 'never))
+         ((and (symbolp this-command) (get this-command 'scroll-command)))
+         (t
+          (let* ((start (window-start))
+                 (end (window-end nil t))
+                 (lines-out (cond
+                             ((< (point) start) (count-screen-lines (point) start))
+                             ((>= (point) end) (count-screen-lines end (point)))
+                             (t 0))))
+            (when (> lines-out mo-recenter-jump-min-lines)
+              (recenter))))))))
   ;; Don't create lock files
   (setq create-lockfiles nil)
   ;; Configure auto-save-list
@@ -1180,6 +1255,9 @@ If universal ARG is set, exclude the pattern."
   ( [remap evil-jump-backward] 'better-jumper-jump-backward)
   ( :keymaps 'override
     "C-&" #'better-jumper-set-jump)
+  ;; Always recenter after jumping
+  :recenter-jump-always
+  ( better-jumper-jump-forward better-jumper-jump-backward)
   :config
   (defvar mo-better-jumper-set-jump-on-push-mark 't
     "Dynamically controls if a jump is set on push-mark.
@@ -1221,6 +1299,9 @@ Used for preventing recursion when recording new jumps.")
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
     "<" #'xref-find-apropos)
+  ;; Always recenter after returning to a pre-jump location
+  :recenter-jump-always
+  ( xref-go-back)
   :config
   ;; When looking for references, don't ask for an identifier
   (setq xref-prompt-for-identifier nil)
@@ -3506,6 +3587,9 @@ the produced output, not the process exit code)."
   ( magit-pre-refresh . diff-hl-magit-pre-refresh)
   ( magit-post-refresh . diff-hl-magit-post-refresh)
   ( dired-mode . diff-hl-dired-mode-unless-remote)
+  ;; Always recenter after jumping to a hunk
+  :recenter-jump-always
+  ( diff-hl-next-hunk diff-hl-previous-hunk)
   :config
   (defun mo-diff-hl-set-reference-merge-base-in-project (base)
     "Reference the merge base of BASE branch and `HEAD' for the project.
@@ -5130,6 +5214,13 @@ If project root cannot be found, use the buffer's default directory."
     "RET" #'claude-emacs-annotate-thread-goto-source
     "gr" #'claude-emacs-annotate-thread-rerender
     "q" #'quit-window)
+  ;; Always recenter after jumping to an annotation
+  :recenter-jump-always
+  ( claude-emacs-annotate-next
+    claude-emacs-annotate-previous
+    claude-emacs-annotate-jump
+    claude-emacs-annotate-table-goto
+    claude-emacs-annotate-thread-goto-source)
   :custom
   ( claude-emacs-annotate-directory (mo-cache-path "claude-emacs-annotate/"))
   :config
@@ -5752,6 +5843,9 @@ Excludes ghostel buffers with names matching *claude-code*."
   :hook
   ;; Recenter after jump
   ( bookmark-after-jump . recenter)
+  ;; Always recenter after jumping to a bookmark
+  :recenter-jump-always
+  ( bookmark-jump)
   :config
   (setq bookmark-file (mo-cache-path "bookmarks")))
 
