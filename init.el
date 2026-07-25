@@ -5768,7 +5768,11 @@ Excludes ghostel buffers with names matching *claude-code*."
   :straight nil
   :init
   (setq save-place-file (mo-cache-path "places"))
+  ;; Prevent eager loading and expansion of the saved places on library load
+  (setq save-place-loaded t)
   :config
+  ;; Restore lazy loading of the saved places
+  (setq save-place-loaded nil)
   (save-place-mode))
 
 ;; Init recentf for tracking recently opened files
