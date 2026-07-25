@@ -240,9 +240,6 @@ Excludes C-g (abort) and C-m (RET alias)."
     ;; Evil, for historical reasons, binds the <delete> key to delete-char.
     ;; Today this is unnecessary, and may override other modes keybindings.
     "<delete>" nil)
-  :hook
-  ;; Recenter after jump
-  ( evil-jumps-post-jump . recenter)
   ;; Line motion should never trigger jump recentering
   :recenter-jump-never
   ( evil-next-line
@@ -1247,9 +1244,6 @@ If universal ARG is set, exclude the pattern."
 (use-package better-jumper
   :demand t
   :after evil
-  :hook
-  ;; Recenter after jump
-  ( better-jumper-post-jump . recenter)
   :general
   ( [remap evil-jump-forward] 'better-jumper-jump-forward)
   ( [remap evil-jump-backward] 'better-jumper-jump-backward)
@@ -1289,9 +1283,6 @@ Used for preventing recursion when recording new jumps.")
 (use-package xref
   :demand t
   :straight nil
-  :hook
-  ;; Recenter after returning to a pre-jump location
-  ( xref-after-return . recenter)
   :general
   ( :keymaps 'mo-quick-menu-map
     "C-j" #'xref-find-definitions
@@ -5778,17 +5769,6 @@ Excludes ghostel buffers with names matching *claude-code*."
   :init
   (setq save-place-file (mo-cache-path "places"))
   :config
-  ;; Recenter after restoring position
-  (advice-add 'save-place-find-file-hook :after
-              (lambda (&rest _)
-                (when buffer-file-name
-                  (run-with-timer 0 nil
-                                  (lambda (buf)
-                                    (when (buffer-live-p buf)
-                                      (when-let ((win (get-buffer-window buf)))
-                                        (with-selected-window win
-                                          (recenter)))))
-                                  (current-buffer)))))
   (save-place-mode))
 
 ;; Init recentf for tracking recently opened files
@@ -5840,9 +5820,6 @@ Excludes ghostel buffers with names matching *claude-code*."
 (use-package bookmark
   :demand t
   :straight nil
-  :hook
-  ;; Recenter after jump
-  ( bookmark-after-jump . recenter)
   ;; Always recenter after jumping to a bookmark
   :recenter-jump-always
   ( bookmark-jump)
