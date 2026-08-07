@@ -2355,9 +2355,7 @@ directory as a fall back."
     "Open find-file menu in project root directory."
     (interactive)
     (mo-with-project-tab-scope
-      (let* ((project (project-current t))
-             (default-directory (project-root project)))
-        (call-interactively #'find-file))))
+      (call-interactively #'project-root-find-file)))
 
   (defun mo-project-recompile ()
     "Run `recompile' in the project root."
