@@ -461,6 +461,8 @@ window edges unaffected."
   ;; Hide cursor and selection highlight in non-focused windows
   (setq-default cursor-in-non-selected-windows nil)
   (setq highlight-nonselected-windows nil)
+  ;; Collapse the minor mode indicators in the modeline
+  (setq mode-line-collapse-minor-modes '( not dired-async--modeline-mode))
   ;; Remove vc info from modeline
   (setq-default mode-line-format (remove '(vc-mode vc-mode) (default-value 'mode-line-format))))
 
@@ -5307,14 +5309,6 @@ If project root cannot be found, use the buffer's default directory."
                      `(( ( ( type tty)) :background ,tty-bg :foreground ,tty-bg)
                        ( t :background ,gui-bg :foreground ,gui-bg)))))
   (auto-dim-other-buffers-mode))
-
-;; Init minions for collapsing the minor mode indicator in the modeline
-(use-package minions
-  :functions minions-mode
-  :defines minions-prominent-modes
-  :config
-  (add-to-list 'minions-prominent-modes 'dired-async--modeline-mode)
-  (minions-mode 1))
 
 ;; Init text-mode for editing plain text
 (use-package text-mode
