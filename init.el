@@ -2287,6 +2287,7 @@ Used for preventing recursion when recording new jumps.")
     :prefix "j"
     "w" #'project-remember-project
     "C-w" #'project-forget-project
+    "s" #'mo-project-save-some-buffers
     "d" #'mo-project-dired
     "f" #'mo-project-find-file
     "x" #'mo-project-async-shell-command
@@ -2308,6 +2309,12 @@ Used for preventing recursion when recording new jumps.")
 DIR must include a .project file to be considered a project."
     (let ((root (locate-dominating-file dir ".project")))
       (and root (cons 'transient root))))
+
+  (defun mo-project-save-some-buffers ()
+    "Save file buffers of the current tab's project, or of the current project."
+    (interactive)
+    (mo-with-project-tab-scope
+      (call-interactively #'project-save-some-buffers)))
 
   (defun mo-project-dired ()
     "Open Dired in the current tab's project, or in the current project."
