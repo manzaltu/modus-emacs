@@ -4319,8 +4319,14 @@ run the attached function (if exists) and enable lsp"
 ;; Init lsp-haskell for Haskell language server
 (use-package lsp-haskell)
 
-;; Init go-mode for Go support
-(use-package go-mode)
+;; Init go-ts-mode for Go support using tree-sitter
+(use-package go-ts-mode
+  :straight nil
+  :general
+  ( :keymaps 'go-ts-mode-map
+    "C-M-s-t" #'go-ts-mode-test-function-at-point
+    "C-M-s-S-t" #'go-ts-mode-test-this-file
+    "C-M-s-p" #'go-ts-mode-test-this-package))
 
 ;; Init csproj-mode for editing C# project files
 (use-package csproj-mode)
