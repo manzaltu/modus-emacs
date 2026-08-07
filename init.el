@@ -5107,7 +5107,8 @@ If project root cannot be found, use the buffer's default directory."
     "C-x" #'eshell-command)
   ( :keymaps 'eshell-mode-map
     "C-p" #'eshell-previous-matching-input-from-input
-    "C-n" #'eshell-next-matching-input-from-input)
+    "C-n" #'eshell-next-matching-input-from-input
+    "C-M-s-c" #'eshell-clear)
   :config
   (defun mo-project-eshell ()
     "Start Eshell in the current tab's project, or in the current project."
