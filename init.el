@@ -2973,6 +2973,11 @@ without GLOBAL non-nil `embark-bindings' filters it out."
 (use-package treemacs-magit
   :after ( treemacs magit))
 
+;; Init treemacs-icons for icons in dired
+(use-package treemacs-icons-dired
+  :config
+  (treemacs-icons-dired-mode))
+
 ;; Init dired-narrow for narrowing dired results using regexp
 (use-package dired-narrow
   :general
