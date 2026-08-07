@@ -4463,18 +4463,10 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init dtrt-indent for auto indentation detection
 (use-package dtrt-indent
-  :defines dtrt-indent-hook-mapping-list
   :hook
   ( prog-mode . dtrt-indent-mode)
   :custom
-  ( dtrt-indent-verbosity 0)
-  :config
-  (setq dtrt-indent-hook-mapping-list
-        (append dtrt-indent-hook-mapping-list
-                '( ( c-ts-mode c/c++/java c-ts-mode-indent-offset)
-                   ( c++-ts-mode c/c++/java c-ts-mode-indent-offset)
-                   ( java-ts-mode c/c++/java c-ts-mode-indent-offset)
-                   ( json-ts-mode c/c++/java c-ts-mode-indent-offset)))))
+  ( dtrt-indent-verbosity 0))
 
 ;; Init indent-bars for showing indentation guides
 (use-package indent-bars
