@@ -2816,10 +2816,6 @@ without GLOBAL non-nil `embark-bindings' filters it out."
     "7" '( :def mo-tab-bar-select-7 :wk "tab 7")
     "8" '( :def mo-tab-bar-select-8 :wk "tab 8")
     "9" '( :def mo-tab-bar-select-9 :wk "tab 9"))
-  ( :keymaps 'global
-    "C-<tab>" nil
-    "C-S-<tab>" nil
-    "C-S-<iso-lefttab>" nil)
   :preface
   (dotimes (i 9)
     (let ((n (1+ i)))
@@ -2839,6 +2835,8 @@ without GLOBAL non-nil `embark-bindings' filters it out."
   (setq tab-bar-auto-width-max '(300 27))
   ;; Switch to tab by pressing C-<hint num>
   (setq tab-bar-select-tab-modifiers '(control))
+  ;; Bind the numeric tab selection keys only, keeping C-TAB and C-S-TAB free
+  (setq tab-bar-define-keys 'numeric)
   ;; Init tab-bar for supporting multiple window layouts in frame
   (tab-bar-mode)
   ;; Set initial tab name
