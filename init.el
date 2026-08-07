@@ -2448,7 +2448,8 @@ Returns the selected project root directory or nil if cancelled."
            (project-dired "Dired" ?d)
            (project-eshell "Eshell" ?e)
            (mo-vterm-project "Vterm" ?v)
-           (project-async-shell-command "Async command" ?x))))
+           (project-async-shell-command "Async command" ?x)
+           (project-find-matching-buffer "Matching buffer" ?m))))
 
 ;; Init consult for enhanced search commands
 (use-package consult
