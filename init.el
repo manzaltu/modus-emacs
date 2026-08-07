@@ -1865,6 +1865,14 @@ Used for preventing recursion when recording new jumps.")
 ;; Init org-download for downloading and embedding images in org mode
 (use-package org-download)
 
+;; Init yank-media for inserting media content from the clipboard
+(use-package yank-media
+  :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "y" #'yank-media))
+
 ;; Init gnuplot for editing and plotting gnuplot graphs
 (use-package gnuplot)
 
