@@ -2956,7 +2956,6 @@ without GLOBAL non-nil `embark-bindings' filters it out."
 
   (setq treemacs-persist-file (mo-cache-path "treemacs-persist"))
   (setq treemacs-width 50)
-  (setq treemacs-no-png-images t)
   ;; Remove treemacs windows from ace-window ignored buffer list
   (with-eval-after-load 'ace-window
     (when (boundp 'aw-ignored-buffers)
