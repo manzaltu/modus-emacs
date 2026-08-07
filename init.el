@@ -3793,7 +3793,6 @@ landed on BASE afterwards."
                                    swift-mode
                                    haskell-mode
                                    haskell-literate-mode
-                                   go-mode
                                    go-ts-mode
                                    csharp-mode
                                    csharp-ts-mode
