@@ -4187,10 +4187,6 @@ run the attached function (if exists) and enable lsp"
     :prefix "c"
     "b" #'rmsbolt))
 
-;; Init highlight-defined for highlighting Emacs Lisp symbols
-(use-package highlight-defined
-  :hook ( emacs-lisp-mode . highlight-defined-mode))
-
 ;; Init highlight-quoted for highlighting Emacs Lisp quoted symbols
 (use-package highlight-quoted
   :hook ( emacs-lisp-mode . highlight-quoted-mode))
