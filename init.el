@@ -746,7 +746,19 @@ the user to input the run command."
 
 ;; Init cus-edit for creating and editing customize buffers
 (use-package cus-edit
+  :demand t
   :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "j"
+    "C-l" #'mo-customize-dirlocals-project)
+  :preface
+  (defun mo-customize-dirlocals-project ()
+    "Customize the dir-locals file in the current project."
+    (interactive)
+    (mo-with-project-tab-scope
+      (let ((default-directory (project-root (project-current t))))
+        (customize-dirlocals))))
   :config
   ;; Set customization file path
   (setq custom-file (expand-file-name "custom.el" user-emacs-directory)))
