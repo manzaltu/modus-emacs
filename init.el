@@ -5938,6 +5938,9 @@ Excludes ghostel buffers with names matching *claude-code*."
   ( :keymaps 'mo-quick-menu-map
     :prefix "a"
     "C-c" #'tramp-cleanup-connection)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "a"
+    "M-c" #'tramp-cleanup-bufferless-connections)
   :hook
   ;; Disable auto-save
   ( find-file . mo-tramp-disable-auto-save)
