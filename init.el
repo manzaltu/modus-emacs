@@ -204,6 +204,15 @@ Excludes C-g (abort) and C-m (RET alias)."
   ;; Draw tty child frame borders and menus with unicode glyphs
   ( tty-setup . standard-display-unicode-special-glyphs))
 
+;; Init xterm for xterm compatible terminal support
+;; The library is not on load-path; it is loaded by the tty init machinery
+(use-package xterm
+  :straight nil
+  :defer t
+  :init
+  ;; Propagate cursor shape and color changes to the terminal
+  (setq xterm-update-cursor t))
+
 ;; Init evil mode for Vim emulation in Emacs
 (use-package evil
   :demand t
