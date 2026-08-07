@@ -2308,6 +2308,7 @@ Used for preventing recursion when recording new jumps.")
     "w" #'project-remember-project
     "C-w" #'project-forget-project
     "s" #'mo-project-save-some-buffers
+    "C-b" #'project-find-matching-buffer
     "d" #'mo-project-dired
     "f" #'mo-project-find-file
     "x" #'mo-project-async-shell-command
