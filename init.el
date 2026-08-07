@@ -2076,8 +2076,8 @@ Used for preventing recursion when recording new jumps.")
   (defun mo-vertico-toggle-sort ()
     "Toggle sorting off/on in the current Vertico session."
     (interactive)
-    (setq-local vertico-sort-override-function
-                (and (not vertico-sort-override-function) #'identity))
+    (setopt-local vertico-sort-override-function
+                  (and (not vertico-sort-override-function) #'identity))
     (setq vertico--input t)
     (vertico--update))
 
@@ -2189,7 +2189,7 @@ Used for preventing recursion when recording new jumps.")
   :config
   (defun mo-corfu-enable-no-auto()
     "Enable corfu without auto completion."
-    (setq-local corfu-auto nil)
+    (setopt-local corfu-auto nil)
     (corfu-mode))
 
   (defun mo-corfu-combined-sort (candidates)
@@ -2206,8 +2206,8 @@ Used for preventing recursion when recording new jumps.")
   (defun corfu-enable-in-minibuffer ()
     "Enable Corfu in the minibuffer if `completion-at-point' is bound."
     (when (where-is-internal #'completion-at-point (list (current-local-map)))
-      (setq-local corfu-echo-delay nil
-                  corfu-popupinfo-delay nil)
+      (setopt-local corfu-echo-delay nil
+                    corfu-popupinfo-delay nil)
       (corfu-mode 1)))
 
   ;; Send selected candidate to shell, avoiding the need to press RET
