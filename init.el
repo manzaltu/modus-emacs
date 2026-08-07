@@ -3762,7 +3762,7 @@ landed on BASE afterwards."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
-    "_" #'treesit-explore-mode
+    "_" #'treesit-explore
     "-" #'treesit-inspect-node-at-point)
   :custom
   ;; Enable tree-sitter modes, remapping their base modes.
