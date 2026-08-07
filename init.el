@@ -5904,6 +5904,8 @@ Excludes ghostel buffers with names matching *claude-code*."
   (setq tramp-verbose 2)
   ;; Disable backup
   (setq backup-enable-predicate #'mo-tramp-disable-backup-predicate)
+  ;; Make emacsclient on remote hosts open files in the local session
+  (setq tramp-propagate-emacsclient-tramp t)
   ;; Preserve remote path value
   (add-to-list 'tramp-remote-path 'tramp-own-remote-path))
 
