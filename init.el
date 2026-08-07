@@ -197,6 +197,13 @@ Excludes C-g (abort) and C-m (RET alias)."
                   ;; Decode the CSI-u sequence for Ctrl-Escape that xterm.el does not register
                   (define-key input-decode-map "\e[27;5~" (kbd "C-<escape>")))))
 
+;; Init disp-table for display table configuration
+(use-package disp-table
+  :straight nil
+  :hook
+  ;; Draw tty child frame borders and menus with unicode glyphs
+  ( tty-setup . standard-display-unicode-special-glyphs))
+
 ;; Init evil mode for Vim emulation in Emacs
 (use-package evil
   :demand t
