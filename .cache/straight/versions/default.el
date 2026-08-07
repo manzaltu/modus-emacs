@@ -111,7 +111,6 @@
  ("hcl-mode" . "1da895ed75d28d9f87cbf9b74f075d90ba31c0ed")
  ("helpful" . "03756fa6ad4dcca5e0920622b1ee3f70abfc4e39")
  ("hide-lines" . "803443035c7feb85ea1ad83e49629c54dfc48e8d")
- ("highlight-defined" . "4420bdda419875dacb065468aafe273b2022580e")
  ("highlight-numbers" . "8b4744c7f46c72b1d3d599d4fb75ef8183dee307")
  ("highlight-quoted" . "24103478158cd19fbcfb4339a3f1fa1f054f1469")
  ("hl-todo" . "527d545b8c2f36243194cbe4a8d0e6ac9d50e6a7")
