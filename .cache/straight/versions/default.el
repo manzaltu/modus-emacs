@@ -152,7 +152,6 @@
  ("marginalia" . "10b170ad8006bad535599e5b3e007e643e34345a")
  ("markdown-mode" . "f441e8bc9951e73b12c61e9198658488dd8e86e1")
  ("melpa" . "02288397f1214c8d83555c4bb31dd53c5de29218")
- ("minions" . "7ec2810c9b3019f8e379022b0ca7ce61e9e7c810")
  ("nhexl-mode" . "0b27339bdb3e5255353de457ad99724b0d83dcaf")
  ("nix-mode" . "719feb7868fb567ecfe5578f6119892c771ac5e5")
  ("nongnu-elpa" . "f9994e234b4fc9978eb8458e2237be4603d96f89")
