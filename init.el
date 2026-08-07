@@ -726,7 +726,9 @@ the user to input the run command."
   :straight nil
   :config
   ;; Ignore case on file name completions
-  (setq read-file-name-completion-ignore-case t))
+  (setq read-file-name-completion-ignore-case t)
+  ;; Don't overlay the contents of non-selected minibuffers
+  (minibuffer-nonselected-mode -1))
 
 ;; Init imenu for imenu support
 (use-package imenu
