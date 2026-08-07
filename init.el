@@ -635,7 +635,7 @@ window edges unaffected."
        (let ((frame (mo--windmove-closest-frame dir)))
          (if frame
              (select-frame-set-input-focus frame)
-           (signal (car err) (cdr err)))))))
+           (signal err))))))
   ;; Jump to the frame in the same direction when running out of windows
   (advice-add 'windmove-do-window-select :around #'mo--windmove-select-frame)
   ;; Repeated commands should keep signaling, so the frame jump advice can fire
