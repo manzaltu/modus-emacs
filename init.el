@@ -3705,22 +3705,30 @@ landed on BASE afterwards."
     :prefix "c"
     "_" #'treesit-explore-mode
     "-" #'treesit-inspect-node-at-point)
+  :custom
+  ;; Enable tree-sitter modes, remapping their base modes.
+  ;; C, C++ and C# are intentionally left on their non-tree-sitter modes.
+  ( treesit-enabled-modes '( bash-ts-mode
+                             cmake-ts-mode
+                             css-ts-mode
+                             dockerfile-ts-mode
+                             go-ts-mode
+                             go-mod-ts-mode
+                             go-work-ts-mode
+                             java-ts-mode
+                             js-ts-mode
+                             json-ts-mode
+                             python-ts-mode
+                             ruby-ts-mode
+                             rust-ts-mode
+                             toml-ts-mode
+                             tsx-ts-mode
+                             typescript-ts-mode
+                             yaml-ts-mode))
+  ;; Install missing grammars automatically when a tree-sitter mode starts
+  ( treesit-auto-install-grammar 'always)
   :config
   (setq treesit-font-lock-level 4))
-
-;; Init treesit-auto for automatically using tree-sitter major modes
-(use-package treesit-auto
-  :defines treesit-auto-langs
-  :functions global-treesit-auto-mode
-  :custom
-  ( treesit-auto-install t)
-  :config
-  ;; Do not auto enable treesit for the following languages
-  (setq treesit-auto-langs
-        (cl-set-difference treesit-auto-langs '( c
-                                                 cpp
-                                                 c-sharp)))
-  (global-treesit-auto-mode))
 
 ;; Init lsp mode for lsp support
 (use-package lsp-mode
