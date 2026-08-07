@@ -41,8 +41,8 @@
 (setq default-frame-alist '( ( undecorated . t)))
 ;; Enable pixelwise resizing
 (setq frame-resize-pixelwise t)
-;; Don't let implied resizes negotiate with the WM during early frame setup
-(setq frame-inhibit-implied-resize t)
+;; Don't let implied resizes negotiate with the WM, also during frame creation
+(setq frame-inhibit-implied-resize 'force)
 ;; Set the default initial frame size
 (add-to-list 'default-frame-alist '( height . 55))
 (add-to-list 'default-frame-alist '( width . 210))
