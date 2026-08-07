@@ -4199,7 +4199,7 @@ run the attached function (if exists) and enable lsp"
     "C-M-s-S-e" #'treesit-end-of-defun)
   :config
   (setq c-ts-mode-indent-style 'bsd)
-  (setq c-ts-mode-indent-offset 4))
+  (setq c-ts-indent-offset 4))
 
 ;; Init c++-ts-mode for C++ support using tree-sitter
 (use-package c++-ts-mode
