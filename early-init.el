@@ -28,6 +28,15 @@
 ;; Set GC threshold to a high number. Should help with lsp-mode memory demands.
 (setq gc-cons-threshold 100000000)
 
+;; Speed up load lookups during startup by caching load-path directory
+;; listings. The cache is not invalidated, so drop it after startup to keep
+;; newly installed packages loadable in a long running session.
+(setq load-path-filter-function #'load-path-filter-cache-directory-files)
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (setq load-path-filter-function nil)
+            (setq load-path-filter--cache nil)))
+
 ;; We use straight.el to manage our packages. Disable package.el.
 (setq package-enable-at-startup nil)
 
