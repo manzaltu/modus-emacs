@@ -2195,13 +2195,6 @@ Used for preventing recursion when recording new jumps.")
     "M-k" #'corfu-quick-jump
     "M-j" #'corfu-quick-complete))
 
-;; Init corfu-terminal for using corfu in the terminal
-(use-package corfu-terminal
-  :if (not (display-graphic-p))
-  :functions corfu-terminal-mode
-  :config
-  (corfu-terminal-mode +1))
-
 ;; Init cape for completion at point extensions
 (use-package cape
   :functions
