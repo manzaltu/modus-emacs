@@ -2285,7 +2285,7 @@ Used for preventing recursion when recording new jumps.")
     "C-M-<tab>" #'mo-project-other-buffer)
   ( :keymaps 'mo-quick-menu-map
     :prefix "j"
-    "w" #'mo-project-save
+    "w" #'project-remember-project
     "C-w" #'project-forget-project
     "d" #'mo-project-dired
     "f" #'mo-project-find-file
@@ -2308,11 +2308,6 @@ Used for preventing recursion when recording new jumps.")
 DIR must include a .project file to be considered a project."
     (let ((root (locate-dominating-file dir ".project")))
       (and root (cons 'transient root))))
-
-  (defun mo-project-save ()
-    "Save the current project to the persistent project list."
-    (interactive)
-    (message "Project saved: %s" (cdr (project-current t))))
 
   (defun mo-project-dired ()
     "Open Dired in the current tab's project, or in the current project."
