@@ -4971,6 +4971,9 @@ Provide code changes as GNU diff format, followed by brief explanations for each
   ( :keymaps 'newsticker-treeview-mode-map
     :states 'normal
     "q" #'mo-newsticker-quit-and-close-tab)
+  :hook
+  ;; With shr hard filling disabled, reflow the rendered item text
+  ( newsticker-treeview-item-mode . visual-line-mode)
   :config
   (setq newsticker-dir (mo-cache-path "newsticker"))
   (setq newsticker-treeview-listwindow-height 30)
