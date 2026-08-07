@@ -1537,7 +1537,7 @@ Used for preventing recursion when recording new jumps.")
   (defun mo-org-agenda-save-agenda ()
     "Save all currently opened agenda files."
     (dolist (file (org-agenda-files))
-      (when-let ((buffer (find-buffer-visiting file)))
+      (when-let* ((buffer (find-buffer-visiting file)))
         (with-current-buffer buffer
           (save-buffer)))))
 
@@ -2308,7 +2308,7 @@ current project."
 The project root is used if found by project, with the default
 directory as a fall back."
     (or
-     (when-let ((project (project-current)))
+     (when-let* ((project (project-current)))
        (project-root project))
      (expand-file-name default-directory)))
 
@@ -2389,7 +2389,7 @@ Returns the selected project root directory or nil if cancelled."
                                              ;; Skip remote buffers except sudo
                                              (when (or (not (file-remote-p default-directory))
                                                        (string-match-p "^/sudo:" default-directory))
-                                               (when-let ((proj (project-current)))
+                                               (when-let* ((proj (project-current)))
                                                  (project-root proj)))))
                                          (buffer-list))))))
       (if open-projects
@@ -2544,7 +2544,7 @@ With universal argument ARG, always show list of open projects."
       (if (and (not arg) (project-current))
           (call-interactively #'consult-project-buffer)
         ;; Universal arg or no active project, show selection of open projects
-        (when-let ((selected-project (mo-project-select-open-project)))
+        (when-let* ((selected-project (mo-project-select-open-project)))
           (let ((default-directory selected-project))
             (call-interactively #'consult-project-buffer))))))
 
@@ -2597,7 +2597,7 @@ The popped xref(s) will be pushed to the forward-history."
   (defun mo-consult-xref-history ()
     "Jump to a position in the xref history list."
     (interactive)
-    (if-let ((xref-history (delq nil (car (funcall xref-history-storage)))))
+    (if-let* ((xref-history (delq nil (car (funcall xref-history-storage)))))
         (consult-global-mark xref-history)
       (user-error "Xref history is empty")))
 
@@ -3285,18 +3285,18 @@ relative to that checkout, i.e. the path used inside the PR."
 Search the file's section for the first `pr-review-diff-line-right'
 property whose line is >= LINE, falling back to the section start.
 Return t when a section for RELPATH exists, nil otherwise."
-    (when-let ((section (pr-review--find-section-with-value relpath)))
+    (when-let* ((section (pr-review--find-section-with-value relpath)))
       (save-restriction
         (narrow-to-region (oref section start) (oref section end))
         (goto-char (point-min))
-        (if-let ((match (text-property-search-forward
-                         'pr-review-diff-line-right
-                         (cons relpath line)
-                         (lambda (target prop)
-                           (let-alist prop
-                             (and (equal (car target) .path)
-                                  .line
-                                  (>= .line (cdr target))))))))
+        (if-let* ((match (text-property-search-forward
+                          'pr-review-diff-line-right
+                          (cons relpath line)
+                          (lambda (target prop)
+                            (let-alist prop
+                              (and (equal (car target) .path)
+                                   .line
+                                   (>= .line (cdr target))))))))
             (goto-char (prop-match-beginning match))
           (goto-char (point-min))))
       t))
@@ -4021,7 +4021,7 @@ run the attached function (if exists) and enable lsp"
   :config
   (defun dape-read-pid ()
     "Read pid of active processes if possible."
-    (if-let ((pids (list-system-processes)))
+    (if-let* ((pids (list-system-processes)))
         (let ((collection
                (mapcar (lambda (pid)
                          (let ((args (alist-get 'args (process-attributes pid))))
