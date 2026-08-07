@@ -1361,10 +1361,6 @@ Used for preventing recursion when recording new jumps.")
 ;; Init hideshow for text and code folding
 (use-package hideshow
   :straight nil
-  :general
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "c"
-    "m" #'hs-cycle)
   :preface
   (defun mo-hs-enable-with-indentation ()
     "Enable hideshow with indentation based folding."
