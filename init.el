@@ -609,7 +609,9 @@ window edges unaffected."
              (select-frame-set-input-focus frame)
            (signal (car err) (cdr err)))))))
   ;; Jump to the frame in the same direction when running out of windows
-  (advice-add 'windmove-do-window-select :around #'mo--windmove-select-frame))
+  (advice-add 'windmove-do-window-select :around #'mo--windmove-select-frame)
+  ;; Repeated commands should keep signaling, so the frame jump advice can fire
+  (setq windmove-allow-repeated-command-override nil))
 
 ;; Init simple for basic and general Emacs commands
 (use-package simple
