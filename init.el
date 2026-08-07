@@ -5688,7 +5688,8 @@ Excludes ghostel buffers with names matching *claude-code*."
   (add-to-list 'clean-buffer-list-kill-regexps "^\\*Run Code Command\\*.*$")
   ;; Set to run at 4:30am. The delay must be a number; a string is scheduled
   ;; relative to load time instead of midnight.
-  (midnight-delay-set 'midnight-delay 16200))
+  (midnight-delay-set 'midnight-delay 16200)
+  (midnight-mode 1))
 
 ;; Init hi-lock for highlighting lines by regexp
 (use-package hi-lock
