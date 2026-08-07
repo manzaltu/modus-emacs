@@ -2860,6 +2860,8 @@ without GLOBAL non-nil `embark-bindings' filters it out."
                           tab-bar-format-global))
   (setq tab-bar-tab-hints t)
   (setq tab-bar-auto-width-max '(300 27))
+  ;; Keep the tab bar on a single line
+  (setq tab-bar-truncate t)
   ;; Switch to tab by pressing C-<hint num>
   (setq tab-bar-select-tab-modifiers '(control))
   ;; Bind the numeric tab selection keys only, keeping C-TAB and C-S-TAB free
