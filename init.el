@@ -1607,9 +1607,9 @@ Used for preventing recursion when recording new jumps.")
                  (scheduled-days (and scheduled
                                       (- (time-to-days scheduled) (org-today))))
                  (face (cond
-                        ((and days (< days 0)) (org-agenda-deadline-face 2.0))
+                        ((and days (minusp days)) (org-agenda-deadline-face 2.0))
                         ((and days (= days 0)) (org-agenda-deadline-face 1.0))
-                        ((and scheduled-days (< scheduled-days 0))
+                        ((and scheduled-days (minusp scheduled-days))
                          'org-scheduled-previously)))
                  (info (delq nil
                              (list
@@ -1617,8 +1617,8 @@ Used for preventing recursion when recording new jumps.")
                                    (format-time-string "%-d/%-m" scheduled))
                               (and days
                                    (cond
-                                    ((> days 0) (format "deadline in %d d." days))
-                                    ((< days 0) (format "deadline %d d. ago" (- days)))
+                                    ((plusp days) (format "deadline in %d d." days))
+                                    ((minusp days) (format "deadline %d d. ago" (- days)))
                                     (t "deadline today"))))))
                  (entry (if info
                             (concat entry
@@ -1949,7 +1949,7 @@ Used for preventing recursion when recording new jumps.")
       (put-text-property 0 (length time) 'face 'consult-notes-time time)
       (put-text-property 0 (length tags) 'face 'org-tag tags)
 
-      (if (> links 0)
+      (if (plusp links)
           (propertize (format "%3s" links) 'face 'consult-notes-backlinks)
         (propertize (format "%3s" "nil") 'face 'shadow))
 
