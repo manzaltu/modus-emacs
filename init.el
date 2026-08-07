@@ -4838,8 +4838,8 @@ Provide code changes as GNU diff format, followed by brief explanations for each
       (aw-select " Ace - Other Window Prefix" other-window-lambda)))
 
   (setq aw-keys '( ?a ?s ?d ?f ?g ?h ?j ?k ?l))
-  (when (display-graphic-p)
-    (ace-window-posframe-mode)))
+  ;; Posframe is supported on both graphical and tty frames
+  (ace-window-posframe-mode))
 
 ;; Init eww for browsing the web using Emacs
 (use-package eww
