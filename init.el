@@ -3424,6 +3424,14 @@ act on the window that actually displays it."
   :config
   (setq diff-refine-nonmodified t))
 
+;; Init diff-mode for viewing and editing diffs
+(use-package diff-mode
+  :straight nil
+  :general
+  ( :keymaps 'diff-mode-map
+    "C-M-s-u" #'diff-revert-and-kill-hunk
+    "C-M-s-n" #'diff-delete-other-hunks))
+
 ;; Init ediff for better diff view and commands
 (use-package ediff
   :straight nil
