@@ -321,6 +321,8 @@ Briefly highlight previous location."
   (defalias #'forward-evil-word #'forward-evil-symbol)
   ;; Start with Emacs mode in rustic-popup-mode buffers
   (evil-set-initial-state 'rustic-popup-mode 'emacs)
+  ;; Start minibuffers in insert mode
+  (evil-set-initial-state 'minibuffer-mode 'insert)
   (evil-mode 1))
 
 ;; Init Emacs core settings
