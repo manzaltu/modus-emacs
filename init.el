@@ -768,7 +768,11 @@ the user to input the run command."
                             " " (name 50 50 :left :elide)
 				            " " (size 9 -1 :right)
 				            " " (mode 16 16 :left :elide) " " filename-and-process)
-			          (mark " " (name 16 -1) " " filename))))
+			          (mark " " (name 16 -1) " " filename)))
+  ;; Show buffer sizes in a human readable format
+  ( ibuffer-human-readable-size t)
+  ;; Show the column titles in the header line
+  ( ibuffer-use-header-line 'title))
 
 ;; Init ibuffer-project for grouping buffers per project in ibuffer
 (use-package ibuffer-project
