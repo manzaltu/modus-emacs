@@ -1323,21 +1323,29 @@ Used for preventing recursion when recording new jumps.")
   :custom
   ( dumb-jump-prefer-searcher 'rg))
 
-;; Init origami for text and code folding
-(use-package origami
-  :demand t
+;; Init hideshow for text and code folding
+(use-package hideshow
+  :straight nil
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
-    "m" #'origami-recursively-toggle-node)
-  :config
-  (global-origami-mode))
-
-;; Init lsp-origami for code folding based on data from language server
-(use-package lsp-origami
-  :after ( origami lsp)
+    "m" #'hs-cycle)
+  :preface
+  (defun mo-hs-enable-with-indentation ()
+    "Enable hideshow with indentation based folding."
+    (hs-minor-mode 1)
+    (hs-indentation-mode 1))
   :hook
-  ( lsp-after-open . lsp-origami-try-enable))
+  ( prog-mode . hs-minor-mode)
+  ;; Fold by indentation in indentation structured languages
+  ( python-base-mode . hs-indentation-mode)
+  ( yaml-mode . mo-hs-enable-with-indentation)
+  ( yaml-ts-mode . mo-hs-enable-with-indentation)
+  :custom
+  ;; Show foldable block indicators on the fringe
+  ( hs-show-indicators t)
+  ;; Show the number of lines in folded blocks
+  ( hs-display-lines-hidden t))
 
 ;; Init kkp for supporting the Kitty Keyboard Protocol
 (use-package kkp
