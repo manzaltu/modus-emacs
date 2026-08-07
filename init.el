@@ -5812,7 +5812,11 @@ Excludes ghostel buffers with names matching *claude-code*."
   ;; Do not check readability of remote files.
   ;; This is needed in order to prevent tramp from hanging Emacs when killing a buffer.
   (add-to-list 'recentf-keep #'file-remote-p)
-  (recentf-mode t))
+  (recentf-mode t)
+  ;; Periodically save the list, which is otherwise saved only on a clean exit
+  (setopt recentf-autosave-interval 300)
+  ;; Don't announce the periodic save in the echo area
+  (setq recentf-show-messages nil))
 
 ;; Init persist for persistent variables between sessions
 (use-package persist
