@@ -2482,6 +2482,10 @@ Returns the selected project root directory or nil if cancelled."
     "M-s" #'consult-history                 ;; orig. next-matching-history-element
     "M-r" #'consult-history                 ;; orig. previous-matching-history-element
     "C-r" #'consult-history)                ;; orig. isearch-backward
+  ;; M-s is a prefix key in query-replace and read-regexp prompts, shadowing
+  ;; the minibuffer-local-map history binding
+  ( :keymaps '( query-replace-read-map read-regexp-map)
+    "M-s" #'consult-history)
   ( :keymaps 'comint-mode-map
     "M-r" #'consult-history                 ;; orig. comint-history-isearch-backward-regexp
     "C-r" #'consult-history)
