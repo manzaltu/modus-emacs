@@ -3061,7 +3061,14 @@ without GLOBAL non-nil `embark-bindings' filters it out."
 
 ;; Init vc for version control functionality
 (use-package vc
+  :demand t
   :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "g"
+    "w" #'vc-working-tree-switch-project
+    "C-w" #'vc-add-working-tree
+    "=" #'vc-root-diff-unintegrated)
   :config
   (setq vc-follow-symlinks t))
 
