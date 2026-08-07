@@ -580,8 +580,8 @@ window edges unaffected."
       (message "Display next command buffer in the current window...")))
   ;; Resize all windows proportionally when splitting
   (setq window-combination-resize t)
-  ;; Don't split windows vertically by default
-  (setq split-height-threshold nil)
+  ;; Prefer horizontal window splitting over vertical
+  (setq split-window-preferred-direction 'horizontal)
   ;; Increase width splitting threshold for wider screens
   (setq split-width-threshold 180)
   ;; A fast key binding for showing the next command's result in another window.
