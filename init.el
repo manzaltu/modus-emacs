@@ -588,6 +588,16 @@ window edges unaffected."
   ;; Make sure it also works when the command is using 'switch-to-buffer'.
   (setq switch-to-buffer-obey-display-actions t))
 
+;; Init window-x for extended window layout commands
+(use-package window-x
+  :straight nil
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "w"
+    "o" #'rotate-windows
+    "C-o" #'rotate-windows-back
+    "t" #'window-layout-transpose))
+
 ;; Init windmove for directional window selection
 (use-package windmove
   :straight nil
