@@ -103,7 +103,6 @@
  ("gntp.el" . "767571135e2c0985944017dc59b0be79af222ef5")
  ("gnu-elpa-mirror" . "f0852d36505d0672d0eb16eb926e0a57a9127e3c")
  ("gnuplot" . "6e758c7ad7bb2865357b13e10ba8c4a1d39ba9c6")
- ("go-mode.el" . "3a71d28ab47df685e54ca6046a7a3dd3e28b682c")
  ("goto-chg" . "72f556524b88e9d30dc7fc5b0dc32078c166fda7")
  ("gptel" . "fc6963634af2f76a9909ad674e2c0b3f005e60b5")
  ("gptel-agent" . "e833bcaf617baf8c8075eac098231c4457386814")
