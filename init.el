@@ -3631,6 +3631,8 @@ landed on BASE afterwards."
     "C-M-s-e" #'eval-defun
     "C-M-s-s" #'eval-last-sexp)
   :config
+  ;; Highlight symbols according to their semantic role
+  (setq elisp-fontify-semantically t)
   (advice-add 'eval-last-sexp :around #'mo-evil-correct-last-sexp))
 
 ;; Init sly for Common Lisp support
