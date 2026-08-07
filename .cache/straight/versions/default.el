@@ -222,7 +222,6 @@
  ("transient" . "0ec75dcce235f5ab3d39a02b878e6aaa78159b22")
  ("treemacs" . "2ab5a3c89fa01bbbd99de9b8986908b2bc5a7b49")
  ("treepy.el" . "806c000bd40153d17dfa5709c6d19546d507a416")
- ("treesit-auto" . "31466e4ccfd4f896ce3145c95c4c1f8b59d4bfdf")
  ("ts.el" . "552936017cfdec89f7fc20c254ae6b37c3f22c5b")
  ("verb" . "ef09a5804cac4816ca9a0d1fb9c71c8ed3d3df8f")
  ("vertico" . "be96000c2b0b3501723291b3721ceba12f784dcd")
