@@ -4873,6 +4873,13 @@ Provide code changes as GNU diff format, followed by brief explanations for each
   ;; Posframe is supported on both graphical and tty frames
   (ace-window-posframe-mode))
 
+;; Init shr for rendering html content
+(use-package shr
+  :straight nil
+  :config
+  ;; Reflow text with the window size instead of hard filling it
+  (setq shr-fill-text nil))
+
 ;; Init eww for browsing the web using Emacs
 (use-package eww
   :straight nil
