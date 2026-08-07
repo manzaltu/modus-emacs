@@ -5280,6 +5280,12 @@ If project root cannot be found, use the buffer's default directory."
   (setq doom-nord-light-brighter-comments t)
   (setq doom-one-light-brighter-comments t)
   (setq doom-solarized-light-brighter-comments t)
+  ;; Break a face inheritance cycle with Emacs 31, where gnus-group-news-low
+  ;; inherits by default from gnus-group-news-low-empty while the theme sets
+  ;; the reverse. The cycle errors on every new frame creation once gnus is
+  ;; loaded. See https://github.com/doomemacs/themes/issues/875
+  (setcdr (assoc 'gnus-group-news-low-empty doom-themes-base-faces)
+          '( :inherit 'gnus-group-mail-1-empty :weight 'normal))
   (load-theme 'doom-one t)
   (mo-doom-themes-configure-theme)
   ;; Corrects (and improves) org-mode's native fontification.
