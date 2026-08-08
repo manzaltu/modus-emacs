@@ -1,0 +1,3 @@
+#!/bin/sh
+# Git runs hooks from the root of the working tree
+exec scripts/validate --staged

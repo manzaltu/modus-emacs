@@ -1,0 +1,135 @@
+#!/usr/bin/env bash
+# Validate the Emacs configuration.
+#
+# usage: scripts/validate [--staged | --startup]
+#
+#   (no flag)  Check the working tree copies of the tracked elisp files
+#   --staged   Check the staged copies; used by the pre-commit hook.  Exits
+#              immediately when no elisp file is staged
+#   --startup  Start a throwaway Emacs daemon and report startup warnings
+#              (slow, and touches shared cache files such as recentf)
+#
+# Checks: byte compilation warnings and errors (in the same environment as
+# flycheck's emacs-lisp checker), whitespace errors in staged changes, and
+# indentation drift.  Indentation is checked in the running Emacs through
+# emacsclient, as only the fully loaded configuration knows the correct
+# indentation rules; the check is skipped when no Emacs server is reachable.
+
+set -uo pipefail
+
+repo=$(git rev-parse --show-toplevel) || exit 1
+tmpdir=$(mktemp -d)
+trap 'rm -rf "$tmpdir"' EXIT
+
+mapfile -t files < <(git -C "$repo" ls-files -- '*.el' ':!.cache')
+mode=${1:-}
+failed=0
+
+startup_check() {
+  local name="mo-validate-$$" log warnings notes
+  log=$(timeout 300 emacs --daemon="$name" 2>&1)
+  if [ $? -ne 0 ]; then
+    printf '%s\n' "$log"
+    echo "FAIL: Emacs daemon did not start"
+    return 1
+  fi
+  emacsclient -s "$name" -e \
+    "(with-temp-file \"$tmpdir/warnings\"
+       (when (get-buffer \"*Warnings*\")
+         (insert-buffer-substring \"*Warnings*\")))" > /dev/null
+  emacsclient -s "$name" -e '(kill-emacs)' > /dev/null 2>&1
+  notes=$(printf '%s\n' "$log" | grep -E 'Warning|Error|buffer-local' || true)
+  if [ -n "$notes" ]; then
+    echo "-- startup log notes:"
+    printf '%s\n' "$notes"
+  fi
+  warnings=$(grep -v '^[[:space:]]*$' "$tmpdir/warnings" 2> /dev/null || true)
+  if [ -n "$warnings" ]; then
+    printf '%s\n' "$warnings"
+    echo "FAIL: startup produced warnings"
+    return 1
+  fi
+  echo "OK: no startup warnings"
+}
+
+# Check all given (path display-name) pairs in one emacsclient round trip
+indent_check() {
+  local pairs="$*" drift
+  if ! drift=$(timeout 30 emacsclient -e "
+    (let ((drift nil))
+      (dolist (pair '($pairs))
+        (with-temp-buffer
+          (insert-file-contents (car pair))
+          (let ((src (buffer-string)))
+            (delay-mode-hooks (emacs-lisp-mode))
+            (let ((indent-tabs-mode nil)
+                  (inhibit-message t))
+              (indent-region (point-min) (point-max)))
+            (let ((old (split-string src \"\n\"))
+                  (new (split-string (buffer-string) \"\n\"))
+                  (line 1))
+              (while (or old new)
+                (unless (equal (car old) (car new))
+                  (push (format \"%s:%d: indentation differs from the Lisp indenter\"
+                                (cadr pair) line)
+                        drift))
+                (setq old (cdr old) new (cdr new) line (1+ line)))))))
+      (if drift (mapconcat #'identity (nreverse drift) \"\n\") nil))" \
+    2> /dev/null); then
+    echo "note: no Emacs server reachable; indentation check skipped"
+    return 0
+  fi
+  if [ "$drift" != nil ]; then
+    drift=${drift%\"}
+    drift=${drift#\"}
+    printf '%b\n' "$drift"
+    return 1
+  fi
+}
+
+if [ "$mode" = --startup ]; then
+  startup_check
+  exit $?
+fi
+
+check=()
+pairs=()
+if [ "$mode" = --staged ]; then
+  if ! git -C "$repo" diff --cached --check; then
+    echo "FAIL: whitespace errors in staged changes"
+    exit 1
+  fi
+  for f in "${files[@]}"; do
+    if ! git -C "$repo" diff --cached --quiet -- "$f"; then
+      mkdir -p "$tmpdir/$(dirname "$f")"
+      git -C "$repo" show ":$f" > "$tmpdir/$f"
+      check+=("$tmpdir/$f")
+      pairs+=("(\"$tmpdir/$f\" \"$f\")")
+    fi
+  done
+  if [ ${#check[@]} -eq 0 ]; then
+    exit 0
+  fi
+else
+  for f in "${files[@]}"; do
+    check+=("$repo/$f")
+    pairs+=("(\"$repo/$f\" \"$f\")")
+  done
+fi
+
+out=$(emacs -Q --batch -l "$repo/scripts/validate.el" "${check[@]}" 2> "$tmpdir/stderr")
+if [ $? -ne 0 ]; then
+  printf '%s\n' "$out" | sed "s|$tmpdir/||"
+  if [ -z "$out" ]; then
+    cat "$tmpdir/stderr"
+  fi
+  failed=1
+fi
+
+indent_check "${pairs[@]}" || failed=1
+
+if [ $failed -ne 0 ]; then
+  echo "FAIL: configuration validation"
+  exit 1
+fi
+echo "OK: configuration validated"
