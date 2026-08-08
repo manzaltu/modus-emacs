@@ -3913,22 +3913,21 @@ landed on BASE afterwards."
 
   (defvar-local mo-lsp-disable nil
     "Flag used for disabling automatic lsp mode loading.")
-  (defvar mo-lsp-recursion-flag nil
-    "Flag used for detecting recursion when enabling lsp.")
+  (defvar-local mo-lsp--enable-handled nil
+    "Non-nil if automatic lsp enabling was already handled in this buffer.")
   (defun mo-maybe-enable-lsp ()
     "Enable lsp if the current major mode is in `mo-lsp-enable-for-modes'.
 If the matching mode entry carries a setup function, call it before
 enabling lsp."
-    (unless (or lsp-mode lsp--buffer-deferred mo-lsp-disable) ; Do not load if lsp is already loaded, deferred or disabled
+    (unless (or lsp-mode mo-lsp--enable-handled mo-lsp-disable) ; Do not load if lsp is already loaded, handled or disabled
+      ;; Killed on major mode change, so the buffer is then reconsidered
+      (setq mo-lsp--enable-handled t)
       (unless (bound-and-true-p magit-buffer-file-name) ; Do not load in magit file revision buffers
-        (if mo-lsp-recursion-flag
-            (message "LSP recursion detected in %s" (buffer-name))
-          (let ((mo-lsp-recursion-flag t))
-            (seq-find (lambda (mode-config)
-                        (pcase mode-config
-                          (`( ,(pred (equal major-mode)) ,func) (funcall func) (lsp-deferred) t)
-                          ((pred (equal major-mode)) (lsp-deferred) t)))
-                      mo-lsp-enable-for-modes))))))
+        (seq-find (lambda (mode-config)
+                    (pcase mode-config
+                      (`( ,(pred (equal major-mode)) ,func) (funcall func) (lsp-deferred) t)
+                      ((pred (equal major-mode)) (lsp-deferred) t)))
+                  mo-lsp-enable-for-modes))))
 
   ;; Kill language server after the last associated buffer was closed
   (setq lsp-keep-workspace-alive nil)
