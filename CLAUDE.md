@@ -119,3 +119,7 @@ Keybinding-related commits use canonical phrasings — match them rather than im
 - Change a Hyper binding: `<pkg>: Change <command-purpose> command multi-modifier key binding` (e.g. `pr-review: Change request reviews command multi-modifier key binding`).
 
 Don't commit `custom.el` or `personal.el` — both are gitignored intentionally. The `.cache/straight/versions/` lockfile **is** tracked and should be updated when packages are upgraded.
+
+## Validating changes
+
+`scripts/validate` byte compiles `init.el` and `early-init.el` in flycheck's checker environment (any warning or error fails) and checks indentation drift through the running Emacs via `emacsclient`. Run it after editing these files and fix findings before committing. A pre-commit hook runs the same checks on the staged copies plus a whitespace check (enabled once per clone with `git config core.hooksPath scripts/githooks`) — never bypass it with `--no-verify`. `scripts/validate --startup` additionally reports startup warnings from a throwaway daemon; it is slow, so run it manually after changes that affect startup.
