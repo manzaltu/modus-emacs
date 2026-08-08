@@ -467,6 +467,8 @@ window edges unaffected."
   (setq bidi-inhibit-bpa t)
   ;; Defer fontification while typing for smoother input
   (setq redisplay-skip-fontification-on-input t)
+  ;; Show a backtrace on redisplay errors instead of swallowing them
+  (setq backtrace-on-redisplay-error t)
   ;; Hide cursor and selection highlight in non-focused windows
   (setq-default cursor-in-non-selected-windows nil)
   (setq highlight-nonselected-windows nil)
