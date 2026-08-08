@@ -5536,7 +5536,7 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
-    "h h" #'consult-gh)
+    "c h" #'consult-gh)
   :custom
   ( consult-gh-show-preview t)
   ( consult-gh-preview-key "M-."))
