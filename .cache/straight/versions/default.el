@@ -42,6 +42,7 @@
  ("desktop-plus" . "88055cee526a000056201898499cebbd35e3ea76")
  ("devdocs.el" . "25c746024ddf73570195bf42b841f761a2fee10c")
  ("diff-hl" . "91fcd4fa42fef895a754e80c4435ae6314be7822")
+ ("difftastic.el" . "f94076985ba46bf629abc9615c9b1fefcc3390ef")
  ("dired-hacks" . "de9336f4b47ef901799fe95315fa080fa6d77b48")
  ("dired-plus" . "56f76725b5f151ed8a4ad17a62edf2fd592edb3a")
  ("dired-rsync" . "17ed6b91b09d8ffb52089273e8e38b91d2e33d66")
