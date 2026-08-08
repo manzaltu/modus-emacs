@@ -726,12 +726,6 @@ the user to input the run command."
   ;; Hide commands in M-x that are inapplicable to the current buffer modes
   (setq read-extended-command-predicate #'command-completion-default-include-p))
 
-;; Init comp for native compilation settings
-(use-package comp
-  :straight nil
-  :config
-  (setq native-comp-async-report-warnings-errors 'silent))
-
 ;; Init custom for declaring and initializing user options
 (use-package custom
   :straight nil
