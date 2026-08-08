@@ -720,7 +720,9 @@ the user to input the run command."
   ;; Deduplicate kill ring entries
   (setq kill-do-not-save-duplicates t)
   ;; After C-u C-SPC, keep popping with just C-SPC
-  (setq set-mark-command-repeat-pop t))
+  (setq set-mark-command-repeat-pop t)
+  ;; Hide commands in M-x that are inapplicable to the current buffer modes
+  (setq read-extended-command-predicate #'command-completion-default-include-p))
 
 ;; Init comp for native compilation settings
 (use-package comp
