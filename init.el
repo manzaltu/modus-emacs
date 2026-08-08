@@ -6079,6 +6079,13 @@ Excludes ghostel buffers with names matching *claude-code*."
   :config
   (setq tramp-gvfs-enabled t))
 
+;; Init tramp-hlo for reducing remote round trips in high-level file operations
+(use-package tramp-hlo
+  :after tramp
+  :functions tramp-hlo-setup
+  :config
+  (tramp-hlo-setup))
+
 ;; Load customization file
 (when (file-exists-p custom-file)
   (load custom-file))
