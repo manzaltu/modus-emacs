@@ -3209,6 +3209,9 @@ leaving the heading outside of the visible region."
 (use-package magit-tbdiff
   :after magit
   :config
+  ;; Load transient at compile time, so slot names are known to the byte
+  ;; compiler
+  (eval-when-compile (require 'transient))
   ;; Enable range-diff's --dual-color by default
   (oset (get 'magit-tbdiff 'transient--prefix) default-value '( "--dual-color")))
 
