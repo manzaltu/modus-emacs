@@ -6034,6 +6034,10 @@ Excludes ghostel buffers with names matching *claude-code*."
   (setq backup-enable-predicate #'mo-tramp-disable-backup-predicate)
   ;; Make emacsclient on remote hosts open files in the local session
   (setq tramp-propagate-emacsclient-tramp t)
+  ;; Don't purge a host's recentf entries when its connection is cleaned up,
+  ;; which tramp also triggers automatically on failed connection attempts
+  (remove-hook 'tramp-cleanup-connection-hook #'tramp-recentf-cleanup)
+  (remove-hook 'tramp-cleanup-all-connections-hook #'tramp-recentf-cleanup-all)
   ;; Preserve remote path value
   (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
   ;; Run remote asynchronous processes directly for faster process startup
