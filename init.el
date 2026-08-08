@@ -500,7 +500,8 @@ window edges unaffected."
     "r" #'revert-buffer-quick
     "C-r" #'mo-reload-dir-locals-current-buffer)
   ( :keymaps 'mo-quick-menu-map
-    "q" #'save-buffers-kill-terminal)
+    "q" #'save-buffers-kill-terminal
+    "C-q" #'restart-emacs)
   :config
   (defun mo-open-init-file ()
     "Open the user's init file."
