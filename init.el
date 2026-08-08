@@ -2710,7 +2710,11 @@ Used while preview is toggled off."
   :commands marginalia-mode
   :functions ( project-name
                marginalia-annotate-buffer
-               marginalia--fields)
+               marginalia--fields
+               ;; The byte compiler misreads the annotation field variables as
+               ;; function calls when it cannot expand `marginalia--fields'
+               proj-name
+               buffer-annotation)
   :defines marginalia-annotators
   :custom
   ( marginalia-field-width 200)
@@ -2725,6 +2729,9 @@ Used while preview is toggled off."
                                                       (string-match-p "^/sudo:" default-directory))
                                               (project-current)))))
                        (project-name project))))
+      ;; Mark the field variables as used, as the byte compiler misses their
+      ;; use when it cannot expand the `marginalia--fields' macro
+      (ignore buffer-annotation proj-name)
       (marginalia--fields
        (proj-name :truncate 0.2 :face 'marginalia-function)
        (buffer-annotation))))
