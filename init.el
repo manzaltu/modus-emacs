@@ -5223,6 +5223,8 @@ If project root cannot be found, use the buffer's default directory."
   (setq eshell-prompt-regexp "^[^#λ\n]* [#λ] ")
   ;; Remove login banner
   (delq 'eshell-banner eshell-modules-list)
+  ;; Insert the tramp prefix on a leading forward slash in remote directories
+  (add-to-list 'eshell-modules-list 'eshell-elecslash)
   ;; Set eshell cache directory
   (setq eshell-directory-name (file-name-as-directory (mo-cache-path "eshell")))
   ;; Clear visual command list as we use eat for terminal emulation
