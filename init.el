@@ -5931,17 +5931,11 @@ Excludes ghostel buffers with names matching *claude-code*."
 (use-package recentf
   :straight nil
   :config
-  (defun mo-recentf-file-remote-no-sudo-p (file)
-    "Returns t if file is remote, except for local sudo paths."
-    (and (string-match tramp-file-name-regexp file)
-         (not (string-match "^/sudo:" file))))
   (setq recentf-save-file (mo-cache-path "recentf"))
   ;; Enlarge the max size of the recent files list
   (setq recentf-max-saved-items 10000)
-  ;; Do not save remote files
-  (add-to-list 'recentf-exclude #'mo-recentf-file-remote-no-sudo-p)
-  ;; Do not check readability of remote files.
-  ;; This is needed in order to prevent tramp from hanging Emacs when killing a buffer.
+  ;; Keep remote files listed without checking their readability, as tramp
+  ;; access might hang Emacs when the remote host is unreachable
   (add-to-list 'recentf-keep #'file-remote-p)
   (recentf-mode t)
   ;; Periodically save the list, which is otherwise saved only on a clean exit
