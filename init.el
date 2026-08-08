@@ -172,12 +172,12 @@
 Excludes C-g (abort) and C-m (RET alias)."
     (dolist (group mo--quick-menu-groups)
       (let* ((key (car group))
-             (keymap (lookup-key mo-quick-menu-map (kbd key))))
+             (keymap (keymap-lookup mo-quick-menu-map key)))
         (when (keymapp keymap)
           (unless (member key '("g" "m"))
-            (define-key mo-quick-menu-map (kbd (concat "C-" key)) keymap))
-          (define-key mo-quick-menu-map (kbd (concat "M-" key)) keymap)
-          (define-key mo-quick-menu-map (kbd (concat "C-M-" key)) keymap)))))
+            (keymap-set mo-quick-menu-map (concat "C-" key) keymap))
+          (keymap-set mo-quick-menu-map (concat "M-" key) keymap)
+          (keymap-set mo-quick-menu-map (concat "C-M-" key) keymap)))))
 
   (eval
    `(mo-quick-menu-definer
@@ -193,7 +193,7 @@ Excludes C-g (abort) and C-m (RET alias)."
   :hook
   ( tty-setup . (lambda ()
                   ;; Alternative leader key for keyboards that do not have a menu key
-                  (define-key input-decode-map (kbd "¯") (kbd "<menu>"))
+                  (keymap-set input-decode-map "¯" "<menu>")
                   ;; Decode the CSI-u sequence for Ctrl-Escape that xterm.el does not register
                   (define-key input-decode-map "\e[27;5~" (kbd "C-<escape>")))))
 
@@ -2773,9 +2773,9 @@ without GLOBAL non-nil `embark-bindings' filters it out."
     (let ((map (make-sparse-keymap)))
       (dolist (b (which-key--get-current-bindings))
         (when (string-prefix-p "C-M-s-" (car b))
-          (let ((cmd (key-binding (kbd (car b)))))
+          (let ((cmd (keymap-lookup nil (car b))))
             (when (commandp cmd)
-              (define-key map (kbd (car b)) cmd)))))
+              (keymap-set map (car b) cmd)))))
       (embark-bindings-in-keymap map)))
   ;; Add lsp-find-implementation to identifier actions
   (defun mo-embark-lsp-find-implementation (_target)
