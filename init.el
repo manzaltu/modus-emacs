@@ -3920,7 +3920,7 @@ landed on BASE afterwards."
 If the matching mode entry carries a setup function, call it before
 enabling lsp."
     (unless (or lsp-mode lsp--buffer-deferred mo-lsp-disable) ; Do not load if lsp is already loaded, deferred or disabled
-      (unless (string-match "\\.~.+?~$" (buffer-name)) ; Do not load in magit diff buffers
+      (unless (bound-and-true-p magit-buffer-file-name) ; Do not load in magit file revision buffers
         (if mo-lsp-recursion-flag
             (message "LSP recursion detected in %s" (buffer-name))
           (let ((mo-lsp-recursion-flag t))
