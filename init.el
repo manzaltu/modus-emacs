@@ -3778,7 +3778,10 @@ landed on BASE afterwards."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "l"
-    "r" #'ielm))
+    "r" #'ielm)
+  :config
+  ;; Set history file path
+  (setq ielm-history-file-name (mo-cache-path "ielm-history.eld")))
 
 ;; Init edebug for debugging lisp code
 (use-package edebug
