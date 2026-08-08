@@ -5121,6 +5121,9 @@ If project root cannot be found, use the buffer's default directory."
   ( :keymaps 'mo-quick-menu-map
     :prefix "j"
     "t" #'mo-ghostel-project)
+  :custom
+  ;; Inject shell integration in remote sessions for directory tracking
+  ( ghostel-tramp-shell-integration t)
   :config
   (defun mo-ghostel-file ()
     "Create a new ghostel buffer with current directory set to the current buffer default directory."
