@@ -32,7 +32,7 @@
 
 (defun mo-cache-path (filename)
   "Return a valid file path for FILENAME under the cache directory."
-  (concat (file-name-as-directory mo-cache-dir) filename))
+  (file-name-concat mo-cache-dir filename))
 
 (defvar straight-base-dir mo-cache-dir)
 (defvar straight-repository-branch "develop")
@@ -1474,7 +1474,7 @@ Used for preventing recursion when recording new jumps.")
   (setq org-image-actual-width nil)
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.8))
   (setq org-directory "~/org")
-  (setq org-default-notes-file (concat (file-name-as-directory org-directory) "notes.org"))
+  (setq org-default-notes-file (file-name-concat org-directory "notes.org"))
   (setq org-capture-templates '( ( "t" "Task" entry (file+function org-default-notes-file org-goto)
                                    "** TODO %?\n")))
   (setq org-goto-interface 'outline-path-completion)
@@ -1637,8 +1637,7 @@ Used for preventing recursion when recording new jumps.")
            ( 1.0 . org-imminent-deadline)
            ( 0.5 . org-upcoming-deadline)
            ( 0.0 . org-upcoming-distant-deadline)))
-  (setq org-agenda-diary-file
-        (concat (file-name-as-directory org-directory) "diary.org"))
+  (setq org-agenda-diary-file (file-name-concat org-directory "diary.org"))
   (setq org-agenda-custom-commands
         '( ( "n" "Agenda and grouped TODOs"
              ( ( agenda ""
@@ -1718,8 +1717,7 @@ Used for preventing recursion when recording new jumps.")
   ( :keymaps '( org-agenda-mode-map)
     "C-M-s-j" #'mo-org-journal-new-entry-from-agenda)
   :custom
-  ( org-journal-dir
-    (concat (file-name-as-directory org-directory) "journal"))
+  ( org-journal-dir (file-name-concat org-directory "journal"))
   ( org-journal-file-type 'weekly)
   ( org-journal-enable-agenda-integration t)
   ( org-journal-file-format "%Y-%m-%d.org")
@@ -2410,7 +2408,7 @@ directory as a fall back."
     (mo-with-project-tab-scope
       (let* ((project (project-current))
              (root (project-root project)))
-        (find-file (concat (file-name-as-directory root) dir-locals-file)))))
+        (find-file (file-name-concat root dir-locals-file)))))
 
   (defun mo-project-other-buffer ()
     "Switch to the next project buffer in buffer the list."
