@@ -3218,7 +3218,11 @@ leaving the heading outside of the visible region."
   :after magit)
 
 ;; Init difftastic for structural diffs
-(use-package difftastic)
+(use-package difftastic
+  :commands difftastic-bindings-mode
+  :init
+  ;; Bind difftastic commands in the relevant magit prefixes
+  (difftastic-bindings-mode))
 
 ;; Init git-modes for editing git config files
 (use-package git-modes)
