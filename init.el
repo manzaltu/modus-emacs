@@ -2293,6 +2293,15 @@ Used for preventing recursion when recording new jumps.")
         (lambda (buffer)
           (< (buffer-size buffer) mo-dabbrev-max-file-size))))
 
+;; Init completion-preview for inline preview of the top completion candidate
+(use-package completion-preview
+  :straight nil
+  :hook
+  ;; Preview in shell buffers, where corfu auto completion is disabled
+  ( eshell-mode . completion-preview-mode)
+  ( shell-mode . completion-preview-mode)
+  ( comint-mode . completion-preview-mode))
+
 ;; Init project for auto project detection
 (use-package project
   :straight nil
