@@ -5929,8 +5929,11 @@ Excludes ghostel buffers with names matching *claude-code*."
 (use-package server
   :straight nil
   :config
-  ;; Start Emacs server
-  (server-start))
+  ;; Start Emacs server. In daemon sessions the server is started after init
+  ;; under the daemon's name; starting it here would collide with the default
+  ;; server socket
+  (unless (daemonp)
+    (server-start)))
 
 ;; Init savehist for minibuffer history persistence over Emacs restarts
 (use-package savehist
