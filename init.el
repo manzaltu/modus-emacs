@@ -559,7 +559,9 @@ window edges unaffected."
     "=" #'balance-windows
     "C-c" #'delete-other-windows
     "q" #'quit-window
-    "x" #'mo-quit-other-window)
+    "x" #'mo-quit-other-window
+    "M-s" #'split-root-window-below
+    "M-v" #'split-root-window-right)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "q" #'mo-quit-window-kill-buffer
