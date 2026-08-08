@@ -1339,7 +1339,9 @@ Used for preventing recursion when recording new jumps.")
   :config
   ;; When looking for references, don't ask for an identifier
   (setq xref-prompt-for-identifier nil)
-  (setq xref-history-storage #'xref-window-local-history))
+  (setq xref-history-storage #'xref-window-local-history)
+  ;; Search with ripgrep
+  (setq xref-search-program 'ripgrep))
 
 ;; Init dump-jump for heuristics based reference lookup
 (use-package dumb-jump
