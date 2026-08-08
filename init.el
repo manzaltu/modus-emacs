@@ -1063,8 +1063,6 @@ If universal ARG is set, exclude the pattern."
              evil-collection-want-unimpaired-p
              evil-collection-key-blacklist)
   :demand t
-  :init
-  (defvar forge-add-default-bindings nil)
   :config
   ;; We have our own find references key binding. Remove evil-collection's one.
   ;; evil-collection's find usages overrides evil-mc key bindings.
@@ -3247,9 +3245,14 @@ leaving the heading outside of the visible region."
 ;; Init forge for working with git forges (e.g. Github, Gitlab)
 (use-package forge
   :after magit
-  :defines ( forge-status-buffer-default-topic-filters
+  :defines ( forge-add-default-bindings
+             forge-status-buffer-default-topic-filters
              forge-list-buffer-default-topic-filters)
   :functions forge--topics-spec
+  :init
+  ;; Disable default key bindings before forge is loaded, as evil-collection
+  ;; sets its own key bindings
+  (setq forge-add-default-bindings nil)
   :custom
   ( forge-database-file (mo-cache-path "forge-database.sqlite"))
   ( forge-status-buffer-default-topic-filters
