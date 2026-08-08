@@ -531,7 +531,10 @@ window edges unaffected."
   (setq auto-save-no-message t)
   ;; Ask for confirmation before exiting emacs
   (setq confirm-kill-emacs #'y-or-n-p)
-  (setq remote-file-name-access-timeout 5))
+  (setq remote-file-name-access-timeout 5)
+  ;; Skip lock files for remote files, avoiding extra remote round trips
+  ;; on editing. Requires that no other session edits the same files.
+  (setq remote-file-name-inhibit-locks t))
 
 ;; Init frame for managing frames
 (use-package frame
