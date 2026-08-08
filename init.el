@@ -6054,6 +6054,12 @@ Excludes ghostel buffers with names matching *claude-code*."
   ;; which tramp also triggers automatically on failed connection attempts
   (remove-hook 'tramp-cleanup-connection-hook #'tramp-recentf-cleanup)
   (remove-hook 'tramp-cleanup-all-connections-hook #'tramp-recentf-cleanup-all)
+  ;; Keep ssh connection sharing in compilation buffers for faster remote
+  ;; compile and grep startup. It is disabled upstream to avoid a rare
+  ;; output deadlock (bug#45518) that no longer appears in practice
+  (with-eval-after-load 'compile
+    (remove-hook 'compilation-mode-hook
+                 #'tramp-compile-disable-ssh-controlmaster-options))
   ;; Preserve remote path value
   (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
   ;; Run remote asynchronous processes directly for faster process startup
