@@ -2462,6 +2462,13 @@ Returns the selected project root directory or nil if cancelled."
            (project-async-shell-command "Async command" ?x)
            (project-find-matching-buffer "Matching buffer" ?m))))
 
+;; Init uniquify for making equal buffer names unique
+(use-package uniquify
+  :straight nil
+  :config
+  ;; Disambiguate equal buffer names using the project name
+  (setq uniquify-dirname-transform #'project-uniquify-dirname-transform))
+
 ;; Init consult for enhanced search commands
 (use-package consult
   :demand t
