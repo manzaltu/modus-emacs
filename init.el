@@ -3132,7 +3132,8 @@ leaving the heading outside of the visible region."
     :prefix "g"
     "w" #'vc-working-tree-switch-project
     "M-w" #'vc-add-working-tree
-    "=" #'vc-root-diff-unintegrated)
+    "=" #'vc-root-diff-unintegrated
+    "h" #'vc-region-history)
   :config
   (setq vc-follow-symlinks t)
   ;; Probe for git only, avoiding slow probing of unused backends,
