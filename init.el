@@ -3012,6 +3012,7 @@ leaving the heading outside of the visible region."
 
 ;; Init treemacs-icons for icons in dired
 (use-package treemacs-icons-dired
+  :functions treemacs-icons-dired-mode
   :config
   (treemacs-icons-dired-mode))
 
