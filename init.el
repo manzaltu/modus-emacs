@@ -4855,7 +4855,13 @@ Provide code changes as GNU diff format, followed by brief explanations for each
 ;; Init paren for showing matching parentheses
 (use-package paren
   :straight nil
+  :hook
+  ( enable-theme-functions . mo-paren-configure-theme)
   :config
+  (defun mo-paren-configure-theme (_theme)
+    "Set the offscreen context child frame border color."
+    (set-face-background 'child-frame-border
+                         (face-attribute 'default :foreground nil t)))
   ;; Show matching parentheses
   (setq show-paren-delay 0)
   ;; Show the context of an offscreen opening paren in a child frame
