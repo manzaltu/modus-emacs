@@ -2933,7 +2933,14 @@ leaving the heading outside of the visible region."
   (setq dired-omit-extensions '( ".qazwsxedc"))
   (setq dired-dwim-target t)
   ;; Skip empty lines and cycle at buffer edges on line movement
-  (setq dired-movement-style 'cycle))
+  (setq dired-movement-style 'cycle)
+  ;; Don't check symlink validity in remote buffers, as it is slow there
+  (connection-local-set-profile-variables
+   'mo-dired-no-symlink-check
+   '( ( dired-check-symlinks . nil)))
+  (connection-local-set-profiles
+   '( :application tramp)
+   'mo-dired-no-symlink-check))
 
 ;; Init image-dired for viewing image thumbnails in dired
 (use-package image-dired
