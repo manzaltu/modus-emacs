@@ -4805,6 +4805,8 @@ Provide code changes as GNU diff format, followed by brief explanations for each
   :config
   ;; Show matching parentheses
   (setq show-paren-delay 0)
+  ;; Show the context of an offscreen opening paren in a child frame
+  (setq show-paren-context-when-offscreen 'child-frame)
   (show-paren-mode 1))
 
 ;; Init elec-pair for auto insertion of matching parentheses in code
