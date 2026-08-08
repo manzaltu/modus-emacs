@@ -560,6 +560,7 @@ window edges unaffected."
     "C-c" #'delete-other-windows
     "q" #'quit-window
     "x" #'mo-quit-other-window
+    "d" #'toggle-window-dedicated
     "M-s" #'split-root-window-below
     "M-v" #'split-root-window-right)
   ( :keymaps 'mo-quick-menu-map
