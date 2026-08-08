@@ -5611,30 +5611,25 @@ If project root cannot be found, use the buffer's default directory."
   (defun mo-popper-eat-filter (buf)
     "Return t if BUF is an eat buffer that should be treated as a popup.
 Excludes eat buffers with names matching *claude-code*."
-    (let ((name (buffer-name buf)))
-      (and (not (string-match-p "\\*claude-code" name))
-           (with-current-buffer buf
-             (derived-mode-p 'eat-mode)))))
+    (buffer-match-p '( and (not "\\*claude-code") (derived-mode . eat-mode)) buf))
 
   (defun mo-popper-vterm-filter (buf)
     "Return t if BUF is a vterm buffer that should be treated as a popup.
 Matches by either vterm-mode or vterm name pattern.
 Excludes vterm buffers with names matching *claude-code*."
-    (let ((name (buffer-name buf)))
-      (and (not (string-match-p "\\*claude-code" name))
-           (or (with-current-buffer buf
-                 (derived-mode-p 'vterm-mode))
-               (string-match-p "^\\*vterm.*\\*.*$" name)))))
+    (buffer-match-p '( and (not "\\*claude-code")
+                       (or (derived-mode . vterm-mode)
+                           "^\\*vterm.*\\*.*$"))
+                    buf))
 
   (defun mo-popper-ghostel-filter (buf)
     "Return t if BUF is a ghostel buffer that should be treated as a popup.
 Matches by either ghostel-mode or ghostel name pattern.
 Excludes ghostel buffers with names matching *claude-code*."
-    (let ((name (buffer-name buf)))
-      (and (not (string-match-p "\\*claude-code" name))
-           (or (with-current-buffer buf
-                 (derived-mode-p 'ghostel-mode))
-               (string-match-p "^\\*ghostel.*\\*$" name)))))
+    (buffer-match-p '( and (not "\\*claude-code")
+                       (or (derived-mode . ghostel-mode)
+                           "^\\*ghostel.*\\*$"))
+                    buf))
 
   (setq popper-reference-buffers
         '( "\\*Messages\\*"
