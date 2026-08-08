@@ -3109,7 +3109,10 @@ leaving the heading outside of the visible region."
     "C-w" #'vc-add-working-tree
     "=" #'vc-root-diff-unintegrated)
   :config
-  (setq vc-follow-symlinks t))
+  (setq vc-follow-symlinks t)
+  ;; Probe for git only, avoiding slow probing of unused backends,
+  ;; especially on remote hosts
+  (setq vc-handled-backends '( Git)))
 
 ;; Init vc-git for configuring the git VC backend
 (use-package vc-git
