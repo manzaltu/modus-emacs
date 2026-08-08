@@ -5569,7 +5569,7 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
-    "h r" #'consult-gh-with-pr-review-open-topic)
+    "c r" #'consult-gh-with-pr-review-open-topic)
   :config
   (consult-gh-with-pr-review-mode +1))
 
