@@ -6032,8 +6032,11 @@ Excludes ghostel buffers with names matching *claude-code*."
   (defun mo-tramp-disable-backup-predicate (name)
     "A predicate for disabling backup when using TRAMP."
     (not (file-remote-p name)))
-  ;; Set default method to ssh as it is faster than scp
-  (setq tramp-default-method "ssh")
+  ;; Set default method to scp, which sends small files inline like ssh and
+  ;; switches to faster out-of-band copying for large ones
+  (setq tramp-default-method "scp")
+  ;; Copy directly between two remote hosts instead of through the local host
+  (setq tramp-use-scp-direct-remote-copying t)
   ;; Lower verbosity to avoid connection messages in the echo area
   (setq tramp-verbose 2)
   ;; Disable backup
@@ -6052,6 +6055,9 @@ Excludes ghostel buffers with names matching *claude-code*."
    '( ( tramp-direct-async-process . t)))
   (connection-local-set-profiles
    '( :application tramp :protocol "ssh")
+   'mo-tramp-direct-async)
+  (connection-local-set-profiles
+   '( :application tramp :protocol "scp")
    'mo-tramp-direct-async))
 
 ;; Init tramp-cache for caching in tramp
