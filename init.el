@@ -553,7 +553,7 @@ window edges unaffected."
   :general
   ( :keymaps 'override
     "C-M-S-o" #'other-window-prefix
-    "C-M->" #'mo-current-window-prefix)
+    "C-M->" #'same-window-prefix)
   ( :keymaps 'mo-quick-menu-map
     :prefix "w"
     "=" #'balance-windows
@@ -574,15 +574,6 @@ window edges unaffected."
     "Quit and kill window."
     (interactive)
     (quit-window t))
-  (defun mo-current-window-prefix ()
-    "Display the buffer of the next command in the current window."
-    (interactive)
-    (let ((window (selected-window)))
-      (display-buffer-override-next-command
-       (lambda (buffer alist)
-         (cons window 'reuse))
-       nil "[current-window]")
-      (message "Display next command buffer in the current window...")))
   ;; Resize all windows proportionally when splitting
   (setq window-combination-resize t)
   ;; Prefer horizontal window splitting over vertical
