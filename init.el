@@ -2933,7 +2933,9 @@ leaving the heading outside of the visible region."
   ;; Do not ignore extensions
   ;; Dired+ breaks when dired-omit-extensions contains no items
   (setq dired-omit-extensions '( ".qazwsxedc"))
-  (setq dired-dwim-target t))
+  (setq dired-dwim-target t)
+  ;; Skip empty lines and cycle at buffer edges on line movement
+  (setq dired-movement-style 'cycle))
 
 ;; Init image-dired for viewing image thumbnails in dired
 (use-package image-dired
