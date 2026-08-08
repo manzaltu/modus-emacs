@@ -519,7 +519,8 @@ window edges unaffected."
   (setq version-control t)
   (setq kept-new-versions 6)
   (setq kept-old-versions 2)
-  (setq auto-save-file-name-transforms `( ( ".*" ,(mo-cache-path "backups/") t)))
+  ;; Hash auto-save file names to avoid file name length limits
+  (setq auto-save-file-name-transforms `( ( ".*" ,(mo-cache-path "backups/") sha256)))
   (setq auto-save-include-big-deletions t)
   (setq auto-save-no-message t)
   ;; Ask for confirmation before exiting emacs
