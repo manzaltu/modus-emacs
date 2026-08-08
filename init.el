@@ -2255,7 +2255,8 @@ Used for preventing recursion when recording new jumps.")
 (use-package cape
   :functions
   ( cape-wrap-prefix-length cape-wrap-super
-    cape-file cape-dabbrev)
+    cape-file cape-dabbrev
+    mo-cape-dabbrev-or-merged)
   :custom
   ;; Do not scan every buffer with dabbrev (see dabbrev configuration)
   ( cape-dabbrev-check-other-buffers 'some)
