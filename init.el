@@ -110,7 +110,8 @@
 (use-package general
   :demand t
   :defines
-  ( mo-quick-menu-definer
+  ( mo-quick-menu-map
+    mo-quick-menu-definer
     mo--quick-menu-definer-main
     mo--quick-menu-definer-ctrl
     mo--quick-menu-definer-meta
