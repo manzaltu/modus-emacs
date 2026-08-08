@@ -5557,7 +5557,7 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
-    "h f" #'consult-gh-forge-open-topic-in-consult-gh)
+    "c f" #'consult-gh-forge-open-topic-in-consult-gh)
   :config
   (consult-gh-forge-mode +1))
 
