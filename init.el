@@ -3168,14 +3168,9 @@ leaving the heading outside of the visible region."
     "g" #'magit-status
     "M-g" #'magit-clone
     "i" #'magit-init
-    "s" #'magit-stage
-    "u" #'magit-unstage
-    "c" #'magit-commit
     "d" #'magit-diff-buffer-file
     "b" #'magit-blame-addition
-    "M-c" #'magit-file-checkout
     "l" #'magit-log-buffer-file
-    "k" #'magit-toggle-buffer-lock
     "f" #'magit-file-dispatch
     "M-f" #'magit-find-file)
   ( :keymaps 'magit-diff-section-base-map
