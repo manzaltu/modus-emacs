@@ -6026,7 +6026,14 @@ Excludes ghostel buffers with names matching *claude-code*."
   ;; Make emacsclient on remote hosts open files in the local session
   (setq tramp-propagate-emacsclient-tramp t)
   ;; Preserve remote path value
-  (add-to-list 'tramp-remote-path 'tramp-own-remote-path))
+  (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
+  ;; Run remote asynchronous processes directly for faster process startup
+  (connection-local-set-profile-variables
+   'mo-tramp-direct-async
+   '( ( tramp-direct-async-process . t)))
+  (connection-local-set-profiles
+   '( :application tramp :protocol "ssh")
+   'mo-tramp-direct-async))
 
 ;; Init tramp-cache for caching in tramp
 (use-package tramp-cache
