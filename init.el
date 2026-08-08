@@ -730,18 +730,12 @@ the user to input the run command."
 (use-package custom
   :straight nil
   :config
-  (defvar after-enable-theme-hook nil
-    "Hook run after a theme is enabled using `enable-theme'.")
-
-  (defun mo-run-after-enable-theme-hook (&rest _)
-    "Run `after-enable-theme-hook'."
-    (run-hooks 'after-enable-theme-hook))
-
-  ;; Run `after-enable-theme-hook' after calling `enable-theme'
-  (advice-add 'enable-theme :after #'mo-run-after-enable-theme-hook)
+  (defun mo-run-enable-theme-functions ()
+    "Run `enable-theme-functions' for the currently enabled theme."
+    (run-hook-with-args 'enable-theme-functions (car custom-enabled-themes)))
   :hook
   ;; Fire up theme hook after init
-  (after-init . mo-run-after-enable-theme-hook))
+  ( after-init . mo-run-enable-theme-functions))
 
 ;; Init cus-edit for creating and editing customize buffers
 (use-package cus-edit
@@ -1079,9 +1073,9 @@ If universal ARG is set, exclude the pattern."
     :functions diredp-toggle-find-file-reuse-dir
     :defines diredp-ignore-compressed-flag
     :hook
-    ( after-enable-theme . mo-diredp-window-configure-theme)
+    ( enable-theme-functions . mo-diredp-window-configure-theme)
     :config
-    (defun mo-diredp-window-configure-theme ()
+    (defun mo-diredp-window-configure-theme (_theme)
       "Set dired+ theme configuration."
       (set-face-attribute 'diredp-compressed-file-name nil :foreground "green3"))
     :custom
@@ -1165,13 +1159,13 @@ If universal ARG is set, exclude the pattern."
 (use-package avy
   :demand t
   :hook
-  ( after-enable-theme . mo-avy-configure-theme)
+  ( enable-theme-functions . mo-avy-configure-theme)
   :config
   :general
   ( :keymaps 'override
     "C-;" #'avy-goto-char-timer)
   :config
-  (defun mo-avy-configure-theme ()
+  (defun mo-avy-configure-theme (_theme)
     "Set avy theme configuration."
     ;; Better highlight the leading characters
     (set-face-attribute 'avy-lead-face nil :background "orange1")
@@ -1434,7 +1428,7 @@ Used for preventing recursion when recording new jumps.")
     :states '( normal insert emacs)
     "M-<return>" #'org-meta-return)
   :hook
-  ( after-enable-theme . mo-org-configure-theme)
+  ( enable-theme-functions . mo-org-configure-theme)
   (org-mode . visual-line-mode)
   ;; Redraw global string on clock state change
   ( org-clock-in . redraw-display)
@@ -1443,7 +1437,7 @@ Used for preventing recursion when recording new jumps.")
   :init
   (setq org-clock-x11idle-program-name "xprintidle")
   :config
-  (defun mo-org-configure-theme ()
+  (defun mo-org-configure-theme (_theme)
     "Set org theme configuration."
     ;; Resize org headings
     (dolist (face '( ( org-document-title . 1.2)
@@ -1562,9 +1556,9 @@ Used for preventing recursion when recording new jumps.")
   ( :keymaps 'org-agenda-mode-map
     "q" #'org-agenda-exit)
   :hook
-  ( after-enable-theme . mo-org-agenda-configure-theme)
+  ( enable-theme-functions . mo-org-agenda-configure-theme)
   :config
-  (defun mo-org-agenda-configure-theme ()
+  (defun mo-org-agenda-configure-theme (_theme)
     "Set org theme configuration."
     ;; Resize org headings and agenda dates
     (dolist (face '(( org-agenda-date . 1.1)
@@ -3465,12 +3459,12 @@ act on the window that actually displays it."
     :prefix "f"
     "=" #'ediff-files)
   :hook
-  ( after-enable-theme . mo-ediff-configure-theme)
+  ( enable-theme-functions . mo-ediff-configure-theme)
   :init
   ;; Ignore space changes
   (setq ediff-diff-options "-b")
   :config
-  (defun mo-ediff-configure-theme ()
+  (defun mo-ediff-configure-theme (_theme)
     "Adjust ediff faces to integrate with the current theme."
     (require 'color)
     (set-face-attribute 'ediff-even-diff-A nil :inherit nil :background "DarkSlateGray")
@@ -3805,7 +3799,7 @@ landed on BASE afterwards."
 (use-package lsp-mode
   :after orderless
   :hook
-  ( after-enable-theme . mo-lsp-configure-theme)
+  ( enable-theme-functions . mo-lsp-configure-theme)
   :general
   ;; Set the lsp prefix key
   ( :keymaps 'lsp-mode-map
@@ -3984,7 +3978,7 @@ run the attached function (if exists) and enable lsp"
   (defun mo-lsp-forget-workspace-folders (&rest _args)
     "Force lsp mode to forget the workspace folders for multi root servers."
     (eval '(setf (lsp-session-server-id->folders (lsp-session)) (ht))))
-  (defun mo-lsp-configure-theme ()
+  (defun mo-lsp-configure-theme (_theme)
     "Set lsp-mode theme configuration."
     ;; Distinguish between var reads and writes by underlining lsp write highlights
     (set-face-attribute 'lsp-face-highlight-write nil :underline t))
@@ -4008,9 +4002,9 @@ run the attached function (if exists) and enable lsp"
     "d" #'lsp-ui-doc-glance
     "<menu>" #'lsp-ui-doc-focus-frame)
   :hook
-  ( after-enable-theme . mo-lsp-ui-configure-theme)
+  ( enable-theme-functions . mo-lsp-ui-configure-theme)
   :config
-  (defun mo-lsp-ui-configure-theme ()
+  (defun mo-lsp-ui-configure-theme (_theme)
     "Set lsp-ui theme configuration."
     ;; Blend the buffer background toward blue so the peek stands out; the list
     ;; column is a touch deeper and the selection stronger still.
@@ -4880,9 +4874,9 @@ Provide code changes as GNU diff format, followed by brief explanations for each
     :prefix "a"
     "p" #'posframe-delete-all)
   :hook
-  ( after-enable-theme . mo-posframe-configure-theme)
+  ( enable-theme-functions . mo-posframe-configure-theme)
   :config
-  (defun mo-posframe-configure-theme ()
+  (defun mo-posframe-configure-theme (_theme)
     "Delete all child frames on theme change."
     (posframe-delete-all)))
 
@@ -4894,9 +4888,9 @@ Provide code changes as GNU diff format, followed by brief explanations for each
     "M-O" #'mo-ace-window-with-action
     "C-M-o" #'mo-ace-selected-window-prefix)
   :hook
-  ( after-enable-theme . mo-ace-window-configure-theme)
+  ( enable-theme-functions . mo-ace-window-configure-theme)
   :config
-  (defun mo-ace-window-configure-theme ()
+  (defun mo-ace-window-configure-theme (_theme)
     "Set ace-window theme configuration."
     (set-face-attribute 'aw-leading-char-face nil :height 2.0))
 
@@ -5339,12 +5333,12 @@ If project root cannot be found, use the buffer's default directory."
   ( :keymaps 'mo-quick-menu-map
     :prefix "v"
     "v" #'mo-toggle-light-dark-themes)
-  :hook ( after-enable-theme . mo-doom-themes-configure-theme)
+  :hook ( enable-theme-functions . mo-doom-themes-configure-theme)
   :config
   (defun mo-doom-themes-dim-bg ()
     "Return the dimmed background color of the current theme."
     (doom-darken (doom-color 'bg) 0.35))
-  (defun mo-doom-themes-configure-theme ()
+  (defun mo-doom-themes-configure-theme (_theme)
     "Set doom-themes configuration on theme change."
     (set-face-attribute 'tab-bar nil :foreground (doom-color 'fg))
     (set-face-attribute 'fringe nil :background (mo-doom-themes-dim-bg))
@@ -5378,7 +5372,6 @@ If project root cannot be found, use the buffer's default directory."
   (setcdr (assoc 'gnus-group-news-low-empty doom-themes-base-faces)
           '( :inherit 'gnus-group-mail-1-empty :weight 'normal))
   (load-theme 'doom-one t)
-  (mo-doom-themes-configure-theme)
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
 
@@ -5388,9 +5381,9 @@ If project root cannot be found, use the buffer's default directory."
   :commands auto-dim-other-buffers-mode
   :functions ( doom-color doom-darken)
   :hook
-  ( after-enable-theme . mo-auto-dim-configure-theme)
+  ( enable-theme-functions . mo-auto-dim-configure-theme)
   :config
-  (defun mo-auto-dim-configure-theme ()
+  (defun mo-auto-dim-configure-theme (_theme)
     "Set auto-dim-other-buffers-mode theme configuration."
     (let ((gui-bg (doom-darken (doom-color 'bg) 0.35))
           (tty-bg "#000000"))
