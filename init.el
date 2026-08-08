@@ -488,7 +488,8 @@ window edges unaffected."
     "f" #'find-file
     "C-f" #'find-file-literally
     "w" #'write-file
-    "r" #'recover-this-file)
+    "r" #'recover-this-file
+    "C-r" #'rename-visited-file)
   ( :keymaps 'mo-quick-menu-map
     :prefix "l"
     "l" #'load-file
