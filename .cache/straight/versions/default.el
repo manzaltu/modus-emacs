@@ -169,6 +169,7 @@
  ("org-roam" . "903bd4ec56d29247990d005ed9052c201e18b812")
  ("org-super-agenda" . "fb20ad9c8a9705aa05d40751682beae2d094e0fe")
  ("org-tree-slide" . "e2599a106a26ce5511095e23df4ea04be6687a8a")
+ ("orgit" . "c948819a7cad37a654ada275ebf7c003abf782d0")
  ("ov" . "e2971ad986b6ac441e9849031d34c56c980cf40b")
  ("ox-gfm" . "4f774f13d34b3db9ea4ddb0b1edc070b1526ccbb")
  ("ox-hugo" . "b7dc44dc28911b9d8e3055a18deac16c3b560b03")
