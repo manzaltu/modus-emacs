@@ -100,6 +100,7 @@
  ("ghub" . "cba5666d8b999e2733aefac369a4e0def3be7fc9")
  ("git-link" . "ca01d013bd575710e2cd47001ee1ef6ee41667cf")
  ("git-modes" . "f291a4cc4a8b02a25d5cf93b4ab6af29e6f060d9")
+ ("gn" . "64cfb8344ec3e8585a89a3836716a026e2771fcb")
  ("gntp.el" . "767571135e2c0985944017dc59b0be79af222ef5")
  ("gnu-elpa-mirror" . "f0852d36505d0672d0eb16eb926e0a57a9127e3c")
  ("gnuplot" . "6e758c7ad7bb2865357b13e10ba8c4a1d39ba9c6")
