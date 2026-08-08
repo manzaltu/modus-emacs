@@ -512,6 +512,8 @@ window edges unaffected."
     (hack-dir-local-variables-non-file-buffer))
   ;; Do not prevent remembering "risky" local variables
   (advice-add 'risky-local-variable-p :override #'ignore)
+  ;; Trust own elisp files for macro expansion in analysis tooling
+  (setq trusted-content '( "~/.emacs.d/"))
   ;; Configure backup and auto-saves
   (setq backup-directory-alist `( ( "." . ,(mo-cache-path "backups"))))
   (setq backup-by-copying t)
