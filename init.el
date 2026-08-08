@@ -96,6 +96,7 @@
 
 ;; Init exec-path-from-shell for inheriting shell environment variables
 (use-package exec-path-from-shell
+  :functions exec-path-from-shell-initialize
   :config
   (exec-path-from-shell-initialize))
 
