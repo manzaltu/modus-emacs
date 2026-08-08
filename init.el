@@ -1693,6 +1693,10 @@ Used for preventing recursion when recording new jumps.")
 (use-package orgit
   :after magit)
 
+;; Init orgit-forge for org links to forge topics
+(use-package orgit-forge
+  :after forge)
+
 ;; Init ox-hugo for exporting org files to hugo markdown
 (use-package ox-hugo)
 
