@@ -719,6 +719,8 @@ the user to input the run command."
   (setq save-interprogram-paste-before-kill t)
   ;; Deduplicate kill ring entries
   (setq kill-do-not-save-duplicates t)
+  ;; Disable auto-save for remote files
+  (setq remote-file-name-inhibit-auto-save t)
   ;; After C-u C-SPC, keep popping with just C-SPC
   (setq set-mark-command-repeat-pop t)
   ;; Hide commands in M-x that are inapplicable to the current buffer modes
@@ -5969,14 +5971,7 @@ Excludes ghostel buffers with names matching *claude-code*."
   ( :keymaps 'mo-quick-menu-map
     :prefix "a"
     "M-c" #'tramp-cleanup-bufferless-connections)
-  :hook
-  ;; Disable auto-save
-  ( find-file . mo-tramp-disable-auto-save)
   :config
-  (defun mo-tramp-disable-auto-save ()
-    "Disable auto-save when using TRAMP."
-    (when (file-remote-p (buffer-file-name))
-      (auto-save-mode -1)))
   (defun mo-tramp-disable-backup-predicate (name)
     "A predicate for disabling backup when using TRAMP."
     (not (file-remote-p name)))
