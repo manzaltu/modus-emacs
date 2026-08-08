@@ -3079,6 +3079,8 @@ leaving the heading outside of the visible region."
   (setq proced-enable-color-flag t)
   ;; Show processes of the remote host when in a remote directory
   (setq proced-show-remote-processes t)
+  ;; Auto update the process view while it is displayed in a window
+  (setq-default proced-auto-update-flag 'visible)
   (add-to-list 'proced-format-alist '( custom start etime time utime
                                        stime vsize thcount pri nice
                                        group user pid ppid pcpu picpu
