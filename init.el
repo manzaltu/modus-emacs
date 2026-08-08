@@ -2312,12 +2312,6 @@ Used for preventing recursion when recording new jumps.")
   :hook
   ( lisp-data-mode . mo-enable-reload-dir-locals-on-save)
   :config
-  (defun mo-project-try-local (dir)
-    "Determine if DIR is a project.
-DIR must include a .project file to be considered a project."
-    (let ((root (locate-dominating-file dir ".project")))
-      (and root (cons 'transient root))))
-
   (defun mo-project-save-some-buffers ()
     "Save file buffers of the current tab's project, or of the current project."
     (interactive)
@@ -2442,7 +2436,7 @@ Returns the selected project root directory or nil if cancelled."
         (user-error "No other open projects"))))
 
   ;; Enable project detection using .project files
-  (add-to-list 'project-find-functions #'mo-project-try-local)
+  (setq project-vc-extra-root-markers '( ".project"))
   ;; Set project history file path
   (setq project-list-file (mo-cache-path "projects"))
   ;; Set project switch commands for a quick project based access
