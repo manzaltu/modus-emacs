@@ -40,8 +40,8 @@
 ;; Init straight.el for package management
 (defvar bootstrap-version)
 (let ((bootstrap-file
-       (expand-file-name ".cache/straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-      (bootstrap-version 6))
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" straight-base-dir))
+      (bootstrap-version 7))
   (unless (file-exists-p bootstrap-file)
     (with-current-buffer
         (url-retrieve-synchronously
