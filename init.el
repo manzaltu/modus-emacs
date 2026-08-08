@@ -491,6 +491,7 @@ window edges unaffected."
     :prefix "f"
     "f" #'find-file
     "C-f" #'find-file-literally
+    "s" #'find-sibling-file
     "w" #'write-file
     "r" #'recover-this-file
     "C-r" #'rename-visited-file)
