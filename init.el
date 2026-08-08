@@ -2819,6 +2819,22 @@ without GLOBAL non-nil `embark-bindings' filters it out."
     :states 'normal
     "s" #'wgrep-save-all-buffers))
 
+;; Init grep for searching files with grep
+(use-package grep
+  :straight nil
+  :config
+  (defun mo-grep-widen-after-finish (buffer _status)
+    "Widen BUFFER to reveal a heading hidden by compilation narrowing.
+When the first grep heading is inserted at the beginning of the buffer,
+`compilation-filter' restores its restriction after the insertion point,
+leaving the heading outside of the visible region."
+    (when (buffer-match-p '( derived-mode . grep-mode) buffer)
+      (with-current-buffer buffer
+        (widen))))
+  ;; Group results under file name headings
+  (setq grep-use-headings t)
+  (add-hook 'compilation-finish-functions #'mo-grep-widen-after-finish))
+
 ;; Init tool-bar for tool-bar functionality
 (use-package tool-bar
   :straight nil
