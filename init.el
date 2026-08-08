@@ -580,6 +580,8 @@ window edges unaffected."
   (setq split-window-preferred-direction 'horizontal)
   ;; Increase width splitting threshold for wider screens
   (setq split-width-threshold 180)
+  ;; Skip star buffers when cycling to the previous or next buffer
+  (setq switch-to-prev-buffer-skip-regexp "\\`\\*")
   ;; A fast key binding for showing the next command's result in another window.
   ;; Make sure it also works when the command is using 'switch-to-buffer'.
   (setq switch-to-buffer-obey-display-actions t))
