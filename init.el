@@ -1689,6 +1689,10 @@ Used for preventing recursion when recording new jumps.")
   :after org-contrib
   :straight nil)
 
+;; Init orgit for org links to magit buffers
+(use-package orgit
+  :after magit)
+
 ;; Init ox-hugo for exporting org files to hugo markdown
 (use-package ox-hugo)
 
