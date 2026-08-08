@@ -3218,6 +3218,9 @@ leaving the heading outside of the visible region."
 (use-package magit-imerge
   :after magit)
 
+;; Init difftastic for structural diffs
+(use-package difftastic)
+
 ;; Init git-modes for editing git config files
 (use-package git-modes)
 
