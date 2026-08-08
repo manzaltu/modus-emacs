@@ -4551,6 +4551,11 @@ enabling lsp."
 ;; Init bazel for editing Bazel related files
 (use-package bazel)
 
+;; Init gn-mode for editing GN build files
+(use-package gn-mode
+  :straight ( gn-mode :type git :host nil :repo "https://gn.googlesource.com/gn"
+              :local-repo "gn" :files ( "misc/emacs/gn-mode.el")))
+
 ;; Init just-mode for editing just files
 (use-package just-mode)
 
