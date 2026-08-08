@@ -3921,8 +3921,9 @@ landed on BASE afterwards."
   (defvar mo-lsp-recursion-flag nil
     "Flag used for detecting recursion when enabling lsp.")
   (defun mo-maybe-enable-lsp ()
-    "If mode in LSP-CONFIG is equal to the current major-mode,
-run the attached function (if exists) and enable lsp"
+    "Enable lsp if the current major mode is in `mo-lsp-enable-for-modes'.
+If the matching mode entry carries a setup function, call it before
+enabling lsp."
     (unless (or lsp-mode lsp--buffer-deferred mo-lsp-disable) ; Do not load if lsp is already loaded, deferred or disabled
       (unless (string-match "\\.~.+?~$" (buffer-name)) ; Do not load in magit diff buffers
         (if mo-lsp-recursion-flag
