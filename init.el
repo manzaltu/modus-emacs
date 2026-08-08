@@ -3701,6 +3701,11 @@ landed on BASE afterwards."
   :config
   (setq git-link-use-commit t))
 
+;; Init bug-reference for linking issue references in code
+(use-package bug-reference
+  :straight nil
+  :hook ( prog-mode . bug-reference-prog-mode))
+
 ;; Init elisp-mode for editing and running lisp code
 (use-package elisp-mode
   :straight nil
