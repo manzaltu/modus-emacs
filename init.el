@@ -3083,6 +3083,8 @@ leaving the heading outside of the visible region."
 
   (setq-default proced-filter 'all)
   (setq proced-enable-color-flag t)
+  ;; Show processes of the remote host when in a remote directory
+  (setq proced-show-remote-processes t)
   (add-to-list 'proced-format-alist '( custom start etime time utime
                                        stime vsize thcount pri nice
                                        group user pid ppid pcpu picpu
