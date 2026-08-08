@@ -4730,6 +4730,13 @@ run the attached function (if exists) and enable lsp"
   :config
   (setq devdocs-data-dir (mo-cache-path "devdocs")))
 
+;; Init man for viewing man pages
+(use-package man
+  :straight nil
+  :config
+  ;; Read man pages on the remote host when in a remote directory
+  (setq Man-support-remote-systems t))
+
 ;; Init re-builder for interactive regexp building
 (use-package re-builder
   :straight nil
