@@ -4990,7 +4990,9 @@ Provide code changes as GNU diff format, followed by brief explanations for each
     (let ((current-prefix-arg '( 4)))
       (call-interactively #'eww)))
 
-  (setq eww-search-prefix "https://www.google.com/search?q="))
+  (setq eww-search-prefix "https://www.google.com/search?q=")
+  ;; Rename eww buffers after the page title
+  (setq eww-auto-rename-buffer 'title))
 
 ;; Init erc for accessing IRC through Emacs
 (use-package erc
