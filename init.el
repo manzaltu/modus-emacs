@@ -5152,6 +5152,8 @@ If project root cannot be found, use the buffer's default directory."
   :straight nil
   :config
   (setq shell-kill-buffer-on-exit t)
+  ;; Highlight undefined commands while typing
+  (setq shell-highlight-undef-enable t)
   (setq-default explicit-shell-file-name "/bin/bash"))
 
 ;; Init eshell for terminal emulation
