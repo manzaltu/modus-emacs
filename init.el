@@ -6010,6 +6010,9 @@ Excludes ghostel buffers with names matching *claude-code*."
   ( :keymaps 'mo-quick-menu-map
     :prefix "a"
     "M-c" #'tramp-cleanup-bufferless-connections)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "a"
+    "u" #'tramp-revert-buffer-with-sudo)
   :config
   (defun mo-tramp-disable-backup-predicate (name)
     "A predicate for disabling backup when using TRAMP."
