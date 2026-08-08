@@ -4430,7 +4430,9 @@ run the attached function (if exists) and enable lsp"
   :config
   (setq python-indent-guess-indent-offset-verbose nil)
   (setq python-shell-interpreter "ipython")
-  (setq python-shell-interpreter-args "--simple-prompt -i"))
+  (setq python-shell-interpreter-args "--simple-prompt -i")
+  ;; Run a shared dedicated shell per project
+  (setq python-shell-dedicated 'project))
 
 ;; Init lsp-pyright for pyright python language server
 (use-package lsp-pyright)
