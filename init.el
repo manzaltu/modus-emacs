@@ -4599,6 +4599,12 @@ run the attached function (if exists) and enable lsp"
   :config
   (editorconfig-mode 1))
 
+;; Init so-long for mitigating performance issues in files with long lines
+(use-package so-long
+  :straight nil
+  :config
+  (global-so-long-mode))
+
 ;; Init url for url related functionality
 (use-package url
   :straight nil
