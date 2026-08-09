@@ -992,7 +992,15 @@ Tab is named after the project's name."
   (defun mo-show-modified-buffer-changes ()
     "If a buffer is different from its file, show the changes."
     (let ((buffer buffer-file-name))
-      (when (and buffer (file-exists-p buffer) (buffer-modified-p))
+      ;; Check for buffer modification first, so unmodified remote buffers are
+      ;; killed without remote file checks. Skip remote files when the
+      ;; connection is down, as checking for file existence might block on a
+      ;; reconnection attempt
+      (when (and buffer
+                 (buffer-modified-p)
+                 (or (not (file-remote-p buffer))
+                     (file-remote-p buffer nil t))
+                 (file-exists-p buffer))
         (let ((diff-window (diff-buffer-with-file)))
           (add-hook 'kill-buffer-hook
                     (lambda ()
