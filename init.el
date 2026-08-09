@@ -1256,6 +1256,7 @@ If universal ARG is set, exclude the pattern."
 
 ;; Init evil-cleverparens for lisp modal editing
 (use-package evil-cleverparens
+  :demand t
   :general
   ( :keymaps 'evil-cleverparens-mode-map
     :states 'normal
@@ -1264,6 +1265,18 @@ If universal ARG is set, exclude the pattern."
     "M-a" #'evil-cp-insert-at-end-of-form
     "M-i" #'evil-cp-insert-at-beginning-of-form
     "M-w" #' evil-cp-copy-paste-form)
+  ;; Bind the text objects locally to the mode
+  ( :definer 'minor-mode
+    :keymaps 'evil-cleverparens-mode
+    :states '( visual operator)
+    "a f" #'evil-cp-a-form
+    "i f" #'evil-cp-inner-form
+    "a c" #'evil-cp-a-comment
+    "i c" #'evil-cp-inner-comment
+    "a d" #'evil-cp-a-defun
+    "i d" #'evil-cp-inner-defun
+    "a W" #'evil-cp-a-WORD
+    "i W" #'evil-cp-inner-WORD)
   :custom
   ( evil-cleverparens-use-additional-bindings nil)
   ( evil-cleverparens-use-additional-movement-keys nil)
@@ -1271,7 +1284,23 @@ If universal ARG is set, exclude the pattern."
   ( evil-cleverparens-use-regular-insert t)
   :hook
   (lisp-data-mode . evil-cleverparens-mode)
-  (sly-mrepl . evil-cleverparens-mode))
+  (sly-mrepl . evil-cleverparens-mode)
+  :config
+  ;; The mode binds its text objects globally on load, hiding the default W
+  ;; text object and the tree-sitter text objects that are bound later
+  ;; during init. Unbind them globally, as they are rebound locally above.
+  (general-define-key
+   :keymaps 'evil-outer-text-objects-map
+   "f" nil
+   "c" nil
+   "d" nil
+   "W" #'evil-a-WORD)
+  (general-define-key
+   :keymaps 'evil-inner-text-objects-map
+   "f" nil
+   "c" nil
+   "d" nil
+   "W" #'evil-inner-WORD))
 
 ;; Init vundo for viewing and moving in the undo tree history
 (use-package vundo
