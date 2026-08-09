@@ -3889,9 +3889,12 @@ landed on BASE afterwards."
     "-" #'treesit-inspect-node-at-point)
   :custom
   ;; Enable tree-sitter modes, remapping their base modes.
-  ;; C, C++ and C# are intentionally left on their non-tree-sitter modes.
   ( treesit-enabled-modes '( bash-ts-mode
+                             c-ts-mode
+                             c++-ts-mode
+                             c-or-c++-ts-mode
                              cmake-ts-mode
+                             csharp-ts-mode
                              css-ts-mode
                              dockerfile-ts-mode
                              go-ts-mode
