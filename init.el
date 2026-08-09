@@ -59,9 +59,15 @@
 
 ;; Init straight for package management
 (use-package straight
+  :defines straight-built-in-pseudo-packages
   :custom
   ;; Packages should be installed by default using straight
-  ( straight-use-package-by-default t))
+  ( straight-use-package-by-default t)
+  :config
+  ;; Prevent package dependencies on tramp from fetching and building GNU ELPA
+  ;; tramp, as its build directory shadows the built-in tramp on `load-path'
+  ;; for lazily loaded sub files
+  (add-to-list 'straight-built-in-pseudo-packages 'tramp))
 
 ;; Init use-package for extending package configuration with custom keywords
 (use-package use-package
