@@ -1303,7 +1303,31 @@ If universal ARG is set, exclude the pattern."
    "W" #'evil-inner-WORD))
 
 ;; Init evil-textobj-tree-sitter for tree-sitter based text objects
-(use-package evil-textobj-tree-sitter)
+(use-package evil-textobj-tree-sitter
+  :demand t
+  :after evil
+  :functions
+  ( evil-textobj-tree-sitter-get-textobj)
+  :config
+  ;; Text objects for selecting and operating on syntax constructs
+  (general-define-key
+   :keymaps 'evil-outer-text-objects-map
+   "f" (evil-textobj-tree-sitter-get-textobj "function.outer")
+   "c" (evil-textobj-tree-sitter-get-textobj "class.outer")
+   ";" (evil-textobj-tree-sitter-get-textobj "comment.outer")
+   "a" (evil-textobj-tree-sitter-get-textobj "parameter.outer")
+   "i" (evil-textobj-tree-sitter-get-textobj "conditional.outer")
+   "l" (evil-textobj-tree-sitter-get-textobj "loop.outer")
+   "e" (evil-textobj-tree-sitter-get-textobj "entry.outer"))
+  (general-define-key
+   :keymaps 'evil-inner-text-objects-map
+   "f" (evil-textobj-tree-sitter-get-textobj "function.inner")
+   "c" (evil-textobj-tree-sitter-get-textobj "class.inner")
+   ";" (evil-textobj-tree-sitter-get-textobj "comment.inner")
+   "a" (evil-textobj-tree-sitter-get-textobj "parameter.inner")
+   "i" (evil-textobj-tree-sitter-get-textobj "conditional.inner")
+   "l" (evil-textobj-tree-sitter-get-textobj "loop.inner")
+   "e" (evil-textobj-tree-sitter-get-textobj "entry.inner")))
 
 ;; Init vundo for viewing and moving in the undo tree history
 (use-package vundo
