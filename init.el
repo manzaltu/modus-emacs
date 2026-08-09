@@ -1307,8 +1307,39 @@ If universal ARG is set, exclude the pattern."
   :demand t
   :after evil
   :functions
-  ( evil-textobj-tree-sitter-get-textobj)
+  ( evil-textobj-tree-sitter-get-textobj
+    evil-textobj-tree-sitter-goto-textobj)
   :config
+  ;; Generate goto commands for the text objects and bind them under the
+  ;; ] and [ prefix keys
+  (pcase-dolist (`( ,key ,name ,part ,group)
+                 '( ( "f" "function" "start" "function.outer")
+                    ( "F" "function" "end" "function.outer")
+                    ( "c" "class" "start" "class.outer")
+                    ( "a" "parameter" "start" "parameter.inner")
+                    ( "i" "conditional" "start" "conditional.outer")
+                    ( "l" "loop" "start" "loop.outer")
+                    ( ";" "comment" "start" "comment.outer")
+                    ( "e" "entry" "start" "entry.outer")
+                    ( "t" "test" "start" "test.outer")))
+    (let ((end (string= part "end"))
+          (next-cmd (intern (format "mo-goto-next-%s-%s" name part)))
+          (prev-cmd (intern (format "mo-goto-prev-%s-%s" name part))))
+      (defalias next-cmd
+        (lambda ()
+          (interactive)
+          (evil-textobj-tree-sitter-goto-textobj group nil end))
+        (format "Jump to the %s of the next %s." part name))
+      (defalias prev-cmd
+        (lambda ()
+          (interactive)
+          (evil-textobj-tree-sitter-goto-textobj group t end))
+        (format "Jump to the %s of the previous %s." part name))
+      (general-define-key
+       :states '( normal motion)
+       (concat "] " key) next-cmd
+       (concat "[ " key) prev-cmd)))
+
   ;; Text objects for selecting and operating on syntax constructs
   (general-define-key
    :keymaps 'evil-outer-text-objects-map
