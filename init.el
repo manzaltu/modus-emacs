@@ -2146,11 +2146,11 @@ Used for preventing recursion when recording new jumps.")
     "a" #'dired-async-mode
     "C-k" #'dired-async-kill-process)
   :custom
-  ;; Make sure that the file threshold variable is passed to the async environment.
-  ;; This is needed for disabling the large file warning on dired-async.
+  ;; Pass the tramp configuration and the file threshold variables to the
+  ;; async environment. The latter is needed for disabling the large file
+  ;; warning on dired-async.
   ( dired-async-env-variables-regexp
-    "\\`\\(\\(tramp-\\(default\\|connection\\|remote\\)\\|ange-ftp\\)-.*
-\\|large-file-warning-threshold\\)")
+    "\\`\\(?:tramp-\\(?:default\\|connection\\|remote\\|use\\)-.*\\|tramp-verbose\\'\\|tramp-persistency-file-name\\'\\|ange-ftp-.*\\|large-file-warning-threshold\\'\\)")
   :config
   (defun mo-disable-large-file-warning-advice (func &rest args)
     "An advice function for disabling the large file warning."
