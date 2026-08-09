@@ -1302,6 +1302,9 @@ If universal ARG is set, exclude the pattern."
    "d" nil
    "W" #'evil-inner-WORD))
 
+;; Init evil-textobj-tree-sitter for tree-sitter based text objects
+(use-package evil-textobj-tree-sitter)
+
 ;; Init vundo for viewing and moving in the undo tree history
 (use-package vundo
   :general
