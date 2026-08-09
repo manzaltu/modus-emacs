@@ -1308,7 +1308,8 @@ If universal ARG is set, exclude the pattern."
   :after evil
   :functions
   ( evil-textobj-tree-sitter-get-textobj
-    evil-textobj-tree-sitter-goto-textobj)
+    evil-textobj-tree-sitter-goto-textobj
+    evil-textobj-tree-sitter--get-within)
   :config
   ;; Generate goto commands for the text objects and bind them under the
   ;; ] and [ prefix keys
@@ -1339,6 +1340,29 @@ If universal ARG is set, exclude the pattern."
        :states '( normal motion)
        (concat "] " key) next-cmd
        (concat "[ " key) prev-cmd)))
+
+  ;; Generate goto commands for jumping to the start of an enclosing text
+  ;; object, as the goto commands above only jump linearly. With a prefix
+  ;; argument, jump that many nesting levels up
+  (pcase-dolist (`( ,key ,name ,group)
+                 '( ( "C" "class" "class.outer")
+                    ( "I" "conditional" "conditional.outer")
+                    ( "L" "loop" "loop.outer")
+                    ( "E" "entry" "entry.outer")))
+    (let ((cmd (intern (format "mo-goto-enclosing-%s-start" name))))
+      (defalias cmd
+        (lambda (count)
+          (interactive "p")
+          (if-let* ((nodes (ignore-errors
+                             (evil-textobj-tree-sitter--get-within
+                              (list (intern group)) count nil))))
+              (goto-char (nth 1 (car (last nodes))))
+            (user-error "No enclosing %s found" name)))
+        (format "Jump to the start of the enclosing %s.
+With prefix argument COUNT, jump that many nesting levels up." name))
+      (general-define-key
+       :states '( normal motion)
+       (concat "[ " key) cmd)))
 
   ;; Text objects for selecting and operating on syntax constructs
   (general-define-key
