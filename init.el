@@ -5293,7 +5293,7 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
-    "C-t" #'tramp-term))
+    "M-t" #'tramp-term))
 
 ;; Init ghostel for terminal emulation
 (use-package ghostel
