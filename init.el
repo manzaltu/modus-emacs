@@ -2916,6 +2916,23 @@ without GLOBAL non-nil `embark-bindings' filters it out."
   (keymap-set embark-identifier-map "C-r" #'mo-embark-lsp-ui-peek-find-references)
   (keymap-set embark-identifier-map "C-<return>" #'mo-embark-lsp-ui-peek-find-definitions)
   (keymap-set embark-identifier-map "C-j" #'mo-embark-lsp-ui-peek-find-implementation)
+  ;; Add lsp-treemacs hierarchy actions to identifier actions
+  (defun mo-embark-lsp-treemacs-call-hierarchy (_target)
+    "Show the call hierarchy at point, ignoring Embark TARGET."
+    (interactive "s")
+    (call-interactively #'lsp-treemacs-call-hierarchy))
+  (defun mo-embark-lsp-treemacs-outgoing-call-hierarchy (_target)
+    "Show the outgoing call hierarchy at point, ignoring Embark TARGET."
+    (interactive "s")
+    (let ((current-prefix-arg '( 4)))
+      (call-interactively #'lsp-treemacs-call-hierarchy)))
+  (defun mo-embark-lsp-treemacs-type-hierarchy (_target)
+    "Show the type hierarchy at point, ignoring Embark TARGET."
+    (interactive "s")
+    (call-interactively #'lsp-treemacs-type-hierarchy))
+  (keymap-set embark-identifier-map "c" #'mo-embark-lsp-treemacs-call-hierarchy)
+  (keymap-set embark-identifier-map "C" #'mo-embark-lsp-treemacs-outgoing-call-hierarchy)
+  (keymap-set embark-identifier-map "t" #'mo-embark-lsp-treemacs-type-hierarchy)
   ;; Hide the mode line of the Embark live/completions buffers
   (add-to-list 'display-buffer-alist
                '( "\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
