@@ -2899,11 +2899,6 @@ Used while preview is toggled off."
     "b k" #'embark-bindings-in-keymap
     "b m" #'mo-embark-bindings-in-major-mode
     "b i" #'mo-embark-bindings-in-minor-mode)
-  :init
-  ;; Use minimal indicators
-  (setq embark-indicators '( embark-minimal-indicator
-                             embark-highlight-indicator
-                             embark-isearch-highlight-indicator))
   :config
   ;; Don't quit the minibuffer after an action is taken
   (setq embark-quit-after-action nil)
