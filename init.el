@@ -117,42 +117,12 @@
   :demand t
   :defines
   ( mo-quick-menu-map
-    mo-quick-menu-definer
-    mo--quick-menu-definer-main
-    mo--quick-menu-definer-ctrl
-    mo--quick-menu-definer-meta
-    mo--quick-menu-definer-ctrl-meta)
+    mo-quick-menu-definer)
   :functions ( general-create-definer mo-quick-menu-definer)
-  :hook ( emacs-startup . mo--quick-menu-setup-modifier-variants)
   :config
   ;; Create a definer and a leader key for the quick menu
-  (general-create-definer mo--quick-menu-definer-main
+  (general-create-definer mo-quick-menu-definer
     :prefix "<menu>")
-
-  ;; Create a ctrl definer and a leader key for the quick menu
-  (general-create-definer mo--quick-menu-definer-ctrl
-    :prefix "C-<menu>")
-
-  ;; Create a meta definer and a leader key for the quick menu
-  (general-create-definer mo--quick-menu-definer-meta
-    :prefix "M-<menu>")
-
-  ;; Create a ctrl-meta definer and a leader key for the quick menu
-  (general-create-definer mo--quick-menu-definer-ctrl-meta
-    :prefix "C-M-<menu>")
-
-  (defmacro mo-quick-menu-definer (&rest args)
-    "Define bindings for both the evil and the non-evil leaders."
-    (declare (indent defun))
-    `(progn
-       (mo--quick-menu-definer-main
-         ,@args)
-       (mo--quick-menu-definer-ctrl
-         ,@args)
-       (mo--quick-menu-definer-meta
-         ,@args)
-       (mo--quick-menu-definer-ctrl-meta
-         ,@args)))
 
   (defvar mo--quick-menu-groups
     '( ( "a" . "Action")
@@ -174,18 +144,6 @@
        ( "m" . "Multiple Cursors")
        ( "n" . "Notes"))
     "Alist of (KEY . DESCRIPTION) for quick menu groups.")
-
-  (defun mo--quick-menu-setup-modifier-variants ()
-    "Bind C-/M-/C-M- variants of group keys to the same keymaps.
-Excludes C-g (abort) and C-m (RET alias)."
-    (dolist (group mo--quick-menu-groups)
-      (let* ((key (car group))
-             (keymap (keymap-lookup mo-quick-menu-map key)))
-        (when (keymapp keymap)
-          (unless (member key '("g" "m"))
-            (keymap-set mo-quick-menu-map (concat "C-" key) keymap))
-          (keymap-set mo-quick-menu-map (concat "M-" key) keymap)
-          (keymap-set mo-quick-menu-map (concat "C-M-" key) keymap)))))
 
   (eval
    `(mo-quick-menu-definer
