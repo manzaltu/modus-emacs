@@ -4216,17 +4216,8 @@ enabling lsp."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
-    "'" #'lsp-treemacs-call-hierarchy
-    "\"" #'mo-lsp-treemacs-outgoing-call-hierarchy
-    "t" #'lsp-treemacs-type-hierarchy
     "i" #'lsp-treemacs-symbols)
   :config
-  (defun mo-lsp-treemacs-outgoing-call-hierarchy ()
-    "Show the outgoing call hierarchy for the symbol at point."
-    (interactive)
-    (let ((current-prefix-arg '( 4)))
-      (call-interactively #'lsp-treemacs-call-hierarchy)))
-
   (setf (alist-get 'side lsp-treemacs-symbols-position-params) 'right))
 
 ;; Init dape for interactive debugging
