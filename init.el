@@ -3226,7 +3226,7 @@ leaving the heading outside of the visible region."
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
     "w" #'vc-working-tree-switch-project
-    "M-w" #'vc-add-working-tree
+    "C-w" #'vc-add-working-tree
     "=" #'vc-root-diff-unintegrated
     "h" #'vc-region-history)
   :config
@@ -3263,13 +3263,13 @@ leaving the heading outside of the visible region."
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
     "g" #'magit-status
-    "M-g" #'magit-clone
+    "C-c" #'magit-clone
     "i" #'magit-init
     "d" #'magit-diff-buffer-file
     "b" #'magit-blame-addition
     "l" #'magit-log-buffer-file
     "f" #'magit-file-dispatch
-    "M-f" #'magit-find-file)
+    "." #'magit-find-file)
   ( :keymaps 'magit-diff-section-base-map
     "C-<return>" #'magit-diff-visit-worktree-file-other-window)
   ( :keymaps 'magit-mode-map
@@ -3802,7 +3802,7 @@ the produced output, not the process exit code)."
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
     "r" #'mo-diff-hl-set-reference-merge-base-in-project
-    "M-r" #'diff-hl-set-reference-rev-in-project
+    "C-r" #'diff-hl-set-reference-rev-in-project
     "n" #'diff-hl-next-hunk
     "p" #'diff-hl-previous-hunk)
   :hook
@@ -3833,7 +3833,7 @@ landed on BASE afterwards."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
-    "M-l" #'git-link)
+    "C-l" #'git-link)
   :config
   (setq git-link-use-commit t))
 
