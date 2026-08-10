@@ -42,13 +42,13 @@ Bindings are declared via `general.el`'s `:general` keyword.
 
 **How the leader works.**
 
-- The leader key is `<menu>`, with three modifier variants (`C-<menu>`, `M-<menu>`, `C-M-<menu>`) bound to the **same** keymap, `mo-quick-menu-map`.
-- After the leader, single-letter group keys route into sub-keymaps (e.g. `b` Buffer, `c` Code, `f` File, `g` Git, `j` Project — see `mo--quick-menu-groups` in `init.el` for the full list). At startup `mo--quick-menu-setup-modifier-variants` rebinds each group key under `C-`, `M-`, and `C-M-` modifiers too, so the same group is reachable as `c`, `C-c`, `M-c`, or `C-M-c`. The four variants let a modifier be held through the whole chord — useful when a saturated group binds modified action keys like `M-r`.
+- The leader key is `<menu>`, which opens the quick-menu keymap, `mo-quick-menu-map`.
+- After the leader, single-letter group keys route into sub-keymaps (e.g. `b` Buffer, `c` Code, `f` File, `g` Git, `j` Project — see `mo--quick-menu-groups` in `init.el` for the full list).
 
 **When adding bindings.**
 
 - Place new bindings inside an existing group when the action belongs to one. Don't invent a new top-level group key. Default to plain (unmodified) action keys; reach for modified ones only in saturated groups.
-- **Global vs. mode-local quick-menu**: bind directly on `mo-quick-menu-map` (`:keymaps 'mo-quick-menu-map :prefix "<group>"`) when the action should always be reachable; use the `mo-quick-menu-definer` macro with `:keymaps 'foo-mode-map` when the binding should only be live while `foo-mode` is active. The macro expands to bind under all four leader variants — don't use the raw `mo--quick-menu-definer-*` definers directly.
+- **Global vs. mode-local quick-menu**: bind directly on `mo-quick-menu-map` (`:keymaps 'mo-quick-menu-map :prefix "<group>"`) when the action should always be reachable; use the `mo-quick-menu-definer` definer with `:keymaps 'foo-mode-map` when the binding should only be live while `foo-mode` is active.
 - For **minor-mode** keymaps, use general's `:definer 'minor-mode` with `:keymaps 'foo-mode` (the mode symbol, not `foo-mode-map`) — this routes through `minor-mode-map-alist` and avoids precedence/shadowing issues that bite plain `:keymaps 'foo-mode-map` bindings on minor modes.
 - **`C-M-s-<key>` is the "Hyper" prefix** — the user's QMK keyboard emits the full `Ctrl+Meta+Super` triple from a single physical key. Use it for **context-dependent** quick access to mode-local commands; bind it on a specific mode/minor-mode map (e.g. `emacs-lisp-mode-map`, `lsp-mode-map`), never on the global map or `mo-quick-menu-map`. Typical use: one-keystroke aliases for the most-used command in a given mode (e.g. `C-M-s-b` → `eval-buffer` in `emacs-lisp-mode-map`).
 - **Adding evil-style bindings**: when the goal is a vim-style direct keystroke — typically a short mnemonic chord like `gc`, `z i`, `z SPC` that should only fire while evil is in a specific state — gate the binding by adding `:states 'normal` (or `'( normal visual)`, `'motion`, `'insert`) inside the `:general` arglist. Only these direct mode-map bindings are modal; quick-menu and Hyper bindings are never gated by state. Examples: `( :states '( normal visual) "z i" #'evil-numbers/inc-at-pt)`, `( :states 'normal "z SPC" #'string-inflection-cycle)`, `( :states 'motion "C-S-d" #'evil-scroll-up)`.
@@ -57,8 +57,7 @@ Examples of each pattern inside a `use-package`:
 
 ```elisp
 ;; Global quick-menu binding — leader → group → key.
-;; The `:general' form binds directly on `mo-quick-menu-map'; the four leader
-;; prefixes (<menu>, C-<menu>, M-<menu>, C-M-<menu>) all reach this map.
+;; The `:general' form binds directly on `mo-quick-menu-map'.
 (use-package files
   :general
   ( :keymaps 'mo-quick-menu-map
@@ -66,9 +65,8 @@ Examples of each pattern inside a `use-package`:
     "f" #'find-file
     "w" #'write-file))
 
-;; Mode-local quick-menu binding — use the `mo-quick-menu-definer' macro so
-;; the binding is reachable from all four leader-modifier variants when the
-;; mode's keymap is active.
+;; Mode-local quick-menu binding — use the `mo-quick-menu-definer' definer so
+;; the binding is only live while the mode's keymap is active.
 (use-package lsp-mode
   :general
   (mo-quick-menu-definer
