@@ -5720,6 +5720,52 @@ If project root cannot be found, use the buffer's default directory."
         (call-interactively #'desktop+-create)))
     t))
 
+;; Init frameset for preserving the tty client frame layout across reconnections
+(use-package frameset
+  :straight nil
+  :config
+  (defvar mo--tty-frame-layout nil
+    "Window and tab layout of the last used tty client frame.")
+
+  (defun mo--tty-frame-layout-save (frame)
+    "Save the window and tab layout of FRAME if it is a tracked tty frame."
+    ;; Skip child frames (e.g. posframe popups)
+    (when (and (frame-parameter frame 'tty)
+               (frame-parameter frame 'mo--tty-layout-tracked)
+               (not (frame-parameter frame 'parent-frame)))
+      (setq mo--tty-frame-layout (frameset-save (list frame)))))
+
+  (defun mo--tty-frame-layout-restore ()
+    "Restore the saved layout into the selected tty client frame.
+Restore only in tty client frames that were opened without files. Mark
+the frame for subsequent layout tracking."
+    (when (frame-parameter nil 'tty)
+      (let ((client (frame-parameter nil 'client))
+            (frame (selected-frame)))
+        (when (and mo--tty-frame-layout
+                   (not (and (processp client)
+                             (process-get client 'buffers))))
+          ;; Skip size parameters on restore, keeping the frame at the size
+          ;; set by the attached terminal
+          (frameset-restore mo--tty-frame-layout
+                            :reuse-frames (lambda (f) (eq f frame))
+                            :cleanup-frames nil
+                            :filters (append
+                                      '( ( width . :never)
+                                         ( height . :never)
+                                         ( frameset--text-pixel-width . :never)
+                                         ( frameset--text-pixel-height . :never))
+                                      frameset-filter-alist)))
+        ;; Track the layout only after restoring, so that frame creation
+        ;; does not overwrite the layout it is about to restore
+        (set-frame-parameter frame 'mo--tty-layout-tracked t))))
+
+  ;; Track the layout continuously, as tty hangup (e.g. on ssh disconnection)
+  ;; deletes frames without running delete-frame-functions
+  (add-hook 'window-state-change-functions #'mo--tty-frame-layout-save)
+  (add-hook 'delete-frame-functions #'mo--tty-frame-layout-save)
+  (add-hook 'server-after-make-frame-hook #'mo--tty-frame-layout-restore))
+
 ;; Init zoom-window for toggling window zoom
 (use-package zoom-window
   :general
