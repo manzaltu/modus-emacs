@@ -2387,6 +2387,9 @@ Used for preventing recursion when recording new jumps.")
 ;; Init completion-preview for inline preview of the top completion candidate
 (use-package completion-preview
   :straight nil
+  :custom
+  ;; Show the preview only when there is a single matching candidate
+  ( completion-preview-exact-match-only t)
   :hook
   ;; Preview in shell buffers, where corfu auto completion is disabled
   ( eshell-mode . completion-preview-mode)
