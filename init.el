@@ -1646,6 +1646,12 @@ Used for preventing recursion when recording new jumps.")
   ;; Close any loaded org buffer when exiting the agenda buffer
   ( :keymaps 'org-agenda-mode-map
     "q" #'org-agenda-exit)
+  :init
+  ;; Show the agenda on startup and in client frames opened without files
+  (setq initial-buffer-choice
+        (lambda ()
+          (mo-org-agenda-and-todo)
+          (get-buffer "*Org Agenda*")))
   :hook
   ( enable-theme-functions . mo-org-agenda-configure-theme)
   :config
@@ -1753,11 +1759,7 @@ Used for preventing recursion when recording new jumps.")
                    ( "" ("  ") nil nil :ascent center))))
 
   ;; Auto-save agenda files
-  (run-with-timer 0 mo-org-agenda-auto-save-agenda-interval #'mo-org-agenda-save-agenda)
-
-  :hook
-  ;; Show agenda on startup
-  ( emacs-startup . mo-org-agenda-and-todo))
+  (run-with-timer 0 mo-org-agenda-auto-save-agenda-interval #'mo-org-agenda-save-agenda))
 
 ;; Init org-contrib for org add-ons
 (use-package org-contrib)
