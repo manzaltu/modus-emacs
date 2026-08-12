@@ -215,9 +215,7 @@
   ( :states 'motion
     ;; We want C-<num> for jumping between tabs
     "C-6" nil
-    "C-S-d" #'evil-scroll-up
-    "M-]" #'mo-evil-forward-paragraph-recenter
-    "M-[" #'mo-evil-backward-paragraph-recenter)
+    "C-S-d" #'evil-scroll-up)
   ( :states 'insert
     ;; Evil, for historical reasons, binds the <delete> key to delete-char.
     ;; Today this is unnecessary, and may override other modes keybindings.
@@ -282,22 +280,6 @@
           (unless (or (eobp) (eolp)) (forward-char))
           (apply command args))
       (apply command args)))
-
-  (defun mo-evil-forward-paragraph-recenter ()
-    "Move to the end of the next paragraph and recenter.
-Briefly highlight previous location."
-    (interactive)
-    (pulse-momentary-highlight-one-line)
-    (call-interactively #'evil-forward-paragraph)
-    (recenter))
-
-  (defun mo-evil-backward-paragraph-recenter ()
-    "Move to the beginning of the previous paragraph and recenter.
-Briefly highlight previous location."
-    (interactive)
-    (pulse-momentary-highlight-one-line)
-    (call-interactively #'evil-backward-paragraph)
-    (recenter))
 
   ;; Set word movement to operate on symbol boundaries
   (defalias #'forward-evil-word #'forward-evil-symbol)
