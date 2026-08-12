@@ -5095,8 +5095,8 @@ Provide code changes as GNU diff format, followed by brief explanations for each
   :general
   ( :keymaps 'override
     "M-o" #'ace-window
-    "M-O" #'mo-ace-window-with-action
-    "C-M-o" #'mo-ace-selected-window-prefix)
+    "C-M-o" #'mo-ace-window-with-action
+    "C-M-S-o" #'mo-ace-selected-window-prefix)
   :hook
   ( enable-theme-functions . mo-ace-window-configure-theme)
   :config
