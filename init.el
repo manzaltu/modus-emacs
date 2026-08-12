@@ -524,8 +524,8 @@ window edges unaffected."
   :straight nil
   :general
   ( :keymaps 'override
-    "C-M-S-o" #'other-window-prefix
-    "C-M->" #'same-window-prefix)
+    "C-M->" #'other-window-prefix
+    "C-M-<" #'same-window-prefix)
   ( :keymaps 'mo-quick-menu-map
     :prefix "w"
     "=" #'balance-windows
