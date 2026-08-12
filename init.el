@@ -1464,6 +1464,7 @@ Used for preventing recursion when recording new jumps.")
 
 ;; Init kkp for supporting the Kitty Keyboard Protocol
 (use-package kkp
+  :demand t
   :commands global-kkp-mode
   :config
   (global-kkp-mode +1))
