@@ -304,10 +304,46 @@
   ;; Recenter after a command jumps point off-window
   ( post-command . mo--recenter-on-jump)
   ( tty-setup . (lambda ()
-                  ;; Alternative leader key for keyboards that do not have a menu key
+                  ;; Decode 8-bit meta characters as multi-modifier key chords
+                  (dolist (char (number-sequence ?! ?~))
+                    (define-key input-decode-map (string (+ char 128))
+                                (kbd (concat "C-M-s-"
+                                             (if (<= ?A char ?Z)
+                                                 (concat "S-" (string (downcase char)))
+                                               (string char))))))
+                  ;; Alternative leader key for keyboards without a menu key,
+                  ;; overriding the 8-bit chord for /
                   (keymap-set input-decode-map "¯" "<menu>")
-                  ;; Decode the CSI-u sequence for Ctrl-Escape that xterm.el does not register
-                  (define-key input-decode-map "\e[27;5~" (kbd "C-<escape>"))))
+                  ;; Decode CSI-u sequences that xterm.el does not register
+                  (dolist (pair '( ( "\e[27;5~" . "C-<escape>")
+                                   ( "\e[27;7u" . "C-M-<escape>")
+                                   ( "\e[50;5u" . "C-2")
+                                   ( "\e[51;5u" . "C-3")
+                                   ( "\e[52;5u" . "C-4")
+                                   ( "\e[53;5u" . "C-5")
+                                   ( "\e[54;5u" . "C-6")
+                                   ( "\e[55;5u" . "C-7")
+                                   ( "\e[56;5u" . "C-8")
+                                   ( "\e[96;5u" . "C-`")
+                                   ( "\e[126;5u" . "C-~")
+                                   ( "\e[123;5u" . "C-{")
+                                   ( "\e[125;5u" . "C-}")
+                                   ( "\e[124;5u" . "C-|")
+                                   ( "\e[96;7u" . "C-M-`")
+                                   ( "\e[123;7u" . "C-M-{")
+                                   ( "\e[125;7u" . "C-M-}")
+                                   ( "\e[100;6u" . "C-S-d")
+                                   ( "\e[106;6u" . "C-S-j")
+                                   ( "\e[107;6u" . "C-S-k")
+                                   ( "\e[108;6u" . "C-S-l")
+                                   ( "\e[112;6u" . "C-S-p")
+                                   ( "\e[111;8u" . "C-M-S-o")
+                                   ( "\e[32;15u" . "C-M-s-SPC")
+                                   ( "\e[1;15A" . "C-M-s-<up>")
+                                   ( "\e[1;15B" . "C-M-s-<down>")
+                                   ( "\e[1;15C" . "C-M-s-<right>")
+                                   ( "\e[1;15D" . "C-M-s-<left>")))
+                    (define-key input-decode-map (car pair) (kbd (cdr pair))))))
   ;; Line motion should never trigger jump recentering
   :recenter-jump-never
   ( next-line previous-line)
