@@ -5137,6 +5137,12 @@ Provide code changes as GNU diff format, followed by brief explanations for each
              (message "Display next command buffer in the selected window..."))))
       (aw-select " Ace - Other Window Prefix" other-window-lambda)))
 
+  ;; Limit window selection to frames on the current terminal
+  (defun mo--aw-on-other-terminal-p (window)
+    "Return t if WINDOW is on a different terminal than the selected frame."
+    (not (eq (frame-terminal (window-frame window)) (frame-terminal))))
+  (advice-add #'aw-ignored-p :before-until #'mo--aw-on-other-terminal-p)
+
   (setq aw-keys '( ?a ?s ?d ?f ?g ?h ?j ?k ?l))
   ;; Posframe is supported on both graphical and tty frames
   (ace-window-posframe-mode))
