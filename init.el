@@ -190,7 +190,9 @@
     "<" #'evil-window-decrease-width)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "ESC" #'evil-ex-nohighlight)
+    ;; Bind <escape> too, as escape events decoded on ttys skip the ESC translation
+    "ESC" #'evil-ex-nohighlight
+    "<escape>" #'evil-ex-nohighlight)
   ;; We want C-f for moving forward a word
   ( :keymaps 'evil-ex-completion-map
     "C-f" nil
@@ -849,7 +851,9 @@ the user to input the run command."
   ( :keymaps 'mo-quick-menu-map
     :prefix "j"
     "j" #'mo-open-project-with-tab
+    ;; Bind <escape> too, as escape events decoded on ttys skip the ESC translation
     "ESC" #'mo-close-project-with-tab
+    "<escape>" #'mo-close-project-with-tab
     "RET" #'mo-execute-predefined-command)
   ( :keymaps 'vertico-map
     "C-<return>" #'mo-minibuffer-insert-file-pattern
@@ -1123,7 +1127,9 @@ If universal ARG is set, exclude the pattern."
     "^" #'evil-mc-make-and-goto-first-cursor
     "$" #'evil-mc-make-and-goto-last-cursor
     "u" #'evil-mc-undo-last-added-cursor
-    "ESC" #'evil-mc-undo-all-cursors)
+    ;; Bind <escape> too, as escape events decoded on ttys skip the ESC translation
+    "ESC" #'evil-mc-undo-all-cursors
+    "<escape>" #'evil-mc-undo-all-cursors)
   :config
   (global-evil-mc-mode))
 
@@ -4883,7 +4889,9 @@ enabling lsp."
     "v" #'helpful-variable
     "k" #'helpful-key
     "h" #'helpful-at-point
-    "ESC" #'helpful-kill-buffers))
+    ;; Bind <escape> too, as escape events decoded on ttys skip the ESC translation
+    "ESC" #'helpful-kill-buffers
+    "<escape>" #'helpful-kill-buffers))
 
 ;; Init eldoc for viewing documentation in echo area
 (use-package eldoc
