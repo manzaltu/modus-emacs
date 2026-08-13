@@ -4954,17 +4954,22 @@ enabling lsp."
 ;; Init gptel for LLM support in Emacs
 (use-package gptel
   :general
+  ;; Bind TAB too, as tty frames send the tab key as a plain TAB character
   ( :keymaps 'mo-quick-menu-map
-    "<tab>" #'gptel)
+    "<tab>" #'gptel
+    "TAB" #'gptel)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "<tab>" #'gptel-add)
+    "<tab>" #'gptel-add
+    "TAB" #'gptel-add)
   ( :keymaps 'mo-quick-menu-map
     :prefix "f"
-    "<tab>" #'gptel-add-file)
+    "<tab>" #'gptel-add-file
+    "TAB" #'gptel-add-file)
   ( :keymaps 'mo-quick-menu-map
     :prefix "a"
-    "<tab>" #'gptel-context-remove-all)
+    "<tab>" #'gptel-context-remove-all
+    "TAB" #'gptel-context-remove-all)
   ( :keymaps 'gptel-mode-map
     "C-<return>" #'gptel-send
     "C-S-<return>" #'gptel-abort)
