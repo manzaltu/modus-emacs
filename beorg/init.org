@@ -1,0 +1,155 @@
+#+TITLE: beorg configuration for Modus Operandi Emacs
+
+This file configures [[https://beorg.app][beorg]] to follow the same org workflow as =init.el=.
+beorg reads a file named =init= (i.e. =init.org=) from its synced folder right
+after its bundled =library.org=, so this file must live at the top level of the
+org folder synced with beorg: copy it to =~/org/init.org= and let it sync.
+
+Everything outside the =#+begin_src scheme= blocks is ignored by beorg. The
+headings below intentionally never start with a TODO keyword, since this file
+also ends up inside =org-agenda-files= on the Emacs side.
+
+* Folders and files
+
+=init.el= sets =org-agenda-files= to the whole =~/org= folder, and org-journal
+keeps weekly files in the =journal/= subfolder with agenda integration enabled.
+Subfolder sync makes those journal files visible to beorg too. This config file
+itself is kept out of beorg's agenda and TODO tabs.
+
+#+begin_src scheme
+  ;; Sync subfolders so journal/ entries show up in the agenda
+  (set! sync-subfolders #t)
+
+  ;; Keep this config file out of the agenda and TODO tabs
+  (set! agenda-exclude-files '("init.org"))
+  (set! todo-exclude-files agenda-exclude-files)
+#+end_src
+
+* States
+
+Mirror of =org-todo-keywords=:
+=TODO(t) NEXT(n) PROG(p!/!) WAIT(w@/!) | DONE(d!) DONT(D@) FAIL(f@)=
+
+#+begin_src scheme
+  (set! org-todo-action-keywords '("TODO" "NEXT" "PROG" "WAIT"))
+  (set! org-todo-done-keywords '("DONE" "DONT" "FAIL"))
+#+end_src
+
+* Logging
+
+Mirror of =org-log-done t= and =org-log-into-drawer t=: closing an item adds a
+CLOSED timestamp, and state changes (and timer clocks) are logged into a
+LOGBOOK drawer, so entries edited on the phone look exactly like entries edited
+in Emacs.
+
+beorg cannot express the per-state =@= note prompts (WAIT, DONT and FAIL
+request a note in Emacs) — when switching to one of these states on the phone,
+add a short note to the entry manually.
+
+#+begin_src scheme
+  ;; Add a CLOSED timestamp when an item is marked as done
+  (set! org-log-done 'time)
+  ;; Log the state transition itself, not just the CLOSED line
+  (set! org-log-done-transition #t)
+  ;; Log state changes and clocks into the LOGBOOK drawer
+  (set! org-log-into-drawer "LOGBOOK")
+  ;; Log each completion of a repeated item
+  (set! org-log-repeat 'time)
+#+end_src
+
+* Priorities
+
+The Emacs config keeps org's default =A=–=C= priority range.
+
+#+begin_src scheme
+  (set! org-priorities '("A" "B" "C"))
+#+end_src
+
+* Editing behavior
+
+Mirror of =org-blank-before-new-entry=: no blank line is inserted between
+headings.
+
+#+begin_src scheme
+  (set! beorg-add-newline-between-headlines #f)
+#+end_src
+
+* Capture
+
+Mirror of the single =org-capture= template: a =TODO= entry captured into
+=notes.org=. In Emacs the target heading is chosen interactively via
+=org-goto=; beorg templates can only name a fixed heading with the =h=
+property, so the base template captures into =notes.org= and the item can then
+be moved. For frequently used headings, duplicate the template and add
+=h <heading>= to file directly under that heading. The trailing =e= opens the
+editor immediately, like =%?=.
+
+#+begin_src scheme
+  (set! item-templates
+        '(("Task" "s TODO f notes.org e")))
+#+end_src
+
+* Agenda and TODO views
+
+Mirror of the "Agenda and grouped TODOs" custom agenda command: beorg's Agenda
+tab plays the role of the datebook part (beorg already shows deadlines on their
+due date, matching =org-deadline-warning-days 0=), and the state groups become
+TODO tab filters in the same order — In progress, Next, Waiting, Todo. Entries
+tagged =ARCHIVE= are skipped, as in the Emacs agenda.
+
+#+begin_src scheme
+  ;; Keep beorg's built-in filters available as well
+  (set! filter-include-default #t)
+
+  (define (mo-active-item-with-state? item state)
+    (and (string=? (item-state item) state)
+         (not (member "ARCHIVE" (item-tags item)))))
+
+  (filter-add "In progress"
+              (lambda (item) (mo-active-item-with-state? item "PROG")))
+
+  (filter-add "Next"
+              (lambda (item) (mo-active-item-with-state? item "NEXT")))
+
+  (filter-add "Waiting"
+              (lambda (item) (mo-active-item-with-state? item "WAIT")))
+
+  (filter-add "Todo"
+              (lambda (item) (mo-active-item-with-state? item "TODO")))
+#+end_src
+
+* Item editor quick actions
+
+Stand-in for org's fast todo selection and quick scheduling: one-tap state
+changes and scheduling from the item editor.
+
+#+begin_src scheme
+  (define (mo-schedule-today)
+    (set-current-item-scheduled! (current-date)))
+
+  (define (mo-schedule-tomorrow)
+    (set-current-item-scheduled! (date-adjust (current-date) 1 'days)))
+
+  (defvar item-editor-menu
+    '(("Mark NEXT" (set-current-item-state! "NEXT"))
+      ("Mark PROG" (set-current-item-state! "PROG"))
+      ("Mark WAIT" (set-current-item-state! "WAIT"))
+      ("Schedule for today" (mo-schedule-today))
+      ("Schedule for tomorrow" (mo-schedule-tomorrow))
+      ("Remove schedule" (delete-current-item-scheduled!)))
+    "Quick actions available from the item editor screen.")
+#+end_src
+
+* Not portable to beorg
+
+For reference, parts of the Emacs org flow that have no beorg equivalent:
+
+- =org-enforce-todo-dependencies= — beorg doesn't block marking a parent done
+  while children are unfinished.
+- Per-state note prompts (=@= markers on WAIT, DONT and FAIL) — see the
+  Logging section above.
+- org-journal's weekly file naming — journal entries are best created in
+  Emacs; they remain visible in beorg's agenda through subfolder sync.
+- Clock persistence, idle detection and the pomodoro timer — beorg's built-in
+  timer logs CLOCK lines into the LOGBOOK drawer, which is compatible, but the
+  advanced clocking behavior stays Emacs-only.
