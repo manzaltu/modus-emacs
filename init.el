@@ -862,12 +862,11 @@ the user to input the run command."
   (defun mo-copy-file-path ()
     "Copy the full path of the current buffer's file."
     (interactive)
-    (let ((filepath (if (equal major-mode 'dired-mode)
-                        default-directory
-                      (buffer-file-name))))
-      (when filepath
-        (kill-new filepath)
-        (message "%s" filepath))))
+    (if (derived-mode-p 'dired-mode)
+        (dired-copy-filename-as-kill 0)
+      (when buffer-file-name
+        (kill-new buffer-file-name)
+        (message "%s" buffer-file-name))))
 
   (defvar mo--project-tabs nil
     "Alist mapping project root directories to their tab names.")
