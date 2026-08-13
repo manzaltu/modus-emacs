@@ -5946,6 +5946,7 @@ Excludes ghostel buffers with names matching *claude-code*."
            process-menu-mode
            world-clock-mode
            compilation-mode
+           ghostel-compile-view-mode
            rustic-compilation-mode
            rustic-cargo-run-mode
            rustic-cargo-plain-run-mode
