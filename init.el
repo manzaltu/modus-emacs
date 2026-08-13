@@ -153,16 +153,6 @@
                   (list (car group) `'(:which-key ,(cdr group))))
                 mo--quick-menu-groups))))
 
-;; Init faces for tty terminal setup
-(use-package faces
-  :straight nil
-  :hook
-  ( tty-setup . (lambda ()
-                  ;; Alternative leader key for keyboards that do not have a menu key
-                  (keymap-set input-decode-map "¯" "<menu>")
-                  ;; Decode the CSI-u sequence for Ctrl-Escape that xterm.el does not register
-                  (define-key input-decode-map "\e[27;5~" (kbd "C-<escape>")))))
-
 ;; Init disp-table for display table configuration
 (use-package disp-table
   :straight nil
@@ -313,6 +303,11 @@
   :hook
   ;; Recenter after a command jumps point off-window
   ( post-command . mo--recenter-on-jump)
+  ( tty-setup . (lambda ()
+                  ;; Alternative leader key for keyboards that do not have a menu key
+                  (keymap-set input-decode-map "¯" "<menu>")
+                  ;; Decode the CSI-u sequence for Ctrl-Escape that xterm.el does not register
+                  (define-key input-decode-map "\e[27;5~" (kbd "C-<escape>"))))
   ;; Line motion should never trigger jump recentering
   :recenter-jump-never
   ( next-line previous-line)
