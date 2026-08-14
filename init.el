@@ -2726,6 +2726,11 @@ Returns the selected project root directory or nil if cancelled."
         '( (if (executable-find "fdfind" 'remote) "fdfind" "fd")
            "--full-path --hidden --type file --color=never"))
 
+  ;; Don't add icons in previewed dired buffers, as the icon set is
+  ;; initialized in `dired-mode-hook' which is delayed during preview
+  (add-to-list 'consult-preview-variables
+               '( treemacs-icons-dired-displayed . t))
+
   (defun mo-consult-buffer-dwim (&optional arg)
     "If in project, list project buffers, otherwise select from open projects.
 The project is resolved from the current tab, or from the current buffer.
