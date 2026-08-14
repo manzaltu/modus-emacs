@@ -2612,6 +2612,8 @@ Returns the selected project root directory or nil if cancelled."
     "," #'consult-ripgrep
     "M-," #'mo-consult-xref-history
     "C-M-," #'mo-consult-xref-pop
+    "C-o" #'mo-consult-jump-list
+    "C-M-o" #'mo-consult-jump-list-pop
     "RET" #'mo-consult-buffer-dwim)
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
@@ -2796,6 +2798,34 @@ The popped xref(s) will be pushed to the forward-history."
     (if-let* ((xref-history (delq nil (car (funcall xref-history-storage)))))
         (consult-global-mark xref-history)
       (user-error "Xref history is empty")))
+
+  ;; Browse the jump list that `better-jumper' navigates, as evil's own
+  ;; jump list misses jumps recorded through the push-mark advice
+  (defun mo-consult-jump-list ()
+    "Jump to a position in the jump list."
+    (interactive)
+    (let ((marker-table (better-jumper--get-marker-table)))
+      (if-let* ((markers (delq nil
+                               (mapcar
+                                (lambda (jump)
+                                  (gethash (nth 2 jump) marker-table))
+                                (ring-elements (better-jumper--get-jump-list))))))
+          (consult-global-mark markers)
+        (user-error "Jump list is empty"))))
+
+  (defun mo-consult-jump-list-pop ()
+    "Pop the jump list to a selected position.
+The popped entries stay reachable forward, until they are replaced by
+setting a new jump."
+    (interactive)
+    (when-let* ((dest-marker (call-interactively #'mo-consult-jump-list))
+                (marker-table (better-jumper--get-marker-table))
+                (struct (better-jumper--get-struct))
+                (idx (cl-position-if
+                      (lambda (jump)
+                        (eq (gethash (nth 2 jump) marker-table) dest-marker))
+                      (ring-elements (better-jumper--get-struct-jump-list struct)))))
+      (setf (better-jumper-jump-list-struct-idx struct) idx)))
 
   (defvar-local consult-toggle-preview-saved-func nil
     "Saved consult buffer preview function.")
