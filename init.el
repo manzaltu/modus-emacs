@@ -6153,7 +6153,25 @@ Excludes ghostel buffers with names matching *claude-code*."
 
 ;; Init visual-fill-column for mimicking fill-column in visual-line-mode
 (use-package visual-fill-column
-  :demand t)
+  :demand t
+  :defines visual-fill-column-mode
+  :functions visual-fill-column-mode
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "v" #'mo-toggle-visual-fill-column)
+  :config
+  (defun mo-toggle-visual-fill-column ()
+    "Toggle wrapping lines visually around the fill column.
+When enabling, prompt for the fill column first."
+    (interactive)
+    (if visual-fill-column-mode
+        (progn
+          (visual-fill-column-mode -1)
+          (visual-line-mode -1))
+      (call-interactively #'set-fill-column)
+      (visual-line-mode 1)
+      (visual-fill-column-mode 1))))
 
 ;; Init pixel-scroll for smooth scrolling
 (use-package pixel-scroll
