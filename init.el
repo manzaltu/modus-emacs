@@ -526,12 +526,14 @@ window edges unaffected."
   ( :keymaps 'mo-quick-menu-map
     :prefix "v"
     "f" #'make-frame-command
-    "c" #'delete-frame)
+    "c" #'delete-frame
+    "u" #'undelete-frame)
   :config
   ;; Disable cursor blink
   (blink-cursor-mode 0)
   ;; Set font
-  (set-frame-font mo-font nil t))
+  (set-frame-font mo-font nil t)
+  (undelete-frame-mode))
 
 ;; Init window for managing windows
 (use-package window
