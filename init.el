@@ -3410,8 +3410,8 @@ leaving the heading outside of the visible region."
     "C-M-s-= ="  #'smerge-diff-upper-lower
     "C-M-s-= >"  #'smerge-diff-base-lower
     "C-M-s-c"    #'smerge-combine-with-next
-    "C-M-s-E"    #'smerge-ediff
-    "C-M-s-R"    #'smerge-refine
+    "C-M-s-S-e"  #'smerge-ediff
+    "C-M-s-S-r"  #'smerge-refine
     "C-M-s-SPC"  #'smerge-keep-current
     "C-M-s-a"    #'smerge-keep-all
     "C-M-s-b"    #'smerge-keep-base
