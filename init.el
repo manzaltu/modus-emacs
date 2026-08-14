@@ -2962,6 +2962,12 @@ without GLOBAL non-nil `embark-bindings' filters it out."
   (keymap-set embark-identifier-map "c" #'mo-embark-lsp-treemacs-call-hierarchy)
   (keymap-set embark-identifier-map "C" #'mo-embark-lsp-treemacs-outgoing-call-hierarchy)
   (keymap-set embark-identifier-map "t" #'mo-embark-lsp-treemacs-type-hierarchy)
+  ;; Add an avy dispatch action for triggering embark on the jump target
+  (defun mo-avy-action-embark (pt)
+    "Move to PT and trigger embark there."
+    (goto-char pt)
+    (embark-act))
+  (setf (alist-get ?\; avy-dispatch-alist) #'mo-avy-action-embark)
   ;; Hide the mode line of the Embark live/completions buffers
   (add-to-list 'display-buffer-alist
                '( "\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
