@@ -3087,6 +3087,8 @@ leaving the heading outside of the visible region."
     "c" #'tab-bar-close-tab
     "f" #'tab-bar-move-tab
     "b" #'tab-bar-move-tab-backward
+    "m" #'tab-bar-move-tab-to-frame
+    "d" #'tab-bar-detach-tab
     "[" #'tab-previous
     "]" #'tab-next
     "1" '( :def mo-tab-bar-select-1 :wk "tab 1")
