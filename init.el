@@ -2733,6 +2733,20 @@ Returns the selected project root directory or nil if cancelled."
   (add-to-list 'consult-preview-variables
                '( treemacs-icons-dired-displayed . t))
 
+  ;; The file preview machinery upgrades previewed buffers from a
+  ;; `window-selection-change-functions' hook that can fire from redisplay
+  ;; while a minibuffer window is still selected, e.g. when the active
+  ;; minibuffer momentarily moves between daemon frames. Buffer display then
+  ;; falls back to popping up a window, splitting the frame and stealing
+  ;; focus from the completion session. Displaying is never wanted in that
+  ;; state, so return the buffer without showing it
+  (defun mo--consult-no-display-in-minibuffer (orig-fun buffer &optional norecord)
+    "Call ORIG-FUN with BUFFER unless a minibuffer window is selected."
+    (if (window-minibuffer-p (selected-window))
+        buffer
+      (funcall orig-fun buffer norecord)))
+  (advice-add 'consult--buffer-action :around #'mo--consult-no-display-in-minibuffer)
+
   (defun mo-consult-buffer-dwim (&optional arg)
     "If in project, list project buffers, otherwise select from open projects.
 The project is resolved from the current tab, or from the current buffer.
