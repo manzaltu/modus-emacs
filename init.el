@@ -3465,13 +3465,13 @@ leaving the heading outside of the visible region."
     "C-M-s-a" #'pr-review-context-action
     "C-M-s-q" #'pr-review-request-reviews
     "C-M-s-r" #'pr-review-resolve-thread
-    "C-M-s-R" #'pr-review-refresh
+    "C-M-s-S-r" #'pr-review-refresh
     "C-M-s-m" #'pr-review-merge
     "C-M-s-x" #'pr-review-close-or-reopen
     "C-M-s-s" #'pr-review-select-commit
     "C-M-s-o" #'pr-review-open-in-default-browser
     "C-M-s-l" #'pr-review-set-labels
-    "C-M-s-E" #'pr-review-update-reactions
+    "C-M-s-S-e" #'pr-review-update-reactions
     "C-M-s-f" #'pr-review-goto-file
     "C-M-s-v" #'pr-review-view-file
     "C-M-s-e" #'pr-review-context-edit
