@@ -6153,11 +6153,7 @@ Excludes ghostel buffers with names matching *claude-code*."
 
 ;; Init visual-fill-column for mimicking fill-column in visual-line-mode
 (use-package visual-fill-column
-  :demand t
-  :general
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "b"
-    "C-v" #'visual-fill-column-mode))
+  :demand t)
 
 ;; Init pixel-scroll for smooth scrolling
 (use-package pixel-scroll
