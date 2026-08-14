@@ -639,7 +639,7 @@ window edges unaffected."
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "t" #'toggle-truncate-lines
-    "v" #'visual-line-mode
+    "C-v" #'visual-line-mode
     "f" #'auto-fill-mode
     "C-f" #'set-fill-column
     "C-i" #'clone-indirect-buffer
