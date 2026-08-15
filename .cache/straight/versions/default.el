@@ -50,6 +50,7 @@
  ("dockerfile-mode" . "97733ce074b1252c1270fd5e8a53d178b66668ed")
  ("dtrt-indent" . "8402da6bcc288709366e0b589fa79e744e877788")
  ("dumb-jump" . "cf06b4ccdce6a39346c32f05139f9ee8b77ee229")
+ ("easysession.el" . "83a15da810f88d095b9e21619b70b6d801b0aac0")
  ("eat" . "c8d54d649872bfe7b2b9f49ae5c2addbf12d3b99")
  ("edit-indirect" . "82a28d8a85277cfe453af464603ea330eae41c05")
  ("editorconfig-emacs" . "b18fcf7fdea1ce84b7fdc60360ad8016b5c00d79")
