@@ -2918,6 +2918,10 @@ Used while preview is toggled off."
   :defines marginalia-annotators
   :custom
   ( marginalia-field-width 200)
+  :general
+  ;; Cycle between the registered annotators of the current category
+  ( :keymaps 'minibuffer-local-map
+    "M-A" #'marginalia-cycle)
   :config
   (defun mo-marginalia-annotate-buffer-with-project (cand)
     "Annotate buffer with project name and other annotations."
