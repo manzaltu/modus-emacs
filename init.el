@@ -3076,9 +3076,7 @@ without GLOBAL non-nil `embark-bindings' filters it out."
 
 ;; Init embark-consult for enabling embark actions on consult results
 (use-package embark-consult
-  :demand t
-  :hook
-  ( embark-collect-mode . consult-preview-at-point-mode))
+  :demand t)
 
 ;; Init wgrep for editing grep-style results across files in grep buffer
 (use-package wgrep
