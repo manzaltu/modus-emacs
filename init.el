@@ -2211,6 +2211,7 @@ Used for preventing recursion when recording new jumps.")
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "z"
+    "l" #'vertico-repeat-last
     "v" #'vertico-repeat-select)
   :hook
   ( minibuffer-setup . vertico-repeat-save)
