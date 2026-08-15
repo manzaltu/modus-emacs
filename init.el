@@ -2219,6 +2219,14 @@ Used for preventing recursion when recording new jumps.")
   ;; Keep the repeat history between sessions
   (add-to-list 'savehist-additional-variables 'vertico-repeat-history))
 
+;; Init vertico-suspend for suspending and restoring the current session
+(use-package vertico-suspend
+  :after vertico
+  :straight nil
+  :general
+  ( :keymaps 'override
+    "C-M-z" #'vertico-suspend))
+
 ;; Init vertico-directory for directory navigation commands
 (use-package vertico-directory
   :after vertico
