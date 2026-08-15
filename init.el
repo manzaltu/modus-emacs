@@ -2731,8 +2731,10 @@ Returns the selected project root directory or nil if cancelled."
   :config
   ;; Configure the narrowing key.
   (setq consult-narrow-key "C-l")
-  ;; Suppress file access error messages
-  (setq consult-ripgrep-args (concat consult-ripgrep-args " --no-messages"))
+  ;; Suppress file access error messages and match hidden files, excluding the
+  ;; .git directory
+  (setq consult-ripgrep-args
+        (concat consult-ripgrep-args " --no-messages --hidden --glob=!.git/"))
 
   ;; Change default async split character
   (plist-put (cdr (assq 'perl consult-async-split-styles-alist)) :initial ?`)
