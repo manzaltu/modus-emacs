@@ -2970,6 +2970,7 @@ Used while preview is toggled off."
   :general
   ( :keymaps 'override
     "C-'" #'embark-act
+    "C-\"" #'embark-export
     "M-'" #'embark-dwim
     "C-M-'" #'embark-act-all
     "C-M-s-?" #'mo-embark-bindings-multi-modifier)
