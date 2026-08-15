@@ -5794,6 +5794,11 @@ If project root cannot be found, use the buffer's default directory."
 
 ;; Init easysession for saving session configuration
 (use-package easysession
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "v"
+    "d" #'easysession-switch-to
+    "s" #'easysession-save)
   :defines ( easysession-directory easysession-save-interval)
   :functions easysession-save-mode
   :init
