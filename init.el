@@ -2949,8 +2949,8 @@ Used while preview is toggled off."
   :general
   ( :keymaps 'override
     "C-'" #'embark-act
-    "M-'" #'embark-act-all
-    "C-M-'" #'embark-dwim
+    "M-'" #'embark-dwim
+    "C-M-'" #'embark-act-all
     "C-M-s-?" #'mo-embark-bindings-multi-modifier)
   ( :keymaps 'mo-quick-menu-map
     :prefix "h"
