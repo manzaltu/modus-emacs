@@ -39,7 +39,6 @@
  ("dape" . "20a26b674b0b264463f2d31fd9e45a81d824c8bd")
  ("dash.el" . "d746dd9edcb67a108818beb0cdc78dc1cb466832")
  ("datetime" . "2601120d4d2857cdbad1cf8d4b84d77308920835")
- ("desktop-plus" . "88055cee526a000056201898499cebbd35e3ea76")
  ("devdocs.el" . "25c746024ddf73570195bf42b841f761a2fee10c")
  ("diff-hl" . "6f1df2b83d1140a2938409b35de7f4c9c7b1defd")
  ("difftastic.el" . "f94076985ba46bf629abc9615c9b1fefcc3390ef")
