@@ -5793,7 +5793,16 @@ If project root cannot be found, use the buffer's default directory."
   (setq dictionary-server "dict.org"))
 
 ;; Init easysession for saving session configuration
-(use-package easysession)
+(use-package easysession
+  :defines ( easysession-directory easysession-save-interval)
+  :functions easysession-save-mode
+  :init
+  (setq easysession-directory (mo-cache-path "sessions"))
+  ;; Autosave the loaded session periodically, in addition to on exit
+  (setq easysession-save-interval (* 10 60))
+  :config
+  ;; Autosave is inert until a session is loaded for the first time
+  (easysession-save-mode))
 
 ;; Init desktop+ for saving session configuration
 (use-package desktop+
