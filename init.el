@@ -860,6 +860,7 @@ the user to input the run command."
   ( :keymaps 'vertico-map
     "C-<return>" #'mo-minibuffer-insert-file-pattern
     "C-S-<return>" #'mo-minibuffer-insert-file-excl-pattern)
+  :functions ( easysession-add-load-handler easysession-add-save-handler)
   :preface
   (defun mo-copy-file-path ()
     "Copy the full path of the current buffer's file."
@@ -873,8 +874,19 @@ the user to input the run command."
   (defvar mo--project-tabs nil
     "Alist mapping project root directories to their tab names.")
 
-  (with-eval-after-load 'desktop
-    (add-to-list 'desktop-globals-to-save 'mo--project-tabs))
+  (defun mo--save-project-tabs (buffers)
+    "Save the project tabs list in the session, passing BUFFERS through."
+    `( ( key . "mo-project-tabs")
+       ( value . ,mo--project-tabs)
+       ( remaining-buffers . ,buffers)))
+
+  (defun mo--load-project-tabs (session-data)
+    "Restore the project tabs list from SESSION-DATA."
+    (setq mo--project-tabs (assoc-default "mo-project-tabs" session-data)))
+
+  (with-eval-after-load 'easysession
+    (easysession-add-save-handler #'mo--save-project-tabs)
+    (easysession-add-load-handler #'mo--load-project-tabs))
 
   (defun mo--project-tab-root ()
     "Return the root directory of the project associated with the current tab.
