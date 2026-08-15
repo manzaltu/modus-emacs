@@ -2955,6 +2955,9 @@ Used while preview is toggled off."
   ;; Switch to a different command, keeping the current minibuffer input
   ( :keymaps 'minibuffer-local-map
     "M-\"" #'embark-become)
+  ;; Mark candidates for acting on all of them with embark-act-all
+  ( :keymaps 'vertico-map
+    "C-SPC" #'embark-select)
   ( :keymaps 'mo-quick-menu-map
     :prefix "h"
     "b b" #'mo-embark-bindings
