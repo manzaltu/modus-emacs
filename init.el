@@ -2206,14 +2206,17 @@ Used for preventing recursion when recording new jumps.")
 
 ;; Init vertico-repeat for repeating the last minibuffer command
 (use-package vertico-repeat
-  :after vertico
+  :after ( vertico savehist)
   :straight nil
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "z"
     "v" #'vertico-repeat-select)
   :hook
-  ( minibuffer-setup . vertico-repeat-save))
+  ( minibuffer-setup . vertico-repeat-save)
+  :config
+  ;; Keep the repeat history between sessions
+  (add-to-list 'savehist-additional-variables 'vertico-repeat-history))
 
 ;; Init vertico-directory for directory navigation commands
 (use-package vertico-directory
