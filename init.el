@@ -2952,6 +2952,9 @@ Used while preview is toggled off."
     "M-'" #'embark-dwim
     "C-M-'" #'embark-act-all
     "C-M-s-?" #'mo-embark-bindings-multi-modifier)
+  ;; Switch to a different command, keeping the current minibuffer input
+  ( :keymaps 'minibuffer-local-map
+    "M-\"" #'embark-become)
   ( :keymaps 'mo-quick-menu-map
     :prefix "h"
     "b b" #'mo-embark-bindings
