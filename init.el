@@ -1196,8 +1196,8 @@ If universal ARG is set, exclude the pattern."
 (use-package link-hint
   :general
   ( :keymaps 'override
-    "C-\"" #'link-hint-open-link
-    "C-M-\"" #'mo-link-hint-open-link-other-window)
+    "C-(" #'link-hint-open-link
+    "C-M-(" #'mo-link-hint-open-link-other-window)
   :config
   (defun mo-link-hint-open-link-other-window ()
     "Open link in other window."
