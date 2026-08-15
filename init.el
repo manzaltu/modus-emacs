@@ -5792,6 +5792,9 @@ If project root cannot be found, use the buffer's default directory."
   :config
   (setq dictionary-server "dict.org"))
 
+;; Init easysession for saving session configuration
+(use-package easysession)
+
 ;; Init desktop+ for saving session configuration
 (use-package desktop+
   :general
