@@ -2745,6 +2745,12 @@ Returns the selected project root directory or nil if cancelled."
         '( (if (executable-find "fdfind" 'remote) "fdfind" "fd")
            "--full-path --hidden --exclude .git --type file --color=never"))
 
+  ;; Don't preview tramp files, as remote access might hang Emacs. The first
+  ;; regexp matches any tramp method except "sudo", which is still local
+  (setq consult-preview-excluded-files
+        '( "\\`/\\(?:[^s/|:][^/|:]*\\|s\\(?:[^u/|:][^/|:]*\\|u\\(?:[^d/|:][^/|:]*\\|d\\(?:[^o/|:][^/|:]*\\|o[^/|:]+\\)?\\)?\\)?\\):"
+           "\\.gpg\\'"))
+
   ;; Don't add icons in previewed dired buffers, as the icon set is
   ;; initialized in `dired-mode-hook' which is delayed during preview
   (add-to-list 'consult-preview-variables
