@@ -2239,10 +2239,19 @@ Used for preventing recursion when recording new jumps.")
 (use-package vertico-quick
   :after vertico
   :straight nil
+  :functions embark-act
   :general
   ( :keymaps 'vertico-map
     "M-k" #'vertico-quick-jump
-    "M-j" #'vertico-quick-exit))
+    "M-j" #'vertico-quick-exit
+    "M-l" #'mo-vertico-quick-embark)
+  :config
+  (defun mo-vertico-quick-embark (&optional arg)
+    "Act with embark on a candidate selected with quick keys.
+ARG is the prefix argument passed to `embark-act'."
+    (interactive "P")
+    (when (vertico-quick-jump)
+      (embark-act arg))))
 
 ;; Init vertico-multiform for per command vertico configuration
 (use-package vertico-multiform
