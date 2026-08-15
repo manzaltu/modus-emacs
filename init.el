@@ -2739,10 +2739,11 @@ Returns the selected project root directory or nil if cancelled."
   ;; Change default async split character
   (plist-put (cdr (assq 'perl consult-async-split-styles-alist)) :initial ?`)
 
-  ;; Match files by full path, including hidden ones
+  ;; Match files by full path, including hidden ones, excluding the .git
+  ;; directory
   (setq consult-fd-args
         '( (if (executable-find "fdfind" 'remote) "fdfind" "fd")
-           "--full-path --hidden --type file --color=never"))
+           "--full-path --hidden --exclude .git --type file --color=never"))
 
   ;; Don't add icons in previewed dired buffers, as the icon set is
   ;; initialized in `dired-mode-hook' which is delayed during preview
