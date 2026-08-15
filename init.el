@@ -5821,24 +5821,6 @@ If project root cannot be found, use the buffer's default directory."
   ;; Autosave is inert until a session is loaded for the first time
   (easysession-save-mode))
 
-;; Init desktop+ for saving session configuration
-(use-package desktop+
-  :general
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "v"
-    "d" #'desktop+-load
-    "C-d" #'desktop+-create)
-  :commands desktop+-create
-  :init
-  (setq desktop+-base-dir (mo-cache-path "desktops"))
-
-  (defun mo-ask-save-desktop ()
-    "If desktop save mode is not activated, ask the user to save the session"
-    (unless desktop-save-mode
-      (when (y-or-n-p "Save the current session? ")
-        (call-interactively #'desktop+-create)))
-    t))
-
 ;; Init frameset for preserving the tty client frame layout across reconnections
 (use-package frameset
   :straight nil
