@@ -2912,7 +2912,10 @@ Used while preview is toggled off."
     "M-;" #'consult-dir)
   ( :keymaps 'mo-quick-menu-map
     :prefix "f"
-    "c" #'consult-dir))
+    "c" #'consult-dir)
+  :config
+  ;; Complete known hosts from the ssh config as remote directories
+  (add-to-list 'consult-dir-sources 'consult-dir--source-tramp-ssh t))
 
 ;; Init consult-flycheck for showing syntax errors with consult
 (use-package consult-flycheck
