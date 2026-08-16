@@ -3975,6 +3975,7 @@ the produced output, not the process exit code)."
 ;; Init diff-hl for highlighting uncommitted changes
 (use-package diff-hl
   :demand t
+  :functions ( doom-color doom-blend)
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
@@ -3986,6 +3987,7 @@ the produced output, not the process exit code)."
   ( magit-pre-refresh . diff-hl-magit-pre-refresh)
   ( magit-post-refresh . diff-hl-magit-post-refresh)
   ( dired-mode . diff-hl-dired-mode-unless-remote)
+  ( enable-theme-functions . mo-diff-hl-configure-theme)
   ;; Always recenter after jumping to a hunk
   :recenter-jump-always
   ( diff-hl-next-hunk diff-hl-previous-hunk)
@@ -4002,8 +4004,41 @@ landed on BASE afterwards."
         (user-error "Could not find a merge base between %s and HEAD" base))
       (diff-hl-set-reference-rev-in-project merge-base)))
 
-  (global-diff-hl-mode)
-  (diff-hl-margin-mode))
+  ;; Highlight the background of changed blocks instead of using indicators
+  (defface mo-diff-hl-insert-line '((t))
+    "Face for the background of inserted lines.")
+  (defface mo-diff-hl-change-line '((t))
+    "Face for the background of changed lines.")
+  (defface mo-diff-hl-delete-line '((t))
+    "Face for the background of the line following deleted lines.")
+  (defun mo-diff-hl-highlight-on-line (ovl type _shape)
+    "Highlight the line of overlay OVL with a background matching TYPE."
+    (save-excursion
+      (goto-char (overlay-start ovl))
+      (move-overlay ovl (point) (line-beginning-position 2)))
+    ;; Use the lowest possible priority, so the highlight doesn't hide any
+    ;; other overlay highlighting (e.g. hl-line, region)
+    (overlay-put ovl 'priority most-negative-fixnum)
+    ;; Tint change types only, leaving dired's unknown and ignored items alone
+    (when-let* ((face (pcase type
+                        ('insert 'mo-diff-hl-insert-line)
+                        ('change 'mo-diff-hl-change-line)
+                        ('delete 'mo-diff-hl-delete-line))))
+      (overlay-put ovl 'face face)))
+  (defun mo-diff-hl-configure-theme (_theme)
+    "Set the changed block background colors according to the current theme."
+    (pcase-dolist (`( ,face . ,color) '( ( mo-diff-hl-insert-line . vc-added)
+                                         ( mo-diff-hl-change-line . vc-modified)
+                                         ( mo-diff-hl-delete-line . vc-deleted)))
+      (set-face-attribute face nil
+                          :background (doom-blend (doom-color color)
+                                                  (doom-color 'bg)
+                                                  0.07)
+                          :extend t)))
+  (setq diff-hl-highlight-function #'mo-diff-hl-highlight-on-line)
+  (setq diff-hl-highlight-reference-function #'mo-diff-hl-highlight-on-line)
+
+  (global-diff-hl-mode))
 
 ;; Init git-link for creating URLs for files in web git services
 (use-package git-link
