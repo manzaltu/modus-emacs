@@ -4627,6 +4627,9 @@ enabling lsp."
 ;; Init yasnippet-snippets for common code templates
 (use-package yasnippet-snippets)
 
+;; Init consult-yasnippet for selecting snippets with preview
+(use-package consult-yasnippet)
+
 ;; Init rust-mode for Rust support
 (use-package rust-mode
   :defines rust-mode-treesitter-derive
