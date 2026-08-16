@@ -3080,7 +3080,12 @@ without GLOBAL non-nil `embark-bindings' filters it out."
 
 ;; Init embark-consult for enabling embark actions on consult results
 (use-package embark-consult
-  :demand t)
+  :demand t
+  :defines embark-become-keymaps
+  :config
+  ;; Make every search command becomable from any other, e.g. consult-line to
+  ;; consult-ripgrep, by registering the combined search map with embark-become
+  (add-to-list 'embark-become-keymaps 'embark-consult-search-map))
 
 ;; Init wgrep for editing grep-style results across files in grep buffer
 (use-package wgrep
