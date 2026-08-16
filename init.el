@@ -3748,7 +3748,11 @@ act on the window that actually displays it."
               #'mo--pr-review-ediff-restore-windows-advice))
 
 ;; Init gh-notify for triaging github notifications
-(use-package gh-notify)
+(use-package gh-notify
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "g"
+    "<menu>" #'gh-notify))
 
 ;; Init diff for diff functionality
 (use-package diff
