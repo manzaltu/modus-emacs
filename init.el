@@ -5733,8 +5733,11 @@ If project root cannot be found, use the buffer's default directory."
     (set-face-attribute 'tab-bar nil :foreground (doom-color 'fg))
     (set-face-attribute 'fringe nil :background (mo-doom-themes-dim-bg))
     (if (eq (car custom-enabled-themes) 'doom-one)
+        ;; The empty truecolor clause keeps 24-bit ttys on the theme
+        ;; background, as display specs can only express a minimum color count
         (face-spec-set 'default
-                       '(( ( ( type tty) ( min-colors 256) ( background dark))
+                       '(( ( ( type tty) ( min-colors 16777216)))
+                         ( ( ( type tty) ( min-colors 256) ( background dark))
                            :background "#1c1c1c")
                          ( t nil))
                        'face-override-spec)
