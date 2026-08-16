@@ -459,7 +459,9 @@ window edges unaffected."
   ;; Collapse the minor mode indicators in the modeline
   (setq mode-line-collapse-minor-modes '( not dired-async--modeline-mode))
   ;; Remove vc info from modeline
-  (setq-default mode-line-format (remove '(vc-mode vc-mode) (default-value 'mode-line-format))))
+  (setq-default mode-line-format (remove '(vc-mode vc-mode) (default-value 'mode-line-format)))
+  ;; Show a continuous modeline bar on ttys instead of the dashes filler
+  (setq mode-line-end-spaces nil))
 
 ;; Init files for file related functionality
 (use-package files
