@@ -30,6 +30,7 @@
  ("consult-lsp" . "f41a3946987a3880068f95f3725bbb7b0d4b0b22")
  ("consult-notes" . "4a9b7e2990fa9c9be0df482c2342d24bf9ddc32a")
  ("consult-org-roam" . "781d9c1cfee8631bc125fa45bab92de320d3941e")
+ ("consult-yasnippet" . "89e39887c87e25d18861216a4d72e5d174f13751")
  ("copilot.el" . "277ca357422ba34bcf7fe650cb720580994eea84")
  ("copy-as-format" . "b9f6f725ca9701c5a02bfb479573fdfcce2e1e30")
  ("corfu" . "1c88f38cf9cb0b2e130cf989ef361cd70cf2b46f")
