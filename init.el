@@ -5778,14 +5778,20 @@ If project root cannot be found, use the buffer's default directory."
   :config
   (defun mo-auto-dim-configure-theme (_theme)
     "Set auto-dim-other-buffers-mode theme configuration."
-    (let ((gui-bg (doom-darken (doom-color 'bg) 0.35))
+    ;; Truecolor ttys can render the theme's dim color; keep snapping other
+    ;; ttys to black, where the dim color cannot be approximated well
+    (let ((dim-bg (doom-darken (doom-color 'bg) 0.35))
           (tty-bg "#000000"))
       (face-spec-set 'auto-dim-other-buffers
-                     `(( ( ( type tty)) :background ,tty-bg)
-                       ( t :background ,gui-bg)))
+                     `(( ( ( type tty) ( min-colors 16777216))
+                         :background ,dim-bg)
+                       ( ( ( type tty)) :background ,tty-bg)
+                       ( t :background ,dim-bg)))
       (face-spec-set 'auto-dim-other-buffers-hide
-                     `(( ( ( type tty)) :background ,tty-bg :foreground ,tty-bg)
-                       ( t :background ,gui-bg :foreground ,gui-bg)))))
+                     `(( ( ( type tty) ( min-colors 16777216))
+                         :background ,dim-bg :foreground ,dim-bg)
+                       ( ( ( type tty)) :background ,tty-bg :foreground ,tty-bg)
+                       ( t :background ,dim-bg :foreground ,dim-bg)))))
   (auto-dim-other-buffers-mode))
 
 ;; Init text-mode for editing plain text
