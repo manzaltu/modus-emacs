@@ -4612,8 +4612,6 @@ enabling lsp."
   :demand t
   :functions yas-global-mode
   :general
-  ( :keymaps 'override
-    "C-+" #'yas-insert-snippet)
   ( :keymaps 'yas-keymap
     [tab] nil
     "TAB" nil
