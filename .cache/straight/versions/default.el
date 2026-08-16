@@ -100,6 +100,7 @@
  ("flycheck" . "d7860ed0c116f1660b43fb0c4d8f37009d3f08fc")
  ("forge" . "29f45d8f247079a1d8d2247efdacb5b50a3b1e51")
  ("general.el" . "a48768f85a655fe77b5f45c2880b420da1b1b9c3")
+ ("gh-notify" . "efecbc0ea7a1b77a48fb395ce3d5a54271974608")
  ("ghostel" . "037378b44ceedf1c8bf15e365fc62c7f5c92363d")
  ("ghub" . "cba5666d8b999e2733aefac369a4e0def3be7fc9")
  ("git-link" . "ca01d013bd575710e2cd47001ee1ef6ee41667cf")
