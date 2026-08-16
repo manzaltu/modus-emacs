@@ -279,6 +279,8 @@
   (evil-set-initial-state 'rustic-popup-mode 'emacs)
   ;; Start minibuffers in insert mode
   (evil-set-initial-state 'minibuffer-mode 'insert)
+  ;; Start gh-notify buffers in insert state for filtering by typing
+  (evil-set-initial-state 'gh-notify-mode 'insert)
   (evil-mode 1))
 
 ;; Init Emacs core settings
