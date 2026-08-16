@@ -4626,7 +4626,10 @@ enabling lsp."
 (use-package yasnippet-snippets)
 
 ;; Init consult-yasnippet for selecting snippets with preview
-(use-package consult-yasnippet)
+(use-package consult-yasnippet
+  :general
+  ( :keymaps 'override
+    "C-+" #'consult-yasnippet))
 
 ;; Init rust-mode for Rust support
 (use-package rust-mode
