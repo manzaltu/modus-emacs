@@ -3747,6 +3747,9 @@ act on the window that actually displays it."
   (advice-add 'pr-review-ediff-file :around
               #'mo--pr-review-ediff-restore-windows-advice))
 
+;; Init gh-notify for triaging github notifications
+(use-package gh-notify)
+
 ;; Init diff for diff functionality
 (use-package diff
   :straight nil
