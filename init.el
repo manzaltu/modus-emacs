@@ -5697,7 +5697,7 @@ If project root cannot be found, use the buffer's default directory."
   :demand t
   :general
   ( :keymaps 'mo-quick-menu-map
-    "r" '( :keymap claude-emacs-annotate-command-map))
+    "r" #'claude-emacs-annotate-menu)
   ( :keymaps 'claude-emacs-annotate-table-mode-map
     :states 'normal
     "D" #'claude-emacs-annotate-table-delete
