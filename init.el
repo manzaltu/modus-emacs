@@ -3322,7 +3322,10 @@ leaving the heading outside of the visible region."
 
 ;; Init treemacs-tab-bar for scoping treemacs to the current tab
 (use-package treemacs-tab-bar
-  :after ( treemacs tab-bar))
+  :after ( treemacs tab-bar)
+  :functions treemacs-set-scope-type
+  :config
+  (treemacs-set-scope-type 'Tabs))
 
 ;; Init treemacs-icons for icons in dired
 (use-package treemacs-icons-dired
