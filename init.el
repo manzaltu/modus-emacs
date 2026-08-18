@@ -4551,7 +4551,10 @@ enabling lsp."
 
   (defun mo-dape--save-on-start ()
     "Save dape buffers."
-    (save-some-buffers t t)))
+    (save-some-buffers t t))
+
+  (dape-breakpoint-load)
+  (add-hook 'kill-emacs-hook #'dape-breakpoint-save))
 
 ;; Init dap-mode for interactive debugging
 (use-package dap-mode
