@@ -2627,7 +2627,6 @@ Returns the selected project root directory or nil if cancelled."
            (magit-status "Magit" ?g)
            (project-dired "Dired" ?d)
            (project-eshell "Eshell" ?e)
-           (mo-vterm-project "Vterm" ?v)
            (ghostel-project "Ghostel" ?t)
            (project-async-shell-command "Async command" ?x)
            (project-find-matching-buffer "Matching buffer" ?m))))
