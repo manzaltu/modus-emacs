@@ -6406,6 +6406,8 @@ When enabling, prompt for the fill column first."
   :recenter-jump-always
   ( bookmark-jump)
   :config
+  ;; Save bookmarks after every change
+  (setq bookmark-save-flag 1)
   (setq bookmark-file (mo-cache-path "bookmarks")))
 
 ;; Init bookmark+ for enhanced bookmark functionality
