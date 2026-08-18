@@ -2998,6 +2998,8 @@ Used while preview is toggled off."
   :config
   ;; Don't quit the minibuffer after an action is taken
   (setq embark-quit-after-action nil)
+  ;; Show a flat list of all full key sequences in the actions buffer
+  (setq embark-verbose-indicator-nested nil)
   ;; Use prefix help command globally
   (setq prefix-help-command #'embark-prefix-help-command)
   (defun mo-embark-bindings ()
