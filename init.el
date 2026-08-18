@@ -1335,7 +1335,7 @@ If universal ARG is set, exclude the pattern."
 ;; Init evil-textobj-tree-sitter for tree-sitter based text objects
 (use-package evil-textobj-tree-sitter
   :demand t
-  :after evil
+  :after ( evil evil-easymotion)
   :functions
   ( evil-textobj-tree-sitter-get-textobj
     evil-textobj-tree-sitter-goto-textobj
@@ -1355,7 +1355,9 @@ If universal ARG is set, exclude the pattern."
                     ( "t" "test" "start" "test.outer")))
     (let ((end (string= part "end"))
           (next-cmd (intern (format "mo-goto-next-%s-%s" name part)))
-          (prev-cmd (intern (format "mo-goto-prev-%s-%s" name part))))
+          (prev-cmd (intern (format "mo-goto-prev-%s-%s" name part)))
+          (em-next-cmd (intern (format "mo-easymotion-next-%s-%s" name part)))
+          (em-prev-cmd (intern (format "mo-easymotion-prev-%s-%s" name part))))
       (defalias next-cmd
         (lambda ()
           (interactive)
@@ -1369,7 +1371,15 @@ If universal ARG is set, exclude the pattern."
       (general-define-key
        :states '( normal motion)
        (concat "] " key) next-cmd
-       (concat "[ " key) prev-cmd)))
+       (concat "[ " key) prev-cmd)
+      ;; Bind easymotion versions of the motions under the easymotion prefix,
+      ;; showing avy hints on all candidates in the visible part of the buffer
+      (eval `(evilem-make-motion ,em-next-cmd #',next-cmd) t)
+      (eval `(evilem-make-motion ,em-prev-cmd #',prev-cmd) t)
+      (general-define-key
+       :keymaps 'evilem-map
+       (concat "] " key) em-next-cmd
+       (concat "[ " key) em-prev-cmd)))
 
   ;; Generate goto commands for jumping to the start of an enclosing text
   ;; object, as the goto commands above only jump linearly. With a prefix
@@ -1379,7 +1389,8 @@ If universal ARG is set, exclude the pattern."
                     ( "I" "conditional" "conditional.outer")
                     ( "L" "loop" "loop.outer")
                     ( "E" "entry" "entry.outer")))
-    (let ((cmd (intern (format "mo-goto-enclosing-%s-start" name))))
+    (let ((cmd (intern (format "mo-goto-enclosing-%s-start" name)))
+          (em-cmd (intern (format "mo-easymotion-enclosing-%s-start" name))))
       (defalias cmd
         (lambda (count)
           (interactive "p")
@@ -1392,7 +1403,13 @@ If universal ARG is set, exclude the pattern."
 With prefix argument COUNT, jump that many nesting levels up." name))
       (general-define-key
        :states '( normal motion)
-       (concat "[ " key) cmd)))
+       (concat "[ " key) cmd)
+      ;; Bind an easymotion version of the motion under the easymotion prefix,
+      ;; showing avy hints on the start of each enclosing level
+      (eval `(evilem-make-motion ,em-cmd #',cmd) t)
+      (general-define-key
+       :keymaps 'evilem-map
+       (concat "[ " key) em-cmd)))
 
   ;; Text objects for selecting and operating on syntax constructs
   (general-define-key
