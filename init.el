@@ -561,9 +561,7 @@ window edges unaffected."
     "M-v" #'split-root-window-right)
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "q" #'mo-quit-window-kill-buffer
-    "[" #'previous-buffer
-    "]" #'next-buffer)
+    "q" #'mo-quit-window-kill-buffer)
   :config
   (defun mo-quit-other-window ()
     "Quit the other window."
@@ -2494,6 +2492,10 @@ ARG is the prefix argument passed to `embark-act'."
     "i" #'mo-project-list-buffers
     "r" #'mo-reload-dir-locals-project
     "l" #'mo-find-file-dir-locals-project)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "b"
+    "[" #'mo-project-previous-buffer
+    "]" #'mo-project-next-buffer)
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
@@ -2538,6 +2540,32 @@ current project."
     (interactive)
     (mo-with-project-tab-scope
       (call-interactively #'project-list-buffers)))
+
+  (defun mo--project-cycle-buffer (cycle-fn)
+    "Call buffer cycling command CYCLE-FN, restricted to the project buffers.
+The project is the current tab's project, or the current project. If no
+project is found, cycle through all buffers."
+    (mo-with-project-tab-scope
+      (let* ((project (project-current))
+             (buffers (and project (project-buffers project)))
+             (switch-to-prev-buffer-skip
+              (if buffers
+                  (lambda (_window buffer _bury-or-kill)
+                    (not (memq buffer buffers)))
+                switch-to-prev-buffer-skip)))
+        (call-interactively cycle-fn))))
+
+  (defun mo-project-previous-buffer ()
+    "Switch to the previous buffer of the current tab's project, or of the
+current project."
+    (interactive)
+    (mo--project-cycle-buffer #'previous-buffer))
+
+  (defun mo-project-next-buffer ()
+    "Switch to the next buffer of the current tab's project, or of the current
+project."
+    (interactive)
+    (mo--project-cycle-buffer #'next-buffer))
 
   (defun mo-get-buffer-dir ()
     "Return buffer's directory.
