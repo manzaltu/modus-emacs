@@ -3508,7 +3508,9 @@ leaving the heading outside of the visible region."
                  (message "%s" branch))
         (user-error "There is not current branch"))))
   (setq magit-diff-refine-hunk 'all)
-  (setq magit-delete-by-moving-to-trash nil))
+  (setq magit-delete-by-moving-to-trash nil)
+  ;; Save uncommitted changes to work-in-progress refs
+  (magit-wip-mode 1))
 
 ;; Init magit-tbdiff for using git-range-diff command in magit
 (use-package magit-tbdiff
