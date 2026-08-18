@@ -263,6 +263,18 @@
     (let ((evil-vsplit-window-right nil))
       (call-interactively #'evil-window-vsplit)))
 
+  ;; Continue resizing windows without re-entering the quick menu
+  (defvar-keymap mo-evil-window-resize-repeat-map
+    "+" #'evil-window-increase-height
+    "-" #'evil-window-decrease-height
+    ">" #'evil-window-increase-width
+    "<" #'evil-window-decrease-width)
+  (dolist (cmd '( evil-window-increase-height
+                  evil-window-decrease-height
+                  evil-window-increase-width
+                  evil-window-decrease-width))
+    (put cmd 'repeat-map 'mo-evil-window-resize-repeat-map))
+
   (defun mo-evil-correct-last-sexp (command &rest args)
     "In normal-state or motion-state, last sexp ends at point."
     ;; A false evil-move-beyond-eol is covered by evil-collection
