@@ -772,6 +772,9 @@ the user to input the run command."
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
     "i" #'ibuffer)
+  :hook
+  ;; Keep the buffer list in sync with buffer changes
+  ( ibuffer-mode . ibuffer-auto-mode)
   :custom
   ( ibuffer-formats '((mark modified read-only locked
                             " " (name 50 50 :left :elide)
