@@ -1217,10 +1217,15 @@ If universal ARG is set, exclude the pattern."
 
 ;; Init evil-snipe for an improved 1 char evil search experience
 (use-package evil-snipe
-  :functions evil-snipe-override-mode
+  :functions ( evil-snipe-mode evil-snipe-override-mode)
   :custom
   ( evil-snipe-override-evil-repeat-keys nil)
+  ;; Search in the whole visible part of the buffer
+  ( evil-snipe-scope 'whole-visible)
+  ;; Be case sensitive only when the search includes capital letters
+  ( evil-snipe-smart-case t)
   :config
+  (evil-snipe-mode 1)
   (evil-snipe-override-mode 1))
 
 ;; Init expand-region for expanding the selected region by semantic units
