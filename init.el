@@ -4091,6 +4091,8 @@ landed on BASE afterwards."
   (setq diff-hl-highlight-function #'mo-diff-hl-highlight-on-line)
   (setq diff-hl-highlight-reference-function #'mo-diff-hl-highlight-on-line)
 
+  ;; Update highlights on the fly, without waiting for the buffer to be saved
+  (diff-hl-flydiff-mode 1)
   (global-diff-hl-mode))
 
 ;; Init git-link for creating URLs for files in web git services
