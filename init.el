@@ -6353,6 +6353,7 @@ When enabling, prompt for the fill column first."
   :config
   ;; Restore lazy loading of the saved places
   (setq save-place-loaded nil)
+  (setq save-place-limit 5000)
   (save-place-mode))
 
 ;; Init recentf for tracking recently opened files
