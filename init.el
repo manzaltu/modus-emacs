@@ -814,6 +814,7 @@ the user to input the run command."
 
 ;; Init repeat for repeating previous commands
 (use-package repeat
+  :demand t
   :straight nil
   :general
   ( :keymaps 'mo-quick-menu-map
