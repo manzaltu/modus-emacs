@@ -434,6 +434,8 @@ window edges unaffected."
   (setq completion-ignored-extensions nil)
   ;; Increase saved history size
   (setq history-length 1000)
+  ;; Remove duplicate entries from history
+  (setq history-delete-duplicates t)
   ;; Cap command history
   (put 'command-history 'history-length 100)
   ;; Increase undo limits
