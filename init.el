@@ -2911,10 +2911,14 @@ Used while preview is toggled off."
 (use-package consult-dir
   :general
   ( :keymaps 'vertico-map
-    "M-;" #'consult-dir)
+    "M-;" #'consult-dir
+    "C-M-;" #'consult-dir-jump-file)
   ( :keymaps 'mo-quick-menu-map
     :prefix "f"
     "c" #'consult-dir)
+  :custom
+  ;; Use fd when jumping to files
+  ( consult-dir-jump-file-command #'consult-fd)
   :config
   ;; Complete known hosts from the ssh config as remote directories
   (add-to-list 'consult-dir-sources 'consult-dir--source-tramp-ssh t))
