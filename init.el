@@ -4034,7 +4034,8 @@ the produced output, not the process exit code)."
     "r" #'mo-diff-hl-set-reference-merge-base-in-project
     "C-r" #'diff-hl-set-reference-rev-in-project
     "n" #'diff-hl-next-hunk
-    "p" #'diff-hl-previous-hunk)
+    "p" #'diff-hl-previous-hunk
+    "s" #'diff-hl-show-hunk)
   :hook
   ( magit-pre-refresh . diff-hl-magit-pre-refresh)
   ( magit-post-refresh . diff-hl-magit-post-refresh)
