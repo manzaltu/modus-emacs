@@ -5188,7 +5188,7 @@ Provide code changes as GNU diff format, followed by brief explanations for each
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "b"
-    "TAB" #'copilot-mode)
+    "C-p" #'copilot-mode)
   ( :keymaps 'copilot-completion-map
     "M-<return>" #'copilot-accept-completion
     "C-p" #'copilot-previous-completion
