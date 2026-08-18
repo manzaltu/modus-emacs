@@ -6096,15 +6096,6 @@ the frame for subsequent layout tracking."
 Excludes eat buffers with names matching *claude-code*."
     (buffer-match-p '( and (not "\\*claude-code") (derived-mode . eat-mode)) buf))
 
-  (defun mo-popper-vterm-filter (buf)
-    "Return t if BUF is a vterm buffer that should be treated as a popup.
-Matches by either vterm-mode or vterm name pattern.
-Excludes vterm buffers with names matching *claude-code*."
-    (buffer-match-p '( and (not "\\*claude-code")
-                       (or (derived-mode . vterm-mode)
-                           "^\\*vterm.*\\*.*$"))
-                    buf))
-
   (defun mo-popper-ghostel-filter (buf)
     "Return t if BUF is a ghostel buffer that should be treated as a popup.
 Matches by either ghostel-mode or ghostel name pattern.
@@ -6144,8 +6135,7 @@ Excludes ghostel buffers with names matching *claude-code*."
            "^\\*\\(.+-\\)?eshell\\*.*$" eshell-mode
            "^\\*shell.*\\*.*$" shell-mode
            "^\\*term.*\\*$" term-mode
-           mo-popper-ghostel-filter
-           mo-popper-vterm-filter))
+           mo-popper-ghostel-filter))
   ;; Set fractional height
   (setq popper-window-height (nth mo-popper-current-window-height-idx
                                   mo-popper-window-heights))
