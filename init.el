@@ -5073,7 +5073,9 @@ enabling lsp."
     "h" #'helpful-at-point
     ;; Bind <escape> too, as escape events decoded on ttys skip the ESC translation
     "ESC" #'helpful-kill-buffers
-    "<escape>" #'helpful-kill-buffers))
+    "<escape>" #'helpful-kill-buffers)
+  :custom
+  ( helpful-max-buffers 2))
 
 ;; Init eldoc for viewing documentation in echo area
 (use-package eldoc
