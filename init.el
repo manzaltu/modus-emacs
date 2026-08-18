@@ -2415,7 +2415,7 @@ ARG is the prefix argument passed to `embark-act'."
 (use-package cape
   :functions
   ( cape-wrap-prefix-length cape-wrap-super
-    cape-file cape-dabbrev
+    cape-file cape-dabbrev cape-history
     mo-cape-dabbrev-or-merged)
   :custom
   ;; Do not scan every buffer with dabbrev (see dabbrev configuration)
@@ -2439,8 +2439,16 @@ ARG is the prefix argument passed to `embark-act'."
       (make-local-variable 'completion-at-point-functions)
       (remove-hook 'completion-at-point-functions #'cape-file t)))
 
+  (defun mo-cape-setup-history-comp ()
+    "Enable history completion in the current buffer."
+    (add-hook 'completion-at-point-functions #'cape-history nil t))
+
   :hook
-  (minibuffer-setup . mo-cape-disable-file-comp-evil-search))
+  (minibuffer-setup . mo-cape-disable-file-comp-evil-search)
+  ;; Complete from the shell history in shell prompts
+  ( eshell-mode . mo-cape-setup-history-comp)
+  ( shell-mode . mo-cape-setup-history-comp)
+  ( comint-mode . mo-cape-setup-history-comp))
 
 ;; Init dabbrev for the automatic completion of dynamic abbreviations
 (use-package dabbrev
