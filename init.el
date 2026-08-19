@@ -3623,6 +3623,9 @@ leaving the heading outside of the visible region."
 ;; Init pr-review for reviewing github PRs
 (use-package pr-review
   :functions forge-get-url
+  ;; Wrap long lines (e.g. single-paragraph comments) instead of truncating
+  :hook
+  ( pr-review-mode . visual-line-mode)
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
