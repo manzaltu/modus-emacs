@@ -3848,7 +3848,7 @@ act on the window that actually displays it."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
-    "<menu>" #'gh-notify)
+    "n" #'gh-notify)
   ( :states 'normal
     :keymaps 'gh-notify-mode-map
     "RET" #'gh-notify-visit-notification
