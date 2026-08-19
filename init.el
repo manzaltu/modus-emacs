@@ -5952,50 +5952,6 @@ If project root cannot be found, use the buffer's default directory."
     "M-+" #'jinx-correct-nearest)
   :hook ( emacs-startup . global-jinx-mode))
 
-;; Init consult-gh for github consult integration
-(use-package consult-gh
-  :demand t
-  :after consult
-  :general
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "g"
-    "c h" #'consult-gh)
-  :custom
-  ( consult-gh-show-preview t)
-  ( consult-gh-preview-key "M-."))
-
-;; Init consult-gh-embark for github embark integration
-(use-package consult-gh-embark
-  :demand t
-  :after ( consult-gh embark)
-  :commands consult-gh-embark-mode
-  :config
-  (consult-gh-embark-mode +1))
-
-;; Init consult-gh-forge for github forge integration
-(use-package consult-gh-forge
-  :demand t
-  :after ( consult-gh forge)
-  :commands consult-gh-forge-mode
-  :general
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "g"
-    "c f" #'consult-gh-forge-open-topic-in-consult-gh)
-  :config
-  (consult-gh-forge-mode +1))
-
-;; Init consult-gh-with-pr-review for github pr-review integration
-(use-package consult-gh-with-pr-review
-  :demand t
-  :after consult-gh
-  :commands consult-gh-with-pr-review-open-topic
-  :general
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "g"
-    "c r" #'consult-gh-with-pr-review-open-topic)
-  :config
-  (consult-gh-with-pr-review-mode +1))
-
 ;; Init powerthesaurus for finding synonyms, antonyms and related terms
 (use-package powerthesaurus
   :general

@@ -26,7 +26,6 @@
  ("consult" . "e98ac9a3b7b78397e6f14eadfc70aacc069edd7d")
  ("consult-dir" . "1497b46d6f48da2d884296a1297e5ace1e050eb5")
  ("consult-flycheck" . "087454a31b51ec007365f8e92a04e69409f294d3")
- ("consult-gh" . "c8707e86d36ea4ec38e177ca8fa0313a5374a0a9")
  ("consult-lsp" . "f41a3946987a3880068f95f3725bbb7b0d4b0b22")
  ("consult-notes" . "4a9b7e2990fa9c9be0df482c2342d24bf9ddc32a")
  ("consult-org-roam" . "781d9c1cfee8631bc125fa45bab92de320d3941e")
