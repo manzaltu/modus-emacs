@@ -6036,8 +6036,14 @@ the frame for subsequent layout tracking."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "w"
-    "w" #'zoom-window-zoom)
+    "w" #'mo-zoom-window-zoom)
   :config
+  (defun mo-zoom-window-zoom ()
+    "Zoom the selected window, closing side windows as well."
+    (interactive)
+    (let ((ignore-window-parameters t))
+      (zoom-window-zoom)))
+
   (setq zoom-window-mode-line-color "#3b404e"))
 
 ;; Init faces for face related functionality
