@@ -6036,7 +6036,7 @@ the frame for subsequent layout tracking."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "w"
-    "z" #'zoom-window-zoom)
+    "w" #'zoom-window-zoom)
   :config
   (setq zoom-window-mode-line-color "#3b404e"))
 
