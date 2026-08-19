@@ -3507,7 +3507,7 @@ leaving the heading outside of the visible region."
   ( :keymaps 'mo-quick-menu-map
     :prefix "g"
     "g" #'magit-status
-    "C-c" #'magit-clone
+    "c" #'magit-clone
     "i" #'magit-init
     "d" #'magit-diff-buffer-file
     "b" #'magit-blame-addition
