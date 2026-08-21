@@ -4313,10 +4313,6 @@ landed on BASE afterwards."
     "C-r" #'lsp-workspace-restart
     "=" #'lsp-format-region
     "o" #'lsp-clangd-find-other-file)
-  ( :keymaps 'mo-quick-menu-map
-    "C-l" #'lsp-find-implementation
-    "C-S-l" #'lsp-ui-peek-find-implementation
-    "C-S-k" #'lsp-ui-peek-find-references)
   ( :keymaps 'embark-identifier-map
     "a" #'lsp-execute-code-action
     "R" #'lsp-rename
