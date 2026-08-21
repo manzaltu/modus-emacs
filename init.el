@@ -3150,6 +3150,24 @@ without GLOBAL non-nil `embark-bindings' filters it out."
   (keymap-set embark-identifier-map "c" #'mo-embark-lsp-treemacs-call-hierarchy)
   (keymap-set embark-identifier-map "C" #'mo-embark-lsp-treemacs-outgoing-call-hierarchy)
   (keymap-set embark-identifier-map "t" #'mo-embark-lsp-treemacs-type-hierarchy)
+  ;; Add describe actions for identifier and symbol targets
+  (defun mo-embark-describe-identifier (_target)
+    "Describe the thing at point, ignoring Embark TARGET.
+Use lsp documentation when lsp is enabled, and helpful otherwise."
+    (interactive "s")
+    (if (bound-and-true-p lsp-mode)
+        (call-interactively #'lsp-describe-thing-at-point)
+      (call-interactively #'helpful-at-point)))
+  (defun mo-embark-describe-symbol (target)
+    "Describe the symbol given by the Embark TARGET.
+Use helpful when acting on the symbol at point, and `describe-symbol'
+otherwise (e.g. when acting on minibuffer candidates)."
+    (interactive "s")
+    (if (equal (thing-at-point 'symbol t) target)
+        (call-interactively #'helpful-at-point)
+      (describe-symbol (intern target))))
+  (keymap-set embark-identifier-map "h" #'mo-embark-describe-identifier)
+  (keymap-set embark-symbol-map "h" #'mo-embark-describe-symbol)
   ;; Add an avy dispatch action for triggering embark on the jump target
   (defun mo-avy-action-embark (pt)
     "Move to PT and trigger embark there."
