@@ -1497,6 +1497,9 @@ Used for preventing recursion when recording new jumps.")
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
     "<" #'xref-find-apropos)
+  ;; Rebind the apropos action, as its default key is used for code actions
+  ( :keymaps 'embark-identifier-map
+    "<" #'xref-find-apropos)
   ;; Always recenter after returning to a pre-jump location
   :recenter-jump-always
   ( xref-go-back)
