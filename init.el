@@ -4491,8 +4491,9 @@ enabling lsp."
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
     "C-i" #'lsp-ui-imenu
-    "d" #'lsp-ui-doc-glance
     "<menu>" #'lsp-ui-doc-focus-frame)
+  ( :keymaps 'embark-identifier-map
+    "g" #'lsp-ui-doc-glance)
   :hook
   ( enable-theme-functions . mo-lsp-ui-configure-theme)
   :config
