@@ -5197,9 +5197,12 @@ enabling lsp."
 ;; Init devdocs for viewing online dev documentation
 (use-package devdocs
   :general
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "c"
-    "h" #'devdocs-lookup)
+  ( :keymaps 'embark-identifier-map
+    "k" #'devdocs-lookup)
+  :init
+  ;; When run as an embark action, keep the target as editable initial input
+  (cl-pushnew #'embark--allow-edit
+              (alist-get 'devdocs-lookup embark-target-injection-hooks))
   :config
   (setq devdocs-data-dir (mo-cache-path "devdocs")))
 
