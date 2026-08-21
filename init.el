@@ -5978,6 +5978,15 @@ If project root cannot be found, use the buffer's default directory."
   ( :keymaps 'override
     "M-$" #'jinx-correct-word
     "M-+" #'jinx-correct-nearest)
+  ;; Add spelling correction actions for the identifier at point
+  ( :keymaps 'embark-identifier-map
+    "$" #'jinx-correct-word
+    "+" #'jinx-correct-nearest)
+  :init
+  ;; As embark actions, these prompt for the correction, not the target
+  (dolist (cmd '( jinx-correct-word jinx-correct-nearest))
+    (cl-pushnew #'embark--ignore-target
+                (alist-get cmd embark-target-injection-hooks)))
   :hook ( emacs-startup . global-jinx-mode))
 
 ;; Init powerthesaurus for finding synonyms, antonyms and related terms
