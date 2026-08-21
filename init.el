@@ -3080,6 +3080,17 @@ Used while preview is toggled off."
   (setq embark-verbose-indicator-nested nil)
   ;; Use prefix help command globally
   (setq prefix-help-command #'embark-prefix-help-command)
+  (defun mo-embark-ignore-target (&rest cmds)
+    "Let CMDS prompt without the injected target when run as embark actions.
+Use for commands whose prompt asks for something other than the target."
+    (dolist (cmd cmds)
+      (cl-pushnew #'embark--ignore-target
+                  (alist-get cmd embark-target-injection-hooks))))
+  (defun mo-embark-edit-target (&rest cmds)
+    "Keep the injected target editable when CMDS are run as embark actions."
+    (dolist (cmd cmds)
+      (cl-pushnew #'embark--allow-edit
+                  (alist-get cmd embark-target-injection-hooks))))
   (defun mo-embark-bindings ()
     "Like `embark-bindings', but always include global bindings.
 The leader keymap `mo-quick-menu-map' lives on the global map, so
@@ -4467,9 +4478,7 @@ enabling lsp."
     ;; Distinguish between var reads and writes by underlining lsp write highlights
     (set-face-attribute 'lsp-face-highlight-write nil :underline t))
   ;; As embark actions, these prompt for an action or a new name, not the target
-  (dolist (cmd '( lsp-execute-code-action lsp-rename))
-    (cl-pushnew #'embark--ignore-target
-                (alist-get cmd embark-target-injection-hooks)))
+  (mo-embark-ignore-target 'lsp-execute-code-action 'lsp-rename)
   :commands lsp-deferred)
 
 ;; Init lsp-semantic-tokens for LSP semantic token highlighting
@@ -5197,8 +5206,7 @@ enabling lsp."
     "k" #'devdocs-lookup)
   :init
   ;; When run as an embark action, keep the target as editable initial input
-  (cl-pushnew #'embark--allow-edit
-              (alist-get 'devdocs-lookup embark-target-injection-hooks))
+  (mo-embark-edit-target 'devdocs-lookup)
   :config
   (setq devdocs-data-dir (mo-cache-path "devdocs")))
 
@@ -5976,9 +5984,7 @@ If project root cannot be found, use the buffer's default directory."
     "+" #'jinx-correct-nearest)
   :init
   ;; As embark actions, these prompt for the correction, not the target
-  (dolist (cmd '( jinx-correct-word jinx-correct-nearest))
-    (cl-pushnew #'embark--ignore-target
-                (alist-get cmd embark-target-injection-hooks)))
+  (mo-embark-ignore-target 'jinx-correct-word 'jinx-correct-nearest)
   :hook ( emacs-startup . global-jinx-mode))
 
 ;; Init powerthesaurus for finding synonyms, antonyms and related terms
