@@ -4299,8 +4299,6 @@ landed on BASE afterwards."
     "l" #'lsp
     "C-l" #'lsp-disconnect
     "C-d" #'lsp-describe-session
-    "a" #'lsp-execute-code-action
-    "r" #'lsp-rename
     "p" #'lsp-signature-activate
     "n" #'lsp-inlay-hints-mode
     "s" #'lsp-toggle-symbol-highlight
@@ -4311,15 +4309,15 @@ landed on BASE afterwards."
     "C-l" #'lsp-find-implementation
     "C-S-l" #'lsp-ui-peek-find-implementation
     "C-S-k" #'lsp-ui-peek-find-references)
+  ( :keymaps 'embark-identifier-map
+    "a" #'lsp-execute-code-action
+    "R" #'lsp-rename
+    ;; Bind in rust buffers only
+    "x" `( menu-item "" lsp-rust-analyzer-open-external-docs
+           :filter ,(lambda (cmd) (when (derived-mode-p 'rustic-mode) cmd))))
   ( :keymaps 'mo-quick-menu-map
     :prefix "n"
     "l" #'lsp-org)
-  (mo-quick-menu-definer
-    :keymaps 'lsp-mode-map
-    "h h" #'lsp-describe-thing-at-point)
-  (mo-quick-menu-definer
-    :keymaps 'rustic-mode-map
-    "h H" #'lsp-rust-analyzer-open-external-docs)
   :init
   ;; No completion provider as we use corfu
   (setq lsp-completion-provider :none)
@@ -4472,6 +4470,10 @@ enabling lsp."
     "Set lsp-mode theme configuration."
     ;; Distinguish between var reads and writes by underlining lsp write highlights
     (set-face-attribute 'lsp-face-highlight-write nil :underline t))
+  ;; As embark actions, these prompt for an action or a new name, not the target
+  (dolist (cmd '( lsp-execute-code-action lsp-rename))
+    (cl-pushnew #'embark--ignore-target
+                (alist-get cmd embark-target-injection-hooks)))
   :commands lsp-deferred)
 
 ;; Init lsp-semantic-tokens for LSP semantic token highlighting
