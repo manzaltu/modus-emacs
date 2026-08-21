@@ -5968,6 +5968,7 @@ If project root cannot be found, use the buffer's default directory."
     "s" #'jinx-correct-all
     "C-s" #'jinx-mode)
   ( :keymaps 'override
+    "M-$" #'jinx-correct-word
     "M-+" #'jinx-correct-nearest)
   :hook ( emacs-startup . global-jinx-mode))
 
