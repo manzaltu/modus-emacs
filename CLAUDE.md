@@ -52,6 +52,7 @@ Bindings are declared via `general.el`'s `:general` keyword.
 - For **minor-mode** keymaps, use general's `:definer 'minor-mode` with `:keymaps 'foo-mode` (the mode symbol, not `foo-mode-map`) — this routes through `minor-mode-map-alist` and avoids precedence/shadowing issues that bite plain `:keymaps 'foo-mode-map` bindings on minor modes.
 - **`C-M-s-<key>` is the "Hyper" prefix** — the user's QMK keyboard emits the full `Ctrl+Meta+Super` triple from a single physical key. Use it for **context-dependent** quick access to mode-local commands; bind it on a specific mode/minor-mode map (e.g. `emacs-lisp-mode-map`, `lsp-mode-map`), never on the global map or `mo-quick-menu-map`. Typical use: one-keystroke aliases for the most-used command in a given mode (e.g. `C-M-s-b` → `eval-buffer` in `emacs-lisp-mode-map`).
 - **Adding evil-style bindings**: when the goal is a vim-style direct keystroke — typically a short mnemonic chord like `gc`, `z i`, `z SPC` that should only fire while evil is in a specific state — gate the binding by adding `:states 'normal` (or `'( normal visual)`, `'motion`, `'insert`) inside the `:general` arglist. Only these direct mode-map bindings are modal; quick-menu and Hyper bindings are never gated by state. Examples: `( :states '( normal visual) "z i" #'evil-numbers/inc-at-pt)`, `( :states 'normal "z SPC" #'string-inflection-cycle)`, `( :states 'motion "C-S-d" #'evil-scroll-up)`.
+- **Embark actions for at-point commands**: commands whose subject is the thing at point (describe, rename, search for, or correct the symbol/path/word under the cursor) belong on embark's action maps, reached via `embark-act` (`C-'`) — not on the quick menu. Use `embark-identifier-map` for code-scoped actions (lsp, xref, devdocs), `embark-general-map` for text-universal ones (search, spelling) so every target type inherits them, and `embark-symbol-map` for elisp-specific ones. Bind from the owning package's block with `( :keymaps 'embark-identifier-map ...)`. Look for a good mnemonic key that is **free** in the target map and its parents (`embark-general-map`, `embark-meta-map`); if the best key would **override an embark default binding, present the conflict to the user and ask before taking it**. A command that prompts for something other than the target must register `mo-embark-ignore-target` (or `mo-embark-edit-target` to keep the target as editable input) next to its binding. For actions that should exist only in one mode, bind a `menu-item` with a `:filter` (see the rust binding in the `lsp-mode` block).
 
 Examples of each pattern inside a `use-package`:
 
@@ -89,6 +90,15 @@ Examples of each pattern inside a `use-package`:
   ( :states '( normal visual)
     "z i" #'evil-numbers/inc-at-pt
     "z d" #'evil-numbers/dec-at-pt))
+
+;; Embark action — at-point command bound on an embark action map from the
+;; owning package's block; prompting commands register an injection hook.
+(use-package devdocs
+  :general
+  ( :keymaps 'embark-identifier-map
+    "k" #'devdocs-lookup)
+  :init
+  (mo-embark-edit-target 'devdocs-lookup))
 ```
 
 ## LSP
