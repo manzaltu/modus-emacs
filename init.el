@@ -2803,8 +2803,8 @@ Returns the selected project root directory or nil if cancelled."
   ( :keymaps 'mo-quick-menu-map
     "*" #'mo-consult-line-symbol-at-point
     "C-*" #'mo-consult-line-symbol-at-point-other-window)
-  ;; Add search actions for the identifier at point, on the quick menu search keys
-  ( :keymaps 'embark-identifier-map
+  ;; Add search actions for any target at point, on the quick menu search keys
+  ( :keymaps 'embark-general-map
     ";" #'consult-line
     "." #'consult-fd
     "," #'consult-ripgrep)
