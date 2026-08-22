@@ -5986,10 +5986,13 @@ If project root cannot be found, use the buffer's default directory."
   ( :keymaps 'override
     "M-$" #'jinx-correct-word
     "M-+" #'jinx-correct-nearest)
-  ;; Add spelling correction actions for the identifier at point
-  ( :keymaps 'embark-identifier-map
+  ;; Add spelling correction actions for any target at point
+  ( :keymaps 'embark-general-map
     "$" #'jinx-correct-word
     "+" #'jinx-correct-nearest)
+  ;; Override the default ispell binding, which would shadow the general action
+  ( :keymaps 'embark-identifier-map
+    "$" #'jinx-correct-word)
   :init
   ;; As embark actions, these prompt for the correction, not the target
   (mo-embark-ignore-target 'jinx-correct-word 'jinx-correct-nearest)
