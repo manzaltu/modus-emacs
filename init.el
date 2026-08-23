@@ -5976,9 +5976,8 @@ If project root cannot be found, use the buffer's default directory."
 ;; Init powerthesaurus for finding synonyms, antonyms and related terms
 (use-package powerthesaurus
   :general
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "b"
-    "C-t" #'powerthesaurus-transient))
+  ( :keymaps 'embark-general-map
+    "~" #'powerthesaurus-transient))
 
 ;; Init dictionary for a dictionary in Emacs
 (use-package dictionary
