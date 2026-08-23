@@ -2781,12 +2781,10 @@ Returns the selected project root directory or nil if cancelled."
   ( :keymaps 'mo-quick-menu-map
     :prefix "j"
     "b" #'mo-consult-project-buffer)
-  ( :keymaps 'mo-quick-menu-map
-    "*" #'mo-consult-line-symbol-at-point
-    "C-*" #'mo-consult-line-symbol-at-point-other-window)
   ;; Add search actions for any target at point, on the quick menu search keys
   ( :keymaps 'embark-general-map
     ";" #'consult-line
+    "C-;" #'mo-embark-consult-line-other-window
     "." #'consult-fd
     "," #'consult-ripgrep)
   ( :keymaps 'mo-quick-menu-map
@@ -2878,23 +2876,17 @@ With universal argument ARG, always show list of open projects."
     (mo-with-project-tab-scope
       (call-interactively #'consult-project-buffer)))
 
-  (defun mo-consult-line-symbol-at-point ()
-    (interactive)
-    (consult-line (thing-at-point 'symbol)))
-
-  (defun mo-consult-line-symbol-at-point-other-window ()
-    (interactive)
-    (let ((thing (thing-at-point 'symbol))
-          (src-window (selected-window)))
-      (condition-case err
+  (defun mo-embark-consult-line-other-window (target)
+    "Search lines matching the Embark TARGET in the next window."
+    (interactive "s")
+    (let ((src-window (selected-window)))
+      (condition-case nil
           (progn
             (other-window 1)
-            (consult-line thing))
+            (consult-line target))
         (quit
          (when (window-live-p src-window)
            (select-window src-window))))))
-
-  (evil-set-command-property #'mo-consult-line-symbol-at-point :jump t)
 
   (defun mo-consult-ripgrep-current-dir ()
     "Call consult-ripgrep on buffer's directory."
