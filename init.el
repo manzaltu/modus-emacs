@@ -3145,11 +3145,15 @@ without GLOBAL non-nil `embark-bindings' filters it out."
   ;; Add describe actions for identifier and symbol targets
   (defun mo-embark-describe-identifier (_target)
     "Describe the thing at point, ignoring Embark TARGET.
-Use lsp documentation when lsp is enabled, and helpful otherwise."
+Use the documentation of the active language backend, and helpful
+otherwise."
     (interactive "s")
-    (if (bound-and-true-p lsp-mode)
-        (call-interactively #'lsp-describe-thing-at-point)
-      (call-interactively #'helpful-at-point)))
+    (cond
+     ((bound-and-true-p lsp-mode)
+      (call-interactively #'lsp-describe-thing-at-point))
+     ((bound-and-true-p sly-mode)
+      (call-interactively #'sly-describe-symbol))
+     (t (call-interactively #'helpful-at-point))))
   (defun mo-embark-describe-symbol (target)
     "Describe the symbol given by the Embark TARGET.
 Use helpful when acting on the symbol at point, and `describe-symbol'
@@ -4191,10 +4195,12 @@ landed on BASE afterwards."
     "C-<return>" #'sly-mrepl-return)
   (mo-quick-menu-definer
     :keymaps 'sly-mode-map
-    "h h" #'sly-describe-symbol
-    "c d" #'sly-hyperspec-lookup
     "C-j" #'sly-edit-definition
     "C-k" #'sly-edit-uses)
+  ( :keymaps 'embark-identifier-map
+    ;; Bind in sly buffers only
+    "K" `( menu-item "" sly-hyperspec-lookup
+           :filter ,(lambda (cmd) (when (bound-and-true-p sly-mode) cmd))))
   :custom
   ( inferior-lisp-program "sbcl")
   ( sly-db-focus-debugger t)
