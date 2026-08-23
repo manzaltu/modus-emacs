@@ -18,7 +18,7 @@
  ("cdlatex" . "fac070f0164ac9f5859cb4cccba7d29a65c337f3")
  ("cfrs" . "981bddb3fb9fd9c58aed182e352975bd10ad74c8")
  ("claude-code-ide.el" . "32a8a904ac21e52c54231b99796d12ae36df9c22")
- ("claude-emacs-annotate" . "063a3b036edc8904da6bc241dfda74e6a122a94b")
+ ("claude-emacs-annotate" . "8a9a4c842c492280dcee852f663aebd8a24e9ff7")
  ("closql" . "d382e7427f5d375ffc872851b049e9f9c4a43dfc")
  ("cmake" . "7bb8d9da1febb20651a51e6b9a5fb8512f8dbeef")
  ("compat" . "4c7b4fb01d1c7ede3b8da31e2bde8242eff1d6cd")
