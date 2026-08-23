@@ -6497,9 +6497,7 @@ When enabling, prompt for the fill column first."
     "f" #'bmkp-file-target-set
     "d" #'bmkp-delete-bookmarks
     "e" #'bmkp-edit-bookmark-name-and-location
-    "C-e" #'bmkp-edit-bookmark-record
-    "a" #'bookmark-show-annotation
-    "C-a" #'bookmark-edit-annotation))
+    "C-e" #'bmkp-edit-bookmark-record))
 
 ;; Init bookmark-in-project for managing per-project bookmarks
 (use-package bookmark-in-project
