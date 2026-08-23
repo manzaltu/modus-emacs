@@ -1555,16 +1555,11 @@ Used for preventing recursion when recording new jumps.")
     "C-M-s-o" #'org-open-at-point
     "C-M-s-l" #'org-insert-link
     "C-M-s-S-l" #'org-latex-preview
-    "C-M-s-p" #'org-priority
     "C-M-s-S-p" #'org-toggle-pretty-entities
-    "C-M-s-s" #'org-schedule
-    "C-M-s-d" #'org-deadline
-    "C-M-s-t" #'org-todo
     "C-M-s-f" #'org-sparse-tree
     "C-M-s-h" #'org-toggle-heading
     "C-M-s-S-h" #'org-toggle-item
     "C-M-s-S-t" #'org-time-stamp
-    "C-M-s-g" #'org-set-tags-command
     "C-M-s-i" #'org-insert-structure-template
     "C-M-s-e" #'org-edit-special
     "C-M-s-<tab>" #'org-export-dispatch
