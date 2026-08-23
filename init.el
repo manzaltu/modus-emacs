@@ -1564,13 +1564,13 @@ Used for preventing recursion when recording new jumps.")
     "C-M-s-e" #'org-edit-special
     "C-M-s-<tab>" #'org-export-dispatch
     "C-M-s-SPC" #'org-open-at-point
-    "C-M-s-," #'org-mark-ring-goto)
-  ( :keymaps 'org-mode-map
-    :prefix "C-M-s-b"
-    "C-M-s-b" #'org-table-create-or-convert-from-region
-    "C-M-s-x" #'org-table-blank-field
-    "C-M-s-s" #'org-table-sum
-    "C-M-s-i" #'org-table-field-info)
+    "C-M-s-," #'org-mark-ring-goto
+    "C-M-s-b" #'org-table-create-or-convert-from-region)
+  ;; Add table cell actions that embark doesn't provide
+  ( :keymaps 'embark-org-table-cell-map
+    "s" #'org-table-sum
+    "x" #'org-table-blank-field
+    "?" #'org-table-field-info)
   ( :keymaps 'org-src-mode-map
     "C-M-s-q" #'org-edit-src-exit
     "C-M-s-k" #'org-edit-src-abort)
