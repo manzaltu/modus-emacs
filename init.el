@@ -327,9 +327,6 @@
                                              (if (<= ?A char ?Z)
                                                  (concat "S-" (string (downcase char)))
                                                (string char))))))
-                  ;; Alternative leader key for keyboards without a menu key,
-                  ;; overriding the 8-bit chord for /
-                  (keymap-set input-decode-map "¯" "<menu>")
                   ;; Decode CSI-u sequences that xterm.el does not register
                   (dolist (pair '( ( "\e[27;5~" . "C-<escape>")
                                    ( "\e[27;7u" . "C-M-<escape>")
