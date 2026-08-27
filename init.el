@@ -122,7 +122,7 @@
   :config
   ;; Create a definer and a leader key for the quick menu
   (general-create-definer mo-quick-menu-definer
-    :prefix "<menu>")
+    :prefix "S-<f1>")
 
   (defvar mo--quick-menu-groups
     '( ( "a" . "Action")
@@ -481,7 +481,7 @@ window edges unaffected."
   :general
   ( :keymaps 'mo-quick-menu-map
     ;; Quick save key binding
-    "<menu>" #'save-buffer)
+    "S-<f1>" #'save-buffer)
   ( :keymaps 'mo-quick-menu-map
     :prefix "f"
     "f" #'find-file
@@ -1089,7 +1089,7 @@ If universal ARG is set, exclude the pattern."
   ;; evil-collection's find usages overrides evil-mc key bindings.
   (setq evil-collection-want-find-usages-bindings nil)
   (setq evil-collection-want-unimpaired-p nil)
-  (setq evil-collection-key-blacklist '( "<menu>" "M-o"))
+  (setq evil-collection-key-blacklist '( "S-<f1>" "M-o"))
   (evil-collection-init)
 
   ;; Init dired+ for additional dired functionality
@@ -3235,7 +3235,7 @@ leaving the heading outside of the visible region."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "t"
-    ;; nil because `mo-quick-menu-map' is itself a prefix under <menu>;
+    ;; nil because `mo-quick-menu-map' is itself a prefix under S-<f1>;
     ;; otherwise general anchors :wk regexes to "t N" and never matches.
     :wk-full-keys nil
     "t" #'tab-bar-switch-to-tab
@@ -4480,7 +4480,7 @@ enabling lsp."
   ( :keymaps 'mo-quick-menu-map
     :prefix "c"
     "C-i" #'lsp-ui-imenu
-    "<menu>" #'lsp-ui-doc-focus-frame)
+    "S-<f1>" #'lsp-ui-doc-focus-frame)
   ( :keymaps 'embark-identifier-map
     "g" #'lsp-ui-doc-glance)
   :hook
