@@ -5580,6 +5580,9 @@ If project root cannot be found, use the buffer's default directory."
   ( :keymaps 'mo-quick-menu-map
     :prefix "j"
     "t" #'mo-ghostel-project)
+  ;; Keep the leader key reachable in terminal input modes
+  ( :keymaps '( ghostel-char-mode-map ghostel-semi-char-mode-map)
+    "S-<f1>" nil)
   :custom
   ;; Inject shell integration in remote sessions for directory tracking
   ( ghostel-tramp-shell-integration t)
