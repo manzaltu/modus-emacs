@@ -42,7 +42,7 @@ Bindings are declared via `general.el`'s `:general` keyword.
 
 **How the leader works.**
 
-- The leader key is `<menu>`, which opens the quick-menu keymap, `mo-quick-menu-map`.
+- The leader key is `S-<f1>`, which opens the quick-menu keymap, `mo-quick-menu-map`.
 - After the leader, single-letter group keys route into sub-keymaps (e.g. `b` Buffer, `c` Code, `f` File, `g` Git, `j` Project — see `mo--quick-menu-groups` in `init.el` for the full list).
 
 **When adding bindings.**
