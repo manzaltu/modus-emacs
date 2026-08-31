@@ -5511,6 +5511,9 @@ Provide code changes as GNU diff format, followed by brief explanations for each
     (when (string= (alist-get 'name (tab-bar--current-tab)) mo-newsticker-tab-name)
       (tab-bar-close-tab))))
 
+;; Init nethack for NetHack in Emacs
+(use-package nethack)
+
 ;; Init app-launcher for launching desktop apps
 (use-package app-launcher
   :straight ( :type git :host github :repo "SebastienWae/app-launcher")

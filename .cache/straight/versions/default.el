@@ -153,6 +153,7 @@
  ("marginalia" . "13220ab7a67f450434e6b2da452b9700ffcb39bf")
  ("markdown-mode" . "f441e8bc9951e73b12c61e9198658488dd8e86e1")
  ("melpa" . "19992d9cb8ecb3013e386c3dd70d5fabe0126e3c")
+ ("nethack-el" . "1c8475d3d3061c71705b8cfb696c40a38ff745ae")
  ("nhexl-mode" . "0b27339bdb3e5255353de457ad99724b0d83dcaf")
  ("nix-mode" . "2c77e7e0b7540efbb20ccaee3557ef90a5dc77f0")
  ("nongnu-elpa" . "749fb48b3c318d9deb1941ea970afcd6d96d35dd")
