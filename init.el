@@ -5512,7 +5512,11 @@ Provide code changes as GNU diff format, followed by brief explanations for each
       (tab-bar-close-tab))))
 
 ;; Init nethack for NetHack in Emacs
-(use-package nethack)
+(use-package nethack
+  :general
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "x"
+    "C-n" #'nethack))
 
 ;; Init app-launcher for launching desktop apps
 (use-package app-launcher
