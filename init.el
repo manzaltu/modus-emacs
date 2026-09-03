@@ -1952,11 +1952,20 @@ Used for preventing recursion when recording new jumps.")
 (use-package org-super-agenda
   :functions org-super-agenda-mode
   :defines org-super-agenda-header-map
+  :hook
+  ( enable-theme-functions . mo-org-super-agenda-configure-theme)
   :custom
   ;; One group per parent heading, so project steps sit under their project
   ( org-super-agenda-groups '( ( :auto-parent t)))
   ( org-super-agenda-header-separator "")
   :config
+  (defun mo-org-super-agenda-configure-theme (_theme)
+    "Set org-super-agenda theme configuration."
+    ;; Group headers sit between text and block headers in size, without
+    ;; inheriting the block header face, in the second-level heading color
+    (set-face-attribute 'org-super-agenda-header nil
+                        :inherit 'unspecified :weight 'semi-bold :height 1.1
+                        :foreground (face-attribute 'org-level-2 :foreground nil t)))
   ;; Group headers use the same key bindings as the rest of the agenda
   (setq org-super-agenda-header-map (make-sparse-keymap))
   (org-super-agenda-mode))
