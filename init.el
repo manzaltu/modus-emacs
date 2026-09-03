@@ -1949,7 +1949,17 @@ Used for preventing recursion when recording new jumps.")
 (use-package org-ql)
 
 ;; Init org-super-agenda for grouping agenda items
-(use-package org-super-agenda)
+(use-package org-super-agenda
+  :functions org-super-agenda-mode
+  :defines org-super-agenda-header-map
+  :custom
+  ;; One group per parent heading, so project steps sit under their project
+  ( org-super-agenda-groups '( ( :auto-parent t)))
+  ( org-super-agenda-header-separator "")
+  :config
+  ;; Group headers use the same key bindings as the rest of the agenda
+  (setq org-super-agenda-header-map (make-sparse-keymap))
+  (org-super-agenda-mode))
 
 ;; Init org-modern for a modern org buffer style
 (use-package org-modern
