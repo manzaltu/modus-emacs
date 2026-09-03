@@ -1811,10 +1811,17 @@ Used for preventing recursion when recording new jumps.")
               entry))
         entry)))
 
+  (defun mo-org-agenda-align-time (entry)
+    "Start the time column of calendar ENTRY at a fixed column past the icon."
+    (when (and (get-text-property 0 'time entry) (> (length entry) 1))
+      (put-text-property 1 2 'display '( space :align-to 3) entry))
+    entry)
+
   (defun mo-org-agenda-prepare-entry (entry)
     "Decorate agenda ENTRY before sorting."
     (mo-org-agenda-append-parent-heading
-     (mo-org-agenda-decorate-todo-entry entry)))
+     (mo-org-agenda-align-time
+      (mo-org-agenda-decorate-todo-entry entry))))
 
   (setq org-agenda-files `( ,org-directory))
   (setq org-agenda-window-setup 'current-window)
