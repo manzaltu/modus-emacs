@@ -1813,10 +1813,10 @@ Used for preventing recursion when recording new jumps.")
                ( todo "TODO"
                  ( ( org-agenda-overriding-header "Todo")))))))
   (setq org-agenda-prefix-format
-        '( (agenda . "%i %-20c%?-12t")
-           (todo . "%i %-20c")
-           (tags . "%i %-20c")
-           (search . "%i %-20c")))
+        '( (agenda . "%i %?-12t")
+           (todo . "%i ")
+           (tags . "%i ")
+           (search . "%i ")))
   (setq org-agenda-category-icon-alist
         (append org-agenda-category-icon-alist
                 '( ( "Diary" ("📆‍") nil nil :ascent center)
