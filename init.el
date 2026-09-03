@@ -1722,12 +1722,16 @@ Used for preventing recursion when recording new jumps.")
   :config
   (defun mo-org-agenda-configure-theme (_theme)
     "Set org theme configuration."
-    ;; Resize org headings and agenda dates
+    ;; Resize agenda dates and block headers
     (dolist (face '(( org-agenda-date . 1.1)
                     ( org-agenda-date-today . 1.1)
                     ( org-agenda-date-weekend . 1.1)
-                    ( org-agenda-date-weekend-today . 1.1)))
+                    ( org-agenda-date-weekend-today . 1.1)
+                    ( org-agenda-structure . 1.2)))
       (set-face-attribute (car face) nil :height (cdr face)))
+    ;; Block headers take the color of top-level org headings
+    (set-face-attribute 'org-agenda-structure nil
+                        :foreground (face-attribute 'org-level-1 :foreground nil t))
     (set-face-attribute 'org-scheduled-today nil
                         :foreground (face-attribute 'default :foreground))
     (set-face-attribute 'org-scheduled-previously nil
@@ -1805,13 +1809,13 @@ Used for preventing recursion when recording new jumps.")
              ( ( agenda ""
                  ( ( org-deadline-warning-days 0)))
                ( todo "PROG"
-                 ( ( org-agenda-overriding-header "In progress")))
+                 ( ( org-agenda-overriding-header "\nIn progress")))
                ( todo "NEXT"
-                 ( ( org-agenda-overriding-header "Next")))
+                 ( ( org-agenda-overriding-header "\nNext")))
                ( todo "WAIT"
-                 ( ( org-agenda-overriding-header "Waiting")))
+                 ( ( org-agenda-overriding-header "\nWaiting")))
                ( todo "TODO"
-                 ( ( org-agenda-overriding-header "Todo")))))))
+                 ( ( org-agenda-overriding-header "\nTodo")))))))
   (setq org-agenda-prefix-format
         '( (agenda . "%i %?-12t")
            (todo . "%i ")
