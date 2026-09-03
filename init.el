@@ -1735,7 +1735,10 @@ Used for preventing recursion when recording new jumps.")
     (set-face-attribute 'org-scheduled-today nil
                         :foreground (face-attribute 'default :foreground))
     (set-face-attribute 'org-scheduled-previously nil
-                        :foreground "#51afef"))
+                        :foreground "#51afef")
+    ;; Calendar parent headings share the group header color
+    (set-face-attribute 'mo-org-agenda-parent-heading nil
+                        :foreground (face-attribute 'org-level-2 :foreground nil t)))
 
   (defun mo-org-agenda-and-todo ()
     "Open org agenda with all TODOs"
@@ -1787,12 +1790,38 @@ Used for preventing recursion when recording new jumps.")
               entry))
         entry)))
 
+  (defvar mo-org-agenda-parent-column 80
+    "Column where the parent heading of a calendar entry starts.")
+
+  (defface mo-org-agenda-parent-heading '( ( t :weight semi-bold))
+    "Face for the parent heading shown after a calendar entry.")
+
+  (defun mo-org-agenda-append-parent-heading (entry)
+    "Append the parent heading of calendar ENTRY at `mo-org-agenda-parent-column'."
+    (let ((marker (get-text-property 0 'org-hd-marker entry)))
+      (if (and marker (not (equal (get-text-property 0 'type entry) "todo")))
+          (let ((parent (org-with-point-at marker
+                          (and (org-up-heading-safe)
+                               (org-get-heading t t t t)))))
+            (if parent
+                (concat entry " "
+                        (propertize " " 'display
+                                    `( space :align-to ,mo-org-agenda-parent-column))
+                        (propertize parent 'face 'mo-org-agenda-parent-heading))
+              entry))
+        entry)))
+
+  (defun mo-org-agenda-prepare-entry (entry)
+    "Decorate agenda ENTRY before sorting."
+    (mo-org-agenda-append-parent-heading
+     (mo-org-agenda-decorate-todo-entry entry)))
+
   (setq org-agenda-files `( ,org-directory))
   (setq org-agenda-window-setup 'current-window)
   (setq org-agenda-compact-blocks t)
   (setq org-agenda-tags-todo-honor-ignore-options t)
   (setq org-agenda-before-sorting-filter-function
-        #'mo-org-agenda-decorate-todo-entry)
+        #'mo-org-agenda-prepare-entry)
   (setq org-agenda-skip-scheduled-if-deadline-is-shown t)
   (setq org-agenda-include-diary t)
   (setq org-agenda-use-time-grid t)
@@ -1807,7 +1836,8 @@ Used for preventing recursion when recording new jumps.")
   (setq org-agenda-custom-commands
         '( ( "n" "Agenda and grouped TODOs"
              ( ( agenda ""
-                 ( ( org-deadline-warning-days 0)))
+                 ( ( org-deadline-warning-days 0)
+                   ( org-super-agenda-groups nil)))
                ( todo "PROG"
                  ( ( org-agenda-overriding-header "\nIn progress")))
                ( todo "NEXT"
