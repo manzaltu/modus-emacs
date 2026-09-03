@@ -1948,6 +1948,9 @@ Used for preventing recursion when recording new jumps.")
 ;; Init org-ql for advanced org search functionality
 (use-package org-ql)
 
+;; Init org-super-agenda for grouping agenda items
+(use-package org-super-agenda)
+
 ;; Init org-modern for a modern org buffer style
 (use-package org-modern
   :functions global-org-modern-mode
