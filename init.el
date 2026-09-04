@@ -1855,9 +1855,9 @@ Used for preventing recursion when recording new jumps.")
                  ( ( org-agenda-overriding-header "\nTodo")))))))
   (setq org-agenda-prefix-format
         '( (agenda . "%i %?-12t")
-           (todo . "%i ")
-           (tags . "%i ")
-           (search . "%i ")))
+           (todo . "  %i ")
+           (tags . "  %i ")
+           (search . "  %i ")))
   (setq org-agenda-category-icon-alist
         (append org-agenda-category-icon-alist
                 '( ( "Diary" ("📆‍") nil nil :ascent center)
