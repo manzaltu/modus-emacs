@@ -31,6 +31,7 @@
 ;; Speed up load lookups during startup by caching load-path directory
 ;; listings. The cache is not invalidated, so drop it after startup to keep
 ;; newly installed packages loadable in a long running session.
+(require 'regexp-opt)
 (setq load-path-filter-function #'load-path-filter-cache-directory-files)
 (add-hook 'emacs-startup-hook
           (lambda ()
