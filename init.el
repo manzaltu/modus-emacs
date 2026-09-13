@@ -1260,6 +1260,7 @@ If universal ARG is set, exclude the pattern."
 
 ;; Init paredit for parenthetical editing in Emacs
 (use-package paredit
+  :straight ( :type git :host github :repo "emacsmirror/paredit")
   :general
   ( :keymaps 'paredit-mode-map
     "C-{" #'paredit-forward-barf-sexp
