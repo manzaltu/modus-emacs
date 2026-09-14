@@ -5945,6 +5945,11 @@ If project root cannot be found, use the buffer's default directory."
     "Set doom-themes configuration on theme change."
     (set-face-attribute 'tab-bar nil :foreground (doom-color 'fg))
     (set-face-attribute 'fringe nil :background (mo-doom-themes-dim-bg))
+    ;; Lift the modeline above the buffer background so window borders stand out
+    (set-face-attribute 'mode-line nil
+                        :background (doom-blend (doom-color 'fg) (doom-color 'bg) 0.1))
+    (set-face-attribute 'mode-line-inactive nil
+                        :background (doom-blend (doom-color 'fg) (doom-color 'bg) 0.05))
     (if (eq (car custom-enabled-themes) 'doom-one)
         ;; The empty truecolor clause keeps 24-bit ttys on the theme
         ;; background, as display specs can only express a minimum color count
