@@ -5645,6 +5645,7 @@ If project root cannot be found, use the buffer's default directory."
 
 ;; Init ghostel for terminal emulation
 (use-package ghostel
+  :demand t
   :commands ghostel-compile-global-mode
   :general
   ( :keymaps 'mo-quick-menu-map
