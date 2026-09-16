@@ -6299,6 +6299,19 @@ Excludes ghostel buffers with names matching *claude-code*."
   (setq popper-group-function #'mo-popper-group-by-tab)
   ;; Set 1 based dispatch keys
   (setq popper-echo-dispatch-keys '( "M-1" "M-2" "M-3" "M-4" "M-5" "M-6" "M-7" "M-8" "M-9"))
+
+  (defun mo-popper-tab-line-refresh ()
+    "Show the popup tab line in every open popup buffer."
+    (when popper-tab-line-mode
+      ;; Keep the dispatch key transient map from being armed on every call
+      (cl-letf (((symbol-function 'popper-echo--activate-keymap) #'ignore))
+        (cl-loop for (_ . buf) in popper-open-popup-alist do
+                 (when (buffer-live-p buf)
+                   (with-current-buffer buf
+                     (popper-tab-line--ensure)))))))
+
+  (advice-add 'popper--update-popups :after #'mo-popper-tab-line-refresh)
+
   (popper-mode +1)
   (popper-tab-line-mode +1))
 
