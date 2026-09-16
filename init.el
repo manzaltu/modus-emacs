@@ -435,6 +435,8 @@ window edges unaffected."
   (setq-default fringes-outside-margins t)
   ;; Enable recursive minibuffer
   (setq enable-recursive-minibuffers t)
+  ;; Keep other terminals' keyboards active during a recursive edit
+  (setq multiple-terminals-merge-keyboards t)
   ;; Set tab width
   (setq-default tab-width 4)
   ;; Enable indentation and completion using the TAB key
