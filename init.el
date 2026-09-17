@@ -6393,14 +6393,71 @@ Excludes ghostel buffers with names matching *claude-code*."
   (setq-default mode-line-format
                 (append (default-value 'mode-line-format)
                         '( ( :eval (when (display-graphic-p) (poimap-string))))))
+
+  ;; Show evil search matches as POIs
+  (defface mo-poimap-evil-search-face
+    '((t :inherit font-lock-variable-name-face))
+    "Face for poimap evil search POIs.")
+
+  (defvar mo-poimap-evil-search-max-matches 1000
+    "Maximum number of evil search matches shown as POIs.")
+
+  (defvar-local mo-poimap-evil-search--last nil
+    "Evil search pattern of the last POI update in this buffer.")
+
+  (defun mo-poimap-evil-search--svg (pattern)
+    "Return SVG POIs for all matches of evil search PATTERN in the buffer.
+Return an empty string when there are no matches or more than
+`mo-poimap-evil-search-max-matches'."
+    (let ((regexp (evil-ex-pattern-regex pattern))
+          (case-fold-search (evil-ex-pattern-ignore-case pattern))
+          (color (poimap-emacs-to-svg-color
+                  (face-foreground 'mo-poimap-evil-search-face nil 'default)))
+          (count 0)
+          (svg nil))
+      (save-excursion
+        (save-restriction
+          (widen)
+          (goto-char (point-min))
+          (condition-case nil
+              (while (and (not (eobp))
+                          (<= count mo-poimap-evil-search-max-matches)
+                          (re-search-forward regexp nil t))
+                (cl-incf count)
+                (when-let* ((pos (poimap-map-position (match-beginning 0))))
+                  (push (poimap-ellipse pos 0.6 3 color) svg))
+                ;; Step over zero-length matches
+                (when (and (= (match-beginning 0) (match-end 0)) (not (eobp)))
+                  (forward-char 1)))
+            (invalid-regexp (setq count 0)))
+          (if (or (zerop count) (> count mo-poimap-evil-search-max-matches))
+              ""
+            (mapconcat #'identity (mapcan #'identity (nreverse svg))))))))
+
+  (defun mo-poimap-evil-search--update (force)
+    "Update the evil search POIs of the current buffer.
+The POIs follow the buffer's active evil search highlight and are
+recalculated when its pattern changed or FORCE is non-nil."
+    (let* ((hl (cdr (assq 'evil-ex-search evil-ex-active-highlights-alist)))
+           (pattern (and hl (evil-ex-hl-pattern hl))))
+      (cond
+       ((null pattern)
+        (when mo-poimap-evil-search--last
+          (setq mo-poimap-evil-search--last nil)
+          (poimap-update-pois 'mo-poimap-evil-search "")))
+       ((or force (not (equal pattern mo-poimap-evil-search--last)))
+        (setq mo-poimap-evil-search--last pattern)
+        (poimap-update-pois 'mo-poimap-evil-search
+                            (mo-poimap-evil-search--svg pattern))))))
+
   (poimap-mode 1)
   ;; POI providers must be enabled after the main mode
   (poimap-bookmark 1)
   (poimap-current-symbol 1)
   (poimap-diff-hl 1)
   (poimap-imenu 1)
-  (poimap-isearch 1)
-  (poimap-register 1))
+  (poimap-register 1)
+  (add-hook 'poimap-idle-update-functions #'mo-poimap-evil-search--update))
 
 ;; Init alarm-clock for an alarm clock in Emacs
 (use-package alarm-clock
