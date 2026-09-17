@@ -187,6 +187,7 @@
  ("pfuture" . "19b53aebbc0f2da31de6326c495038901bffb73c")
  ("pip-requirements.el" . "31e0dc62abb2d88fa765e0ea88b919d756cc0e4f")
  ("pipenv.el" . "3af159749824c03f59176aff7f66ddd6a5785a10")
+ ("poimap" . "57a1b5dd76e28dec373eaa567f78553f74429585")
  ("popper" . "d83b894ee7a9daf7c8e9b864c23d08f1b23d78f6")
  ("popup-el" . "3afe431e9aa2e271aaf0412cbb50c733387e8ea4")
  ("posframe" . "435055dd6894fd4e8b21b355d40c0b289211b714")
