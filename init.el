@@ -5023,6 +5023,15 @@ enabling lsp."
 ;; Init markdown-mode for enhanced markdown editing
 (use-package markdown-mode)
 
+;; Init markdown-ts-mode for tree-sitter based markdown editing
+(use-package markdown-ts-mode
+  :straight nil
+  :commands markdown-ts-mode
+  :init
+  ;; Open markdown files in the tree-sitter mode (not yet registered for
+  ;; `treesit-enabled-modes')
+  (add-to-list 'major-mode-remap-alist '( markdown-mode . markdown-ts-mode)))
+
 ;; Init cmake-mode for editing CMake files
 (use-package cmake-mode)
 
