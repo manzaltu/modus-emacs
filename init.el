@@ -6385,7 +6385,15 @@ Excludes ghostel buffers with names matching *claude-code*."
 
 ;; Add poimap for showing a visual buffer map in the mode line
 (use-package poimap
-  :straight ( :type git :host github :repo "florommel/poimap"))
+  :demand t
+  :straight ( :type git :host github :repo "florommel/poimap")
+  :config
+  ;; Show the map at the end of the mode line on graphical frames only
+  (setq poimap-add-to-mode-line nil)
+  (setq-default mode-line-format
+                (append (default-value 'mode-line-format)
+                        '( ( :eval (when (display-graphic-p) (poimap-string))))))
+  (poimap-mode 1))
 
 ;; Init alarm-clock for an alarm clock in Emacs
 (use-package alarm-clock
