@@ -6383,6 +6383,10 @@ Excludes ghostel buffers with names matching *claude-code*."
   (push " " display-time-string-forms)
   (display-time-mode 1))
 
+;; Add poimap for showing a visual buffer map in the mode line
+(use-package poimap
+  :straight ( :type git :host github :repo "florommel/poimap"))
+
 ;; Init alarm-clock for an alarm clock in Emacs
 (use-package alarm-clock
   :functions alarm-clock-turn-autosave-on
