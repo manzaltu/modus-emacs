@@ -6393,7 +6393,14 @@ Excludes ghostel buffers with names matching *claude-code*."
   (setq-default mode-line-format
                 (append (default-value 'mode-line-format)
                         '( ( :eval (when (display-graphic-p) (poimap-string))))))
-  (poimap-mode 1))
+  (poimap-mode 1)
+  ;; POI providers must be enabled after the main mode
+  (poimap-bookmark 1)
+  (poimap-current-symbol 1)
+  (poimap-diff-hl 1)
+  (poimap-imenu 1)
+  (poimap-isearch 1)
+  (poimap-register 1))
 
 ;; Init alarm-clock for an alarm clock in Emacs
 (use-package alarm-clock
