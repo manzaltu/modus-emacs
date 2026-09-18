@@ -6394,6 +6394,21 @@ Excludes ghostel buffers with names matching *claude-code*."
                 (append (default-value 'mode-line-format)
                         '( ( :eval (when (display-graphic-p) (poimap-string))))))
 
+  (defun mo-poimap--ellipses (positions face)
+    "Return SVG ellipse POIs at the buffer POSITIONS in the foreground of FACE."
+    (let ((color (poimap-emacs-to-svg-color (face-foreground face nil 'default)))
+          (svg nil))
+      (dolist (position positions)
+        (when-let* ((pos (poimap-map-position position)))
+          (push (poimap-ellipse pos 0.6 3 color) svg)))
+      (mapconcat #'identity (mapcan #'identity (nreverse svg)))))
+
+  (defun mo-poimap--publish (category svg)
+    "Publish the SVG POIs of provider CATEGORY unless they are unchanged.
+Return non-nil when the POIs changed."
+    (unless (equal svg (alist-get category poimap--pois))
+      (poimap-update-pois category svg)))
+
   ;; Show evil search matches as POIs
   (defface mo-poimap-evil-search-face
     '((t :inherit font-lock-variable-name-face))
@@ -6407,14 +6422,12 @@ Excludes ghostel buffers with names matching *claude-code*."
 
   (defun mo-poimap-evil-search--svg (pattern)
     "Return SVG POIs for all matches of evil search PATTERN in the buffer.
-Return an empty string when there are no matches or more than
+Return an empty string when there are more than
 `mo-poimap-evil-search-max-matches'."
     (let ((regexp (evil-ex-pattern-regex pattern))
           (case-fold-search (evil-ex-pattern-ignore-case pattern))
-          (color (poimap-emacs-to-svg-color
-                  (face-foreground 'mo-poimap-evil-search-face nil 'default)))
           (count 0)
-          (svg nil))
+          (positions nil))
       (save-excursion
         (save-restriction
           (widen)
@@ -6424,15 +6437,15 @@ Return an empty string when there are no matches or more than
                           (<= count mo-poimap-evil-search-max-matches)
                           (re-search-forward regexp nil t))
                 (cl-incf count)
-                (when-let* ((pos (poimap-map-position (match-beginning 0))))
-                  (push (poimap-ellipse pos 0.6 3 color) svg))
+                (push (match-beginning 0) positions)
                 ;; Step over zero-length matches
                 (when (and (= (match-beginning 0) (match-end 0)) (not (eobp)))
                   (forward-char 1)))
-            (invalid-regexp (setq count 0)))
-          (if (or (zerop count) (> count mo-poimap-evil-search-max-matches))
+            (invalid-regexp nil))
+          (if (> count mo-poimap-evil-search-max-matches)
               ""
-            (mapconcat #'identity (mapcan #'identity (nreverse svg))))))))
+            (mo-poimap--ellipses (nreverse positions)
+                                 'mo-poimap-evil-search-face))))))
 
   (defun mo-poimap-evil-search--update (force)
     "Update the evil search POIs of the current buffer.
@@ -6444,11 +6457,171 @@ recalculated when its pattern changed or FORCE is non-nil."
        ((null pattern)
         (when mo-poimap-evil-search--last
           (setq mo-poimap-evil-search--last nil)
-          (poimap-update-pois 'mo-poimap-evil-search "")))
+          (mo-poimap--publish 'mo-poimap-evil-search "")))
        ((or force (not (equal pattern mo-poimap-evil-search--last)))
         (setq mo-poimap-evil-search--last pattern)
-        (poimap-update-pois 'mo-poimap-evil-search
+        (mo-poimap--publish 'mo-poimap-evil-search
                             (mo-poimap-evil-search--svg pattern))))))
+
+  ;; Show the consult candidates of the active completion session as POIs
+  (defface mo-poimap-consult-face
+    '((t :inherit warning))
+    "Face for poimap consult candidate POIs.")
+
+  (defvar mo-poimap-consult-max-candidates 1000
+    "Maximum number of consult candidates shown as POIs.")
+
+  (defvar-local mo-poimap-consult--last nil
+    "Consult candidates of the last POI update in this buffer.
+Set to t when the candidates produced no POIs.")
+
+  (defun mo-poimap-consult--imenu-table ()
+    "Return the cached `consult-imenu' items of the current buffer by name."
+    (let ((table (make-hash-table :test #'equal)))
+      (dolist (item (cdr (bound-and-true-p consult-imenu--cache)))
+        (puthash (car item) (cdr item) table))
+      table))
+
+  (defun mo-poimap-consult--session (minibuffer)
+    "Return the completion session of MINIBUFFER as a plist.
+The plist holds the completion category, the session's default directory,
+the names of the current buffer's file, and the lookup data of the category:
+the `consult-imenu' items of the current buffer by name, or the LSP URI of
+the current buffer."
+    (let ((category (with-current-buffer minibuffer
+                      (vertico--metadata-get 'category))))
+      (list :category category
+            :directory (buffer-local-value 'default-directory minibuffer)
+            :files (and buffer-file-name
+                        (list buffer-file-name
+                              (expand-file-name buffer-file-truename)))
+            :imenu-items (and (eq category 'imenu)
+                              (mo-poimap-consult--imenu-table))
+            :uri (and (eq category 'consult-lsp-symbols)
+                      buffer-file-name
+                      (lsp--buffer-uri)))))
+
+  (defun mo-poimap-consult--current-file-p (file session)
+    "Return non-nil when FILE of the completion SESSION is the current buffer's file.
+FILE is relative to the session's default directory."
+    (and file
+         (member (expand-file-name file (plist-get session :directory))
+                 (plist-get session :files))))
+
+  (defun mo-poimap-consult--grep-line (candidate)
+    "Return (line . LINE) of grep CANDIDATE, or nil for a context line."
+    (let* ((file-end (next-single-property-change 0 'face candidate))
+           (line-end (and file-end
+                          (next-single-property-change (1+ file-end) 'face
+                                                       candidate))))
+      (when (and line-end (eq (aref candidate file-end) ?:))
+        (cons 'line (string-to-number
+                     (substring-no-properties candidate (1+ file-end) line-end))))))
+
+  (defun mo-poimap-consult--xref-location (xref session)
+    "Return the location of the XREF item in the completion SESSION, or nil.
+Return a position in the current buffer or a (line . LINE) cons."
+    (let ((location (xref-item-location xref)))
+      (cond
+       ((xref-buffer-location-p location)
+        (and (eq (xref-buffer-location-buffer location) (current-buffer))
+             (xref-buffer-location-position location)))
+       ((and (xref-file-location-p location)
+             (mo-poimap-consult--current-file-p
+              (xref-file-location-file location) session))
+        (cons 'line (xref-file-location-line location))))))
+
+  (defun mo-poimap-consult--lsp-line (range)
+    "Return (line . LINE) of the start of the LSP RANGE."
+    (cons 'line (lsp-translate-line
+                 (1+ (lsp:position-line (lsp:range-start range))))))
+
+  (defun mo-poimap-consult--candidate-location (candidate session)
+    "Return the location of consult CANDIDATE in the completion SESSION.
+Return a position in the current buffer, a (line . LINE) cons for a line of
+the current buffer's file, or nil."
+    (pcase (plist-get session :category)
+      ('consult-grep
+       (when (mo-poimap-consult--current-file-p
+              (get-text-property 0 'consult--group candidate) session)
+         (mo-poimap-consult--grep-line candidate)))
+      ('consult-xref
+       (mo-poimap-consult--xref-location
+        (get-text-property 0 'consult-xref candidate) session))
+      ('consult-lsp-diagnostics
+       (pcase-let ((`(,file . ,diagnostic)
+                    (get-text-property 0 'consult--candidate candidate)))
+         (when (mo-poimap-consult--current-file-p file session)
+           (mo-poimap-consult--lsp-line (lsp:diagnostic-range diagnostic)))))
+      ('consult-lsp-symbols
+       (let ((location (lsp:symbol-information-location
+                        (get-text-property 0 'consult--candidate candidate))))
+         (when (equal (lsp:location-uri location) (plist-get session :uri))
+           (mo-poimap-consult--lsp-line (lsp:location-range location)))))
+      (_
+       (pcase (or (car (get-text-property 0 'consult-location candidate))
+                  (get-text-property 0 'consult--candidate candidate)
+                  (when-let* ((table (plist-get session :imenu-items)))
+                    (gethash candidate table)))
+         ((and (pred markerp) marker)
+          (and (eq (marker-buffer marker) (current-buffer))
+               (marker-position marker)))
+         (`(,(and (pred bufferp) buffer) . ,position)
+          (and (eq buffer (current-buffer)) position))
+         (`(,(and (pred markerp) marker) . ,_)
+          (and (eq (marker-buffer marker) (current-buffer))
+               (marker-position marker)))))))
+
+  (defun mo-poimap-consult--line-positions (lines)
+    "Return the buffer positions of the beginnings of the sorted LINES."
+    (save-excursion
+      (save-restriction
+        (widen)
+        (goto-char (point-min))
+        (let ((current 1)
+              (positions nil))
+          (dolist (line lines)
+            (forward-line (- line current))
+            (setq current line)
+            (push (point) positions))
+          positions))))
+
+  (defun mo-poimap-consult--svg (candidates session)
+    "Return SVG POIs for the consult CANDIDATES of SESSION in the current buffer."
+    (let ((positions nil)
+          (lines nil))
+      (dolist (candidate candidates)
+        (pcase (mo-poimap-consult--candidate-location candidate session)
+          ((and (pred integerp) position)
+           (push position positions))
+          (`(line . ,(and (pred integerp) line))
+           (push line lines))))
+      (mo-poimap--ellipses
+       (nconc positions (mo-poimap-consult--line-positions (sort lines #'<)))
+       'mo-poimap-consult-face)))
+
+  (defun mo-poimap-consult--update (force)
+    "Update the consult candidate POIs of the current buffer.
+The POIs follow the candidates of the active vertico completion session
+and are recalculated when they changed or FORCE is non-nil."
+    (let* ((window (active-minibuffer-window))
+           (minibuffer (and window (window-buffer window)))
+           (candidates (and minibuffer
+                            (buffer-local-value 'vertico--candidates minibuffer))))
+      (cond
+       ((null candidates)
+        (when mo-poimap-consult--last
+          (setq mo-poimap-consult--last nil)
+          (mo-poimap--publish 'mo-poimap-consult "")))
+       ((or force (not (eq candidates mo-poimap-consult--last)))
+        (let ((svg (if (> (buffer-local-value 'vertico--total minibuffer)
+                          mo-poimap-consult-max-candidates)
+                       ""
+                     (mo-poimap-consult--svg
+                      candidates (mo-poimap-consult--session minibuffer)))))
+          ;; Only hold on to candidate lists that produced POIs
+          (setq mo-poimap-consult--last (if (string-empty-p svg) t candidates))
+          (mo-poimap--publish 'mo-poimap-consult svg))))))
 
   (poimap-mode 1)
   ;; POI providers must be enabled after the main mode
@@ -6457,7 +6630,8 @@ recalculated when its pattern changed or FORCE is non-nil."
   (poimap-diff-hl 1)
   (poimap-imenu 1)
   (poimap-register 1)
-  (add-hook 'poimap-idle-update-functions #'mo-poimap-evil-search--update))
+  (add-hook 'poimap-idle-update-functions #'mo-poimap-evil-search--update)
+  (add-hook 'poimap-idle-update-functions #'mo-poimap-consult--update))
 
 ;; Init alarm-clock for an alarm clock in Emacs
 (use-package alarm-clock
