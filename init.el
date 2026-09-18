@@ -6403,9 +6403,16 @@ Excludes ghostel buffers with names matching *claude-code*."
           (push (poimap-ellipse pos 0.6 3 color) svg)))
       (mapconcat #'identity (mapcan #'identity (nreverse svg)))))
 
-  (defun mo-poimap--publish (category svg)
+  (defun mo-poimap--publish (category tag svg inhibit)
     "Publish the SVG POIs of provider CATEGORY unless they are unchanged.
-Return non-nil when the POIs changed."
+While INHIBIT is non-nil, the current symbol POIs are hidden under inhibitor
+TAG.  Otherwise the inhibitor is lifted and the current symbol POIs are
+recalculated on the next update.  Return non-nil when the POIs changed."
+    (if inhibit
+        (poimap-current-symbol-inhibit tag)
+      (when (memq tag poimap-current-symbol--inhibitors)
+        (poimap-current-symbol-reactivate tag)
+        (setq poimap-current-symbol--last nil)))
     (unless (equal svg (alist-get category poimap--pois))
       (poimap-update-pois category svg)))
 
@@ -6450,18 +6457,19 @@ Return an empty string when there are more than
   (defun mo-poimap-evil-search--update (force)
     "Update the evil search POIs of the current buffer.
 The POIs follow the buffer's active evil search highlight and are
-recalculated when its pattern changed or FORCE is non-nil."
+recalculated when its pattern changed or FORCE is non-nil.  The current
+symbol POIs are hidden while the highlight is active."
     (let* ((hl (cdr (assq 'evil-ex-search evil-ex-active-highlights-alist)))
            (pattern (and hl (evil-ex-hl-pattern hl))))
       (cond
        ((null pattern)
         (when mo-poimap-evil-search--last
           (setq mo-poimap-evil-search--last nil)
-          (mo-poimap--publish 'mo-poimap-evil-search "")))
+          (mo-poimap--publish 'mo-poimap-evil-search 'evil-search "" nil)))
        ((or force (not (equal pattern mo-poimap-evil-search--last)))
         (setq mo-poimap-evil-search--last pattern)
-        (mo-poimap--publish 'mo-poimap-evil-search
-                            (mo-poimap-evil-search--svg pattern))))))
+        (mo-poimap--publish 'mo-poimap-evil-search 'evil-search
+                            (mo-poimap-evil-search--svg pattern) t)))))
 
   ;; Show the consult candidates of the active completion session as POIs
   (defface mo-poimap-consult-face
@@ -6603,7 +6611,8 @@ the current buffer's file, or nil."
   (defun mo-poimap-consult--update (force)
     "Update the consult candidate POIs of the current buffer.
 The POIs follow the candidates of the active vertico completion session
-and are recalculated when they changed or FORCE is non-nil."
+and are recalculated when they changed or FORCE is non-nil.  The current
+symbol POIs are hidden while candidates are shown."
     (let* ((window (active-minibuffer-window))
            (minibuffer (and window (window-buffer window)))
            (candidates (and minibuffer
@@ -6612,7 +6621,7 @@ and are recalculated when they changed or FORCE is non-nil."
        ((null candidates)
         (when mo-poimap-consult--last
           (setq mo-poimap-consult--last nil)
-          (mo-poimap--publish 'mo-poimap-consult "")))
+          (mo-poimap--publish 'mo-poimap-consult 'consult "" nil)))
        ((or force (not (eq candidates mo-poimap-consult--last)))
         (let ((svg (if (> (buffer-local-value 'vertico--total minibuffer)
                           mo-poimap-consult-max-candidates)
@@ -6621,7 +6630,8 @@ and are recalculated when they changed or FORCE is non-nil."
                       candidates (mo-poimap-consult--session minibuffer)))))
           ;; Only hold on to candidate lists that produced POIs
           (setq mo-poimap-consult--last (if (string-empty-p svg) t candidates))
-          (mo-poimap--publish 'mo-poimap-consult svg))))))
+          (mo-poimap--publish 'mo-poimap-consult 'consult svg
+                              (not (string-empty-p svg))))))))
 
   (poimap-mode 1)
   ;; POI providers must be enabled after the main mode
