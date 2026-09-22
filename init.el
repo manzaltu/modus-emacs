@@ -551,7 +551,11 @@ window edges unaffected."
   (blink-cursor-mode 0)
   ;; Set font
   (set-frame-font mo-font nil t)
-  (undelete-frame-mode))
+  (undelete-frame-mode)
+  ;; Separate side by side windows with a thin divider (graphical frames only)
+  (setq window-divider-default-places 'right-only)
+  (setq window-divider-default-right-width 1)
+  (window-divider-mode))
 
 ;; Init window for managing windows
 (use-package window
