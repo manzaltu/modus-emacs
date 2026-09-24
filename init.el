@@ -6389,6 +6389,7 @@ Excludes ghostel buffers with names matching *claude-code*."
 
 ;; Add poimap for showing a visual buffer map in the mode line
 (use-package poimap
+  :if (image-type-available-p 'svg)
   :demand t
   :straight ( :type git :host github :repo "florommel/poimap")
   :config
