@@ -25,6 +25,8 @@
 
 ;;; Code:
 
+(setenv "LSP_USE_PLISTS" "true")
+
 ;; Set GC threshold to a high number. Should help with lsp-mode memory demands.
 (setq gc-cons-threshold 100000000)
 
