@@ -4535,14 +4535,6 @@ enabling lsp."
   (mo-embark-ignore-target 'lsp-execute-code-action 'lsp-rename)
   :commands lsp-deferred)
 
-;; Init lsp-semantic-tokens for LSP semantic token highlighting
-(use-package lsp-semantic-tokens
-  :straight nil
-  :after lsp-mode
-  :config
-  ;; Remove comment semantic token face to make hl-todo visible
-  (setq-default lsp-semantic-token-faces (assoc-delete-all "comment" lsp-semantic-token-faces)))
-
 ;; Init lsp-ui for an interactive lsp interface
 (use-package lsp-ui
   :after lsp-mode
