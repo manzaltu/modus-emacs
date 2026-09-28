@@ -2774,6 +2774,7 @@ Returns the selected project root directory or nil if cancelled."
     ";" #'consult-line
     "C-;" #'consult-line-multi
     "." #'consult-fd
+    "C-." #'consult-locate
     "," #'consult-ripgrep
     "M-," #'mo-consult-xref-history
     "C-M-," #'mo-consult-xref-pop
