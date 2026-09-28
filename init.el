@@ -2812,6 +2812,7 @@ Returns the selected project root directory or nil if cancelled."
   ( "C-x b" #'consult-buffer)                ;; orig. switch-to-buffer
   ( "C-x 4 b" #'consult-buffer-other-window) ;; orig. switch-to-buffer-other-window
   ( "C-x 5 b" #'consult-buffer-other-frame)  ;; orig. switch-to-buffer-other-frame
+  ( "C-x t b" #'consult-buffer-other-tab)    ;; orig. switch-to-buffer-other-tab
   ;; Custom M-# bindings for fast register access
   ( "C-_" #'consult-register-load)
   ( "M-_" #'consult-register-store)
