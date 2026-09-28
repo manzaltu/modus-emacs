@@ -2854,6 +2854,7 @@ Returns the selected project root directory or nil if cancelled."
     ";" #'consult-line
     "C-;" #'mo-embark-consult-line-other-window
     "." #'consult-fd
+    "C-." #'consult-locate
     "," #'consult-ripgrep)
   ( :keymaps 'mo-quick-menu-map
     :prefix "v"
