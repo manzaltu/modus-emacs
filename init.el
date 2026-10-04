@@ -341,6 +341,7 @@
                                    ( "\e[55;5u" . "C-7")
                                    ( "\e[56;5u" . "C-8")
                                    ( "\e[32;5u" . "C-SPC")
+                                   ( "\e[127;3u" . "M-<backspace>")
                                    ( "\e[96;5u" . "C-`")
                                    ( "\e[126;5u" . "C-~")
                                    ( "\e[123;5u" . "C-{")
@@ -360,7 +361,9 @@
                                    ( "\e[1;15B" . "C-M-s-<down>")
                                    ( "\e[1;15C" . "C-M-s-<right>")
                                    ( "\e[1;15D" . "C-M-s-<left>")))
-                    (define-key input-decode-map (car pair) (kbd (cdr pair))))))
+                    (define-key input-decode-map (car pair) (kbd (cdr pair))))
+                  ;; Fall back to M-DEL when M-<backspace> is unbound, as on graphical frames
+                  (define-key local-function-key-map [M-backspace] [?\M-\d])))
   ;; Line motion should never trigger jump recentering
   :recenter-jump-never
   ( next-line previous-line)
