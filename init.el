@@ -312,6 +312,9 @@
   ( :keymaps 'mo-quick-menu-map
     :prefix "l"
     "b" #'mo-toggle-lexical-binding)
+  ( :keymaps 'mo-quick-menu-map
+    :prefix "v"
+    "r" #'redraw-display)
   ( :keymaps 'override
     "M-<print>" #'mo-export-frame-screenshot)
   ( :keymaps 'emacs-lisp-mode-map
