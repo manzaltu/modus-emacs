@@ -6123,13 +6123,15 @@ the frame for subsequent layout tracking."
         (when (and mo--tty-frame-layout
                    (not (and (processp client)
                              (process-get client 'buffers))))
-          ;; Skip size parameters on restore, keeping the frame at the size
-          ;; set by the attached terminal
+          ;; Skip terminal and size parameters on restore, keeping the frame
+          ;; on the attached terminal and at the size it sets
           (frameset-restore mo--tty-frame-layout
                             :reuse-frames (lambda (f) (eq f frame))
                             :cleanup-frames nil
                             :filters (append
-                                      '( ( width . :never)
+                                      '( ( tty . :never)
+                                         ( tty-type . :never)
+                                         ( width . :never)
                                          ( height . :never)
                                          ( frameset--text-pixel-width . :never)
                                          ( frameset--text-pixel-height . :never))
