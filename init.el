@@ -6105,13 +6105,24 @@ If project root cannot be found, use the buffer's default directory."
   (defvar mo--tty-frame-layout nil
     "Window and tab layout of the last used tty client frame.")
 
+  (defvar mo--tty-frame-layout-client-filters
+    '( ( tty . :never)
+       ( tty-type . :never)
+       ( environment . :never))
+    "Frameset filters for the parameters set from the attached client.
+The layout is saved and restored without them, so that each client
+frame keeps its own terminal and environment.")
+
   (defun mo--tty-frame-layout-save (frame)
     "Save the window and tab layout of FRAME if it is a tracked tty frame."
     ;; Skip child frames (e.g. posframe popups)
     (when (and (frame-parameter frame 'tty)
                (frame-parameter frame 'mo--tty-layout-tracked)
                (not (frame-parameter frame 'parent-frame)))
-      (setq mo--tty-frame-layout (frameset-save (list frame)))))
+      (setq mo--tty-frame-layout
+            (frameset-save (list frame)
+                           :filters (append mo--tty-frame-layout-client-filters
+                                            frameset-filter-alist)))))
 
   (defun mo--tty-frame-layout-restore ()
     "Restore the saved layout into the selected tty client frame.
@@ -6123,15 +6134,14 @@ the frame for subsequent layout tracking."
         (when (and mo--tty-frame-layout
                    (not (and (processp client)
                              (process-get client 'buffers))))
-          ;; Skip terminal and size parameters on restore, keeping the frame
-          ;; on the attached terminal and at the size it sets
+          ;; Skip client and size parameters on restore, keeping the frame on
+          ;; the attached client's terminal and at the size it sets
           (frameset-restore mo--tty-frame-layout
                             :reuse-frames (lambda (f) (eq f frame))
                             :cleanup-frames nil
                             :filters (append
-                                      '( ( tty . :never)
-                                         ( tty-type . :never)
-                                         ( width . :never)
+                                      mo--tty-frame-layout-client-filters
+                                      '( ( width . :never)
                                          ( height . :never)
                                          ( frameset--text-pixel-width . :never)
                                          ( frameset--text-pixel-height . :never))
