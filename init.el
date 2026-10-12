@@ -362,6 +362,9 @@
                                    ( "\e[1;15C" . "C-M-s-<right>")
                                    ( "\e[1;15D" . "C-M-s-<left>")))
                     (define-key input-decode-map (car pair) (kbd (cdr pair))))
+                  ;; Decode S-<f1> directly instead of through terminfo's <f13>, so it is
+                  ;; also read as S-<f1> after a prefix key
+                  (define-key input-decode-map "\e[1;2P" (kbd "S-<f1>"))
                   ;; Fall back to M-DEL when M-<backspace> is unbound, as on graphical frames
                   (define-key local-function-key-map [M-backspace] [?\M-\d])))
   ;; Line motion should never trigger jump recentering
