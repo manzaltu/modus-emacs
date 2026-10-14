@@ -6408,12 +6408,31 @@ Excludes ghostel buffers with names matching *claude-code*."
   :if (image-type-available-p 'svg)
   :demand t
   :straight ( :type git :host github :repo "florommel/poimap")
+  :functions ( doom-color doom-blend)
+  :hook
+  ( enable-theme-functions . mo-poimap-configure-theme)
   :config
   ;; Show the map at the end of the mode line on graphical frames only
   (setq poimap-add-to-mode-line nil)
   (setq-default mode-line-format
                 (append (default-value 'mode-line-format)
                         '( ( :eval (when (display-graphic-p) (poimap-string))))))
+
+  ;; Draw the buffer background opaque, in the exact color set by the theme handler
+  (setq poimap-background-alpha 1.0)
+  (setq poimap-background-inactive-alpha 1.0)
+  (defun mo-poimap-configure-theme (_theme)
+    "Set poimap theme configuration."
+    ;; Lift the buffer background above the mode line so the map stands out
+    (set-face-attribute 'poimap-background-face nil
+                        :background (doom-blend (doom-color 'fg) (doom-color 'bg) 0.21))
+    (set-face-attribute 'poimap-background-inactive-face nil
+                        :background (doom-blend (doom-color 'fg) (doom-color 'bg) 0.12))
+    ;; Draw the visible window strip brighter than the buffer background
+    (set-face-attribute 'poimap-visible-window-face nil
+                        :background (doom-blend (doom-color 'fg) (doom-color 'bg) 0.35))
+    (set-face-attribute 'poimap-visible-window-inactive-face nil
+                        :background (doom-blend (doom-color 'fg) (doom-color 'bg) 0.21)))
 
   (defun mo-poimap--ellipses (positions face)
     "Return SVG ellipse POIs at the buffer POSITIONS in the foreground of FACE."
