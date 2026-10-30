@@ -63,6 +63,8 @@
   :custom
   ;; Packages should be installed by default using straight
   ( straight-use-package-by-default t)
+  ;; Skip dependency version checks, which misreport on full rebuilds
+  ( straight-check-dependency-versions nil)
   :config
   ;; Prevent package dependencies on tramp from fetching and building GNU ELPA
   ;; tramp, as its build directory shadows the built-in tramp on `load-path'
