@@ -5687,13 +5687,13 @@ If project root cannot be found, use the buffer's default directory."
   (defun mo-ghostel-file ()
     "Create a new ghostel buffer with current directory set to the current buffer default directory."
     (interactive)
-    (ghostel t))
+    (ghostel-new))
 
   (defun mo-ghostel-project ()
     "Create a new ghostel buffer with current directory set to the current project root directory."
     (interactive)
     (mo-with-project-tab-scope
-      (ghostel-project t)))
+      (ghostel-project-new)))
 
   (ghostel-compile-global-mode 1))
 
