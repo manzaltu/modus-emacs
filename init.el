@@ -5677,6 +5677,8 @@ If project root cannot be found, use the buffer's default directory."
   ( :keymaps '( ghostel-char-mode-map ghostel-semi-char-mode-map)
     "S-<f1>" nil)
   :custom
+  ;; Build a missing native module from source
+  ( ghostel-module-auto-install 'compile)
   ;; Inject shell integration in remote sessions for directory tracking
   ( ghostel-tramp-shell-integration t)
   :config
