@@ -5083,7 +5083,9 @@ enabling lsp."
   (setq logview-cache-filename (mo-cache-path "logview-cache.extmap")))
 
 ;; Init syslog-mode for viewing syslog and strace files
-(use-package syslog-mode)
+(use-package syslog-mode
+  ;; Install dependencies that straight misses without a Version header
+  :straight t hide-lines ov hsluv)
 
 ;; Init journalctl-mode for viewing journalctl output
 (use-package journalctl-mode
