@@ -5700,6 +5700,9 @@ If project root cannot be found, use the buffer's default directory."
   :after ( ghostel evil)
   :hook ( ghostel-mode . evil-ghostel-mode))
 
+;; Init consult-ghostel for picking shell history in terminals
+(use-package consult-ghostel)
+
 ;; Init comint for general interpreter support
 (use-package comint
   :demand t
