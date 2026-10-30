@@ -5704,8 +5704,29 @@ If project root cannot be found, use the buffer's default directory."
 (use-package consult-ghostel
   :demand t
   :commands consult-ghostel-mode
-  :defines marginalia-annotators
+  :functions ( ghostel-command-running-p
+               ghostel-send-key)
+  :defines ( ghostel--shell-program
+             marginalia-annotators)
+  :general
+  ;; Pick from shell history at the prompt, in semi-char mode and evil insert state
+  ( :keymaps 'ghostel-semi-char-mode-map
+    "C-r" #'mo-consult-ghostel-history-or-send-C-r)
+  ( :definer 'minor-mode
+    :keymaps 'evil-ghostel-mode
+    :states 'insert
+    "C-r" #'mo-consult-ghostel-history-or-send-C-r)
   :config
+  (defun mo-consult-ghostel-history-or-send-C-r ()
+    "Pick a shell history entry when the shell is at its prompt.
+Otherwise, as when a program runs in the foreground or the terminal runs
+a program instead of a shell, send C-r to the terminal."
+    (interactive)
+    (if (and ghostel--shell-program
+             (not (ghostel-command-running-p)))
+        (consult-ghostel-history)
+      (ghostel-send-key "r" "ctrl")))
+
   (consult-ghostel-mode 1)
 
   ;; Keep the terminal title annotator out of marginalia, so buffer prompts keep
