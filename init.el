@@ -5701,7 +5701,20 @@ If project root cannot be found, use the buffer's default directory."
   :hook ( ghostel-mode . evil-ghostel-mode))
 
 ;; Init consult-ghostel for picking shell history in terminals
-(use-package consult-ghostel)
+(use-package consult-ghostel
+  :demand t
+  :commands consult-ghostel-mode
+  :defines marginalia-annotators
+  :config
+  (consult-ghostel-mode 1)
+
+  ;; Keep the terminal title annotator out of marginalia, so buffer prompts keep
+  ;; the project-aware annotator
+  (with-eval-after-load 'marginalia
+    (dolist (category '( buffer project-buffer))
+      (setf (alist-get category marginalia-annotators)
+            (delq 'consult-ghostel-marginalia-annotate
+                  (alist-get category marginalia-annotators))))))
 
 ;; Init comint for general interpreter support
 (use-package comint
