@@ -3990,33 +3990,49 @@ act on the window that actually displays it."
   ;; Ignore space changes
   (setq ediff-diff-options "-b")
   :config
+  (defvar mo-ediff-diff-hue "#ECBE7B"
+    "Hue of the current ediff difference, shared by every ediff buffer.
+Ediff assigns faces by buffer position rather than by the role a buffer
+plays, so all buffers use one hue outside the red/green added/removed
+coding of diffs.")
+
+  (defvar mo-ediff-other-diff-hue "LightSeaGreen"
+    "Hue of non-current ediff differences, shared by every ediff buffer.")
+
   (defun mo-ediff-configure-theme (_theme)
-    "Adjust ediff faces to integrate with the current theme."
+    "Tint ediff difference faces with `mo-ediff-diff-hue'.
+Non-current differences use `mo-ediff-other-diff-hue'.  Each hue is
+blended into the current theme's background, so the tints work on
+light and dark themes alike."
     (require 'color)
-    (set-face-attribute 'ediff-even-diff-A nil :inherit nil :background "DarkSlateGray")
-    ;; Drop the theme-supplied foreground on current-diff faces so syntax
-    ;; highlighting shows through the diff background tint.
-    (dolist (face '( ediff-current-diff-A
-                     ediff-current-diff-B
-                     ediff-current-diff-C
-                     ediff-current-diff-Ancestor))
-      (set-face-foreground face 'unspecified))
-    ;; Fine-diff faces inherit foreground from `diff-refine-*' parents, so
-    ;; clearing :foreground alone is not enough — break inheritance and derive
-    ;; the background from the matching current-diff face, slightly lightened
-    ;; and saturated so it reads as a bolder tint of the same hue.
-    (dolist (pair '(( ediff-fine-diff-A . ediff-current-diff-A)
-                    ( ediff-fine-diff-B . ediff-current-diff-B)
-                    ( ediff-fine-diff-C . ediff-current-diff-C)
-                    ( ediff-fine-diff-Ancestor . ediff-current-diff-Ancestor)))
-      (let ((bg (face-background (cdr pair) nil t)))
-        (set-face-attribute (car pair) nil
-                            :inherit 'unspecified
-                            :foreground 'unspecified
-                            :background (if bg
-                                            (color-saturate-name
-                                             (color-lighten-name bg 12) 15)
-                                          'unspecified)))))
+    (let* ((bg-name (face-background 'default nil t))
+           (bg (or (and bg-name (color-name-to-rgb bg-name))
+                   (if (eq (frame-parameter nil 'background-mode) 'light)
+                       '(1.0 1.0 1.0)
+                     '(0.0 0.0 0.0))))
+           (tint (lambda (hue alpha)
+                   (apply #'color-rgb-to-hex
+                          (append (color-blend (color-name-to-rgb hue) bg alpha)
+                                  '(2)))))
+           (current (funcall tint mo-ediff-diff-hue 0.25))
+           ;; Show fine diffs as a stronger tint of the same hue
+           (fine (funcall tint mo-ediff-diff-hue 0.4))
+           (other (funcall tint mo-ediff-other-diff-hue 0.25)))
+      ;; Leave the foreground unset so syntax highlighting shows through the
+      ;; tint, and break the theme's inheritance between buffers
+      (dolist (buffer '( A B C Ancestor))
+        (set-face-attribute (intern (format "ediff-current-diff-%s" buffer)) nil
+                            :inherit 'unspecified :foreground 'unspecified
+                            :background current)
+        (set-face-attribute (intern (format "ediff-fine-diff-%s" buffer)) nil
+                            :inherit 'unspecified :foreground 'unspecified
+                            :background fine)
+        (set-face-attribute (intern (format "ediff-even-diff-%s" buffer)) nil
+                            :inherit 'unspecified :foreground 'unspecified
+                            :background other)
+        (set-face-attribute (intern (format "ediff-odd-diff-%s" buffer)) nil
+                            :inherit 'unspecified :foreground 'unspecified
+                            :background other))))
   ;; Open ediff window in the current frame
   (setq ediff-window-setup-function #'ediff-setup-windows-plain)
   ;; Set ediff to show diff changes in character-level
