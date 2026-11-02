@@ -295,6 +295,9 @@
   (evil-set-initial-state 'minibuffer-mode 'insert)
   ;; Start gh-notify buffers in insert state for filtering by typing
   (evil-set-initial-state 'gh-notify-mode 'insert)
+  ;; Start NetHack map and menu buffers in Emacs mode
+  (evil-set-initial-state 'nethack-map-mode 'emacs)
+  (evil-set-initial-state 'nethack-menu-mode 'emacs)
   (evil-mode 1))
 
 ;; Init Emacs core settings
