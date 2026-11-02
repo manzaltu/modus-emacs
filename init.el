@@ -5687,6 +5687,19 @@ If project root cannot be found, use the buffer's default directory."
   ;; Inject shell integration in remote sessions for directory tracking
   ( ghostel-tramp-shell-integration t)
   :config
+  (defun mo-ghostel-zsh-history ()
+    "Return the zsh history entries, newest first.
+Locally, read the history file with a non-interactive zsh that skips the
+startup files.  On a remote host, start an interactive zsh, which knows
+the host's history file."
+    (ghostel--shell-history-run
+     (if (file-remote-p default-directory)
+         "zsh -ic 'fc -R; fc -lnr 1'"
+       "HISTSIZE=1000000000 zsh -fc 'setopt extendedhistory; fc -R ~/.history; fc -lnr 1'")))
+
+  ;; Read local zsh history without starting an interactive shell
+  (setf (alist-get 'zsh ghostel-shell-history-commands) #'mo-ghostel-zsh-history)
+
   (defun mo-ghostel-file ()
     "Create a new ghostel buffer with current directory set to the current buffer default directory."
     (interactive)
