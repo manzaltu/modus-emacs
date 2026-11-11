@@ -5002,9 +5002,7 @@ enabling lsp."
 (use-package julia-mode)
 
 ;; Init lsp-julia for Julia language server
-(use-package lsp-julia
-  :custom
-  ( lsp-julia-default-environment "~/.julia/environments/v1.8"))
+(use-package lsp-julia)
 
 ;; Init groovy-mode for Groovy support
 (use-package groovy-mode)
