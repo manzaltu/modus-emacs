@@ -5686,7 +5686,8 @@ If project root cannot be found, use the buffer's default directory."
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
-    "t" #'mo-ghostel-file)
+    "t" #'mo-ghostel-file
+    "h" #'mo-run-htop)
   ( :keymaps 'mo-quick-menu-map
     :prefix "j"
     "t" #'mo-ghostel-project)
@@ -5722,6 +5723,12 @@ the host's history file."
     (interactive)
     (mo-with-project-tab-scope
       (ghostel-project-new)))
+
+  (defun mo-run-htop ()
+    "Run htop in a terminal buffer."
+    (interactive)
+    (with-current-buffer (ghostel-shell-command "htop" "*htop*")
+      (kill-local-variable 'ghostel-kill-buffer-on-exit)))
 
   (ghostel-compile-global-mode 1))
 
@@ -5917,9 +5924,6 @@ a program instead of a shell, send C-r to the terminal."
   ( :keymaps 'mo-quick-menu-map
     :prefix "j"
     "C-e" #'mo-eat-project)
-  ( :keymaps 'mo-quick-menu-map
-    :prefix "x"
-    "h" #'mo-run-htop)
   :custom
   ( eat-shell "/bin/zsh")
   ( eat-kill-buffer-on-exit t)
@@ -5929,11 +5933,6 @@ a program instead of a shell, send C-r to the terminal."
     (interactive)
     (mo-with-project-tab-scope
       (call-interactively #'eat-project)))
-
-  (defun mo-run-htop ()
-    "Run htop command."
-    (interactive)
-    (eat "htop"))
 
   (defun mo-eat-check-compile-terminfo ()
     "If needed, compile eat terminfo databases."
