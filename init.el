@@ -3096,9 +3096,11 @@ Used while preview is toggled off."
     (let ((buffer-annotation (marginalia-annotate-buffer cand))
           (proj-name (when-let* ((buffer (get-buffer cand))
                                  (project (with-current-buffer buffer
-                                            ;; Skip remote buffers except sudo
-                                            (when (or (not (file-remote-p default-directory))
-                                                      (string-match-p "^/sudo:" default-directory))
+                                            ;; Skip buffers with no directory, and
+                                            ;; remote buffers except sudo
+                                            (when (and (stringp default-directory)
+                                                       (or (not (file-remote-p default-directory))
+                                                           (string-match-p "^/sudo:" default-directory)))
                                               (project-current)))))
                        (project-name project))))
       ;; Mark the field variables as used, as the byte compiler misses their
