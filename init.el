@@ -5620,7 +5620,15 @@ Provide code changes as GNU diff format, followed by brief explanations for each
   :general
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
-    "C-n" #'nethack))
+    "C-n" #'mo-nethack-in-tab)
+  :config
+  (defvar mo-nethack-tab-name "NetHack"
+    "Name of the tab hosting the NetHack game.")
+  (defun mo-nethack-in-tab ()
+    "Run NetHack in its own tab, reusing the tab when it already exists."
+    (interactive)
+    (tab-bar-switch-to-tab mo-nethack-tab-name)
+    (nethack)))
 
 ;; Init app-launcher for launching desktop apps
 (use-package app-launcher
