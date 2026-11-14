@@ -5621,6 +5621,9 @@ Provide code changes as GNU diff format, followed by brief explanations for each
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
     "C-n" #'mo-nethack-in-tab)
+  :hook
+  ( ( nethack-map-mode nethack-message-mode nethack-status-mode nethack-menu-mode)
+    . mo-nethack-black-background)
   :config
   (defvar mo-nethack-tab-name "NetHack"
     "Name of the tab hosting the NetHack game.")
@@ -5628,7 +5631,16 @@ Provide code changes as GNU diff format, followed by brief explanations for each
     "Run NetHack in its own tab, reusing the tab when it already exists."
     (interactive)
     (tab-bar-switch-to-tab mo-nethack-tab-name)
-    (nethack)))
+    (nethack))
+  (defvar-local mo--nethack-black-background nil
+    "Non-nil once the current buffer's background is remapped to black.")
+  (defun mo-nethack-black-background ()
+    "Remap the background and fringe of the current NetHack buffer to black."
+    ;; Remap once per buffer even when a mode runs its hook more than once
+    (unless mo--nethack-black-background
+      (face-remap-add-relative 'default :background "#000000")
+      (face-remap-add-relative 'fringe :background "#000000")
+      (setq mo--nethack-black-background t))))
 
 ;; Init app-launcher for launching desktop apps
 (use-package app-launcher
