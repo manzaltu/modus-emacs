@@ -5640,7 +5640,13 @@ Provide code changes as GNU diff format, followed by brief explanations for each
     (unless mo--nethack-black-background
       (face-remap-add-relative 'default :background "#000000")
       (face-remap-add-relative 'fringe :background "#000000")
-      (setq mo--nethack-black-background t))))
+      (setq mo--nethack-black-background t)))
+  (defun mo-nethack-buffer-p (buffer)
+    "Return non-nil if BUFFER displays a NetHack game window."
+    (memq (buffer-local-value 'major-mode buffer)
+          '( nethack-map-mode nethack-message-mode nethack-status-mode nethack-menu-mode)))
+  ;; Keep NetHack buffers lit when another window is selected
+  (add-hook 'auto-dim-other-buffers-never-dim-buffer-functions #'mo-nethack-buffer-p))
 
 ;; Init app-launcher for launching desktop apps
 (use-package app-launcher
