@@ -3463,8 +3463,13 @@ leaving the heading outside of the visible region."
 
 ;; Init treemacs-icons for icons in dired
 (use-package treemacs-icons-dired
-  :functions treemacs-icons-dired-mode
+  :functions ( treemacs-icons-dired-mode mo-treemacs-icons-dired-remote-p)
   :config
+  (defun mo-treemacs-icons-dired-remote-p (&rest _)
+    "Return non-nil in remote dired buffers, so they get no icons."
+    (file-remote-p default-directory))
+  (advice-add 'treemacs-icons-dired--display-icons-for-subdir
+              :before-until #'mo-treemacs-icons-dired-remote-p)
   (treemacs-icons-dired-mode))
 
 ;; Init dired-narrow for narrowing dired results using regexp
