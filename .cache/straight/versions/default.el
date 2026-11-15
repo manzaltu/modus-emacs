@@ -222,7 +222,6 @@
  ("themes" . "a59202912ad55014e53a685eee6cd94130bdd4fd")
  ("tomelr" . "ff34a7d9a68d0f25718a8a4e0fd9c6a73e506cdb")
  ("track-changes" . "6d8fb08f6ef72e0b9bd8bea61d91d47a8b00ec81")
- ("tramp-hlo" . "d0bff82d832f386a3aeb1b63a3d7d130b95c3984")
  ("tramp-term.el" . "276c4d1cb79cc2685df89a02209e2082f74167ea")
  ("transient" . "318b039872a419feaf3ca3584e89936642627ca9")
  ("treemacs" . "2ab5a3c89fa01bbbd99de9b8986908b2bc5a7b49")
