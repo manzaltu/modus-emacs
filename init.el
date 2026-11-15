@@ -298,6 +298,9 @@
   ;; Start NetHack map and menu buffers in Emacs mode
   (evil-set-initial-state 'nethack-map-mode 'emacs)
   (evil-set-initial-state 'nethack-menu-mode 'emacs)
+  ;; Start NetHack read-only buffers in normal state
+  (add-to-list 'evil-buffer-regexps '( "\\`\\*text\\* [0-9]+\\'" . normal))
+  (add-to-list 'evil-buffer-regexps '( "\\`\\*nethack inventory\\*\\'" . normal))
   (evil-mode 1))
 
 ;; Init Emacs core settings
@@ -5622,6 +5625,9 @@ Provide code changes as GNU diff format, followed by brief explanations for each
   ( :keymaps 'mo-quick-menu-map
     :prefix "x"
     "C-n" #'mo-nethack-in-tab)
+  ( :keymaps 'nethack-menu-mode-map
+    :states 'normal
+    "RET" #'nethack-menu-submit)
   :hook
   ( ( nethack-map-mode nethack-message-mode nethack-status-mode nethack-menu-mode)
     . mo-nethack-black-background)
