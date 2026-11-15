@@ -2227,6 +2227,7 @@ Used for preventing recursion when recording new jumps.")
 (use-package pdf-tools
   ;; don't reinstall when package updates
   :mode  ( "\\.pdf\\'" . pdf-view-mode)
+  :hook ( pdf-view-mode . pdf-view-roll-minor-mode)
   :functions pdf-tools-install
   :config
   (setq-default pdf-view-display-size 'fit-page)
