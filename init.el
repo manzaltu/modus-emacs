@@ -2780,8 +2780,12 @@ Returns the selected project root directory or nil if cancelled."
 (use-package uniquify
   :straight nil
   :config
-  ;; Disambiguate equal buffer names using the project name
-  (setq uniquify-dirname-transform #'project-uniquify-dirname-transform))
+  (defun mo-uniquify-dirname-transform (dirname)
+    "Return the project-based name of local DIRNAME, or remote DIRNAME as is."
+    (if (file-remote-p dirname)
+        dirname
+      (project-uniquify-dirname-transform dirname)))
+  (setq uniquify-dirname-transform #'mo-uniquify-dirname-transform))
 
 ;; Init consult for enhanced search commands
 (use-package consult
