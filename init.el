@@ -5078,7 +5078,10 @@ enabling lsp."
 (use-package cmake-mode)
 
 ;; Init bazel for editing Bazel related files
-(use-package bazel)
+(use-package bazel
+  :functions bazel-find-project
+  :config
+  (remove-hook 'project-find-functions #'bazel-find-project))
 
 ;; Init gn-mode for editing GN build files
 (use-package gn-mode
