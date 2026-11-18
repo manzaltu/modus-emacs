@@ -17,7 +17,7 @@
  ("cape" . "50bc6187daf9af9df1a802fcbbd91fe4b952fc69")
  ("cdlatex" . "fac070f0164ac9f5859cb4cccba7d29a65c337f3")
  ("cfrs" . "981bddb3fb9fd9c58aed182e352975bd10ad74c8")
- ("claude-code-ide.el" . "50a3d55262805d7207889ed429ff30da96fbf68b")
+ ("claude-code-ide.el" . "3e742ae7da47ef61091cc45d0f9e11172c376431")
  ("claude-emacs-annotate" . "8a9a4c842c492280dcee852f663aebd8a24e9ff7")
  ("closql" . "5422039720c55b69a762947d926ebdf4f0781c6c")
  ("cmake" . "173b0da32d2a461deb648cb6932fe54d9ea68b0c")
