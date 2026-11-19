@@ -1140,19 +1140,21 @@ If universal ARG is set, exclude the pattern."
 (use-package evil-org
   :after org
   :functions evil-org-agenda-set-keys
-  :general
-  ( :definer 'minor-mode
-    :keymaps 'evil-org-mode
-    :states 'normal
-    ;; Remove evil org insert heading bindings
-    "C-<return>" nil
-    "C-S-<return>" nil)
-  :custom
-  ( evil-org-key-theme '( navigation textobjects additional shift calendar))
   :hook
   ( org-mode . evil-org-mode)
   ( org-agenda-mode . evil-org-mode)
   :config
+  ;; The key theme option is initialized only after the package file is
+  ;; loaded, which discards a value set through `:custom'. Set it here
+  ;; instead.
+  (setopt evil-org-key-theme
+          '( navigation textobjects additional shift calendar))
+  (general-define-key
+   :definer 'minor-mode
+   :keymaps 'evil-org-mode
+   :states 'normal
+   "C-<return>" nil
+   "C-S-<return>" nil)
   (require 'evil-org-agenda)
   (evil-org-agenda-set-keys))
 
