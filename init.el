@@ -4205,6 +4205,11 @@ the produced output, not the process exit code)."
     "r" #'mo-diff-hl-set-reference-merge-base-in-project
     "C-r" #'diff-hl-set-reference-rev-in-project
     "s" #'diff-hl-show-hunk)
+  ( :definer 'minor-mode
+    :keymaps 'diff-hl-mode
+    :states '( normal motion)
+    "] h" #'diff-hl-next-hunk
+    "[ h" #'diff-hl-previous-hunk)
   :hook
   ( magit-pre-refresh . diff-hl-magit-pre-refresh)
   ( magit-post-refresh . diff-hl-magit-post-refresh)
