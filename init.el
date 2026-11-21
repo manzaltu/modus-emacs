@@ -4418,11 +4418,11 @@ landed on BASE afterwards."
     :prefix "c"
     "l" #'lsp
     "C-l" #'lsp-disconnect
-    "C-d" #'lsp-describe-session
+    "d" #'lsp-describe-session
     "p" #'lsp-signature-activate
     "n" #'lsp-inlay-hints-mode
     "s" #'lsp-toggle-symbol-highlight
-    "C-r" #'lsp-workspace-restart
+    "r" #'lsp-workspace-restart
     "=" #'lsp-format-region
     "o" #'lsp-clangd-find-other-file)
   ( :keymaps 'embark-identifier-map
